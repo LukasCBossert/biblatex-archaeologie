@@ -1,0 +1,265 @@
+%%
+%% This is file `geschichtsfrkl.bbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% geschichtsfrkl.dtx  (with options: `bbx')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from geschichtsfrkl.bbx.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file geschichtsfrkl.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+\ProvidesFile{archaeologie.cbx}%
+               [2015/06/04 v0.8  archaeologie-- %
+                biblatex fuer Archaeologen, Historiker und Philologen, cbx-Datei]
+\ExecuteBibliographyOptions{%
+  citetracker=true,% wenn "false", dann in FN jeder Eintrag mit Vollzitation
+  idemtracker=false,% LCB: Muss auf false stehen
+  ibidtracker=true,%
+  opcittracker=true,%
+  loccittracker=true,%
+  labeldate=true,%
+  sortcites=false%
+}%
+\newbool{cbx:seen}%
+\newbool{cbx:mitjahr}%
+\newbool{cbx:kurztitel}%                                            %%>> JF: neu, option kurztitel=true/false
+\newbool{cbx:mitvn}%
+\newbool{cbx:mits}%
+\newbool{cbx:fnverweise}%
+\newbool{cbx:jahrkeineklammern}%
+\newbool{cbx:neueseitevollzitat}%
+\newbool{cbx:antikebd}%
+\DeclareBibliographyOption{lexikon}[true]{\csuse{bool#1}%
+             {cbx:lexikon}}%
+\DeclareBibliographyOption{mitjahr}[true]{\csuse{bool#1}%
+             {cbx:mitjahr}}%
+\DeclareBibliographyOption{kurztitel}[true]{\csuse{bool#1}%         %%>> JF: neu, option kurztitel=true/false
+             {cbx:kurztitel}}%                                        %%>> JF: neu, option kurztitel=true/false
+\DeclareBibliographyOption{mitvn}[true]{\csuse{bool#1}%
+             {cbx:mitvn}}%
+\DeclareBibliographyOption{mits}[true]{\csuse{bool#1}{cbx:mits}}%
+\DeclareBibliographyOption{fnverweise}[true]{\csuse{bool#1}%
+             {cbx:fnverweise}}%
+\newbool{cbx:ibidpages}%
+\DeclareBibliographyOption{ibidpages}[true]{\csuse{bool#1}%
+             {cbx:ibidpages}}%
+\DeclareBibliographyOption{jahrkeineklammern}[true]{\csuse{bool#1}%
+             {cbx:jahrkeineklammern}}%
+\DeclareBibliographyOption{neueseitevollzitat}[true]{\csuse{bool#1}%
+             {cbx:neueseitevollzitat}}%
+\DeclareBibliographyOption{antikebd}[true]{\csuse{bool#1}%
+             {cbx:antikebd}}%
+\newbool{cbx:nurinit}%
+\DeclareBibliographyOption{citeinit}[true]{\csuse{bool#1}%
+             {cbx:nurinit}}%
+%\AtBeginDocument{\ifbool{bbx:nurinit}%		%%>> JF: damit citeinit nicht mehr von nurinit abhängig ist
+%             {\global\booltrue{cbx:nurinit}}{}}%
+\ExecuteBibliographyOptions{citeinit,mitjahr,neueseitevollzitat}%
+\DeclareFieldFormat{prenote}{#1\isdot}%
+\DeclareFieldFormat{postnote}{#1}%
+\DeclareFieldFormat{shorttitle}{#1}%
+\DeclareNameFormat{frg}{%
+  #1%
+  \ifthenelse{\value{listcount}<\value{liststop}}%
+    {\addspace\textendash\addspace}{}%
+}%
+\renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
+\newcommand*{\citeautorenschriftart}{\scshape}%                                 %%>> JF: \sc zu \scshape geändert, veraltet
+\newcommand*{\citeautorentrennzeichen}%
+                         {\addnbspace\textendash\addspace}%
+\DeclareNameFormat{cite:author}{%
+  {\citeautorenschriftart%
+   \ifblank{#5}{}{#5\addspace}%
+   #1}%
+  \ifbool{cbx:mitvn}{%
+      \ifblank{#3}{}{\addcomma\space%
+            \ifbool{cbx:nurinit}{#4}{#3}}}{%
+      \ifbool{cbx:nurinit}{\addcomma\addspace#4}{}%
+    }%
+  \ifthenelse{\value{listcount}<\value{liststop}}%
+    {\citeautorentrennzeichen}{}%
+  \isdot%
+}%
+\renewbibmacro*{prenote}{%
+  \iffieldundef{prenote}{}%
+    {\printfield{prenote}%
+     \setunit{\addspace}}}%
+\renewbibmacro*{postnote}{%
+  \ifboolexpr{bool {cbx:antik}%
+           or bool {cbx:frg}%
+           or bool {cbx:frgantik}%
+           or bool {cbx:nurshorthand}%                
+           }%                                                
+              {\setunit{\addspace}}%
+              {\newunit}%
+  \iffieldundef{postnote}{}%
+    {%\ifboolexpr{not bool {cbx:seen}%
+      %       and not test {\iffieldundef{pages}}%
+      %       and not bool {cbx:urkunde}%               %%>>  
+      %       and not bool {cbx:manual}%                 %%>> JF: neu, options=manual
+      %       }%                                         %%>>
+      %       {\printtext{hier}\addspace}{}%
+     \ifboolexpr{bool{cbx:antik} or bool{cbx:frg}}{%
+       \ifbool{cbx:antik}{\printfield{postnote}}{}%
+       \ifbool{cbx:frg}{%
+         \printfield{postnote}\addspace%
+         \ifnameundef{shorteditor}%
+           {\printnames[frg]{editor}}%		%%> LCB: alt:  {\printnames[frg]{editor}\addperiod}%
+           {\printnames[frg]{shorteditor}\addperiod}%
+       }{}%
+     }{%
+       \ifboolexpr{test {\iffieldequals{postnote}{\cbx@lastpagenumber}}%
+           and test {\iffieldequals{entrykey}{\cbx@lastentrykey}}%
+           and not (bool {cbx:neueseitevollzitat} and test {\iffirstonpage})%
+           and not bool {cbx:ibidpages}}{}{%
+         \ifbool{cbx:mits}{\printtext{S\adddot\addspace}}{}%
+         \printfield{postnote}%
+       }%
+     }%
+   }%
+   \setunit{\addperiod}%
+   \savefield{postnote}{\cbx@lastpagenumber}%
+   \savefield{entrykey}{\cbx@lastentrykey}%
+}%
+\newbibmacro*{cite:name}{%
+  \ifnameundef{author}{%
+    \ifnameundef{editor}{}{%
+      \printnames[cite:author]{editor}}%
+   }{%
+      \printnames[cite:author]{author}%
+}}%
+\newbibmacro*{cite:title}{%                           %%>> JF: neu, option kurztitel=true/false
+   \ifbool{cbx:autorjahr}{}%                            %%>>
+     {\iffieldundef{shorttitle}{%                     %%>>
+	\printfield{title}%     			%%--> LCB: damit wird nur der title ohne subtitle ausgelesen
+     %  \usebibmacro{title}%                           %%>>
+      }{\printfield{shorttitle}}}%                    %%>>
+}%
+\newbibmacro*{fnverweis}{%
+  \ifbool{cbx:fnverweise}{%
+    \setunit{\addspace}%
+    \printtext[parens]{wie Anm\adddot\addspace%
+                \ref{footref:\thefield{entrykey}}}}%
+}%
+\newbibmacro*{cite:year}{%
+  \iffieldundef{labelyear}
+    {}%
+    {\ifbool{cbx:jahrkeineklammern}%
+       {\printtext[bibhyperref]{\printfield{labelyear}\printfield{extrayear}}}%
+       {\printtext[bibhyperref]{\printtext[parens]{\printfield{labelyear}\printfield{extrayear}}}}}%
+}%
+%
+%
+%bei wiederholter Zitation
+%
+\newbibmacro*{cite:short}{%
+  \ifboolexpr{test \ifciteibid and%
+          not (bool {cbx:neueseitevollzitat} and test {\iffirstonpage})}%
+	  {\bibstring{ibidem}\isdot}%
+      {\ifbool{cbx:nurshorthand}%
+         {\printfield{shorthand}}%
+         {\ifboolexpr{test \ifciteidem and not%
+              (bool {cbx:neueseitevollzitat} and test {\iffirstonpage})}%	
+	{}%LCB: wichtig, muss leer bleiben, nicht auskommentieren, sonst erscheint kein Autor
+  		%{\bibnamedash}%--> alt
+             {\usebibmacro{cite:name}}%
+        \setunit{\addcolon\addspace}%
+         \usebibmacro{cite:title}%
+         \ifbool{cbx:mitjahr}{\setunit{\addspace}%
+                             \usebibmacro{cite:year}}{}%
+                             }%
+         \usebibmacro{fnverweis}%
+         }%
+}%
+\newbibmacro*{shorthand+year}{%
+\printtext[brackets]{\printfield{shorthand}%
+ \setunit{\addspace}%
+ {\ifbool{cbx:jahrkeineklammern}%
+       {\printtext[]{\printfield{labelyear}\printfield{extrayear}}}%
+       {\printtext[]{\printtext[parens]{\printfield{labelyear}\printfield{extrayear}}}}}%
+}}
+
+
+\DeclareNameFormat{first-last-inits}{%
+  \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}}
+  
+  
+\newbibmacro*{lexikon}{%
+	\ifbool{bbx:lexika}{\bibhyperref{%
+	\printfield{maintitle}\addspace\printfield{volume}\addspace\printfield[parens]{year}\addspace\printfield{pages}\addspace\printtext{s\adddot\addnbthinspace v\adddot}\addspace\printfield{title}\addspace\printtext[parens]{%
+	\printnames[first-last-inits]{author}%
+	}%
+	}}{\bibhyperref{\printnames[cite:author]{labelname}%              
+	      \ifbool{cbx:autorjahr}{%
+	         \setunit{\addspace}\usebibmacro{cite:year}}%
+	         {\newunitpunct%
+	            \usebibmacro{cite:title}%
+                 \ifbool{cbx:mitjahr}%
+                    {\setunit{\addspace}%
+                    \usebibmacro{cite:year}}{}}%
+            }}
+}
+
+\newbibmacro*{cite}{%
+  \ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik}}%
+	{\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}%
+	{\ifboolexpr{bool {cbx:nurshorthand} or bool {cbx:unbekannt} or bool {cbx:lexikon}}%
+		{%      
+      \ifbool{cbx:nurshorthand}{\bibhyperref{\printfield{shorthand}}}{}%
+       \ifbool{cbx:unbekannt}{\bibhyperref{\usebibmacro{shorthand+year}}}{}%     
+       \ifbool{cbx:lexikon}{\usebibmacro{lexikon}}{}}
+       %
+	   {\bibhyperref{\printnames[cite:author]{labelname}%              %%>> JF: zuvor, \usebibmacro{cite:name}
+	      \ifbool{cbx:autorjahr}{%
+	         \setunit{\addspace}\usebibmacro{cite:year}}%
+	         {\newunitpunct%
+	            \usebibmacro{cite:title}%
+                 \ifbool{cbx:mitjahr}%
+                    {\setunit{\addspace}%
+                    \usebibmacro{cite:year}}{}}%
+            }}%
+         }%
+      }%
+%
+\DeclareCiteCommand{\cite}%                       % JF: Option [\mkbibfootnote] entfernt
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}\usebibmacro{cite}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}%
+%\DeclareCiteCommand{\parencite}[\mkbibparens]%
+%  {\usebibmacro{prenote}}%
+%  {\usebibmacro{citeindex}\usebibmacro{cite}}%
+%  {\multicitedelim}%
+%  {\usebibmacro{postnote}}%
+%\DeclareCiteCommand{\footcite}[\mkbibfootnote]%
+%  {\usebibmacro{prenote}}%
+%  {\usebibmacro{citeindex}\usebibmacro{cite}}%
+%  {\multicitedelim}%
+%  {\usebibmacro{postnote}}%
+%\DeclareCiteCommand{\textcite}%
+%  {\usebibmacro{prenote}}%
+%  {\usebibmacro{citeindex}\usebibmacro{cite}}%
+%  {\multicitedelim}%
+%  {\usebibmacro{postnote}\finentry}%
+%\DeclareMultiCiteCommand{\cites}{\cite}%          % JF: Option [\mkbibfootnote] entfernt
+%            {\multicitedelim}%
+%\DeclareMultiCiteCommand{\parencites}[\mkparencite]{\parencite}%
+%            {\multicitedelim}%
+%\DeclareMultiCiteCommand{\footcites}[\mkbibfootnote]{\footcite}%
+%           {\multicitedelim}%
+%\DeclareMultiCiteCommand{\textcites}{\textcite}{\multicitedelim}%
+\endinput
+%%
+%% End of file `geschichtsfrkl.cbx'.

@@ -1,0 +1,704 @@
+\ProvidesFile{archaeologie.bbx}%
+               [2015/06/04 v0.9  archaeologie-- %
+                biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
+\RequireBibliographyStyle{standard}
+\AtBeginDocument{\typeout{}\typeout%
+    					{========= archaeologie -- biblatex fuer Archaeologen, Historiker und Philologen ========}}
+\ExecuteBibliographyOptions{%
+  		pagetracker=true,%
+  		bibencoding=utf8,%
+  		sortlocale=de,%
+		}%
+\newbool{bbx:editorders}
+		\DeclareBibliographyOption{editorders}[true]{\csuse{bool#1}%
+           {bbx:editorders}}
+\newbool{bbx:hrsg}%
+		\DeclareBibliographyOption{hrsg}[true]{\csuse{bool#1}{bbx:hrsg}}%
+\newbool{bbx:jahrreihe}%
+		\DeclareBibliographyOption{jahrreihe}[true]{\csuse{bool#1}%
+           {bbx:jahrreihe}}%
+\newbool{bbx:maintitleebd}%			%%% kann raus, nicht relevant
+		\DeclareBibliographyOption{maintitleebd}[true]{\csuse{bool#1}%
+           {bbx:maintitleebd}}
+\newbool{bbx:nurinit}%
+		\DeclareBibliographyOption{bbx:nurinit}[true]{\csuse{bool#1}%
+           {bbx:nurinit}}%
+\newbool{cbx:antik}%
+		\DeclareEntryOption{antik}[true]{\csuse{bool#1}{cbx:antik}}%
+\newbool{cbx:frg}%
+		\DeclareEntryOption{frg}[true]{\csuse{bool#1}{cbx:frg}}%
+\newbool{cbx:frgantik}%
+		\DeclareEntryOption{frgantik}[true]{\csuse{bool#1}{cbx:frgantik}%
+            \csuse{bool#1}{cbx:frg}}%
+\newbool{cbx:nurshorthand}%
+		\DeclareEntryOption{nurshorthand}[true]{\csuse{bool#1}%
+           {cbx:nurshorthand}}%
+\newbool{cbx:unbekannt}%
+		\DeclareEntryOption{unbekannt}[true]{\csuse{bool#1}{cbx:unbekannt}}%
+\newbool{cbx:lexikon}%
+		\DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
+\newbool{bbx:lexika}%		%%LCB
+		\DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}}
+\newbool{bbx:shortjournal}%		%%LCB
+		\DeclareBibliographyOption{shortjournal}[true]{\csuse{bool#1}%	%%LCB: Zeitschrift-Option
+           {bbx:shortjournal}}				%%LCB: Zeitschrift-Option
+\newbool{bbx:notranslator}%		%%LCB
+		\DeclareBibliographyOption{notranslator}[true]{\csuse{bool#1}%	%%LCB: Option für die Angabe der Originalspache, -titel und Übersetzer
+           {bbx:notranslator}}		
+\newbool{cbx:autorjahr}						%% JF: Autorjahr
+		\DeclareBibliographyOption{autorjahr}[true]{\csuse{bool#1}% %% JF: Autorjahr
+           {cbx:autorjahr}}						%% JF: Autorjahr
+%%%%%%%%
+
+\newtoggle{listofshorthands}% sind wir in der List of Shorthands?
+
+% Längen für Shorthand
+\newlength{\bbx@shorthandwidth}
+\newlength{\shorthandsep}
+%
+\newbool{bbx:shorthandacro}
+\newbool{bbx:shorthandinbib}
+\newbool{bbx:shorthandinbibpunct}% Kontrolle, ob shorthandinbib ausgegeben wurde
+\newbool{bbx:shorthandwidthbool}
+\DeclareBibliographyOption{acronyms}[true]{%
+  \csuse{bool#1}{bbx:shorthandacro}}
+\DeclareBibliographyOption{shorthandinbib}[true]{%
+  \csuse{bool#1}{bbx:shorthandinbib}}
+\DeclareBibliographyOption{shorthandwidth}{%
+  \setlength{\bbx@shorthandwidth}{#1}
+  \setlength{\shorthandsep}{3pt plus 0.5pt minus 0.5pt}
+  \renewcommand{\shorthandpunct}{\addcolon}
+  \csuse{booltrue}{bbx:shorthandwidthbool}}
+%%%%%%%%%%
+\newbibmacro{savestuff}{%
+ 		\savename{editor}{\bbx@lasteditor}%
+   		\savefield{namehash}{\bbx@lasthash}%
+   		\savefield{maintitle}{\bbx@lastmaintitle}%
+		}%
+\DeclareFieldFormat{shorthandinbib}{#1} 
+\DeclareFieldFormat*{title}{#1}%
+\DeclareFieldFormat{subtitle}{#1}%
+\DeclareFieldFormat{booktitle}{#1}%
+\DeclareFieldFormat{booksubtitle}{#1}%
+\DeclareFieldFormat{titlecase}{#1}%
+\DeclareFieldFormat*{maintitle}{#1}%
+\DeclareFieldFormat{journaltitle}{#1}%
+\DeclareFieldFormat{pages}{#1}%
+\DeclareFieldFormat{edition}{#1}%
+\DeclareFieldFormat{volumes}{#1}%
+\DeclareFieldFormat{volume}{#1}%
+\DeclareFieldFormat{parens}{\mkbibparens{#1}}%
+\DeclareFieldFormat{brackets}{\mkbibbrackets{#1}}%
+\DeclareFieldFormat{quotes}{\mkbibquote{#1}}%
+\renewcommand*{\subtitlepunct}{\addperiod\addspace}%
+\renewcommand*{\intitlepunct}{\addcolon\addspace}%
+\renewcommand*{\newunitpunct}{\addcomma\addspace}%
+\newcommand*{\autorenschriftart}{\scshape}%                           % JF: \scshape (\sc ist veraltet)
+\newcommand*{\autorentrennzeichen}{\addnbspace\textendash}%
+
+
+
+\DeclareBibliographyAlias{collection}{book}
+\DeclareBibliographyAlias{institution}{school}
+%\DeclareBibliographyAlias{thesis}{phdthesis}
+\DeclareBibliographyAlias{maintitle}{booktitle}
+\DeclareBibliographyAlias{incollection}{inbook}
+\DeclareBibliographyAlias{manual}{book}
+
+\DeclareSortingScheme{nyt}{%			%% Damit nach den Shorthands (antike Autoren, Sigel) sortiert wird
+    \sort{\field{presort}}
+    \sort[final]{\field{sortkey}}
+    \sort{%
+        \field{shorthand}
+        \name{sortname}\name{author}\name{editor}\name{translator}
+        \field{sorttitle}\field{title}}
+    \sort{\field{sortyear}\field{year}}
+    \sort{\field{sorttitle}\field{title}}
+    \sort{%
+        \field[padside=left,padwidth=4,padchar=0]{volume}
+        \literal{0000}}}
+
+
+\DeclareNameFormat{author}{%
+\ifbool{cbx:autorjahr}{%
+  \ifblank{#3}{}{%
+        \ifbool{bbx:nurinit}{#4}{#3}}%
+  {\ifblank{#5}{\addspace}{#5\addspace}%
+   #1}%
+  \ifthenelse{\value{listcount}<\value{liststop}}%
+    {\autorentrennzeichen\addspace}{}%
+  \isdot%
+}%
+{%
+  {\autorenschriftart%
+   \ifblank{#5}{}{#5\addspace}%
+   #1}%
+   \ifblank{#3}{}{\addcomma\space%
+        \ifbool{bbx:nurinit}{#4}{#3}}%
+  \ifthenelse{\value{listcount}<\value{liststop}}%
+    {\autorentrennzeichen\addspace}{}%
+  \isdot%
+}%
+}
+\DeclareNameFormat{editor}{%
+   \ifblank{#3}{}{%
+        \ifbool{bbx:nurinit}{#4}{#3}\addspace}%
+    \ifblank{#5}{}{#5\addspace}%
+    #1%
+    \ifnumcomp{\value{listcount}}{<}{\value{liststop}-1}%
+       {\addcomma\addspace}%
+       {\ifnumcomp{\value{listcount}}{=}{\value{liststop}}%
+           {}{\addspace\bibstring{and}\addspace}}%
+}%
+\DeclareNameFormat{hrsg}{%                                 %%>> JF: geändert, Reihenfolge Vorname–Nachname
+   \ifblank{#3}{}{#4\addnbspace}%								%%>> LCB: Leerraum zwischen Initial-Vorname und Nachname wird nicht getrennt
+   \ifblank{#5}{}{#5\addnbspace}%
+  #1%
+  \ifthenelse{\value{listcount}<\value{liststop}}%
+        {\addnbspace\textendash\addspace}{}%
+}%
+\newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}%
+\DeclareListFormat{location}{%
+  #1\ifthenelse{\value{listcount}<\value{liststop}}%
+          {\orttrennzeichen}{}%
+}%
+\let\bibnamedashOrig\bibnamedash%
+\renewcommand*{\bibnamedash}{\rule[3pt]{2.5em}{.6pt}\space} %%>> LCB: geändert, JF: Strich von 3em auf 2.5em verkürzt
+%\renewcommand*{\bibnamedash}{%
+%\bibsentence\bibstring{idem\thefield{gender}}}%
+\renewbibmacro{in:}{\ifthenelse{% 		
+\ifentrytype{article}%
+\OR%
+\ifentrytype{review}}%
+{}{\printtext{\bibstring{in}\intitlepunct\addspace}}%
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%% Damit URL etc. in eine neue Linie kommt
+\newbibmacro*{bbx:parunit}{%
+  \ifbibliography
+    {\setunit{\bibpagerefpunct}\newblock
+     \usebibmacro{pageref}%
+     \clearlist{pageref}%
+     \setunit{\adddot\par\nobreak}}
+    {}}
+
+\renewbibmacro*{doi+eprint+url}{%
+  \usebibmacro{bbx:parunit}% Added
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
+  \iftoggle{bbx:eprint}
+    {\usebibmacro{eprint}}
+    {}%
+  \iftoggle{bbx:url}
+    {\usebibmacro{url+urldate}}
+    {}}
+
+\renewbibmacro*{eprint}{%
+  \usebibmacro{bbx:parunit}% Added
+  \iffieldundef{eprinttype}
+    {\printfield{eprint}}
+    {\printfield[eprint:\strfield{eprinttype}]{eprint}}}
+
+\renewbibmacro*{url+urldate}{%
+  \usebibmacro{bbx:parunit}% Added
+  \printfield{url}%
+  \iffieldundef{urlyear}
+    {}
+ {\setunit*{\addspace}%
+     \printtext{\printurldate}}
+     }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewbibmacro*{author}{%
+ \ifnameundef{author}{}%
+  {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
+               \AND\NOT\iffirstonpage}%
+                {\ifbool{cbx:autorjahr}{\printnames{author}}{\bibnamedash}}%
+        {\printnames{author}\isdot}}}%
+%\renewbibmacro*{author}{%
+% \ifnameundef{author}{}%
+%  {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
+%               \AND\NOT\iffirstonpage}%
+%                {\ifbool{cbx:autorjahr}{\printnames{author}}{\bibnamedash}}%
+%        {\printnames{author}\isdot}}}%
+%
+%
+\renewbibmacro*{author/editor}{%
+   \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
+    \ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
+               \AND\NOT\iffirstonpage}%
+         {\bibnamedash}%
+         {\ifnameundef{editor}{}{%
+         \printnames[author]{editor}\isdot% (Hrsg.)
+           \addspace\printtext[parens]{\bibstring{editor}}}}%
+   }{\usebibmacro{author}}%
+}%
+\renewbibmacro*{series+number}{%
+   \ifbool{cbx:antik}{%antike Extrawurst
+     \iffieldundef{series}{}{%
+       \iffieldundef{number}{}{%
+          \printtext{Bd}\adddot\addspace%
+          \printfield{number}\addcolon\addspace}%
+       \printfield{series}\setunit{\addcomma\addspace}}%
+   }{%
+     \iffieldundef{series}{}{%
+        \setunit{\addcomma\addspace}\printtext{%                          %%>> JF: geändert, zuvor: \printtext[parens]{%
+           \printfield{series}%
+           \setunit*{\addspace}%
+           \printfield{number}%
+           %\newunit%                                                     %%>> JF: auskommentiert, wg. Klammern um Ort/Jahr
+         }%
+       }%
+    }%
+}%
+\renewbibmacro*{journal}{%
+	\ifbool{bbx:shortjournal}%
+	%
+	{\iffieldundef{shortjournal}%					%%>> LCB:
+    {\printtext[journaltitle]{%
+          \printfield[titlecase]{journaltitle}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{journalsubtitle}}}%
+          {\printfield{shortjournal}}}%
+         % 
+			{\printtext[journaltitle]{%
+          \printfield[titlecase]{journaltitle}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{journalsubtitle}}}%
+          }%	
+\newbibmacro{year}{%
+  \iffieldundef{year}{}{\printfield[parens]{year}}}%
+\newbibmacro*{journal+number+year}{%                                    %%>> JF: geändert, volume wurde nicht ausgelesen, zudem DAI-Anpassung
+  \usebibmacro{journal}%
+  \setunit*{\addnbspace}%                                               %%>>
+  \printfield{volume}%                                                  %%>>
+  \iffieldundef{number}{}{%                                             %%>>
+     \printtext{\slash\printfield{number}}}%                            %%>>
+  \newunit%                                                             %%>>
+  \printfield{year}%                                                    %%>>
+}%
+ \newbibmacro*{pages}{%
+   \printfield{pages}\isdot}%
+\newbibmacro*{maintitle+title+volumes}{%
+  \iffieldsequal{maintitle}{title}
+    {\clearfield{maintitle}%
+     \clearfield{mainsubtitle}%
+     \clearfield{maintitleaddon}}
+    {\iffieldundef{maintitle}{}%
+       {\usebibmacro{maintitle}%
+       \newunit\newblock
+         \ifbool{cbx:antik}%
+            {\usebibmacro{title}\addcomma\addspace}
+            {\iffieldundef{volume}
+                {\iffieldundef{volumes}{}{%
+                   \printfield{volumes}%
+                   \addspace\printtext{\bibstring{volumes}}\newunit}}%
+               {\printtext{\bibstring{volume}}\addspace%
+                 \printfield{volume}\setunit*{\addcolon\addspace}}%
+        }}}%
+   \iffieldundef{volumes}{\usebibmacro{title}}{}%
+   \newunit}%
+\renewbibmacro*{maintitle}{%
+  \ifboolexpr{test {\iffieldundef{maintitle}}%
+    and test {\iffieldundef{mainsubtitle}}}{}%
+    {\ifboolexpr{bool {bbx:maintitleebd} and%
+           test {\iffieldequals{maintitle}{\bbx@lastmaintitle}} and%
+           not (bool {cbx:neueseitevollzitat} and test {\iffirstonpage})}%
+        {\bibstring{ibidem}}%
+        {\printtext[maintitle]{%
+          \printfield[titlecase]{maintitle}%
+            \setunit*{\subtitlepunct}%
+          \printfield[titlecase]{mainsubtitle}}%
+            \setunit*{\subtitlepunct}}%
+    \printfield{maintitleaddon}\isdot}}%
+\renewbibmacro*{title}{%
+  \ifboolexpr{test {\iffieldundef{title}} and%
+              test {\iffieldundef{subtitle}}}{}%
+    {\printtext[title]{%
+       \printfield[titlecase]{title}%
+       \setunit*{\subtitlepunct}%
+       \printfield[titlecase]{subtitle}}%
+     \setunit*{\subtitlepunct}}%
+  \printfield{titleaddon}\isdot}%
+\newbibmacro*{location+edition+year}{%
+ \printtext[parens]{%                                                 %%>> JF: geändert, alles in Klammern
+  \printlist{location}%
+  \iffieldundef{publisher}{%                                          %%>> JF: geändert, Publisher hinzugefügt
+    \setunit*{\addcolon\addspace}%                                    %%>>
+    \printlist{publisher}}{}%                                         %%>>
+  \iffieldundef{edition}{\setunit{\addspace}}{%
+       \iffieldint{edition}%
+           {\setunit{\addspace}%
+             \mkbibsuperscript{\printfield{edition}}}%
+           {\setunit{\addcomma\addspace}%
+             \printfield{edition}\addcomma\addspace}}%
+  \printfield{year}%
+   \iffieldundef{origyear}{}{%							%%>> LCB: Erstauflage in die Klammer gleich nach Jahr
+    \addspace\printtext[brackets]{Erstauflage\addcolon\addspace\printfield{origyear}}}%
+    }%
+  }%%																									>> JF: geändert, alles in Klammern
+\newbibmacro*{addendum}{%
+}%
+%                                                                    %
+\newbibmacro*{signatur}{%
+  \iffieldundef{note}{}{\printtext[parens]{\printfield{note}}\nopunct}%
+}%
+\newbibmacro*{booktitle+volume+editor}{%
+  \ifnameundef{editor}{
+    \usebibmacro{maintitle}%
+    \newunit
+    \iffieldundef{volume}{}%
+      {\bibstring{volume}\addspace\printfield{volume}\newunit}%
+  }{%
+    \ifbool{bbx:hrsg}{%
+      \ifboolexpr{bool {bbx:editorders} and%
+             test {\ifnameequals{editor}{\bbx@lasteditor}} and%
+             not (bool {cbx:neueseitevollzitat} and test {\iffirstonpage})}%
+           {\bibstring{idem\thefield{gender}}}%
+           {\printnames[hrsg]{editor}\addspace}%
+      \printtext[parens]{\bibstring{editor}}\addcolon\addspace%
+      \usebibmacro{maintitle}%
+      \iffieldundef{volume}{}%
+        {\newunit\bibstring{volume}\addspace\printfield{volume}}%
+      \newunit%
+     }{%
+      \usebibmacro{maintitle}%
+      \iffieldundef{volume}{}%
+        {\newunit\bibstring{volume}\addspace\printfield{volume}}%
+      \newunit%
+      \printtext{hrsg\adddot\addspace v\adddot}%
+      \setunit{\addspace}%
+      \ifboolexpr{bool {bbx:editorders} and%
+               test {\ifnameequals{editor}{\bbx@lasteditor}} and%
+               not (bool {cbx:neueseitevollzitat} and test {\iffirstonpage})}%
+        {\bibstring{idem\thefield{gender}}}%
+        {\printnames{editor}}%
+     }}%
+}%
+\newbibmacro*{reftitle}{%
+  \iffieldundef{title}{}{%
+    \printtext{Art\adddot\addspace}%
+    \printtext[quotes]{%
+      \usebibmacro{title}\setunit{\addspace}%
+      \iffieldundef{number}{}{\printfield[brackets]{number}}%
+}}}%
+\newbibmacro*{refmaintitle}{%
+  \iffieldundef{maintitle}{}{%
+    \printfield{maintitle}\setunit*{\addspace}\printfield{volume}%
+}}%
+\newbibmacro*{reztitle}{%
+  \printtext[quotes]{%
+    \usebibmacro{title}%
+}}%
+\newbibmacro*{antikzeugs}{%
+  \iflistundef{language}{}{%
+    \printlist{language}\isdot%
+    \setunit{\addcomma\addspace}%
+  }%
+}%
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  {\ifbool{cbx:unbekannt}{}{%
+  \usebibmacro{author}%
+  }}%
+    \ifbool{cbx:autorjahr}{\newunit}{\setunit{\addcolon\addspace}}\newblock%
+  \usebibmacro{title}%
+  \newunit\newblock
+  \ifbool{bbx:notranslator}{}{%
+    					\iffieldundef{origtitle}{}{\addcomma\addspace Originaltitel\addcolon\addspace\printfield{origtitle}\addcomma}%
+    \setunit{\addspace}%
+ \newunit\usebibmacro{bytranslator+others}}%
+  %\usebibmacro{in:}%
+  \usebibmacro{journal+number+year}%
+  \newunit\newblock
+  \usebibmacro{pages}%
+%  \setunit{\addspace}
+%	\usebibmacro{url+urldate}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+ {\ifbool{cbx:unbekannt}{}{%  
+\usebibmacro{author/editor}%
+  }}%
+  		\ifbool{cbx:autorjahr}{\newunit}{\setunit{\addcolon\addspace}}\newblock%
+  					\usebibmacro{maintitle+title+volumes}%
+  		 \newunit\newblock% 
+  			\ifbool{bbx:notranslator}{}{%
+    					\iffieldundef{origtitle}{}{\addcomma\addspace Originaltitel\addcolon\addspace\printfield{origtitle}\addcomma}%
+    \setunit{\addspace}%
+		\usebibmacro{bytranslator+others}}%
+   \setunit{\addspace}%
+  \ifbool{bbx:jahrreihe}{}%
+   	 {\usebibmacro{series+number}}%
+  \setunit*{\addspace}\newblock%                             %%>> JF: geändert wg. Klammern um Ort/Jahr, zuvor: \newunit\newblock%
+  \ifbool{cbx:antik}{%
+    \usebibmacro{antikzeugs}}{}%
+%  \ifbool{bbx:diss}{%
+%    \printtext{Diss\adddot}\setunit{\addspace}}{}%
+  \usebibmacro{location+edition+year}%
+  \setunit{\addspace}%
+  \ifbool{bbx:jahrreihe}{%
+    \usebibmacro{series+number}%
+    \setunit{\addspace}}{}%
+  \usebibmacro{addendum}%
+%  \setunit{\addspace}%
+%  \usebibmacro{url+urldate}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
+    \usebibmacro{maintitle+title+volumes}%
+    \newunit\newblock%
+    \printtext[parens]{{\printfield{type}}\addspace\setunit{\addspace}%
+  \usebibmacro{institution+location+date}}%
+    %\usebibmacro{location+edition+year}%
+  %\setunit{\addspace}%
+  \usebibmacro{url+urldate}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
+\DeclareBibliographyDriver{proceedings}{%				%% LCB: neu hinzugefügt
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
+      \usebibmacro{maintitle+title+volumes}%
+\usebibmacro{event+venue+date}%
+  \setunit{\addspace}%
+  \ifbool{bbx:jahrreihe}{}%
+    {\usebibmacro{series+number}}%
+  \setunit*{\addspace}\newblock%                             %%>> JF: geändert wg. Klammern um Ort/Jahr, zuvor: \newunit\newblock%
+  \usebibmacro{location+edition+year}%
+  \setunit{\addspace}%
+  \ifbool{bbx:jahrreihe}{%
+    \usebibmacro{series+number}%
+    \setunit{\addspace}}{}%
+  \usebibmacro{addendum}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
+\DeclareBibliographyDriver{inproceedings}{%				%% LCB: NEU hinzugefügt
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \ifnameundef{author}{}%
+    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{in:}%
+  \usebibmacro{booktitle+volume+editor}%
+  \usebibmacro{event+venue+date}%
+  \setunit{\addspace}%
+  \ifbool{bbx:jahrreihe}{}%
+    {\usebibmacro{series+number}}%
+  \setunit*{\addspace}\newblock%                             %%>> JF: geändert wg. Klammern um Ort/Jahr, zuvor: \newunit\newblock%
+  \usebibmacro{location+edition+year}%
+  \ifbool{bbx:jahrreihe}{%
+    \setunit{\addspace}%
+    \usebibmacro{series+number}}{}%
+  \setunit*{\addspace}\newblock%                             %%>> JF: geändert, zuvor: \newunit\newblock%
+  \usebibmacro{pages}%
+  \setunit{\addspace}%
+  \usebibmacro{addendum}%
+%  \setunit{\addspace}%
+%  \usebibmacro{url+urldate}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
+\DeclareBibliographyDriver{inbook}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \ifnameundef{author}{}%
+    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%  
+    \usebibmacro{title}%
+\ifbool{bbx:notranslator}{}{%
+    					\iffieldundef{origtitle}{}{\addcomma\addspace Originaltitel\addcolon\addspace\printfield{origtitle}\addcomma}%
+    \setunit{\addspace}%
+ \newunit\usebibmacro{bytranslator+others}}%
+  \newunit\newblock
+  \usebibmacro{in:}%
+  \usebibmacro{booktitle+volume+editor}%
+  \setunit{\addspace}%
+  \ifbool{bbx:jahrreihe}{}%
+    {\usebibmacro{series+number}}%
+  \setunit*{\addspace}\newblock%                             %%>> JF: geändert wg. Klammern um Ort/Jahr, zuvor: \newunit\newblock%
+  \usebibmacro{location+edition+year}%
+  \ifbool{bbx:jahrreihe}{%
+    \setunit{\addspace}%
+    \usebibmacro{series+number}}{}%
+  \setunit*{\addspace}\newblock%                             %%>> JF: geändert, zuvor: \newunit\newblock%
+  \usebibmacro{pages}%
+  \setunit{\addspace}%
+  \usebibmacro{addendum}%
+%  \setunit{\addspace}%
+%  \usebibmacro{url+urldate}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
+\DeclareBibliographyDriver{inreference}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%  
+    \usebibmacro{reftitle}%
+  \newunit\newblock%
+  %\usebibmacro{in:}%
+  \usebibmacro{refmaintitle}%
+  \setunit{\addspace}%
+  \usebibmacro{year}%
+  \newunit\newblock%
+  \usebibmacro{pages}%
+%  \setunit{\addspace}%
+%  \usebibmacro{url+urldate}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
+\DeclareBibliographyDriver{review}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
+    \iffieldundef{title}{}{\printfield{title}}\adddot\addspace%		%%LCB: Falls @review einen eigenen Titel hat, wird der ausgelesen
+  \printtext{Rez\adddot\addspace zu\addspace}%
+  %\setunit{\addcolon\addspace}\newblock%
+  \iffieldundef{crossref}%									%%LCB
+    {\usebibmacro{reztitle}}%									%%LCB
+    {    \usebibmacro{mycrossref}%%									%%LCB
+    }
+  %\usebibmacro{reztitle}%		%alt
+  \newunit\newblock
+  %\usebibmacro{in:}%
+  \usebibmacro{journal+number+year}%
+  \newunit\newblock%
+  \usebibmacro{pages}%
+%  \setunit{\addspace}%
+%  \usebibmacro{url+urldate}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
+%
+\newbibmacro{mycrossref}{%
+  \textcite{\thefield{crossref}}}%
+%
+%% Bibliographie-Umgebung bei Autor-Jahr %%%%%%
+%
+\defbibenvironment{bibliography}%
+{\ifbool{cbx:autorjahr}{%
+  \list{\printtext{\printnames[cite:author]{labelname}}%
+     \addspace\printtext[\ifbool{cbx:jahrkeineklammern}{}{parens}]{%
+        \printfield{labelyear}\printfield{extrayear}}}%
+     {\setlength{\labelwidth}{\labelnumberwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}%
+      }}%
+   {\list{}{%
+     \leftmargin\bibhang 
+     \itemindent-\leftmargin 
+     \itemsep\bibitemsep
+      \parsep\bibparsep}}}
+  {\endlist}
+%{\item  \ifboolexpr{bool {cbx:frgantik} or bool {cbx:antik}}{}{\ifbool{cbx:autorjahr}{\mbox{}\newline}{}}}
+%{\item  \ifbool{cbx:autorjahr}{\mbox{}\newline}{}}
+{\ifboolexpr{bool {cbx:frgantik} 
+or bool {cbx:antik} 
+or bool {cbx:frg} 
+or bool{cbx:nurshorthand} 
+or bool {cbx:unbekannt}}%
+{
+	\list{}{\leftmargin\bibhang 
+     \itemindent-\leftmargin 
+     \itemsep\bibitemsep
+      \parsep\bibparsep\endlist} 
+      \item% 
+      }%
+      {\item  \ifbool{cbx:autorjahr}{\mbox{}\newline}{}}}
+
+
+    
+%% Option »shorthandinbib«:
+\newcommand*{\shorthandinbibpunct}{%
+                  \addspace=\nopunct\addspace}
+\renewbibmacro*{begentry}{%
+  \iffieldundef{shorthand}
+      {}
+      {\ifbool{cbx:unbekannt}{
+\usebibmacro{shorthand+year}}
+{ \printfield[shorthandinbib]{shorthand}}%
+%      \printfield[shorthandinbib]{shorthand}%
+       \nopunct\shorthandinbibpunct
+       }}
+
+%%%%%%%%%%%cite-commands (LCB) %%%%%%%%%%%%%%%%%
+\DeclareCiteCommand{\citeauthor} % Autoren mit vollem Namen im Fließtext
+{\boolfalse{citetracker}%
+\boolfalse{pagetracker}%
+\usebibmacro{prenote}}%
+{\ifciteindex%
+	{\indexnames{labelname}}%
+	{}%
+	\printtext[bibhyperref]{%
+		\ifboolexpr{bool {cbx:frgantik} or bool {cbx:antik} or bool {cbx:frg}}{% 	wenn antiker Autor, dann nur deutscher Rufname
+							\newunit\printfield[]{usera}% %Rufname muss im custom-Feld "usera" stehen
+								}{% 
+			    	\iffootnote{\printnames{labelname}}{%
+		\printnames[first-last]{author}}}}}%
+{\multicitedelim}%
+{\usebibmacro{postnote}}%
+% 
+%
+    \DeclareCiteCommand{\citetitle} % Titel werden in kursiv gesetzt
+  {\boolfalse{citetracker}%
+  	\boolfalse{pagetracker}%
+  	\usebibmacro{prenote}}%
+  {%\ifciteindex%
+  %	{\indexfield{indextitle}}		% LCB: Kollidiert mit Sek.-Autoren im Index
+  %	{}%
+  	\printtext[bibhyperref]{%
+   \ifbool{cbx:antik}{%wenn Titel eines antiken Autors, dann ohne (moderne) Jahreszahl
+  		\emph{%
+  			\printfield{title}%
+  			\iffieldundef{subtitle}{}{\adddot\addspace\printfield{subtitle}}%
+  		}}%
+  		{\emph{%
+  				\printfield{title}%
+  				\iffieldundef{subtitle}{}{\adddot\addspace\printfield{subtitle}}%
+  			}%
+  		\addspace%
+  		(\printfield{year}%
+  		\iffieldundef{origyear}{}{\addspace\printtext[brackets]{\printfield{origyear}}}%
+  		)%
+  	}}}%
+  	{\multicitedelim}%
+  	{\usebibmacro{postnote}}%
+%  	
+%%%
+\endinput
+%%
+%% End of file `archaeologie.bbx'.

@@ -1,0 +1,91 @@
+\documentclass[%
+	english,ngerman,%	Sprachen immer gleich global und hier definieren
+	11pt,
+	paper=A4,					% paper size --> A4 is default in Germany
+draft=false,						% value for draft version
+demo,
+	parskip=half+,				% spacing value / method for paragraphs --> Eine halbe Zeile Abstand nach Absatz
+]{scrreprt}%
+\usepackage{babel}
+\usepackage{libertine}
+\usepackage[					% use  for bibliography
+	backend=biber,
+	bibencoding=utf8,				% 	- use auto file encode
+%style=authortitle-dw, 
+	style=archaeologie,
+ autorjahr=true,		%% true = Zitation im Autor-Jahr-System; Anpassung der Bibliographie; false = Zitation im Autor-Titel-System
+shortjournal=false,	%% true = nur Kurzname der Zeitschrift (Feld: "shortjournal"), wenn "shortjournal" leer, dann Feld "journal"; false = Angabe von Feld "journal"
+notranslator=false,	%% true = keine Angabe von Originaltitle, Originalsprache, Übersetzer; false = "Originaltitel: XY, übers. v. Z"
+lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+hrsg=true,		%% false = "hrsg. v. XY"; true = "XY (Hrsg.)“
+citeinit=false, 	%% false = keine Initiale in Fußnoten, true =  in Fußnoten Initiale nachgestellt
+mitvn=false,		%% false = keine Vornamen in Fußnote; true = Vornamen in Fußnote nach Nachname
+jahrkeineklammern=false,	%% false = (2015); true = 2015
+mitjahr=true,%		%% WENN "kurztitel = true", DANN:  false = keine Jahresangabe in der Fußnote; true = Jahresangabe nach Kurztitel in Klammer
+jahrreihe=false,%	%% false = Serie und Nummer VOR Erscheinungsort und -jahr; true = Serie und Nummer NACH Erscheinungsort und -jahr
+	%%%%%%%%%%%%%%%%%%%%%%%
+	sorting=nyt, % nyt lassen, damit Shorthands sortiert werden
+	%indexing=cite,	%%Aktiviert die Indexerstellung nur für Verweise
+	maxalphanames=2,
+	maxnames=3,%
+	minnames=1,%
+	maxbibnames=4,%
+	minbibnames=1,%
+	maxcitenames=2,%
+	mincitenames=1%
+]{biblatex}
+
+                  
+
+\usepackage{url}
+\urlstyle{same}
+
+
+\addbibresource{MWE_archaeologie.bib}
+
+
+
+\usepackage[colorlinks   = false, %Colours links instead of ugly boxes
+]{hyperref}
+
+\begin{document}
+hello world\footnote{
+\cite[12]{Fest};
+\cite[s.][2,2,2]{Cic_Phil};
+\cite[1234]{CIL},
+\cite[vgl.][123]{Cirelli_2012}.
+}
+\footnote{\cite{Alzinger_1970}, \cite{Booms_2014}} \footnote{\cite{CiancioRossetto_1993}}\footnote{\cite{Dietz_1996,Eder_2001a,Eder_2001,Esch_2006,Galsterer_1996,Giuliani_1995b,Giuliani_1995a,Graffunder_1914,Hoecker_1998,Hoecker_1998a,Hoecker_1998b,Hoecker_1998c,Hoecker_1998d,Huelsen_1901,Huelsen_1894,Heinzelmann_2001,Honigmann_1924,Hurschmann_1998,Hurschmann_1998a,Johnson_1940,Jongman_2001,Kipp_1910,Kornemann_1942,Kornemann_1939,Kornemann_1933,Kornemann_1903,Kornemann_1900,Kortenbeutel_1940,Lehmann-Hartleben_1929,Marcattili_2014,Nieddu_1995,Oehler_1894,Paulus_1998,Pietschmann_1896,Price_2001,Purcell_1995a,Purcell_1995b,Reinhardt_1904,Rosenberger_2012,Rumscheid_2002,Saiko_,Schneider_1918,Schoeffer_1905,Schoeffer_1903,Sewell_2014,Swoboda_1903,Tagliamonte_1995,Torelli_1995,Uggeri_1998,Uggeri_1998a,Uggeri_1996,VanBuren_1958,Viedebantt_1924,Wagler_1897,Weinbrenner_1914,Weinbrenner_1909,Wissowa_1894,Wymer_1930,Ziegler_1952}}
+\footnote{\cite[vgl.][123]{Tagliamonte_1995}}
+\footnote{\cite[vgl.][123]{Paestum_1854},\cite[vgl.][123]{Cosa_1949}\cite[vgl.][123]{Italie_1976}}
+\footnote{\cite[s.][234]{Ercolano_1762}}
+
+
+
+
+\renewcommand\bibfont{\normalfont\small}
+%\setlength{\biblabelsep}{3em} %geht nur bei autorjahr
+%\setlength{\bibhang}{{3em}\space}
+%\setlength{\bibitemsep}{0.5\baselineskip plus 0.5\baselineskip}
+%\nocite{*} % alle Bibliographieeinträge in die Auflistung
+
+%%%%%%%%%%%%%%%  Bibliographie (-Überschriften  %%%%%%%%%%%%%%%
+
+
+\printbibheading[heading=bibintoc,title={Bibliographie}] 
+%\printshorthands[keyword=Sigel,heading=subbibintoc,title={Abkürzungen}] 
+\printbibliography[keyword = Sigel,heading=subbibintoc,title={Abkürzungen}] 
+\printbibliography[keyword = unbekannt,heading=subbibintoc,title={Unbekannte Autoren}] 
+\printbibliography[keyword=Quelle,heading=subbibintoc,title={Primärliteratur}] 
+\printbibliography[%
+		notkeyword=Quelle,%
+		notkeyword=Sigel,%
+		notkeyword=unbekannt,%
+		%notkeyword=lexikon,%
+		heading=subbibintoc,title={Forschungsliteratur}] 
+
+ 
+
+%\printbibliography[nottype=online,nottype=shorthand] %alle, die nicht online sind
+%\printbibliography[heading=subbibliography,title={Webseiten},type=online,prefixnumbers={@}]
+\end{document}
