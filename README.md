@@ -9,7 +9,7 @@
 	-->LCB: gute Idee
 vgl. http://www.latex-community.org/forum/viewtopic.php?f=5&t=690
 
-
+-- ein "et. al." / u.a. fehlt, oder wird nicht mehr angezeigt?!?!
 
 
 --> URL auslesen nur bei "online" oder PhD
@@ -92,7 +92,8 @@ vgl. http://www.latex-community.org/forum/viewtopic.php?f=5&t=690
 --> Verknüpfungen von antiken Autoren mit Bibliographie über hyperref funktioniert nicht?! liegt an "printshorthand"?
 	(2015-06-15) --> behoben! Hyperref zu \printshorthand geht nicht, mit aktueller Version umgestellt und Antike Autoren werden mit \printbibliography ausgegeben, dann funktioniert hyperref
 ===> \printbibliography[keyword=Quelle,heading=subbibintoc,title={Antike Quellen}] 
-Mart. Epigr. = Marcus Valerius Martialis, Epigramme aus dem Lateinischen übers. von Paul Barié und Winfried Schindler Sammlung Tusculum (Düsseldorf – Zürich: Artemis & Winkler 32013).
+
+Mart. Epigr. = Marcus Valerius Martialis, Epigramme aus dem Lateinischen übers. von Paul Barié und Winfried Schindler Sammlung Tusculum (Düsseldorf – Zürich: Artemis & Winkler 32013).
 
 @Book{Mart_Epigr,
   Title                    = {Epigramme},
