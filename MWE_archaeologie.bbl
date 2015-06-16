@@ -1,0 +1,68 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{nyt}{nyt}
+    \entry{Baker_2011}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=6c467e147dd2069f8d026215b470f743}{Baker}{B\bibinitperiod}{Patricia}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{6c467e147dd2069f8d026215b470f743}
+      \strng{fullhash}{6c467e147dd2069f8d026215b470f743}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Journal of Roman Studies}
+      \field{shortjournal}{JRS}
+      \field{volume}{101}
+      \strng{xref}{Lackner_2008}
+      \field{year}{2011}
+      \field{pages}{321\bibrangedash 322}
+      \range{pages}{2}
+    \endentry
+    \entry{Lackner_2008}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5225fe33396bf45c488e1030672cdaea}{Lackner}{L\bibinitperiod}{Eva-Maria}{E\bibinithyphendelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {München}%
+      }
+      \list{publisher}{1}{%
+        {Biering \& Brinkmann}%
+      }
+      \strng{namehash}{5225fe33396bf45c488e1030672cdaea}
+      \strng{fullhash}{5225fe33396bf45c488e1030672cdaea}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Gnomon 2010 82 (1) : 61-67 Pierre Gros | MH (Museum Helveticum) 2010 67 (3) : 176-177 Christoph Reusser | Sehepunkte 2010 10 (4) : non paginé Bernhard Linke.}
+      \field{gender}{sf}
+      \field{shorttitle}{Republikanische Fora}
+      \field{title}{Republikanische Fora}
+      \field{year}{2008}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

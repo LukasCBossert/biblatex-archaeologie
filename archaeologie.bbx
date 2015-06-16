@@ -49,6 +49,19 @@
 		\DeclareBibliographyOption{autorjahr}[true]{\csuse{bool#1}% %% JF: Autorjahr
            {cbx:autorjahr}}						%% JF: Autorjahr
 %%%%%%%%
+\AtBeginDocument{%
+  \ifbool{bbx:xref}
+    {\ExecuteBibliographyOptions{mincrossrefs=1}}
+    {}}
+% Hilfsbefehl für @review
+\newcommand*{\bbx@reviewparent}
+
+\newbool{bbx:xref}% soll xref überhaupt verwendet werden?
+\newbool{xrefidem}
+
+\DeclareBibliographyOption{xref}[true]{%
+  \csuse{bool#1}{bbx:xref}}
+
 
 \newtoggle{listofshorthands}% sind wir in der List of Shorthands?
 
@@ -214,13 +227,6 @@
                \AND\NOT\iffirstonpage}%
                 {\ifbool{cbx:autorjahr}{\printnames{author}}{\bibnamedash}}%
         {\printnames{author}\isdot}}}%
-%\renewbibmacro*{author}{%
-% \ifnameundef{author}{}%
-%  {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
-%               \AND\NOT\iffirstonpage}%
-%                {\ifbool{cbx:autorjahr}{\printnames{author}}{\bibnamedash}}%
-%        {\printnames{author}\isdot}}}%
-%
 %
 \renewbibmacro*{author/editor}{%
    \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
@@ -385,10 +391,10 @@
   \iffieldundef{maintitle}{}{%
     \printfield{maintitle}\setunit*{\addspace}\printfield{volume}%
 }}%
-\newbibmacro*{reztitle}{%
-  \printtext[quotes]{%
-    \usebibmacro{title}%
-}}%
+%\newbibmacro*{reztitle}{%			%% wird nicht verwendet
+%  \printtext[quotes]{%
+%    \usebibmacro{title}%
+%}}%
 \newbibmacro*{antikzeugs}{%
   \iflistundef{language}{}{%
     \printlist{language}\isdot%
@@ -578,31 +584,67 @@
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \usebibmacro{author}%
-    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
-    \iffieldundef{title}{}{\printfield{title}}\adddot\addspace%		%%LCB: Falls @review einen eigenen Titel hat, wird der ausgelesen
-  \printtext{Rez\adddot\addspace zu\addspace}%
-  %\setunit{\addcolon\addspace}\newblock%
-  \iffieldundef{crossref}%									%%LCB
-    {\usebibmacro{reztitle}}%									%%LCB
-    {    \usebibmacro{mycrossref}%%									%%LCB
-    }
-  %\usebibmacro{reztitle}%		%alt
+    \usebibmacro{author}%
+     \ifnameundef{labelname}
+       {}
+       {\setunit{\labelnamepunct}\newblock}%
+	\iffieldundef{xref}%
+	  {% Code, wenn kein xref vorhanden
+      \usebibmacro{title}%
+      \newunit%
+      \printlist{language}%
+      \newunit\newblock
+      \usebibmacro{byauthor}%
+      \newunit\newblock
+      \usebibmacro{bytranslator+others}%
+      \newunit\newblock
+      \printfield{version}}
+	  {% Code, wenn xref vorhanden
+      \savefield{xref}{\bbx@reviewparent}%
+          \printtext[review]{%
+        \bbx@review          {\thefield{xref}}
+          }}%			%%% FEHLERMELDUNG! Warum??????
   \newunit\newblock
-  %\usebibmacro{in:}%
-  \usebibmacro{journal+number+year}%
-  \newunit\newblock%
-  \usebibmacro{pages}%
-%  \setunit{\addspace}%
-%  \usebibmacro{url+urldate}%
-  \setunit{\addperiod\addspace}%
-  \usebibmacro{signatur}%
-  \usebibmacro{savestuff}%
-  \usebibmacro{finentry}%
-}%
+  \usebibmacro{journal+issuetitle}%
+  \newunit\newblock
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock
+  \usebibmacro{note+pages}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \newunit\newblock
+  \usebibmacro{pageref}
+  \usebibmacro{finentry}}
+  
+%\DeclareBibliographyDriver{review}{%
+%  \usebibmacro{bibindex}%
+%  \usebibmacro{begentry}%
+%  \usebibmacro{author}%
+%    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
+%    \iffieldundef{title}{}{\printfield{title}}\adddot\addspace%		%%LCB: Falls @review einen eigenen Titel hat, wird der ausgelesen
+%  \printtext{Rez\adddot\addspace zu\addspace}%
+%  %\setunit{\addcolon\addspace}\newblock%
+%  \iffieldundef{crossref}%									%%LCB
+%    {\usebibmacro{reztitle}}%									%%LCB
+%    {    \usebibmacro{mycrossref}%%									%%LCB
+%    }
+%  \newunit\newblock
+%  %\usebibmacro{in:}%
+%  \usebibmacro{journal+number+year}%
+%  \newunit\newblock%
+%  \usebibmacro{pages}%
+%%  \setunit{\addspace}%
+%%  \usebibmacro{url+urldate}%
+%  \setunit{\addperiod\addspace}%
+%  \usebibmacro{signatur}%
+%  \usebibmacro{savestuff}%
+%  \usebibmacro{finentry}%
+%}%
 %
-\newbibmacro{mycrossref}{%
-  \textcite{\thefield{crossref}}}%
+%\newbibmacro{mycrossref}{%
+%  \textcite{\thefield{crossref}}}%
 %
 %% Bibliographie-Umgebung bei Autor-Jahr %%%%%%
 %

@@ -1,0 +1,15 @@
+[0] Config.pm:324> INFO - This is Biber 2.1
+[0] Config.pm:327> INFO - Logfile is 'MWE_archaeologie.blg'
+[44] biber-darwin:276> INFO - === Wed Jun 17, 2015, 01:05:45
+[44] Biber.pm:333> INFO - Reading 'MWE_archaeologie.bcf'
+[141] Biber.pm:645> INFO - Found 2 citekeys in bib section 0
+[157] Biber.pm:2977> INFO - Processing section 0
+[173] Biber.pm:3115> INFO - Looking for bibtex format file 'MWE_archaeologie.bib' for section 0
+[344] bibtex.pm:1021> INFO - Decoding LaTeX character macros into UTF-8
+[522] bibtex.pm:895> INFO - Found BibTeX data source 'MWE_archaeologie.bib'
+[752] UCollate.pm:66> INFO - Overriding locale 'de' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[752] UCollate.pm:66> INFO - Overriding locale 'de' defaults 'variable = shifted' with 'variable = non-ignorable'
+[752] Biber.pm:2854> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'de'
+[752] Biber.pm:2858> INFO - No sort tailoring available for locale 'de'
+[755] bbl.pm:505> INFO - Writing 'MWE_archaeologie.bbl' with encoding 'UTF-8'
+[755] bbl.pm:596> INFO - Output to MWE_archaeologie.bbl
