@@ -11,6 +11,7 @@ vgl. http://www.latex-community.org/forum/viewtopic.php?f=5&t=690
 
 -- ein "et. al." / u.a. fehlt, oder wird nicht mehr angezeigt?!?!
 
+- Feld "Volume" bei (beispw.) Book wird nicht ausgelesen!??!
 
 --> URL auslesen nur bei "online" oder PhD
 

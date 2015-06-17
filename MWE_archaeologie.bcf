@@ -2265,8 +2265,8 @@
     <bcf:datasource type="file" datatype="bibtex">MWE_archaeologie.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">Baker_2011</bcf:citekey>
-    <bcf:citekey order="1">Lackner_2008</bcf:citekey>
+    <bcf:citekey order="1">MacDonald_1986</bcf:citekey>
+    <bcf:citekey order="1">MacDonald_1982</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
   <bcf:sorting>

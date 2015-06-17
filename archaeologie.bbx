@@ -282,8 +282,14 @@
   \newunit%                                                             %%>>
   \printfield{year}%                                                    %%>>
 }%
+%
+%
+
  \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
+%
+%
+%   
 \newbibmacro*{maintitle+title+volumes}{%
   \iffieldsequal{maintitle}{title}
     {\clearfield{maintitle}%
@@ -294,15 +300,19 @@
        \newunit\newblock
          \ifbool{cbx:antik}%
             {\usebibmacro{title}\addcomma\addspace}
-            {\iffieldundef{volume}
+            {\iffieldundef{volume}			% volume wird nicht ausgelesen?!
                 {\iffieldundef{volumes}{}{%
                    \printfield{volumes}%
                    \addspace\printtext{\bibstring{volumes}}\newunit}}%
                {\printtext{\bibstring{volume}}\addspace%
                  \printfield{volume}\setunit*{\addcolon\addspace}}%
         }}}%
-   \iffieldundef{volumes}{\usebibmacro{title}}{}%
-   \newunit}%
+   \iffieldundef{volumes}{\usebibmacro{title}}{}%				% LCB: Für was sind volumes???
+   \newunit
+   }%
+%
+%
+%
 \renewbibmacro*{maintitle}{%
   \ifboolexpr{test {\iffieldundef{maintitle}}%
     and test {\iffieldundef{mainsubtitle}}}{}%
@@ -316,6 +326,9 @@
           \printfield[titlecase]{mainsubtitle}}%
             \setunit*{\subtitlepunct}}%
     \printfield{maintitleaddon}\isdot}}%
+    
+    
+    
 \renewbibmacro*{title}{%
   \ifboolexpr{test {\iffieldundef{title}} and%
               test {\iffieldundef{subtitle}}}{}%
@@ -344,10 +357,16 @@
   }%%																									>> JF: geändert, alles in Klammern
 \newbibmacro*{addendum}{%
 }%
-%                                                                    %
+%                      
+
+
+                                              %
 \newbibmacro*{signatur}{%
   \iffieldundef{note}{}{\printtext[parens]{\printfield{note}}\nopunct}%
 }%
+
+
+
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{
     \usebibmacro{maintitle}%
@@ -380,6 +399,10 @@
         {\printnames{editor}}%
      }}%
 }%
+
+
+
+
 \newbibmacro*{reftitle}{%
   \iffieldundef{title}{}{%
     \printtext{Art\adddot\addspace}%
@@ -387,20 +410,34 @@
       \usebibmacro{title}\setunit{\addspace}%
       \iffieldundef{number}{}{\printfield[brackets]{number}}%
 }}}%
+
+
+
 \newbibmacro*{refmaintitle}{%
   \iffieldundef{maintitle}{}{%
     \printfield{maintitle}\setunit*{\addspace}\printfield{volume}%
 }}%
+
+
 %\newbibmacro*{reztitle}{%			%% wird nicht verwendet
 %  \printtext[quotes]{%
 %    \usebibmacro{title}%
 %}}%
+
+
+
 \newbibmacro*{antikzeugs}{%
   \iflistundef{language}{}{%
     \printlist{language}\isdot%
     \setunit{\addcomma\addspace}%
   }%
 }%
+
+
+
+%%%%%%%%%%%%% DeclareBibliographyDriver %%%%%%%%%%%%%%%%
+
+
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -425,6 +462,9 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -459,6 +499,10 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
+
 \DeclareBibliographyDriver{thesis}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -476,6 +520,10 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
+
 \DeclareBibliographyDriver{proceedings}{%				%% LCB: neu hinzugefügt
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -498,6 +546,10 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
+
 \DeclareBibliographyDriver{inproceedings}{%				%% LCB: NEU hinzugefügt
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -528,6 +580,10 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
+
 \DeclareBibliographyDriver{inbook}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -561,6 +617,10 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
+
 \DeclareBibliographyDriver{inreference}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -581,6 +641,10 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
+
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -602,7 +666,7 @@
 	  {% Code, wenn xref vorhanden
       \savefield{xref}{\bbx@reviewparent}%
           \printtext[review]{%
-        \bbx@review          {\thefield{xref}}
+       % \bbx@review          {\thefield{xref}}
           }}%			%%% FEHLERMELDUNG! Warum??????
   \newunit\newblock
   \usebibmacro{journal+issuetitle}%
