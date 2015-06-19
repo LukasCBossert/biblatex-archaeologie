@@ -143,6 +143,8 @@
   \isdot%
 }%
 }
+
+
 \DeclareNameFormat{editor}{%
    \ifblank{#3}{}{%
         \ifbool{bbx:nurinit}{#4}{#3}\addspace}%
@@ -153,6 +155,8 @@
        {\ifnumcomp{\value{listcount}}{=}{\value{liststop}}%
            {}{\addspace\bibstring{and}\addspace}}%
 }%
+
+
 \DeclareNameFormat{hrsg}{%                                 %%>> JF: geändert, Reihenfolge Vorname–Nachname
    \ifblank{#3}{}{#4\addnbspace}%								%%>> LCB: Leerraum zwischen Initial-Vorname und Nachname wird nicht getrennt
    \ifblank{#5}{}{#5\addnbspace}%
@@ -160,21 +164,29 @@
   \ifthenelse{\value{listcount}<\value{liststop}}%
         {\addnbspace\textendash\addspace}{}%
 }%
+
+
 \newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}%
 \DeclareListFormat{location}{%
   #1\ifthenelse{\value{listcount}<\value{liststop}}%
           {\orttrennzeichen}{}%
 }%
+
 \let\bibnamedashOrig\bibnamedash%
 \renewcommand*{\bibnamedash}{\rule[3pt]{2.5em}{.6pt}\space} %%>> LCB: geändert, JF: Strich von 3em auf 2.5em verkürzt
 %\renewcommand*{\bibnamedash}{%
 %\bibsentence\bibstring{idem\thefield{gender}}}%
+
+
 \renewbibmacro{in:}{\ifthenelse{% 		
 \ifentrytype{article}%
 \OR%
 \ifentrytype{review}}%
 {}{\printtext{\bibstring{in}\intitlepunct\addspace}}%
 }%
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%% Damit URL etc. in eine neue Linie kommt
 \newbibmacro*{bbx:parunit}{%
   \ifbibliography
@@ -215,14 +227,13 @@
  \ifnameundef{author}{}%
   {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
                \AND\NOT\iffirstonpage}%
-                {\ifbool{cbx:autorjahr}{\printnames{author}}{\bibnamedash}}%
-        {\printnames{author}\isdot}}}%
-%\renewbibmacro*{author}{%
-% \ifnameundef{author}{}%
-%  {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
-%               \AND\NOT\iffirstonpage}%
-%                {\ifbool{cbx:autorjahr}{\printnames{author}}{\bibnamedash}}%
-%        {\printnames{author}\isdot}}}%
+                {\ifbool{cbx:autorjahr}{%
+                				\printnames{author}}{\bibnamedash}}%
+			\ifbool{bbx:dai}{%
+					\printnames[first-last-inits]{author}}{%
+					\printnames{author}\isdot}  }
+        }%
+
 %
 %
 \renewbibmacro*{author/editor}{%
@@ -231,10 +242,13 @@
                \AND\NOT\iffirstonpage}%
          {\bibnamedash}%
          {\ifnameundef{editor}{}{%
-         \printnames[author]{editor}\isdot% (Hrsg.)
+        \ifbool{bbx:dai}{\printnames[first-last-inits]{editor}\isdot}{% (Hrsg.)
+                \printnames[author]{editor}\isdot}% (Hrsg.)
            \addspace\printtext[parens]{\bibstring{editor}}}}%
-   }{\usebibmacro{author}}%
+   }{					\usebibmacro{author}}%
 }%
+
+
 \renewbibmacro*{series+number}{%
    \ifbool{cbx:antik}{%antike Extrawurst
      \iffieldundef{series}{}{%
@@ -268,6 +282,8 @@
           \setunit{\subtitlepunct}%
           \printfield[titlecase]{journalsubtitle}}}%
           }%	
+          
+          
 \newbibmacro{year}{%
   \iffieldundef{year}{}{\printfield[parens]{year}}}%
 \newbibmacro*{journal+number+year}{%                                    %%>> JF: geändert, volume wurde nicht ausgelesen, zudem DAI-Anpassung
@@ -279,8 +295,12 @@
   \newunit%                                                             %%>>
   \printfield{year}%                                                    %%>>
 }%
+
+
  \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
+   
+   
 \newbibmacro*{maintitle+title+volumes}{%
   \iffieldsequal{maintitle}{title}
     {\clearfield{maintitle}%
@@ -300,6 +320,8 @@
         }}}%
    \iffieldundef{volumes}{\usebibmacro{title}}{}%
    \newunit}%
+
+
 \renewbibmacro*{maintitle}{%
   \ifboolexpr{test {\iffieldundef{maintitle}}%
     and test {\iffieldundef{mainsubtitle}}}{}%
@@ -313,6 +335,8 @@
           \printfield[titlecase]{mainsubtitle}}%
             \setunit*{\subtitlepunct}}%
     \printfield{maintitleaddon}\isdot}}%
+
+
 \renewbibmacro*{title}{%
   \ifboolexpr{test {\iffieldundef{title}} and%
               test {\iffieldundef{subtitle}}}{}%
@@ -322,23 +346,38 @@
        \printfield[titlecase]{subtitle}}%
      \setunit*{\subtitlepunct}}%
   \printfield{titleaddon}\isdot}%
+  
+  
 \newbibmacro*{location+edition+year}{%
- \printtext[parens]{%                                                 %%>> JF: geändert, alles in Klammern
-  \printlist{location}%
-  \iffieldundef{publisher}{%                                          %%>> JF: geändert, Publisher hinzugefügt
-    \setunit*{\addcolon\addspace}%                                    %%>>
-    \printlist{publisher}}{}%                                         %%>>
-  \iffieldundef{edition}{\setunit{\addspace}}{%
+\ifbool{bbx:dai}{\iffieldundef{edition}{\setunit{\addspace}}{%
        \iffieldint{edition}%
            {\setunit{\addspace}%
              \mkbibsuperscript{\printfield{edition}}}%
            {\setunit{\addcomma\addspace}%
-             \printfield{edition}\addcomma\addspace}}%
+             \printfield{edition}\addcomma\addspace}}}{}%
+ \printtext[parens]{%                                                 %%>> JF: geändert, alles in Klammern
+\ifbool{bbx:dai}{%
+\printfield{location}%			%%LCB: nur erster Ort drucken #####
+}{  
+\printlist{location}}%
+  \ifbool{bbx:dai}{}{%
+  \iffieldundef{publisher}{%                                          %%>> JF: geändert, Publisher hinzugefügt
+    \setunit*{\addcolon\addspace}%                                    %%>>
+    			\printlist{publisher}}{}%                                         %%>>
+				} %
+  	\ifbool{bbx:dai}{\addspace}{\iffieldundef{edition}{\setunit{\addspace}}{%
+       \iffieldint{edition}%
+           {\setunit{\addspace}%
+             \mkbibsuperscript{\printfield{edition}}}%
+           {\setunit{\addcomma\addspace}%
+             \printfield{edition}\addcomma\addspace}}}%
   \printfield{year}%
    \iffieldundef{origyear}{}{%							%%>> LCB: Erstauflage in die Klammer gleich nach Jahr
     \addspace\printtext[brackets]{Erstauflage\addcolon\addspace\printfield{origyear}}}%
     }%
   }%%																									>> JF: geändert, alles in Klammern
+
+
 \newbibmacro*{addendum}{%
 }%
 %                                                                    %
@@ -377,6 +416,8 @@
         {\printnames{editor}}%
      }}%
 }%
+
+
 \newbibmacro*{reftitle}{%
   \iffieldundef{title}{}{%
     \printtext{Art\adddot\addspace}%
@@ -384,20 +425,31 @@
       \usebibmacro{title}\setunit{\addspace}%
       \iffieldundef{number}{}{\printfield[brackets]{number}}%
 }}}%
+
+
 \newbibmacro*{refmaintitle}{%
   \iffieldundef{maintitle}{}{%
     \printfield{maintitle}\setunit*{\addspace}\printfield{volume}%
 }}%
-\newbibmacro*{reztitle}{%
-  \printtext[quotes]{%
-    \usebibmacro{title}%
-}}%
+
+
+%\newbibmacro*{reztitle}{%		LCB obsolet
+%  \printtext[quotes]{%
+%    \usebibmacro{title}%
+%}}%
+
+
 \newbibmacro*{antikzeugs}{%
   \iflistundef{language}{}{%
     \printlist{language}\isdot%
     \setunit{\addcomma\addspace}%
   }%
 }%
+
+
+%%%%%%%%%%%%%%  DeclareBibliographyDriver %%%%%%%%%%%%%%
+
+
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -422,6 +474,8 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -456,6 +510,9 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
 \DeclareBibliographyDriver{thesis}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -473,6 +530,8 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
 \DeclareBibliographyDriver{proceedings}{%				%% LCB: neu hinzugefügt
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -495,6 +554,8 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
 \DeclareBibliographyDriver{inproceedings}{%				%% LCB: NEU hinzugefügt
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -525,6 +586,9 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
 \DeclareBibliographyDriver{inbook}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -558,7 +622,10 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
-\DeclareBibliographyDriver{inreference}{%
+
+
+
+\DeclareBibliographyDriver{inreference}{%				%% LCB: Gut wäre, wenn bbx:lexika = true keine Einträge in der Bibliographie auftauchen
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
@@ -578,6 +645,9 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
+
+
+
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -587,7 +657,7 @@
   \printtext{Rez\adddot\addspace zu\addspace}%
   %\setunit{\addcolon\addspace}\newblock%
   \iffieldundef{crossref}%									%%LCB
-    {\usebibmacro{reztitle}}%									%%LCB
+    %{\usebibmacro{reztitle}}%									%%LCB
     {    \usebibmacro{mycrossref}%%									%%LCB
     }
   %\usebibmacro{reztitle}%		%alt
@@ -607,6 +677,10 @@
 \newbibmacro{mycrossref}{%
   \textcite{\thefield{crossref}}}%
 %
+
+
+
+
 %% Bibliographie-Umgebung bei Autor-Jahr %%%%%%
 %
 \defbibenvironment{bibliography}%

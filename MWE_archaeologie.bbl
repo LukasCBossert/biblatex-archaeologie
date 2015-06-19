@@ -177,8 +177,8 @@
       \field{title}{An Inscription of Trajan Decius from Cosa}
       \field{volume}{83}
       \field{year}{1962}
-      \field{pages}{pp.147\bibrangedash 158}
-      \range{pages}{-1}
+      \field{pages}{147\bibrangedash 158}
+      \range{pages}{12}
       \verb{file}
       \verb :Artikel_Monographien/Babcock_(Babcock_1962)_An Inscription of Trajan Decius from Cosa_pp.147-158.pdf:PDF
       \endverb
@@ -359,6 +359,7 @@
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
+      \field{edition}{2}
       \field{shorttitle}{Pompeii}
       \field{subtitle}{The life of a Roman town}
       \field{title}{Pompeii}
@@ -1618,8 +1619,10 @@
       \name{author}{1}{}{%
         {{uniquename=0,hash=82e6b34027a72ff6ce90e35fa062dd43}{Kleinwächter}{K\bibinitperiod}{Claudia}{C\bibinitperiod}{}{}{}{}}%
       }
-      \list{location}{1}{%
+      \list{location}{3}{%
         {Mainz}%
+        {Horb}%
+        {Berlin}%
       }
       \list{publisher}{1}{%
         {von Zabern}%

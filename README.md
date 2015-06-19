@@ -15,8 +15,16 @@ vgl. http://www.latex-community.org/forum/viewtopic.php?f=5&t=690
 
 --> URL auslesen nur bei "online" oder PhD
 
-
-
+##########################
+##      DAI-Implementierung   ##
+##########################
+Option:
+	dai = true
+	
+Erledigt:
+	- Edition vor die Klammer
+	- Initialien der Vornamen von Autor und Herausgeber
+	- Keine Verlagsangabe
 
 
 ####################
@@ -169,7 +177,7 @@ mitvn=false,		%% false = keine Vornamen in Fußnote; true = Vornamen in Fußnote
 jahrkeineklammern=true,	%% false = (2015); true = 2015
 mitjahr=true,%		%% WENN "kurztitel = true", DANN:  false = keine Jahresangabe in der Fußnote; true = Jahresangabe nach Kurztitel in Klammer
 jahrreihe=false,%	%% false = Serie und Nummer VOR Erscheinungsort und -jahr; true = Serie und Nummer NACH Erscheinungsort und -jahr
-
+dai = true 		%% Zitation nach DAI
 
 
 ##############

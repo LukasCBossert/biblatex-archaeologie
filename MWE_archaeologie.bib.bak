@@ -190,7 +190,7 @@
   Title                    = {An Inscription of Trajan Decius from Cosa},
   Author                   = {Babcock, Charles L.},
   Journal                  = {American Journal of Philology},
-  Pages                    = {pp.147--158},
+  Pages                    = {147--158},
   Volume                   = {83},
   Year                     = {1962},
 
@@ -283,7 +283,7 @@
   Series                   = {},
   Year                     = {2008},
 
-  Edition                  = {},
+  Edition                  = {2},
   Month                    = {},
   Note                     = {},
   Pages                    = {},
@@ -358,7 +358,7 @@
 }
 @Book{Kleinwaechter_2001,
   Title                    = {Platzanlagen nordafrikanischer Städte},
-  Address                  = {Mainz},
+  Address                  = {Mainz and Horb and B},
   Author                   = {Kleinwächter, Claudia},
   Editor                   = {},
   Number                   = {20},

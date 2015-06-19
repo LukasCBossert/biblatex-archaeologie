@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  19 JUN 2015 19:36
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  19 JUN 2015 21:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2538,6 +2538,11 @@ Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;+smcp;+smcp;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
+
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2546,7 +2551,19 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 106.
- [3]
+[3]
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2555,7 +2572,23 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 106.
- [4]
+[4]
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2564,11 +2597,20 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 106.
- [5]
+[5]
 Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=DFLT;mapping=tex-
 text;mapping=tex-text;+tnum;+lnum;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_RI.otf
+
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 106.
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2577,7 +2619,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 106.
- [6]
+[6]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 116.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 116.
@@ -2597,10 +2639,10 @@ Package logreq Info: Writing requests to 'MWE_archaeologie.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38373 strings out of 493706
- 755136 string characters out of 6145769
- 1112922 words of memory out of 5000000
- 41427 multiletter control sequences out of 15000+600000
+ 38372 strings out of 493706
+ 755118 string characters out of 6145769
+ 1112108 words of memory out of 5000000
+ 41426 multiletter control sequences out of 15000+600000
  8517 words of font info for 64 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
  67i,8n,66p,10413b,1542s stack positions out of 5000i,500n,10000p,200000b,80000s
