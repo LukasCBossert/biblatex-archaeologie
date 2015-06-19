@@ -25,6 +25,9 @@ Erledigt:
 	- Edition vor die Klammer
 	- Initialien der Vornamen von Autor und Herausgeber
 	- Keine Verlagsangabe
+	- nur erster Erscheinungsort
+	
+Für Festschrift/Ausstellungskatalog/Auktionskatalog ist das Feld "Titleaddon" zu nutzen, dann klappt es!
 
 
 ####################
