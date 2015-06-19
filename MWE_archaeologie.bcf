@@ -16,7 +16,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>mincrossrefs</bcf:key>
-      <bcf:value>1</bcf:value>
+      <bcf:value>2</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortcase</bcf:key>
@@ -327,8 +327,8 @@
     <bcf:option>lexika</bcf:option>
     <bcf:option>shortjournal</bcf:option>
     <bcf:option>notranslator</bcf:option>
+    <bcf:option>dai</bcf:option>
     <bcf:option>autorjahr</bcf:option>
-    <bcf:option>xref</bcf:option>
     <bcf:option>acronyms</bcf:option>
     <bcf:option>shorthandinbib</bcf:option>
     <bcf:option>shorthandwidth</bcf:option>
@@ -2265,8 +2265,82 @@
     <bcf:datasource type="file" datatype="bibtex">MWE_archaeologie.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">MacDonald_1986</bcf:citekey>
-    <bcf:citekey order="1">MacDonald_1982</bcf:citekey>
+    <bcf:citekey order="1">Italie_1976</bcf:citekey>
+    <bcf:citekey order="1">Cosa_1949</bcf:citekey>
+    <bcf:citekey order="1">Paestum_1854</bcf:citekey>
+    <bcf:citekey order="1">Ercolano_1762</bcf:citekey>
+    <bcf:citekey order="2">Alfoeldy_2003</bcf:citekey>
+    <bcf:citekey order="2">Allison_2001</bcf:citekey>
+    <bcf:citekey order="2">Andreae_1957</bcf:citekey>
+    <bcf:citekey order="2">Anichini_2012</bcf:citekey>
+    <bcf:citekey order="2">Babcock_1962</bcf:citekey>
+    <bcf:citekey order="2">Ball_2013</bcf:citekey>
+    <bcf:citekey order="2">Bartosiewicz_2003</bcf:citekey>
+    <bcf:citekey order="2">Baumgart_1935</bcf:citekey>
+    <bcf:citekey order="3">Beard_2008</bcf:citekey>
+    <bcf:citekey order="3">Haug_2003</bcf:citekey>
+    <bcf:citekey order="3">Hilger_2011</bcf:citekey>
+    <bcf:citekey order="3">Kienast_2004</bcf:citekey>
+    <bcf:citekey order="3">Kleinwaechter_2001</bcf:citekey>
+    <bcf:citekey order="3">Kreikenbom_2011</bcf:citekey>
+    <bcf:citekey order="3">Pedley_1990</bcf:citekey>
+    <bcf:citekey order="3">Rich_2002</bcf:citekey>
+    <bcf:citekey order="4">Brogiolo_2006</bcf:citekey>
+    <bcf:citekey order="4">Burgio_2012</bcf:citekey>
+    <bcf:citekey order="4">Calapa_2009</bcf:citekey>
+    <bcf:citekey order="4">Christie_2009</bcf:citekey>
+    <bcf:citekey order="4">Colin_2000</bcf:citekey>
+    <bcf:citekey order="4">Davies_2014</bcf:citekey>
+    <bcf:citekey order="4">Demandt_1982</bcf:citekey>
+    <bcf:citekey order="5">Dickenson_2013</bcf:citekey>
+    <bcf:citekey order="5">Giannikouri_2011</bcf:citekey>
+    <bcf:citekey order="5">Hekster_2009</bcf:citekey>
+    <bcf:citekey order="5">Kurapkat_2014</bcf:citekey>
+    <bcf:citekey order="5">Maggi_2011</bcf:citekey>
+    <bcf:citekey order="6">Bacchetta_2011</bcf:citekey>
+    <bcf:citekey order="6">Coqueugniot_2011</bcf:citekey>
+    <bcf:citekey order="6">Danner_2014</bcf:citekey>
+    <bcf:citekey order="6">Poupaki_2011</bcf:citekey>
+    <bcf:citekey order="6">Santoriello_1999</bcf:citekey>
+    <bcf:citekey order="6">Torelli_1991</bcf:citekey>
+    <bcf:citekey order="6">Torelli_1988</bcf:citekey>
+    <bcf:citekey order="6">Tosi_1995</bcf:citekey>
+    <bcf:citekey order="7">Rosenberger_2012</bcf:citekey>
+    <bcf:citekey order="7">Booms_2014</bcf:citekey>
+    <bcf:citekey order="7">CiancioRossetto_1993</bcf:citekey>
+    <bcf:citekey order="7">Eder_2001a</bcf:citekey>
+    <bcf:citekey order="7">Graffunder_1914</bcf:citekey>
+    <bcf:citekey order="7">Jongman_2001</bcf:citekey>
+    <bcf:citekey order="7">Kornemann_1933</bcf:citekey>
+    <bcf:citekey order="8">Baker_2011</bcf:citekey>
+    <bcf:citekey order="8">Bell_2011</bcf:citekey>
+    <bcf:citekey order="8">Bernard_2013</bcf:citekey>
+    <bcf:citekey order="8">Chamberland_1999</bcf:citekey>
+    <bcf:citekey order="8">Dyson_2013</bcf:citekey>
+    <bcf:citekey order="8">Earl_2009</bcf:citekey>
+    <bcf:citekey order="8">Frost_2001</bcf:citekey>
+    <bcf:citekey order="8">Giuliano_1978</bcf:citekey>
+    <bcf:citekey order="8">Hufschmid_2010</bcf:citekey>
+    <bcf:citekey order="8">Kaiser_2014a</bcf:citekey>
+    <bcf:citekey order="9">Arnolds_2005</bcf:citekey>
+    <bcf:citekey order="9">Evangelidis_2007</bcf:citekey>
+    <bcf:citekey order="9">Hoevelborn_1983</bcf:citekey>
+    <bcf:citekey order="9">Johanson_2008</bcf:citekey>
+    <bcf:citekey order="9">Kienlin_2004a</bcf:citekey>
+    <bcf:citekey order="10">Selle_2008</bcf:citekey>
+    <bcf:citekey order="10">Selle_2008a</bcf:citekey>
+    <bcf:citekey order="10">Selle_2008b</bcf:citekey>
+    <bcf:citekey order="11">Cic_Arch</bcf:citekey>
+    <bcf:citekey order="11">Cic_predadQuir</bcf:citekey>
+    <bcf:citekey order="11">Cic_prov</bcf:citekey>
+    <bcf:citekey order="11">Cic_fam</bcf:citekey>
+    <bcf:citekey order="12">Caes_Gall</bcf:citekey>
+    <bcf:citekey order="12">Ios_bell_Iud</bcf:citekey>
+    <bcf:citekey order="12">Plin_nat</bcf:citekey>
+    <bcf:citekey order="12">Mart_Epigr</bcf:citekey>
+    <bcf:citekey order="13">Fest</bcf:citekey>
+    <bcf:citekey order="14">Paul_Fest</bcf:citekey>
+    <bcf:citekey order="15">CIL</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
   <bcf:sorting>

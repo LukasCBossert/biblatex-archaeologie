@@ -1,5 +1,5 @@
 \ProvidesFile{archaeologie.bbx}%
-               [2015/06/15 v0.9  archaeologie-- %
+               [2015/06/04 v0.9  archaeologie-- %
                 biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{\typeout{}\typeout%
@@ -45,23 +45,13 @@
 \newbool{bbx:notranslator}%		%%LCB
 		\DeclareBibliographyOption{notranslator}[true]{\csuse{bool#1}%	%%LCB: Option für die Angabe der Originalspache, -titel und Übersetzer
            {bbx:notranslator}}		
+           \newbool{bbx:dai}%		%%LCB
+		\DeclareBibliographyOption{dai}[true]{\csuse{bool#1}%	%%LCB: Option für die Wiedergabe nach DAI-Richtlinien
+           {bbx:dai}}	
 \newbool{cbx:autorjahr}						%% JF: Autorjahr
 		\DeclareBibliographyOption{autorjahr}[true]{\csuse{bool#1}% %% JF: Autorjahr
            {cbx:autorjahr}}						%% JF: Autorjahr
 %%%%%%%%
-\AtBeginDocument{%
-  \ifbool{bbx:xref}
-    {\ExecuteBibliographyOptions{mincrossrefs=1}}
-    {}}
-% Hilfsbefehl für @review
-\newcommand*{\bbx@reviewparent}
-
-\newbool{bbx:xref}% soll xref überhaupt verwendet werden?
-\newbool{xrefidem}
-
-\DeclareBibliographyOption{xref}[true]{%
-  \csuse{bool#1}{bbx:xref}}
-
 
 \newtoggle{listofshorthands}% sind wir in der List of Shorthands?
 
@@ -227,6 +217,13 @@
                \AND\NOT\iffirstonpage}%
                 {\ifbool{cbx:autorjahr}{\printnames{author}}{\bibnamedash}}%
         {\printnames{author}\isdot}}}%
+%\renewbibmacro*{author}{%
+% \ifnameundef{author}{}%
+%  {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
+%               \AND\NOT\iffirstonpage}%
+%                {\ifbool{cbx:autorjahr}{\printnames{author}}{\bibnamedash}}%
+%        {\printnames{author}\isdot}}}%
+%
 %
 \renewbibmacro*{author/editor}{%
    \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
@@ -257,7 +254,7 @@
     }%
 }%
 \renewbibmacro*{journal}{%
-	\ifbool{bbx:shortjournal}%
+	\ifboolexpr{bool{bbx:shortjournal} or bool {bbx:dai}}%				%%LCB: wenn dai=true, dann wie shortjournal = true
 	%
 	{\iffieldundef{shortjournal}%					%%>> LCB:
     {\printtext[journaltitle]{%
@@ -282,14 +279,8 @@
   \newunit%                                                             %%>>
   \printfield{year}%                                                    %%>>
 }%
-%
-%
-
  \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
-%
-%
-%   
 \newbibmacro*{maintitle+title+volumes}{%
   \iffieldsequal{maintitle}{title}
     {\clearfield{maintitle}%
@@ -300,19 +291,15 @@
        \newunit\newblock
          \ifbool{cbx:antik}%
             {\usebibmacro{title}\addcomma\addspace}
-            {\iffieldundef{volume}			% volume wird nicht ausgelesen?!
+            {\iffieldundef{volume}
                 {\iffieldundef{volumes}{}{%
                    \printfield{volumes}%
                    \addspace\printtext{\bibstring{volumes}}\newunit}}%
                {\printtext{\bibstring{volume}}\addspace%
                  \printfield{volume}\setunit*{\addcolon\addspace}}%
         }}}%
-   \iffieldundef{volumes}{\usebibmacro{title}}{}%				% LCB: Für was sind volumes???
-   \newunit
-   }%
-%
-%
-%
+   \iffieldundef{volumes}{\usebibmacro{title}}{}%
+   \newunit}%
 \renewbibmacro*{maintitle}{%
   \ifboolexpr{test {\iffieldundef{maintitle}}%
     and test {\iffieldundef{mainsubtitle}}}{}%
@@ -326,9 +313,6 @@
           \printfield[titlecase]{mainsubtitle}}%
             \setunit*{\subtitlepunct}}%
     \printfield{maintitleaddon}\isdot}}%
-    
-    
-    
 \renewbibmacro*{title}{%
   \ifboolexpr{test {\iffieldundef{title}} and%
               test {\iffieldundef{subtitle}}}{}%
@@ -357,16 +341,10 @@
   }%%																									>> JF: geändert, alles in Klammern
 \newbibmacro*{addendum}{%
 }%
-%                      
-
-
-                                              %
+%                                                                    %
 \newbibmacro*{signatur}{%
   \iffieldundef{note}{}{\printtext[parens]{\printfield{note}}\nopunct}%
 }%
-
-
-
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{
     \usebibmacro{maintitle}%
@@ -399,10 +377,6 @@
         {\printnames{editor}}%
      }}%
 }%
-
-
-
-
 \newbibmacro*{reftitle}{%
   \iffieldundef{title}{}{%
     \printtext{Art\adddot\addspace}%
@@ -410,34 +384,20 @@
       \usebibmacro{title}\setunit{\addspace}%
       \iffieldundef{number}{}{\printfield[brackets]{number}}%
 }}}%
-
-
-
 \newbibmacro*{refmaintitle}{%
   \iffieldundef{maintitle}{}{%
     \printfield{maintitle}\setunit*{\addspace}\printfield{volume}%
 }}%
-
-
-%\newbibmacro*{reztitle}{%			%% wird nicht verwendet
-%  \printtext[quotes]{%
-%    \usebibmacro{title}%
-%}}%
-
-
-
+\newbibmacro*{reztitle}{%
+  \printtext[quotes]{%
+    \usebibmacro{title}%
+}}%
 \newbibmacro*{antikzeugs}{%
   \iflistundef{language}{}{%
     \printlist{language}\isdot%
     \setunit{\addcomma\addspace}%
   }%
 }%
-
-
-
-%%%%%%%%%%%%% DeclareBibliographyDriver %%%%%%%%%%%%%%%%
-
-
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -462,9 +422,6 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
-
-
-
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -499,10 +456,6 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
-
-
-
-
 \DeclareBibliographyDriver{thesis}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -520,10 +473,6 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
-
-
-
-
 \DeclareBibliographyDriver{proceedings}{%				%% LCB: neu hinzugefügt
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -546,10 +495,6 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
-
-
-
-
 \DeclareBibliographyDriver{inproceedings}{%				%% LCB: NEU hinzugefügt
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -580,10 +525,6 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
-
-
-
-
 \DeclareBibliographyDriver{inbook}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -617,10 +558,6 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
-
-
-
-
 \DeclareBibliographyDriver{inreference}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -641,74 +578,34 @@
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
-
-
-
-
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-    \usebibmacro{author}%
-     \ifnameundef{labelname}
-       {}
-       {\setunit{\labelnamepunct}\newblock}%
-	\iffieldundef{xref}%
-	  {% Code, wenn kein xref vorhanden
-      \usebibmacro{title}%
-      \newunit%
-      \printlist{language}%
-      \newunit\newblock
-      \usebibmacro{byauthor}%
-      \newunit\newblock
-      \usebibmacro{bytranslator+others}%
-      \newunit\newblock
-      \printfield{version}}
-	  {% Code, wenn xref vorhanden
-      \savefield{xref}{\bbx@reviewparent}%
-          \printtext[review]{%
-       % \bbx@review          {\thefield{xref}}
-          }}%			%%% FEHLERMELDUNG! Warum??????
+  \usebibmacro{author}%
+    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
+    \iffieldundef{title}{}{\printfield{title}}\adddot\addspace%		%%LCB: Falls @review einen eigenen Titel hat, wird der ausgelesen
+  \printtext{Rez\adddot\addspace zu\addspace}%
+  %\setunit{\addcolon\addspace}\newblock%
+  \iffieldundef{crossref}%									%%LCB
+    {\usebibmacro{reztitle}}%									%%LCB
+    {    \usebibmacro{mycrossref}%%									%%LCB
+    }
+  %\usebibmacro{reztitle}%		%alt
   \newunit\newblock
-  \usebibmacro{journal+issuetitle}%
-  \newunit\newblock
-  \usebibmacro{byeditor+others}%
-  \newunit\newblock
-  \usebibmacro{note+pages}%
-  \newunit\newblock
-  \usebibmacro{doi+eprint+url}%
-  \newunit\newblock
-  \usebibmacro{addendum+pubstate}%
-  \newunit\newblock
-  \usebibmacro{pageref}
-  \usebibmacro{finentry}}
-  
-%\DeclareBibliographyDriver{review}{%
-%  \usebibmacro{bibindex}%
-%  \usebibmacro{begentry}%
-%  \usebibmacro{author}%
-%    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
-%    \iffieldundef{title}{}{\printfield{title}}\adddot\addspace%		%%LCB: Falls @review einen eigenen Titel hat, wird der ausgelesen
-%  \printtext{Rez\adddot\addspace zu\addspace}%
-%  %\setunit{\addcolon\addspace}\newblock%
-%  \iffieldundef{crossref}%									%%LCB
-%    {\usebibmacro{reztitle}}%									%%LCB
-%    {    \usebibmacro{mycrossref}%%									%%LCB
-%    }
-%  \newunit\newblock
-%  %\usebibmacro{in:}%
-%  \usebibmacro{journal+number+year}%
-%  \newunit\newblock%
-%  \usebibmacro{pages}%
-%%  \setunit{\addspace}%
-%%  \usebibmacro{url+urldate}%
-%  \setunit{\addperiod\addspace}%
-%  \usebibmacro{signatur}%
-%  \usebibmacro{savestuff}%
-%  \usebibmacro{finentry}%
-%}%
+  %\usebibmacro{in:}%
+  \usebibmacro{journal+number+year}%
+  \newunit\newblock%
+  \usebibmacro{pages}%
+%  \setunit{\addspace}%
+%  \usebibmacro{url+urldate}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \usebibmacro{savestuff}%
+  \usebibmacro{finentry}%
+}%
 %
-%\newbibmacro{mycrossref}{%
-%  \textcite{\thefield{crossref}}}%
+\newbibmacro{mycrossref}{%
+  \textcite{\thefield{crossref}}}%
 %
 %% Bibliographie-Umgebung bei Autor-Jahr %%%%%%
 %

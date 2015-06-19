@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.13)  17 JUN 2015 16:10
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  19 JUN 2015 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1641,7 +1641,7 @@ Package biblatex Info: Trying to load bibliography style 'archaeologie'...
 Package biblatex Info: ... file 'archaeologie.bbx' found.
 
 (./archaeologie.bbx
-File: archaeologie.bbx 2015/06/15 v0.9 archaeologie-- biblatex fuer Archaeologe
+File: archaeologie.bbx 2015/06/04 v0.9 archaeologie-- biblatex fuer Archaeologe
 n, Historiker und Philologen, bbx-Datei
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
@@ -1670,6 +1670,9 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 )))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/genmisc/nth.sty
+Package: nth 2002/02/27
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
@@ -1729,7 +1732,7 @@ File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
 Package hyperref Info: Option `draft' set `false' on input line 4319.
-Package hyperref Info: Option `colorlinks' set `true' on input line 4319.
+Package hyperref Info: Option `colorlinks' set `false' on input line 4319.
 Package hyperref Info: Hyper figures OFF on input line 4443.
 Package hyperref Info: Link nesting OFF on input line 4448.
 Package hyperref Info: Hyper index ON on input line 4451.
@@ -1749,7 +1752,7 @@ Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
 Package hyperref Info: backreferencing OFF on input line 6310.
-Package hyperref Info: Link coloring ON on input line 6313.
+Package hyperref Info: Link coloring OFF on input line 6315.
 Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
@@ -1921,23 +1924,397 @@ Package biblatex Info: Data encoding 'utf8' specified.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'MWE_archaeologie.bbl' found.
-(./MWE_archaeologie.bbl)
+(./MWE_archaeologie.bbl
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Arnolds_2005':
+(biblatex)                - Overwriting field 'year' with year value from field
+ 'date' for entry 'Arnolds_2005'.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Bacchetta_2011':
+(biblatex)                - Overwriting field 'year' with year value from field
+ 'date' for entry 'Bacchetta_2011'.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Bacchetta_2011':
+(biblatex)                - Datamodel: Entry 'Bacchetta_2011' (MWE_archaeologie
+.bib): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Bacchetta_2011':
+(biblatex)                - Datamodel: Entry 'Bacchetta_2011' (MWE_archaeologie
+.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Booms_2014':
+(biblatex)                - Datamodel: Entry 'Booms_2014' (MWE_archaeologie.bib
+): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Booms_2014':
+(biblatex)                - Datamodel: Entry 'Booms_2014' (MWE_archaeologie.bib
+): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'CiancioRossetto_1993':
+(biblatex)                - Datamodel: Entry 'CiancioRossetto_1993' (MWE_archae
+ologie.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'CiancioRossetto_1993':
+(biblatex)                - Datamodel: Entry 'CiancioRossetto_1993' (MWE_archae
+ologie.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Coqueugniot_2011':
+(biblatex)                - Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Coqueugniot_2011':
+(biblatex)                - Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Coqueugniot_2011':
+(biblatex)                - Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Danner_2014':
+(biblatex)                - Overwriting field 'year' with year value from field
+ 'date' for entry 'Danner_2014'.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Danner_2014':
+(biblatex)                - Datamodel: Entry 'Danner_2014' (MWE_archaeologie.bi
+b): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Danner_2014':
+(biblatex)                - Datamodel: Entry 'Danner_2014' (MWE_archaeologie.bi
+b): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Dickenson_2013':
+(biblatex)                - Datamodel: Entry 'Dickenson_2013' (MWE_archaeologie
+.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Dickenson_2013':
+(biblatex)                - Datamodel: Entry 'Dickenson_2013' (MWE_archaeologie
+.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Eder_2001a':
+(biblatex)                - Datamodel: Entry 'Eder_2001a' (MWE_archaeologie.bib
+): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Eder_2001a':
+(biblatex)                - Datamodel: Entry 'Eder_2001a' (MWE_archaeologie.bib
+): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Evangelidis_2007':
+(biblatex)                - Datamodel: Entry 'Evangelidis_2007' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Evangelidis_2007':
+(biblatex)                - Datamodel: Entry 'Evangelidis_2007' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Giannikouri_2011':
+(biblatex)                - Datamodel: Entry 'Giannikouri_2011' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Giannikouri_2011':
+(biblatex)                - Datamodel: Entry 'Giannikouri_2011' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Graffunder_1914':
+(biblatex)                - Datamodel: Entry 'Graffunder_1914' (MWE_archaeologi
+e.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Graffunder_1914':
+(biblatex)                - Datamodel: Entry 'Graffunder_1914' (MWE_archaeologi
+e.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Hekster_2009':
+(biblatex)                - Datamodel: Entry 'Hekster_2009' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Hekster_2009':
+(biblatex)                - Datamodel: Entry 'Hekster_2009' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Hekster_2009':
+(biblatex)                - Datamodel: Entry 'Hekster_2009' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Hoevelborn_1983':
+(biblatex)                - Datamodel: Entry 'Hoevelborn_1983' (MWE_archaeologi
+e.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Hoevelborn_1983':
+(biblatex)                - Datamodel: Entry 'Hoevelborn_1983' (MWE_archaeologi
+e.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Johanson_2008':
+(biblatex)                - Datamodel: Entry 'Johanson_2008' (MWE_archaeologie.
+bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Johanson_2008':
+(biblatex)                - Datamodel: Entry 'Johanson_2008' (MWE_archaeologie.
+bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Jongman_2001':
+(biblatex)                - Datamodel: Entry 'Jongman_2001' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Jongman_2001':
+(biblatex)                - Datamodel: Entry 'Jongman_2001' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Kienlin_2004a':
+(biblatex)                - Datamodel: Entry 'Kienlin_2004a' (MWE_archaeologie.
+bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Kienlin_2004a':
+(biblatex)                - Datamodel: Entry 'Kienlin_2004a' (MWE_archaeologie.
+bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Kornemann_1933':
+(biblatex)                - Datamodel: Entry 'Kornemann_1933' (MWE_archaeologie
+.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Kornemann_1933':
+(biblatex)                - Datamodel: Entry 'Kornemann_1933' (MWE_archaeologie
+.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Kurapkat_2014':
+(biblatex)                - Overwriting field 'year' with year value from field
+ 'date' for entry 'Kurapkat_2014'.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Kurapkat_2014':
+(biblatex)                - Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.
+bib): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Kurapkat_2014':
+(biblatex)                - Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.
+bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Maggi_2011':
+(biblatex)                - Overwriting field 'year' with year value from field
+ 'date' for entry 'Maggi_2011'.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Maggi_2011':
+(biblatex)                - Datamodel: Entry 'Maggi_2011' (MWE_archaeologie.bib
+): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Maggi_2011':
+(biblatex)                - Datamodel: Entry 'Maggi_2011' (MWE_archaeologie.bib
+): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Poupaki_2011':
+(biblatex)                - Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Poupaki_2011':
+(biblatex)                - Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Poupaki_2011':
+(biblatex)                - Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Rosenberger_2012':
+(biblatex)                - Datamodel: Entry 'Rosenberger_2012' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Rosenberger_2012':
+(biblatex)                - Datamodel: Entry 'Rosenberger_2012' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Santoriello_1999':
+(biblatex)                - Datamodel: Entry 'Santoriello_1999' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Santoriello_1999':
+(biblatex)                - Datamodel: Entry 'Santoriello_1999' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Santoriello_1999':
+(biblatex)                - Datamodel: Entry 'Santoriello_1999' (MWE_archaeolog
+ie.bib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Selle_2008':
+(biblatex)                - Datamodel: Entry 'Selle_2008' (MWE_archaeologie.bib
+): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Selle_2008':
+(biblatex)                - Datamodel: Entry 'Selle_2008' (MWE_archaeologie.bib
+): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Selle_2008a':
+(biblatex)                - Datamodel: Entry 'Selle_2008a' (MWE_archaeologie.bi
+b): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Selle_2008a':
+(biblatex)                - Datamodel: Entry 'Selle_2008a' (MWE_archaeologie.bi
+b): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Selle_2008b':
+(biblatex)                - Datamodel: Entry 'Selle_2008b' (MWE_archaeologie.bi
+b): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Selle_2008b':
+(biblatex)                - Datamodel: Entry 'Selle_2008b' (MWE_archaeologie.bi
+b): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Torelli_1988':
+(biblatex)                - Overwriting field 'year' with year value from field
+ 'date' for entry 'Torelli_1988'.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Torelli_1988':
+(biblatex)                - Datamodel: Entry 'Torelli_1988' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'eventdate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Torelli_1988':
+(biblatex)                - Datamodel: Entry 'Torelli_1988' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Torelli_1991':
+(biblatex)                - Datamodel: Entry 'Torelli_1991' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Torelli_1991':
+(biblatex)                - Datamodel: Entry 'Torelli_1991' (MWE_archaeologie.b
+ib): Invalid format '' of date field 'urldate' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Tosi_1995':
+(biblatex)                - Datamodel: Entry 'Tosi_1995' (MWE_archaeologie.bib)
+: Invalid format '' of date field 'date' - ignoring.
+
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'Tosi_1995':
+(biblatex)                - Datamodel: Entry 'Tosi_1995' (MWE_archaeologie.bib)
+: Invalid format '' of date field 'urldate' - ignoring.
+
+)
 Package biblatex Info: Reference section=0 on input line 53.
 Package biblatex Info: Reference segment=0 on input line 53.
 \AtBeginShipoutBox=\box43
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
-LaTeX Info: Redefining \color on input line 81.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package color Info: Driver file: xetex.def on input line 142.
-)
-Package hyperref Info: Link coloring ON on input line 53.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
+Package hyperref Info: Link coloring OFF on input line 53.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1952,12 +2329,6 @@ LaTeX Info: Redefining \nameref on input line 53.
 (./MWE_archaeologie.out) (./MWE_archaeologie.out)
 \@outlinefile=\write4
 \openout4 = `MWE_archaeologie.out'.
-
-
-Overfull \hbox (2531.48448pt too wide) in paragraph at lines 54--55
-[]\EU1/LinLibertine(0)/m/n/10.95 ok, das ist mein erster Versuch etwas zu schre
-iben. 
- []
 
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;" at 8.0pt
@@ -1980,11 +2351,11 @@ Requested font "cmsy8" at 8.0pt
 Requested font "cmsy6" at 6.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 60.
+(Font)              <10.95> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 60.
+(Font)              <8> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 60.
+(Font)              <6> on input line 54.
 Requested font "cmr8" at 8.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 Requested font "cmr6" at 6.0pt
@@ -2002,118 +2373,236 @@ Requested font "cmmi9" at 9.0pt
 Requested font "cmsy9" at 9.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 60.
+(Font)              <9> on input line 54.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 60.
+(Font)              <5> on input line 54.
 Requested font "cmr9" at 9.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+
+Overfull \hbox (2391.85793pt too wide) in paragraph at lines 54--55
+[]\EU1/LinLibertine(0)/m/n/10.95 ohne Autor/Hrsg[][][] 
+ []
+
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;+smcp;+smcp;" at 9.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
 
-Overfull \hbox (2316.33943pt too wide) in paragraph at lines 60--61
-[][][][][][] 
+Overfull \hbox (2356.40547pt too wide) in paragraph at lines 57--60
+[]\EU1/LinLibertine(0)/m/n/10.95 @Article[][][] 
+ []
+
+
+Overfull \hbox (2349.29892pt too wide) in paragraph at lines 61--62
+[]\EU1/LinLibertine(0)/m/n/10.95 @Book[][][] 
+ []
+
+
+Overfull \hbox (2378.85297pt too wide) in paragraph at lines 64--65
+[]\EU1/LinLibertine(0)/m/n/10.95 @Incollection[][][] 
+ []
+
+
+Overfull \hbox (2380.46262pt too wide) in paragraph at lines 66--67
+[]\EU1/LinLibertine(0)/m/n/10.95 @Proceedings[][][] 
+ []
+
+
+Overfull \hbox (2389.40877pt too wide) in paragraph at lines 68--69
+[]\EU1/LinLibertine(0)/m/n/10.95 @Inproceedings[][][] 
+ []
+
+
+Overfull \hbox (2376.89291pt too wide) in paragraph at lines 70--71
+[]\EU1/LinLibertine(0)/m/n/10.95 @Inreference[][][] 
+ []
+
+
+Overfull \hbox (2356.35072pt too wide) in paragraph at lines 72--73
+[]\EU1/LinLibertine(0)/m/n/10.95 @review[][][] 
+ []
+
+
+Overfull \hbox (2351.89407pt too wide) in paragraph at lines 74--75
+[]\EU1/LinLibertine(0)/m/n/10.95 @thesis[][][] 
+ []
+
+
+Overfull \hbox (2358.00117pt too wide) in paragraph at lines 76--77
+[]\EU1/LinLibertine(0)/m/n/10.95 @online[][][] 
+ []
+
+
+Overfull \hbox (2422.64542pt too wide) in paragraph at lines 78--80
+[]\EU1/LinLibertine(0)/m/n/10.95 ANTIKE @incollection[][][] 
+ []
+
+
+Overfull \hbox (2352.08818pt too wide) in paragraph at lines 81--82
+[]\EU1/LinLibertine(0)/m/n/10.95 @book[][][] 
+ []
+
+
+Overfull \hbox (2395.35529pt too wide) in paragraph at lines 83--84
+[]\EU1/LinLibertine(0)/m/n/10.95 @book - frgantik[][][] 
+ []
+
+
+Overfull \hbox (2360.95642pt too wide) in paragraph at lines 86--87
+[]\EU1/LinLibertine(0)/m/n/10.95 CORPORA 
+ []
+
+
+Overfull \hbox (2336.16689pt too wide) in paragraph at lines 88--89
+[]\EU1/LinLibertine(0)/m/n/10.95 CIL[][][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 101.
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 101.
 
 [1
 
 ]
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 71.
+(Font)              scaled to size 10.95pt on input line 101.
 Requested font "[LinBiolinum_R.otf]/OT:script=latn;language=DFLT;mapping=tex-te
 xt;mapping=tex-text;+tnum;" at 10.95pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_R.otf
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 10.95pt on input line 71.
+(Font)              scaled to size 10.95pt on input line 101.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 10.95pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 20.74pt on input line 71.
+(Font)              scaled to size 20.74pt on input line 101.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 20.74pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 71.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 71.
-
-
-Package biblatex Warning: Keyword 'Sigel' not found on input line 73.
-
-
-LaTeX Warning: Empty bibliography on input line 73.
-
-
-Package biblatex Warning: Keyword 'unbekannt' not found on input line 74.
-
-
-LaTeX Warning: Empty bibliography on input line 74.
-
-
-Package biblatex Warning: Keyword 'Quelle' not found on input line 75.
-
-
-LaTeX Warning: Empty bibliography on input line 75.
-
+(babel)             in language  on input line 101.
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 14.4pt on input line 76.
+(Font)              scaled to size 14.4pt on input line 103.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 14.4pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 103.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 103.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 104.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 104.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 105.
+Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
+ext;mapping=tex-text;+tnum;+lnum;" at 7.0pt
+ -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
+tine_R.otf
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 105.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 105.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 105.
+ [2
+
+]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;+smcp;+smcp;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 86.
+(babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 86.
+(babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 86.
+(babel)             in language  on input line 106.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 86.
-[2
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
+(babel)             in language  on input line 106.
+ [3]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
+ [4]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
+ [5]
+Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=DFLT;mapping=tex-
+text;mapping=tex-text;+tnum;+lnum;" at 10.0pt
+ -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
+tine_RI.otf
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 106.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 106.
+ [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 116.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 116.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 116.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 116.
  (./MWE_archaeologie.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 86.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 86.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 116.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 116.
 Package logreq Info: Writing requests to 'MWE_archaeologie.run.xml'.
 \openout1 = `MWE_archaeologie.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38009 strings out of 493706
- 745468 string characters out of 6145769
- 1102297 words of memory out of 5000000
- 41065 multiletter control sequences out of 15000+600000
- 8444 words of font info for 62 fonts, out of 8000000 for 9000
+ 38373 strings out of 493706
+ 755136 string characters out of 6145769
+ 1112922 words of memory out of 5000000
+ 41427 multiletter control sequences out of 15000+600000
+ 8517 words of font info for 64 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
- 67i,8n,66p,10413b,1394s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,8n,66p,10413b,1542s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on MWE_archaeologie.pdf (2 pages).
+Output written on MWE_archaeologie.pdf (7 pages).

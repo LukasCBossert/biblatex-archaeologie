@@ -19,58 +19,2250 @@
 
 \refsection{0}
   \sortlist{nyt}{nyt}
-    \entry{MacDonald_1982}{book}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=c42493bb7eb5ed83eb3cbe3ddfc119ac}{MacDonald}{M\bibinitperiod}{William\bibnamedelima L.}{W\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+    \entry{Alfoeldy_2003}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=c27dec36df39a502df236afca09fd0b6}{Alföldy}{A\bibinitperiod}{Géza}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=1bc8b38b057d152c9926f9987cca9f25}{Abascal}{A\bibinitperiod}{Juan\bibnamedelima Manuel}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=23283b477482a8ccc1784cf8faa1acb6}{Cebrián}{C\bibinitperiod}{Rosario}{R\bibinitperiod}{}{}{}{}}%
       }
-      \list{location}{2}{%
-        {New Haven}%
+      \strng{namehash}{6102f185a7fc0f3f7d53c235611f3dda}
+      \strng{fullhash}{6102f185a7fc0f3f7d53c235611f3dda}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2003}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Zeitschrift für Papyrologie und Epigraphik}
+      \field{shortjournal}{ZPE}
+      \field{title}{Nuevos monumentos epigráficos del foro de Segobriga. Parte segunda: Inscripciones de dignatarios municipales, fragmentos de naturaleza desconocida, hallazgos más recientes}
+      \field{volume}{144}
+      \field{year}{2003}
+      \field{pages}{217\bibrangedash 234}
+      \range{pages}{18}
+      \verb{file}
+      \verb :Artikel_Monographien/Alföldy_Abascal and Cebrián_(Alfoeldy_2003)_Nuevos monumentos epigráficos del foro de Segobriga. Parte segunda_ Inscripciones de dignatarios municipales, fragmentos de naturaleza desconocida, hallazgos más recientes_217-234.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Allison_2001}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=c4c68a5217d13632acdec48b6cb02299}{Allison}{A\bibinitperiod}{Penelope\bibnamedelima M.}{P\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{1}{%
+        {Archaeological Institute of America}%
+      }
+      \strng{namehash}{c4c68a5217d13632acdec48b6cb02299}
+      \strng{fullhash}{c4c68a5217d13632acdec48b6cb02299}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The study of Roman domestic space, which has greatly expanded in the last years of this millennium, is an area of research into the classical world where both material and written sources provide important evidence. This paper outlines the types of evidence and examines several recent studies for a critical perspective on current methodological and theoretical approaches to Roman material culture. While this study demonstrates that more rigorous research is needed, it also highlights that this burgeoning interest has made substantial contributions to research on Roman domestic behavior.}
+      \field{issn}{00029114}
+      \field{journaltitle}{American Journal of Archaeology}
+      \field{number}{2}
+      \field{shortjournal}{AJA}
+      \field{title}{Using the Material and Written Sources: Turn of the Millennium Approaches to Roman Domestic Space}
+      \field{volume}{105}
+      \field{year}{2001}
+      \field{pages}{181\bibrangedash 208}
+      \range{pages}{28}
+      \verb{file}
+      \verb :Artikel_Monographien/Allison_(Allison_2001)_Using the Material and Written Sources_ Turn of the Millennium Approaches to Roman Domestic Space_181-208.pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/507270
+      \endverb
+    \endentry
+    \entry{Andreae_1957}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5a67a39f365008a82ab81b2969d59198}{Andreae}{A\bibinitperiod}{Bernard}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{5a67a39f365008a82ab81b2969d59198}
+      \strng{fullhash}{5a67a39f365008a82ab81b2969d59198}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{1957}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Archäologischer Anzeiger}
+      \field{shortjournal}{AA}
+      \field{title}{Archäologische Funde und Grabungen im Bereich der Soprintendenzen von Rom 1949--1956/57}
+      \field{volume}{72}
+      \field{year}{1957}
+      \field{pages}{110\bibrangedash 358}
+      \range{pages}{249}
+      \verb{file}
+      \verb :Artikel_Monographien/Andreae_(Andreae_1957)_Archäologische Funde und Grabungen im Bereich der Soprintendenzen von Rom 1949–1956_57_110-358.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Anichini_2012}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=e8295e6a02064ccc4830bba8c6754b77}{Anichini}{A\bibinitperiod}{F.}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=7fe22f4bd8c7fb37520e44e9eb688b9a}{Fabiani}{F\bibinitperiod}{F.}{F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9bbf92a75543fbc818ff13a7a9e96ffd}{Gattiglia}{G\bibinitperiod}{G.}{G\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=9319fa24a73cb5a1a6654a5f90e0b0c0}{Gualandi}{G\bibinitperiod}{M.\bibnamedelimi L.}{M\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{ba3e37bc090a0203067ab0d5172f8a03}
+      \strng{fullhash}{6d2909de60b6d92af9dc2b79ed1ddf79}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{MapPapers}
+      \field{title}{A database for archaeological data recording and analysis}
+      \field{volume}{1}
+      \field{year}{2012}
+      \field{pages}{21\bibrangedash 38}
+      \range{pages}{18}
+    \endentry
+    \entry{Arnolds_2005}{thesis}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=454f963aa39d58deb5f7c7f7fa3ccac2}{Arnolds}{A\bibinitperiod}{Markus}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{454f963aa39d58deb5f7c7f7fa3ccac2}
+      \strng{fullhash}{454f963aa39d58deb5f7c7f7fa3ccac2}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2005}
+      \field{labelmonth}{05}
+      \field{labelday}{31}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{31}
+      \field{month}{05}
+      \field{title}{Funktionen republikanischer und frühkaiserzeitlicher Forumsbasiliken in Italien}
+      \field{type}{phdthesis}
+      \field{urlday}{17}
+      \field{urlmonth}{04}
+      \field{urlyear}{2015}
+      \field{year}{2005}
+      \verb{file}
+      \verb :Artikel_Monographien/Arnolds_(Arnolds_2005)_Funktionen republikanischer und frühkaiserzeitlicher Forumsbasiliken in Italien.pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://nbn-resolving.de/urn:nbn:de:bsz:16-heidok-74406
+      \endverb
+      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Arnolds_2005'}
+    \endentry
+    \entry{Babcock_1962}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=fab37defb05bc4b1af6d876ff66912ff}{Babcock}{B\bibinitperiod}{Charles\bibnamedelima L.}{C\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{1}{%
+        {The Johns Hopkins University Press}%
+      }
+      \strng{namehash}{fab37defb05bc4b1af6d876ff66912ff}
+      \strng{fullhash}{fab37defb05bc4b1af6d876ff66912ff}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{1962}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Philology}
+      \field{number}{2}
+      \field{title}{An Inscription of Trajan Decius from Cosa}
+      \field{volume}{83}
+      \field{year}{1962}
+      \field{pages}{pp.147\bibrangedash 158}
+      \range{pages}{-1}
+      \verb{file}
+      \verb :Artikel_Monographien/Babcock_(Babcock_1962)_An Inscription of Trajan Decius from Cosa_pp.147-158.pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/292212
+      \endverb
+    \endentry
+    \entry{Bacchetta_2011}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=46f0c4c8ebc7fc3f6514f87309e65c24}{Bacchetta}{B\bibinitperiod}{Alberto}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=4a449a368f46972a69a068f76a4edf30}{Crosetto}{C\bibinitperiod}{Alberto}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2c118394cac984ad0e7b8e63ba652127}{Gambari}{G\bibinitperiod}{Marica\bibnamedelima Venturino}{M\bibinitperiod\bibinitdelim V\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=ba980fcdc302ff5a0a20335943693d4a}{Maggi}{M\bibinitperiod}{Stefano}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {italian}%
+      }
+      \list{organization}{1}{%
+        {Università degli Studi di Pavia}%
+      }
+      \list{publisher}{1}{%
+        {All'Insegna del Giglio}%
+      }
+      \strng{namehash}{630a04ee50df577543573bcd2e5c1c54}
+      \strng{fullhash}{630a04ee50df577543573bcd2e5c1c54}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2009}
+      \field{labelmonth}{03}
+      \field{labelday}{12\bibdatedash 13}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{12}
+      \field{endday}{13}
+      \field{endmonth}{03}
+      \field{endyear}{2009}
+      \field{mainsubtitle}{Nuovi Dati}
+      \field{maintitle}{I complessi forensi della Cisalpina Romana}
+      \field{maintitleaddon}{Atti del Convegno di Studi}
+      \field{month}{03}
+      \field{number}{10}
+      \field{series}{Flos Italiae. Documenti di archeologia della Cisalpina Romana}
+      \field{subtitle}{Nuovi dati sulla piazza e il capitolium}
+      \field{title}{Il foro di Aquae Statiellae (Acqui Terme)}
+      \field{venue}{Pavia}
+      \field{year}{2009}
+      \field{pages}{71\bibrangedash 86}
+      \range{pages}{16}
+      \verb{file}
+      \verb :Sammelbaende/Maggi_(Maggi_2011)_I complessi forensi della Cisalpina romana/Bacchetta_Crosetto and Gambari_(Bacchetta_2011)_Il foro di Aquae Statiellae (Acqui Terme)_71-86.pdf:PDF
+      \endverb
+      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Bacchetta_2011'}
+      \warn{\item Datamodel: Entry 'Bacchetta_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Bacchetta_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Baker_2011}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=6c467e147dd2069f8d026215b470f743}{Baker}{B\bibinitperiod}{Patricia}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{6c467e147dd2069f8d026215b470f743}
+      \strng{fullhash}{6c467e147dd2069f8d026215b470f743}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{Journal of Roman Studies}
+      \field{shortjournal}{JRS}
+      \field{volume}{101}
+      \field{year}{2011}
+      \field{pages}{321\bibrangedash 322}
+      \range{pages}{2}
+      \verb{file}
+      \verb :Rezensionen/Baker_(Baker_2011)_Republikanische Fora_321-322.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Ball_2013}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=7a654ab25739eac705833b5a4564290d}{Ball}{B\bibinitperiod}{Larry\bibnamedelima F.}{L\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=f2c23d974efed7a360f2178bb174e936}{Dobbins}{D\bibinitperiod}{John\bibnamedelima J.}{J\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{461f1130d2a4d9fd1df40051ee7b77bd}
+      \strng{fullhash}{461f1130d2a4d9fd1df40051ee7b77bd}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2013}
+      \field{labelmonth}{07}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Archaeology}
+      \field{month}{07}
+      \field{number}{3}
+      \field{shortjournal}{AJA}
+      \field{subtitle}{Current Thinking on the Pompeii Forum}
+      \field{title}{Pompeii Forum Project}
+      \field{volume}{117}
+      \field{year}{2013}
+      \field{pages}{461\bibrangedash 492}
+      \range{pages}{32}
+      \verb{file}
+      \verb :Artikel_Monographien/Ball and Dobbins_(Ball_2013)_Pompeii Forum Project_ Current Thinking on the Pompeii Forum_461-492.pdf:PDF
+      \endverb
+      \keyw{Methode}
+    \endentry
+    \entry{Bartosiewicz_2003}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=fd596cb5a30be97d25f162d7f0b10396}{Bartosiewicz}{B\bibinitperiod}{László}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{fd596cb5a30be97d25f162d7f0b10396}
+      \strng{fullhash}{fd596cb5a30be97d25f162d7f0b10396}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2003}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{European Journal of Archaeology}
+      \field{number}{2}
+      \field{title}{'There{’}s something rotten in the state ...': Bad smells in Antiquity}
+      \field{volume}{6}
+      \field{year}{2003}
+      \field{pages}{175\bibrangedash 195}
+      \range{pages}{21}
+      \verb{file}
+      \verb :Artikel_Monographien/Bartosiewicz_(Bartosiewicz_2003)_'Theretextquoterights something rotten in the state ...'_ Bad smells in Antiquity_175-195.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Baumgart_1935}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5b37fd7d005eff6dee9a9ea2506a3ba5}{Baumgart}{B\bibinitperiod}{Fritz}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{1}{%
+        {Deutscher Kunstverlag GmbH Munchen Berlin}%
+      }
+      \strng{namehash}{5b37fd7d005eff6dee9a9ea2506a3ba5}
+      \strng{fullhash}{5b37fd7d005eff6dee9a9ea2506a3ba5}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{1935}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Zeitschrift für Kunstgeschichte}
+      \field{number}{1/2}
+      \field{shortjournal}{ZKuGesch}
+      \field{subtitle}{Zur Bedeutung von Platzanlagen für den Städtebau}
+      \field{title}{Platz und Stadt}
+      \field{volume}{4}
+      \field{year}{1935}
+      \field{pages}{17\bibrangedash 35}
+      \range{pages}{19}
+      \verb{file}
+      \verb :Artikel_Monographien/Baumgart_(Baumgart_1935)_Platz und Stadt. Zur Bedeutung von Platzanlagen für den Städtebau_17-35.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Beard_2008}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5ed0b8051ada38438c96cbdacdfcfde9}{Beard}{B\bibinitperiod}{Mary}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
         {London}%
       }
       \list{publisher}{1}{%
-        {Yale University Press}%
+        {Profile Books}%
       }
-      \strng{namehash}{c42493bb7eb5ed83eb3cbe3ddfc119ac}
-      \strng{fullhash}{c42493bb7eb5ed83eb3cbe3ddfc119ac}
-      \field{sortinit}{M}
-      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \strng{namehash}{5ed0b8051ada38438c96cbdacdfcfde9}
+      \strng{fullhash}{5ed0b8051ada38438c96cbdacdfcfde9}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{shorttitle}{Pompeii}
+      \field{subtitle}{The life of a Roman town}
+      \field{title}{Pompeii}
+      \field{year}{2008}
+      \verb{file}
+      \verb :Artikel_Monographien/Beard_(Beard_2008)_Pompeii_ The life of a Roman town.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Bell_2011}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f1df6e1740bc69aa5ca8861b4bc20e9d}{Bell}{B\bibinitperiod}{Sinclair}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Archaeological Institute of America}%
+      }
+      \strng{namehash}{f1df6e1740bc69aa5ca8861b4bc20e9d}
+      \strng{fullhash}{f1df6e1740bc69aa5ca8861b4bc20e9d}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2011}
+      \field{labelmonth}{01}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{American Journal of Archaeology}
+      \field{month}{01}
+      \field{number}{1}
+      \field{shortjournal}{AJA}
+      \field{volume}{115}
+      \field{year}{2011}
+      \verb{file}
+      \verb :Rezensionen/Bell_(Bell_2011)_Rezension_ K. Welch, The Roman Amphitheatre_ From Its Origins to the Colosseum.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Bernard_2013}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=b406c19b34eff3c085538ede2bf5e7d3}{Bernard}{B\bibinitperiod}{Seth\bibnamedelima G.}{S\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b406c19b34eff3c085538ede2bf5e7d3}
+      \strng{fullhash}{b406c19b34eff3c085538ede2bf5e7d3}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Roman Archaeology}
+      \field{shortjournal}{JRA}
+      \field{title}{Politics and public construction in Republican Rome}
+      \field{volume}{26}
+      \field{year}{2013}
+      \field{pages}{513\bibrangedash 519}
+      \range{pages}{7}
+      \verb{file}
+      \verb :Rezensionen/Bernard_(Bernard_2013)_Politics and public construction in Republican Rome_513-519.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Booms_2014}{inreference}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=a85db2c585b7e924f28d414bd5cea40b}{Booms}{B\bibinitperiod}{Dirk}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=0767e33f504feb110a28d8344975e35d}{Smith}{S\bibinitperiod}{Claire}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a85db2c585b7e924f28d414bd5cea40b}
+      \strng{fullhash}{a85db2c585b7e924f28d414bd5cea40b}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2014}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{Encyclopedia of Global Archaeology}
+      \field{title}{Architecture, Roman}
+      \field{year}{2014}
+      \field{pages}{480\bibrangedash 492}
+      \range{pages}{13}
+      \verb{file}
+      \verb :Artikel_Monographien/Booms_(Booms_2014)_Architecture, Roman_480-492.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Booms_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Booms_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Brogiolo_2006}{incollection}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f2441b946c6b654572c0fcaabb7538e0}{Brogiolo}{B\bibinitperiod}{Gian\bibnamedelima Pietro}{G\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=6194559aaa6ae6d82becbc1daed4be87}{Bowden}{B\bibinitperiod}{William}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=9bf69a88b7dadd24b268a6145bb14996}{Gutteridge}{G\bibinitperiod}{Adam}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=0558702c4f6e05e30016b7f9cf1c382e}{Machado}{M\bibinitperiod}{Carlos}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Leiden}%
+      }
+      \list{publisher}{1}{%
+        {Brill}%
+      }
+      \strng{namehash}{f2441b946c6b654572c0fcaabb7538e0}
+      \strng{fullhash}{f2441b946c6b654572c0fcaabb7538e0}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2006}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{Social and Political Life in Late Antiquity}
+      \field{subtitle}{A Re-examination of the Case of Brescia}
+      \field{title}{The Control of Public Space and the Transformation of an Early Medieval town}
+      \field{volume}{3.1}
+      \field{year}{2006}
+      \field{pages}{251\bibrangedash 286}
+      \range{pages}{36}
+      \verb{file}
+      \verb :Sammelbaende/Bowden_2006_Social and Political Life in Late Antiquity/Brogiolo_(Brogiolo_2006)_The Control of Public Space and the Transformation of an Early Medieval town_251-286.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Burgio_2012}{incollection}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=1b064b9fea924a48339ae95a391ab977}{Burgio}{B\bibinitperiod}{Rocco}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=4faa94a6b8744b0729105efab15c8c45}{Ampolo}{A\bibinitperiod}{Carmine}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {ita eng}%
+      }
+      \list{location}{1}{%
+        {Pisa}%
+      }
+      \list{organization}{1}{%
+        {Giornate Internazionali di Studi sull'Area Elima e la Sicilia Occidentale nel Contesto Mediterraneo <7, 2009, Erice>}%
+      }
+      \list{publisher}{1}{%
+        {Ed. della Normale}%
+      }
+      \strng{namehash}{1b064b9fea924a48339ae95a391ab977}
+      \strng{fullhash}{1b064b9fea924a48339ae95a391ab977}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{library}{UB [Signatur:2013 D 752] ; AC [Signatur:X Pisa 2008]}
+      \field{maintitle}{Agora greca e agorai di Sicilia}
+      \field{note}{Beitr. teilw. ital., teilw. engl.}
+      \field{number}{28}
+      \field{series}{Seminari e convegni}
+      \field{subtitle}{[il volume contiene: atti delle Settime Giornate Internazionali di Studi sull'Area Elima e la Sicilia Occidentale nel Contesto Mediterraneo, Erice, 12 - 15 ottobre 2009 ; Workshop "G. Nenci" diretto da Carmine Ampolo, vol. 1 ; atti del Seminario Internazionale di Studi, Pisa, Scuola Normale Superiore, 30 giugno - 2 luglio 2008 ; altri studi sull'agora non presentati in tali occasioni]}
+      \field{title}{Appendice. Monumenti minori dell’agora di Alesa: le esedre curve. Analisi e ricostruzione}
+      \field{year}{2012}
+      \field{pages}{155\bibrangedash 169}
+      \range{pages}{15}
+      \verb{file}
+      \verb :Artikel_Monographien/Burgio_(Burgio_2012)_Appendice. Monumenti minori dell’agora di Alesa_ le esedre curve. Analisi e ricostruzione_155-169.pdf:PDF
+      \endverb
+      \keyw{(g)Griechenland <Altertum> / (g)Sizilien / (s)Agora / (f)Kongress / (g)Erice <2009>}
+    \endentry
+    \entry{Caes_Gall}{book}{antik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=8c28b40f4ff25c222eb177e58e6b877a}{Iulius\bibnamedelima Caesar}{I\bibinitperiod\bibinitdelim C\bibinitperiod}{Caius}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=5a3ea8c96772d1504f268cee25c8172f}{Dorminger}{D\bibinitperiod}{Georg}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {München}%
+      }
+      \list{publisher}{1}{%
+        {Heimeran}%
+      }
+      \strng{namehash}{8c28b40f4ff25c222eb177e58e6b877a}
+      \strng{fullhash}{8c28b40f4ff25c222eb177e58e6b877a}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{1980}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{origlanguage}{latin}
+      \field{origtitle}{Bellum Gallicum}
+      \field{origyear}{1962}
+      \field{shorthand}{Caes. Gall.}
+      \field{title}{Der Gallische Krieg}
+      \field{usera}{Caesar}
+      \field{year}{1980}
+      \keyw{Quelle}
+    \endentry
+    \entry{Calapa_2009}{incollection}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f6923f97a59c5fe92dc882b6db631530}{Calapà}{C\bibinitperiod}{Annalisa}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=22c7cbfd0fb29756f7989f7043784ea5}{Matthaei}{M\bibinitperiod}{Albrecht}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=6fe9c2f524f69d75fac3ad7326c5499e}{Zimmermann}{Z\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Verlag-Antike}%
+      }
+      \strng{namehash}{f6923f97a59c5fe92dc882b6db631530}
+      \strng{fullhash}{f6923f97a59c5fe92dc882b6db631530}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{2009}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{3938032235}
+      \field{maintitle}{Stadtbilder im Hellenismus}
+      \field{series}{Die Hellenistische Polis Als Lebensform}
+      \field{subtitle}{Kontinuität und Wandel}
+      \field{title}{Das Stadtbild von Ephesos in hellenistischer Zeit}
+      \field{volume}{1}
+      \field{year}{2009}
+      \field{pages}{322\bibrangedash 347}
+      \range{pages}{26}
+      \verb{file}
+      \verb :Sammelbaende/Matthaei_2009_Stadtbilder_im_Hellenismus/Calapà_(Calapa_2009)_Das Stadtbild von Ephesos in hellenistischer Zeit_ Kontinuität und Wandel_322-347.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Chamberland_1999}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=ff7a285f30c2fa4267b822bd0e16c4c4}{Chamberland}{C\bibinitperiod}{Guy}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{ff7a285f30c2fa4267b822bd0e16c4c4}
+      \strng{fullhash}{ff7a285f30c2fa4267b822bd0e16c4c4}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{1999}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Roman Archaeology}
+      \field{shortjournal}{JRA}
+      \field{title}{The organization of gladiatorial games in Italy}
+      \field{volume}{12}
+      \field{year}{1999}
+      \field{pages}{613\bibrangedash 616}
+      \range{pages}{4}
+      \verb{file}
+      \verb :Rezensionen/Chamberland_(Chamberland_1999)_The organization of gladiatorial games in Italy_613-616.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Christie_2009}{incollection}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5b47ad50c09feaed91a1673e86d719cd}{Christie}{C\bibinitperiod}{Neil}{N\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=5f7341f043cedf199270b8479c71b03a}{Wilmott}{W\bibinitperiod}{Tony}{T\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Oxford}%
+      }
+      \list{publisher}{1}{%
+        {Archaeopress}%
+      }
+      \strng{namehash}{5b47ad50c09feaed91a1673e86d719cd}
+      \strng{fullhash}{5b47ad50c09feaed91a1673e86d719cd}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{2009}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{Roman Amphitheatres and Spectacula, a 21st-Century Perspective: Papers from an international conference held at Chester, 16th-18th February, 2007}
+      \field{number}{1946}
+      \field{series}{BAR International Series}
+      \field{title}{No More Fun? The Ends of Entertainment Structures in the Late Roman West}
+      \field{year}{2009}
+      \field{pages}{221\bibrangedash 231}
+      \range{pages}{11}
+      \verb{file}
+      \verb :Sammelbaende/Wilmott_2009_Roman Amphitheatres and Spectacula/Christie_(Christie_2009)_No More Fun_ The Ends of Entertainment Structures in the Late Roman West_221-231.pdf:PDF
+      \endverb
+    \endentry
+    \entry{CiancioRossetto_1993}{inreference}{lexikon}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=4e89b41cb6e450d759a53fa36285a68d}{Ciancio\bibnamedelima Rossetto}{C\bibinitperiod\bibinitdelim R\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{4e89b41cb6e450d759a53fa36285a68d}
+      \strng{fullhash}{4e89b41cb6e450d759a53fa36285a68d}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{1993}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{bookpagination}{column}
+      \field{maintitle}{LTUR}
+      \field{title}{Circus Maximus}
+      \field{volume}{1}
+      \field{year}{1993}
+      \field{pages}{272\bibrangedash 277}
+      \range{pages}{6}
+      \verb{file}
+      \verb :Lexika/LTUR_Lexicon Topographicum Urbis Romae/Einzel/LTUR 1 (1993) 272-277 s.v. Circus Maximus (Ciancio Rossetto).pdf:PDF
+      \endverb
+      \keyw{lexikon}
+      \warn{\item Datamodel: Entry 'CiancioRossetto_1993' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'CiancioRossetto_1993' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Cic_Arch}{incollection}{antik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=073f9342911fde6393ed06e1842eacf6}{Tullius\bibnamedelima Cicero}{T\bibinitperiod\bibinitdelim C\bibinitperiod}{Marcus}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=2c9fa65d72ecd2f672431806266fb137}{Fuhrmann}{F\bibinitperiod}{Manfred}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=2c9fa65d72ecd2f672431806266fb137}{Fuhrmann}{F\bibinitperiod}{Manfred}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {München}%
+      }
+      \list{publisher}{1}{%
+        {Artemis \& Winkler}%
+      }
+      \strng{namehash}{073f9342911fde6393ed06e1842eacf6}
+      \strng{fullhash}{073f9342911fde6393ed06e1842eacf6}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{extrayear}{1}
+      \field{labelyear}{1993}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{Die politischen Reden}
+      \field{origlanguage}{latin}
+      \field{series}{Sammlung Tusculum}
+      \field{shorthand}{Cic. Arch.}
+      \field{title}{Rede für den Dichter A.\ Licinius Archias}
+      \field{usera}{Cicero}
+      \field{volume}{2}
+      \field{year}{1993}
+      \field{pages}{6\bibrangedash 37}
+      \range{pages}{32}
+      \verb{file}
+      \verb :Quellen/Cicero/Tullius Cicero_(Cic_Arch)_Rede für den Dichter A. Licinius Archias_6-37.pdf:PDF
+      \endverb
+      \keyw{Quelle}
+    \endentry
+    \entry{Cic_fam}{incollection}{antik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=073f9342911fde6393ed06e1842eacf6}{Tullius\bibnamedelima Cicero}{T\bibinitperiod\bibinitdelim C\bibinitperiod}{Marcus}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=1ae01a0639518649211e93cca60074ac}{Kasten}{K\bibinitperiod}{Helmut}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=1ae01a0639518649211e93cca60074ac}{Kasten}{K\bibinitperiod}{Helmut}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{2}{%
+        {Düsseldorf}%
+        {Zürich}%
+      }
+      \list{publisher}{1}{%
+        {Artemis {\&} Winkler}%
+      }
+      \strng{namehash}{073f9342911fde6393ed06e1842eacf6}
+      \strng{fullhash}{073f9342911fde6393ed06e1842eacf6}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{2004}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{origlanguage}{latin}
+      \field{series}{Sammlung Tusculum}
+      \field{shorthand}{Cic. fam.}
+      \field{title}{An seine Freunde}
+      \field{usera}{Cicero}
+      \field{year}{2004}
+      \verb{file}
+      \verb :Quellen/Cicero/Tullius Cicero_(Cic_fam)_An seine Freunde.pdf:PDF
+      \endverb
+      \keyw{Quelle}
+    \endentry
+    \entry{Cic_predadQuir}{incollection}{antik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=073f9342911fde6393ed06e1842eacf6}{Tullius\bibnamedelima Cicero}{T\bibinitperiod\bibinitdelim C\bibinitperiod}{Marcus}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=2c9fa65d72ecd2f672431806266fb137}{Fuhrmann}{F\bibinitperiod}{Manfred}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=2c9fa65d72ecd2f672431806266fb137}{Fuhrmann}{F\bibinitperiod}{Manfred}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {München}%
+      }
+      \list{publisher}{1}{%
+        {Artemis \& Winkler}%
+      }
+      \strng{namehash}{073f9342911fde6393ed06e1842eacf6}
+      \strng{fullhash}{073f9342911fde6393ed06e1842eacf6}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{extrayear}{2}
+      \field{labelyear}{1993}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{Die politischen Reden}
+      \field{origlanguage}{latin}
+      \field{origtitle}{oratio post reditum ad Quirites}
+      \field{series}{Sammlung Tusculum}
+      \field{shorthand}{Cic. p. red. ad Quir.}
+      \field{title}{Danksagung an das Volk}
+      \field{usera}{Cicero}
+      \field{volume}{2}
+      \field{year}{1993}
+      \field{pages}{82\bibrangedash 109}
+      \range{pages}{28}
+      \verb{file}
+      \verb :Quellen/Cicero/Tullius Cicero_(Cic_predadQuir)_Danksagung an das Volk_82-109.pdf:PDF
+      \endverb
+      \keyw{Quelle}
+    \endentry
+    \entry{Cic_prov}{incollection}{antik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=073f9342911fde6393ed06e1842eacf6}{Tullius\bibnamedelima Cicero}{T\bibinitperiod\bibinitdelim C\bibinitperiod}{Marcus}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=2c9fa65d72ecd2f672431806266fb137}{Fuhrmann}{F\bibinitperiod}{Manfred}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=2c9fa65d72ecd2f672431806266fb137}{Fuhrmann}{F\bibinitperiod}{Manfred}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {München}%
+      }
+      \list{publisher}{1}{%
+        {Artemis \& Winkler}%
+      }
+      \strng{namehash}{073f9342911fde6393ed06e1842eacf6}
+      \strng{fullhash}{073f9342911fde6393ed06e1842eacf6}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{extrayear}{3}
+      \field{labelyear}{1993}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{Die politischen Reden}
+      \field{origlanguage}{latin}
+      \field{origtitle}{de provinciis consularibus}
+      \field{series}{Sammlung Tusculum}
+      \field{shorthand}{Cic. prov.}
+      \field{title}{Rede über die konsularische Provinzen}
+      \field{usera}{Cicero}
+      \field{volume}{2}
+      \field{year}{1993}
+      \field{pages}{452\bibrangedash 503}
+      \range{pages}{52}
+      \verb{file}
+      \verb :Quellen/Cicero/Tullius Cicero_(Cic_prov)_Rede über die konsularische Provinzen_452-503.pdf:PDF
+      \endverb
+      \keyw{Quelle}
+    \endentry
+    \entry{CIL}{book}{nurshorthand}
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{1863--}
+      \field{datelabelsource}{}
+      \field{labeltitlesource}{title}
+      \field{shorthand}{CIL}
+      \field{title}{Corpus Inscriptionum Latinarum}
+      \field{year}{1863--}
+      \keyw{Sigel}
+    \endentry
+    \entry{Colin_2000}{incollection}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=d76e90c91bd7b968276ed7de1098ba47}{Colin}{C\bibinitperiod}{Xavier}{X\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=ffc4fc43d587dbffaaddcc0822e749f0}{Lo\bibnamedelima Cascio}{L\bibinitperiod\bibinitdelim C\bibinitperiod}{Elio}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Bari}%
+      }
+      \list{publisher}{1}{%
+        {Edipuglia}%
+      }
+      \strng{namehash}{d76e90c91bd7b968276ed7de1098ba47}
+      \strng{fullhash}{d76e90c91bd7b968276ed7de1098ba47}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{Mercati permanente e mercati periodici nel mondo Romao. Atti degli Incontri capresi di storia dell’economia antica (Capri 13--15 ottobre 1997)}
+      \field{title}{Commercants itinerants et marchands sedentaires dans l{’}Occident romain}
+      \field{year}{2000}
+      \field{pages}{149\bibrangedash 160}
+      \range{pages}{12}
+      \verb{file}
+      \verb :Sammelbaende/LoCascio_2000_Mercati permanente e mercati periodici nel mondo Romao/Colin_(Colin_2000)_Commercants itinerants et marchands sedentaires dans l’Occident romain_149-160.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Coqueugniot_2011}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=9d82a557bbff294af713afb50b042385}{Coqueugniot}{C\bibinitperiod}{Ga{"e}lle}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=fe76efc7952ad4aae193596aa451e64d}{Giannikouri}{G\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{2}{%
+        {Hellenic. Ministry of Culture}%
+        {Tourism}%
+      }
+      \strng{namehash}{9d82a557bbff294af713afb50b042385}
+      \strng{fullhash}{9d82a557bbff294af713afb50b042385}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{The agora in the Mediterranean from Homeric to Roman times, Konferenz Kos 14.--17. April 2011 / Η Αγορά στη Μεσόγειο από τους Ομηρικούς έως τους Ρωμαϊκούς χρόνους, Διεθνές Επιστημονικό Συνέδριο, Κως 14--17 Απριλίου 2011}
+      \field{title}{Oriental Agora: The case of Seleucid Europos-Dura, Syria}
+      \field{year}{2011}
+      \field{pages}{295\bibrangedash 309}
+      \range{pages}{15}
+      \verb{file}
+      \verb :Artikel_Monographien/Coqueugniot_(Coqueugniot_2011)_Oriental Agora_ The case of Seleucid Europos-Dura, Syria_295-309.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Cosa_1949}{article}{unbekannt}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=4a83d04ba8a3387cddb30f39c909a37f}{{[}keine\bibnamedelima Angabe{]}}{[\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \strng{namehash}{4a83d04ba8a3387cddb30f39c909a37f}
+      \strng{fullhash}{4a83d04ba8a3387cddb30f39c909a37f}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelyear}{1949}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Classical Journal}
+      \field{number}{1}
+      \field{shorthand}{Cosa}
+      \field{subtitle}{Republican Colony in Etruria}
+      \field{title}{Cosa}
+      \field{volume}{45}
+      \field{year}{1949}
+      \field{pages}{141\bibrangedash 149}
+      \range{pages}{9}
+      \verb{file}
+      \verb :Artikel_Monographien/The Classical Association of the Middle West and South_(Cosa_1949)_Coa_ Republican Colony in Etruria_141-149.pdf:PDF
+      \endverb
+      \keyw{unbekannt}
+    \endentry
+    \entry{Danner_2014}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=032f88cc12e0bdfeb74999ae9ffe74ed}{Danner}{D\bibinitperiod}{Marcel}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=003def9ae45127692a5fec781fb03773}{Kurapkat}{K\bibinitperiod}{Dietmar}{D\bibinitperiod}{}{}{}{}}%
+        {{hash=3e7bb474349e9996984ae5efb298ff8e}{Schneider}{S\bibinitperiod}{Peter\bibnamedelima I.}{P\bibinitperiod\bibinitdelim I\bibinitperiod}{}{}{}{}}%
+        {{hash=aa030bc32b7d6bbf565e69e8d195f449}{Wulf-Rheidt}{W\bibinithyphendelim R\bibinitperiod}{Ulrike}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Schnell + Steiner}%
+      }
+      \strng{namehash}{032f88cc12e0bdfeb74999ae9ffe74ed}
+      \strng{fullhash}{032f88cc12e0bdfeb74999ae9ffe74ed}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelyear}{2012}
+      \field{labelmonth}{02}
+      \field{labelday}{08\bibdatedash 11}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{08}
+      \field{endday}{11}
+      \field{endmonth}{02}
+      \field{endyear}{2012}
+      \field{mainsubtitle}{Gestaltete Bewegung im gebauten Raum}
+      \field{maintitle}{Die Architektur des Weges}
+      \field{month}{02}
+      \field{series}{Diskussionen zur Archäologischen Bauforschung}
+      \field{subtitle}{Zur Gestaltung des Weges in spätantiken Häusern am Beispiel von Ostia}
+      \field{title}{Wege ins Haus -- Wege im Haus}
+      \field{venue}{Berlin}
+      \field{volume}{11}
+      \field{year}{2012}
+      \field{pages}{409\bibrangedash 424}
+      \range{pages}{16}
+      \verb{file}
+      \verb :Artikel_Monographien/Danner_(Danner_2014)_Wege ins Haus -- Wege im Haus_409-424.pdf:PDF
+      \endverb
+      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Danner_2014'}
+      \warn{\item Datamodel: Entry 'Danner_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Danner_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Davies_2014}{incollection}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=893d8b89c67049b5ff56e4b3f6eec1e2}{Davies}{D\bibinitperiod}{Penelope\bibnamedelimb J.\bibnamedelimi E.}{P\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=91081bb5f194cf3e826c475b0fbde06f}{Ulrich}{U\bibinitperiod}{Roger\bibnamedelima Bradley}{R\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{hash=9d0cfb02571843fe6852a9f58970c3f2}{Quenemoen}{Q\bibinitperiod}{Caroline\bibnamedelima K.}{C\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Oxford}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Blackwell}%
+      }
+      \strng{namehash}{893d8b89c67049b5ff56e4b3f6eec1e2}
+      \strng{fullhash}{893d8b89c67049b5ff56e4b3f6eec1e2}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelyear}{2014}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{A Companion to Roman Architecture}
+      \field{number}{o.N.}
+      \field{series}{Blackwell Companions to the Ancient World}
+      \field{title}{Rome and Her Neighbors: Greek Building Practices in Republican Rome}
+      \field{year}{2014}
+      \field{pages}{27\bibrangedash 44}
+      \range{pages}{18}
+      \verb{file}
+      \verb :Companions/A Companion to Roman Architecture/Davies_(Davies_2014)_Rome and Her Neighbors_ Greek Building Practices in Republican Rome_27-44.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Demandt_1982}{incollection}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=80ae10bee3ac00e6190b0f02ccd5fb83}{Demandt}{D\bibinitperiod}{Alexander}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=adec8b476bbad953f69590d268ab2644}{Papenfuss}{P\bibinitperiod}{Dietrich}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Mainz}%
+      }
+      \list{publisher}{1}{%
+        {von Zabern}%
+      }
+      \strng{namehash}{80ae10bee3ac00e6190b0f02ccd5fb83}
+      \strng{fullhash}{80ae10bee3ac00e6190b0f02ccd5fb83}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
       \field{labelyear}{1982}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{Revised Edition}
-      \field{number}{17}
-      \field{series}{Yale Publications in the History of Art}
-      \field{title}{The Architecture of the Roman Empire}
-      \field{titleaddon}{An Introductory Study}
-      \field{volume}{1}
+      \field{maintitle}{Palast und Hütte. Beiträge zum Bauen und Wohnen im Altertum von Archäologen, Vor-und Frühgeschichtlern (Tagungsbeiträge eines Symposiums der Alexander von Humboldt-Stiftung Bonn--Bad Godesberg veranstaltet vom 25.--30. November 1979 in Berlin)}
+      \field{title}{Symbolfunktionen antiker Baukunst}
       \field{year}{1982}
+      \field{pages}{49\bibrangedash 62}
+      \range{pages}{14}
+      \verb{file}
+      \verb :Artikel_Monographien/Demandt_(Demandt_1982)_Symbolfunktionen antiker Baukunst_49-62.pdf:PDF
+      \endverb
     \endentry
-    \entry{MacDonald_1986}{book}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=c42493bb7eb5ed83eb3cbe3ddfc119ac}{MacDonald}{M\bibinitperiod}{William\bibnamedelima L.}{W\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+    \entry{Dickenson_2013}{proceedings}{}
+      \name{editor}{1}{}{%
+        {{uniquename=0,hash=a530ca6ab12ddce59d3c55753d0e78a4}{Dickenson}{D\bibinitperiod}{Christopher\bibnamedelima Paul}{C\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
       }
-      \list{location}{2}{%
-        {New Haven}%
-        {London}%
+      \list{language}{1}{%
+        {eng}%
       }
       \list{publisher}{1}{%
-        {Yale University Press}%
+        {Peeters}%
       }
-      \strng{namehash}{c42493bb7eb5ed83eb3cbe3ddfc119ac}
-      \strng{fullhash}{c42493bb7eb5ed83eb3cbe3ddfc119ac}
-      \field{sortinit}{M}
-      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
-      \field{labelyear}{1986}
+      \strng{namehash}{a530ca6ab12ddce59d3c55753d0e78a4}
+      \strng{fullhash}{a530ca6ab12ddce59d3c55753d0e78a4}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{eventday}{23}
+      \field{eventmonth}{07}
+      \field{eventyear}{2007}
+      \field{library}{UB [Signatur:2013 C 1239] ; AC [Signatur:X Fransum 2007]}
+      \field{number}{7}
+      \field{series}{Caeculus}
+      \field{subtitle}{Proceedings of a one day colloquium}
+      \field{title}{Public space in the post-classical city}
+      \field{venue}{Fransum}
+      \field{year}{2013}
+      \verb{file}
+      \verb :Sammelbaende/Dickenson_2013_Public space in the post-classical city/(Dickenson_2013)_Public space in the post-classical city.pdf:PDF
+      \endverb
+      \keyw{(s)Antike / (s)Stadt / (s)Öffentlicher Raum / (f)Kongress / (g)Fransum <2007>}
+      \warn{\item Datamodel: Entry 'Dickenson_2013' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Dickenson_2013' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Dyson_2013}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=25ed4a79a978f576341177b5f3444d2e}{Dyson}{D\bibinitperiod}{Stephen\bibnamedelima L.}{S\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{25ed4a79a978f576341177b5f3444d2e}
+      \strng{fullhash}{25ed4a79a978f576341177b5f3444d2e}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelyear}{2013}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{number}{35}
-      \field{series}{Yale Publications in the History of Art}
-      \field{title}{The Architecture of the Roman Empire}
-      \field{titleaddon}{An urban Appraisal}
+      \field{journaltitle}{Journal of Roman Archaeology}
+      \field{title}{Questions about influence on Roman urbanism in the Middle Republic}
+      \field{volume}{26}
+      \field{year}{2013}
+      \field{pages}{498\bibrangedash 499}
+      \range{pages}{2}
+      \verb{file}
+      \verb :Rezensionen/Dyson_(Dyson_2013)_Questions about influence on Roman urbanism_p_in the Middle Republic_498-499.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Earl_2009}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=927faa5ef9bd355a0b76523862a918a0}{Earl}{E\bibinitperiod}{Graeme\bibnamedelima P.}{G\bibinitperiod\bibinitdelim P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{927faa5ef9bd355a0b76523862a918a0}
+      \strng{fullhash}{927faa5ef9bd355a0b76523862a918a0}
+      \field{sortinit}{E}
+      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{labelyear}{2009}
+      \field{labelmonth}{4}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{issn}{1464-3561}
+      \field{issue}{01}
+      \field{journaltitle}{The Classical Review (New Series)}
+      \field{month}{4}
+      \field{volume}{59}
+      \field{year}{2009}
+      \field{pages}{255\bibrangedash 257}
+      \range{pages}{3}
+      \verb{file}
+      \verb :Rezensionen/Earl_(Earl_2009)_[Rezension] Imaging Ancient Rome. Documentation – Visualization – Imagination_255-257.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Eder_2001a}{inreference}{lexikon}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=c2d6fe4a00230528f8de8040b6a49b14}{Eder}{E\bibinitperiod}{Walter}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c2d6fe4a00230528f8de8040b6a49b14}
+      \strng{fullhash}{c2d6fe4a00230528f8de8040b6a49b14}
+      \field{sortinit}{E}
+      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{bookpagination}{column}
+      \field{maintitle}{DNP}
+      \field{subtitle}{I Geschichte}
+      \field{title}{Roma}
+      \field{volume}{10}
+      \field{year}{2001}
+      \field{pages}{1050\bibrangedash 1077}
+      \range{pages}{28}
+      \verb{file}
+      \verb :Lexika/DNP_Der Neue Pauly/Eder_(Eder_2001a)_Roma. I Geschichte_1050-1077.pdf:PDF
+      \endverb
+      \keyw{lexikon}
+      \warn{\item Datamodel: Entry 'Eder_2001a' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Eder_2001a' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Evangelidis_2007}{thesis}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=577da5bff8f4c4fee379f854b1c2691e}{Evangelidis}{E\bibinitperiod}{Vasilis}{V\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{577da5bff8f4c4fee379f854b1c2691e}
+      \strng{fullhash}{577da5bff8f4c4fee379f854b1c2691e}
+      \field{sortinit}{E}
+      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{labelyear}{2007}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Η αγορά των πόλεων της Ελλάδας από τη ρωμαϊκή κατάκτηση ως τον 3ο αι. μ.Χ.}
+      \field{type}{phdthesis}
+      \field{year}{2007}
+      \warn{\item Datamodel: Entry 'Evangelidis_2007' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Evangelidis_2007' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Fest}{book}{frgantik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=a002aaf08049f9557511fd3bf6dc3fbe}{Pompeius\bibnamedelima Festus}{P\bibinitperiod\bibinitdelim F\bibinitperiod}{Sextus}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=515ad5828a16ff5f2f0f92c0be3fd03c}{Lindsay}{L\bibinitperiod}{Wallace\bibnamedelima Martin}{W\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Leipzig}%
+      }
+      \list{publisher}{1}{%
+        {Teubner}%
+      }
+      \strng{namehash}{a002aaf08049f9557511fd3bf6dc3fbe}
+      \strng{fullhash}{a002aaf08049f9557511fd3bf6dc3fbe}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelyear}{1965}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{origyear}{1913}
+      \field{series}{Bibliotheca scriptorum et Graecorum et Romanorum Teubneriana}
+      \field{shorthand}{Fest.}
+      \field{title}{De verborum significatu quae supersunt cum Pauli epitome}
+      \field{usera}{Festus}
+      \field{year}{1965}
+      \keyw{Quelle}
+    \endentry
+    \entry{Frost_2001}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=baf0f17c0781db39cfab55cd2e3ea393}{Frost}{F\bibinitperiod}{Frank}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{baf0f17c0781db39cfab55cd2e3ea393}
+      \strng{fullhash}{baf0f17c0781db39cfab55cd2e3ea393}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{journaltitle}{The Classical Review}
+      \field{volume}{51}
+      \field{year}{2001}
+      \field{pages}{442\bibrangedash 443}
+      \range{pages}{2}
+      \verb{file}
+      \verb :Rezensionen/Frost_(Frost_2001)_Hysplex_442-443.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Giannikouri_2011}{proceedings}{}
+      \name{editor}{1}{}{%
+        {{uniquename=0,hash=fe76efc7952ad4aae193596aa451e64d}{Giannikouri}{G\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{2}{%
+        {Hellenic. Ministry of Culture}%
+        {Tourism}%
+      }
+      \strng{namehash}{fe76efc7952ad4aae193596aa451e64d}
+      \strng{fullhash}{fe76efc7952ad4aae193596aa451e64d}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{eventday}{14}
+      \field{eventendday}{17}
+      \field{eventendmonth}{04}
+      \field{eventendyear}{2011}
+      \field{eventmonth}{04}
+      \field{eventyear}{2011}
+      \field{title}{The agora in the Mediterranean from Homeric to Roman times}
+      \field{titleaddon}{Η Αγορά στη Μεσόγειο από τους Ομηρικούς έως τους Ρωμαϊκούς χρόνους}
+      \field{venue}{Kos}
+      \field{year}{2011}
+      \warn{\item Datamodel: Entry 'Giannikouri_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Giannikouri_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Giuliano_1978}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=080409b919e3acdebc214754563cb258}{Giuliano}{G\bibinitperiod}{Bruce\bibnamedelima S.}{B\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{1}{%
+        {Western States Folklore Society}%
+      }
+      \strng{namehash}{080409b919e3acdebc214754563cb258}
+      \strng{fullhash}{080409b919e3acdebc214754563cb258}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelyear}{1978}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{issn}{0043373X}
+      \field{journaltitle}{Western Folklore}
+      \field{number}{4}
+      \field{volume}{37}
+      \field{year}{1978}
+      \field{pages}{307\bibrangedash 310}
+      \range{pages}{4}
+      \verb{file}
+      \verb :Rezensionen/Giuliano_(Giuliano_1978)_La Terra in Piazza_307-310.pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/1499209
+      \endverb
+    \endentry
+    \entry{Graffunder_1914}{inreference}{lexikon}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=1428f0034fec77913e3d89e45f793354}{Graffunder}{G\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{1428f0034fec77913e3d89e45f793354}
+      \strng{fullhash}{1428f0034fec77913e3d89e45f793354}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelyear}{1914}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{bookpagination}{column}
+      \field{maintitle}{RE}
+      \field{title}{Rom}
+      \field{volume}{1 A.1}
+      \field{year}{1914}
+      \field{pages}{1008\bibrangedash 1061}
+      \range{pages}{54}
+      \verb{file}
+      \verb :Lexika/RE-Realencyclopädie der classischen Altertumswissenschaft/Einzelartikel/Graffunder_(Graffunder_1914)_Rom_1008-1061.pdf:PDF
+      \endverb
+      \keyw{lexikon}
+      \warn{\item Datamodel: Entry 'Graffunder_1914' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Graffunder_1914' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Haug_2003}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=2c470de2b5af6e72e3076bc9ae25db66}{Haug}{H\bibinitperiod}{Annette}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Rahden/Westf.}%
+      }
+      \list{publisher}{1}{%
+        {VML, Verl. Marie Leidorf}%
+      }
+      \strng{namehash}{2c470de2b5af6e72e3076bc9ae25db66}
+      \strng{fullhash}{2c470de2b5af6e72e3076bc9ae25db66}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2003}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{85}
+      \field{series}{Internationale Archäologie}
+      \field{subtitle}{eine kulturhistorische Analyse zum spätantiken Stadtleben in Norditalien}
+      \field{title}{Die Stadt als Lebensraum}
+      \field{year}{2003}
+    \endentry
+    \entry{Hekster_2009}{proceedings}{}
+      \name{editor}{3}{}{%
+        {{uniquename=0,hash=ab5b76eb20bb7b2e8913a41e5979d5b2}{Hekster}{H\bibinitperiod}{Oliver}{O\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=31d3f5af707889c2fccee33d7d82fa23}{Schmidt-Hofner}{S\bibinithyphendelim H\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=aa14f9d5d3d571e41bfcad241a15a9a6}{Witschel}{W\bibinitperiod}{Christian}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Brill}%
+      }
+      \strng{namehash}{fade3fe902e6e7bcd8616db6979e9a7e}
+      \strng{fullhash}{fade3fe902e6e7bcd8616db6979e9a7e}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2009}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{number}{9}
+      \field{series}{Impact of Empire}
+      \field{title}{Ritual Dynamics and Religious Change in the Roman Empire. Proceedings of the Eighth Workshop of the International Network Impact of Empire (Heidelberg, July 5-7, 2007)}
+      \field{year}{2009}
+      \verb{file}
+      \verb :Sammelbaende/Hekster_2009_Ritual Dynamics and Religious Change in the Roman Empire/(Hekster_2009)_Ritual Dynamics and Religious Change in the Roman Empire. Proceedings of the Eighth Workshop of the International Network Impact of Empire (Heidelberg, July 5-7, 2007).pdf:PDF
+      \endverb
+      \keyw{Ritual Rome Congresses Rome Religious life and customs Congresses Rome Religion Congresses}
+      \warn{\item Datamodel: Entry 'Hekster_2009' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Hekster_2009' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Hekster_2009' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Hilger_2011}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=58156816d01dcadf2afc3c74cb96a380}{Hilger}{H\bibinitperiod}{Christina}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Bielefeld}%
+      }
+      \list{publisher}{1}{%
+        {Transcript Verlag}%
+      }
+      \strng{namehash}{58156816d01dcadf2afc3c74cb96a380}
+      \strng{fullhash}{58156816d01dcadf2afc3c74cb96a380}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{"Das Verhältnis von Architektur und Gesellschaft muss neu konzipiert werden - Architektur entsteht heute zwar mithilfe modernster Technologien, wird aber nach wie vor von antiken Raum- konzepten definiert. Vor dem Hintergrund digitaler Vernetzung und globaler Neuordnungen zeigt die Architektin und Soziologin Christina Hilger die Dringlichkeit eines neuen Raumdenkens in der Ar- chitektur auf. Ausgehend von raumsoziologischen Thesen entwickelt sie dafür theoretische Ansätze und wendet diese auf Fallbeispiele moderner Architekturprojekte an. Ein Plädoyer für einen Spatial Turn auch in der Architektur, für ein neues Raumdenken, das sich verabschiedet von einer absoluten Vorstellung architektonischer Räume, die der gesellschaftlichen Realität statisch gegenüberstehen." (Autorenreferat).}
+      \field{isbn}{3837614999}
+      \field{number}{15}
+      \field{series}{Materialitäten}
+      \field{title}{Vernetzte Räume}
+      \field{year}{2011}
+      \verb{file}
+      \verb :Artikel_Monographien/Hilger_(Hilger_2011)_Vernetzte Räume.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Hoevelborn_1983}{thesis}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=49fda7ce5006707109511051df4aa389}{Hövelborn}{H\bibinitperiod}{Peter}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{49fda7ce5006707109511051df4aa389}
+      \strng{fullhash}{49fda7ce5006707109511051df4aa389}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{1983}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Darstellung seines Wesens und Entwicklungsganges an Beispielen der Frühzeit, der frühen Hochkulturen sowie der europäischen Antike unter Ermittlung von Regelhaftigkeiten und Hinweisen für die Gestaltung moderner öffentlicher Räume}
+      \field{title}{Öffentlicher Raum}
+      \field{type}{phdthesis}
+      \field{year}{1983}
+      \verb{file}
+      \verb :Artikel_Monographien/Hövelborn_(Hoevelborn_1983)_Öffentlicher Raum.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Hoevelborn_1983' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Hoevelborn_1983' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Hufschmid_2010}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=d308652a12a7b14e28ca0404bf2d19e0}{Hufschmid}{H\bibinitperiod}{Thomas}{T\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{d308652a12a7b14e28ca0404bf2d19e0}
+      \strng{fullhash}{d308652a12a7b14e28ca0404bf2d19e0}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Roman Archaeology}
+      \field{shortjournal}{JRA}
+      \field{title}{Von Caesars \emph{theatron kynegetikon} zum \emph{amphitheatrum novum} Vespasians}
+      \field{volume}{23}
+      \field{year}{2010}
+      \field{pages}{487\bibrangedash 504}
+      \range{pages}{18}
+      \verb{file}
+      \verb :Rezensionen/Hufschmid_(Hufschmid_2010)_Von Caesars theatron kynegetikon zum amphitheatrum novum Vespasians_487-504.pdf:PDF
+      \endverb
+      \keyw{relevant}
+    \endentry
+    \entry{Ios_bell_Iud}{book}{antik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=fb948a56dc1cf7b1ccd7523a171cd3b5}{Josephus}{J\bibinitperiod}{Flavius}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \name{translator}{2}{}{%
+        {{hash=7170e08d8955c959aa2157c3dbcd9c9d}{Michel}{M\bibinitperiod}{Otto}{O\bibinitperiod}{}{}{}{}}%
+        {{hash=3276d0be0efac52d59abb5fe1479e735}{Bauernfeid}{B\bibinitperiod}{Otto}{O\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Darmstadt}%
+      }
+      \list{publisher}{1}{%
+        {Wissenschaftliche Buchgesellschaft}%
+      }
+      \strng{namehash}{fb948a56dc1cf7b1ccd7523a171cd3b5}
+      \strng{fullhash}{fb948a56dc1cf7b1ccd7523a171cd3b5}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labelyear}{1962--1969}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{origlanguage}{greek}
+      \field{origtitle}{De bello Iudaico}
+      \field{shorthand}{Ios. bell. Iud.}
+      \field{title}{Der Jüdische Krieg}
+      \field{usera}{Flavius Iosephus}
+      \field{year}{1962--1969}
+      \keyw{Quelle}
+    \endentry
+    \entry{Italie_1976}{article}{unbekannt}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=4a83d04ba8a3387cddb30f39c909a37f}{{[}keine\bibnamedelima Angabe{]}}{[\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{1}{%
+        {Presses Universitaires de France}%
+      }
+      \strng{namehash}{4a83d04ba8a3387cddb30f39c909a37f}
+      \strng{fullhash}{4a83d04ba8a3387cddb30f39c909a37f}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labelyear}{1976}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{00662348}
+      \field{journaltitle}{L'Année épigraphique}
+      \field{shorthand}{Italie}
+      \field{title}{Italie}
+      \field{volume}{1973}
+      \field{year}{1976}
+      \field{pages}{34\bibrangedash 69}
+      \range{pages}{36}
+      \verb{file}
+      \verb :Artikel_Monographien/(Italie_1976)_Italie_34-69.pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/25607000
+      \endverb
+      \keyw{unbekannt}
+    \endentry
+    \entry{Johanson_2008}{thesis}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=630d0e9decec231a55cd4f0194f60d7d}{Johanson}{J\bibinitperiod}{Christopher\bibnamedelima John}{C\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {ProQuest, UMI Dissertation Publishing}%
+      }
+      \strng{namehash}{630d0e9decec231a55cd4f0194f60d7d}
+      \strng{fullhash}{630d0e9decec231a55cd4f0194f60d7d}
+      \field{sortinit}{J}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Visualizing the Roman aristocratic funeral of the Middle Republic}
+      \field{title}{Spectacle in the Forum}
+      \field{type}{phdthesis}
+      \field{year}{2008}
+      \verb{file}
+      \verb :Artikel_Monographien/Johanson_(Johanson_2008)_Spectacle in the Forum_ Visualizing the Roman aristocratic funeral of the Middle Republic._.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Johanson_2008' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Johanson_2008' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Jongman_2001}{inreference}{lexikon}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5cb94c2c6a9fc741fbc033f7468f9edb}{Jongman}{J\bibinitperiod}{Willem\bibnamedelima M.}{W\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{5cb94c2c6a9fc741fbc033f7468f9edb}
+      \strng{fullhash}{5cb94c2c6a9fc741fbc033f7468f9edb}
+      \field{sortinit}{J}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{bookpagination}{column}
+      \field{maintitle}{DNP}
+      \field{subtitle}{II Bevölkerung und Wirtschaft der Stadt Rom}
+      \field{title}{Roma}
+      \field{volume}{10}
+      \field{year}{2001}
+      \field{pages}{1077\bibrangedash 1083}
+      \range{pages}{7}
+      \verb{file}
+      \verb :Lexika/DNP_Der Neue Pauly/Jongman_(Jongman_2001)_Roma. II Bevölkerung und Wirtschaft der Stadt Rom_1077-1083.pdf:PDF
+      \endverb
+      \keyw{lexikon}
+      \warn{\item Datamodel: Entry 'Jongman_2001' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Jongman_2001' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Kaiser_2014a}{review}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=38a33e6079a50fb409a968309dac68fb}{Kaiser}{K\bibinitperiod}{Alan}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{38a33e6079a50fb409a968309dac68fb}
+      \strng{fullhash}{38a33e6079a50fb409a968309dac68fb}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{2014}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2331-5709}
+      \field{journaltitle}{Journal of Roman Archaeology}
+      \field{shortjournal}{JRA}
+      \field{title}{Space syntax: Ostia by the numbers}
+      \field{volume}{27}
+      \field{year}{2014}
+      \field{pages}{575\bibrangedash 577}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1017/s1047759414001536
+      \endverb
+      \verb{file}
+      \verb :Rezensionen/Kaiser_(Kaiser_2014a)_Space syntax_ Ostia by the numbers_575-577.pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1017/S1047759414001536
+      \endverb
+    \endentry
+    \entry{Kienast_2004}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=136eb664cb91b54cf17bb4aa8315323c}{Kienast}{K\bibinitperiod}{Dietmar}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Darmstadt}%
+      }
+      \list{publisher}{1}{%
+        {Wissenschaftliche Buchgesellschaft}%
+      }
+      \strng{namehash}{136eb664cb91b54cf17bb4aa8315323c}
+      \strng{fullhash}{136eb664cb91b54cf17bb4aa8315323c}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{2004}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Grundzüge einer römischen Kaiserchronologie}
+      \field{title}{Römische Kaisertabelle}
+      \field{year}{2004}
+      \verb{file}
+      \verb :Artikel_Monographien/Kienast_(Kienast_2004)_Römische Kaisertabelle. Grundzüge einer römischen Kaiserchronologie.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Kienlin_2004a}{thesis}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=e0e34871998d5a709572b4a8dbef1b11}{Kienlin}{K\bibinitperiod}{Alexander}{A\bibinitperiod}{von}{v\bibinitperiod}{}{}}%
+      }
+      \strng{namehash}{e0e34871998d5a709572b4a8dbef1b11}
+      \strng{fullhash}{e0e34871998d5a709572b4a8dbef1b11}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{2004}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Die Agora von Priene}
+      \field{type}{phdthesis}
+      \field{year}{2004}
+      \verb{file}
+      \verb :Artikel_Monographien/von Kienlin_(Kienlin_2004a)_Die Agora von Priene.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Kienlin_2004a' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Kienlin_2004a' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Kleinwaechter_2001}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=82e6b34027a72ff6ce90e35fa062dd43}{Kleinwächter}{K\bibinitperiod}{Claudia}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Mainz}%
+      }
+      \list{publisher}{1}{%
+        {von Zabern}%
+      }
+      \strng{namehash}{82e6b34027a72ff6ce90e35fa062dd43}
+      \strng{fullhash}{82e6b34027a72ff6ce90e35fa062dd43}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{20}
+      \field{series}{Beiträge zur Erschließung hellenistischer und kaiserzeitlicher Skulptur und Architektur}
+      \field{subtitle}{Untersuchungen zum sogenannten Polyzentrimus in der Urbanistik der römischen Kaiserzeit}
+      \field{title}{Platzanlagen nordafrikanischer Städte}
+      \field{year}{2001}
+    \endentry
+    \entry{Kornemann_1933}{inreference}{lexikon}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=491a6b6e00594dabf2fddee0e1181802}{Kornemann}{K\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{491a6b6e00594dabf2fddee0e1181802}
+      \strng{fullhash}{491a6b6e00594dabf2fddee0e1181802}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{1933}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{bookpagination}{column}
+      \field{maintitle}{RE}
+      \field{title}{municipium}
+      \field{volume}{16.1}
+      \field{year}{1933}
+      \field{pages}{570\bibrangedash 638}
+      \range{pages}{69}
+      \verb{file}
+      \verb :Lexika/RE-Realencyclopädie der classischen Altertumswissenschaft/Einzelartikel/Kornemann_(Kornemann_1933)_municipium_570-638.pdf:PDF
+      \endverb
+      \keyw{lexikon}
+      \warn{\item Datamodel: Entry 'Kornemann_1933' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Kornemann_1933' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Kreikenbom_2011}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=ecb858f908f9283a2605d792790745a3}{Kreikenbom}{K\bibinitperiod}{Detlev}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {ger}%
+      }
+      \list{location}{1}{%
+        {Wiesbaden}%
+      }
+      \list{publisher}{1}{%
+        {Harrassowitz}%
+      }
+      \strng{namehash}{ecb858f908f9283a2605d792790745a3}
+      \strng{fullhash}{ecb858f908f9283a2605d792790745a3}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-447-06558-0}
+      \field{library}{UB [Signatur:2012 S 145] ; AC [Signatur:W 25::22]}
+      \field{number}{22}
+      \field{series}{Trierer Winckelmannsprogramme}
+      \field{title}{Lepcis Magna unter den ersten Kaisern}
+      \field{year}{2011}
+      \verb{file}
+      \verb :Artikel_Monographien/Kreikenbom_(Kreikenbom_2011)_Lepcis Magna unter den ersten Kaisern.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Kurapkat_2014}{proceedings}{}
+      \name{editor}{3}{}{%
+        {{uniquename=0,hash=003def9ae45127692a5fec781fb03773}{Kurapkat}{K\bibinitperiod}{Dietmar}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3e7bb474349e9996984ae5efb298ff8e}{Schneider}{S\bibinitperiod}{Peter\bibnamedelima I.}{P\bibinitperiod\bibinitdelim I\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=aa030bc32b7d6bbf565e69e8d195f449}{Wulf-Rheidt}{W\bibinithyphendelim R\bibinitperiod}{Ulrike}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {Architekturreferat des DAI}%
+      }
+      \list{publisher}{1}{%
+        {Schnell + Steiner}%
+      }
+      \strng{namehash}{88f90a48374c41145e8b3249b4adb539}
+      \strng{fullhash}{88f90a48374c41145e8b3249b4adb539}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{2012}
+      \field{labelmonth}{02}
+      \field{labelday}{08\bibdatedash 11}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{day}{08}
+      \field{endday}{11}
+      \field{endmonth}{02}
+      \field{endyear}{2012}
+      \field{month}{02}
+      \field{series}{Diskussionen zur Archäologischen Bauforschung}
+      \field{subtitle}{Gestaltete Bewegung im gebauten Raum}
+      \field{title}{Die Architektur des Weges}
+      \field{venue}{Berlin}
+      \field{volume}{11}
+      \field{year}{2012}
+      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Kurapkat_2014'}
+      \warn{\item Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Ercolano_1762}{book}{unbekannt}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=4a83d04ba8a3387cddb30f39c909a37f}{{[}keine\bibnamedelima Angabe{]}}{[\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Napoli}%
+      }
+      \list{publisher}{1}{%
+        {Regia Stamperia}%
+      }
+      \strng{namehash}{4a83d04ba8a3387cddb30f39c909a37f}
+      \strng{fullhash}{4a83d04ba8a3387cddb30f39c909a37f}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelyear}{1762}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{3}
+      \field{series}{Le pitture antiche d'Ercolano e contorni. Incise con qualche spiegazione}
+      \field{shorthand}{Le antichità di Ercolano esposte}
+      \field{title}{Le antichità di Ercolano esposte}
+      \field{year}{1762}
+      \verb{file}
+      \verb :Artikel_Monographien/(Ercolano_1762)_Le antichità di Ercolano esposte.pdf:PDF
+      \endverb
+      \keyw{unbekannt}
+    \endentry
+    \entry{Maggi_2011}{proceedings}{}
+      \name{editor}{1}{}{%
+        {{uniquename=0,hash=ba980fcdc302ff5a0a20335943693d4a}{Maggi}{M\bibinitperiod}{Stefano}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {italian}%
+      }
+      \list{organization}{1}{%
+        {Università degli Studi di Pavia}%
+      }
+      \list{publisher}{1}{%
+        {All'Insegna del Giglio}%
+      }
+      \strng{namehash}{ba980fcdc302ff5a0a20335943693d4a}
+      \strng{fullhash}{ba980fcdc302ff5a0a20335943693d4a}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelyear}{2009}
+      \field{labelmonth}{03}
+      \field{labelday}{12\bibdatedash 13}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{day}{12}
+      \field{endday}{13}
+      \field{endmonth}{03}
+      \field{endyear}{2009}
+      \field{month}{03}
+      \field{number}{10}
+      \field{series}{Flos Italiae. Documenti di archeologia della Cisalpina Romana}
+      \field{subtitle}{Nuovi Dati}
+      \field{title}{I complessi forensi della Cisalpina Romana}
+      \field{titleaddon}{Atti del Convegno di Studi}
+      \field{venue}{Pavia}
+      \field{year}{2009}
+      \verb{file}
+      \verb :Sammelbaende/Maggi_(Maggi_2011)_I complessi forensi della Cisalpina romana/(Maggi_2011)_I complessi forensi della Cisalpina Romana.pdf:PDF
+      \endverb
+      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Maggi_2011'}
+      \warn{\item Datamodel: Entry 'Maggi_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Maggi_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Mart_Epigr}{book}{antik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=b911acc3bc9b5506db2f076ef7274109}{Valerius\bibnamedelima Martialis}{V\bibinitperiod\bibinitdelim M\bibinitperiod}{Marcus}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=1031e361f3b7b1a60e04ebf42c6ea75f}{Barié}{B\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=313d979935945158492e278983086f4d}{Schindler}{S\bibinitperiod}{Winfried}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{translator}{2}{}{%
+        {{hash=1031e361f3b7b1a60e04ebf42c6ea75f}{Barié}{B\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=313d979935945158492e278983086f4d}{Schindler}{S\bibinitperiod}{Winfried}{W\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{2}{%
+        {Düsseldorf}%
+        {Zürich}%
+      }
+      \list{publisher}{1}{%
+        {Artemis \& Winkler}%
+      }
+      \strng{namehash}{b911acc3bc9b5506db2f076ef7274109}
+      \strng{fullhash}{b911acc3bc9b5506db2f076ef7274109}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{origlanguage}{latin}
+      \field{series}{Sammlung Tusculum}
+      \field{shorthand}{Mart. Epigr.}
+      \field{title}{Epigramme}
+      \field{usera}{Martial}
+      \field{year}{2013}
+      \verb{file}
+      \verb :Quellen/Martial/Valerius Martialis_(Mart_Epigr)_Epigramme.pdf:PDF
+      \endverb
+      \keyw{Quelle}
+    \endentry
+    \entry{Paestum_1854}{article}{unbekannt}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=4a83d04ba8a3387cddb30f39c909a37f}{{[}keine\bibnamedelima Angabe{]}}{[\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{4a83d04ba8a3387cddb30f39c909a37f}
+      \strng{fullhash}{4a83d04ba8a3387cddb30f39c909a37f}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{1854}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{21505837}
+      \field{journaltitle}{The Illustrated Magazine of Art}
+      \field{number}{21}
+      \field{shorthand}{P{æ}stum}
+      \field{title}{P{æ}stum}
+      \field{volume}{4}
+      \field{year}{1854}
+      \field{pages}{161\bibrangedash 162}
+      \range{pages}{2}
+      \verb{file}
+      \verb :Artikel_Monographien/(Paestum_1854)_Paestum_161-162.pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://www.jstor.org/stable/20538429
+      \endverb
+      \keyw{unbekannt}
+    \endentry
+    \entry{Paul_Fest}{book}{frgantik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=9e56a37f4e98c29dae9437e9ad15dee0}{Diaconus}{D\bibinitperiod}{Paulus}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=515ad5828a16ff5f2f0f92c0be3fd03c}{Lindsay}{L\bibinitperiod}{Wallace\bibnamedelima Martin}{W\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Leipzig}%
+      }
+      \list{publisher}{1}{%
+        {Teubner}%
+      }
+      \strng{namehash}{9e56a37f4e98c29dae9437e9ad15dee0}
+      \strng{fullhash}{9e56a37f4e98c29dae9437e9ad15dee0}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{1965}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{origtitle}{epitoma Festi}
+      \field{origyear}{1913}
+      \field{series}{Bibliotheca scriptorum et Graecorum et Romanorum Teubneriana}
+      \field{shorthand}{Paul. Fest.}
+      \field{title}{De verborum significatu quae supersunt cum Pauli epitome}
+      \field{usera}{Paulus Diaconus}
+      \field{year}{1965}
+      \keyw{Quelle}
+    \endentry
+    \entry{Pedley_1990}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=d286ae5dfc449092a66584e78dd81e56}{Pedley}{P\bibinitperiod}{John\bibnamedelima Griffiths}{J\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{2}{%
+        {Thames}%
+        {Hudson}%
+      }
+      \strng{namehash}{d286ae5dfc449092a66584e78dd81e56}
+      \strng{fullhash}{d286ae5dfc449092a66584e78dd81e56}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{1990}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Seite 114--116 "The Forum" Vgl. Cosa und Paestum Cosa hat keine Tabernen in der ersten Phase (keine wirtschaftliche Prosperität) Paestum zugleich 273v mit Tabernen angelegt (positiv: griechische Vorgängerbesiedelung --> konnte wirtschaftlich anknüpfen) Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when speed is of the essence" --> Kapitelle sind unterschiedlich groß}
+      \field{series}{New Aspects of Antiquity}
+      \field{subtitle}{Greeks and Romans in Southern Italy}
+      \field{title}{Paestum}
+      \field{year}{1990}
+    \endentry
+    \entry{Plin_nat}{book}{antik}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=9fcfd1697381c18bb9b6bd127defdfe1}{Plinius\bibnamedelima Secundus}{P\bibinitperiod\bibinitdelim S\bibinitperiod}{Caius}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=44501bb1c64be732430b14b74bb550ba}{König}{K\bibinitperiod}{Roderich}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=2e359f10be5a53b65e521404698db051}{Winkler}{W\bibinitperiod}{Gerhard}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \name{translator}{2}{}{%
+        {{hash=44501bb1c64be732430b14b74bb550ba}{König}{K\bibinitperiod}{Roderich}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=2e359f10be5a53b65e521404698db051}{Winkler}{W\bibinitperiod}{Gerhard}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Düsseldorf}%
+      }
+      \list{publisher}{1}{%
+        {Artemis \& Winkler}%
+      }
+      \strng{namehash}{9fcfd1697381c18bb9b6bd127defdfe1}
+      \strng{fullhash}{9fcfd1697381c18bb9b6bd127defdfe1}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{1997--2007}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{origlanguage}{latin}
+      \field{shorthand}{Plin. nat.}
+      \field{title}{Naturkunde}
+      \field{usera}{Plinius, d.\,Ä}
+      \field{year}{1997--2007}
+      \keyw{Quelle}
+    \endentry
+    \entry{Poupaki_2011}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=d7b6888e70e262ffc3e01702afab7244}{Poupaki}{P\bibinitperiod}{Eirene}{E\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=fe76efc7952ad4aae193596aa451e64d}{Giannikouri}{G\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{2}{%
+        {Hellenic. Ministry of Culture}%
+        {Tourism}%
+      }
+      \strng{namehash}{d7b6888e70e262ffc3e01702afab7244}
+      \strng{fullhash}{d7b6888e70e262ffc3e01702afab7244}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{The agora in the Mediterranean from Homeric to Roman times, Konferenz Kos 14.--17. April 2011 / Η Αγορά στη Μεσόγειο από τους Ομηρικούς έως τους Ρωμαϊκούς χρόνους, Διεθνές Επιστημονικό Συνέδριο, Κως 14--17 Απριλίου 2011}
+      \field{title}{The Macellum of Perge: New Aspects on its Building Material}
+      \field{year}{2011}
+      \field{pages}{279\bibrangedash 293}
+      \range{pages}{15}
+      \verb{file}
+      \verb :Artikel_Monographien/Poupaki_(Poupaki_2011)_The Macellum of Perge_ New Aspects on its Building Material_279-293.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Rich_2002}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=688e50346d3b43498b9ae9085e08cdfb}{Rich}{R\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{688e50346d3b43498b9ae9085e08cdfb}
+      \strng{fullhash}{688e50346d3b43498b9ae9085e08cdfb}
+      \field{sortinit}{R}
+      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{labelyear}{2002}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The city in late antiquity}
+      \field{year}{2002}
+      \verb{file}
+      \verb :Sammelbaende/Rich_2002_The City in Late Antiquity/Rich_(Rich_2002)_The city in late antiquity.pdf:PDF
+      \endverb
+    \endentry
+    \entry{Rosenberger_2012}{inreference}{lexikon}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=30205b1d5656423a77cdccbd2399cfb1}{Rosenberger}{R\bibinitperiod}{V.}{V\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{30205b1d5656423a77cdccbd2399cfb1}
+      \strng{fullhash}{30205b1d5656423a77cdccbd2399cfb1}
+      \field{sortinit}{R}
+      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{bookpagination}{column}
+      \field{maintitle}{ThesCRA}
+      \field{title}{Öffentlich/privat bei den Römern}
+      \field{volume}{8}
+      \field{year}{2012}
+      \field{pages}{11\bibrangedash 16}
+      \range{pages}{6}
+      \verb{file}
+      \verb :Lexika/ThesCRA_Thesaurus Cultus et Rituum Antiquorum/Rosenberger_(Rosenberger_2012)_öffentlich_privat bei den Römern_11-16.pdf:PDF
+      \endverb
+      \keyw{lexikon}
+      \warn{\item Datamodel: Entry 'Rosenberger_2012' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Rosenberger_2012' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Santoriello_1999}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=092fa93f532ed352ee2c6fe3741cad72}{Santoriello}{S\bibinitperiod}{Alfonso}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=bd29a75124076226bcc716b9b8db585d}{Vitti}{V\bibinitperiod}{Massimo}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{2f247cc830117e748b821faec33c86fd}
+      \strng{fullhash}{2f247cc830117e748b821faec33c86fd}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{1999}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{maintitle}{Ancient Macedonia. Sixth International Symposium}
+      \field{title}{Il paesaggio agrario del territorio della {\textit Colonia Victrix Philippensium}}
       \field{volume}{2}
-      \field{year}{1986}
+      \field{year}{1999}
+      \field{pages}{987\bibrangedash 1001}
+      \range{pages}{15}
+      \verb{file}
+      \verb :Artikel_Monographien/Santoriello and Vitti_(Santoriello_1999)_Il paesaggio agrario del territorio della textit Colonia Victrix Philippensium_987-1001.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Santoriello_1999' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Santoriello_1999' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Santoriello_1999' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Selle_2008}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=b9a800fcb30b8db5de883e529dde4e0f}{Selle}{S\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b9a800fcb30b8db5de883e529dde4e0f}
+      \strng{fullhash}{b9a800fcb30b8db5de883e529dde4e0f}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{extrayear}{1}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Begriff, Bedeutung und Wandel der öffentlich nutzbaren Räume in den Städten}
+      \field{title}{Öffentliche Räume -- eine Einführung}
+      \field{year}{2008}
+      \verb{file}
+      \verb :Artikel_Monographien/Selle_(Selle_2008)_Öffentliche Räume -- eine Einführung. Begriff, Bedeutung und Wandel der öffentlich nutzbaren Räume in den Städten.pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://www.pt.rwth-aachen.de/dokumente/lehre_materialien/c3a_oeffentlicher_raum.pdf
+      \endverb
+      \warn{\item Datamodel: Entry 'Selle_2008' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Selle_2008' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Selle_2008a}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=b9a800fcb30b8db5de883e529dde4e0f}{Selle}{S\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b9a800fcb30b8db5de883e529dde4e0f}
+      \strng{fullhash}{b9a800fcb30b8db5de883e529dde4e0f}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{extrayear}{2}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{subtitle}{Grundlagen und erste Folgerungen für das Wohnen in der Stadt.}
+      \field{title}{Raum und Verhalten}
+      \field{year}{2008}
+      \verb{file}
+      \verb :Artikel_Monographien/Selle_(Selle_2008a)_Raum und Verhalten. Grundlagen und erste Folgerungen für das Wohnen in der Stadt..pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://www.pt.rwth-aachen.de/dokumente/lehre_materialien/c8_raum_verhalten.pdf
+      \endverb
+      \warn{\item Datamodel: Entry 'Selle_2008a' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Selle_2008a' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Selle_2008b}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=b9a800fcb30b8db5de883e529dde4e0f}{Selle}{S\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{b9a800fcb30b8db5de883e529dde4e0f}
+      \strng{fullhash}{b9a800fcb30b8db5de883e529dde4e0f}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{extrayear}{3}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Stadt -- was ist das? Geschichte(n), Definitionen, Dimensionen, Perspektiven...}
+      \field{year}{2008}
+      \verb{file}
+      \verb :Artikel_Monographien/Selle_(Selle_2008b)_Stadt – was ist das_ Geschichte(n), Definitionen, Dimensionen, Perspektiven....pdf:PDF
+      \endverb
+      \verb{url}
+      \verb http://www.pt.rwth-aachen.de/files/dokumente/pt_materialien/1%20stadt%20111003.pdf
+      \endverb
+      \warn{\item Datamodel: Entry 'Selle_2008b' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Selle_2008b' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Torelli_1988}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=fd5e7fc20d9d727ef83ccdb4d1a389d0}{Torelli}{T\bibinitperiod}{Mario}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Taranto - Paestum}%
+      }
+      \list{publisher}{1}{%
+        {Istituto per la Storia e l'Archeologia della Magna Grecia, Taranto}%
+      }
+      \strng{namehash}{fd5e7fc20d9d727ef83ccdb4d1a389d0}
+      \strng{fullhash}{fd5e7fc20d9d727ef83ccdb4d1a389d0}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{labelyear}{1987}
+      \field{labelmonth}{10}
+      \field{labelday}{09\bibdatedash 15}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In der Diskussion: Seite 128: "La nostra, come tutte le scienze umane, è una scienza probabilistica; non era molto chiaro, forse, per la lettura frettolosa che io ho fatto, che esistevano diversi gradi di certezza o di probabilità nelle successive ipotesi che ho presentato."}
+      \field{day}{09}
+      \field{endday}{15}
+      \field{endmonth}{10}
+      \field{endyear}{1987}
+      \field{maintitle}{Poseidonia -- Paestum}
+      \field{month}{10}
+      \field{note}{Dibattito: 119--130}
+      \field{number}{27}
+      \field{series}{Atti del Ventisettesimo Convegno di Studio sulla Magna Grecia}
+      \field{shorttitle}{Paestum romana}
+      \field{title}{Paestum romana}
+      \field{venue}{Taranto - Paestum}
+      \field{volume}{1}
+      \field{year}{1987}
+      \field{pages}{33\bibrangedash 115}
+      \range{pages}{83}
+      \verb{file}
+      \verb :Artikel_Monographien/Torelli_(Torelli_1988)_Paestum romana_33-115.pdf:PDF
+      \endverb
+      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Torelli_1988'}
+      \warn{\item Datamodel: Entry 'Torelli_1988' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \warn{\item Datamodel: Entry 'Torelli_1988' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Torelli_1991}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=fd5e7fc20d9d727ef83ccdb4d1a389d0}{Torelli}{T\bibinitperiod}{Mario}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=57c7bf92ee9dccb2f95537459060e662}{Mertens}{M\bibinitperiod}{Josef}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Institut Historique Belge de Rome}%
+      }
+      \strng{namehash}{fd5e7fc20d9d727ef83ccdb4d1a389d0}
+      \strng{fullhash}{fd5e7fc20d9d727ef83ccdb4d1a389d0}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{labelyear}{1991}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{eventday}{01}
+      \field{eventendday}{03}
+      \field{eventendmonth}{02}
+      \field{eventendyear}{1990}
+      \field{eventmonth}{02}
+      \field{eventyear}{1990}
+      \field{mainsubtitle}{Actes du Colloque International Organisé à l'Occasion du 50. Anniversaire de l'Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie}
+      \field{maintitle}{Comunitá indigene e problemi della romanizzazione nell’Italia centro–meri\-dionale (IV--III sec. a.C.)}
+      \field{number}{29}
+      \field{series}{Études de philologie, d'archéologie et d'histoire anciennes}
+      \field{shorttitle}{Il ›diribitorium‹}
+      \field{title}{Il ›diribitorium‹ di Alba Fucens e il ›campus‹ eroico di Herdonia}
+      \field{venue}{Roma, Academia Belgica}
+      \field{year}{1991}
+      \field{pages}{39\bibrangedash 63}
+      \range{pages}{25}
+      \verb{file}
+      \verb :Artikel_Monographien/Torelli_(Torelli_1991)_Il 'diribitorium' di Alba Fucens e il 'campus' eroico di Herdonia_39-63.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Torelli_1991' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Torelli_1991' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
+    \endentry
+    \entry{Tosi_1995}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=1a7bdea7fe488faba44ab7613d3903f6}{Tosi}{T\bibinitperiod}{Giovanna}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=8ad70f41b7ec4cbd09b28b10e07ef3b4}{Mirabella\bibnamedelima Roberti}{M\bibinitperiod\bibinitdelim R\bibinitperiod}{Mario}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {ita}%
+      }
+      \list{organization}{1}{%
+        {Centro di Antichità Altoadriatiche <Aquileia>}%
+      }
+      \list{publisher}{1}{%
+        {Arti Grafiche Friulane}%
+      }
+      \strng{namehash}{1a7bdea7fe488faba44ab7613d3903f6}
+      \strng{fullhash}{1a7bdea7fe488faba44ab7613d3903f6}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{labelyear}{1995}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eventday}{23}
+      \field{eventendday}{28}
+      \field{eventendmonth}{04}
+      \field{eventendyear}{1994}
+      \field{eventmonth}{04}
+      \field{eventyear}{1994}
+      \field{maintitle}{»Forum et basilica« in Aquileia e nella cisalpina Romana}
+      \field{number}{42}
+      \field{series}{Antichità altoadriatiche}
+      \field{title}{Gli edifici per spettacolo di Verona}
+      \field{venue}{Aquileia}
+      \field{year}{1995}
+      \field{pages}{467\bibrangedash 492}
+      \range{pages}{26}
+      \verb{file}
+      \verb :Sammelbaende/Mirabella Roberti_1995_Forum et basilica in Aquileia e nella cisalpina Romana/Tosi_(Tosi_1995)_Gli edifici per spettacolo di Verona_467-492.pdf:PDF
+      \endverb
+      \warn{\item Datamodel: Entry 'Tosi_1995' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
+      \warn{\item Datamodel: Entry 'Tosi_1995' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
     \endentry
   \endsortlist
 \endrefsection
