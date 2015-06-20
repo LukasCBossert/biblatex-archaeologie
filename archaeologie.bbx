@@ -100,7 +100,7 @@
 \renewcommand*{\newunitpunct}{\addcomma\addspace}%
 \newcommand*{\autorenschriftart}{\scshape}%                           % JF: \scshape (\sc ist veraltet)
 \newcommand*{\autorentrennzeichen}{\addnbspace\textendash}%
-
+\renewcommand{\finentrypunct}{}%% LCB: am Ende des Eintrages kein Punkt
 
 
 \DeclareBibliographyAlias{collection}{book}
@@ -174,7 +174,6 @@
   #1\ifthenelse{\value{listcount}<\value{liststop}}%
           {\orttrennzeichen}{}%
 }%
-
 
 
 \let\bibnamedashOrig\bibnamedash%
@@ -330,6 +329,16 @@
    \iffieldundef{volumes}{\usebibmacro{title}}{}%
    \newunit}%
 
+\renewbibmacro{event+venue+date}{%			%%LCB: Für (In)Proceedings
+\setunit{\adddot\addspace}%  
+  \printfield{eventtitle}%
+    %\setunit*{\addcomma\space}%
+       \setunit*{\addspace}%
+       \printfield{venue}%
+       \setunit*{\addspace}%
+       \printeventdate%
+  \newunit}
+  
 
 \renewbibmacro*{maintitle}{%
   \ifboolexpr{test {\iffieldundef{maintitle}}%
@@ -353,14 +362,15 @@
        \printfield[titlecase]{title}%
        \setunit*{\subtitlepunct}%
        \printfield[titlecase]{subtitle}}%
-     \setunit*{\subtitlepunct}}%
+     \iffieldundef{titleaddon}{\setunit*{\addspace}}{\setunit*{\subtitlepunct}}%				%% zuvor:      \setunit*{\subtitlepunct}%
+     }%
   \printfield{titleaddon}\isdot}%
   
   
   
   
 \newbibmacro*{location+edition+year}{%
-%%%%%%%%%% wenn dai=true %%%%%%%%%
+% wenn dai=true %%%%%%%%%
     \ifbool{bbx:dai}{%
           \iffieldundef{edition}{\setunit{\addspace}}{%     % EDITION
              \iffieldint{edition}%
@@ -382,7 +392,7 @@
               \printlist[][1-1]{location}\addspace\printfield{year}%
             }%
     }}%
-%%%%%%%%%% wenn dai=false %%%%%%%%%
+% wenn dai=false %%%%%%%%%
 {\printtext[parens]{%  
   {\printlist{location}%
   \iffieldundef{publisher}{%                                          %%>> JF: geändert, Publisher hinzugefügt
@@ -399,15 +409,28 @@
           \addspace\printtext[brackets]{Erstauflage\addcolon\addspace\printfield{origyear}}}%
   }%
   }}}%%																									
-																							
-
-
+							
+																						
+\renewbibmacro*{institution+location+date}{%					%% LCB für PhD/MA-Thesis
+  \printlist{location}%
+  \iflistundef{institution}
+    {\setunit*{\addcomma\space}}
+    {\setunit*{\adddot\space}}%
+  \printlist{institution}%
+  \setunit*{\space}%
+  \printfield{year}%
+  \newunit}
+  
+  
 \newbibmacro*{addendum}{%
 }%
 %                                                                    %
 \newbibmacro*{signatur}{%
   \iffieldundef{note}{}{\printtext[parens]{\printfield{note}}\nopunct}%
 }%
+
+
+
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{
     \usebibmacro{maintitle}%
@@ -542,8 +565,7 @@
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
     {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
-    \usebibmacro{maintitle+title+volumes}%
-    \newunit\newblock%
+	\usebibmacro{title}%
     \printtext[parens]{{\printfield{type}}\addspace\setunit{\addspace}%
   \usebibmacro{institution+location+date}}%
     %\usebibmacro{location+edition+year}%
@@ -649,27 +671,49 @@
 
 
 
-\DeclareBibliographyDriver{inreference}{%				%% LCB: Gut wäre, wenn bbx:lexika = true keine Einträge in der Bibliographie auftauchen
-  \usebibmacro{bibindex}%
-  \usebibmacro{begentry}%
-  \usebibmacro{author}%
-    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%  
-    \usebibmacro{reftitle}%
-  \newunit\newblock%
-  %\usebibmacro{in:}%
-  \usebibmacro{refmaintitle}%
-  \setunit{\addspace}%
-  \usebibmacro{year}%
-  \newunit\newblock%
-  \usebibmacro{pages}%
-%  \setunit{\addspace}%
-%  \usebibmacro{url+urldate}%
-  \setunit{\addperiod\addspace}%
+\DeclareBibliographyDriver{inreference}{%			%%LCB: umgestellt für Lexika (RE/DNP/ThesCRA,e tc)
+\usebibmacro{bibindex}%
+ \usebibmacro{begentry}%
+\ifbool{cbx:lexikon}{%
+  \printfield{maintitle}\addspace\printfield{volume}\addspace\printfield[parens]{year}\addspace\printfield{pages}\addspace\printtext{s\adddot\addnbthinspace v\adddot}\addspace\printfield{title}\addspace\printtext[parens]{%
+  \printnames[first-last-inits]{author}%
+  }%
+  }{		\usebibmacro{author}%
+   			 	{\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%  
+  			  	\usebibmacro{reftitle}%
+  				\newunit\newblock%
+				\usebibmacro{refmaintitle}%
+ 				\setunit{\addspace}%
+  				\usebibmacro{year}%
+  				\newunit\newblock%
+  				\usebibmacro{pages}%
+				}%
+ \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
-}%
+}
 
+%%%%\DeclareBibliographyDriver{inreference}{%				%% LCB: Gut wäre, wenn bbx:lexika = true keine Einträge in der Bibliographie auftauchen
+%%%%  \usebibmacro{bibindex}%
+%%%%  \usebibmacro{begentry}%
+%%%%  \usebibmacro{author}%
+%%%%    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%  
+%%%%    \usebibmacro{reftitle}%
+%%%%  \newunit\newblock%
+%%%%  %\usebibmacro{in:}%
+%%%%  \usebibmacro{refmaintitle}%
+%%%%  \setunit{\addspace}%
+%%%%  \usebibmacro{year}%
+%%%%  \newunit\newblock%
+%%%%  \usebibmacro{pages}%
+%%%%%  \setunit{\addspace}%
+%%%%%  \usebibmacro{url+urldate}%
+%%%%  \setunit{\addperiod\addspace}%
+%%%%  \usebibmacro{signatur}%
+%%%%  \usebibmacro{savestuff}%
+%%%%  \usebibmacro{finentry}%
+%%%%}%
 
 
 \DeclareBibliographyDriver{review}{%

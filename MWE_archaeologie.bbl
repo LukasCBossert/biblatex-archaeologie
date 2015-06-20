@@ -223,6 +223,7 @@
       \field{eventendmonth}{03}
       \field{eventendyear}{2009}
       \field{eventmonth}{03}
+      \field{eventtitle}{Kongress}
       \field{eventyear}{2009}
       \field{mainsubtitle}{Nuovi Dati}
       \field{maintitle}{I complessi forensi della Cisalpina Romana}
@@ -895,9 +896,11 @@
       \field{eventendmonth}{04}
       \field{eventendyear}{2011}
       \field{eventmonth}{04}
+      \field{eventtitle}{Konferenz}
       \field{eventyear}{2011}
       \field{maintitle}{The agora in the Mediterranean from Homeric to Roman times}
       \field{title}{Oriental Agora: The case of Seleucid Europos-Dura, Syria}
+      \field{venue}{Kos}
       \field{year}{2011}
       \field{pages}{295\bibrangedash 309}
       \range{pages}{15}
@@ -961,14 +964,15 @@
       \field{eventendmonth}{02}
       \field{eventendyear}{2012}
       \field{eventmonth}{02}
+      \field{eventtitle}{Konferenz}
       \field{eventyear}{2012}
       \field{mainsubtitle}{Gestaltete Bewegung im gebauten Raum}
       \field{maintitle}{Die Architektur des Weges}
+      \field{number}{11}
       \field{series}{Diskussionen zur Archäologischen Bauforschung}
       \field{subtitle}{Zur Gestaltung des Weges in spätantiken Häusern am Beispiel von Ostia}
       \field{title}{Wege ins Haus -- Wege im Haus}
       \field{venue}{Berlin}
-      \field{volume}{11}
       \field{year}{2014}
       \field{pages}{409\bibrangedash 424}
       \range{pages}{16}
@@ -1063,11 +1067,11 @@
       \field{labeltitlesource}{title}
       \field{eventday}{23}
       \field{eventmonth}{07}
+      \field{eventtitle}{Proceedings of a one day colloquium}
       \field{eventyear}{2007}
       \field{library}{UB [Signatur:2013 C 1239] ; AC [Signatur:X Fransum 2007]}
       \field{number}{7}
       \field{series}{Caeculus}
-      \field{subtitle}{Proceedings of a one day colloquium}
       \field{title}{Public space in the post-classical city}
       \field{venue}{Fransum}
       \field{year}{2013}
@@ -1654,6 +1658,7 @@
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{subtitle}{Zur Bauforschung}
       \field{title}{Die Agora von Priene}
       \field{type}{phdthesis}
       \field{year}{2004}
@@ -1755,9 +1760,6 @@
       \list{location}{1}{%
         {Regensburg}%
       }
-      \list{organization}{1}{%
-        {Architekturreferat des DAI}%
-      }
       \list{publisher}{1}{%
         {Schnell + Steiner}%
       }
@@ -1774,6 +1776,7 @@
       \field{eventendmonth}{02}
       \field{eventendyear}{2012}
       \field{eventmonth}{02}
+      \field{eventtitle}{Kolloquium Architekturreferat des DAI}
       \field{eventyear}{2012}
       \field{number}{11}
       \field{series}{Diskussionen zur Archäologischen Bauforschung}
@@ -2036,10 +2039,12 @@
       \field{eventendmonth}{04}
       \field{eventendyear}{2011}
       \field{eventmonth}{04}
+      \field{eventtitle}{Konferenz}
       \field{eventyear}{2011}
       \field{maintitle}{The agora in the Mediterranean from Homeric to Roman times}
       \field{maintitleaddon}{Η Αγορά στη Μεσόγειο από τους Ομηρικούς έως τους Ρωμαϊκούς χρόνους, Διεθνές Επιστημονικό Συνέδριο}
-      \field{title}{The Macellum of Perge: New Aspects on its Building Material}
+      \field{subtitle}{New Aspects on its Building Material}
+      \field{title}{The Macellum of Perge}
       \field{venue}{Kos}
       \field{year}{2011}
       \field{pages}{279\bibrangedash 293}
@@ -2248,6 +2253,9 @@
       \name{editor}{1}{}{%
         {{hash=57c7bf92ee9dccb2f95537459060e662}{Mertens}{M\bibinitperiod}{Josef}{J\bibinitperiod}{}{}{}{}}%
       }
+      \list{language}{1}{%
+        {french}%
+      }
       \list{location}{1}{%
         {Bruxelles}%
       }
@@ -2267,14 +2275,14 @@
       \field{eventendmonth}{02}
       \field{eventendyear}{1990}
       \field{eventmonth}{02}
+      \field{eventtitle}{Actes du Colloque International Organisé à l'Occasion du 50. Anniversaire de l'Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie}
       \field{eventyear}{1990}
-      \field{mainsubtitle}{Actes du Colloque International Organisé à l'Occasion du 50. Anniversaire de l'Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie}
       \field{maintitle}{Comunitá indigene e problemi della romanizzazione nell’Italia centro–meri\-dionale (IV--III sec. a.C.)}
       \field{number}{29}
       \field{series}{Études de philologie, d'archéologie et d'histoire anciennes}
       \field{shorttitle}{Il ›diribitorium‹}
       \field{title}{Il ›diribitorium‹ di Alba Fucens e il ›campus‹ eroico di Herdonia}
-      \field{venue}{Roma, Academia Belgica}
+      \field{venue}{Roma}
       \field{year}{1991}
       \field{pages}{39\bibrangedash 63}
       \range{pages}{25}

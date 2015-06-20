@@ -76,7 +76,7 @@
     {\addspace\textendash\addspace}{}%
 }%
 \renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
-\newcommand*{\citeautorenschriftart}{\scshape}%                                 %%>> JF: \sc zu \scshape geändert, veraltet
+\newcommand*{\citeautorenschriftart}{\ifbool{bbx:dai}{}{\scshape}}%                                 %%>> JF: \sc zu \scshape geändert, veraltet
 \newcommand*{\citeautorentrennzeichen}%
                          {\addnbspace\textendash\addspace}%
 \DeclareNameFormat{cite:author}{%
@@ -197,11 +197,11 @@
   
   
 \newbibmacro*{lexikon}{%
-  \ifbool{bbx:lexika}{\bibhyperref{%
+  \ifbool{bbx:lexika}{%
   \printfield{maintitle}\addspace\printfield{volume}\addspace\printfield[parens]{year}\addspace\printfield{pages}\addspace\printtext{s\adddot\addnbthinspace v\adddot}\addspace\printfield{title}\addspace\printtext[parens]{%
   \printnames[first-last-inits]{author}%
   }%
-  }}{\bibhyperref{\printnames[cite:author]{labelname}%              
+  }{\printnames[cite:author]{labelname}%              
         \ifbool{cbx:autorjahr}{%
            \setunit{\addspace}\usebibmacro{cite:year}}%
            {\newunitpunct%
@@ -209,7 +209,7 @@
                  \ifbool{cbx:mitjahr}%
                     {\setunit{\addspace}%
                     \usebibmacro{cite:year}}{}}%
-            }}
+            }
 }
 
 \newbibmacro*{cite}{%
@@ -219,7 +219,7 @@
     {%      
       \ifbool{cbx:nurshorthand}{\bibhyperref{\printfield{shorthand}}}{}%
        \ifbool{cbx:unbekannt}{\bibhyperref{\usebibmacro{shorthand+year}}}{}%     
-       \ifbool{cbx:lexikon}{\usebibmacro{lexikon}}{}}
+       \ifbool{cbx:lexikon}{\bibhyperref{\usebibmacro{lexikon}}}{}}
        %
      {\bibhyperref{\printnames[cite:author]{labelname}%              %%>> JF: zuvor, \usebibmacro{cite:name}
         \ifbool{cbx:autorjahr}{%
