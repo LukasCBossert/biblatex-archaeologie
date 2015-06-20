@@ -176,6 +176,7 @@
 }%
 
 
+
 \let\bibnamedashOrig\bibnamedash%
 \renewcommand*{\bibnamedash}{\rule[3pt]{2.5em}{.6pt}\space} %%>> LCB: geändert, JF: Strich von 3em auf 2.5em verkürzt
 %\renewcommand*{\bibnamedash}{%
@@ -246,7 +247,7 @@
                \AND\NOT\iffirstonpage}%
          {\bibnamedash}%
          {\ifnameundef{editor}{}{%
-        \ifbool{bbx:dai}{\printnames[first-last-inits]{editor}\isdot}{% (Hrsg.)
+    \ifbool{bbx:dai}{\printnames[first-last-inits]{editor}\isdot}{% (Hrsg.)
                 \printnames[author]{editor}\isdot}% (Hrsg.)
            \addspace\printtext[parens]{\bibstring{editor}}}}%
    }{					\usebibmacro{author}}%
@@ -356,35 +357,49 @@
   \printfield{titleaddon}\isdot}%
   
   
+  
+  
 \newbibmacro*{location+edition+year}{%
-\ifbool{bbx:dai}{\iffieldundef{edition}{\setunit{\addspace}}{%
+%%%%%%%%%% wenn dai=true %%%%%%%%%
+    \ifbool{bbx:dai}{%
+          \iffieldundef{edition}{\setunit{\addspace}}{%     % EDITION
+             \iffieldint{edition}%
+              {\setunit{\addspace}%
+             \mkbibsuperscript{\printfield{edition}}}%
+             {\setunit{\addcomma\addspace}%
+             \printfield{edition}\addspace}}%
+             \printtext[parens]{%
+          \iffieldundef{origyear}{%
+              \printlist[][1-1]{location}\addspace\printfield{year}}%                     % ORT
+            {%
+              \iflistundef{origlocation}{%        % Nachdruck, falls kein origlocation angegeben, ausgabe von location
+                    \printlist[][1-1]{location}}{%
+                    \printlist[][1-1]{origlocation}}%
+                  \setunit*{\addspace}%               
+              \printfield{origyear}%
+                  \addsemicolon\addspace%
+              \printtext{Nachdr}\adddot\addspace%
+              \printlist[][1-1]{location}\addspace\printfield{year}%
+            }%
+    }}%
+%%%%%%%%%% wenn dai=false %%%%%%%%%
+{\printtext[parens]{%  
+  {\printlist{location}%
+  \iffieldundef{publisher}{%                                          %%>> JF: geändert, Publisher hinzugefügt
+    \setunit*{\addcolon\addspace}%                                    %%>>
+    \printlist{publisher}}{}%                                         %%>>
+  \iffieldundef{edition}{\setunit{\addspace}}{%
        \iffieldint{edition}%
            {\setunit{\addspace}%
              \mkbibsuperscript{\printfield{edition}}}%
            {\setunit{\addcomma\addspace}%
-             \printfield{edition}\addcomma\addspace}}}{}%
- 	\printtext[parens]{%                                                 %%>> JF: geändert, alles in Klammern
-			\ifbool{bbx:dai}{%
-					\printlist[][1-1]{location}}{%
-					\printlist{location}}%
-			\ifbool{bbx:dai}{}{%
-  					\iffieldundef{publisher}{%                                          %%>> JF: geändert, Publisher hinzugefügt
-  						  \setunit*{\addcolon\addspace}\printlist{publisher}}{%
-  						  	}}%                                         %%>>
-		  	\ifbool{bbx:dai}{%
-		  		\addspace}{%
-		  		\iffieldundef{edition}%		  		
-{\setunit{\addspace}}{%
-       \iffieldint{edition}%
-           {\setunit{\addspace}%
-             \mkbibsuperscript{\printfield{edition}}}%
-           {\setunit{\addcomma\addspace}%
-             \printfield{edition}\addcomma\addspace}}}%
+             \printfield{edition}\addcomma\addspace}}%
   \printfield{year}%
-   \iffieldundef{origyear}{}{%							%%>> LCB: Erstauflage in die Klammer gleich nach Jahr
-    \addspace\printtext[brackets]{Erstauflage\addcolon\addspace\printfield{origyear}}}%
-    }%
-  }%%																									>> JF: geändert, alles in Klammern
+        \iffieldundef{origyear}{}{%              %%>> LCB: Erstauflage in die Klammer gleich nach Jahr 
+          \addspace\printtext[brackets]{Erstauflage\addcolon\addspace\printfield{origyear}}}%
+  }%
+  }}}%%																									
+																							
 
 
 \newbibmacro*{addendum}{%

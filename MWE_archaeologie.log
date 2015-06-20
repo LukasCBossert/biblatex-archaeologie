@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  20 JUN 2015 13:07
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  20 JUN 2015 15:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1934,18 +1934,6 @@ Package biblatex Warning: Biber reported the following issues
 
 Package biblatex Warning: Biber reported the following issues
 (biblatex)                with 'Bacchetta_2011':
-(biblatex)                - Overwriting field 'year' with year value from field
- 'date' for entry 'Bacchetta_2011'.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Bacchetta_2011':
-(biblatex)                - Datamodel: Entry 'Bacchetta_2011' (MWE_archaeologie
-.bib): Invalid format '' of date field 'eventdate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Bacchetta_2011':
 (biblatex)                - Datamodel: Entry 'Bacchetta_2011' (MWE_archaeologie
 .bib): Invalid format '' of date field 'urldate' - ignoring.
 
@@ -1983,25 +1971,7 @@ ie.bib): Invalid format '' of date field 'date' - ignoring.
 Package biblatex Warning: Biber reported the following issues
 (biblatex)                with 'Coqueugniot_2011':
 (biblatex)                - Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeolog
-ie.bib): Invalid format '' of date field 'eventdate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Coqueugniot_2011':
-(biblatex)                - Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeolog
 ie.bib): Invalid format '' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Danner_2014':
-(biblatex)                - Overwriting field 'year' with year value from field
- 'date' for entry 'Danner_2014'.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Danner_2014':
-(biblatex)                - Datamodel: Entry 'Danner_2014' (MWE_archaeologie.bi
-b): Invalid format '' of date field 'eventdate' - ignoring.
 
 
 Package biblatex Warning: Biber reported the following issues
@@ -2150,32 +2120,8 @@ Package biblatex Warning: Biber reported the following issues
 
 Package biblatex Warning: Biber reported the following issues
 (biblatex)                with 'Kurapkat_2014':
-(biblatex)                - Overwriting field 'year' with year value from field
- 'date' for entry 'Kurapkat_2014'.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Kurapkat_2014':
-(biblatex)                - Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.
-bib): Invalid format '' of date field 'eventdate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Kurapkat_2014':
 (biblatex)                - Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.
 bib): Invalid format '' of date field 'urldate' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Maggi_2011':
-(biblatex)                - Overwriting field 'year' with year value from field
- 'date' for entry 'Maggi_2011'.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Maggi_2011':
-(biblatex)                - Datamodel: Entry 'Maggi_2011' (MWE_archaeologie.bib
-): Invalid format '' of date field 'eventdate' - ignoring.
 
 
 Package biblatex Warning: Biber reported the following issues
@@ -2188,12 +2134,6 @@ Package biblatex Warning: Biber reported the following issues
 (biblatex)                with 'Poupaki_2011':
 (biblatex)                - Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.b
 ib): Invalid format '' of date field 'date' - ignoring.
-
-
-Package biblatex Warning: Biber reported the following issues
-(biblatex)                with 'Poupaki_2011':
-(biblatex)                - Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.b
-ib): Invalid format '' of date field 'eventdate' - ignoring.
 
 
 Package biblatex Warning: Biber reported the following issues
@@ -2644,10 +2584,10 @@ Package logreq Info: Writing requests to 'MWE_archaeologie.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38378 strings out of 493706
- 755264 string characters out of 6145769
- 1112131 words of memory out of 5000000
- 41432 multiletter control sequences out of 15000+600000
+ 38371 strings out of 493706
+ 755098 string characters out of 6145769
+ 1112255 words of memory out of 5000000
+ 41425 multiletter control sequences out of 15000+600000
  8517 words of font info for 64 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
  67i,8n,66p,10413b,1544s stack positions out of 5000i,500n,10000p,200000b,80000s

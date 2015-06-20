@@ -199,13 +199,6 @@ Die Verknüpfung zum rezensierten Werk funktioniert nur, WENN das rezensierte We
 
 	==> Problem ist die Darstellung in den Fußnoten. Da wird trotz eigener Rezensionstitel der subtitle des rezensierten Werks angegeben...
 
-####################
-## Antike Autoren ##
-####################
-
-- Können mit \printshorthands ausgegeben werden. Autorennamen lassen sich gut in das Feld für die modernen Autorennamen eingliedern, z.B. Ovidius Naso, Publius.
-	==> LCB: oder man trägt ein author = {\mbox{P. Ovidius Naso}} --> Vorteil: bei einem \citeauthor wird nicht "Ovidius Naso" sondern "P. Ovidius Naso" im Fließtext ausgegeben
-
 
 
 ############

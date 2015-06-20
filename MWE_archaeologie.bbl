@@ -214,33 +214,30 @@
       \strng{fullhash}{630a04ee50df577543573bcd2e5c1c54}
       \field{sortinit}{B}
       \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
-      \field{labelyear}{2009}
-      \field{labelmonth}{03}
-      \field{labelday}{12\bibdatedash 13}
+      \field{labelyear}{2011}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{12}
-      \field{endday}{13}
-      \field{endmonth}{03}
-      \field{endyear}{2009}
+      \field{eventday}{12}
+      \field{eventendday}{13}
+      \field{eventendmonth}{03}
+      \field{eventendyear}{2009}
+      \field{eventmonth}{03}
+      \field{eventyear}{2009}
       \field{mainsubtitle}{Nuovi Dati}
       \field{maintitle}{I complessi forensi della Cisalpina Romana}
       \field{maintitleaddon}{Atti del Convegno di Studi}
-      \field{month}{03}
       \field{number}{10}
       \field{series}{Flos Italiae. Documenti di archeologia della Cisalpina Romana}
       \field{subtitle}{Nuovi dati sulla piazza e il capitolium}
       \field{title}{Il foro di Aquae Statiellae (Acqui Terme)}
       \field{venue}{Pavia}
-      \field{year}{2009}
+      \field{year}{2011}
       \field{pages}{71\bibrangedash 86}
       \range{pages}{16}
       \verb{file}
       \verb :Sammelbaende/Maggi_(Maggi_2011)_I complessi forensi della Cisalpina romana/Bacchetta_Crosetto and Gambari_(Bacchetta_2011)_Il foro di Aquae Statiellae (Acqui Terme)_71-86.pdf:PDF
       \endverb
-      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Bacchetta_2011'}
-      \warn{\item Datamodel: Entry 'Bacchetta_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
       \warn{\item Datamodel: Entry 'Bacchetta_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
     \endentry
     \entry{Baker_2011}{review}{}
@@ -355,6 +352,10 @@
         {London}%
         {Hamburg}%
       }
+      \list{origlocation}{2}{%
+        {Berlin}%
+        {Potsdam}%
+      }
       \list{publisher}{1}{%
         {Profile Books}%
       }
@@ -365,15 +366,13 @@
       \field{labelyear}{2008}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
+      \field{labeltitlesource}{title}
       \field{edition}{2}
-      \field{shorttitle}{Pompeii}
+      \field{origyear}{1990}
       \field{subtitle}{The life of a Roman town}
       \field{title}{Pompeii}
+      \field{volume}{2}
       \field{year}{2008}
-      \verb{file}
-      \verb :Artikel_Monographien/Beard_(Beard_2008)_Pompeii_ The life of a Roman town.pdf:PDF
-      \endverb
     \endentry
     \entry{Bell_2011}{review}{}
       \name{author}{1}{}{%
@@ -493,9 +492,6 @@
       \name{editor}{1}{}{%
         {{hash=4faa94a6b8744b0729105efab15c8c45}{Ampolo}{A\bibinitperiod}{Carmine}{C\bibinitperiod}{}{}{}{}}%
       }
-      \list{language}{1}{%
-        {ita eng}%
-      }
       \list{location}{1}{%
         {Pisa}%
       }
@@ -513,20 +509,14 @@
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{library}{UB [Signatur:2013 D 752] ; AC [Signatur:X Pisa 2008]}
+      \field{edition}{2}
       \field{maintitle}{Agora greca e agorai di Sicilia}
-      \field{note}{Beitr. teilw. ital., teilw. engl.}
       \field{number}{28}
       \field{series}{Seminari e convegni}
-      \field{subtitle}{[il volume contiene: atti delle Settime Giornate Internazionali di Studi sull'Area Elima e la Sicilia Occidentale nel Contesto Mediterraneo, Erice, 12 - 15 ottobre 2009 ; Workshop "G. Nenci" diretto da Carmine Ampolo, vol. 1 ; atti del Seminario Internazionale di Studi, Pisa, Scuola Normale Superiore, 30 giugno - 2 luglio 2008 ; altri studi sull'agora non presentati in tali occasioni]}
       \field{title}{Appendice. Monumenti minori dell’agora di Alesa: le esedre curve. Analisi e ricostruzione}
       \field{year}{2012}
       \field{pages}{155\bibrangedash 169}
       \range{pages}{15}
-      \verb{file}
-      \verb :Artikel_Monographien/Burgio_(Burgio_2012)_Appendice. Monumenti minori dell’agora di Alesa_ le esedre curve. Analisi e ricostruzione_155-169.pdf:PDF
-      \endverb
-      \keyw{(g)Griechenland <Altertum> / (g)Sizilien / (s)Agora / (f)Kongress / (g)Erice <2009>}
     \endentry
     \entry{Caes_Gall}{book}{antik}
       \name{author}{1}{}{%
@@ -900,7 +890,13 @@
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{maintitle}{The agora in the Mediterranean from Homeric to Roman times, Konferenz Kos 14.--17. April 2011 / Η Αγορά στη Μεσόγειο από τους Ομηρικούς έως τους Ρωμαϊκούς χρόνους, Διεθνές Επιστημονικό Συνέδριο, Κως 14--17 Απριλίου 2011}
+      \field{eventday}{14}
+      \field{eventendday}{17}
+      \field{eventendmonth}{04}
+      \field{eventendyear}{2011}
+      \field{eventmonth}{04}
+      \field{eventyear}{2011}
+      \field{maintitle}{The agora in the Mediterranean from Homeric to Roman times}
       \field{title}{Oriental Agora: The case of Seleucid Europos-Dura, Syria}
       \field{year}{2011}
       \field{pages}{295\bibrangedash 309}
@@ -909,7 +905,6 @@
       \verb :Artikel_Monographien/Coqueugniot_(Coqueugniot_2011)_Oriental Agora_ The case of Seleucid Europos-Dura, Syria_295-309.pdf:PDF
       \endverb
       \warn{\item Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
-      \warn{\item Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
       \warn{\item Datamodel: Entry 'Coqueugniot_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
     \endentry
     \entry{Cosa_1949}{article}{unbekannt}
@@ -957,32 +952,29 @@
       \strng{fullhash}{032f88cc12e0bdfeb74999ae9ffe74ed}
       \field{sortinit}{D}
       \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
-      \field{labelyear}{2012}
-      \field{labelmonth}{02}
-      \field{labelday}{08\bibdatedash 11}
+      \field{labelyear}{2014}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{day}{08}
-      \field{endday}{11}
-      \field{endmonth}{02}
-      \field{endyear}{2012}
+      \field{eventday}{08}
+      \field{eventendday}{11}
+      \field{eventendmonth}{02}
+      \field{eventendyear}{2012}
+      \field{eventmonth}{02}
+      \field{eventyear}{2012}
       \field{mainsubtitle}{Gestaltete Bewegung im gebauten Raum}
       \field{maintitle}{Die Architektur des Weges}
-      \field{month}{02}
       \field{series}{Diskussionen zur Archäologischen Bauforschung}
       \field{subtitle}{Zur Gestaltung des Weges in spätantiken Häusern am Beispiel von Ostia}
       \field{title}{Wege ins Haus -- Wege im Haus}
       \field{venue}{Berlin}
       \field{volume}{11}
-      \field{year}{2012}
+      \field{year}{2014}
       \field{pages}{409\bibrangedash 424}
       \range{pages}{16}
       \verb{file}
       \verb :Artikel_Monographien/Danner_(Danner_2014)_Wege ins Haus -- Wege im Haus_409-424.pdf:PDF
       \endverb
-      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Danner_2014'}
-      \warn{\item Datamodel: Entry 'Danner_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
       \warn{\item Datamodel: Entry 'Danner_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
     \endentry
     \entry{Davies_2014}{incollection}{}
@@ -1773,25 +1765,22 @@
       \strng{fullhash}{88f90a48374c41145e8b3249b4adb539}
       \field{sortinit}{K}
       \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
-      \field{labelyear}{2012}
-      \field{labelmonth}{02}
-      \field{labelday}{08\bibdatedash 11}
+      \field{labelyear}{2014}
       \field{datelabelsource}{}
       \field{labelnamesource}{editor}
       \field{labeltitlesource}{title}
-      \field{day}{08}
-      \field{endday}{11}
-      \field{endmonth}{02}
-      \field{endyear}{2012}
-      \field{month}{02}
+      \field{eventday}{08}
+      \field{eventendday}{11}
+      \field{eventendmonth}{02}
+      \field{eventendyear}{2012}
+      \field{eventmonth}{02}
+      \field{eventyear}{2012}
+      \field{number}{11}
       \field{series}{Diskussionen zur Archäologischen Bauforschung}
       \field{subtitle}{Gestaltete Bewegung im gebauten Raum}
       \field{title}{Die Architektur des Weges}
       \field{venue}{Berlin}
-      \field{volume}{11}
-      \field{year}{2012}
-      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Kurapkat_2014'}
-      \warn{\item Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
+      \field{year}{2014}
       \warn{\item Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
     \endentry
     \entry{Ercolano_1762}{book}{unbekannt}
@@ -1842,29 +1831,26 @@
       \strng{fullhash}{ba980fcdc302ff5a0a20335943693d4a}
       \field{sortinit}{M}
       \field{sortinithash}{2684bec41e9697b92699b46491061da2}
-      \field{labelyear}{2009}
-      \field{labelmonth}{03}
-      \field{labelday}{12\bibdatedash 13}
+      \field{labelyear}{2011}
       \field{datelabelsource}{}
       \field{labelnamesource}{editor}
       \field{labeltitlesource}{title}
-      \field{day}{12}
-      \field{endday}{13}
-      \field{endmonth}{03}
-      \field{endyear}{2009}
-      \field{month}{03}
+      \field{eventday}{12}
+      \field{eventendday}{13}
+      \field{eventendmonth}{03}
+      \field{eventendyear}{2009}
+      \field{eventmonth}{03}
+      \field{eventyear}{2009}
       \field{number}{10}
       \field{series}{Flos Italiae. Documenti di archeologia della Cisalpina Romana}
       \field{subtitle}{Nuovi Dati}
       \field{title}{I complessi forensi della Cisalpina Romana}
       \field{titleaddon}{Atti del Convegno di Studi}
       \field{venue}{Pavia}
-      \field{year}{2009}
+      \field{year}{2011}
       \verb{file}
       \verb :Sammelbaende/Maggi_(Maggi_2011)_I complessi forensi della Cisalpina romana/(Maggi_2011)_I complessi forensi della Cisalpina Romana.pdf:PDF
       \endverb
-      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'Maggi_2011'}
-      \warn{\item Datamodel: Entry 'Maggi_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
       \warn{\item Datamodel: Entry 'Maggi_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
     \endentry
     \entry{Mart_Epigr}{book}{antik}
@@ -2045,8 +2031,16 @@
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{maintitle}{The agora in the Mediterranean from Homeric to Roman times, Konferenz Kos 14.--17. April 2011 / Η Αγορά στη Μεσόγειο από τους Ομηρικούς έως τους Ρωμαϊκούς χρόνους, Διεθνές Επιστημονικό Συνέδριο, Κως 14--17 Απριλίου 2011}
+      \field{eventday}{14}
+      \field{eventendday}{17}
+      \field{eventendmonth}{04}
+      \field{eventendyear}{2011}
+      \field{eventmonth}{04}
+      \field{eventyear}{2011}
+      \field{maintitle}{The agora in the Mediterranean from Homeric to Roman times}
+      \field{maintitleaddon}{Η Αγορά στη Μεσόγειο από τους Ομηρικούς έως τους Ρωμαϊκούς χρόνους, Διεθνές Επιστημονικό Συνέδριο}
       \field{title}{The Macellum of Perge: New Aspects on its Building Material}
+      \field{venue}{Kos}
       \field{year}{2011}
       \field{pages}{279\bibrangedash 293}
       \range{pages}{15}
@@ -2054,7 +2048,6 @@
       \verb :Artikel_Monographien/Poupaki_(Poupaki_2011)_The Macellum of Perge_ New Aspects on its Building Material_279-293.pdf:PDF
       \endverb
       \warn{\item Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'date' - ignoring}
-      \warn{\item Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'eventdate' - ignoring}
       \warn{\item Datamodel: Entry 'Poupaki_2011' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
     \endentry
     \entry{Rich_2002}{book}{}
