@@ -231,12 +231,13 @@
  \ifnameundef{author}{}%
   {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
                \AND\NOT\iffirstonpage}%
-                {\ifbool{cbx:autorjahr}{%
-                				\printnames{author}}{\bibnamedash}}%
+                {\ifboolexpr{bool{cbx:autorjahr} or bool{bbx:dai}}{%
+                				\ifbool{bbx:dai}{\printnames[first-last-inits]{author}}}{%				%%LCB: Damit bei gleichem Autor kein bibnamedash kommt
+                				\printnames{author}}{\bibnamedash}}}%
 			{\ifbool{bbx:dai}{%
 					\printnames[first-last-inits]{author}}{%
 					\printnames{author}\isdot}}}%
-        }%
+        %
 
 %
 %
@@ -244,8 +245,8 @@
    \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
     \ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
                \AND\NOT\iffirstonpage}%
-         {\bibnamedash}%
-         {\ifnameundef{editor}{}{%
+         {\ifbool{bbx:dai}{\printnames[first-last-inits]{editor}}{\bibnamedash}}%			%%LCB: Damit bei gleichem Editor kein bibnamedash kommt
+ {\ifnameundef{editor}{}{%
     \ifbool{bbx:dai}{\printnames[first-last-inits]{editor}\isdot}{% (Hrsg.)
                 \printnames[author]{editor}\isdot}% (Hrsg.)
            \addspace\printtext[parens]{\bibstring{editor}}}}%
@@ -563,7 +564,7 @@
 \DeclareBibliographyDriver{thesis}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \usebibmacro{author/editor}%
+  \usebibmacro{author}%
     {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
 	\usebibmacro{title}%
     \printtext[parens]{{\printfield{type}}\addspace\setunit{\addspace}%
