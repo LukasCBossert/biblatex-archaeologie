@@ -79,6 +79,8 @@
 \newcommand*{\citeautorenschriftart}{\ifbool{bbx:dai}{}{\scshape}}%                                 %%>> JF: \sc zu \scshape geändert, veraltet
 \newcommand*{\citeautorentrennzeichen}%
                          {\addnbspace\textendash\addspace}%
+                         
+                         
 \DeclareNameFormat{cite:author}{%
   {\citeautorenschriftart%
    \ifblank{#5}{}{#5\addspace}%
@@ -92,6 +94,8 @@
     {\citeautorentrennzeichen}{}%
   \isdot%
 }%
+
+
 \renewbibmacro*{prenote}{%
   \iffieldundef{prenote}{}%
     {\printfield{prenote}%
@@ -133,6 +137,8 @@
    \savefield{postnote}{\cbx@lastpagenumber}%
    \savefield{entrykey}{\cbx@lastentrykey}%
 }%
+
+
 \newbibmacro*{cite:name}{%
   \ifnameundef{author}{%
     \ifnameundef{editor}{}{%
@@ -140,6 +146,8 @@
    }{%
       \printnames[cite:author]{author}%
 }}%
+
+
 \newbibmacro*{cite:title}{%                           %%>> JF: neu, option kurztitel=true/false
    \ifbool{cbx:autorjahr}{}%                            %%>>
      {\iffieldundef{shorttitle}{%                     %%>>
@@ -147,12 +155,16 @@
      %  \usebibmacro{title}%                           %%>>
       }{\printfield{shorttitle}}}%                    %%>>
 }%
+
+
 \newbibmacro*{fnverweis}{%
   \ifbool{cbx:fnverweise}{%
     \setunit{\addspace}%
     \printtext[parens]{wie Anm\adddot\addspace%
                 \ref{footref:\thefield{entrykey}}}}%
 }%
+
+
 \newbibmacro*{cite:year}{%
   \iffieldundef{labelyear}
     {}%
@@ -193,7 +205,7 @@
 
 
 \DeclareNameFormat{first-last-inits}{%
-  \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}}
+  \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}}%
   
   
 \newbibmacro*{lexikon}{%
