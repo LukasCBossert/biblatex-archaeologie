@@ -6,7 +6,7 @@ titleaddon = {Ausstellungskatalog Bonn},
 subtitle = {Reiter und Könige nördlich der Sahara},
 venue = {Bonn},
 editor= {Horn, H. G. and Rüger, Ch. B.},
-address = {Köln},
+Location = {Köln},
 year = {1979}
 }
 
@@ -89,7 +89,7 @@ year = {1979}
 }
 @Book{Ercolano_1762,
   Title                    = {Le antichit{\`{a}} di Ercolano esposte},
-  Address                  = {Napoli},
+  Location                  = {Napoli},
   Author                   = unbekannt,
   Editor                   = {},
   Number                   = {3},
@@ -283,7 +283,7 @@ year = {1979}
 }
 @Book{Beard_2008,
   Title                    = {Pompeii},
-  Address                  = {London and Hamburg},
+  Location                  = {London and Hamburg},
   Author                   = {Beard, Mary},
   Editor                   = {},
   Number                   = {},
@@ -305,7 +305,7 @@ year = {1979}
 }
 @Book{Haug_2003,
   Title                    = {Die Stadt als Lebensraum},
-  Address                  = {Rahden/Westf.},
+  Location                  = {Rahden/Westf.},
   Author                   = {Haug, Annette},
   Editor                   = {},
   Number                   = {85},
@@ -323,7 +323,7 @@ year = {1979}
 }
 @Book{Hilger_2011,
   Title                    = {Vernetzte R{\"{a}}ume},
-  Address                  = {Bielefeld},
+  Location                  = {Bielefeld},
   Author                   = {Christina Hilger},
   Editor                   = {},
   Number                   = {15},
@@ -345,7 +345,7 @@ year = {1979}
 }
 @Book{Kienast_2004,
   Title                    = {R{\"{o}}mische Kaisertabelle},
-  Address                  = {Darmstadt},
+  Location                  = {Darmstadt},
   Author                   = {Kienast, Dietmar},
   Editor                   = {},
   Number                   = {},
@@ -366,7 +366,7 @@ year = {1979}
 }
 @Book{Kleinwaechter_2001,
   Title                    = {Platzanlagen nordafrikanischer Städte},
-  Address                  = {Mainz and Horb and Berlin},
+  Location                  = {Mainz and Horb and Berlin},
   Author                   = {Kleinwächter, Claudia},
   Editor                   = {},
   Number                   = {20},
@@ -386,7 +386,7 @@ year = {1979}
 }
 @Book{Kreikenbom_2011,
   Title                    = {Lepcis Magna unter den ersten Kaisern},
-  Address                  = {Wiesbaden},
+  Location                  = {Wiesbaden},
   Author                   = {Kreikenbom, Detlev},
   Editor                   = {},
   Number                   = {22},
@@ -407,7 +407,7 @@ year = {1979}
 }
 @Book{Pedley_1990,
   Title                    = {Paestum},
-  Address                  = {},
+  Location                  = {},
   Author                   = {Pedley, John Griffiths},
   Editor                   = {},
   Number                   = {},
@@ -435,7 +435,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 }
 @Book{Rich_2002,
   Title                    = {The city in late antiquity},
-  Address                  = {},
+  Location                  = {},
   Author                   = {Rich, John},
   Editor                   = {},
   Number                   = {},
@@ -455,7 +455,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 }
 @Incollection{Brogiolo_2006,
   Title                    = {The Control of Public Space and the Transformation of an Early Medieval town},
-  Address                  = {Leiden},
+  Location                  = {Leiden},
   Author                   = {Brogiolo, Gian Pietro},
   Booktitle                = {},
   Editor                   = {Bowden, William and Adam Gutteridge and Carlos Machado},
@@ -480,7 +480,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 }
 @Incollection{Burgio_2012,
   Title                    = {Appendice. Monumenti minori dell’agora di Alesa: le esedre curve. Analisi e ricostruzione},
-  Address                  = {Pisa},
+  Location                  = {Pisa},
   Author                   = {Rocco Burgio},
   Booktitle                = {},
   Editor                   = {Ampolo, Carmine},
@@ -509,7 +509,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 }
 @Incollection{Calapa_2009,
   Title                    = {Das Stadtbild von Ephesos in hellenistischer Zeit},
-  Address                  = {Berlin},
+  Location                  = {Berlin},
   Author                   = {Annalisa Calapà},
   Booktitle                = {},
   Editor                   = {Albrecht Matthaei and Martin Zimmermann},
@@ -535,7 +535,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 }
 @Incollection{Christie_2009,
   Title                    = {No More Fun? The Ends of Entertainment Structures in the Late Roman West},
-  Address                  = {Oxford},
+  Location                  = {Oxford},
   Author                   = {Christie, Neil},
   Booktitle                = {},
   Editor                   = {Wilmott, Tony},
@@ -559,7 +559,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 }
 @Incollection{Colin_2000,
   Title                    = {Commercants itinerants et marchands sedentaires dans l{\textquoteright}Occident romain},
-  Address                  = {Bari},
+  Location                  = {Bari},
   Author                   = {Colin, Xavier},
   Booktitle                = {},
   Editor                   = {Lo Cascio, Elio},
@@ -583,7 +583,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 }
 @Incollection{Davies_2014,
   Title                    = {Rome and Her Neighbors: Greek Building Practices in Republican Rome},
-  Address                  = {Oxford},
+  Location                  = {Oxford},
   Author                   = {Davies, Penelope J. E.},
   Booktitle                = {},
   Editor                   = {Roger Bradley Ulrich and Quenemoen, Caroline K.},
@@ -607,7 +607,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 }
 @Incollection{Demandt_1982,
   Title                    = {Symbolfunktionen antiker Baukunst},
-  Address                  = {Mainz},
+  Location                  = {Mainz},
   Author                   = {Demandt, Alexander},
   Booktitle                = {},
   Editor                   = {Dietrich Papenfuss},
@@ -649,7 +649,6 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
   Eventtitle               = {},
   ISBN                     = {},
   Language                 = {italian},
-  Location                 = {},
   Mainsubtitle             = {Nuovi Dati},
   Maintitle                = {I complessi forensi della Cisalpina Romana},
   Maintitleaddon           = {Atti del Convegno di Studi},
@@ -670,7 +669,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Borgo S. Lorenzo (Firenze)},
+  Location                  = {Borgo S. Lorenzo (Firenze)},
   File                     = {:Sammelbaende/Maggi_(Maggi_2011)_I complessi forensi della Cisalpina romana/Bacchetta_Crosetto and Gambari_(Bacchetta_2011)_Il foro di Aquae Statiellae (Acqui Terme)_71-86.pdf:PDF},
   Owner                    = {Lukas C. Bossert},
   Timestamp                = {2015-05-29}
@@ -716,7 +715,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Athen},
+  Location                  = {Athen},
   File                     = {:Artikel_Monographien/Coqueugniot_(Coqueugniot_2011)_Oriental Agora_ The case of Seleucid Europos-Dura, Syria_295-309.pdf:PDF},
   Owner                    = {Lukas C. Bossert},
   Timestamp                = {2013.11.16}
@@ -762,7 +761,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
   Volume                   = {11},
   Volumes                  = {},
 
-  Address                  = {Regensburg},
+  Location                  = {Regensburg},
   File                     = {:Artikel_Monographien/Danner_(Danner_2014)_Wege ins Haus -- Wege im Haus_409-424.pdf:PDF},
   Owner                    = {Lukas C. Bossert},
   Timestamp                = {2014.09.30}
@@ -808,7 +807,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Athen},
+  Location                  = {Athen},
   File                     = {:Artikel_Monographien/Poupaki_(Poupaki_2011)_The Macellum of Perge_ New Aspects on its Building Material_279-293.pdf:PDF},
   Owner                    = {Lukas C. Bossert},
   Timestamp                = {2013.11.16}
@@ -899,7 +898,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Bruxelles},
+  Location                  = {Bruxelles},
   File                     = {:Artikel_Monographien/Torelli_(Torelli_1991)_Il 'diribitorium' di Alba Fucens e il 'campus' eroico di Herdonia_39-63.pdf:PDF},
   Hyphenate                = {italian},
   Owner                    = {Lukas C. Bossert},
@@ -949,7 +948,7 @@ Porticus: wiederverwendete Materialien "cannibalistic manner not unknwon when sp
 
   Abstract                 = {In der Diskussion:
 Seite 128: "La nostra, come tutte le scienze umane, {\`{e}} una scienza probabilistica; non era molto chiaro, forse, per la lettura frettolosa che io ho fatto, che esistevano diversi gradi di certezza o di probabilit{\`{a}} nelle successive ipotesi che ho presentato."},
-  Address                  = {Taranto},
+  Location                  = {Taranto},
   File                     = {:Artikel_Monographien/Torelli_(Torelli_1988)_Paestum romana_33-115.pdf:PDF},
   Owner                    = {Lukas C. Bossert},
   Shorttitle               = {Paestum romana},
@@ -996,7 +995,7 @@ Seite 128: "La nostra, come tutte le scienze umane, {\`{e}} una scienza probabil
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Udine},
+  Location                  = {Udine},
   Event                    = {XXV Settimana di Studi Aquileiesi},
   File                     = {:Sammelbaende/Mirabella Roberti_1995_Forum et basilica in Aquileia e nella cisalpina Romana/Tosi_(Tosi_1995)_Gli edifici per spettacolo di Verona_467-492.pdf:PDF},
   Owner                    = {Lukas C. Bossert},
@@ -1416,7 +1415,7 @@ Seite 128: "La nostra, come tutte le scienze umane, {\`{e}} una scienza probabil
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Leuven},
+  Location                  = {Leuven},
   File                     = {:Sammelbaende/Dickenson_2013_Public space in the post-classical city/(Dickenson_2013)_Public space in the post-classical city.pdf:PDF},
   Keywords                 = {(s)Antike / (s)Stadt / (s){\"O}ffentlicher Raum / (f)Kongress / (g)Fransum <2007>},
   Library                  = {UB [Signatur:2013 C 1239] ; AC [Signatur:X Fransum 2007]}
@@ -1459,7 +1458,7 @@ Seite 128: "La nostra, come tutte le scienze umane, {\`{e}} una scienza probabil
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Athen},
+  Location                  = {Athen},
   Comment                  = {, Διεθνές Επιστημονικό Συνέδριο, Κως 14--17 Απριλίου 2011},
   Owner                    = {Lukas C. Bossert},
   Timestamp                = {2015.04.15}
@@ -1502,7 +1501,7 @@ Seite 128: "La nostra, come tutte le scienze umane, {\`{e}} una scienza probabil
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Leiden},
+  Location                  = {Leiden},
   File                     = {:Sammelbaende/Hekster_2009_Ritual Dynamics and Religious Change in the Roman Empire/(Hekster_2009)_Ritual Dynamics and Religious Change in the Roman Empire. Proceedings of the Eighth Workshop of the International Network Impact of Empire (Heidelberg, July 5-7, 2007).pdf:PDF},
   Keywords                 = {Ritual Rome Congresses Rome Religious life and customs Congresses Rome Religion Congresses},
   Owner                    = {Lukas C. Bossert},
@@ -1513,7 +1512,7 @@ Seite 128: "La nostra, come tutte le scienze umane, {\`{e}} una scienza probabil
   Date                     = {2012-02-08/2012-02-11},
   Editor                   = {Kurapkat, Dietmar and Schneider, Peter I. and Wulf-Rheidt, Ulrike},
   Year                     = {2014},
-address = {Regensburg},
+Location = {Regensburg},
   Addendum                 = {},
   Chapter                  = {},
   Doi                      = {},
@@ -1587,7 +1586,7 @@ address = {Regensburg},
   Volume                   = {},
   Volumes                  = {},
 
-  Address                  = {Borgo S. Lorenzo (Firenze)},
+  location                  = {{Borgo S. Lorenzo (Firenze)}},
   File                     = {:Sammelbaende/Maggi_(Maggi_2011)_I complessi forensi della Cisalpina romana/(Maggi_2011)_I complessi forensi della Cisalpina Romana.pdf:PDF},
   Owner                    = {Lukas C. Bossert},
   Timestamp                = {2015-05-29}
@@ -1972,7 +1971,7 @@ in the Middle Republic},
 }
 @Incollection{Cic_Arch,
   Title                    = {Rede f{\"{u}}r den Dichter A.\ Licinius Archias},
-  Address                  = {München},
+  Location                  = {München},
   Author                   = {Tullius Cicero, Marcus},
   Booktitle                = {},
   Editor                   = {Fuhrmann, Manfred},
@@ -2003,7 +2002,7 @@ in the Middle Republic},
 }
 @Incollection{Cic_predadQuir,
   Title                    = {Danksagung an das Volk},
-  Address                  = {München},
+  Location                  = {München},
   Author                   = {Tullius Cicero, Marcus},
   Booktitle                = {},
   Editor                   = {Fuhrmann, Manfred},
@@ -2034,7 +2033,7 @@ in the Middle Republic},
 }
 @Incollection{Cic_prov,
   Title                    = {Rede {\"{u}}ber die konsularische Provinzen},
-  Address                  = {München},
+  Location                  = {München},
   Author                   = {Tullius Cicero, Marcus},
   Booktitle                = {},
   Editor                   = {Fuhrmann, Manfred},
@@ -2065,7 +2064,7 @@ in the Middle Republic},
 }
 @Incollection{Cic_fam,
   Title                    = {An seine Freunde},
-  Address                  = {Düsseldorf and Zürich},
+  Location                  = {Düsseldorf and Zürich},
   Author                   = {Tullius Cicero, Marcus},
   Booktitle                = {},
   Editor                   = {Kasten, Helmut},
@@ -2094,7 +2093,7 @@ in the Middle Republic},
 }
 @Book{Caes_Gall,
   Title                    = {Der Gallische Krieg},
-  Address                  = {M{\"u}nchen},
+  Location                  = {M{\"u}nchen},
   Author                   = {Iulius Caesar, Caius},
   Editor                   = {Georg Dorminger},
   Number                   = {},
@@ -2120,7 +2119,7 @@ in the Middle Republic},
 }
 @Book{Ios_bell_Iud,
   Title                    = {Der J{\"{u}}dische Krieg},
-  Address                  = {Darmstadt},
+  Location                  = {Darmstadt},
   Author                   = {Flavius Josephus},
   Editor                   = {},
   Number                   = {},
@@ -2146,7 +2145,7 @@ in the Middle Republic},
 }
 @Book{Plin_nat,
   Title                    = {Naturkunde},
-  Address                  = {Düsseldorf},
+  Location                  = {Düsseldorf},
   Author                   = {Plinius Secundus, Caius},
   Editor                   = {Roderich König and Gerhard Winkler},
   Number                   = {},
@@ -2171,7 +2170,7 @@ in the Middle Republic},
 }
 @Book{Mart_Epigr,
   Title                    = {Epigramme},
-  Address                  = {Düsseldorf and Zürich},
+  Location                  = {Düsseldorf and Zürich},
   Author                   = {Valerius Martialis, Marcus},
   Editor                   = {Paul Barié and Winfried Schindler},
   Number                   = {},
@@ -2197,7 +2196,7 @@ in the Middle Republic},
 }
 @Book{Fest,
   Title                    = {De verborum significatu quae supersunt cum Pauli epitome},
-  Address                  = {Leipzig},
+  Location                  = {Leipzig},
   Author                   = {Pompeius Festus, Sextus},
   Editor                   = {Lindsay, Wallace Martin},
   Number                   = {},
@@ -2221,7 +2220,7 @@ in the Middle Republic},
 }
 @Book{Paul_Fest,
   Title                    = {De verborum significatu quae supersunt cum Pauli epitome},
-  Address                  = {Leipzig},
+  Location                  = {Leipzig},
   Author                   = {Paulus Diaconus},
   Editor                   = {Lindsay, Wallace Martin},
   Number                   = {},
@@ -2246,7 +2245,7 @@ in the Middle Republic},
 }
 @Book{CIL,
   Title                    = {Corpus Inscriptionum Latinarum},
-  Address                  = {Berlin},
+  Location                  = {Berlin},
   Author                   = {},
   Editor                   = {},
   Number                   = {},

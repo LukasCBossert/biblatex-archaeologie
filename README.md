@@ -1,4 +1,9 @@
 # biblatex-archaeologie
+##################
+##      WICHTIG   ##
+##################
+
+nicht das Feld "address" verwenden, sondern immer "location" !!!!
 
 
 ##################

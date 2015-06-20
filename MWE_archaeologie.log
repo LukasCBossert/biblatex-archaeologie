@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  20 JUN 2015 01:24
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  20 JUN 2015 13:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2412,10 +2412,6 @@ Overfull \hbox (2380.46262pt too wide) in paragraph at lines 68--69
 []\EU1/LinLibertine(0)/m/n/10.95 @Proceedings[][][] 
  []
 
-Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=DFLT;mapping=tex-
-text;mapping=tex-text;+tnum;+lnum;" at 9.0pt
- -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_RI.otf
 
 Overfull \hbox (2389.40877pt too wide) in paragraph at lines 70--71
 []\EU1/LinLibertine(0)/m/n/10.95 @Inproceedings[][][] 
@@ -2436,22 +2432,7 @@ Overfull \hbox (2355.61407pt too wide) in paragraph at lines 76--77
 []\EU1/LinLibertine(0)/m/n/10.95 @thesis[][][] 
  []
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 78.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 78.
-(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
-File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
-)
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 78.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 78.
-
-[1
-
-]
 Overfull \hbox (2358.00117pt too wide) in paragraph at lines 78--79
 []\EU1/LinLibertine(0)/m/n/10.95 @online[][][] 
  []
@@ -2485,11 +2466,18 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 103.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 103.
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
+
+)
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 103.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 103.
-[2]
+
+[1
+
+]
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/m/n' will be
 (Font)              scaled to size 10.95pt on input line 103.
 Requested font "[LinBiolinum_R.otf]/OT:script=latn;language=DFLT;mapping=tex-te
@@ -2544,7 +2532,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 107.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 107.
- [3
+ [2
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
@@ -2556,6 +2544,19 @@ ext;mapping=tex-text;+tnum;+lnum;+smcp;+smcp;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
 
+
+Package biblatex Warning: '\textcite' not defined by citation style.
+(biblatex)                Falling back to '\cite' on input line 108.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 108.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 108.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 108.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 108.
+[3]
 
 Package biblatex Warning: '\textcite' not defined by citation style.
 (biblatex)                Falling back to '\cite' on input line 108.
@@ -2577,10 +2578,6 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 108.
 [4]
-
-Package biblatex Warning: '\textcite' not defined by citation style.
-(biblatex)                Falling back to '\cite' on input line 108.
-
 
 Package biblatex Warning: '\textcite' not defined by citation style.
 (biblatex)                Falling back to '\cite' on input line 108.
@@ -2648,10 +2645,10 @@ Package logreq Info: Writing requests to 'MWE_archaeologie.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  38378 strings out of 493706
- 755345 string characters out of 6145769
- 1115071 words of memory out of 5000000
- 41431 multiletter control sequences out of 15000+600000
- 8525 words of font info for 65 fonts, out of 8000000 for 9000
+ 755264 string characters out of 6145769
+ 1112131 words of memory out of 5000000
+ 41432 multiletter control sequences out of 15000+600000
+ 8517 words of font info for 64 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
  67i,8n,66p,10413b,1544s stack positions out of 5000i,500n,10000p,200000b,80000s
 

@@ -201,6 +201,9 @@
       \list{language}{1}{%
         {italian}%
       }
+      \list{location}{1}{%
+        {Borgo S. Lorenzo (Firenze)}%
+      }
       \list{organization}{1}{%
         {Università degli Studi di Pavia}%
       }
@@ -882,6 +885,9 @@
       \name{editor}{1}{}{%
         {{hash=fe76efc7952ad4aae193596aa451e64d}{Giannikouri}{G\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
       }
+      \list{location}{1}{%
+        {Athen}%
+      }
       \list{publisher}{2}{%
         {Hellenic. Ministry of Culture}%
         {Tourism}%
@@ -940,6 +946,9 @@
         {{hash=003def9ae45127692a5fec781fb03773}{Kurapkat}{K\bibinitperiod}{Dietmar}{D\bibinitperiod}{}{}{}{}}%
         {{hash=3e7bb474349e9996984ae5efb298ff8e}{Schneider}{S\bibinitperiod}{Peter\bibnamedelima I.}{P\bibinitperiod\bibinitdelim I\bibinitperiod}{}{}{}{}}%
         {{hash=aa030bc32b7d6bbf565e69e8d195f449}{Wulf-Rheidt}{W\bibinithyphendelim R\bibinitperiod}{Ulrike}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Regensburg}%
       }
       \list{publisher}{1}{%
         {Schnell + Steiner}%
@@ -1045,6 +1054,9 @@
       }
       \list{language}{1}{%
         {eng}%
+      }
+      \list{location}{1}{%
+        {Leuven}%
       }
       \list{publisher}{1}{%
         {Peeters}%
@@ -1221,6 +1233,9 @@
       \name{editor}{1}{}{%
         {{uniquename=0,hash=fe76efc7952ad4aae193596aa451e64d}{Giannikouri}{G\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
       }
+      \list{location}{1}{%
+        {Athen}%
+      }
       \list{publisher}{2}{%
         {Hellenic. Ministry of Culture}%
         {Tourism}%
@@ -1332,6 +1347,9 @@
         {{uniquename=0,hash=ab5b76eb20bb7b2e8913a41e5979d5b2}{Hekster}{H\bibinitperiod}{Oliver}{O\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=31d3f5af707889c2fccee33d7d82fa23}{Schmidt-Hofner}{S\bibinithyphendelim H\bibinitperiod}{Sebastian}{S\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=aa14f9d5d3d571e41bfcad241a15a9a6}{Witschel}{W\bibinitperiod}{Christian}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Leiden}%
       }
       \list{publisher}{1}{%
         {Brill}%
@@ -1742,6 +1760,9 @@
         {{uniquename=0,hash=3e7bb474349e9996984ae5efb298ff8e}{Schneider}{S\bibinitperiod}{Peter\bibnamedelima I.}{P\bibinitperiod\bibinitdelim I\bibinitperiod}{}{}{}{}}%
         {{uniquename=0,hash=aa030bc32b7d6bbf565e69e8d195f449}{Wulf-Rheidt}{W\bibinithyphendelim R\bibinitperiod}{Ulrike}{U\bibinitperiod}{}{}{}{}}%
       }
+      \list{location}{1}{%
+        {Regensburg}%
+      }
       \list{organization}{1}{%
         {Architekturreferat des DAI}%
       }
@@ -1807,6 +1828,9 @@
       }
       \list{language}{1}{%
         {italian}%
+      }
+      \list{location}{1}{%
+        {Borgo S. Lorenzo (Firenze)}%
       }
       \list{organization}{1}{%
         {Università degli Studi di Pavia}%
@@ -2006,6 +2030,9 @@
       \name{editor}{1}{}{%
         {{hash=fe76efc7952ad4aae193596aa451e64d}{Giannikouri}{G\bibinitperiod}{A.}{A\bibinitperiod}{}{}{}{}}%
       }
+      \list{location}{1}{%
+        {Athen}%
+      }
       \list{publisher}{2}{%
         {Hellenic. Ministry of Culture}%
         {Tourism}%
@@ -2182,7 +2209,7 @@
         {{uniquename=0,hash=fd5e7fc20d9d727ef83ccdb4d1a389d0}{Torelli}{T\bibinitperiod}{Mario}{M\bibinitperiod}{}{}{}{}}%
       }
       \list{location}{1}{%
-        {Taranto - Paestum}%
+        {Taranto}%
       }
       \list{publisher}{1}{%
         {Istituto per la Storia e l'Archeologia della Magna Grecia, Taranto}%
@@ -2228,6 +2255,9 @@
       \name{editor}{1}{}{%
         {{hash=57c7bf92ee9dccb2f95537459060e662}{Mertens}{M\bibinitperiod}{Josef}{J\bibinitperiod}{}{}{}{}}%
       }
+      \list{location}{1}{%
+        {Bruxelles}%
+      }
       \list{publisher}{1}{%
         {Institut Historique Belge de Rome}%
       }
@@ -2270,6 +2300,9 @@
       }
       \list{language}{1}{%
         {ita}%
+      }
+      \list{location}{1}{%
+        {Udine}%
       }
       \list{organization}{1}{%
         {Centro di Antichità Altoadriatiche <Aquileia>}%
