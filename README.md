@@ -31,6 +31,7 @@ Erledigt:
 	- Initialien der Vornamen von Autor und Herausgeber
 	- Keine Verlagsangabe
 	- nur erster Erscheinungsort
+	- Nachdruck (wenn kein origlocation, dann location)
 	
 Für Festschrift/Ausstellungskatalog/Auktionskatalog ist das Feld "Titleaddon" zu nutzen, dann klappt es!
 
