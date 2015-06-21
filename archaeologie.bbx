@@ -724,12 +724,11 @@
     {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%
     \iffieldundef{title}{}{\printfield{title}}\adddot\addspace%		%%LCB: Falls @review einen eigenen Titel hat, wird der ausgelesen
   \printtext{Rez\adddot\addspace zu\addspace}%
-  %\setunit{\addcolon\addspace}\newblock%
-  \iffieldundef{crossref}%									%%LCB
-    %{\usebibmacro{reztitle}}%									%%LCB
-    {    \usebibmacro{mycrossref}%%									%%LCB
-    }
-  %\usebibmacro{reztitle}%		%alt
+ \ifentryinbib{\thefield{crossref}}{%
+    \usebibmacro{mycrossref}%
+    %\newunit% uncomment this line and the next to include pages in the crossreferences.
+    %\usebibmacro{note+pages}%
+ }{}%
   \newunit\newblock
   %\usebibmacro{in:}%
   \usebibmacro{journal+number+year}%
@@ -746,8 +745,6 @@
 \newbibmacro{mycrossref}{%
   \textcite{\thefield{crossref}}}%
 %
-
-
 
 
 %% Bibliographie-Umgebung bei Autor-Jahr %%%%%%

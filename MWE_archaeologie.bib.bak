@@ -1568,12 +1568,38 @@ Location = {Regensburg},
   Pages                    = {321--322},
   Volume                   = {101},
   Year                     = {2011},
+  reviewof = {Römische Fora},
   Crossref                 = {Lackner_2008},
   File                     = {:Rezensionen/Baker_(Baker_2011)_Republikanische Fora_321-322.pdf:PDF},
   Owner                    = {Lukas C. Bossert},
   Shortjournal             = {JRS},
   Timestamp                = {2015.02.20}
 }
+@Book{Lackner_2008,
+  Title                    = {Republikanische Fora},
+  Address                  = {},
+  Author                   = {Lackner, Eva-Maria},
+  Editor                   = {},
+  Number                   = {},
+  Publisher                = {Biering \& Brinkmann},
+  Series                   = {},
+  Year                     = {2008},
+
+  Edition                  = {},
+  Month                    = {},
+  Note                     = {},
+  Pages                    = {},
+  Volume                   = {},
+
+  Abstract                 = {Gnomon 2010 82 (1) : 61-67 Pierre Gros | MH (Museum Helveticum) 2010 67 (3) : 176-177 Christoph Reusser | Sehepunkte 2010 10 (4) : non paginé Bernhard Linke.},
+  File                     = {:Artikel_Monographien/Lackner_(Lackner_2008)_Republikanische Fora_.pdf:PDF},
+  Gender                   = {sf},
+  Location                 = {München},
+  Owner                    = {Lukas C. Bossert},
+  Shorttitle               = {Republikanische Fora},
+  Timestamp                = {2013.05.03}
+}
+
 @Review{Bell_2011,
   Title                    = {},
   Author                   = {Bell, Sinclair},

@@ -245,6 +245,12 @@
       \name{author}{1}{}{%
         {{uniquename=0,hash=6c467e147dd2069f8d026215b470f743}{Baker}{B\bibinitperiod}{Patricia}{P\bibinitperiod}{}{}{}{}}%
       }
+      \list{location}{1}{%
+        {München}%
+      }
+      \list{publisher}{1}{%
+        {Biering \& Brinkmann}%
+      }
       \strng{namehash}{6c467e147dd2069f8d026215b470f743}
       \strng{fullhash}{6c467e147dd2069f8d026215b470f743}
       \field{sortinit}{B}
@@ -252,8 +258,12 @@
       \field{labelyear}{2011}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Gnomon 2010 82 (1) : 61-67 Pierre Gros | MH (Museum Helveticum) 2010 67 (3) : 176-177 Christoph Reusser | Sehepunkte 2010 10 (4) : non paginé Bernhard Linke.}
+      \field{gender}{sf}
       \field{journaltitle}{Journal of Roman Studies}
       \field{shortjournal}{JRS}
+      \field{shorttitle}{Republikanische Fora}
       \field{volume}{101}
       \field{year}{2011}
       \field{pages}{321\bibrangedash 322}
