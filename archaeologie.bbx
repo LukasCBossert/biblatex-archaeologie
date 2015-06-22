@@ -248,11 +248,11 @@
   {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
                \AND\NOT\iffirstonpage}%
                 {\ifboolexpr{bool{cbx:autorjahr} or bool{bbx:dai}}{%
-                				\ifbool{bbx:dai}{\printnames[first-last-inits]{author}}}{%				%%LCB: Damit bei gleichem Autor kein bibnamedash kommt
-                				\printnames{author}}{\bibnamedash}}}%
+                				\ifbool{bbx:dai}{\printnames[first-last-inits]{author}}{%				%%LCB: Damit bei gleichem Autor kein bibnamedash kommt
+                				\printnames{author}}}{\bibnamedash}}%
 			{\ifbool{bbx:dai}{%
 					\printnames[first-last-inits]{author}}{%
-					\printnames{author}\isdot}}}%
+					\printnames{author}\isdot}}}}%
         %
 %
 %
