@@ -20,7 +20,7 @@
 \newbool{bbx:maintitleebd}%			%%% kann raus, nicht relevant
 		\DeclareBibliographyOption{maintitleebd}[true]{\csuse{bool#1}%
            {bbx:maintitleebd}}
-\newbool{bbx:nurinit}%
+\newbool{bbx:nurinit}%				
 		\DeclareBibliographyOption{bbx:nurinit}[true]{\csuse{bool#1}%
            {bbx:nurinit}}%
 \newbool{bbx:lexika}%		%%LCB
@@ -32,12 +32,24 @@
 		\DeclareBibliographyOption{notranslator}[true]{\csuse{bool#1}%	%%LCB: Option für die Angabe der Originalspache, -titel und Übersetzer
            {bbx:notranslator}}		
 \newbool{bbx:dai}%		%%%	%%LCB: Option für die Wiedergabe nach DAI-Richtlinien
-		\DeclareBibliographyOption{dai}[true]{\csuse{bool#1}{bbx:dai}}
+\DeclareBibliographyOption{dai}[true]{%			%die folgenden Optionen werden bei "dai=true" geladen
+\csuse{bool#1}{bbx:dai}% DAI-Grundregeln	
+\csuse{bool#1}{cbx:autorjahr}% % Zitation nach Autor-Jahr-System
+\csuse{bool#1}{bbx:notranslator}%			%DAI gibt keine Originaltitel,etc an.
+\csuse{bool#1}{cbx:jahrkeineklammern}%	Keine Klammern um Jahreszahlen
+\csuse{bool#1}{bbx:hrsg}%	
+%
+\csuse{bool#1}{bbx:citeinit}%
+\csuse{bool#1}{cbx:mitjahr}%
+\csuse{boolfalse}{bbx:jahrreihe}%	
+%\csuse{booltrue}{bbx:lexika}%		diese Option bietet das DAI optional an
+}
 
-\newbool{bbx:DAI-alles}
-\DeclareBibliographyOption{DAI-alles}{%
-\csuse{booltrue}{cbx:autorjahr}%
-\csuse{booltrue}{bbx:dai}}
+
+\newbool{bbx:citeinit}%		%%LCB (muss angelegt, aber nicht defniniert werden - der Zusammenhang mit "nurinit" ist mir nicht ganz klar)
+
+
+
 
 %%%%%%%% cbx %%%%%%%%%%
 \newbool{cbx:antik}%
@@ -242,7 +254,6 @@
 					\printnames[first-last-inits]{author}}{%
 					\printnames{author}\isdot}}}%
         %
-
 %
 %
 \renewbibmacro*{author/editor}{%
@@ -680,10 +691,8 @@
 \usebibmacro{bibindex}%
  \usebibmacro{begentry}%
 \ifbool{cbx:lexikon}{%
-  \printfield{maintitle}\addspace\printfield{volume}\addspace\printfield[parens]{year}\addspace\printfield{pages}\addspace\printtext{s\adddot\addnbthinspace v\adddot}\addspace\printfield{title}\addspace\printtext[parens]{%
-  \printnames[first-last-inits]{author}%
-  }%
-  }{		\usebibmacro{author}%
+  \printfield{maintitle}\addspace\printfield{volume}\addspace\printfield[parens]{year}\addspace\printfield{pages}\addspace\printtext{s\adddot\addnbthinspace v\adddot}\addspace\printfield{title}\addspace\printtext[parens]{\printnames[first-last-inits]{author}}}{%
+  			\usebibmacro{author}%
    			 	{\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%  
   			  	\usebibmacro{reftitle}%
   				\newunit\newblock%
@@ -691,8 +700,7 @@
  				\setunit{\addspace}%
   				\usebibmacro{year}%
   				\newunit\newblock%
-  				\usebibmacro{pages}%
-				}%
+  				\usebibmacro{pages}}%
  \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \usebibmacro{savestuff}%

@@ -1824,6 +1824,70 @@
       \endverb
       \keyw{unbekannt}
     \endentry
+    \entry{Lefebvre_2000}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=d433358027396905bf96da083bcd089b}{Lefebvre}{L\bibinitperiod}{Henri}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {french}%
+      }
+      \list{location}{1}{%
+        {Paris}%
+      }
+      \list{publisher}{1}{%
+        {Anthropos}%
+      }
+      \strng{namehash}{d433358027396905bf96da083bcd089b}
+      \strng{fullhash}{d433358027396905bf96da083bcd089b}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{origyear}{1974}
+      \field{series}{Ethnosociologie}
+      \field{title}{La production de l'espace}
+      \field{year}{2000}
+    \endentry
+    \entry{Lefebvre_2011}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=d433358027396905bf96da083bcd089b}{Lefebvre}{L\bibinitperiod}{Henri}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=a1283e9a3096192a40a7db419cc5fff8}{Nicholson-Smith}{N\bibinithyphendelim S\bibinitperiod}{Donald}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{language}{1}{%
+        {french}%
+      }
+      \list{location}{3}{%
+        {Maien, MA}%
+        {Oxford}%
+        {Victoria}%
+      }
+      \list{publisher}{1}{%
+        {Blackwell Publishing Ltd}%
+      }
+      \strng{namehash}{d433358027396905bf96da083bcd089b}
+      \strng{fullhash}{d433358027396905bf96da083bcd089b}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \strng{crossref}{Lefebvre_2000}
+      \field{edition}{30}
+      \field{origlanguage}{french}
+      \field{origtitle}{La production de l’espace}
+      \field{origyear}{1991}
+      \field{title}{The Production of Space}
+      \field{year}{2011}
+      \verb{file}
+      \verb :Artikel_Monographien/Lefebvre_(Lefebvre_2011)_The Production of Space.pdf:PDF
+      \endverb
+    \endentry
     \entry{Maggi_2011}{proceedings}{}
       \name{editor}{1}{}{%
         {{uniquename=0,hash=ba980fcdc302ff5a0a20335943693d4a}{Maggi}{M\bibinitperiod}{Stefano}{S\bibinitperiod}{}{}{}{}}%

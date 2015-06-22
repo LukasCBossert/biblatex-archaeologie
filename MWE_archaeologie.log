@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  22 JUN 2015 16:28
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  22 JUN 2015 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2329,13 +2329,8 @@ Overfull \hbox (2356.40547pt too wide) in paragraph at lines 60--63
  []
 
 
-Overfull \hbox (2349.29892pt too wide) in paragraph at lines 64--65
-[]\EU1/LinLibertine(0)/m/n/10.95 @Book[][][] 
- []
-
-
-Overfull \hbox (2402.25311pt too wide) in paragraph at lines 66--67
-[]\EU1/LinLibertine(0)/m/n/10.95 Austellungskatalog[][][] 
+Overfull \hbox (2464.57016pt too wide) in paragraph at lines 64--67
+\EU1/LinLibertine(0)/m/n/10.95 Übersetzung[][][] Austellungskatalog[][][] 
  []
 
 
@@ -2359,7 +2354,7 @@ Overfull \hbox (2376.89291pt too wide) in paragraph at lines 74--75
  []
 
 
-Overfull \hbox (2356.35072pt too wide) in paragraph at lines 76--77
+Overfull \hbox (2360.07072pt too wide) in paragraph at lines 76--77
 []\EU1/LinLibertine(0)/m/n/10.95 @review[][][] 
  []
 
@@ -2374,171 +2369,175 @@ Overfull \hbox (2358.00117pt too wide) in paragraph at lines 80--81
  []
 
 
-Overfull \hbox (2422.64542pt too wide) in paragraph at lines 82--84
-[]\EU1/LinLibertine(0)/m/n/10.95 ANTIKE @incollection[][][] 
+Overfull \hbox (2350.65247pt too wide) in paragraph at lines 84--85
+[]\EU1/LinLibertine(0)/m/n/10.95 ANTIKE 
  []
 
 
-Overfull \hbox (2352.08818pt too wide) in paragraph at lines 85--86
+Overfull \hbox (2382.28827pt too wide) in paragraph at lines 86--87
+[]\EU1/LinLibertine(0)/m/n/10.95 @incollection[][][] 
+ []
+
+
+Overfull \hbox (2352.08818pt too wide) in paragraph at lines 88--89
 []\EU1/LinLibertine(0)/m/n/10.95 @book[][][] 
  []
 
 
-Overfull \hbox (2395.35529pt too wide) in paragraph at lines 87--88
+Overfull \hbox (2395.35529pt too wide) in paragraph at lines 90--91
 []\EU1/LinLibertine(0)/m/n/10.95 @book - frgantik[][][] 
  []
 
 
-Overfull \hbox (2360.95642pt too wide) in paragraph at lines 90--91
+Overfull \hbox (2360.95642pt too wide) in paragraph at lines 93--94
 []\EU1/LinLibertine(0)/m/n/10.95 CORPORA 
  []
 
 
-Overfull \hbox (2336.16689pt too wide) in paragraph at lines 92--93
+Overfull \hbox (2336.16689pt too wide) in paragraph at lines 95--96
 []\EU1/LinLibertine(0)/m/n/10.95 CIL[][][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 105.
+(babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 105.
+(babel)             in language  on input line 108.
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 105.
+(babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 105.
+(babel)             in language  on input line 108.
 
 [1
 
 ]
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 105.
+(Font)              scaled to size 10.95pt on input line 108.
 Requested font "[LinBiolinum_R.otf]/OT:script=latn;language=DFLT;mapping=tex-te
 xt;mapping=tex-text;+tnum;" at 10.95pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_R.otf
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 10.95pt on input line 105.
+(Font)              scaled to size 10.95pt on input line 108.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 10.95pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 20.74pt on input line 105.
+(Font)              scaled to size 20.74pt on input line 108.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 20.74pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 105.
+(babel)             in language  on input line 108.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 105.
+(babel)             in language  on input line 108.
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 14.4pt on input line 107.
+(Font)              scaled to size 14.4pt on input line 110.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 14.4pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 110.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 110.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 111.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 112.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 112.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;" at 7.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 109.
+(Font)              <7> on input line 112.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 109.
+(babel)             in language  on input line 113.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 113.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 113.
  [2
 
 ]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;+smcp;+smcp;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
  [3]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
  [4]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
- [5]
 Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=DFLT;mapping=tex-
 text;mapping=tex-text;+tnum;+lnum;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_RI.otf
-
-Overfull \hbox (3.48206pt too wide) in paragraph at lines 115--115
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 113.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 113.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 113.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 113.
+ [5]
+Overfull \hbox (3.48206pt too wide) in paragraph at lines 118--118
 \EU1/LinLibertine(0)/m/n/10 Ομηρικούς έως τους Ρωμαϊκούς χρόνους, Διεθνές Επιστ
 ημονικό Συνέδριο. Konferenz Kos 14.–17. April
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 113.
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 123.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 123.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 123.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 120.
+(babel)             in language  on input line 123.
  [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
  (./MWE_archaeologie.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 120.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 120.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 123.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 123.
 
 
 Package biblatex Warning: Please rerun LaTeX.
@@ -2549,12 +2548,12 @@ Package logreq Info: Writing requests to 'MWE_archaeologie.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38374 strings out of 493706
- 755107 string characters out of 6145769
- 1112714 words of memory out of 5000000
- 41429 multiletter control sequences out of 15000+600000
+ 38368 strings out of 493706
+ 754977 string characters out of 6145769
+ 1112299 words of memory out of 5000000
+ 41423 multiletter control sequences out of 15000+600000
  8452 words of font info for 63 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
- 67i,8n,66p,10413b,1544s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,8n,66p,10413b,1548s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on MWE_archaeologie.pdf (7 pages).

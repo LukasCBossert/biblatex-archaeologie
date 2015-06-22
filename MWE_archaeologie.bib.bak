@@ -10,6 +10,55 @@ Location = {Köln},
 year = {1979}
 }
 
+@Book{Lefebvre_2000,
+  Title                    = {La production de l'espace},
+  Address                  = {},
+  Author                   = {Lefebvre, Henri},
+  Editor                   = {},
+  Number                   = {},
+  Publisher                = {Anthropos},
+  Series                   = {Ethnosociologie},
+  Year                     = {2000},
+
+  Edition                  = {4},
+  Month                    = {},
+  Note                     = {},
+  Pages                    = {},
+  Volume                   = {},
+
+  Language                 = {french},
+  Location                 = {Paris},
+  Origyear                 = {1974}
+}
+@Book{Lefebvre_2011,
+  Title                    = {The Production of Space},
+  Address                  = {},
+  Author                   = {Henri Lefebvre},
+  Editor                   = {},
+  Number                   = {},
+  Publisher                = {Blackwell Publishing Ltd},
+  Series                   = {},
+  Year                     = {2011},
+
+  Edition                  = {30},
+  Month                    = {},
+  Note                     = {},
+  Pages                    = {},
+  Volume                   = {},
+
+  Addon                    = {= {\cite{Lefebvre_2000}}},
+  Crossref                 = {Lefebvre_2000},
+  File                     = {:Artikel_Monographien/Lefebvre_(Lefebvre_2011)_The Production of Space.pdf:PDF},
+  Location                 = {Maien, MA and Oxford and Victoria},
+  Origdate                 = {1991},
+  Origlanguage             = {french},
+  Origtitle                = {La production de l’espace},
+  Owner                    = {Lukas C. Bossert},
+  Timestamp                = {2013.12.18},
+  Translator               = {Donald Nicholson-Smith}
+}
+
+
 @Article{Italie_1976,
   Title                    = {Italie},
   Author                   = unbekannt,
