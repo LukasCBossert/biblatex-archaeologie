@@ -31,10 +31,14 @@
 \newbool{bbx:notranslator}%		%%LCB
 		\DeclareBibliographyOption{notranslator}[true]{\csuse{bool#1}%	%%LCB: Option für die Angabe der Originalspache, -titel und Übersetzer
            {bbx:notranslator}}		
-\newbool{bbx:dai}%		%%LCB
-		\DeclareBibliographyOption{dai}[true]{\csuse{bool#1}%	%%LCB: Option für die Wiedergabe nach DAI-Richtlinien
-           {bbx:dai}}
-           
+\newbool{bbx:dai}%		%%%	%%LCB: Option für die Wiedergabe nach DAI-Richtlinien
+		\DeclareBibliographyOption{dai}[true]{\csuse{bool#1}{bbx:dai}}
+
+\newbool{bbx:DAI-alles}
+\DeclareBibliographyOption{DAI-alles}{%
+\csuse{booltrue}{cbx:autorjahr}%
+\csuse{booltrue}{bbx:dai}}
+
 %%%%%%%% cbx %%%%%%%%%%
 \newbool{cbx:antik}%
 		\DeclareEntryOption{antik}[true]{\csuse{bool#1}{cbx:antik}}%

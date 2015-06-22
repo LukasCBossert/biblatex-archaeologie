@@ -328,6 +328,7 @@
     <bcf:option>shortjournal</bcf:option>
     <bcf:option>notranslator</bcf:option>
     <bcf:option>dai</bcf:option>
+    <bcf:option>DAI-alles</bcf:option>
     <bcf:option>autorjahr</bcf:option>
     <bcf:option>acronyms</bcf:option>
     <bcf:option>shorthandinbib</bcf:option>
