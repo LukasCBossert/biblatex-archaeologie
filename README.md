@@ -25,6 +25,17 @@ vgl. http://www.latex-community.org/forum/viewtopic.php?f=5&t=690
 ##########################
 Option:
 	dai = true
+	-> diese Option beinhaltet gleich mehrere weitere Optionen, die nicht mehr manuell gesetzt werden müssen. 
+		Diese sind:
+		 	autorjahr=true,		%% true = Zitation im Autor-Jahr-System; Anpassung der Bibliographie; false = Zitation im Autor-Titel-System
+			notranslator=false,	%% true = keine Angabe von Originaltitle, Originalsprache, Übersetzer; false = "Originaltitel: XY, übers. v. Z"
+			hrsg=true,		%% false = "hrsg. v. XY"; true = "XY (Hrsg.)“
+			citeinit=false, 	%% false = keine Initiale in Fußnoten, true =  in Fußnoten Initiale nachgestellt
+			mitvn=false,		%% false = keine Vornamen in Fußnote; true = Vornamen in Fußnote nach Nachname
+			jahrkeineklammern=true,	%% false = (2015); true = 2015
+			mitjahr=true,%		%% WENN "kurztitel = true", DANN:  false = keine Jahresangabe in der Fußnote; true = Jahresangabe nach Kurztitel in Klammer
+			jahrreihe=false,%	%% false = Serie und Nummer VOR Erscheinungsort und -jahr; true = Serie und Nummer NACH Erscheinungsort und -jahr
+
 	
 Erledigt:
 	- Edition vor die Klammer
