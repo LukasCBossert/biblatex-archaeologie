@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  22 JUN 2015 18:13
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  24 JUN 2015 00:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1443,6 +1443,252 @@ LaTeX Info: Redefining \liningnums on input line 459.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/libertine/LinBiolinum_K.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/libertine/LinLibertine_I.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/libertine/LKey.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/imakeidx/imakeidx.sty
+Package: imakeidx 2013/07/11 v1.3a Package for typesetting indices in a synchro
+nous mode
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xpatch/xpatch.sty
+Package: xpatch 2012/10/02 v0.3 Extending etoolbox patching commands
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2015/05/04 v2.2 e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count127
+)
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchcmd with sig. '' on line 125.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretocmd with sig. '' on line 126.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xapptocmd with sig. '' on line 127.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshowcmd with sig. '' on line 128.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchbibmacro with sig. 'm' on line 131.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretobibmacro with sig. 'm' on line 133.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xapptobibmacro with sig. 'm' on line 135.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshowbibmacro with sig. 'm' on line 137.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchfieldformat with sig. 'O{*}m' on line 139.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretofieldformat with sig. 'O{*}m' on line 141.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xapptofieldformat with sig. 'O{*}m' on line 143.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshowfieldformat with sig. 'O{*}m' on line 145.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchnameformat with sig. 'O{*}m' on line 147.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretonameformat with sig. 'O{*}m' on line 149.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xapptonameformat with sig. 'O{*}m' on line 151.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshownameformat with sig. 'O{*}m' on line 153.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchlistformat with sig. 'O{*}m' on line 155.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretolistformat with sig. 'O{*}m' on line 157.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xapptolistformat with sig. 'O{*}m' on line 159.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshowlistformat with sig. 'O{*}m' on line 161.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchindexfieldformat with sig. 'O{*}m' on line 163.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretoindexfieldformat with sig. 'O{*}m' on line 165.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xapptoindexfieldformat with sig. 'O{*}m' on line 167.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshowindexfieldformat with sig. 'O{*}m' on line 169.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchindexnameformat with sig. 'O{*}m' on line 171.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretoindexnameformat with sig. 'O{*}m' on line 173.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xapptoindexnameformat with sig. 'O{*}m' on line 175.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshowindexnameformat with sig. 'O{*}m' on line 177.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchindexlistformat with sig. 'O{*}m' on line 179.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretoindexlistformat with sig. 'O{*}m' on line 181.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xappindextolistformat with sig. 'O{*}m' on line 183.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshowindexlistformat with sig. 'O{*}m' on line 185.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpatchbibdriver with sig. 'm' on line 187.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xpretobibdriver with sig. 'm' on line 189.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xapptobibdriver with sig. 'm' on line 191.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \xshowbibdriver with sig. 'm' on line 193.
+.................................................
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2015/03/31 v1.8m multicolumn formatting (FMi)
+\c@tracingmulticols=\count128
+\mult@box=\box42
+\multicol@leftmargin=\dimen140
+\c@unbalance=\count129
+\c@collectmore=\count130
+\doublecol@number=\count131
+\multicoltolerance=\count132
+\multicolpretolerance=\count133
+\full@width=\dimen141
+\page@free=\dimen142
+\premulticols=\dimen143
+\postmulticols=\dimen144
+\multicolsep=\skip54
+\multicolbaselineskip=\skip55
+\partial@page=\box43
+\last@line=\box44
+\maxbalancingoverflow=\dimen145
+\mult@rightbox=\box45
+\mult@grightbox=\box46
+\mult@gfirstbox=\box47
+\mult@firstbox=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\c@columnbadness=\count134
+\c@finalcolumnbadness=\count135
+\last@try=\dimen146
+\multicolovershoot=\dimen147
+\multicolundershoot=\dimen148
+\mult@nat@firstbox=\box66
+\colbreak@box=\box67
+\mc@col@check@num=\count136
+))
+\MWE_archaeologie@idxfile=\write3
+\openout3 = `MWE_archaeologie.idx'.
+
+
+Writing index file MWE_archaeologie.idx
 (/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2015/04/19 v3.0 programmable bibliographies (PK/JW/AB)
 
@@ -1450,10 +1696,6 @@ Package: biblatex 2015/04/19 v3.0 programmable bibliographies (PK/JW/AB)
 Package: biblatex2 2015/04/19 v3.0 programmable bibliographies (biber) (PK/JW/A
 B)
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2015/05/04 v2.2 e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count127
-)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
@@ -1475,7 +1717,7 @@ Package etexcmds Info: Could not find \expanded.
 )))
 (/usr/local/texlive/2015/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count128
+\lrq@indent=\count137
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -1487,57 +1729,57 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count129
-\c@listtotal=\count130
-\c@listcount=\count131
-\c@liststart=\count132
-\c@liststop=\count133
-\c@citecount=\count134
-\c@citetotal=\count135
-\c@multicitecount=\count136
-\c@multicitetotal=\count137
-\c@instcount=\count138
-\c@maxnames=\count139
-\c@minnames=\count140
-\c@maxitems=\count141
-\c@minitems=\count142
-\c@citecounter=\count143
-\c@savedcitecounter=\count144
-\c@uniquelist=\count145
-\c@uniquename=\count146
-\c@refsection=\count147
-\c@refsegment=\count148
-\c@maxextratitle=\count149
-\c@maxextratitleyear=\count150
-\c@maxextrayear=\count151
-\c@maxextraalpha=\count152
-\c@abbrvpenalty=\count153
-\c@highnamepenalty=\count154
-\c@lownamepenalty=\count155
-\c@maxparens=\count156
-\c@parenlevel=\count157
-\blx@tempcnta=\count158
-\blx@tempcntb=\count159
-\blx@tempcntc=\count160
-\blx@maxsection=\count161
-\blx@maxsegment@0=\count162
-\blx@notetype=\count163
-\blx@parenlevel@text=\count164
-\blx@parenlevel@foot=\count165
-\blx@sectionciteorder@0=\count166
-\labelnumberwidth=\skip54
-\labelalphawidth=\skip55
-\biblabelsep=\skip56
-\bibitemsep=\skip57
-\bibnamesep=\skip58
-\bibinitsep=\skip59
-\bibparsep=\skip60
-\bibhang=\skip61
+\c@tabx@nest=\count138
+\c@listtotal=\count139
+\c@listcount=\count140
+\c@liststart=\count141
+\c@liststop=\count142
+\c@citecount=\count143
+\c@citetotal=\count144
+\c@multicitecount=\count145
+\c@multicitetotal=\count146
+\c@instcount=\count147
+\c@maxnames=\count148
+\c@minnames=\count149
+\c@maxitems=\count150
+\c@minitems=\count151
+\c@citecounter=\count152
+\c@savedcitecounter=\count153
+\c@uniquelist=\count154
+\c@uniquename=\count155
+\c@refsection=\count156
+\c@refsegment=\count157
+\c@maxextratitle=\count158
+\c@maxextratitleyear=\count159
+\c@maxextrayear=\count160
+\c@maxextraalpha=\count161
+\c@abbrvpenalty=\count162
+\c@highnamepenalty=\count163
+\c@lownamepenalty=\count164
+\c@maxparens=\count165
+\c@parenlevel=\count166
+\blx@tempcnta=\count167
+\blx@tempcntb=\count168
+\blx@tempcntc=\count169
+\blx@maxsection=\count170
+\blx@maxsegment@0=\count171
+\blx@notetype=\count172
+\blx@parenlevel@text=\count173
+\blx@parenlevel@foot=\count174
+\blx@sectionciteorder@0=\count175
+\labelnumberwidth=\skip56
+\labelalphawidth=\skip57
+\biblabelsep=\skip58
+\bibitemsep=\skip59
+\bibnamesep=\skip60
+\bibinitsep=\skip61
+\bibparsep=\skip62
+\bibhang=\skip63
 \blx@bcfin=\read2
-\blx@bcfout=\write3
-\c@mincomprange=\count167
-\c@maxcomprange=\count168
-\c@mincompwidth=\count169
+\blx@bcfout=\write4
+\c@mincomprange=\count176
+\c@maxcomprange=\count177
+\c@mincompwidth=\count178
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -1546,78 +1788,78 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'archaeologie.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count170
-\c@savedafterword=\count171
-\c@annotator=\count172
-\c@savedannotator=\count173
-\c@author=\count174
-\c@savedauthor=\count175
-\c@bookauthor=\count176
-\c@savedbookauthor=\count177
-\c@commentator=\count178
-\c@savedcommentator=\count179
-\c@editor=\count180
-\c@savededitor=\count181
-\c@editora=\count182
-\c@savededitora=\count183
-\c@editorb=\count184
-\c@savededitorb=\count185
-\c@editorc=\count186
-\c@savededitorc=\count187
-\c@foreword=\count188
-\c@savedforeword=\count189
-\c@holder=\count190
-\c@savedholder=\count191
-\c@introduction=\count192
-\c@savedintroduction=\count193
-\c@namea=\count194
-\c@savednamea=\count195
-\c@nameb=\count196
-\c@savednameb=\count197
-\c@namec=\count198
-\c@savednamec=\count199
-\c@translator=\count200
-\c@savedtranslator=\count201
-\c@shortauthor=\count202
-\c@savedshortauthor=\count203
-\c@shorteditor=\count204
-\c@savedshorteditor=\count205
-\c@labelname=\count206
-\c@savedlabelname=\count207
-\c@institution=\count208
-\c@savedinstitution=\count209
-\c@lista=\count210
-\c@savedlista=\count211
-\c@listb=\count212
-\c@savedlistb=\count213
-\c@listc=\count214
-\c@savedlistc=\count215
-\c@listd=\count216
-\c@savedlistd=\count217
-\c@liste=\count218
-\c@savedliste=\count219
-\c@listf=\count220
-\c@savedlistf=\count221
-\c@location=\count222
-\c@savedlocation=\count223
-\c@organization=\count224
-\c@savedorganization=\count225
-\c@origlocation=\count226
-\c@savedoriglocation=\count227
-\c@origpublisher=\count228
-\c@savedorigpublisher=\count229
-\c@publisher=\count230
-\c@savedpublisher=\count231
-\c@language=\count232
-\c@savedlanguage=\count233
-\c@pageref=\count266
-\c@savedpageref=\count267
-\shorthandwidth=\skip62
-\shortjournalwidth=\skip63
-\shortserieswidth=\skip64
-\shorttitlewidth=\skip65
-\shortauthorwidth=\skip66
-\shorteditorwidth=\skip67
+\c@afterword=\count179
+\c@savedafterword=\count180
+\c@annotator=\count181
+\c@savedannotator=\count182
+\c@author=\count183
+\c@savedauthor=\count184
+\c@bookauthor=\count185
+\c@savedbookauthor=\count186
+\c@commentator=\count187
+\c@savedcommentator=\count188
+\c@editor=\count189
+\c@savededitor=\count190
+\c@editora=\count191
+\c@savededitora=\count192
+\c@editorb=\count193
+\c@savededitorb=\count194
+\c@editorc=\count195
+\c@savededitorc=\count196
+\c@foreword=\count197
+\c@savedforeword=\count198
+\c@holder=\count199
+\c@savedholder=\count200
+\c@introduction=\count201
+\c@savedintroduction=\count202
+\c@namea=\count203
+\c@savednamea=\count204
+\c@nameb=\count205
+\c@savednameb=\count206
+\c@namec=\count207
+\c@savednamec=\count208
+\c@translator=\count209
+\c@savedtranslator=\count210
+\c@shortauthor=\count211
+\c@savedshortauthor=\count212
+\c@shorteditor=\count213
+\c@savedshorteditor=\count214
+\c@labelname=\count215
+\c@savedlabelname=\count216
+\c@institution=\count217
+\c@savedinstitution=\count218
+\c@lista=\count219
+\c@savedlista=\count220
+\c@listb=\count221
+\c@savedlistb=\count222
+\c@listc=\count223
+\c@savedlistc=\count224
+\c@listd=\count225
+\c@savedlistd=\count226
+\c@liste=\count227
+\c@savedliste=\count228
+\c@listf=\count229
+\c@savedlistf=\count230
+\c@location=\count231
+\c@savedlocation=\count232
+\c@organization=\count233
+\c@savedorganization=\count266
+\c@origlocation=\count267
+\c@savedoriglocation=\count268
+\c@origpublisher=\count269
+\c@savedorigpublisher=\count270
+\c@publisher=\count271
+\c@savedpublisher=\count272
+\c@language=\count273
+\c@savedlanguage=\count274
+\c@pageref=\count275
+\c@savedpageref=\count276
+\shorthandwidth=\skip64
+\shortjournalwidth=\skip65
+\shortserieswidth=\skip66
+\shorttitlewidth=\skip67
+\shortauthorwidth=\skip68
+\shorteditorwidth=\skip69
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -1629,13 +1871,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 
-\c@textcitecount=\count268
-\c@textcitetotal=\count269
-\c@textcitemaxnames=\count270
-\c@biburlnumpenalty=\count271
-\c@biburlucpenalty=\count272
-\c@biburllcpenalty=\count273
-\c@smartand=\count274
+\c@textcitecount=\count277
+\c@textcitetotal=\count278
+\c@textcitemaxnames=\count279
+\c@biburlnumpenalty=\count280
+\c@biburlucpenalty=\count281
+\c@biburllcpenalty=\count282
+\c@smartand=\count283
 )
 Package biblatex Info: Trying to load bibliography style 'archaeologie'...
 Package biblatex Info: ... file 'archaeologie.bbx' found.
@@ -1648,11 +1890,11 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2015/04/19 v3.0 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count275
-\c@bbx:relatedtotal=\count276
+\c@bbx:relatedcount=\count284
+\c@bbx:relatedtotal=\count285
 )
-\bbx@shorthandwidth=\skip68
-\shorthandsep=\skip69
+\bbx@shorthandwidth=\skip70
+\shorthandsep=\skip71
 Package biblatex Info: Redefining '\citeauthor'.
 Package biblatex Info: Redefining '\citetitle'.
 )
@@ -1719,14 +1961,14 @@ Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-\@linkdim=\dimen140
-\Hy@linkcounter=\count277
-\Hy@pagecounter=\count278
+\@linkdim=\dimen149
+\Hy@linkcounter=\count286
+\Hy@pagecounter=\count287
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count279
+\Hy@SavedSpaceFactor=\count288
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1740,14 +1982,14 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count280
+\c@Hy@tempcnt=\count289
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen141
+\XeTeXLinkMargin=\dimen150
 Requested font "pzdr" at 0.00002pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm
-\Fld@menulength=\count281
-\Field@Width=\dimen142
-\Fld@charsize=\dimen143
+\Fld@menulength=\count290
+\Field@Width=\dimen151
+\Fld@charsize=\dimen152
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -1757,9 +1999,9 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count282
-\c@Item=\count283
-\c@Hfootnote=\count284
+\Hy@abspage=\count291
+\c@Item=\count292
+\c@Hfootnote=\count293
 )
 
 Package hyperref Message: Driver (autodetected): hxetex.
@@ -1774,11 +2016,11 @@ File: puenc.def 2012/11/06 v6.83m Hyperref: PDF Unicode definition (HO)
 Package: stringenc 2011/12/02 v1.10 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box42
-\c@Hy@AnnotLevel=\count285
-\HyField@AnnotCount=\count286
-\Fld@listcount=\count287
-\c@bookmark@seq@number=\count288
+\pdfm@box=\box68
+\c@Hy@AnnotLevel=\count294
+\HyField@AnnotCount=\count295
+\Fld@listcount=\count296
+\c@bookmark@seq@number=\count297
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -1789,7 +2031,7 @@ Package rerunfilecheck Info: Feature \pdfmdfivesum is not available
 tly
 (rerunfilecheck)             and the loading of the package is aborted.
 )
-\Hy@SectionHShift=\skip70
+\Hy@SectionHShift=\skip72
 )
 Package biblatex Info: Trying to load language 'ngerman'...
 Package biblatex Info: ... file 'ngerman.lbx' found.
@@ -1806,43 +2048,43 @@ File: german.lbx 2015/04/19 v3.0 biblatex localization (PK/JW/AB)
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count289
-\@quotereset=\count290
+\@quotelevel=\count298
+\@quotereset=\count299
 (./MWE_archaeologie.aux)
 \openout1 = `MWE_archaeologie.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 61.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 56.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 56.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 61.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 61.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -1850,68 +2092,68 @@ LaTeX Font Info:    ... okay on input line 56.
 .................................................
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 56.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 56.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 56.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 56.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 56.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 56.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 56.
-LaTeX Font Info:    Redeclaring math accent \check on input line 56.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 56.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 56.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \colon on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 56.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 56.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 61.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 61.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 61.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 61.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 61.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 61.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 61.
+LaTeX Font Info:    Redeclaring math accent \check on input line 61.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 61.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 61.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 61.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 61.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 61.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 56.
+(Font)              `operators' in the math version `normal' on input line 61.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> EU1/LinLibertine(0)/m/n on input line 5
-6.
+(Font)                  OT1/cmr/m/n --> EU1/LinLibertine(0)/m/n on input line 6
+1.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 56.
+(Font)              `operators' in the math version `bold' on input line 61.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> EU1/LinLibertine(0)/m/n on input line 
-56.
+61.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  EU1/LinLibertine(0)/m/n --> EU1/LinLibertine(0)/m/n on 
-input line 56.
+input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> EU1/LinLibertine(0)/m/it on input line
- 56.
+ 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> EU1/LinLibertine(0)/bx/n on input line
- 56.
+ 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> EU1/LinBiolinum(0)/m/n on input line 5
-6.
+(Font)                  OT1/cmss/m/n --> EU1/LinBiolinum(0)/m/n on input line 6
+1.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> EU1/LinLibertine(5)/m/n on input line 
-56.
+61.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  EU1/LinLibertine(0)/m/n --> EU1/LinLibertine(0)/bx/n on
- input line 56.
+ input line 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> EU1/LinLibertine(0)/bx/it on input li
-ne 56.
+ne 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> EU1/LinBiolinum(0)/bx/n on input line
- 56.
+ 61.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> EU1/LinLibertine(5)/bx/n on input line
- 56.
+ 61.
 
 
 ========= archaeologie -- biblatex fuer Archaeologen, Historiker und Philologen
@@ -1920,7 +2162,7 @@ Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Data encoding 'utf8' specified.
 (biblatex)             No need to reencode data.
-\openout3 = `MWE_archaeologie.bcf'.
+\openout4 = `MWE_archaeologie.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'MWE_archaeologie.bbl' found.
@@ -2250,25 +2492,25 @@ Package biblatex Warning: Biber reported the following issues
 : Invalid format '' of date field 'urldate' - ignoring.
 
 )
-Package biblatex Info: Reference section=0 on input line 56.
-Package biblatex Info: Reference segment=0 on input line 56.
-\AtBeginShipoutBox=\box43
-Package hyperref Info: Link coloring OFF on input line 56.
+Package biblatex Info: Reference section=0 on input line 61.
+Package biblatex Info: Reference segment=0 on input line 61.
+\AtBeginShipoutBox=\box69
+Package hyperref Info: Link coloring OFF on input line 61.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count291
+\c@section@level=\count300
 )
-LaTeX Info: Redefining \ref on input line 56.
-LaTeX Info: Redefining \pageref on input line 56.
-LaTeX Info: Redefining \nameref on input line 56.
+LaTeX Info: Redefining \ref on input line 61.
+LaTeX Info: Redefining \pageref on input line 61.
+LaTeX Info: Redefining \nameref on input line 61.
 
 (./MWE_archaeologie.out) (./MWE_archaeologie.out)
-\@outlinefile=\write4
-\openout4 = `MWE_archaeologie.out'.
+\@outlinefile=\write5
+\openout5 = `MWE_archaeologie.out'.
 
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;" at 8.0pt
@@ -2291,11 +2533,11 @@ Requested font "cmsy8" at 8.0pt
 Requested font "cmsy6" at 6.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 57.
+(Font)              <10.95> on input line 62.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 57.
+(Font)              <8> on input line 62.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 57.
+(Font)              <6> on input line 62.
 Requested font "cmr8" at 8.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 Requested font "cmr6" at 6.0pt
@@ -2313,247 +2555,1114 @@ Requested font "cmmi9" at 9.0pt
 Requested font "cmsy9" at 9.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 57.
+(Font)              <9> on input line 62.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 57.
+(Font)              <5> on input line 62.
 Requested font "cmr9" at 9.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 
-Overfull \hbox (2391.85793pt too wide) in paragraph at lines 57--58
+Overfull \hbox (2391.85793pt too wide) in paragraph at lines 62--63
 []\EU1/LinLibertine(0)/m/n/10.95 ohne Autor/Hrsg[][][] 
  []
 
 
-Overfull \hbox (2356.40547pt too wide) in paragraph at lines 60--63
-[]\EU1/LinLibertine(0)/m/n/10.95 @Article[][][] 
+Overfull \hbox (2362.45049pt too wide) in paragraph at lines 65--72
+[]\EU1/LinLibertine(0)/m/n/10.95 @Article[][][] [][][] 
+ []
+
+LaTeX Font Info:    Font shape `EU1/LinLibertine(5)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 72.
+Requested font "[LinLibertine_M.otf]/OT:script=latn;language=DFLT;" at 9.0pt
+ -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
+tine_M.otf
+
+Overfull \hbox (2530.11569pt too wide) in paragraph at lines 72--74
+\EU1/LinLibertine(0)/m/n/9 –> [][][][]Géza Alföldy, Juan Manuel Abascal und Ros
+ario Cebrián[][][][]  
  []
 
 
-Overfull \hbox (2464.57016pt too wide) in paragraph at lines 64--67
-\EU1/LinLibertine(0)/m/n/10.95 Übersetzung[][][] Austellungskatalog[][][] 
+Overfull \hbox (2402.25311pt too wide) in paragraph at lines 75--78
+\EU1/LinLibertine(0)/m/n/10.95 Austellungskatalog[][][] 
  []
 
 
-Overfull \hbox (2378.85297pt too wide) in paragraph at lines 68--69
+Overfull \hbox (2378.85297pt too wide) in paragraph at lines 79--80
 []\EU1/LinLibertine(0)/m/n/10.95 @Incollection[][][] 
  []
 
 
-Overfull \hbox (2380.46262pt too wide) in paragraph at lines 70--71
-[]\EU1/LinLibertine(0)/m/n/10.95 @Proceedings[][][] 
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
+
  []
 
 
-Overfull \hbox (2389.40877pt too wide) in paragraph at lines 72--73
-[]\EU1/LinLibertine(0)/m/n/10.95 @Inproceedings[][][] 
+Overfull \hbox (2431.96843pt too wide) in paragraph at lines 84--85
+\EU1/LinLibertine(0)/m/n/9 –> [][]Christopher Paul Dickenson[][][][] 
  []
 
-
-Overfull \hbox (2376.89291pt too wide) in paragraph at lines 74--75
-[]\EU1/LinLibertine(0)/m/n/10.95 @Inreference[][][] 
- []
-
-
-Overfull \hbox (2360.07072pt too wide) in paragraph at lines 76--77
-[]\EU1/LinLibertine(0)/m/n/10.95 @review[][][] 
- []
-
-
-Overfull \hbox (2355.61407pt too wide) in paragraph at lines 78--79
-[]\EU1/LinLibertine(0)/m/n/10.95 @thesis[][][] 
- []
-
-
-Overfull \hbox (2358.00117pt too wide) in paragraph at lines 80--81
-[]\EU1/LinLibertine(0)/m/n/10.95 @online[][][] 
- []
-
-
-Overfull \hbox (2350.65247pt too wide) in paragraph at lines 84--85
-[]\EU1/LinLibertine(0)/m/n/10.95 ANTIKE 
- []
-
-
-Overfull \hbox (2382.28827pt too wide) in paragraph at lines 86--87
-[]\EU1/LinLibertine(0)/m/n/10.95 @incollection[][][] 
- []
-
-
-Overfull \hbox (2352.08818pt too wide) in paragraph at lines 88--89
-[]\EU1/LinLibertine(0)/m/n/10.95 @book[][][] 
- []
-
-
-Overfull \hbox (2395.35529pt too wide) in paragraph at lines 90--91
-[]\EU1/LinLibertine(0)/m/n/10.95 @book - frgantik[][][] 
- []
-
-
-Overfull \hbox (2360.95642pt too wide) in paragraph at lines 93--94
-[]\EU1/LinLibertine(0)/m/n/10.95 CORPORA 
- []
-
-
-Overfull \hbox (2336.16689pt too wide) in paragraph at lines 95--96
-[]\EU1/LinLibertine(0)/m/n/10.95 CIL[][][] 
- []
-
+LaTeX Font Info:    Font shape `EU1/LinLibertine(5)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 85.
+Requested font "[LinLibertine_M.otf]/OT:script=latn;language=DFLT;" at 10.95pt
+ -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
+tine_M.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 85.
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 )
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 85.
 
 [1
 
 ]
+Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=DFLT;mapping=tex-
+text;mapping=tex-text;+tnum;+lnum;" at 9.0pt
+ -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
+tine_RI.otf
+
+Overfull \hbox (2475.70644pt too wide) in paragraph at lines 85--87
+\EU1/LinLibertine(0)/m/n/9 –> []\EU1/LinLibertine(0)/m/it/9 Public space in the
+ post-classical city \EU1/LinLibertine(0)/m/n/9 (2013)[]  
+ []
+
+
+Overfull \hbox (2393.12877pt too wide) in paragraph at lines 88--89
+[]\EU1/LinLibertine(0)/m/n/10.95 @Inproceedings[][][] 
+ []
+
+
+Overfull \hbox (2380.61292pt too wide) in paragraph at lines 90--91
+[]\EU1/LinLibertine(0)/m/n/10.95 @Inreference[][][] 
+ []
+
+
+Overfull \hbox (2360.07072pt too wide) in paragraph at lines 92--93
+[]\EU1/LinLibertine(0)/m/n/10.95 @review[][][] 
+ []
+
+
+Overfull \hbox (2355.61407pt too wide) in paragraph at lines 94--95
+[]\EU1/LinLibertine(0)/m/n/10.95 @thesis[][][] 
+ []
+
+
+Overfull \hbox (2358.00117pt too wide) in paragraph at lines 96--97
+[]\EU1/LinLibertine(0)/m/n/10.95 @online[][][] 
+ []
+
+
+Overfull \hbox (2350.65247pt too wide) in paragraph at lines 100--101
+[]\EU1/LinLibertine(0)/m/n/10.95 ANTIKE 
+ []
+
+
+Overfull \hbox (2382.28827pt too wide) in paragraph at lines 102--103
+[]\EU1/LinLibertine(0)/m/n/10.95 @incollection[][][] 
+ []
+
+
+Overfull \hbox (2352.08818pt too wide) in paragraph at lines 104--105
+[]\EU1/LinLibertine(0)/m/n/10.95 @book[][][] 
+ []
+
+
+Overfull \hbox (2395.35529pt too wide) in paragraph at lines 106--107
+[]\EU1/LinLibertine(0)/m/n/10.95 @book - frgantik[][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
+
+ []
+
+
+Overfull \hbox (2391.58943pt too wide) in paragraph at lines 110--111
+\EU1/LinLibertine(0)/m/n/9 –> []\EU1/LinLibertine(0)/m/it/9 Der Gallische Krieg
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 112.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 112.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 112.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 112.
+[2]
+Overfull \hbox (2364.94643pt too wide) in paragraph at lines 112--113
+\EU1/LinLibertine(0)/m/n/9 –> []\EU1/LinLibertine(0)/m/it/9 Epigramme[] 
+ []
+
+
+Overfull \hbox (2360.95642pt too wide) in paragraph at lines 116--117
+[]\EU1/LinLibertine(0)/m/n/10.95 CORPORA 
+ []
+
+
+Overfull \hbox (2336.16689pt too wide) in paragraph at lines 118--119
+[]\EU1/LinLibertine(0)/m/n/10.95 CIL[][][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 131.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 131.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 131.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 131.
+[3]
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 108.
+(Font)              scaled to size 10.95pt on input line 131.
 Requested font "[LinBiolinum_R.otf]/OT:script=latn;language=DFLT;mapping=tex-te
 xt;mapping=tex-text;+tnum;" at 10.95pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_R.otf
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 10.95pt on input line 108.
+(Font)              scaled to size 10.95pt on input line 131.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 10.95pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 20.74pt on input line 108.
+(Font)              scaled to size 20.74pt on input line 131.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 20.74pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 131.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 108.
+(babel)             in language  on input line 131.
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/bx/n' will be
-(Font)              scaled to size 14.4pt on input line 110.
+(Font)              scaled to size 14.4pt on input line 133.
 Requested font "[LinBiolinum_RB.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;" at 14.4pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinBioli
 num_RB.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 133.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 110.
+(babel)             in language  on input line 133.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 112.
+(babel)             in language  on input line 135.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 112.
+(babel)             in language  on input line 135.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;" at 7.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 112.
+(Font)              <7> on input line 135.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
- [2
+(babel)             in language  on input line 136.
+ [4
 
 ]
+Overfull \hbox (19.75867pt too wide) in paragraph at lines 141--141
+[][][][]\EU1/LinLibertine(0)/m/n/10 M. Arnolds: Funktionen republikanischer und
+ frühkaiserzeitlicher Forumsbasiliken in Italien (Diss. Ruprecht-
+ []
+
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;+smcp;+smcp;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
- [3]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
- [4]
+(babel)             in language  on input line 136.
+[5]
 Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=DFLT;mapping=tex-
 text;mapping=tex-text;+tnum;+lnum;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_RI.otf
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
- [5]
-Overfull \hbox (3.48206pt too wide) in paragraph at lines 118--118
+(babel)             in language  on input line 136.
+ [6]
+Overfull \hbox (2.53204pt too wide) in paragraph at lines 141--141
 \EU1/LinLibertine(0)/m/n/10 Ομηρικούς έως τους Ρωμαϊκούς χρόνους, Διεθνές Επιστ
 ημονικό Συνέδριο. Konferenz Kos 14.–17. April
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 113.
+(babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 113.
-[6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 123.
+(babel)             in language  on input line 136.
+[7]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 123.
+(babel)             in language  on input line 146.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 123.
+(babel)             in language  on input line 146.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 123.
+(babel)             in language  on input line 146.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 123.
- [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
+(babel)             in language  on input line 146.
+ [8]
+runsystem(makeindex MWE_archaeologie.idx)...executed safely (allowed).
+
+ (./MWE_archaeologie.ind
+Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=DFLT;mapping=tex-
+text;mapping=tex-text;+tnum;+lnum;" at 10.95pt
+ -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
+tine_RI.otf
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 3--5
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 5--6
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 9--11
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 11--12
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 12--13
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 13--14
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 14--16
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 16--17
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 17--18
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 18--19
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 19--21
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 21--22
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 22--24
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 24--25
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 28--29
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 29--30
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 30--31
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 31--32
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 32--33
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 33--34
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 34--35
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 35--36
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 36--37
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 37--38
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 38--39
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 39--40
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 43--44
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 44--45
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 45--46
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 46--47
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 47--48
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 48--49
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 49--50
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 50--52
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 52.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 52.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 52.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 52.
+[9
+
+
+]
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 52--53
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 53--54
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 54--55
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 55--56
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 59--60
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 60--61
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 61--63
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 63--64
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 64--66
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 66--67
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 67--68
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 68--69
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 69--70
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 70--71
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 71--72
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 72--74
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 74--75
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 75--76
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 76--77
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 77--78
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 81--82
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 82--83
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 83--84
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 84--85
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 88--89
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 89--91
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 94--95
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 95--96
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 96--97
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 97--99
+[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 99--100
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 103--104
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 104--105
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 105--106
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 106--107
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 107--108
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 108--109
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 112--114
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 114.
+[10]
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 114--116
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 116--118
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 118--120
+[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 120--121
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 121--122
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 125--126
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 126--127
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 127--128
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 131--132
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 132--133
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 133--134
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 134--135
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 135--136
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 136--137
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 137--138
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 141--143
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 143--145
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 145--146
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 146--148
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 151--152
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 152--153
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 156--157
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 157--159
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 159--161
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 164--166
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 169--170
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 170--171
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 171--172
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 172--173
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 173--175
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 175--176
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 176--178
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 178--179
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 179--180
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 180--181
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 181--182
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 182--184
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 184.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 184.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 184.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 184.
+[11]
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 184--185
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 188--190
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 193--194
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 194--196
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 196--198
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 198--199
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 199--201
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 201--202
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 202--203
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 203--205
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 205--206
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 206--207
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 207--208
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 211--212
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 212--213
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 213--214
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 214--215
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 215--217
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 217--218
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 218--220
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 220--222
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 225--227
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 227--229
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 229--231
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 231--232
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 232--234
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 234--235
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 235--236
+[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 236--237
+[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 237--238
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 241--243
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 246--247
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 247.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 247.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 247.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 247.
+[12]
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 247--248
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 248--249
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 249--251
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 254--256
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 256--257
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 257--258
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 261--263
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 263--265
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 265--266
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 269--271
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 146.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 146.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 146.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 146.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 146.
+ [13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 146.
  (./MWE_archaeologie.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 123.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 123.
-
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 146.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 146.
 Package logreq Info: Writing requests to 'MWE_archaeologie.run.xml'.
 \openout1 = `MWE_archaeologie.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38368 strings out of 493706
- 754977 string characters out of 6145769
- 1112299 words of memory out of 5000000
- 41423 multiletter control sequences out of 15000+600000
- 8452 words of font info for 63 fonts, out of 8000000 for 9000
+ 38771 strings out of 493706
+ 762393 string characters out of 6145769
+ 1124715 words of memory out of 5000000
+ 41805 multiletter control sequences out of 15000+600000
+ 8484 words of font info for 67 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
- 67i,8n,66p,10413b,1548s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,8n,66p,10394b,1558s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on MWE_archaeologie.pdf (7 pages).
+Output written on MWE_archaeologie.pdf (13 pages).

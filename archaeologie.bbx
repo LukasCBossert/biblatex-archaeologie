@@ -38,13 +38,23 @@
 \csuse{bool#1}{bbx:notranslator}%			%DAI gibt keine Originaltitel,etc an.
 \csuse{bool#1}{cbx:jahrkeineklammern}%	Keine Klammern um Jahreszahlen
 \csuse{bool#1}{bbx:hrsg}%	
-%
 \csuse{bool#1}{bbx:citeinit}%
 \csuse{bool#1}{cbx:mitjahr}%
 \csuse{boolfalse}{bbx:jahrreihe}%	
 %\csuse{booltrue}{bbx:lexika}%		diese Option bietet das DAI optional an
 }
-
+\newbool{bbx:dai-verweis}%		%%%	%%LCB: Option für die Wiedergabe nach DAI-Richtlinien
+\DeclareBibliographyOption{dai-verweis}[true]{%			%die folgenden Optionen werden bei "dai=true" geladen
+\csuse{bool#1}{bbx:dai}% DAI-Grundregeln	
+%\csuse{bool#1}{cbx:autorjahr}% % Zitation nach Autor-Jahr-System
+\csuse{bool#1}{bbx:notranslator}%			%DAI gibt keine Originaltitel,etc an.
+\csuse{bool#1}{cbx:jahrkeineklammern}%	Keine Klammern um Jahreszahlen
+\csuse{bool#1}{bbx:hrsg}%	
+\csuse{bool#1}{bbx:citeinit}%
+\csuse{boolfalse}{cbx:mitjahr}%
+\csuse{boolfalse}{bbx:jahrreihe}%	
+%\csuse{booltrue}{bbx:lexika}%		diese Option bietet das DAI optional an
+}
 
 \newbool{bbx:citeinit}%		%%LCB (muss angelegt, aber nicht defniniert werden - der Zusammenhang mit "nurinit" ist mir nicht ganz klar)
 
@@ -821,7 +831,10 @@ or bool {cbx:unbekannt}}%
 							\newunit\printfield[]{usera}% %Rufname muss im custom-Feld "usera" stehen
 								}{% 
 			    	\iffootnote{\printnames{labelname}}{%
-		\printnames[first-last]{author}}}}}%
+			    	\iffieldundef{author}{%
+			   				\printnames[first-last]{editor}}{%
+							\printnames[first-last]{author}}%
+							\printnames[first-last]{author}}}}}%
 {\multicitedelim}%
 {\usebibmacro{postnote}}%
 % 

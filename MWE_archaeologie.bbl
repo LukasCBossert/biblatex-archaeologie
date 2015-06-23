@@ -269,7 +269,7 @@
       \field{pages}{321\bibrangedash 322}
       \range{pages}{2}
       \verb{file}
-      \verb :Rezensionen/Baker_(Baker_2011)_Republikanische Fora_321-322.pdf:PDF
+      \verb :Artikel_Monographien/Lackner_(Lackner_2008)_Republikanische Fora_.pdf:PDF
       \endverb
     \endentry
     \entry{Ball_2013}{article}{}
@@ -614,9 +614,6 @@
       \field{year}{1999}
       \field{pages}{613\bibrangedash 616}
       \range{pages}{4}
-      \verb{file}
-      \verb :Rezensionen/Chamberland_(Chamberland_1999)_The organization of gladiatorial games in Italy_613-616.pdf:PDF
-      \endverb
     \endentry
     \entry{Christie_2009}{incollection}{}
       \name{author}{1}{}{%
@@ -1284,16 +1281,12 @@
       \field{labelyear}{1978}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
-      \field{issn}{0043373X}
       \field{journaltitle}{Western Folklore}
       \field{number}{4}
       \field{volume}{37}
       \field{year}{1978}
       \field{pages}{307\bibrangedash 310}
       \range{pages}{4}
-      \verb{file}
-      \verb :Rezensionen/Giuliano_(Giuliano_1978)_La Terra in Piazza_307-310.pdf:PDF
-      \endverb
       \verb{url}
       \verb http://www.jstor.org/stable/1499209
       \endverb
