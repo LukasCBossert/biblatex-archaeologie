@@ -14,14 +14,12 @@ demo,
 	backend=biber,
 	bibencoding=utf8,				% 	- use auto file encode
 %style=authortitle-dw, 
-%style=geschichtsfrkl, 
+	%style=geschichtsfrkl, fnverweise=true,
 	style=archaeologie,
 	%dai=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
 	dai-verweis=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
 	dateabbrev=false, %false default: true
-	lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
-	fnverweise=true, 	
-	mitjahr=false,
+%	lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
  	%autorjahr=true,		%% true = Zitation im Autor-Jahr-System; Anpassung der Bibliographie; false = Zitation im Autor-Titel-System
 	%shortjournal=false,	%% true = nur Kurzname der Zeitschrift (Feld: "shortjournal"), wenn "shortjournal" leer, dann Feld "journal"; false = Angabe von Feld "journal"
 %notranslator=false,	%% true = keine Angabe von Originaltitle, Originalsprache, Übersetzer; false = "Originaltitel: XY, übers. v. Z"
@@ -63,9 +61,6 @@ ohne Autor/Hrsg\footnote{\cite{Italie_1976,Cosa_1949,Paestum_1854,Ercolano_1762}
 
 
 @Article\footnote{
-\cite{Alfoeldy_2003,Allison_2001,Andreae_1957,Anichini_2012,Babcock_1962,Ball_2013,Bartosiewicz_2003,Baumgart_1935}
-}
-\footnote{
 \cite{Alfoeldy_2003,Allison_2001,Andreae_1957,Anichini_2012,Babcock_1962,Ball_2013,Bartosiewicz_2003,Baumgart_1935}
 }
 \begin{footnotesize}
@@ -118,6 +113,10 @@ CORPORA
 CIL\footnote{\cite[06, 12345]{CIL}}
 
 
+Rückverweise\footnote{%
+\cite{Bacchetta_2011,Selle_2008b,Paestum_1854,Hekster_2009,Graffunder_1914,Alfoeldy_2003,Kaiser_2014a}\\
+Antike: \cite{Caes_Gall,Paul_Fest} <-- Darf sich NICHT ändern
+}
 
 \renewcommand\bibfont{\normalfont\small}
 %\setlength{\biblabelsep}{3em} %geht nur bei autorjahr
