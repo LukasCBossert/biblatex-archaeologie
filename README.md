@@ -200,6 +200,9 @@ mitjahr=true,%		%% WENN "kurztitel = true", DANN:  false = keine Jahresangabe in
 jahrreihe=false,%	%% false = Serie und Nummer VOR Erscheinungsort und -jahr; true = Serie und Nummer NACH Erscheinungsort und -jahr
 dai = true 		%% Zitation nach DAI
 
+	vollername=true,		%\citeauthor --> Angabe des vollen Vor- und Zunamens im Fließtext (Fußnote nur Nachname)
+	nachname=true,		%\citeauthor --> Angabe nur des Nachnamens im Fließtext (Fußnote nur Nachname)
+	initialnachname=true,		%\citeauthor --> Angabe der Initialien und des Nachnamens im Fließtext (Fußnote nur Nachname)
 
 ##############
 ## Optional ##
