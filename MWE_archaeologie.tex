@@ -16,18 +16,19 @@ demo,
 %style=authortitle-dw, 
 	%style=geschichtsfrkl, fnverweise=true,
 	style=archaeologie,
-	%dai=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
+	dai=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
 	%dai-verweis=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
-	dateabbrev=false, %false default: true
+	dateabbrev=false, %false default: true --> muss notwendigerweise für DAI auf "false" stehen, -> damit aus Feb. -> Februar wird ((in)proceedings)
 	%vollername=true,		%\citeauthor --> Angabe des vollen Vor- und Zunamens im Fließtext (Fußnote nur Nachname)
 	%nachname=true,		%\citeauthor --> Angabe nur des Nachnamens im Fließtext (Fußnote nur Nachname)
 	initialnachname=true,		%\citeauthor --> Angabe der Initialien und des Nachnamens im Fließtext (Fußnote nur Nachname)
-		%nurinit=true,		%% true = Vornamen des Autors abgekürzt; false = ausgeschrieben
-%	lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+	lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+%%%%%%%%%% OPTIONALE OPTIONEN - NICHT für dai %%%%%%%%%%%% 	
  	%autorjahr=true,		%% true = Zitation im Autor-Jahr-System; Anpassung der Bibliographie; false = Zitation im Autor-Titel-System
 	%shortjournal=false,	%% true = nur Kurzname der Zeitschrift (Feld: "shortjournal"), wenn "shortjournal" leer, dann Feld "journal"; false = Angabe von Feld "journal"
 %notranslator=false,	%% true = keine Angabe von Originaltitle, Originalsprache, Übersetzer; false = "Originaltitel: XY, übers. v. Z"
-%hrsg=true,		%% false = "hrsg. v. XY"; true = "XY (Hrsg.)“
+%hrsg=true,		%% false = "hrsg. v. XY"; true = "XY (Hrsg.)“		
+%nurinit=true,		%% true = Vornamen des Autors abgekürzt; false = ausgeschrieben
 %citeinit=false, 	%% false = keine Initiale in Fußnoten, true =  in Fußnoten Initiale nachgestellt
 %mitvn=false,		%% false = keine Vornamen in Fußnote; true = Vornamen in Fußnote nach Nachname
 %jahrkeineklammern=false,	%% false = (2015); true = 2015
