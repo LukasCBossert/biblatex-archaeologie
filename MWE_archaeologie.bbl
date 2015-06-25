@@ -40,9 +40,6 @@
       \field{year}{2003}
       \field{pages}{217\bibrangedash 234}
       \range{pages}{18}
-      \verb{file}
-      \verb :Artikel_Monographien/Alföldy_Abascal and Cebrián_(Alfoeldy_2003)_Nuevos monumentos epigráficos del foro de Segobriga. Parte segunda_ Inscripciones de dignatarios municipales, fragmentos de naturaleza desconocida, hallazgos más recientes_217-234.pdf:PDF
-      \endverb
     \endentry
     \entry{Allison_2001}{article}{}
       \name{author}{1}{}{%
@@ -1788,34 +1785,6 @@
       \field{venue}{Berlin}
       \field{year}{2014}
       \warn{\item Datamodel: Entry 'Kurapkat_2014' (MWE_archaeologie.bib): Invalid format '' of date field 'urldate' - ignoring}
-    \endentry
-    \entry{Ercolano_1762}{book}{unbekannt}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=4a83d04ba8a3387cddb30f39c909a37f}{{[}keine\bibnamedelima Angabe{]}}{[\bibinitperiod}{}{}{}{}{}{}}%
-      }
-      \list{location}{1}{%
-        {Napoli}%
-      }
-      \list{publisher}{1}{%
-        {Regia Stamperia}%
-      }
-      \strng{namehash}{4a83d04ba8a3387cddb30f39c909a37f}
-      \strng{fullhash}{4a83d04ba8a3387cddb30f39c909a37f}
-      \field{sortinit}{L}
-      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
-      \field{labelyear}{1762}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{number}{3}
-      \field{series}{Le pitture antiche d'Ercolano e contorni. Incise con qualche spiegazione}
-      \field{shorthand}{Le antichità di Ercolano esposte}
-      \field{title}{Le antichità di Ercolano esposte}
-      \field{year}{1762}
-      \verb{file}
-      \verb :Artikel_Monographien/(Ercolano_1762)_Le antichità di Ercolano esposte.pdf:PDF
-      \endverb
-      \keyw{unbekannt}
     \endentry
     \entry{Lefebvre_2000}{book}{}
       \name{author}{1}{}{%

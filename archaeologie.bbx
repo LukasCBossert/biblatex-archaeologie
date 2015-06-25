@@ -270,17 +270,6 @@
      }   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewbibmacro*{author}{%
-%<<<<<<< HEAD
-% \ifnameundef{author}{}%
-%  {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
-%               \AND\NOT\iffirstonpage}%
-%                {\ifboolexpr{bool{cbx:autorjahr} or bool{bbx:dai}}{%
-%                				\ifbool{bbx:dai}{\printnames[first-last-inits]{author}}{%				%%LCB: Damit bei gleichem Autor kein bibnamedash kommt
-%                				\printnames{author}}}{\bibnamedash}}%
-%			{\ifbool{bbx:dai}{%
-%					\printnames[first-last-inits]{author}}{%
-%					\printnames{author}\isdot}}}}%
-%        %
   \ifnameundef{author}{}{%
     \ifbool{cbx:autorjahr}{%
       \printnames{author}
@@ -603,8 +592,6 @@
   \setunit*{\addspace}\newblock%                             %%>> JF: geändert wg. Klammern um Ort/Jahr, zuvor: \newunit\newblock%
   \ifbool{cbx:antik}{%
     \usebibmacro{antikzeugs}}{}%
-%  \ifbool{bbx:diss}{%
-%    \printtext{Diss\adddot}\setunit{\addspace}}{}%
   \usebibmacro{location+edition+year}%
   \setunit{\addspace}%
   \ifbool{bbx:jahrreihe}{%
@@ -752,27 +739,6 @@
   \usebibmacro{finentry}%
 }
 
-%%%%\DeclareBibliographyDriver{inreference}{%				%% LCB: Gut wäre, wenn bbx:lexika = true keine Einträge in der Bibliographie auftauchen
-%%%%  \usebibmacro{bibindex}%
-%%%%  \usebibmacro{begentry}%
-%%%%  \usebibmacro{author}%
-%%%%    {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%  
-%%%%    \usebibmacro{reftitle}%
-%%%%  \newunit\newblock%
-%%%%  %\usebibmacro{in:}%
-%%%%  \usebibmacro{refmaintitle}%
-%%%%  \setunit{\addspace}%
-%%%%  \usebibmacro{year}%
-%%%%  \newunit\newblock%
-%%%%  \usebibmacro{pages}%
-%%%%%  \setunit{\addspace}%
-%%%%%  \usebibmacro{url+urldate}%
-%%%%  \setunit{\addperiod\addspace}%
-%%%%  \usebibmacro{signatur}%
-%%%%  \usebibmacro{savestuff}%
-%%%%  \usebibmacro{finentry}%
-%%%%}%
-
 
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
@@ -806,52 +772,59 @@
 
 %% Bibliographie-Umgebung bei Autor-Jahr %%%%%%
 %
-\defbibenvironment{bibliography}%
-{\ifbool{cbx:autorjahr}{%
-  \list{\printtext{\printnames[cite:author]{labelname}}%
-     \addspace\printtext[\ifbool{cbx:jahrkeineklammern}{}{parens}]{%
-        \printfield{labelyear}\printfield{extrayear}}}%
-     {\setlength{\labelwidth}{\labelnumberwidth}%
-      \setlength{\leftmargin}{\labelwidth}%
-      \setlength{\labelsep}{\biblabelsep}%
-      \addtolength{\leftmargin}{\labelsep}%
-      \setlength{\itemsep}{\bibitemsep}%
-      \setlength{\parsep}{\bibparsep}%
-      }}%
-   {\list{}{%
-     \leftmargin\bibhang 
-     \itemindent-\leftmargin 
-     \itemsep\bibitemsep
-      \parsep\bibparsep}}}
-  {\endlist}
-{\ifboolexpr{bool {cbx:frgantik} 
-or bool {cbx:antik} 
-or bool {cbx:frg} 
-or bool{cbx:nurshorthand} 
-or bool {cbx:unbekannt}}%
-{\list{}{\leftmargin\bibhang 
-     \itemindent-\leftmargin 
-     \itemsep\bibitemsep
-      \parsep\bibparsep\endlist} 
-      \item% 
-      }%
-      {\item  \ifbool{cbx:autorjahr}{\mbox{}\newline}{}}}
+%\defbibenvironment{bibliography}%
+%{\ifbool{cbx:autorjahr}{%
+%  \list{\printtext{\printnames[cite:author]{labelname}}%
+%     \addspace\printtext[\ifbool{cbx:jahrkeineklammern}{}{parens}]{%
+%        \printfield{labelyear}\printfield{extrayear}}}%
+%     {\setlength{\labelwidth}{\labelnumberwidth}%
+%      \setlength{\leftmargin}{\labelwidth}%
+%      \setlength{\labelsep}{\biblabelsep}%
+%      \addtolength{\leftmargin}{\labelsep}%
+%      \setlength{\itemsep}{\bibitemsep}%
+%      \setlength{\parsep}{\bibparsep}}%
+%      }%
+%   {\list{}{%
+%     \leftmargin\bibhang 
+%     \itemindent-\leftmargin 
+%     \itemsep\bibitemsep
+%      \parsep\bibparsep}}}
+%  {\endlist}
+%{\ifboolexpr{bool {cbx:frgantik} 
+%or bool {cbx:antik} 
+%or bool {cbx:frg} 
+%or bool{cbx:nurshorthand} 
+%or bool {cbx:unbekannt}}%
+%{\list{}{\leftmargin\bibhang 
+%     \itemindent-\leftmargin 
+%     \itemsep\bibitemsep
+%      \parsep\bibparsep\endlist} 
+%      \item% 
+%      }%
+%      {\item  \ifbool{cbx:autorjahr}{\mbox{}\newline}{}}}
 
 
-    
-%% Option »shorthandinbib«:
-\newcommand*{\shorthandinbibpunct}{%
-                  \addspace=\nopunct\addspace}
-
-\renewbibmacro*{begentry}{%
-  \iffieldundef{shorthand}
-      {}
-      {\ifbool{cbx:unbekannt}{
-\usebibmacro{shorthand+year}}
-{ \printfield[shorthandinbib]{shorthand}}%
-%      \printfield[shorthandinbib]{shorthand}%
-       \nopunct\shorthandinbibpunct
-       }}
+  
+\AtBeginDocument{%
+\ifbool{bbx:shorthandwidthbool}%
+  {}
+  {%
+  \defbibenvironment{bibliography}
+    {\list
+       {\ifbool{cbx:unbekannt}{%
+				\usebibmacro{shorthand+year}}{%
+					\printfield[shorthandwidth]{shorthand}}}
+       {\setlength{\labelwidth}{\shorthandwidth}%
+        \setlength{\leftmargin}{\labelwidth}%
+        \setlength{\labelsep}{\biblabelsep}%
+        \addtolength{\leftmargin}{\labelsep}%
+        \setlength{\itemsep}{\bibitemsep}%
+        \setlength{\parsep}{\bibparsep}%
+        \renewcommand*{\makelabel}[1]{##1\hss}}}
+    {\endlist}
+    {\item}
+    }%
+    }
 
 %%%%%%%%%%%cite-commands (LCB) %%%%%%%%%%%%%%%%%
 \DeclareCiteCommand{\citeauthor} % Autoren mit vollem Namen im Fließtext

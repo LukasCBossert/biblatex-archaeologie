@@ -323,13 +323,16 @@
     <bcf:option>hrsg</bcf:option>
     <bcf:option>jahrreihe</bcf:option>
     <bcf:option>maintitleebd</bcf:option>
-    <bcf:option>bbx:nurinit</bcf:option>
+    <bcf:option>nurinit</bcf:option>
     <bcf:option>lexika</bcf:option>
     <bcf:option>shortjournal</bcf:option>
     <bcf:option>notranslator</bcf:option>
     <bcf:option>dai</bcf:option>
     <bcf:option>dai-verweis</bcf:option>
     <bcf:option>autorjahr</bcf:option>
+    <bcf:option>initialnachname</bcf:option>
+    <bcf:option>nachname</bcf:option>
+    <bcf:option>vollername</bcf:option>
     <bcf:option>acronyms</bcf:option>
     <bcf:option>shorthandinbib</bcf:option>
     <bcf:option>shorthandwidth</bcf:option>
@@ -2269,7 +2272,6 @@
     <bcf:citekey order="1">Italie_1976</bcf:citekey>
     <bcf:citekey order="1">Cosa_1949</bcf:citekey>
     <bcf:citekey order="1">Paestum_1854</bcf:citekey>
-    <bcf:citekey order="1">Ercolano_1762</bcf:citekey>
     <bcf:citekey order="2">Alfoeldy_2003</bcf:citekey>
     <bcf:citekey order="2">Allison_2001</bcf:citekey>
     <bcf:citekey order="2">Andreae_1957</bcf:citekey>
