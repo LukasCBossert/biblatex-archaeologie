@@ -66,7 +66,7 @@
              {cbx:nurinit}}%
 %\AtBeginDocument{\ifbool{bbx:nurinit}%   %%>> JF: damit citeinit nicht mehr von nurinit abhängig ist
 %             {\global\booltrue{cbx:nurinit}}{}}%
-\ExecuteBibliographyOptions{citeinit,mitjahr,neueseitevollzitat}%
+\ExecuteBibliographyOptions{citeinit,mitjahr,neueseitevollzitat}% %Brauchen wir das?
 \DeclareFieldFormat{prenote}{#1\isdot}%
 \DeclareFieldFormat{postnote}{#1}%
 \DeclareFieldFormat{shorttitle}{#1}%
@@ -76,9 +76,8 @@
     {\addspace\textendash\addspace}{}%
 }%
 \renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
-\newcommand*{\citeautorenschriftart}{\ifbool{bbx:dai}{}{\scshape}}%                                 %%>> JF: \sc zu \scshape geändert, veraltet
-\newcommand*{\citeautorentrennzeichen}%
-                         {\addnbspace\textendash\addspace}%
+\newcommand*{\citeautorenschriftart}{\ifbool{bbx:dai}{}{\scshape}}% 
+\newcommand*{\citeautorentrennzeichen}{\ifbool{bbx:dai}{\addnbspace\textendash\addspace}{\addslash}}%
                          
                          
 \DeclareNameFormat{cite:author}{%
