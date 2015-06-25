@@ -19,12 +19,12 @@
            {bbx:jahrreihe}}%
 \newbool{bbx:maintitleebd}%			%%% kann raus, nicht relevant
 		\DeclareBibliographyOption{maintitleebd}[true]{\csuse{bool#1}%
-           {bbx:maintitleebd}}
-\newbool{bbx:nurinit}%				
-		\DeclareBibliographyOption{bbx:nurinit}[true]{\csuse{bool#1}%
+           {bbx:maintitleebd}}%
+\newbool{bbx:nurinit}%
+		\DeclareBibliographyOption{nurinit}[true]{\csuse{bool#1}%
            {bbx:nurinit}}%
 \newbool{bbx:lexika}%		%%LCB
-		\DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}}
+		\DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}}%
 \newbool{bbx:shortjournal}%		%%LCB
 		\DeclareBibliographyOption{shortjournal}[true]{\csuse{bool#1}%	%%LCB: Zeitschrift-Option
            {bbx:shortjournal}}				%%LCB: Zeitschrift-Option
@@ -126,7 +126,8 @@
 \renewcommand*{\intitlepunct}{\addcolon\addspace}%
 \renewcommand*{\newunitpunct}{\addcomma\addspace}%
 \newcommand*{\autorenschriftart}{\scshape}%                           % JF: \scshape (\sc ist veraltet)
-\newcommand*{\autorentrennzeichen}{\addnbspace\textendash}%
+\newcommand*{\daiautorentrennzeichen}{\addnbspace\textendash}%
+\newcommand*{\autorentrennzeichen}{\addcomma\addspace}%
 \renewcommand{\finentrypunct}{}%% LCB: am Ende des Eintrages kein Punkt
 
 
@@ -152,25 +153,26 @@
 
 
 \DeclareNameFormat{author}{%
-\ifbool{cbx:autorjahr}{%
-  \ifblank{#3}{}{%
-        \ifbool{bbx:nurinit}{#4}{#3}}%
-  {\ifblank{#5}{\addspace}{#5\addspace}%
-   #1}%
-  \ifthenelse{\value{listcount}<\value{liststop}}%
-    {\autorentrennzeichen\addspace}{}%
-  \isdot%
-}%
-{%
-  {\autorenschriftart%
-   \ifblank{#5}{}{#5\addspace}%
-   #1}%
-   \ifblank{#3}{}{\addcomma\space%
-        \ifbool{bbx:nurinit}{#4}{#3}}%
-  \ifthenelse{\value{listcount}<\value{liststop}}%
-    {\autorentrennzeichen\addspace}{}%
-  \isdot%
-}%
+  \ifboolexpr{bool{bbx:dai} or bool{cbx:antik} or bool{cbx:frgantik}}{%
+    \ifblank{#3}{}{%
+      \ifbool{bbx:nurinit}{#4}{#3}}%
+    \ifblank{#5}{\addspace}{#5\addspace}%
+    #1%
+    \ifthenelse{\value{listcount}<\value{liststop}}{%
+      \daiautorentrennzeichen\addspace
+    }{}%
+    \isdot%
+  }{%
+    \ifblank{#5}{}{#5\addspace}%
+    #1%
+    \ifblank{#3}{}{\addcomma\space%
+      \ifbool{bbx:nurinit}{#4}{#3}%
+    }%
+    \ifthenelse{\value{listcount}<\value{liststop}}{%
+      \autorentrennzeichen\addspace%
+    }{}%
+    \isdot%
+  }%
 }
 
 
@@ -252,32 +254,51 @@
     {}
  {\setunit*{\addspace}%
      \printtext{\printurldate}}
-     }
+     }   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewbibmacro*{author}{%
- \ifnameundef{author}{}%
-  {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
-               \AND\NOT\iffirstonpage}%
-                {\ifboolexpr{bool{cbx:autorjahr} or bool{bbx:dai}}{%
-                				\ifbool{bbx:dai}{\printnames[first-last-inits]{author}}{%				%%LCB: Damit bei gleichem Autor kein bibnamedash kommt
-                				\printnames{author}}}{\bibnamedash}}%
-			{\ifbool{bbx:dai}{%
-					\printnames[first-last-inits]{author}}{%
-					\printnames{author}\isdot}}}}%
-        %
-%
-%
+%<<<<<<< HEAD
+% \ifnameundef{author}{}%
+%  {\ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
+%               \AND\NOT\iffirstonpage}%
+%                {\ifboolexpr{bool{cbx:autorjahr} or bool{bbx:dai}}{%
+%                				\ifbool{bbx:dai}{\printnames[first-last-inits]{author}}{%				%%LCB: Damit bei gleichem Autor kein bibnamedash kommt
+%                				\printnames{author}}}{\bibnamedash}}%
+%			{\ifbool{bbx:dai}{%
+%					\printnames[first-last-inits]{author}}{%
+%					\printnames{author}\isdot}}}}%
+%        %
+  \ifnameundef{author}{}{%
+    \ifbool{cbx:autorjahr}{%
+      \printnames{author}
+    }{%
+      \ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}\AND\NOT\iffirstonpage}{%
+        \bibnamedash
+      }{%
+        \printnames{author}
+      }
+    }
+  }
+}
+
+
 \renewbibmacro*{author/editor}{%
-   \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
-    \ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}%
-               \AND\NOT\iffirstonpage}%
-         {\ifbool{bbx:dai}{\printnames[first-last-inits]{editor}}{\bibnamedash}}%			%%LCB: Damit bei gleichem Editor kein bibnamedash kommt
- {\ifnameundef{editor}{}{%
-    \ifbool{bbx:dai}{\printnames[first-last-inits]{editor}\isdot}{% (Hrsg.)
-                \printnames[author]{editor}\isdot}% (Hrsg.)
-           \addspace\printtext[parens]{\bibstring{editor}}}}%
-   }{					\usebibmacro{author}}%
-}%
+  \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
+    \ifbool{cbx:autorjahr}{%
+      \printnames[autor]{editor}\isdot%
+    }{%
+      \ifthenelse{\iffieldequals{namehash}{\bbx@lasthash}\AND\NOT\iffirstonpage}{%
+        \bibnamedash
+      }{%
+        \ifnameundef{editor}{}{%
+          \printnames[author]{editor}\isdot%
+        }%
+      }%
+    }%
+  }{%
+    \usebibmacro{author}%
+  }
+}
 
 
 \renewbibmacro*{series+number}{%
