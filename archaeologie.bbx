@@ -80,6 +80,15 @@
 \newbool{cbx:autorjahr}						%% JF: Autorjahr
 		\DeclareBibliographyOption{autorjahr}[true]{\csuse{bool#1}% %% JF: Autorjahr
            {cbx:autorjahr}}						%% JF: Autorjahr
+\newbool{cbx:initialnachname}
+		\DeclareBibliographyOption{initialnachname}[true]{\csuse{bool#1}% %%
+           {cbx:initialnachname}}		
+\newbool{cbx:nachname}
+	        \DeclareBibliographyOption{nachname}[true]{\csuse{bool#1}% %%
+           {cbx:nachname}}
+\newbool{cbx:vollername}
+	        \DeclareBibliographyOption{vollername}[true]{\csuse{bool#1}% %%
+           {cbx:vollername}}
 %%%%%%%%
 
 \newtoggle{listofshorthands}% sind wir in der List of Shorthands?
@@ -173,6 +182,8 @@
 }%
 }
 
+\DeclareNameFormat{first-last-inits}{%
+  \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}}%
 
 \DeclareNameFormat{editor}{%
    \ifblank{#3}{}{%
@@ -832,10 +843,16 @@ or bool {cbx:unbekannt}}%
 							\newunit\printfield[]{usera}% %Rufname muss im custom-Feld "usera" stehen
 								}{% 
 			    	\iffootnote{\printnames{labelname}}{%
-			    	\iffieldundef{author}{%
-			   				\printnames[first-last]{editor}}{%
-							\printnames[first-last]{author}}%
-							\printnames[first-last]{author}}}}}%
+			    		\ifbool{cbx:initialnachname}{%
+								\printnames[first-last-inits]{author}%
+										\iflistundef{author}{%
+														\printnames[first-last-inits]{editor}}{}}{}%								
+					\ifbool{cbx:nachname}{%
+							\printnames{labelname}}{}%
+			   		\ifbool{cbx:vollername}{%
+			   		   				\printnames[first-last]{author}%
+	 								\iflistundef{author}{\printnames{editor}}{}}{}%	
+			   				}}}}%
 {\multicitedelim}%
 {\usebibmacro{postnote}}%
 % 
