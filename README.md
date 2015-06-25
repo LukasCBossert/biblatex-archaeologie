@@ -10,11 +10,12 @@ nicht das Feld "address" verwenden, sondern immer "location" !!!!
 ##      To do   ##
 ##################
 	
---> Abkürzungsverzeichnis für shortjournal-Zeitschriftentitel?!?  x-)
+- -> Abkürzungsverzeichnis für shortjournal-Zeitschriftentitel?!?  x-)
 	-->LCB: gute Idee
 vgl. http://www.latex-community.org/forum/viewtopic.php?f=5&t=690
 
--- ein "et. al." / u.a. fehlt, oder wird nicht mehr angezeigt?!?!
+- ein "et. al." / u.a. fehlt, oder wird nicht mehr angezeigt?!?!
+- Klammerregelung für DAI-Zitation: in runden Klammern weitere Klammern eckig setzen --> (LIMC V [1990] 108 Nr. 2767 s. v. Herakles [J. Boardmann – G. Kokkorou-Alewras])
 
 - Feld "Volume" bei (beispw.) Book wird nicht ausgelesen!??!
 
