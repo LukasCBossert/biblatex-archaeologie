@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  26 JUN 2015 10:45
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.6.18)  26 JUN 2015 10:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2565,10 +2565,6 @@ Overfull \hbox (2391.85793pt too wide) in paragraph at lines 65--66
 []\EU1/LinLibertine(0)/m/n/10.95 ohne Autor/Hrsg[][][] 
  []
 
-Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
-ext;mapping=tex-text;+tnum;+lnum;+smcp;+smcp;" at 9.0pt
- -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_R.otf
 
 Overfull \hbox (2356.40547pt too wide) in paragraph at lines 68--72
 []\EU1/LinLibertine(0)/m/n/10.95 @Article[][][] 
@@ -2625,22 +2621,7 @@ Overfull \hbox (2380.61292pt too wide) in paragraph at lines 90--91
 []\EU1/LinLibertine(0)/m/n/10.95 @Inreference[][][] 
  []
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 92.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 92.
-(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
-File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
-)
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 92.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 92.
-
-[1
-
-]
 Overfull \hbox (2360.07072pt too wide) in paragraph at lines 92--93
 []\EU1/LinLibertine(0)/m/n/10.95 @review[][][] 
  []
@@ -2655,7 +2636,22 @@ Overfull \hbox (2358.00117pt too wide) in paragraph at lines 96--97
 []\EU1/LinLibertine(0)/m/n/10.95 @online[][][] 
  []
 
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 100.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 100.
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
+)
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 100.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 100.
+
+[1
+
+]
 Overfull \hbox (2350.65247pt too wide) in paragraph at lines 100--101
 []\EU1/LinLibertine(0)/m/n/10.95 ANTIKE 
  []
@@ -2691,20 +2687,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
-LaTeX Font Info:    Font shape `EU1/LinLibertine(5)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 112.
-Requested font "[LinLibertine_M.otf]/OT:script=latn;language=DFLT;" at 10.95pt
- -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
-tine_M.otf
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 112.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 112.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 112.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 112.
-[2]
+
 Overfull \hbox (2364.94643pt too wide) in paragraph at lines 112--113
 \EU1/LinLibertine(0)/m/n/9 –> []\EU1/LinLibertine(0)/m/it/9 Epigramme[] 
  []
@@ -2732,7 +2715,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 136.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 136.
-[3]
+[2]
 LaTeX Font Info:    Font shape `EU1/LinBiolinum(0)/m/n' will be
 (Font)              scaled to size 10.95pt on input line 136.
 Requested font "[LinBiolinum_R.otf]/OT:script=latn;language=DFLT;mapping=tex-te
@@ -2780,34 +2763,34 @@ tine_R.otf
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 140.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 140.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 140.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 140.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 140.
- [4
-
-]
-Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 141.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 141.
 
-Overfull \hbox (2.07434pt too wide) in paragraph at lines 146--146
-[][][][]\EU1/LinLibertine(0)/m/n/10 Arnolds, Markus: Funktionen republikanische
-r und frühkaiserzeitlicher Forums-
+Overfull \hbox (8.7052pt too wide) in paragraph at lines 146--146
+\EU1/LinLibertine(0)/m/n/10 nicipales, fragmentos de naturaleza desconocida, ha
+llazgos más recientes, ZPE 144,
  []
 
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 141.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 141.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 141.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 141.
+[3
+
+]
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=DFLT;mapping=tex-t
 ext;mapping=tex-text;+tnum;+lnum;+smcp;+smcp;" at 10.0pt
  -> /usr/local/texlive/2015/texmf-dist/fonts/opentype/public/libertine/LinLiber
 tine_R.otf
 
-Overfull \hbox (5.61107pt too wide) in paragraph at lines 146--146
-[][][][][][]\EU1/LinLibertine(0)/m/n/10 Bacchetta, Alberto, Crosetto, Alberto, 
-Gambari, Marica Venturino: Il foro di Aquae
+Overfull \hbox (8.08855pt too wide) in paragraph at lines 146--146
+[][][][]\EU1/LinLibertine(0)/m/n/10 D. Booms, Art. “Architecture, Roman”, Encyc
+lopedia of Global Archaeology (2014),
  []
 
 Package babel Info: Redefining ngerman shorthand "|
@@ -2818,12 +2801,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 141.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 141.
-[5]
-Overfull \hbox (0.61769pt too wide) in paragraph at lines 146--146
-[][][][]\EU1/LinLibertine(0)/m/n/10 Colin, Xavier: Commercants itinerants et ma
-rchands sedentaires dans l’Occident
- []
-
+[4]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 141.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2832,22 +2810,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 141.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 141.
-[6]
-Overfull \hbox (4.42438pt too wide) in paragraph at lines 146--146
-\EU1/LinLibertine(0)/m/n/10 geschichtlern (Tagungsbeiträge eines Symposiums der
- Alexander von Humboldt-
- []
-
-
-Overfull \hbox (14.61691pt too wide) in paragraph at lines 146--146
-[][][][]\EU1/LinLibertine(0)/m/n/10 Evangelidis, Vasilis: Η αγορά των πόλεων τη
-ς Ελλάδας από τη ρωμαϊκή κατάκτηση
- []
-
-
-Overfull \hbox (16.92688pt too wide) in paragraph at lines 146--146
-\EU1/LinLibertine(0)/m/n/10 spätantiken Stadtleben in Norditalien, Internationa
-le Archäologie 85 (Rahden/Westf.
+ [5]
+Overfull \hbox (1.57603pt too wide) in paragraph at lines 146--146
+\EU1/LinLibertine(0)/m/n/10 Dynamics and Religious Change in the Roman Empire. 
+Proceedings of the Eighth
  []
 
 Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=DFLT;mapping=tex-
@@ -2862,43 +2828,21 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 141.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 141.
+[6]
+Overfull \hbox (1.99355pt too wide) in paragraph at lines 146--146
+\EU1/LinLibertine(0)/m/n/10 J. Mertens (Hrsg.): Comunitá indigene e problemi de
+lla romanizzazione nell’Italia
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 151.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 151.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 151.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 151.
 [7]
-Overfull \hbox (12.84935pt too wide) in paragraph at lines 146--146
-[][][][]\EU1/LinLibertine(0)/m/n/10 Lefebvre, Henri: La production de l’espace,
- Ethnosociologie (Paris: Anthropos$[]$2000
- []
-
-
-Overfull \hbox (14.73024pt too wide) in paragraph at lines 146--146
-\EU1/LinLibertine(0)/m/n/10 Μεσόγειο από τους Ομηρικούς έως τους Ρωμαϊκούς χρόν
-ους, Διεθνές Επιστημονικό
- []
-
-
-Overfull \hbox (11.50603pt too wide) in paragraph at lines 146--146
-[][][][][]\EU1/LinLibertine(0)/m/n/10 Santoriello, Alfonso, Vitti, Massimo: Il 
-paesaggio agrario del territorio della \EU1/LinLibertine(0)/m/it/10 C\EU1/LinLi
-bertine(0)/m/n/10 olonia
- []
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 141.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 141.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 141.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 141.
-[8]
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 151.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 151.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 151.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 151.
- [9]
 runsystem(makeindex MWE_archaeologie.idx)...executed safely (allowed).
 
  (./MWE_archaeologie.ind
@@ -2908,37 +2852,42 @@ text;mapping=tex-text;+tnum;+lnum;" at 10.95pt
 tine_RI.otf
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 3--5
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 5--6
 []\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 9--11
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 5--6
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 11--13
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 9--11
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 11--12
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 12--13
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 13--14
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 14--15
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 14--16
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 15--17
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 16--17
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
@@ -2948,97 +2897,97 @@ Overfull \hbox (2583.83896pt too wide) in paragraph at lines 17--18
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 18--19
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 19--20
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 19--21
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 20--22
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 21--22
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 22--23
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 22--24
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 23--25
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 24--25
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 25--26
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 28--29
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 29--30
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 30--31
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 31--32
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 32--33
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 33--34
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 34--35
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 35--36
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 36--37
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 37--38
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 38--39
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 39--40
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 40--41
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 43--44
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 44--45
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
@@ -3048,53 +2997,53 @@ Overfull \hbox (2583.83896pt too wide) in paragraph at lines 45--46
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 46--47
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 47--48
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 48--49
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 49--50
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 50--51
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 51--53
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 50--52
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 52.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 52.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 52.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 53.
-[10
+(babel)             in language  on input line 52.
+[8
 
 
 ]
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 52--53
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 53--54
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 54--55
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
@@ -3103,48 +3052,48 @@ Overfull \hbox (2583.83896pt too wide) in paragraph at lines 55--56
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 56--57
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 59--60
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 60--61
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 61--62
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 61--63
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 62--64
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 63--64
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 64--65
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 64--66
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 65--67
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 66--67
 []\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 67--68
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 68--69
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 69--70
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
@@ -3154,27 +3103,27 @@ Overfull \hbox (2583.83896pt too wide) in paragraph at lines 70--71
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 71--72
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 72--73
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 72--74
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 73--75
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 74--75
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 75--76
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 76--77
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
@@ -3183,18 +3132,18 @@ Overfull \hbox (2583.83896pt too wide) in paragraph at lines 77--78
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 78--79
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 81--82
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 82--83
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 83--84
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
@@ -3203,18 +3152,18 @@ Overfull \hbox (2583.83896pt too wide) in paragraph at lines 84--85
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 85--86
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 89--90
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 90--92
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 88--89
 []\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 89--91
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 94--95
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
@@ -3224,358 +3173,358 @@ Overfull \hbox (2583.83896pt too wide) in paragraph at lines 95--96
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 96--97
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 97--99
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 97--98
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 99--100
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 98--100
-[]\EU1/LinLibertine(0)/m/n/10.95 9[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 100--101
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 103--104
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 104--105
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 105--106
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 106--107
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 107--108
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 108--109
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 112--114
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 114.
+[9]
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 114--116
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 116--118
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 109--110
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 118--120
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 113--115
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 115.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 115.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 115.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 115.
-[11]
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 115--117
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 117--119
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 119--121
-[]\EU1/LinLibertine(0)/m/n/10.95 9[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 120--121
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 121--122
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 122--123
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 125--126
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 126--127
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 127--128
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 128--129
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 131--132
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 132--133
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 133--134
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 134--135
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 135--136
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 136--137
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 137--138
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 138--139
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 141--143
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 142--144
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 143--144
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 144--145
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 144--146
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 145--147
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 149--150
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 150--151
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 151--152
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 155--156
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 156--158
 []\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 158--160
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 154--155
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 155--157
 []\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 163--165
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 157--159
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 162--164
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 167--168
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 168--169
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 169--170
-[]\EU1/LinLibertine(0)/m/n/10.95 9[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 170--171
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 171--172
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 171--173
 []\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 172--174
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 173--174
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 174--175
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 174--176
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 175--177
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 176--177
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 177--178
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 178--179
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 179--180
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 180--181
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 181--183
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 183--184
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 180--182
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 182--183
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 184.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 184.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 184.
+(babel)             in language  on input line 183.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 184.
-[12]
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 187--189
+(babel)             in language  on input line 183.
+[10]
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 186--188
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 191--192
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 192--193
-[]\EU1/LinLibertine(0)/m/n/10.95 9[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 192--194
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 193--195
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 194--196
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 195--197
-[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 197--198
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 198--200
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 196--197
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 197--199
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 199--200
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 200--201
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 201--202
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 201--203
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 202--204
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 203--204
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 204--205
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 205--206
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 206--207
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 209--210
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 210--211
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 211--213
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 211--212
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 212--213
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 213--214
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 213--215
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 214--215
-[]\EU1/LinLibertine(0)/m/n/10.95 9[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 215--216
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 215--217
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 217--218
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 216--218
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 218--220
-[]\EU1/LinLibertine(0)/m/n/10.95 9[]  
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 220--222
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 223--225
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 
@@ -3585,110 +3534,105 @@ Overfull \hbox (2583.83896pt too wide) in paragraph at lines 225--227
 
 
 Overfull \hbox (2583.83896pt too wide) in paragraph at lines 227--229
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 229--231
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 231--232
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 232--234
-[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 234--235
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 235--236
-[]\EU1/LinLibertine(0)/m/n/10.95 9[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 236--237
-[]\EU1/LinLibertine(0)/m/n/10.95 9[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 237--238
 []\EU1/LinLibertine(0)/m/n/10.95 4[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 241--243
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 246--247
-[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 247--248
-[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
- []
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 248.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 248.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 248.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 248.
-[13]
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 248--249
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 249--251
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 229--230
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 254--256
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 230--232
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 232--233
 []\EU1/LinLibertine(0)/m/n/10.95 6[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 256--258
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 233--234
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 258--259
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 262--264
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 264--266
-[]\EU1/LinLibertine(0)/m/n/10.95 8[]  
- []
-
-
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 266--267
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 234--235
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
  []
 
 
-Overfull \hbox (2583.83896pt too wide) in paragraph at lines 270--272
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 235--236
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 239--241
+[]\EU1/LinLibertine(0)/m/n/10.95 4[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 244--245
+[]\EU1/LinLibertine(0)/m/n/10.95 3[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 245--246
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 246.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 246.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 246.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 246.
+[11]
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 246--247
 []\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 247--249
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 252--254
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 254--255
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 255--256
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 259--261
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 261--263
+[]\EU1/LinLibertine(0)/m/n/10.95 7[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 263--264
+[]\EU1/LinLibertine(0)/m/n/10.95 6[]  
+ []
+
+
+Overfull \hbox (2583.83896pt too wide) in paragraph at lines 267--269
+[]\EU1/LinLibertine(0)/m/n/10.95 5[]  
  []
 
 )
@@ -3701,7 +3645,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 151.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 151.
- [14]
+ [12]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
  (./MWE_archaeologie.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 151.
@@ -3716,12 +3660,12 @@ Package logreq Info: Writing requests to 'MWE_archaeologie.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38785 strings out of 493706
- 762769 string characters out of 6145769
- 1123371 words of memory out of 5000000
- 41818 multiletter control sequences out of 15000+600000
- 8549 words of font info for 68 fonts, out of 8000000 for 9000
+ 38780 strings out of 493706
+ 762550 string characters out of 6145769
+ 1123407 words of memory out of 5000000
+ 41815 multiletter control sequences out of 15000+600000
+ 8476 words of font info for 66 fonts, out of 8000000 for 9000
  1332 hyphenation exceptions out of 8191
  67i,8n,66p,10394b,1557s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on MWE_archaeologie.pdf (14 pages).
+Output written on MWE_archaeologie.pdf (12 pages).
