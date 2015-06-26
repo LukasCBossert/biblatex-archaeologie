@@ -16,7 +16,7 @@ demo,
 %style=authortitle-dw, 
 	%style=geschichtsfrkl, fnverweise=true,
 	style=archaeologie,
-	dai=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
+	%dai=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
 	%dai-verweis=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
 	dateabbrev=false, %false default: true --> muss notwendigerweise für DAI auf "false" stehen, -> damit aus Feb. -> Februar wird ((in)proceedings)
 	%vollername=true,		%\citeauthor --> Angabe des vollen Vor- und Zunamens im Fließtext (Fußnote nur Nachname)
@@ -119,7 +119,8 @@ CIL\footnote{\cite[06, 12345]{CIL}}
 
 
 Rückverweise\footnote{%
-\cite{Bacchetta_2011,Selle_2008b,Paestum_1854,Hekster_2009,Graffunder_1914,Alfoeldy_2003,Kaiser_2014a}\\
+\mkbibparens{%
+\cite{Bacchetta_2011,Selle_2008b,Paestum_1854,Hekster_2009,Graffunder_1914,Alfoeldy_2003,Kaiser_2014a}}\\
 Antike: \cite{Caes_Gall,Paul_Fest} <-- Darf sich NICHT ändern
 }
 

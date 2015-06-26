@@ -811,9 +811,14 @@
   {%
   \defbibenvironment{bibliography}
     {\list
-       {\ifbool{cbx:unbekannt}{%
-				\usebibmacro{shorthand+year}}{%
-					\printfield[shorthandwidth]{shorthand}}}
+       {\ifbool{cbx:unbekannt}{	\usebibmacro{shorthand+year}}{%		%unbekannte Autoren
+				\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik} or bool {cbx:frg} or bool {cbx:nurshorthand}}%
+				{\printfield[shorthandwidth]{shorthand}}%
+				{\ifbool{cbx:autorjahr}{\printtext{\printnames[cite:author]{labelname}}%
+     				\addspace\printtext[\ifbool{cbx:jahrkeineklammern}{}{parens}]{%
+       					 \printfield{labelyear}\printfield{extrayear}}}{}%
+       					 }}%
+							}%
        {\setlength{\labelwidth}{\shorthandwidth}%
         \setlength{\leftmargin}{\labelwidth}%
         \setlength{\labelsep}{\biblabelsep}%
