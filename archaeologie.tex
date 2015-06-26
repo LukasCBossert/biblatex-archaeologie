@@ -1,16 +1,10 @@
 \documentclass[a4paper]{ltxdoc}
 \usepackage{hypdoc}
-\usepackage{ifxetex}
-\ifxetex
   \usepackage[no-math]{fontspec}
   \usepackage{polyglossia}
   \setdefaultlanguage{german}
-%%%%  \setmainfont[Mapping=tex-text,Numbers=OldStyle]{Linux Libertine O}
-%%%%  \setsansfont[Mapping=tex-text,Numbers=OldStyle]{Linux Biolinum O}
-\else
-  \usepackage[utf8]{inputenc}
-  \usepackage[T1]{fontenc}
-\fi
+% \usepackage{libertine}
+% \usepackage{roboto}%Schriftart für Sansserif 
 \usepackage{coolthms}
 \usepackage{csquotes}
 \usepackage{enumitem}
@@ -19,11 +13,49 @@
 \setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
 \usepackage{changepage}
 \newenvironment{bsp}{\begin{adjustwidth}{1cm}{1cm}}{\end{adjustwidth}}
-\hypersetup{colorlinks=false}
+\hypersetup{colorlinks=true}
 \listfiles
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
+
+\usepackage[					% use  for bibliography
+	backend=biber,
+	bibencoding=utf8,				% 	- use auto file encode
+	style=archaeologie,
+	dai=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
+	%dai-verweis=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
+	dateabbrev=false, %false default: true --> muss notwendigerweise für DAI auf "false" stehen, -> damit aus Feb. -> Februar wird ((in)proceedings)
+	%vollername=true,		%\citeauthor --> Angabe des vollen Vor- und Zunamens im Fließtext (Fußnote nur Nachname)
+	%nachname=true,		%\citeauthor --> Angabe nur des Nachnamens im Fließtext (Fußnote nur Nachname)
+	initialnachname=true,		%\citeauthor --> Angabe der Initialien und des Nachnamens im Fließtext (Fußnote nur Nachname)
+	lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+%%%%%%%%%% OPTIONALE OPTIONEN - NICHT für dai %%%%%%%%%%%% 	
+ 	%autorjahr=true,		%% true = Zitation im Autor-Jahr-System; Anpassung der Bibliographie; false = Zitation im Autor-Titel-System
+	%shortjournal=false,	%% true = nur Kurzname der Zeitschrift (Feld: "shortjournal"), wenn "shortjournal" leer, dann Feld "journal"; false = Angabe von Feld "journal"
+%notranslator=false,	%% true = keine Angabe von Originaltitle, Originalsprache, Übersetzer; false = "Originaltitel: XY, übers. v. Z"
+%hrsg=true,		%% false = "hrsg. v. XY"; true = "XY (Hrsg.)“		
+%nurinit=true,		%% true = Vornamen des Autors abgekürzt; false = ausgeschrieben
+%citeinit=false, 	%% false = keine Initiale in Fußnoten, true =  in Fußnoten Initiale nachgestellt
+%mitvn=false,		%% false = keine Vornamen in Fußnote; true = Vornamen in Fußnote nach Nachname
+%jahrkeineklammern=false,	%% false = (2015); true = 2015
+%mitjahr=true,%		%% WENN "kurztitel = true", DANN:  false = keine Jahresangabe in der Fußnote; true = Jahresangabe nach Kurztitel in Klammer
+%jahrreihe=false,%	%% false = Serie und Nummer VOR Erscheinungsort und -jahr; true = Serie und Nummer NACH Erscheinungsort und -jahr
+	%%%%%%%%%%%%%%%%%%%%%%%
+	sorting=nyt, % nyt lassen, damit Shorthands sortiert werden
+	indexing=true,	%%Aktiviert die Indexerstellung nur für Verweise
+	uniquename=full,
+	maxalphanames=2,
+	maxnames=3,%
+	minnames=1,%
+%	maxitems=1,
+%	maxbibnames=4,%
+%	minbibnames=1,%
+%	maxcitenames=2,%
+%	mincitenames=1%
+]{biblatex}
+\usepackage{citeall}
+\addbibresource{archaeologie.bib}
 \begin{document}
 %  \DocInput{archaeologie.dtx}
 
@@ -33,13 +65,14 @@
 
 
 
- \title{\texttt{archaeologie} -- \texttt{biblatex} für Archäologen}
+ \title{\texttt{archaeologie} -- \\\texttt{biblatex} für Archäologen\footnote{Ebenso nützlich und geeignet für (Alt-)Historiker und (Alt-)Philologen.}}
  \author{Lukas C. Bossert\thanks{\url{LukasCB@me.com}} \and Johannes Friedl\thanks{\url{NN}}}
  \date{Version v0.2, 2015/06/26}
 
  \maketitle
  \begin{abstract}
- Der Stil bietet die Möglichkeit Zitation und Bibliographie entsprechend den Vorgaben des Deutschen Archäologischen Instituts (Stand 2014) umzusetzen.
+\noindent Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um.
+Zudem gibt es auch die Möglichkeit im Autor-Jahr- und Autor-Titel-System zu zitieren und bibliographieren. 
  \end{abstract}
 
  \tableofcontents
@@ -54,19 +87,8 @@
  "\bibliography"\marg{"bib"-Datei}\end{bsp}
  Dabei kann man weitere der \enquote{konventionellen} "biblatex"-Optionen oder der -- weiter unten beschriebenen -- von "archaeologie" zur Verfügung gestellten Optionen laden.
 
- An geeigneter Stelle sollte man natürlich noch den "\printbibliography"-Befehl aufrufen, um eine Bibliographie zu erzeugen. Diese kann "biblatex"-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert. Der Titel entspricht -- bei voreingestellter deutscher Sprache -- \enquote{Literatur}. Siehe dazu auch \cref{quellenverzeichnisse}.
-Es bietet sich jedoch an, mit (nummerierten) Unterbibliographien zu arbeiten:
-\begin{bsp}
-"\printbibheading[heading=bibnumbered,%"\\
-"            ""title={Bibliographie}] %" \emph{Überschrift für Bibliographieumgebung}\\
-"\printbibliography[keyword=Quelle,%"\\
-"            ""heading=subbibnumbered,%"\\
-"            ""title={Antike Quellen}]"\\
-"\printbibliography[notkeyword=Quelle,%"\\
-"            ""heading=subbibnumbered,%"\\
-"            ""title={Forschungsliteratur}]" \end{bsp}
+ An geeigneter Stelle sollte man natürlich noch den "\printbibliography"-Befehl aufrufen, um eine Bibliographie zu erzeugen. Diese kann "biblatex"-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  Siehe dazu auch \cref{quellenverzeichnisse}.
 
- Die wichtigsten Eigenschaften sind hierbei, dass Zitate für gewöhnlich immer in Fußnoten gesetzt werden, beim ersten Zitieren eines Werks ein Vollzitat, später nur ein Kurzzitat gesetzt wird und dass bei direkt aufeinander folgenden Zitaten des gleichen Werks bzw. eines anderen Werks des gleichen Autors das Zitat durch \enquote{Ebd.} bzw. der Name des Autors durch \enquote{Ders.} ersetzt wird. Auf einer neuen Seite werden hingegen immer der Name des Autors und des Werkes vollständig angegeben.
 
  \DescribeMacro{\cite}
  Zitiert wird -- wie immer -- einfach mit "\cite":\par
@@ -76,54 +98,53 @@ Es bietet sich jedoch an, mit (nummerierten) Unterbibliographien zu arbeiten:
  \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der "bib"-Datei.
 
 
- \section{Beschreibung}
+ \section{Beschreibung\protect\footnote{Die Beispiele sind entnommen aus der PDF des DAI \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}}
+  und wurden, sofern notwendig, mit weiteren eigenen Literatureinträgen ergänzt.
+ }}
 
- Der "geschichtsfrkl"-Zitierstil definiert verschiedene bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
+ Der "archaeologie"-Zitierstil definiert verschiedene bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
+
+
 
  \subsection{Typ \texttt{@book}}\label{book}
 
  \DescribeMacro{@book}
- Fangen wir ganz einfach an: Zu einem einfachen Buch sieht der Eintrag in der "bib"-Datei ungefähr folgendermaßen\footnote{Fast alle Beispiele sind so mehr oder weniger aus dem komischen Zitiervorlagenbuch der Alten Geschichte Freiburg entnommen, dass es leider nicht online gibt.} aus:\\[3pt]
-"@book{southern,"\\
-"	author={Southern, P.},"\\
-"	title={Domitian},"\\
-"	subtitle={Tragic Tyrant},"\\
-"	shorttitle={Domitian},"\\
-"	location={London and New York},"\\
-"	year={1997}"\\
+ Fangen wir ganz einfach an: Zu einem einfachen Buch sieht der Eintrag in der "bib"-Datei ungefähr folgendermaßen aus:\\[3pt]
+"@book{Beyen_1960,"\\
+"	author={Beyen, Hendrik Gerard},"\\
+"	title={Die pompejanische Wanddekoration vom zweiten bis zum vierten Stil},"\\
+"	volume={2.1 Tafeln},"\\
+"	location={Haag},"\\
+"	year={1938}"\\
 "}"\\[3pt]
  Ein etwas umfangreicheres Beispiel mit Feld "series" ist:\\[3pt]
-"@book{riess,"\\
-"	author={Willhelm Riess},"\\
-"	title={Apuleius und die Räuber},"\\
-"	subtitle={Ein Beitrag zur historischen Kriminalforschung},"\\
-"	shorttitle={Apuleius und die Räuber},"\\
-"	series={HABES},"\\
-"	number={31},"\\
-"	location={Stuttgart},"\\
-"	year={2001}"\\
+"@book{Schoerner_1995,"\\
+"	author={Schörner, Günther},"\\
+"	title={Römische Rankenfriese},"\\
+"	subtitle={Untersuchungen zur Baudekoration der späten Republik" \ldots"},"\\
+"	series={BeitrESkAr},"\\
+"	number={15},"\\
+"	location={Mainz},"\\
+"	publisher={Philipp von Zabern},"\\
+"	year={1995}"\\
 "}"\\[3pt]
  Die Zitierreihenfolge\\[3pt]
- "a\cite[Vgl.][43]{southern} b\cite[2]{southern}"\\
- "c\cite[Vgl.][19]{riess} d\cite[5]{southern} e\cite[20]{riess}."\\[3pt]
+"	a\footnote{\cite[Vgl.][43]{Beyen_1960}}"\\
+"	b\footnote{\cite[2]{Schoerner_1995}}"\\[3pt]
  liefert (in Fußnoten) folgende Einträge:
  \begin{enumerate}
  \item\label{book:a} Vgl. {\sc Southern}, P.: Domitian. Tragic Tyrant, London / New York 1997, 43.
  \item\label{book:b} Ebd., 2. 
- \item\label{book:c} Vgl. {\sc Riess}, Willhelm: Apuleius und die Räuber. Ein Beitrag zur historischen Kriminalforschung (HABES 31), Stuttgart 2001, 19.
- \item\label{book:d} {\sc Southern}, P.: Domitian (1997), 5. 
- \item\label{book:e} {\sc Riess}, W.: Apuleius und die Räuber (2001), 20.
  \end{enumerate}
 
  Durch verschiedene Paketoptionen kann dieses Verhalten noch beeinflusst werden:
-
  \DescribeMacro{mitvn}
  \DescribeMacro{citeinit}
  \DescribeMacro{nurinit}
- Wenn in den Kurzzitaten \ref{book:d} und \ref{book:e} -- so weit vorhanden -- die vollen Vornamen angezeigt werden sollen (wie auch im Vollzitat), so kann man das mit der Option "mitvn" erreichen. Wenn bei \emph{allen} vorkommenden Vornamen nur Initialien benutzt werden sollen, so geschieht dies durch die Option "nurinit" und wenn dies nur bei Namen, die in Zitaten (nicht in der Bibliographie) auftauchen passieren soll, so benutzt man die Optionen "citeinit". Das ist die Voreinstellung. Wenn man also gar keine Vornamen möchte, so sollte man dem Paket die Option "citeinit=false" übergeben.
+ Wenn in den Kurzzitaten \ref{book:a} und \ref{book:b} -- so weit vorhanden -- die vollen Vornamen angezeigt werden sollen (wie auch im Vollzitat), so kann man das mit der Option "mitvn" erreichen. Wenn bei \emph{allen} vorkommenden Vornamen nur Initialien benutzt werden sollen, so geschieht dies durch die Option "nurinit" und wenn dies nur bei Namen, die in Zitaten (nicht in der Bibliographie) auftauchen passieren soll, so benutzt man die Optionen "citeinit". Das ist die Voreinstellung. Wenn man also gar keine Vornamen möchte, so sollte man dem Paket die Option "citeinit=false" übergeben.
 
  \DescribeMacro{mitjahr}
- Standardmäßig wird bei einem Kurzzitat auch das Jahr in Klammern mit angegeben. Wenn man das nicht möchte, so sollte man die Paketoption "mitjahr=false" verwenden. Dadurch (zusammen mit "citeinit=false") verwandelt sich zum Beispiel \ref{book:d} in
+ Standardmäßig wird bei einem Kurzzitat auch das Jahr in Klammern mit angegeben. Wenn man das nicht möchte, so sollte man die Paketoption "mitjahr=false" verwenden. Dadurch (zusammen mit "citeinit=false") verwandelt sich zum Beispiel \ref{book:a} in
 
  \begin{bsp} 
  {\sc Southern}: Domitian, 5.
@@ -151,6 +172,35 @@ Es bietet sich jedoch an, mit (nummerierten) Unterbibliographien zu arbeiten:
  Die Option "fnverweise" fügt an ein Folgezitat den Hinweis \enquote{(Wie Anm. \meta{Nummer der Fußnote des Erstzitats})}. Hier empfiehlt es sich wahrscheinlich entweder ganz auf des Jahr (also "mitjahr=false") oder zumindest auf die Klammern ("jahrkeineklammern") zu verzichten. Wurde der folgende Eintrag zum ersten Mal in Fußnote 3 zitiert, liefert ein erneuter "\cite"-Befehl
 \begin{bsp}  {\sc Southern}, P.: Domitian 1997 (wie Anm. 3), 2.\end{bsp}
 
+
+%%%  LCB > Anfang 
+\DescribeMacro{vollername}
+\DescribeMacro{name}
+\DescribeMacro{initialnachname}
+Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
+Autoren/Herausgeber werden über "\citeauthor"\marg{Schlüssel} aufgerufen.
+Ebenso ist auch das Auslesen der Werktitle über "\citetitle"\marg{Schlüssel} möglich, wobei der Titel in eine "emph{}"-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.\footnote{Werden antike Autoren auf diese Art wiedergegeben, dann wird das Feld "usera" ausgelesen, in das der deutsche Rufnamen geschrieben wird. Bei antiken Werktitel wird keine Jahreszahl dazugeschrieben. }
+
+Die Darstellung der Namen kann auf drei Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via "hyperref" verlinkt. Die drei Arten sind: mit dem vollen Vor- und Zunamen, nur mit dem Nachnamen oder mit den Initialen des Vornamens und dem Nachnamen.
+Ein Beispiel macht dies klarer:
+\begin{bsp} \ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".
+ \begin{enumerate}
+ \item\label{name:a} \DescribeMacro{vollername} 
+ \ldots , dies behaupten ebenso Rainer Michael Boehmer  and Nadja Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+ 
+\item\label{name:b}  \DescribeMacro{name}
+\ldots , dies behaupten ebenso  Boehmer und  Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+
+\item\label{name:c}  \DescribeMacro{initialnachname}
+\ldots , dies behaupten ebenso  R. M. Boehmer und N. Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+ \end{enumerate}
+ 
+\end{bsp}
+%%%  LCB > Ende 
+
+ 
+ 
+ 
  \DescribeMacro{nurshorthand}
  Bei bestimmten Werken hat das Kurzzitat eine eigenartige Form (siehe \cref{optionen} für Spezialfälle). In solchen Fällen kann der "bib"-Eintrag mit der Option "nurshorthand" versehen werden, dann bleibt das Erstzitat unverändert, das Kurzzitat besteht aber \emph{nur} aus dem "shorthand"-Feld (und natürlich gegebenenfalls angegeben "prenote" und "postnote"-Feldern, sowie -- in Abhängigkeit von "fnverweise" -- einem Verweis auf das Erstzitat). Ein Beispiel dazu findet sich in \cref{beispiele}.
  \changes{v1.1}{2012/03/31}{Beschreibung der Option "nurshorthand".}
@@ -428,19 +478,20 @@ Es bietet sich jedoch an, mit (nummerierten) Unterbibliographien zu arbeiten:
 
  \DescribeMacro{\printbibliography}
  Zwar ist es keine spezielle Eigenschaft dieser "biblatex"-Formate aber vielleicht in diesem Zusammenhang doch sinnvoll zu erwähnen, wie man mit "biblatex" seperate Quellen- und Literaturverzeichnisse ausgeben lassen kann. Zunächst sollten alle Quellen in der "bib"-Datei mit dem Feld
- \begin{bsp}"keywords={Quelle},"\end{bsp}
- versehen werden. Dann kann man am Ende des Dokuments (oder wo immer man seine Verzeichnisse haben möchte) mit
- \begin{bsp}
+ \begin{bsp}"keyword={Quelle},"\end{bsp}
+ versehen werden. 
+
+Es bietet sich jedoch an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  "heading=bibnumbered", bzw. "heading=subbibnumbered" geladen werden.
+\begin{bsp}
+"\printbibheading[heading=bibnumbered,%"\\
+"            ""title={Bibliographie}] %" \emph{Überschrift für Bibliographieumgebung}\\
 "\printbibliography[keyword=Quelle,%"\\
-"                   heading=quellenheading]"\\
-"\printbibliography[notkeyword=Quelle]"
- \end{bsp}
- zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis ausgeben lassen. Das "quellenheading" muss natürlich zuvor definiert werden. Denkbar wäre dazu im Dokumentkopf (also möglichst zwischen dem Laden des "biblatex"-Pakets und "\begin{document}") so etwas wie
- \begin{bsp}
- "\defbibheading{quellenheading}{\section*{Quellen}"\\
- "          \addcontentsline{toc}{section}{Quellen}}"
- \end{bsp}
- zu schreiben. Das liefert dann auch einen Eintrag im Inhaltsverzeichnis. Weitere Informationen kann man zum Beispiel der "biblatex"-Dokumentation entnehmen.
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Antike Quellen}]"\\
+"\printbibliography[notkeyword=Quelle,%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Forschungsliteratur}]" \end{bsp}
+Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis getrennt voneinander ausgegeben. 
 
  \section{Zusammenfassung}
 
@@ -1687,4 +1738,6 @@ Hier muss man übrigens wirklich aufpassen, dass man keine Zeilenumbrüche an de
  \changes{v1.0}{2015/07/07}{First public version}
 \PrintChanges
 \PrintIndex
+
+\printbibliography
 \end{document}
