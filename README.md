@@ -1,4 +1,4 @@
-# biblatex-archaeologie
+
 ##################
 ##      WICHTIG   ##
 ##################
@@ -24,27 +24,7 @@ vgl. http://www.latex-community.org/forum/viewtopic.php?f=5&t=690
 ##########################
 ##      DAI-Implementierung   ##
 ##########################
-Option:
-	dai = true
-	-> diese Option beinhaltet gleich mehrere weitere Optionen, die nicht mehr manuell gesetzt werden müssen. 
-		Diese sind:
-- autorjahr=true,		%% true = Zitation im Autor-Jahr-System; Anpassung der Bibliographie; false = Zitation im Autor-Titel-System
-- notranslator=false,	%% true = keine Angabe von Originaltitle, Originalsprache, Übersetzer; false = "Originaltitel: XY, übers. v. Z"
-- hrsg=true,		%% false = "hrsg. v. XY"; true = "XY (Hrsg.)“
-- citeinit=false, 	%% false = keine Initiale in Fußnoten, true =  in Fußnoten Initiale nachgestellt
-- mitvn=false,		%% false = keine Vornamen in Fußnote; true = Vornamen in Fußnote nach Nachname
-- jahrkeineklammern=true,	%% false = (2015); true = 2015
-- mitjahr=true,%		%% WENN "kurztitel = true", DANN:  false = keine Jahresangabe in der Fußnote; true = Jahresangabe nach Kurztitel in Klammer
-- jahrreihe=false,%	%% false = Serie und Nummer VOR Erscheinungsort und -jahr; true = Serie und Nummer NACH Erscheinungsort und -jahr
 
-	
-Erledigt:
-	- Edition vor die Klammer
-	- Initialien der Vornamen von Autor und Herausgeber
-	- Keine Verlagsangabe
-	- nur erster Erscheinungsort
-	- Nachdruck (wenn kein origlocation, dann location)
-	
 Für Festschrift/Ausstellungskatalog/Auktionskatalog ist das Feld "Titleaddon" zu nutzen, dann klappt es!
 
 
@@ -66,36 +46,8 @@ Für Festschrift/Ausstellungskatalog/Auktionskatalog ist das Feld "Titleaddon" z
 
 
 
-
-
-(2015-06-15) --> Lexika-Einträge optional mit verschiedenen Zitationsformen in Fußnoten wählbar: (1.) Autor-Jahr: (Nieddu (1995)); (2.) Autor-Titel; Nieddu, Dei Consentes (1995) (3.) DAI-Zitation: LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
-		Voraussetzung: beim Datensatz-Eintrag "options = {lexikon}"; optional bietet sich an "keywords = {lexikon}", um diese Einträge dann in der Bibliographie auszuschließen
-			preamble-funktion: "lexika=true"; (=false --> Autor-Jahr, oder Autor-Titel)
-
-@Inreference{Nieddu_1995,
-  Title                    = {Dei Consentes},
-  Author                   = {Nieddu, Giuseppe},
-  Year                     = {1995},
-  Maintitle                = {LTUR},
-  Pages                    = {9--10},
-  Volume                   = {2},
-
-  Bookpagination           = {column},
-  Keywords                 = {lexikon},
-  Options                  = {lexikon},
-}
-
-\printbibliography[%
-		notkeyword=Quelle,%
-		notkeyword=Sigel,%
-		notkeyword=unbekannt,%
-		notkeyword=lexikon,% kommentieren wenn lexikon=false
-		heading=subbibintoc,title={Forschungsliteratur}] 
-
-
-
-
-(2015-06-15) --> Einträge mit unbekannten Autoren/Editoren:, --> Datensatz-Eintrag "options = {unbekannt}", "shorthand = {key}". ==> In Anmerkungen wird Shorthand und Jahr in [] gesetzt und so auch dann wieder in Bibliographie ausgegeben: 
+(2015-06-15) --> Einträge mit unbekannten Autoren/Editoren:, --> Datensatz-Eintrag "options = {unbekannt}", "shorthand = {key}". 
+		==> In Anmerkungen wird Shorthand und Jahr in [] gesetzt und so auch dann wieder in Bibliographie ausgegeben: 
 [Cosa (1949)] = Cosa. Republican Colony in Etruria, The Classical Journal 45/1, 1949, 141– 149.		
 
 @Article{Cosa_1949,
@@ -106,9 +58,6 @@ Für Festschrift/Ausstellungskatalog/Auktionskatalog ist das Feld "Titleaddon" z
   Volume                   = {45},
   Year                     = {1949},
   Number                   = {1},
-
-
-
   Keywords                 = {unbekannt},
   Options                  = {unbekannt},
   Shorthand                = {Cosa},
@@ -116,54 +65,8 @@ Für Festschrift/Ausstellungskatalog/Auktionskatalog ist das Feld "Titleaddon" z
 }
 
 
+(2015-06-04)  Befindet sich ein \citeauthor{BibtexKey} innerhalb einer Fußnote, wird automatisch(!) nur der Nachname ausgegeben, bleibt aber zum Literaturverzeichnis referenziert.
 
-
-
---> Verknüpfungen von antiken Autoren mit Bibliographie über hyperref funktioniert nicht?! liegt an "printshorthand"?
-	(2015-06-15) --> behoben! Hyperref zu \printshorthand geht nicht, mit aktueller Version umgestellt und Antike Autoren werden mit \printbibliography ausgegeben, dann funktioniert hyperref
-===> \printbibliography[keyword=Quelle,heading=subbibintoc,title={Antike Quellen}] 
-
-Mart. Epigr. = Marcus Valerius Martialis, Epigramme aus dem Lateinischen übers. von Paul Barié und Winfried Schindler Sammlung Tusculum (Düsseldorf – Zürich: Artemis & Winkler 32013).
-
-@Book{Mart_Epigr,
-  Title                    = {Epigramme},
-  Address                  = {Düsseldorf and Zürich},
-  Author                   = {Valerius Martialis, Marcus},
-  Editor                   = {Paul Barié and Winfried Schindler},
-  Publisher                = {Artemis \& Winkler},
-  Series                   = {Sammlung Tusculum},
-  Year                     = {2013},
-
-  Edition                  = {3},
-
-  Keywords                 = {Quelle},
-  Options                  = {antik},
-  Origlanguage             = {latin},
-
-  Shorthand                = {Mart. Epigr.},
-  Translator               = {Paul Barié and Winfried Schindler},
-  Usera                    = {Martial}
-}
-
-
-
-
-
-
-(2015-06-04) --> \citeauthor{BibtexKey} und \citetitle{BibtexKey} werden mit Verknüpfungen zur Bibliographie ausgelesen, mit Unterscheidung ob antikes Werk/antiker Autor, dann Auslesen anderer Felder. Wenn antiker Autor, dann wird das feld "usera" ausgelesen: Usera = {Cicero}
-Befindet sich ein \citeauthor{BibtexKey} innerhalb einer Fußnote, wird automatisch(!) nur der Nachname ausgegeben.
-
-
-(2015-06-04) ---> Umbenennung des stils in "archaeologie" 
-
-(2015-06-04) --> Doktorarbeiten (Master-/Magisterarbeiten) werden jetzt "richtig" ausgegeben. Verwendung von @thesis (!); wichtiges Feld: type = {phdthesis} oder type = {mathesis}, auszufüllen ist Feld "school" oder "institution" (egal, da school als alias von institution verwendet wird)
-
-(2015-06-04) --> URL/DOI/eprint werden (bspw. bei @thesis) in eine neue Zeile geschrieben
-
-(2015-06-04) --> Bei Übersetzungen, Angabe von Übersetzer, originaler Titel und originale Sprache (Felder: translator, origlanguage, origtitle) 
-	(2015-06-15) ist nun optional mit "notranslator = true/false" in preamble ansteuerbar
-
-(2015-04-15) --> Proceedings und Inproceedings sind jetzt aufgenommen - werden wie (in)collection angezeigt, aber bei ausgefülltem "venue" und "eventdate" und "event"-Feldern werden diese mit ausgegeben.
 
 --> Autor-Jahr funktioniert jetzt. autorjahr=true verändert nun die Bibliographie-Umgebung in Autor-Jahr-Stil (auch der bibnamedash ist in dieser Umgebung rausgenommen). autorjahr=false bildet obligatorisch "Autor, Kurztitel", die Bibliographie-Umgebung ist wie vorher (inkl. bibnamedash). Option kurztitel ist damit obsolet und wurde gelöscht. 
 
@@ -198,11 +101,9 @@ mitvn=false,		%% false = keine Vornamen in Fußnote; true = Vornamen in Fußnote
 jahrkeineklammern=true,	%% false = (2015); true = 2015
 mitjahr=true,%		%% WENN "kurztitel = true", DANN:  false = keine Jahresangabe in der Fußnote; true = Jahresangabe nach Kurztitel in Klammer
 jahrreihe=false,%	%% false = Serie und Nummer VOR Erscheinungsort und -jahr; true = Serie und Nummer NACH Erscheinungsort und -jahr
-dai = true 		%% Zitation nach DAI
 
-	vollername=true,		%\citeauthor --> Angabe des vollen Vor- und Zunamens im Fließtext (Fußnote nur Nachname)
-	nachname=true,		%\citeauthor --> Angabe nur des Nachnamens im Fließtext (Fußnote nur Nachname)
-	initialnachname=true,		%\citeauthor --> Angabe der Initialien und des Nachnamens im Fließtext (Fußnote nur Nachname)
+
+	über die Option "shortjournal=true" kann man nun nur die im Feld "shortjournal" eingetragenen Kurzbezeichnungen auslesen lassen. Wenn das Feld "shortjournal" nicht belegt ist, wird automatisch das Feld "journal" ausgelesen.
 
 ##############
 ## Optional ##
@@ -223,7 +124,6 @@ Die Verknüpfung zum rezensierten Werk funktioniert nur, WENN das rezensierte We
 
 
 --> Abkürzungen von Zeitschriften: 
-	über die Option "shortjournal=true" kann man nun nur die im Feld "shortjournal" eingetragenen Kurzbezeichnungen auslesen lassen. Wenn das Feld "shortjournal" nicht belegt ist, wird automatisch das Feld "journal" ausgelesen.
 
 --> Nach \cite-Befehl erfolgt nun keine Fussnote automatisch (\DeclareCiteCommand{\cite}). Gefahr besteht noch bei Erstzitaten (sofern wir das behalten). Diese würden nun auch im Fließtext voll ausgeschrieben werden.
 

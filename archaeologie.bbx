@@ -1,5 +1,5 @@
 \ProvidesFile{archaeologie.bbx}%
-               [2015/06/04 v0.9  archaeologie-- %
+               [2015/06/04 v0.2  archaeologie-- %
                 biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{\typeout{}\typeout%
@@ -35,7 +35,7 @@
 \DeclareBibliographyOption{dai}[true]{%			%die folgenden Optionen werden bei "dai=true" geladen
 \csuse{bool#1}{bbx:dai}% DAI-Grundregeln	
 \csuse{bool#1}{cbx:autorjahr}% % Zitation nach Autor-Jahr-System
-\csuse{bool#1}{bbx:notranslator}%			%DAI gibt keine Originaltitel,etc an.
+%\csuse{bool#1}{bbx:notranslator}%			%DAI gibt keine Originaltitel,etc an.
 \csuse{bool#1}{cbx:jahrkeineklammern}%	Keine Klammern um Jahreszahlen
 \csuse{bool#1}{bbx:hrsg}%	
 \csuse{bool#1}{bbx:nurinit}%		Initiale mit Nachname in Bibliographie
@@ -48,7 +48,7 @@
 \DeclareBibliographyOption{dai-verweis}[true]{%			%die folgenden Optionen werden bei "dai=true" geladen
 \csuse{bool#1}{bbx:dai}% DAI-Grundregeln	
 %\csuse{bool#1}{cbx:autorjahr}% % Zitation nach Autor-Jahr-System
-\csuse{bool#1}{bbx:notranslator}%			%DAI gibt keine Originaltitel,etc an.
+%\csuse{bool#1}{bbx:notranslator}%			%DAI gibt keine Originaltitel,etc an.
 \csuse{bool#1}{cbx:jahrkeineklammern}%	Keine Klammern um Jahreszahlen
 \csuse{bool#1}{bbx:hrsg}%	
 \csuse{bool#1}{bbx:nurinit}%		Initiale mit Nachname in Bibliographie
@@ -167,7 +167,7 @@
   \ifboolexpr{bool{bbx:dai} or bool{cbx:antik} or bool{cbx:frgantik}}{%
     \ifblank{#3}{}{%
       \ifbool{bbx:nurinit}{#4}{#3}}%
-    \ifblank{#5}{\addspace}{#5\addspace}%
+    \ifblank{#5}{\addnbspace}{#5\addnbspace}%
     #1%
     \ifthenelse{\value{listcount}<\value{liststop}}{%
       \daiautorentrennzeichen\addspace
@@ -556,10 +556,11 @@
     \ifbool{cbx:autorjahr}{\newunit}{\setunit{\addcolon\addspace}}\newblock%
   \usebibmacro{title}%
   \newunit\newblock
+  \ifbool{bbx:dai}{}{
   \ifbool{bbx:notranslator}{}{%
     					\iffieldundef{origtitle}{}{\addcomma\addspace Originaltitel\addcolon\addspace\printfield{origtitle}\addcomma}%
     \setunit{\addspace}%
- \newunit\usebibmacro{bytranslator+others}}%
+ \newunit\usebibmacro{bytranslator+others}}}%
   %\usebibmacro{in:}%
   \usebibmacro{journal+number+year}%
   \newunit\newblock
@@ -582,10 +583,16 @@
   		\ifbool{cbx:autorjahr}{\newunit}{\setunit{\addcolon\addspace}}\newblock%
   					\usebibmacro{maintitle+title+volumes}%
   		 \newunit\newblock% 
+		\ifbool{bbx:dai}{%
+  		   \ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik} or bool {cbx:frg}}{%
+  		       					\iffieldundef{origtitle}{}{\addcomma\addspace Originaltitel\addcolon\addspace					\printfield{origtitle}\addcomma}%
+    \setunit{\addspace}%
+		\usebibmacro{bytranslator+others}{}%
+  		   }}{%
   			\ifbool{bbx:notranslator}{}{%
     					\iffieldundef{origtitle}{}{\addcomma\addspace Originaltitel\addcolon\addspace\printfield{origtitle}\addcomma}%
     \setunit{\addspace}%
-		\usebibmacro{bytranslator+others}}%
+		\usebibmacro{bytranslator+others}}}%
    \setunit{\addspace}%
   \ifbool{bbx:jahrreihe}{}%
    	 {\usebibmacro{series+number}}%
@@ -690,10 +697,16 @@
   \ifnameundef{author}{}%
     {\ifbool{cbx:autorjahr}{\newunit}{\setunit*{\addcolon\addspace}}\newblock}%  
     \usebibmacro{title}%
-\ifbool{bbx:notranslator}{}{%
+\ifbool{bbx:dai}{%
+  		   \ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik} or bool {cbx:frg}}{%
+  		       					\iffieldundef{origtitle}{}{\addcomma\addspace Originaltitel\addcolon\addspace					\printfield{origtitle}\addcomma}%
+    \setunit{\addspace}%
+		\usebibmacro{bytranslator+others}{}%
+  		   }}{%
+  			\ifbool{bbx:notranslator}{}{%
     					\iffieldundef{origtitle}{}{\addcomma\addspace Originaltitel\addcolon\addspace\printfield{origtitle}\addcomma}%
     \setunit{\addspace}%
- \newunit\usebibmacro{bytranslator+others}}%
+		\usebibmacro{bytranslator+others}}}%
   \newunit\newblock
   \usebibmacro{in:}%
   \usebibmacro{booktitle+volume+editor}%
