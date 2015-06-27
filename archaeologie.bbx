@@ -167,7 +167,7 @@
   \ifboolexpr{bool{bbx:dai} or bool{cbx:antik} or bool{cbx:frgantik}}{%
     \ifblank{#3}{}{%
       \ifbool{bbx:nurinit}{#4}{#3}}%
-    \ifblank{#5}{\addspace}{#5\addspace}%
+    \ifblank{#5}{\addnbspace}{#5\addnbspace}%
     #1%
     \ifthenelse{\value{listcount}<\value{liststop}}{%
       \daiautorentrennzeichen\addspace

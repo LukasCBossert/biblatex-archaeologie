@@ -55,6 +55,7 @@
 %	mincitenames=1%
 ]{biblatex}
 \usepackage{citeall}
+
 \addbibresource{archaeologie.bib}
 \begin{document}
 %  \DocInput{archaeologie.dtx}
@@ -98,8 +99,8 @@ Zudem gibt es auch die Möglichkeit im Autor-Jahr- und Autor-Titel-System zu zit
  \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der "bib"-Datei.
 
 
- \section[Beschreibung]{Beschreibung\protect\footnote{Die Beispiele sind entnommen aus der PDF des DAI \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}}
-  und wurden, sofern notwendig, mit weiteren eigenen Literatureinträgen ergänzt.
+ \section[Beschreibung]{Beschreibung\protect\footnote{Die Beispiele sind teilweise aus der PDF des DAI entnommen \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}\\
+ }  und wurden mit weiteren eigenen Literatureinträgen ergänzt.
  }}
 
  Der "archaeologie"-Zitierstil definiert verschiedene bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
@@ -489,47 +490,66 @@ Ein Beispiel macht dies klarer:
 \end{bsp}
 %%
 %%
-%% \DescribeMacro{antik}
-%% Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option "antik" zu versehen. Wir betrachten wieder ein Beispiel:\\[3pt]
-%%"@book{pl1,"\\
-%%"	author={{Plinius Secundus}},"\\
-%%"	shorthand={Plin. Nat.},"\\
-%%"	maintitle={Naturalis Historiae},"\\
-%%"	translator={Roderich König and Gerhard Winkler},"\\
-%%"	address={Darmstadt},"\\
-%%"	year={1973},"\\
-%%"	keywords={quelle},"\\
-%%"	options={antik}"\\
-%%"}"\\[3pt]
-%% erscheint im Literaturverzeichnis als:
-%%\begin{bsp}{\sc Plinius Secundus}: Naturalis Historiae, hrsg. u. übers. v. Roderich König und Gerhard Winkler, Darmstadt 1973.\end{bsp}
-%% Beim Zitieren wird allerdings nur das Feld "shorthand" berücksichtigt: "\cite[12]{pl1}" liefert
-%%\begin{bsp}Plin. Nat. 12.\end{bsp}
-%% In diesem Fall entspricht das Erstzitat \emph{nicht} dem Eintrag im Literaturverzeichnis, sondern sieht genau so aus!
-%%
-%% 
-%%
-%% Man beachte außerdem die Verwendung des Feldes "translator". Zudem kann man in dem Feld "language" noch die Sprachen angeben. Dazu noch ein Beispiel:\\[3pt]
-%%"@book{herodot,"\\
-%%"	author={{Herodot}},"\\
-%%"	shorthand={Hdt.},"\\
-%%"	maintitle={Historien},"\\
-%%"	translator={Josef Feix},"\\
-%%"	address={Darmstadt},"\\
-%%"	year={1995},"\\
-%%"	number={1},"\\
-%%"	series={Bücher {\sc i--v}},"\\
-%%"	keywords={quelle},"\\
-%%"	language={gr.--dt.},"\\
-%%"	options={antik}"\\
-%%"}"\\[3pt]
-%% Dabei kann synonym zu "address" auch "location" verwendet werden. Was man mit dem "keywords={quelle}"-Feld anfangen kann, wird in \cref{quellenverzeichnisse} angedeutet. Im Literaturverzeichnis sieht der Eintrag zumindest so aus:
-%% \begin{bsp} {\sc Herodot}: Historien, Bd. 1: Bücher {\sc i--iv}, gr.--dt., hrsg. u. übers. v. Josef Feix, Darmstadt 1995.\end{bsp}
-%% Beachtenswert ist dabei vor allem die etwas andere Darstellung des Feldes "volume" als sonst bei "@book" üblich. Details dazu findet man in \cref{driver}.
-%%
-%% Beim Zitieren zählt wieder das "shorthand"-Feld: "\cite[5,97,3]{herodot}" wird in jedem Fall zu
-%%\begin{bsp}Hdt. 5,97,3.\end{bsp}
-%%
+ \subsection{Optionen der Literatureinträge}\label{optionen-literatur}
+
+ \DescribeMacro{antik}
+Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option "antik" zu versehen. Wir betrachten wieder ein Beispiel:\\[3pt]
+"@Book{Cic_Att,"\\
+"  Title = {Atticus-Briefe},"\\
+"  Author = {Tullius Cicero, Marcus},"\\
+"  Editor  = {Kasten, Helmut},   % wird bei @book nicht ausgelesen"\\
+"  Publisher = {Artemis {\&} Winkler},"\\
+"  Series  = {Tusculum Bücherei},"\\
+"  Year = {1980},"\\
+"  Edition = {3},"\\
+"  Keywords = {Quelle},"\\
+"  Location = {Düsseldorf and Zürich},"\\
+"  Options = {antik},"\\
+"  Origlanguage = {latin},"\\
+"  Origyear = {1959},"\\
+"  Shorthand  = {Cic. Att.},"\\
+"  Translator = {Kasten, Helmut},"\\
+"  Usera = {Cicero}     % relevant für \citeauthor"\\
+"	}"\\[3pt]
+ erscheint im Literaturverzeichnis als:
+\begin{bsp}
+Cic. Att. \hspace{3em}M. Tullius Cicero, Atticus-Briefe aus dem Lateinischen übers. von Helmut Kasten, Tusculum Bücherei \textsuperscript{3}(Düsseldorf 1959; Nachdr. Düsseldorf 1980)
+\end{bsp}
+ Beim Zitieren wird allerdings nur das Feld "shorthand" berücksichtigt, das auch so im Literaturverzeichnis als ›Schlüssel‹ auftacht.: 
+ "\cite[1, 3,3]{Cic_Att}" liefert
+\begin{bsp}Cic. Att. 1, 3,3\end{bsp}
+
+Es gibt auch antike Texte, die in einem Sammelband ("@incollection") herausgegeben sind. 
+Dieser Fall stellt jedoch kein Problem dar und wird analog zu "@book" geplottet.
+Ein Beispiel verschafft Klarheit. Aus:
+
+"@Incollection{Cic_Sest,"\\
+"  Title = {Rede für P.\ Sestius},"\\
+"  Author = {Tullius Cicero, Marcus},"\\
+"  Editor  = {Fuhrmann, Manfred},"\\
+"  Pages = {110--185},"\\
+"  Publisher = {Artemis \& Winkler},"\\
+"  Year = {1993},"\\
+"  Series = {Sammlung Tusculum},"\\
+"  Volume = {2},"\\
+"  Keywords = {Quelle},"\\
+"  Location = {München},"\\
+"  Maintitle= {Die politischen Reden},"\\
+"  Options = {antik},"\\
+"  Origlanguage = {latin},"\\
+"  Origtitle = {pro P.\ Sestio},"\\
+"  Shorthand = {Cic. Sest.},"\\
+"  Translator = {Fuhrmann, Manfred},"\\
+"  Usera = {Cicero}"\\
+"}"\\
+
+wird:
+\begin{bsp}
+Cic. Sest. \hspace{3em}M. Tullius Cicero, Rede für P. Sestius, Originaltitel: pro P. Sestio, aus dem Lateinischen übers. von Manfred Fuhrmann, in: M. Fuhrmann (Hrsg.): Die politischen Reden, Bd. 2 Sammlung Tusculum (München 1993) 110--185
+\end{bsp}
+
+
+
 %% \DescribeMacro{frg}
 %% Wenn man Fragmente zitiert kann man dazu die Option "frg" bzw. "frgantik" wählen. Das wirkt sich dann leicht unterschiedlich auf die Zitatsform aus. Wir betrachten das am besten wieder an Beispielen: Der "bib"-Eintrag\\[3pt]
 %%"@book{alkaios,"\\
@@ -550,24 +570,31 @@ Ein Beispiel macht dies klarer:
 %% \begin{bsp} Alk. frg. 2 LP.\end{bsp}
 %% Bemerkenswert ist insbesondere die Verwendung des "shorteditor"-Feldes. Ansonsten wird nur der Nachname des Herausgebers angegeben. Details findet man in \cref{driver}.
 %%
-%% \DescribeMacro{frgantik}
-%% Bei der Option "frgantik" unterscheidet sich vor allem die Zitierweise: Der Eintrag\\[3pt]
-%%"@book{theognis,"\\
-%%"	author={{Theognis}},"\\
-%%"	shorthand={Theog.},"\\
-%%"	maintitle={Theognis},"\\
-%%"	editor={Douglas Young},"\\
-%%"	sortname={Douglas Young},"\\
-%%"	address={Leipzig},"\\
-%%"	year={1971},"\\
-%%"	keywords={quelle},"\\
-%%"	options={frgantik}"\\
-%%"}"\\[3pt]
-%% unterscheidet sich nicht wirklich durch seinen Eintrag im Literaturverzeichnis:
-%%\begin{bsp} {\sc Young}, Douglas (Hrsg.): Theognis, Leipzig 1971.\end{bsp}
-%% Zitiert man ihn aber durch "\cite[3]{theognis}", so entfällt hier das \enquote{frg.}:
-%% \begin{bsp} Theog. 3 Young. \end{bsp}
-%% Details findet man wieder in \cref{driver}.
+ \DescribeMacro{frgantik}
+ Bei der Option "frgantik" unterscheidet sich vor allem die Zitierweise: Der Eintrag\\[3pt]
+"@Book{Fest,"\\
+"  Title = {De verborum significatu quae supersunt cum Pauli epitome},"\\
+"  Author = {Pompeius Festus, {Sex}tus},"\\
+"  Editor = {Lindsay, Wallace Martin},"\\
+"  Publisher = {Teubner},"\\
+"  Series = {Bibliotheca scriptorum et Graecorum et Romanorum Teubneriana},"\\
+"  Year = {1965},"\\
+"  Keywords = {Quelle},"\\
+"  Location = {Leipzig},"\\
+"  Options = {frgantik},"\\
+"  Origyear = {1913},"\\
+"  Shorthand = {Fest.},"\\
+"  Usera = {Festus}"\\
+"}"\\[3pt]
+ unterscheidet sich geringfügig durch seinen Eintrag im Literaturverzeichnis:
+\begin{bsp}
+Fest.\hspace{3em}
+W. M. Lindsay, De verborum significatu quae supersunt cum Pauli epitome, Bibliotheca scriptorum et Graecorum et Romanorum Teubneriana (Leipzig 1913; Nachdr. Leipzig 1965)
+\end{bsp}
+ Zitiert man ihn aber durch "\cite[3]{Fest}", so entfällt hier das \enquote{frg.}:
+ \begin{bsp} Fest. 3 Lindsay. \end{bsp}
+ 
+ Details findet man wieder in \cref{driver}.
 
  \subsection{Quellenverzeichnis}\label{quellenverzeichnisse}
 
