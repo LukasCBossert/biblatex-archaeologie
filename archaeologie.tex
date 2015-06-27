@@ -19,6 +19,10 @@
 \CodelineIndex
 \RecordChanges
 
+% Um Kommentare einzufügen
+% \usepackage[disable]{todonotes} % notes not showed
+\usepackage[draft]{todonotes}   % notes showed
+
 \usepackage[					% use  for bibliography
 	backend=biber,
 	bibencoding=utf8,				% 	- use auto file encode
@@ -87,16 +91,20 @@ Zudem gibt es auch die Möglichkeit im Autor-Jahr- und Autor-Titel-System zu zit
  "\bibliography"\marg{"bib"-Datei}\end{bsp}
  Dabei kann man weitere der \enquote{konventionellen} "biblatex"-Optionen oder der -- weiter unten beschriebenen -- von "archaeologie" zur Verfügung gestellten Optionen laden.
 
- An geeigneter Stelle sollte man natürlich noch den "\printbibliography"-Befehl aufrufen, um eine Bibliographie zu erzeugen. Diese kann "biblatex"-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  Siehe dazu auch \cref{quellenverzeichnisse}.
+ "archaeologie" lädt standardmäßig den DAI-Stil im Autor-Jahr-System. Um schnell und einfach im DAI-Stil zu zitieren, benötigt es keiner weiteren Einstellungen und Optionen.
+ \todo{Sollten wir dies beibehalten, müsste noch die Standardeinstellung dai=true in die bbx integriert werden.}
+
+ An geeigneter Stelle sollte man natürlich noch den "\printbibliography"-Befehl aufrufen, um eine Bibliographie zu erzeugen. Diese kann "biblatex"-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  Da "archaeologie" unterschiedliche Zitierweisen von Textsorten wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographieaufteilung dementsprechend anzupassen. Siehe dazu \cref{quellenverzeichnisse}.
 
 
  \DescribeMacro{\cite}
- Zitiert wird -- wie immer -- einfach mit "\cite":\par
+ Zitiert wird -- wie immer -- einfach mit "\cite" oder anderen \biblatex-Zitierbefehlen wie "\footcite", "\textcite", "\autocite" etc.:\par
  \begin{syntax}"\cite"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax}
  wobei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \meta{postnote} für gewöhnlich die Seitenzahl. Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:\par
  \begin{syntax}"\cite"\oarg{postnote}\marg{Schlüssel}\end{syntax}
  \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der "bib"-Datei.
 
+\todo[inline]{Vielleicht können wir hier am Anfang eine Standardpräambel inkl. Bibliographieaufteilung vorschlagen, die dann \biblatex-Unversierte ohne nachzudenken übernehmen können. Dort muss nur klar gemacht werden, dass die bib-Datei die entsprechenden keywords und options enhalten muss (antik, Quelle etc.)}
 
  \section[Beschreibung]{Beschreibung\protect\footnote{Die Beispiele sind entnommen aus der PDF des DAI \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}}
   und wurden, sofern notwendig, mit weiteren eigenen Literatureinträgen ergänzt.
