@@ -23,44 +23,7 @@
 % \usepackage[disable]{todonotes} % notes not showed
 \usepackage[draft]{todonotes}   % notes showed
 
-\usepackage[					% use  for bibliography
-	backend=biber,
-	bibencoding=utf8,				% 	- use auto file encode
-	style=archaeologie,
-	dai=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
-	%dai-verweis=true,			%% true=Bibliographie und Zitation nach DAI-Richtlinie
-	dateabbrev=false, %false default: true --> muss notwendigerweise für DAI auf "false" stehen, -> damit aus Feb. -> Februar wird ((in)proceedings)
-	%vollername=true,		%\citeauthor --> Angabe des vollen Vor- und Zunamens im Fließtext (Fußnote nur Nachname)
-	%nachname=true,		%\citeauthor --> Angabe nur des Nachnamens im Fließtext (Fußnote nur Nachname)
-	initialnachname=true,		%\citeauthor --> Angabe der Initialien und des Nachnamens im Fließtext (Fußnote nur Nachname)
-	lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
-%%%%%%%%%% OPTIONALE OPTIONEN - NICHT für dai %%%%%%%%%%%% 	
- 	%autorjahr=true,		%% true = Zitation im Autor-Jahr-System; Anpassung der Bibliographie; false = Zitation im Autor-Titel-System
-	%shortjournal=false,	%% true = nur Kurzname der Zeitschrift (Feld: "shortjournal"), wenn "shortjournal" leer, dann Feld "journal"; false = Angabe von Feld "journal"
-%notranslator=false,	%% true = keine Angabe von Originaltitle, Originalsprache, Übersetzer; false = "Originaltitel: XY, übers. v. Z"
-%hrsg=true,		%% false = "hrsg. v. XY"; true = "XY (Hrsg.)“		
-%nurinit=true,		%% true = Vornamen des Autors abgekürzt; false = ausgeschrieben
-%citeinit=false, 	%% false = keine Initiale in Fußnoten, true =  in Fußnoten Initiale nachgestellt
-%mitvn=false,		%% false = keine Vornamen in Fußnote; true = Vornamen in Fußnote nach Nachname
-%jahrkeineklammern=false,	%% false = (2015); true = 2015
-%mitjahr=true,%		%% WENN "kurztitel = true", DANN:  false = keine Jahresangabe in der Fußnote; true = Jahresangabe nach Kurztitel in Klammer
-%jahrreihe=false,%	%% false = Serie und Nummer VOR Erscheinungsort und -jahr; true = Serie und Nummer NACH Erscheinungsort und -jahr
-	%%%%%%%%%%%%%%%%%%%%%%%
-	sorting=nyt, % nyt lassen, damit Shorthands sortiert werden
-	indexing=true,	%%Aktiviert die Indexerstellung nur für Verweise
-	uniquename=full,
-	maxalphanames=2,
-	maxnames=3,%
-	minnames=1,%
-%	maxitems=1,
-%	maxbibnames=4,%
-%	minbibnames=1,%
-%	maxcitenames=2,%
-%	mincitenames=1%
-]{biblatex}
-\usepackage{citeall}
 
-\addbibresource{archaeologie.bib}
 \begin{document}
 %  \DocInput{archaeologie.dtx}
 
@@ -93,9 +56,6 @@ Zudem gibt es auch die Möglichkeit im Autor-Jahr- und Autor-Titel-System zu zit
  Dabei kann man weitere der \enquote{konventionellen} "biblatex"-Optionen oder der -- weiter unten beschriebenen -- von "archaeologie" zur Verfügung gestellten Optionen laden.
 
  "archaeologie" lädt standardmäßig den DAI-Stil im Autor-Jahr-System. Um schnell und einfach im DAI-Stil zu zitieren, benötigt es keiner weiteren Einstellungen und Optionen.
- \todo{Sollten wir dies beibehalten, müsste noch die Standardeinstellung dai=true in die bbx integriert werden.
-LCB: Ich habe nicht gefunden, wie das geht, dass ein bool am Anfang geladen werden kann. }
-
 
 
 An geeigneter Stelle sollte man natürlich noch den "\printbibliography"-Befehl aufrufen, um eine Bibliographie zu erzeugen. Diese kann "biblatex"-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  
@@ -120,30 +80,13 @@ Die einfachste und einzige Weise zum Zitieren wird mit "\cite" bewerkstelligt:\p
 " \usepackage["\\						
 "		" "backend=biber,			% aktiviert biber"\\
 "		" "style=archaeologie, 	% lädt den Stil 'archaeologie'"\\
-"		" "dai=true,						% true=Bibliographie und Zitation nach DAI-Vorgaben"\\
 "		" "lexika=true, 				%true =  bspw. LTUR 2 (1994) 123 s. v."\\
 "		" "]{biblatex}"
  
-In diesem Beispiel wurden die "archaeologie"-Optionen "dai" und "lexika" geladen ("=true"). 
+In diesem Beispiel wurde der Stil "archaeologie" mit der Option "lexika" geladen ("=true"). 
 Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weitere verschiedene Optionen manipuliert, die entsprechend ebenfalls in der Präambel geladen werden können.
 
 
-\begin{center}* * *\end{center}
-\DescribeMacro{dai}
-Diese Option setzt die Vorgaben des DAI, soweit möglich, konsequent um.
-Wenn die Option "dai" geladen wird, werden automatisch weitere für den Zitations- und Bibliographiestil notwendige Optionen geladen, sodass diese nicht manuell geladen werden müssen.
-Diese sind:
-
-%\begin{bsp}
- "autorjahr		% Zitation nach Autor-Jahr-System"\\
- "hrsg				% (Hrsg.) anstatt 'hrsg. v.'"	\\
- "nurinit			%Initiale des Vornamens und Nachname in Bibliographie"\\
- "mitjahr			% Angabe des Jahres nach Autor/Hrsg."	\\
-  "jahrkeineklammern			%Keine Klammern um Jahreszahlen"\\
- "initialnachname		% bei \citeauthor"\marg{Schlüssel}" nur Initial und Nachname"\\
- "jahrreihe=false			%Setzung von Serientitel VOR das Erscheinungsjahr"
-%\end{bsp}
- 
  \begin{center}
 * * *
 \end{center}
@@ -154,8 +97,8 @@ Diese sind:
  \begin{center}
 * * *
 \end{center}
-\DescribeMacro{notranslator}
-Wenn diese Option aktiviert wird, erfolgt keine Angabe von eines Originaltitels und des Übersetzers des Werkes. Dies gilt allerdings nicht, wenn  man die zuvor genannte Option "dai" geladen hat.
+\DescribeMacro{uebersetzung}
+Wenn diese Option aktiviert wird, erfolgt die Angabe  eines Originaltitels, die Sprache, aus welcher übersetzt wurde und des Übersetzers des Werkes. Diese Option ist standardmäßig auf "=false" gesetzt. 
 Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
  
 "@Book{Lefebvre_2011,"\\
@@ -171,10 +114,16 @@ Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
 "  Translator	= {Donald Nicholson-Smith}"\\
 " }"
 
-wird in der Bibliographie auf diese Weise umgesetzt:
+wird in der Bibliographie zunächst auf diese Weise umgesetzt:
 \begin{bsp}
-Lefebvre, Henri, The Production of Space, Originaltitel: La production de l’espace, aus dem Französischen übers. von Donald Nicholson-Smith (Maien, MA – Oxford – Victoria: Blackwell Publishing Ltd \textsuperscript{30}2011 [Erstauflage: 1991])
+Henri Lefebvre, The Production of Space \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011)
 \end{bsp}
+ 
+ mit der aktivierten Option "uebersetzung" wird daraus:
+ 
+ \begin{bsp}Henri Lefebvre, The Production of Space, Originaltitel: La production de l’espace, aus dem Französischen übers. von Donald Nicholson-Smith  \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011)\end{bsp}
+ 
+ 
  
 %% \DescribeMacro{nurinit}
 %% Wenn in den Kurzzitaten \ref{book:a} und \ref{book:b} -- so weit vorhanden -- die vollen Vornamen angezeigt werden sollen (wie auch im Vollzitat), so kann man das mit der Option "mitvn" erreichen. Wenn bei \emph{allen} vorkommenden Vornamen nur Initialien benutzt werden sollen, so geschieht dies durch die Option "nurinit" und wenn dies nur bei Namen, die in Zitaten (nicht in der Bibliographie) auftauchen passieren soll, so benutzt man die Optionen "citeinit". Das ist die Voreinstellung. Wenn man also gar keine Vornamen möchte, so sollte man dem Paket die Option "citeinit=false" übergeben.
@@ -214,24 +163,27 @@ Lefebvre, Henri, The Production of Space, Originaltitel: La production de l’es
 "  }"\\
 %  \end{bsp}
   
-  Die Ausgabe von "\cite{Nieddu_1995}" ist nun auf drei Arten möglich:
+  Die Ausgabe von "\cite{Nieddu_1995}" ist nun auf zwei Arten möglich:
   
  \begin{enumerate}
- \item mit der Option "autorjahr=true": Nieddu (1995)
- \item mit der Option "autorjahr=false":  Nieddu, Dei Consentes (1995)
- \item entspechend der (optionalen) Vorgabe des DAI: LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
+ \item standardmäßig wird daraus:  Nieddu 1995
+ \item mit der Option "lexika" wird dies zu: LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
  \end{enumerate}
  
  
 
-
-%% \DescribeMacro{jahrreihe}
+\begin{center}
+* * *
+\end{center}
+ \DescribeMacro{jahrreihe}
 %% Mit der Option "jahrreihe" kann man bewirken, dass die Reihe (Felder "series" und "number") erst \emph{nach} dem Jahr ausgegeben werden. Bei \ref{book:c} ändert das die Ausgabe zum Beispiel zu
 %%
 %% \begin{bsp}
 %% Vgl. {\sc Riess}, Willhelm: Apuleius und die Räuber. Ein Beitrag zur historischen Kriminalforschung, Stuttgart 2001 (HABES 31), 19.
 %% \end{bsp}
 %%
+
+
 %% \DescribeMacro{fnverweise}
 %% Die Option "fnverweise" fügt an ein Folgezitat den Hinweis \enquote{(Wie Anm. \meta{Nummer der Fußnote des Erstzitats})}. Hier empfiehlt es sich wahrscheinlich entweder ganz auf des Jahr (also "mitjahr=false") oder zumindest auf die Klammern ("jahrkeineklammern") zu verzichten. Wurde der folgende Eintrag zum ersten Mal in Fußnote 3 zitiert, liefert ein erneuter "\cite"-Befehl
 %%\begin{bsp}  {\sc Southern}, P.: Domitian 1997 (wie Anm. 3), 2.\end{bsp}
@@ -241,44 +193,18 @@ Lefebvre, Henri, The Production of Space, Originaltitel: La production de l’es
 
  
  
- \begin{center}
-* * *
-\end{center}
-\DescribeMacro{nurshorthand}
-Für bestimmte Corpora (Inschriften, Münzen, etc.) wird für gewöhnlich mit einer gängigen Abkürzung zitiert.
-Diese Abkürzung des Corpus wird im Bibliographieeintrag unter "shorthand" eingetragen.
-Nun kann man sehr einfach das gewünschte Corpus in der Fußnote zitieren, mit  "prenote" und "postnote"-Feldern. Bei anderen Autoren-Einträge, die mittels "shorthand" zitiert werden, wird ein Komma zwischen Nachname und "postnote" gesetzt. Dank "options=nurshorthand" fällt dieses Komma weg.
-
-Das Beispiel zeigt die Option für die lateinischen Inschriften:
-
-"@Book{CIL,"\\
-" Title                    = {Corpus Inscriptionum Latinarum},"\\
-"  Address                  = {Berlin},"\\
-"  Year                     = {1863--},"\\
-"  Keywords                 = {Sigel},"\\
-"  Options                  = {nurshorthand},"\\
-"  Shorthand                = {CIL},"\\
-"}"\\
-
-Zitiert wird, wie gewöhnlich, mit "\cite[06, 01234]{CIL}". Daraus wird:
-\begin{bsp}
-CIL 06, 01234
-\end{bsp}
-Aufgrund der Setzung von "keywords=Sigel" können diese Art von Corpora in einer separaten Bibliographie aufgeführt werden. Siehe dazu \cref{quellenverzeichnisse}
-
-\changes{v1.1}{2015/06/15}{Modifikation der Option "nurshorthand".}
 
 \begin{center}
 * * *
 \end{center}
 \DescribeMacro{vollername}
 \DescribeMacro{name}
-\DescribeMacro{initialnachname}
 Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
 Autoren/Herausgeber werden über "\citeauthor"\marg{Schlüssel} aufgerufen.
 Ebenso ist auch das Auslesen der Werktitle über "\citetitle"\marg{Schlüssel} möglich, wobei der Titel in eine "emph{}"-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.
 
-Die Darstellung der Namen kann auf drei Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via "hyperref" verlinkt. Die drei Arten sind: mit dem vollen Vor- und Zunamen, nur mit dem Nachnamen oder mit den Initialen des Vornamens und dem Nachnamen. In einer Fußnote jedoch wird stets nur der/die Nachnamen gesetzt.
+Zunächst erfolgt die Ausgabe der Autoren, bzw. Herausgeber mit den Initialen des Vornamens und mit dem Nachnamen. 
+Die Darstellung der Namen kann jedoch noch auf zwei andere  Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via "hyperref" verlinkt. Die zwei Arten sind: mit dem vollen Vor- und Zunamen und nur mit dem Nachnamen. In einer Fußnote jedoch wird stets nur der/die Nachnamen gesetzt.
 
 Ein Beispiel macht dies klarer.
 Der Bibliographieeintrag lautet:
@@ -303,8 +229,6 @@ Und daraus wird dann:
 \item\label{name:b}  \DescribeMacro{name}
 \ldots , dies behaupten ebenso  Boehmer und  Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
 
-\item\label{name:c}  \DescribeMacro{initialnachname}\footnote{Diese Option ist standardmäßig mit "dai" geladen.}
-\ldots , dies behaupten ebenso  R. M. Boehmer und N. Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
  \end{enumerate}
 \end{bsp}
 
@@ -341,16 +265,36 @@ wie folgt ausgelesen:
 \begin{center}
 * * *
 \end{center}
-\DescribeMacro{shortjournal}
-Mit dieser Option werden Artikel mit abkürzten Zeitschriftennamen in der Bibliographie angegeben.
-Dafür wird das Feld "shortjournal" ausgelesen. Gibt es keine Abkürzung, also wurde das Feld "shortjournal" leer gelesen, wird automatisch das Feld "journal" ausgelesen.
-Die Option ist automatisch im Stil "dai" und "dai-verweis" geladen. Für die Stile "autorjahr" und "kurztitel" kann sie optional aktiviert werden.
+\DescribeMacro{longjournal}
+Die DAI-Vorgabe sieht vor, Zeitschriften nur abgekürzt wiederzugeben, dafür wird das Feld "shortjournal" vom Bibliographieeintrag ausgelesen. Gibt es keine Abkürzung, also wurde das Feld "shortjournal" leer gelesen, wird automatisch das Feld "journal" ausgelesen.
+Möchte man hingegen den vollen Zeitschriftennamen in der Bibliographie haben, dann muss man die Option "longjournal" aktivieren.
 
+"@Article{Ball_2013,"\\
+"  Title                    = {Pompeii Forum Project},"\\
+"  Author                   = {Larry F. Ball and John J. Dobbins},"\\
+"  Journal                  = {American Journal of Archaeology},"\\
+"  Pages                    = {461--492},"\\
+"  Volume                   = {117},"\\
+"  Year                     = {2013},"\\
+"  Number                   = {3},"\\
+"  Shortjournal             = {AJA},"\\
+"  Subtitle                 = {Current Thinking on the Pompeii Forum}"\\
+"  }"\\
 
+Ohne eine Zusätzliche Option wird der Eintrag in der Bibliographie wie folgt umgesetzt:
 
- \section[Beschreibung]{Beschreibung\protect\footnote{Die Beispiele sind teilweise aus der PDF des DAI entnommen \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}\\
- }  und wurden mit weiteren eigenen Literatureinträgen ergänzt.
- }}
+\begin{bsp}
+Larry F. Ball – John J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
+\end{bsp}
+
+Mit der aktivierten angesprochenen Funktion "longjournal" wird daraus:
+
+\begin{bsp}Larry F. Ball – John J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, American Journal of Archaeology 117/3, 2013, 461–492\end{bsp}
+
+ \section[Beschreibung]{Beschreibung}
+% %\protect\footnote{Die Beispiele sind teilweise aus der PDF des DAI entnommen \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}\\
+% }  und wurden mit weiteren eigenen Literatureinträgen ergänzt.
+% }}
 
  Der "archaeologie"-Zitierstil definiert verschiedene bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
 
@@ -439,6 +383,8 @@ Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprech
 %%
 
 %% Der Bibliographieeintrag entspricht wieder dem Erstzitat.
+
+\DescribeMacro{verlag}
 
  \DescribeMacro{@incollection}
  Der Typ "@inbook" entspricht hier dem Typ "@incollection".
@@ -735,6 +681,7 @@ Cic. Sest. \hspace{3em}M. Tullius Cicero, Rede für P. Sestius, Originaltitel: 
 %% \begin{bsp} Alk. frg. 2 LP.\end{bsp}
 %% Bemerkenswert ist insbesondere die Verwendung des "shorteditor"-Feldes. Ansonsten wird nur der Nachname des Herausgebers angegeben. Details findet man in \cref{driver}.
 %%
+ \begin{center}* * *\end{center}
  \DescribeMacro{frgantik}
  Bei der Option "frgantik" unterscheidet sich vor allem die Zitierweise: Der Eintrag\\[3pt]
 "@Book{Fest,"\\
@@ -759,7 +706,7 @@ W. M. Lindsay (Hrsg.), De verborum significatu quae supersunt cum Pauli epitome,
  Zitiert man ihn aber durch "\cite[3]{Fest}", so entfällt hier das \enquote{frg.}:
  \begin{bsp} Fest. 3 Lindsay. \end{bsp}
  
-
+ \begin{center}* * *\end{center}
  \DescribeMacro{unbekannt}
  Für manche Artikel oder Bücher lässt sich kein Autor oder Herausgeber ermitteln. 
  Diese Werke werden dann als anonym gekennzeichnet und nicht nach dem (anonymen) Autor/Herausgeber zitiert, sondern nach einer gewählten "shorthand". 
@@ -803,6 +750,33 @@ Das heißt, man kann bei allen Einträgen, die  "Publisher={Cambridge University
 
 Es können beliebig viele "@String"s in der Bibliographie stehen.
 
+
+ \begin{center}* * *\end{center}
+\DescribeMacro{nurshorthand}
+Für bestimmte Corpora (Inschriften, Münzen, etc.) wird für gewöhnlich mit einer gängigen Abkürzung zitiert.
+Diese Abkürzung des Corpus wird im Bibliographieeintrag unter "shorthand" eingetragen.
+Nun kann man sehr einfach das gewünschte Corpus in der Fußnote zitieren, mit  "prenote" und "postnote"-Feldern. Bei anderen Autoren-Einträge, die mittels "shorthand" zitiert werden, wird ein Komma zwischen Nachname und "postnote" gesetzt. Dank "options=nurshorthand" fällt dieses Komma weg.
+
+Das Beispiel zeigt die Option für die lateinischen Inschriften:
+
+"@Book{CIL,"\\
+" Title                    = {Corpus Inscriptionum Latinarum},"\\
+"  Address                  = {Berlin},"\\
+"  Year                     = {1863--},"\\
+"  Keywords                 = {Sigel},"\\
+"  Options                  = {nurshorthand},"\\
+"  Shorthand                = {CIL},"\\
+"}"\\
+
+Zitiert wird, wie gewöhnlich, mit "\cite[06, 01234]{CIL}". Daraus wird:
+\begin{bsp}
+CIL 06, 01234
+\end{bsp}
+Aufgrund der Setzung von "keywords=Sigel" können diese Art von Corpora in einer separaten Bibliographie aufgeführt werden. Siehe dazu \cref{quellenverzeichnisse}
+
+\changes{v1.1}{2015/06/15}{Modifikation der Option "nurshorthand".}
+
+
  \subsection{Bibliographie}\label{quellenverzeichnisse}
 
  \DescribeMacro{\printbibliography}
@@ -841,14 +815,21 @@ Beispielsweise kann man eine Unterbibliographie haben, in der nur die Sigeln (Le
 
  \begin{description}
 
- \item[fnverweise] Bei Folgezitaten wird auf die Fußnotenzahl des Erstzitats verwiesen. Siehe \cref{book}.
- \item[hrsg] Beim Herausgeber steht \enquote{(Hrsg.)} statt \enquote{hrsg. v.}. Siehe \cref{inbook}.
+ \item[fnverweise] \todo{funktioniert noch nicht} Bei Folgezitaten wird auf die Fußnotenzahl des Erstzitats verwiesen. Siehe \cref{book}.
+ \item[hrsgv] Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. Siehe \cref{inbook}.
  \item[jahrreihe] Die Reihe wird erst nach der Jahreszahl ausgegeben. Siehe \cref{book}.
- \item[jahrkeineklammern] Bei Folgezitaten wird die Jahreszahl nicht in Klammern gesetzt. Siehe \cref{book}.
- \item[mitjahr] Bei Kurzzitaten wird das Jahr mit angegeben (Voreinstellung "true"). Siehe \cref{book}.
-% \item[mitvn] In Kurzzitaten werden Vornamen angezeigt. Siehe \cref{book}.
-% \item[neueseitevollzitat] Im ersten Zitat auf einer Seite wird weder \enquote{ders.} noch \enquote{ebd.} verwendet (Voreinstellung "true"). Siehe \cref{book}.
- \item[nurinit] Bei allen Namen werden nur Initialien für die Vornamen verwendet. Siehe \cref{book}.
+ \item[jahrinklammern] Die Jahreszahl wird in Klammern gesetzt. Siehe \cref{book}.
+
+ \item[nurinit] \todo{ist das noch relevant?} Bei allen Namen werden nur Initialien für die Vornamen verwendet. Siehe \cref{book}.
+ 
+\item[uebersetzung]
+\item[longjournal]
+\item[verlag] Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe.
+
+\item[lexika] 
+\item[nachname]
+\item[vollername]
+\item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt.
  \end{description}
 
  \subsection{Eintragsoptionen}
