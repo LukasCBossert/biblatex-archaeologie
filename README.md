@@ -1,5 +1,10 @@
 alles, was hier nicht mehr drin steht, wurde schon in "archaeologie.tex" verarbeitet
 
+
+BEACHTE den neuen Stil "neu-archaeologie"
+
+
+
 ##################
 ##    PROBLEME  ##
 ##################
