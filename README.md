@@ -1,7 +1,19 @@
+####################################
+##      biblatex-archaeologie     ##
+####################################
+
+Dies ist die README-Datei für den biblatex-Stil "archaeologie", der die Vorgaben des Deutschen Archäologischen Instituts für LaTeX umsetzt.
+
+Der Stil ist noch NICHT veröffentlicht und befindet sich in der fortgeschrittenen Beta-Phase.
+
+
+Zum Stil gehören die Beschreibung ("archaeologie.tex", bzw. "archaeologie.pdf"), sowie die beiden Dateien "archaeologie.bbx" sowie "archaeologie.cbx".
+Zudem gibt es ein Minimalbeispiel ("MWE_archaeologie.tex") mit dazugehörender Bibliographie ("MWE_archaeologie.bib").
+
+
+
+
 alles, was hier nicht mehr drin steht, wurde schon in "archaeologie.tex" verarbeitet
-
-
-BEACHTE den neuen Stil "neu-archaeologie"
 
 
 
@@ -11,7 +23,6 @@ BEACHTE den neuen Stil "neu-archaeologie"
 
 
 - ein "et. al." / u.a. fehlt, oder wird nicht mehr angezeigt?!?!
-- Feld "Volume" bei (beispw.) Book wird nicht ausgelesen!??!
 - Die Rezensionen sind (noch) nicht (gut) gelöst
 
 
@@ -25,15 +36,12 @@ nicht das Feld "address" verwenden, sondern immer "location" !!!!
 
 
 ##################
-##      To do   ##
+##   Wünsche    ##
 ##################
 	
 - -> Abkürzungsverzeichnis für shortjournal-Zeitschriftentitel?!?  x-)
 	-->LCB: gute Idee
 vgl. http://www.latex-community.org/forum/viewtopic.php?f=5&t=690
-
-
-
 
 --> URL auslesen nur bei "online" oder PhD
 
@@ -63,9 +71,6 @@ Verändert:
 
 
 
-
-
---> Abkürzungen von Zeitschriften: 
 
 --> Nach \cite-Befehl erfolgt nun keine Fussnote automatisch (\DeclareCiteCommand{\cite}). Gefahr besteht noch bei Erstzitaten (sofern wir das behalten). Diese würden nun auch im Fließtext voll ausgeschrieben werden.
 
