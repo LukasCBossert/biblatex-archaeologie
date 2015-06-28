@@ -3,8 +3,8 @@
   \usepackage[no-math]{fontspec}
   \usepackage{polyglossia}
   \setdefaultlanguage{german}
-% \usepackage{libertine}
-% \usepackage{roboto}%Schriftart für Sansserif 
+% \usepackage[oldstyle]{libertine}
+%\usepackage{roboto}%Schriftart für Sansserif 
 \usepackage{coolthms}
 \usepackage{csquotes}
 \usepackage{enumitem}
@@ -93,83 +93,69 @@ Zudem gibt es auch die Möglichkeit im Autor-Jahr- und Autor-Titel-System zu zit
  Dabei kann man weitere der \enquote{konventionellen} "biblatex"-Optionen oder der -- weiter unten beschriebenen -- von "archaeologie" zur Verfügung gestellten Optionen laden.
 
  "archaeologie" lädt standardmäßig den DAI-Stil im Autor-Jahr-System. Um schnell und einfach im DAI-Stil zu zitieren, benötigt es keiner weiteren Einstellungen und Optionen.
- \todo{Sollten wir dies beibehalten, müsste noch die Standardeinstellung dai=true in die bbx integriert werden.}
+ \todo{Sollten wir dies beibehalten, müsste noch die Standardeinstellung dai=true in die bbx integriert werden.
+LCB: Ich habe nicht gefunden, wie das geht, dass ein bool am Anfang geladen werden kann. }
 
- An geeigneter Stelle sollte man natürlich noch den "\printbibliography"-Befehl aufrufen, um eine Bibliographie zu erzeugen. Diese kann "biblatex"-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  Da "archaeologie" unterschiedliche Zitierweisen von Textsorten wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographieaufteilung dementsprechend anzupassen. Siehe dazu \cref{quellenverzeichnisse}.
 
 
+An geeigneter Stelle sollte man natürlich noch den "\printbibliography"-Befehl aufrufen, um eine Bibliographie zu erzeugen. Diese kann "biblatex"-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  
+ Da "archaeologie" unterschiedliche Zitierweisen von Textsorten wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographieaufteilung dementsprechend anzupassen. Verschiedene Möglichkeiten zur Gestaltung der Bibliographie siehe  \cref{quellenverzeichnisse}.
+
+
+\begin{center}* * *\end{center}
  \DescribeMacro{\cite}
- Zitiert wird -- wie immer -- einfach mit "\cite" oder anderen \biblatex-Zitierbefehlen wie "\footcite", "\textcite", "\autocite" etc.:\par
+Die einfachste und einzige Weise zum Zitieren wird mit "\cite" bewerkstelligt:\par
  \begin{syntax}"\cite"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax}
  wobei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \meta{postnote} für gewöhnlich die Seitenzahl. Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:\par
  \begin{syntax}"\cite"\oarg{postnote}\marg{Schlüssel}\end{syntax}
  \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der "bib"-Datei.
 
-\todo[inline]{Vielleicht können wir hier am Anfang eine Standardpräambel inkl. Bibliographieaufteilung vorschlagen, die dann \biblatex-Unversierte ohne nachzudenken übernehmen können. Dort muss nur klar gemacht werden, dass die bib-Datei die entsprechenden keywords und options enhalten muss (antik, Quelle etc.)}
 
- \section[Beschreibung]{Beschreibung\protect\footnote{Die Beispiele sind teilweise aus der PDF des DAI entnommen \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}\\
- }  und wurden mit weiteren eigenen Literatureinträgen ergänzt.
- }}
+%\todo[inline]{Vielleicht können wir hier am Anfang eine Standardpräambel inkl. Bibliographieaufteilung vorschlagen, die dann "biblatex"-Unversierte ohne nachzudenken übernehmen können. 
+%Dort muss nur klar gemacht werden, dass die bib-Datei die entsprechenden keywords und options enhalten muss (antik, Quelle etc.)}
 
- Der "archaeologie"-Zitierstil definiert verschiedene bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
-
-
-
- \subsection{Typ \texttt{@book}}\label{book}
-
- \DescribeMacro{@book}
- Fangen wir ganz einfach an: Zu einem einfachen Buch sieht der Eintrag in der "bib"-Datei ungefähr folgendermaßen aus:\\[3pt]
-"@book{Beyen_1960,"\\
-"	author={Beyen, Hendrik Gerard},"\\
-"	title={Die pompejanische Wanddekoration vom zweiten bis zum vierten Stil},"\\
-"	volume={2.1 Tafeln},"\\
-"	location={Haag},"\\
-"	year={1938}"\\
-"}"\\[3pt]
- Ein etwas umfangreicheres Beispiel mit Feld "series" ist:\\[3pt]
-"@book{Schoerner_1995,"\\
-"	author={Schörner, Günther},"\\
-"	title={Römische Rankenfriese},"\\
-"	subtitle={Untersuchungen zur Baudekoration der späten Republik" \ldots"},"\\
-"	series={BeitrESkAr},"\\
-"	number={15},"\\
-"	location={Mainz},"\\
-"	publisher={Philipp von Zabern},"\\
-"	year={1995}"\\
-"}"\\[3pt]
- Die Zitierreihenfolge\\[3pt]
-"	a\footnote{\cite[Vgl.][43]{Beyen_1960}}"\\
-"	b\footnote{\cite[2]{Schoerner_1995}}"\\[3pt]
- liefert (in Fußnoten) folgende Einträge:
-%% \begin{enumerate}
-%% \item\label{book:a} Vgl. {\sc Southern}, P.: Domitian. Tragic Tyrant, London / New York 1997, 43.
-%% \item\label{book:b} Ebd., 2. 
-%% \end{enumerate}
-
-Die Ausgabe in Fußnote und in Bibliographie wird maßgeblich durch verschiedene Optionen manipuliert.
+ \subsection{Optionen für die Präambel}\label{optionen-preamble}
+ In der Präambel kann man, wie folgt, den Stil "archaeologie" über das Paket "biblatex" laden:
+ 
+" \usepackage["\\						
+"		" "backend=biber,			% aktiviert biber"\\
+"		" "style=archaeologie, 	% lädt den Stil 'archaeologie'"\\
+"		" "dai=true,						% true=Bibliographie und Zitation nach DAI-Vorgaben"\\
+"		" "lexika=true, 				%true =  bspw. LTUR 2 (1994) 123 s. v."\\
+"		" "]{biblatex}"
+ 
+In diesem Beispiel wurden die "archaeologie"-Optionen "dai" und "lexika" geladen ("=true"). 
+Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weitere verschiedene Optionen manipuliert, die entsprechend ebenfalls in der Präambel geladen werden können.
 
 
+\begin{center}* * *\end{center}
 \DescribeMacro{dai}
 Diese Option setzt die Vorgaben des DAI, soweit möglich, konsequent um.
-Wenn die Option "dai" geladen wird, werden automatisch weitere für den Zitations- und Bibliographiestil notwendige Optionen geladen:
+Wenn die Option "dai" geladen wird, werden automatisch weitere für den Zitations- und Bibliographiestil notwendige Optionen geladen, sodass diese nicht manuell geladen werden müssen.
+Diese sind:
 
-\begin{bsp}
- "autorjahr=true" "% Zitation nach Autor-Jahr-System"\\
- "notranslator=true"		"%Keine Angabe von Originaltitle und Übersetzung"\\
- "jahrkeineklammern	=true"	"%Keine Klammern um Jahreszahlen"\\
- "hrsg=true"			 	\\
- "nurinit=true"		"%Initiale des Vornamens und Nachname in Bibliographie"\\
- "citeinit=true"\\
- "mitjahr=true"\\
- "jahrreihe=false"		%Setzung von Serientitel VOR das Erscheinungsjahr
-\end{bsp}
+%\begin{bsp}
+ "autorjahr		% Zitation nach Autor-Jahr-System"\\
+ "hrsg				% (Hrsg.) anstatt 'hrsg. v.'"	\\
+ "nurinit			%Initiale des Vornamens und Nachname in Bibliographie"\\
+ "mitjahr			% Angabe des Jahres nach Autor/Hrsg."	\\
+  "jahrkeineklammern			%Keine Klammern um Jahreszahlen"\\
+ "initialnachname		% bei \citeauthor"\marg{Schlüssel}" nur Initial und Nachname"\\
+ "jahrreihe=false			%Setzung von Serientitel VOR das Erscheinungsjahr"
+%\end{bsp}
  
+ \begin{center}
+* * *
+\end{center}
  \DescribeMacro{dai-verweis}
  Diese Option ermöglicht in den Fußnoten die Angabe eines Rückverweis zur Erstnennung des zitierten Bibliographieeintrags.
- "#### Progress in Working ####"
+ "#### Work in Progress ####"
  
+ \begin{center}
+* * *
+\end{center}
 \DescribeMacro{notranslator}
-Wenn diese Option aktiviert wird, erfolgt keine Angabe von eines Originaltitels und des Übersetzers des Werkes.
+Wenn diese Option aktiviert wird, erfolgt keine Angabe von eines Originaltitels und des Übersetzers des Werkes. Dies gilt allerdings nicht, wenn  man die zuvor genannte Option "dai" geladen hat.
 Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
  
 "@Book{Lefebvre_2011,"\\
@@ -190,8 +176,6 @@ wird in der Bibliographie auf diese Weise umgesetzt:
 Lefebvre, Henri, The Production of Space, Originaltitel: La production de l’espace, aus dem Französischen übers. von Donald Nicholson-Smith (Maien, MA – Oxford – Victoria: Blackwell Publishing Ltd \textsuperscript{30}2011 [Erstauflage: 1991])
 \end{bsp}
  
-%% \DescribeMacro{mitvn}
-%% \DescribeMacro{citeinit}
 %% \DescribeMacro{nurinit}
 %% Wenn in den Kurzzitaten \ref{book:a} und \ref{book:b} -- so weit vorhanden -- die vollen Vornamen angezeigt werden sollen (wie auch im Vollzitat), so kann man das mit der Option "mitvn" erreichen. Wenn bei \emph{allen} vorkommenden Vornamen nur Initialien benutzt werden sollen, so geschieht dies durch die Option "nurinit" und wenn dies nur bei Namen, die in Zitaten (nicht in der Bibliographie) auftauchen passieren soll, so benutzt man die Optionen "citeinit". Das ist die Voreinstellung. Wenn man also gar keine Vornamen möchte, so sollte man dem Paket die Option "citeinit=false" übergeben.
 %%
@@ -205,14 +189,11 @@ Lefebvre, Henri, The Production of Space, Originaltitel: La production de l’es
 %% \DescribeMacro{jahrkeineklammern}
 %% Möchte man nur auf die Klammern verzichten, so ist einem das durch die Option "jahrkeineklammern" möglich.
 %%
-%% \DescribeMacro{mits}
-%% Soll der Seitenzahl nach dem Zitat ein \enquote{S.} vorausgestellt werden, so kann dies durch die Option "mits" erreicht werden.
-%% \DescribeMacro{ibidpages}
-%% Um bei Seitenzahlen zu bleiben: Nach einem \enquote{Ebd.}, wie zum Beispiel in \ref{book:b} wird \emph{bei gleicher Seitenzahl} diese nicht nocheinmal ausgegeben. Soll dies trotzdem geschehen, so muss die Option "ibidpages" benutzt werden.
-%%
-%% \DescribeMacro{neueseitevollzitat}
-%% Standardmäßig werden mehrfach hintereinander zitierte Quellen durch \enquote{ebd.} bzw. Autoren durch \enquote{ders.} ersetzt. Ist das Zitat, auf das sich bezogen wird, auf der vorherigen Seite, geschieht das nicht; es wird dann ein normales Kurzzitat (immer inklusive Seitenzahl) ausgegeben. Wenn das nicht gewünscht wird, sollte man das Paket mit der Option "neueseitevollzitat=false" aufrufen.
 
+
+\begin{center}
+* * *
+\end{center}
  \DescribeMacro{lexika}
  Lexikoneinträge können in den Fußnoten in verschiedenen Zitationsformen dargestellt werden.
  Voraussetzung ist, dass  beim Bibliographiedatensatz bei "options = {lexikon}" gesetzt wird. Zudem   bietet sich optional an ebenso  "keywords = {lexikon}" zu setzen, um diese Einträge dann in der Bibliographie auszuschließen (über "notkeyword=lexikon", bzw. "keyword=lexikon").
@@ -260,11 +241,156 @@ Lefebvre, Henri, The Production of Space, Originaltitel: La production de l’es
 
  
  
+ \begin{center}
+* * *
+\end{center}
+\DescribeMacro{nurshorthand}
+Für bestimmte Corpora (Inschriften, Münzen, etc.) wird für gewöhnlich mit einer gängigen Abkürzung zitiert.
+Diese Abkürzung des Corpus wird im Bibliographieeintrag unter "shorthand" eingetragen.
+Nun kann man sehr einfach das gewünschte Corpus in der Fußnote zitieren, mit  "prenote" und "postnote"-Feldern. Bei anderen Autoren-Einträge, die mittels "shorthand" zitiert werden, wird ein Komma zwischen Nachname und "postnote" gesetzt. Dank "options=nurshorthand" fällt dieses Komma weg.
+
+Das Beispiel zeigt die Option für die lateinischen Inschriften:
+
+"@Book{CIL,"\\
+" Title                    = {Corpus Inscriptionum Latinarum},"\\
+"  Address                  = {Berlin},"\\
+"  Year                     = {1863--},"\\
+"  Keywords                 = {Sigel},"\\
+"  Options                  = {nurshorthand},"\\
+"  Shorthand                = {CIL},"\\
+"}"\\
+
+Zitiert wird, wie gewöhnlich, mit "\cite[06, 01234]{CIL}". Daraus wird:
+\begin{bsp}
+CIL 06, 01234
+\end{bsp}
+Aufgrund der Setzung von "keywords=Sigel" können diese Art von Corpora in einer separaten Bibliographie aufgeführt werden. Siehe dazu \cref{quellenverzeichnisse}
+
+\changes{v1.1}{2015/06/15}{Modifikation der Option "nurshorthand".}
+
+\begin{center}
+* * *
+\end{center}
+\DescribeMacro{vollername}
+\DescribeMacro{name}
+\DescribeMacro{initialnachname}
+Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
+Autoren/Herausgeber werden über "\citeauthor"\marg{Schlüssel} aufgerufen.
+Ebenso ist auch das Auslesen der Werktitle über "\citetitle"\marg{Schlüssel} möglich, wobei der Titel in eine "emph{}"-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.
+
+Die Darstellung der Namen kann auf drei Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via "hyperref" verlinkt. Die drei Arten sind: mit dem vollen Vor- und Zunamen, nur mit dem Nachnamen oder mit den Initialen des Vornamens und dem Nachnamen. In einer Fußnote jedoch wird stets nur der/die Nachnamen gesetzt.
+
+Ein Beispiel macht dies klarer.
+Der Bibliographieeintrag lautet:
+
+"@Article{Boehmer_1985,"\\
+"  Title                    = {Astragalspiele in und um Warka},"\\
+"  Author                   = {Boehmer, Rainer Michael and Wrede, Nadja},"\\
+"  Journal                  = {Baghdader Mitteilungen},"\\
+"  Pages                    = {399--404},"\\
+"  Volume                   = {16},"\\
+"  Year                     = {1985},"\\
+"  Shortjournal             = {BaM},"\\
+"  }"
+
+Und daraus wird dann: 
+
+\begin{bsp} \ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".
+ \begin{enumerate}
+ \item\label{name:a} \DescribeMacro{vollername} 
+ \ldots , dies behaupten ebenso Rainer Michael Boehmer  and Nadja Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
  
-% \DescribeMacro{nurshorthand}
-% Bei bestimmten Werken hat das Kurzzitat eine eigenartige Form (siehe \cref{optionen} für Spezialfälle). In solchen Fällen kann der "bib"-Eintrag mit der Option "nurshorthand" versehen werden, dann bleibt das Erstzitat unverändert, das Kurzzitat besteht aber \emph{nur} aus dem "shorthand"-Feld (und natürlich gegebenenfalls angegeben "prenote" und "postnote"-Feldern, sowie -- in Abhängigkeit von "fnverweise" -- einem Verweis auf das Erstzitat). Ein Beispiel dazu findet sich in \cref{beispiele}.
-% \changes{v1.1}{2012/03/31}{Beschreibung der Option "nurshorthand".}
-%
+\item\label{name:b}  \DescribeMacro{name}
+\ldots , dies behaupten ebenso  Boehmer und  Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+
+\item\label{name:c}  \DescribeMacro{initialnachname}\footnote{Diese Option ist standardmäßig mit "dai" geladen.}
+\ldots , dies behaupten ebenso  R. M. Boehmer und N. Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+ \end{enumerate}
+\end{bsp}
+
+
+Werden allerdings mit "\citeauthor", bzw. "\citetitle"  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag "options=antik" geschrieben werden), dann wird für den Autorenname das Feld "usera" ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
+Bei antiken Werktitel wird keine Jahreszahl dazugeschrieben.
+
+Somit wird aus dem Bibliographieeintrag
+
+"@Book{Quint_inst,"\\
+"  Title                    = {Ausbildung des Redners},"\\
+"  Author                   = {Fabius Quintilianus, Marcus},"\\
+"  Editor                   = {Rahn, Helmut},"\\
+"  Year                     = {2015},"\\
+"  Edition                  = {6},"\\
+"  Keywords                 = {Quelle},"\\
+"  Location                 = {Darmstadt},"\\
+"  Options                  = {antik},"\\
+"  Origlanguage             = {latin},"\\
+"  Shorthand                = {Quint. inst.},"\\
+"  Subtitle                 = {Institutio oratoria},"\\
+"  Usera                    = {Quintilian}"\\
+"}"
+
+wie folgt ausgelesen:
+
+\begin{bsp}
+ \ldots Auch "\citeauthor{Quint_inst}" nennt in "\citetitle{Quint_inst}" die notwendigen physischen Qualitäten eines Redners.\par
+
+\ldots Auch Quintilian nennt in \emph{Ausbildung des Redners} die notwendigen phsysischen Qualitäten eines Redners. 
+\end{bsp}
+
+
+\begin{center}
+* * *
+\end{center}
+\DescribeMacro{shortjournal}
+Mit dieser Option werden Artikel mit abkürzten Zeitschriftennamen in der Bibliographie angegeben.
+Dafür wird das Feld "shortjournal" ausgelesen. Gibt es keine Abkürzung, also wurde das Feld "shortjournal" leer gelesen, wird automatisch das Feld "journal" ausgelesen.
+Die Option ist automatisch im Stil "dai" und "dai-verweis" geladen. Für die Stile "autorjahr" und "kurztitel" kann sie optional aktiviert werden.
+
+
+
+ \section[Beschreibung]{Beschreibung\protect\footnote{Die Beispiele sind teilweise aus der PDF des DAI entnommen \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}\\
+ }  und wurden mit weiteren eigenen Literatureinträgen ergänzt.
+ }}
+
+ Der "archaeologie"-Zitierstil definiert verschiedene bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
+
+
+
+ \subsection{Typ \texttt{@book}}\label{book}
+
+ \DescribeMacro{@book}
+ Fangen wir ganz einfach an: Zu einem einfachen Buch sieht der Eintrag in der "bib"-Datei ungefähr folgendermaßen aus:\\[3pt]
+"@book{Beyen_1960,"\\
+"	author={Beyen, Hendrik Gerard},"\\
+"	title={Die pompejanische Wanddekoration vom zweiten bis zum vierten Stil},"\\
+"	volume={2.1 Tafeln},"\\
+"	location={Haag},"\\
+"	year={1938}"\\
+"}"\\[3pt]
+ Ein etwas umfangreicheres Beispiel mit Feld "series" ist:\\[3pt]
+"@book{Schoerner_1995,"\\
+"	author={Schörner, Günther},"\\
+"	title={Römische Rankenfriese},"\\
+"	subtitle={Untersuchungen zur Baudekoration der späten Republik" \ldots"},"\\
+"	series={BeitrESkAr},"\\
+"	number={15},"\\
+"	location={Mainz},"\\
+"	publisher={Philipp von Zabern},"\\
+"	year={1995}"\\
+"}"\\[3pt]
+ Die Zitierreihenfolge\\[3pt]
+"	a\footnote{\cite[Vgl.][43]{Beyen_1960}}"\\
+"	b\footnote{\cite[2]{Schoerner_1995}}"\\[3pt]
+ liefert (in Fußnoten) folgende Einträge:
+%% \begin{enumerate}
+%% \item\label{book:a} Vgl. {\sc Southern}, P.: Domitian. Tragic Tyrant, London / New York 1997, 43.
+%% \item\label{book:b} Ebd., 2. 
+%% \end{enumerate}
+
+Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprechend zu zitieren, gehört der Zusatz ins Feld "titleaddon", bzw. wenn es sich um ein "@inbook" oder "@inproceedings" handelt, entsprechend ins Feld "maintitleaddon".
+
+
+
 % Der Eintrag in der Bibliographie entspricht dem Erstzitat. Details erfährt man in \cref{driver}.
 
  \DescribeMacro{@collection}
@@ -311,10 +437,7 @@ Lefebvre, Henri, The Production of Space, Originaltitel: La production de l’es
 %% {\sc Christ}, Karl: Der hessische Raum in der römischen Kaiserzeit, in: Bannasch, Herbert / Lachmann, H-P. (Hrsg.): Aus Geschichte und ihren Hilfswissenschaften. Festschrift für Walter Heinemeyer zum 65. Geburtstag (Veröﬀentlichungen der Historischen Komission für Hessen 40), Marburg 1979, 528--543, hier 13.
 %% \end{bsp}
 %%
-%% \DescribeMacro{maintitleebd}
-%% \DescribeMacro{editorders}
-%% Manchmal werden sehr viele "@inbook"s aus dem selben Sammelband zitiert. In diesen Fällen kann es angebracht sein, nicht jedes Mal von neuem den Titel und den Herausgeber anzugeben. Die Optionen "maintitleebd" und "editorders" ersetzen bei mehreren aufeinander "@inbook"s aus dem gleichen Werk den Titel durch \enquote{ebd.} bzw. den Autor durch \enquote{ders.}. Auch hier entscheidet die Option "neueseitevollzitat" darüber, ob dies auf das erste Zitat auf einer Seite zutrifft oder nicht (siehe \cref{book}).
-%%
+
 %% Der Bibliographieeintrag entspricht wieder dem Erstzitat.
 
  \DescribeMacro{@incollection}
@@ -354,7 +477,23 @@ Lefebvre, Henri, The Production of Space, Originaltitel: La production de l’es
 
  Für Beiträge innerhalb eines Konferenzbandes müssen die Felder "venue", "eventdate" und "eventtitle" ausgefüllt werden. Ansonsten alle anderen Felder entsprechend wie bei "@book":
  
+" @Proceedings{Kurapkat_2014,"\\
+"Title                    = {Die Architektur des Weges},"\\
+"Editor                   = {Kurapkat, Dietmar and Schneider, Peter I."\\
+"									and Wulf-Rheidt, Ulrike},"\\
+"Year                     = {2014},"\\
+"Eventdate                = {2012-02-08/2012-02-11},"\\
+"Eventtitle               = {Kolloquium Architekturreferat des DAI},"\\
+"Location                 = {Regensburg},"\\
+"Number                   = {11},"\\
+"Publisher                = {Schnell + Steiner},"\\
+"Series                   = {Diskussionen zur Archäologischen Bauforschung},"\\
+"Subtitle                 = {Gestaltete Bewegung im gebauten Raum},"\\
+"Venue                    = {Berlin},"\\
+" }" 
+So wird daraus: 
  
+\begin{bsp}D. Kurapkat, P. I. Schneider und U. Wulf-Rheidt (Hrsg.), Die Architektur des Weges. Gestaltete Bewegung im gebauten Raum. Kolloquium Architekturreferat des DAI Berlin 8.–11. Februar 2012, Diskussionen zur Archäologischen Bauforschung 11 (Regensburg 2014)\end{bsp}
  
 \subsection{Typ \texttt{@inproceedings}}\label{inproceedings}
 
@@ -382,17 +521,47 @@ Wie bei "@proceedings" so auch hier:
 "  Shorttitle		= {Il ›diribitorium‹}"\\
 "}"
 
-Daraus wird im DAI-Zitationsstil "dai":
+Und daraus wird:
 \begin{bsp}
-M. Torelli, Il ‚diribitorium‘ di Alba Fucens e il ‚campus‘ eroico di Her- donia, in: J. Mertens (Hrsg.): Comunitá indigene e problemi della ro- manizzazione nell’Italia centro–meridionale (IV–III sec. a.C.) Actes du Colloque International Organisé à l’Occasion du 50. Anniversaire de l’Academia Belgica et du 40. Anniversaire des Fouilles Belges en Ita- lie. Roma, Academia Belgica 1.–3. Februar 1990, Études de philologie, d’archéologie et d’histoire anciennes 29 (Bruxelles 1991) 39–63
+M. Torelli, Il ‚diribitorium‘ di Alba Fucens e il ‚campus‘ eroico di Her- donia, in: J. Mertens (Hrsg.), Comunitá indigene e problemi della ro- manizzazione nell’Italia centro–meridionale (IV–III sec. a.C.) Actes du Colloque International Organisé à l’Occasion du 50. Anniversaire de l’Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie Roma, Academia Belgica 1.–3. Februar 1990, Études de philologie, d’archéologie et d’histoire anciennes 29 (Bruxelles 1991) 39–63
 
 \end{bsp}
 
 
  \subsection{Typ \texttt{@inreference}}\label{inreference}
 
-%% \DescribeMacro{@inreference}
-%% Mit dem Typ "@inreference" können beispielsweise Lexikonartikel zitiert werden. Der "bib"-Eintrag\\[3pt]
+ \DescribeMacro{@inreference}
+ Mit dem Typ "@inreference" können beispielsweise Lexikonartikel zitiert werden.
+ 
+ 
+ Wichtig ist, dass darauf geachtet wird, dass bei gewählter Option  "lexika=true" (in der Präambel) und bei der Zitation in Klammern (), der Befehl "\cite"\marg{Schlüssel} in die Umgebung "\mkbibparens{}" gesetzt wird, damit die Klammerregelung automatisch angewendet wird.
+ 
+ "@Inreference{Neils_1994,"\\
+ "  Title                    = {Theseus},"\\
+ "  Author                   = {Neils, Jenifer},"\\
+ "  Year                     = {1994},"\\
+ "  Maintitle                = {LIMC},"\\
+ "	Options	               = {lexikon},"\\
+ "  Pages                    = {922--951},"\\
+ "  Volume                   = {7.1},"\\
+ "} "
+
+ \begin{bsp}
+	\ldots "\mkbibparens{\cite[vgl.][930 Nr. 283]{Neils_1994}}."
+ 
+  \ldots (vgl. LIMC 7.1 [1994] 922--951 s.\,v. Theseus [J. Neils], 930 Nr. 283).
+ \end{bsp}
+
+Da im Bibliographieeintrag "options={lexikon}" geschrieben wurde, kann man nun bei gewählter Option "lexika=true" alle Lexikoneinträge von der Bibliographie ausschließen (da sie ja in der Fußnote vollzitiert werden).
+Dies funktioniert indem man "notkeyword=lexikon" ergänzt bei:
+
+"\printbibliography[%"\\
+"            ""notkeyword=lexikon,%"\\
+"            ""notkeyword=Quelle,%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Forschungsliteratur}]" 
+
+ 
 %%"@inreference{kinzel,"\\
 %%"	author={Kinzel, K.},"\\
 %%"	title={Peisistratos},"\\
@@ -471,31 +640,8 @@ url: http://nbn-resolving.de/urn:nbn:de:bsz:16-heidok-74406 (besucht am 17. 04. 
 
  \changes{v1.1}{2015/06/04}{Umsetzung von "@thesis" im Stil.}
 
- \subsection{Weitere Optionen}\label{optionen}
 
 
-\DescribeMacro{vollername}
-\DescribeMacro{name}
-\DescribeMacro{initialnachname}
-Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
-Autoren/Herausgeber werden über "\citeauthor"\marg{Schlüssel} aufgerufen.
-Ebenso ist auch das Auslesen der Werktitle über "\citetitle"\marg{Schlüssel} möglich, wobei der Titel in eine "emph{}"-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.\footnote{Werden antike Autoren auf diese Art wiedergegeben, dann wird das Feld "usera" ausgelesen, in das der deutsche Rufnamen geschrieben wird. Bei antiken Werktitel wird keine Jahreszahl dazugeschrieben. }
-
-Die Darstellung der Namen kann auf drei Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via "hyperref" verlinkt. Die drei Arten sind: mit dem vollen Vor- und Zunamen, nur mit dem Nachnamen oder mit den Initialen des Vornamens und dem Nachnamen.
-Ein Beispiel macht dies klarer:
-\begin{bsp} \ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".
- \begin{enumerate}
- \item\label{name:a} \DescribeMacro{vollername} 
- \ldots , dies behaupten ebenso Rainer Michael Boehmer  and Nadja Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
- 
-\item\label{name:b}  \DescribeMacro{name}
-\ldots , dies behaupten ebenso  Boehmer und  Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
-
-\item\label{name:c}  \DescribeMacro{initialnachname}
-\ldots , dies behaupten ebenso  R. M. Boehmer und N. Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
- \end{enumerate}
- 
-\end{bsp}
 %%
 %%
  \subsection{Optionen der Literatureinträge}\label{optionen-literatur}
@@ -604,7 +750,7 @@ W. M. Lindsay, De verborum significatu quae supersunt cum Pauli epitome, Bibliot
  
  Details findet man wieder in \cref{driver}.
 
- \subsection{Quellenverzeichnis}\label{quellenverzeichnisse}
+ \subsection{Bibliographie}\label{quellenverzeichnisse}
 
  \DescribeMacro{\printbibliography}
  Zwar ist es keine spezielle Eigenschaft dieser "biblatex"-Formate aber vielleicht in diesem Zusammenhang doch sinnvoll zu erwähnen, wie man mit "biblatex" seperate Quellen- und Literaturverzeichnisse ausgeben lassen kann. Zunächst sollten alle Quellen in der "bib"-Datei mit dem Feld
@@ -612,7 +758,7 @@ W. M. Lindsay, De verborum significatu quae supersunt cum Pauli epitome, Bibliot
  versehen werden. 
 
 Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  "heading=bibnumbered", bzw. "heading=subbibnumbered" geladen werden.
-\begin{bsp}
+
 "\printbibheading[heading=bibnumbered,%"\\
 "            ""title={Bibliographie}] %" \emph{Überschrift für Bibliographieumgebung}\\
 "\printbibliography[keyword=Quelle,%"\\
@@ -620,8 +766,17 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 "            ""title={Antike Quellen}]"\\
 "\printbibliography[notkeyword=Quelle,%"\\
 "            ""heading=subbibnumbered,%"\\
-"            ""title={Forschungsliteratur}]" \end{bsp}
+"            ""title={Forschungsliteratur}]" 
+
 Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis getrennt voneinander ausgegeben. 
+Es können mehrere Bibliographien über "\printbibliography" erstellt werden, die jeweils unterschiedliche Einträge haben können.
+Beispielsweise kann man eine Unterbibliographie haben, in der nur die Sigeln (Lexika, Handbücher, Inschriftencorpora, etc) aufgeführt werden. Dafür wird das Feld "keyword" auf den Inhalt "Sigel" ausgelesen:
+
+"\printbibliography[keyword=Sigel,%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Abkürzungen}]"\\
+
+
 
  \section{Zusammenfassung}
 
@@ -633,18 +788,13 @@ Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturver
 
  \begin{description}
  \item[antikebd] Auch bei antiken Werken werden aufeinander Folgende Zitate durch \enquote{ebd.} abgekürzt. Siehe \cref{optionen}.
- \item[citeinit] In Kurzzitaten werden nur Initialien beim Vornamen verwendet (Voreinstellung "true"). Siehe \cref{book}.
- \item[editorders] Auch bei "editor" wird ggf. \enquote{ders.} verwendet. Siehe \cref{inbook}.
  \item[fnverweise] Bei Folgezitaten wird auf die Fußnotenzahl des Erstzitats verwiesen. Siehe \cref{book}.
  \item[hrsg] Beim Herausgeber steht \enquote{(Hrsg.)} statt \enquote{hrsg. v.}. Siehe \cref{inbook}.
- \item[ibidpages] Die Seitenzahl wird immer ausgegeben. Siehe \cref{book}.
  \item[jahrreihe] Die Reihe wird erst nach der Jahreszahl ausgegeben. Siehe \cref{book}.
  \item[jahrkeineklammern] Bei Folgezitaten wird die Jahreszahl nicht in Klammern gesetzt. Siehe \cref{book}.
- \item[maintitleebd] Auch bei "maintitle" wird ggf. \enquote{Ebd.} verwendet. Siehe \cref{inbook}.
- \item[mits] Der Seitenzahl wird ein \enquote{S.} vorangestellt. Siehe \cref{book}.
  \item[mitjahr] Bei Kurzzitaten wird das Jahr mit angegeben (Voreinstellung "true"). Siehe \cref{book}.
- \item[mitvn] In Kurzzitaten werden Vornamen angezeigt. Siehe \cref{book}.
- \item[neueseitevollzitat] Im ersten Zitat auf einer Seite wird weder \enquote{ders.} noch \enquote{ebd.} verwendet (Voreinstellung "true"). Siehe \cref{book}.
+% \item[mitvn] In Kurzzitaten werden Vornamen angezeigt. Siehe \cref{book}.
+% \item[neueseitevollzitat] Im ersten Zitat auf einer Seite wird weder \enquote{ders.} noch \enquote{ebd.} verwendet (Voreinstellung "true"). Siehe \cref{book}.
  \item[nurinit] Bei allen Namen werden nur Initialien für die Vornamen verwendet. Siehe \cref{book}.
  \end{description}
 
