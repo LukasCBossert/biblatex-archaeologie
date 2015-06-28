@@ -491,6 +491,8 @@ Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprech
 "Subtitle                 = {Gestaltete Bewegung im gebauten Raum},"\\
 "Venue                    = {Berlin},"\\
 " }" 
+\\
+
 So wird daraus: 
  
 \begin{bsp}D. Kurapkat, P. I. Schneider und U. Wulf-Rheidt (Hrsg.), Die Architektur des Weges. Gestaltete Bewegung im gebauten Raum. Kolloquium Architekturreferat des DAI Berlin 8.–11. Februar 2012, Diskussionen zur Archäologischen Bauforschung 11 (Regensburg 2014)\end{bsp}
@@ -520,6 +522,7 @@ Wie bei "@proceedings" so auch hier:
 "  Hyphenate 	= {italian},"\\
 "  Shorttitle		= {Il ›diribitorium‹}"\\
 "}"
+\\
 
 Und daraus wird:
 \begin{bsp}
@@ -550,6 +553,14 @@ M. Torelli, Il ‚diribitorium‘ di Alba Fucens e il ‚campus‘ eroico di Her
 	\ldots "\mkbibparens{\cite[vgl.][930 Nr. 283]{Neils_1994}}."
  
   \ldots (vgl. LIMC 7.1 [1994] 922--951 s.\,v. Theseus [J. Neils], 930 Nr. 283).
+ \end{bsp}
+ 
+ Verwendet man kein "\mkbibparens{}", dann wird die Ausgabe ohne Klammerregelung angewendet, was nicht gewünscht ist:
+ 
+ \begin{bsp}
+	\ldots ("\cite[vgl.][930 Nr. 283]{Neils_1994}").
+ 
+  \ldots (vgl. LIMC 7.1 (1994) 922--951 s.\,v. Theseus (J. Neils), 930 Nr. 283).
  \end{bsp}
 
 Da im Bibliographieeintrag "options={lexikon}" geschrieben wurde, kann man nun bei gewählter Option "lexika=true" alle Lexikoneinträge von der Bibliographie ausschließen (da sie ja in der Fußnote vollzitiert werden).
@@ -699,7 +710,7 @@ Ein Beispiel verschafft Klarheit. Aus:
 
 wird:
 \begin{bsp}
-Cic. Sest. \hspace{3em}M. Tullius Cicero, Rede für P. Sestius, Originaltitel: pro P. Sestio, aus dem Lateinischen übers. von Manfred Fuhrmann, in: M. Fuhrmann (Hrsg.): Die politischen Reden, Bd. 2 Sammlung Tusculum (München 1993) 110--185
+Cic. Sest. \hspace{3em}M. Tullius Cicero, Rede für P. Sestius, Originaltitel: pro P. Sestio, aus dem Lateinischen übers. von Manfred Fuhrmann, in: M. Fuhrmann (Hrsg.), Die politischen Reden, Bd. 2 Sammlung Tusculum (München 1993) 110--185
 \end{bsp}
 
 
@@ -743,12 +754,54 @@ Cic. Sest. \hspace{3em}M. Tullius Cicero, Rede für P. Sestius, Originaltitel: 
  unterscheidet sich geringfügig durch seinen Eintrag im Literaturverzeichnis:
 \begin{bsp}
 Fest.\hspace{3em}
-W. M. Lindsay, De verborum significatu quae supersunt cum Pauli epitome, Bibliotheca scriptorum et Graecorum et Romanorum Teubneriana (Leipzig 1913; Nachdr. Leipzig 1965)
+W. M. Lindsay (Hrsg.), De verborum significatu quae supersunt cum Pauli epitome, Bibliotheca scriptorum et Graecorum et Romanorum Teubneriana (Leipzig 1913; Nachdr. Leipzig 1965)
 \end{bsp}
  Zitiert man ihn aber durch "\cite[3]{Fest}", so entfällt hier das \enquote{frg.}:
  \begin{bsp} Fest. 3 Lindsay. \end{bsp}
  
- Details findet man wieder in \cref{driver}.
+
+ \DescribeMacro{unbekannt}
+ Für manche Artikel oder Bücher lässt sich kein Autor oder Herausgeber ermitteln. 
+ Diese Werke werden dann als anonym gekennzeichnet und nicht nach dem (anonymen) Autor/Herausgeber zitiert, sondern nach einer gewählten "shorthand". 
+ Dafür muss  "options={unbekannt}" stehen. 
+ 
+" @Article{Cosa_1949,"\\
+"  Title                    = {Cosa},"\\
+"  Author                   = unbekannt,"\\
+"  Journal                  = {The Classical Journal},"\\
+"  Pages                    = {141--149},"\\
+"  Volume                   = {45},"\\
+"  Year                     = {1949},"\\
+"  Number                   = {1},"\\
+"  Keywords                 = {unbekannt},"\\
+"  Options                  = {unbekannt},"\\
+"  Shorthand                = {Cosa},"\\
+"  Subtitle                 = {Republican Colony in Etruria},"\\
+"}"\\
+ 
+ Die "shorthand" wurde in diesem Fall analog zum Titel gewählt (Cosa).
+ Zitiert man dieses Werk in einer Fußnote, dann wird:
+
+ \begin{bsp}  "\cite[vgl.][145--146]{Cosa_1949}" \end{bsp}
+ zu
+ 
+ \begin{bsp} vgl.  [Cosa 1949], 145--146\end{bsp}
+ 
+ Dieser Bibliographieeintrag zeigt zudem eine weitere (allgemeine) Besonderheit auf.
+ Im Feld "Author=unbekannt" wurden absichtlich um "unbekannt" keine spitze Klammern "{}" gesetzt.
+ Dies hat den Vorteil, dass man mittels "@string" allen "unbekannt" (ohne "{}") einen zentral definierten Wert zuweisen kann.
+Der "@string" wird in der "bib"-Datei am Anfang geladen, also vor alle anderen Bibliographieeinträge geschrieben.
+
+Beispielsweise: "@String { unbekannt = {{[}keine~Angabe{]}} }",  sorgt dafür dass der Eintrag "unbekannt" beim Setzen mit dem Wert "[keine Angabe]" versehen wird.
+Man kann solche "@String" bei allen Feldern anwenden, bei denen man Schreibfehler vermeiden möchte. 
+Ein anderes Beispiel zeigt dies.
+
+"Publisher=CUP" wird dann mittels "@String { CUP = {Cambridge University Press} }" zu 
+\begin{bsp}Cambridge University Press\end{bsp}
+
+Das heißt, man kann bei allen Einträgen, die  "Publisher={Cambridge University Press}" haben, den Eintrag auf "Publisher=CUP" verkürzen, um sich dadurch Schreibarbeit aber auch Fehlerquellen zu ersparen.
+
+Es können beliebig viele "@String"s in der Bibliographie stehen.
 
  \subsection{Bibliographie}\label{quellenverzeichnisse}
 
@@ -787,7 +840,7 @@ Beispielsweise kann man eine Unterbibliographie haben, in der nur die Sigeln (Le
 %% Folgende Optionen können dem Paket "biblatex" beim Laden mit auf den Weg gegeben werden oder auch danach mit "\ExecuteBibliographyOptions" nachgereicht werden. Eventuell lohnt es sich auch einen Blick auf die Beispiele in \cref{beispiele} zu werfen.
 
  \begin{description}
- \item[antikebd] Auch bei antiken Werken werden aufeinander Folgende Zitate durch \enquote{ebd.} abgekürzt. Siehe \cref{optionen}.
+
  \item[fnverweise] Bei Folgezitaten wird auf die Fußnotenzahl des Erstzitats verwiesen. Siehe \cref{book}.
  \item[hrsg] Beim Herausgeber steht \enquote{(Hrsg.)} statt \enquote{hrsg. v.}. Siehe \cref{inbook}.
  \item[jahrreihe] Die Reihe wird erst nach der Jahreszahl ausgegeben. Siehe \cref{book}.
