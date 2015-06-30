@@ -18,6 +18,8 @@
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
+\usepackage{wallpaper}
+\CenterWallPaper{0.9}{proofreading} %% for proofreading
 
 % Um Kommentare einzufügen
 % \usepackage[disable]{todonotes} % notes not showed
@@ -35,8 +37,10 @@
 
  \title{\texttt{archaeologie} -- \\\texttt{biblatex} für Archäologen\footnote{Ebenso nützlich und geeignet für (Alt-)Historiker und (Alt-)Philologen.}}
  \author{Lukas C. Bossert\thanks{\url{LukasCB@me.com}} \and Johannes Friedl\thanks{\url{NN}}}
- \date{Version v0.2, 2015/06/26}
-
+ \date{Version: \today}
+ 
+ 
+ 
  \maketitle
  \begin{abstract}
 \noindent Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um.
@@ -69,6 +73,7 @@ Die einfachste und einzige Weise zum Zitieren wird mit "\cite" bewerkstelligt:\p
  wobei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \meta{postnote} für gewöhnlich die Seitenzahl. Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:\par
  \begin{syntax}"\cite"\oarg{postnote}\marg{Schlüssel}\end{syntax}
  \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der "bib"-Datei.
+
 
 
 %\todo[inline]{Vielleicht können wir hier am Anfang eine Standardpräambel inkl. Bibliographieaufteilung vorschlagen, die dann "biblatex"-Unversierte ohne nachzudenken übernehmen können. 
@@ -197,8 +202,11 @@ Henri Lefebvre, The Production of Space \textsuperscript{30}(Maien, MA 1991; Nac
 \begin{center}
 * * *
 \end{center}
+ \DescribeMacro{\citeauthor} 
+  \DescribeMacro{\citetitle}
 \DescribeMacro{vollername}
-\DescribeMacro{name}
+\DescribeMacro{nurnachname}
+
 Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
 Autoren/Herausgeber werden über "\citeauthor"\marg{Schlüssel} aufgerufen.
 Ebenso ist auch das Auslesen der Werktitle über "\citetitle"\marg{Schlüssel} möglich, wobei der Titel in eine "emph{}"-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.
@@ -219,14 +227,20 @@ Der Bibliographieeintrag lautet:
 "  Shortjournal             = {BaM},"\\
 "  }"
 
-Und daraus wird dann: 
+Im Fließtext schreibt man:
 
-\begin{bsp} \ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".
+\begin{bsp} \ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".\end{bsp}
+
+Und nach dem Texen wird dann in der Standardeinstellung (ohne weitere Optionen):
+\begin{bsp} \ldots , dies behaupten ebenso R. M. Boehmer  and N. Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).\end{bsp}
+
+Oder mit den Optionen:
+\begin{bsp}
  \begin{enumerate}
  \item\label{name:a} \DescribeMacro{vollername} 
  \ldots , dies behaupten ebenso Rainer Michael Boehmer  and Nadja Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
  
-\item\label{name:b}  \DescribeMacro{name}
+\item\label{name:b}  \DescribeMacro{nurnachname}
 \ldots , dies behaupten ebenso  Boehmer und  Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
 
  \end{enumerate}
@@ -291,7 +305,36 @@ Mit der aktivierten angesprochenen Funktion "longjournal" wird daraus:
 
 \begin{bsp}Larry F. Ball – John J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, American Journal of Archaeology 117/3, 2013, 461–492\end{bsp}
 
- \section[Beschreibung]{Beschreibung}
+\begin{center}
+* * *
+\end{center}
+\DescribeMacro{verlag}
+
+
+\begin{center}
+* * *
+\end{center}
+\DescribeMacro{hrsgv}
+
+
+
+
+
+
+\begin{center}
+* * *
+\end{center}
+\DescribeMacro{jahrinklammern}
+
+
+\begin{center}
+* * *
+\end{center}
+\DescribeMacro{kapitaelchen}
+
+
+
+ \section{Beschreibung der Eintragtypen}
 % %\protect\footnote{Die Beispiele sind teilweise aus der PDF des DAI entnommen \mkbibparens{\url{https://www.dainst.org/documents/10180/70593/01_Schlagwortliste_quer.pdf}\\
 % }  und wurden mit weiteren eigenen Literatureinträgen ergänzt.
 % }}
@@ -384,7 +427,7 @@ Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprech
 
 %% Der Bibliographieeintrag entspricht wieder dem Erstzitat.
 
-\DescribeMacro{verlag}
+
 
  \DescribeMacro{@incollection}
  Der Typ "@inbook" entspricht hier dem Typ "@incollection".
@@ -484,6 +527,12 @@ M. Torelli, Il ‚diribitorium‘ di Alba Fucens e il ‚campus‘ eroico di Her
  
  
  Wichtig ist, dass darauf geachtet wird, dass bei gewählter Option  "lexika=true" (in der Präambel) und bei der Zitation in Klammern (), der Befehl "\cite"\marg{Schlüssel} in die Umgebung "\mkbibparens{}" gesetzt wird, damit die Klammerregelung automatisch angewendet wird.
+
+ %% Wenn wir neben \cite in der cbx noch \parencite definieren würden, 
+ %% bräuchte man diese Besonderheit mit \mkbibparens nicht. 
+ %% \parencite ist ja standardmäßig in biblatex definiert, 
+ %% d.h. jeder Benutzer würde den automatisch benutzen, 
+ %% wenn er in Klammern im Fließtext zitieren würde.
  
  "@Inreference{Neils_1994,"\\
  "  Title                    = {Theseus},"\\
@@ -827,7 +876,7 @@ Beispielsweise kann man eine Unterbibliographie haben, in der nur die Sigeln (Le
 \item[verlag] Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe.
 
 \item[lexika] 
-\item[nachname]
+\item[nurnachname]
 \item[vollername]
 \item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt.
  \end{description}
