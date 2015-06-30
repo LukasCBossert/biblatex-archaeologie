@@ -15,28 +15,19 @@
 \newbool{cbx:seen}%obsolet?
 \newbool{cbx:mitjahr}%
 \newbool{cbx:kurztitel}%                                            %%>> JF: neu, option kurztitel=true/false
-\newbool{cbx:mitvn}%
 \newbool{cbx:fnverweise}%
 \newbool{cbx:jahrinklammern}%*verwendet
 \newbool{cbx:neueseitevollzitat}% obsolet?
-\newbool{cbx:nurinit}%
 \newbool{cbx:kapitaelchen}%*
 
 
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
 \DeclareBibliographyOption{mitjahr}[true]{\csuse{bool#1}{cbx:mitjahr}}%
 \DeclareBibliographyOption{kurztitel}[true]{\csuse{bool#1}{cbx:kurztitel}}%%>> JF: neu, option kurztitel=true/false
-\DeclareBibliographyOption{mitvn}[true]{\csuse{bool#1}{cbx:mitvn}}%
 \DeclareBibliographyOption{fnverweise}[true]{\csuse{bool#1}{cbx:fnverweise}}%
 \DeclareBibliographyOption{jahrinklammern}[true]{\csuse{bool#1}{cbx:jahrinklammern}}%
 \DeclareBibliographyOption{neueseitevollzitat}[true]{\csuse{bool#1}{cbx:neueseitevollzitat}}%obsolet?
-\DeclareBibliographyOption{citeinit}[true]{\csuse{bool#1}{cbx:nurinit}}%
 \DeclareBibliographyOption{kapitaelchen}[true]{\csuse{bool#1}{cbx:kapitaelchen}}%
-
-
-%\AtBeginDocument{\ifbool{bbx:nurinit}%   %%>> JF: damit citeinit nicht mehr von nurinit abhängig ist
-%             {\global\booltrue{cbx:nurinit}}{}}%
-
 
 \DeclareFieldFormat{prenote}{#1\isdot}%
 \DeclareFieldFormat{postnote}{#1}%
@@ -57,30 +48,9 @@
   {\citeautorenschriftart%
    \ifblank{#5}{}{#5\addspace}%
    #1}%
-  \ifbool{cbx:mitvn}{%
-      \ifblank{#3}{}{\addcomma\space%
-            \ifbool{cbx:nurinit}{#4}{#3}}}{%
-      \ifbool{cbx:nurinit}{\addcomma\addspace #4}{}%
-    }%
   \ifthenelse{\value{listcount}<\value{liststop}}%
-    {\citeautorentrennzeichen}{}%
-  \isdot%
-}%
-                   
-%\DeclareNameFormat{cite:author}{%
-%  {\citeautorenschriftart%
-%   \ifblank{#5}{}{#5\addspace}%
-%   #1}%
-%  \ifbool{cbx:mitvn}{%
-%      \ifblank{#3}{}{\addcomma\space%
-%            \ifbool{cbx:nurinit}{#4}{#3}}}{%
-%      \ifbool{cbx:nurinit}{\addcomma\addspace #4}{}%
-%    }%
-%  \ifthenelse{\value{listcount}<\value{liststop}}%
-%    {\citeautorentrennzeichen}{}%
-%  \isdot%
-%}%
-
+    {\citeautorentrennzeichen}{\ifmorenames{\andothersdelim\bibstring{andothers}}{}}{}%
+}
 
 \renewbibmacro*{prenote}{%
   \iffieldundef{prenote}{}%
@@ -167,9 +137,13 @@
   
 \newbibmacro*{lexikon}{%
   \ifbool{bbx:lexika}{%
-  \printfield{maintitle}\addspace\printfield{volume}\addspace\printfield[parens]{year}\addspace\printfield{pages}\addspace\printtext{s\adddot\addnbthinspace v\adddot}\addspace\printfield{title}\addspace\printtext[parens]{%
-  \printnames[first-last-inits]{author}%
-  }%
+  \printfield{maintitle}\addspace\printfield{volume}%
+  				\addspace\printfield[parens]{year}%
+  				\addspace%
+  							\iffieldundef{postnote}{\printfield{pages}}{\printfield{postnote}}%
+  				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
+  				\addspace\printfield{title}%
+  				\addspace\printtext[parens]{\printnames[first-last-inits]{author}}%
   }{\printnames[cite:author]{labelname}%              %
            \setunit{\addspace}\usebibmacro{cite:year}%
 %           {\newunitpunct%
@@ -200,13 +174,63 @@
          }%
       }%
 %
-\DeclareCiteCommand{\cite}%                       % JF: Option [\mkbibfootnote] entfernt >> möglich:  \DeclareCiteCommand{\cite}[\mkbibparens]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Cite Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareCiteCommand{\cite}%              
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}\usebibmacro{cite}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 
+\DeclareCiteCommand{\citeauthor} % Autoren mit vollem Namen im Fließtext
+{\boolfalse{citetracker}%
+\boolfalse{pagetracker}%
+\usebibmacro{prenote}}%
+{\ifciteindex%
+  {\indexnames{labelname}}%
+  {}%
+  \printtext[bibhyperref]{%
+    \ifboolexpr{bool {cbx:frgantik} or bool {cbx:antik} or bool {cbx:frg}}{%  wenn antiker Autor, dann nur deutscher Rufname
+              \newunit\printfield[]{usera}% %Rufname muss im custom-Feld "usera" stehen
+                }{% 
+\iffootnote{\printnames{labelname}}{%
+    \ifboolexpr{bool {cbx:nurnachname} or bool {cbx:vollername}}{%              
+          \ifbool{cbx:nurnachname}{%
+              \printnames{labelname}}{}%
+            \ifbool{cbx:vollername}{%
+                      \printnames[first-last]{author}%
+                  \ifnameundef{author}{\printnames[first-last]{editor}}{}}{}% 
+                }{%
+                \ifnameundef{author}{\printnames[first-last-inits]{editor}}{\printnames[first-last-inits]{author}}%
+              }}%
+                }%                
+                }}%
+{\multicitedelim}%
+{\usebibmacro{postnote}}%
 
+\DeclareCiteCommand{\citetitle} % Titel werden in kursiv gesetzt
+  {\boolfalse{citetracker}%
+    \boolfalse{pagetracker}%
+    \usebibmacro{prenote}}%
+  {\printtext[bibhyperref]{%
+   \ifbool{cbx:antik}{%wenn Titel eines antiken Autors, dann ohne (moderne) Jahreszahl
+      \emph{%
+        \printfield{title}%
+        \iffieldundef{subtitle}{}{\adddot\addspace\printfield{subtitle}}%
+      }}%
+      {\emph{%
+          \printfield{title}%
+          \iffieldundef{subtitle}{}{\adddot\addspace\printfield{subtitle}}%
+        }%
+      \addspace%
+      \mkbibparens{\printfield{year}%
+      \iffieldundef{origyear}{}{\addspace\mkbibparens{\printfield{origyear}}}%
+      }%
+    }}}%
+    {\multicitedelim}%
+    {\usebibmacro{postnote}}%
+%
 \endinput
 %%
 %% End of file `archaeologie.cbx'.
