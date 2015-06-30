@@ -11,6 +11,8 @@
   		sortlocale=de,%
   		dateabbrev=false,% Damit Datumsangaben ausgeschrieben werden
   		sorting=nyt, %*modifiziert*Für die korrekte Sortierung von antiken Autoren nach Shorthand
+      maxnames=3, % DAI-Richtlinie
+      minnames=1, % DAI-Richtlinie
 		}%
 
 %%%%%%%% bbx %%%%%%%%%%
@@ -31,7 +33,7 @@
 \newbool{cbx:nurshorthand}%
 \newbool{cbx:unbekannt}%		%% LCB
 \newbool{cbx:lexikon}%			%% LCB
-\newbool{cbx:nachname}			%% LCB
+\newbool{cbx:nurnachname}			%% LCB
 \newbool{cbx:vollername}		%% LCB
 
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
@@ -54,19 +56,14 @@
 %%	%\csuse{booltrue}{bbx:lexika}%		diese Option bietet das DAI optional an
 %%	}
 
-\DeclareBibliographyOption{nachname}[true]{%
-		\csuse{booltrue}{cbx:nachname}%
+\DeclareBibliographyOption{nurnachname}[true]{%
+		\csuse{booltrue}{cbx:nurnachname}%
 		\csuse{boolfalse}{cbx:vollername}%
 		}%		
 \DeclareBibliographyOption{vollername}[true]{%
-		\csuse{boolfalse}{cbx:nachname}%
+		\csuse{boolfalse}{cbx:nurnachname}%
 		\csuse{booltrue}{cbx:vollername}%
 		}%
-\DeclareBibliographyOption{shorthandwidth}{%
-  \setlength{\bbx@shorthandwidth}{#1}
-  \setlength{\shorthandsep}{3pt plus 0.5pt minus 0.5pt}
-  \renewcommand{\shorthandpunct}{\addcolon}
-  \csuse{booltrue}{bbx:shorthandwidthbool}}
 
 %%%%%%%% \DeclareEntryOption %%%%%%%%%%
 \DeclareEntryOption{antik}[true]{\csuse{bool#1}{cbx:antik}}%
@@ -79,10 +76,6 @@
 \DeclareEntryOption{unbekannt}[true]{\csuse{bool#1}{cbx:unbekannt}}%
 \DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
 
-% Längen für Shorthand
-\newtoggle{listofshorthands}% sind wir in der List of Shorthands?
-\newlength{\bbx@shorthandwidth}
-\newlength{\shorthandsep}
 \newbibmacro{savestuff}{%
  		\savename{editor}{\bbx@lasteditor}%
    		\savefield{namehash}{\bbx@lasthash}%
@@ -90,7 +83,6 @@
 		}%
 		
 			
-\DeclareFieldFormat{shorthandinbib}{#1} 
 \DeclareFieldFormat*{title}{#1}%
 \DeclareFieldFormat{subtitle}{#1}%
 \DeclareFieldFormat{booktitle}{#1}%
@@ -105,6 +97,7 @@
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}%
 \DeclareFieldFormat{brackets}{\mkbibbrackets{#1}}%
 \DeclareFieldFormat{quotes}{\mkbibquote{#1}}%
+\DeclareFieldFormat{emph}{\mkbibemph{#1}}%
 
 
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}%
@@ -112,7 +105,7 @@
 \renewcommand*{\newunitpunct}{\addcomma\addspace}%
 \newcommand*{\autorenschriftart}{\scshape}%                           % JF: \scshape (\sc ist veraltet)
 \newcommand*{\daiautorentrennzeichen}{\addnbspace\textendash}%
-\newcommand*{\autorentrennzeichen}{\addcomma\addspace}%
+\newcommand*{\autorentrennzeichen}{\addcomma}%
 \renewcommand{\finentrypunct}{}%% LCB: am Ende des Eintrages kein Punkt
 
 
@@ -138,29 +131,19 @@
 
 
 \DeclareNameFormat{author}{%
-%  \ifboolexpr{bool{bbx:dai} or bool{cbx:antik} or bool{cbx:frgantik}}{%
+%  \ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik}}{%
     \ifblank{#3}{}{%
       \ifbool{bbx:nurinit}{#4}{#3}}%
-    \ifblank{#5}{\addnbspace}{#5\addnbspace}%
-    #1%
-    \ifthenelse{\value{listcount}<\value{liststop}}{%
-      \daiautorentrennzeichen\addspace
-    }{}%
-   \isdot%
-%  }{%
-%    \ifblank{#5}{}{#5\addspace}%
-%    #1%
-%    \ifblank{#3}{}{\addcomma\space%
-%      \ifbool{bbx:nurinit}{#4}{#3}%
-%    }%
-%    \ifthenelse{\value{listcount}<\value{liststop}}{%
-%      \autorentrennzeichen\addspace%
-%    }{}%
-%    \isdot%
-%  }%
+    \ifblank{#5}{\addnbspace}{\addspace #5\addnbspace}%
+    #1
+    \ifthenelse{\value{listcount}<\value{listtotal}}{%
+      \daiautorentrennzeichen\addspace%
+    }{
+      \ifmorenames{\andothersdelim\bibstring{andothers}}{}%
+    }%
 }
 
-\DeclareNameFormat{first-last-inits}{%
+\DeclareNameFormat{first-last-inits}{%    
   \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}}%
 
 \DeclareNameFormat{editor}{%
@@ -169,9 +152,10 @@
     \ifblank{#5}{}{#5\addspace}%
     #1%
     \ifnumcomp{\value{listcount}}{<}{\value{liststop}-1}%
-       {\addcomma\addspace}%
-       {\ifnumcomp{\value{listcount}}{=}{\value{liststop}}%
-           {}{\addspace\bibstring{and}\addspace}}%
+       {\daiautorentrennzeichen\addspace}%
+       {
+        \ifmorenames{\andothersdelim\bibstring{andothers}}{}%
+       }%
 }%
 
 
@@ -213,7 +197,7 @@
     {\setunit{\bibpagerefpunct}\newblock
      \usebibmacro{pageref}%
      \clearlist{pageref}%
-     \setunit{\adddot\par\nobreak}}
+     \setunit{\adddot\newline\nobreak}}
     {}}
 
 \renewbibmacro*{doi+eprint+url}{%
@@ -248,13 +232,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewbibmacro*{author}{%				%LCB: angepasst
   \ifnameundef{author}{}{%
-        \printnames{author}\addcomma\addspace%
+        \printnames[][-\value{listtotal}]{author}\newunit% Um alle Autoren in der Bibliographie auszugeben (DAI-Richtlinie)
       }}
     
 \renewbibmacro*{author/editor}{%					%LCB: erledigt
   \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
-      \printnames[hrsg]{editor}\addspace%
-      \printtext[parens]{\bibstring{editor}}\addcomma\addspace%
+      \ifnameundef{editor}{}{\printnames[hrsg]{editor}\addspace%
+      \printtext[parens]{\bibstring{editor}}\newunit}%
     }{%
     \usebibmacro{author}%
   }}%
@@ -364,7 +348,7 @@
               test {\iffieldundef{subtitle}}}{}%
     {\printtext[title]{%
        \printfield[titlecase]{title}%
-       \setunit*{\subtitlepunct}%
+       \setunit*{\subtitlepunct}
        \printfield[titlecase]{subtitle}}%
      \iffieldundef{titleaddon}{\setunit*{\addspace}}{\setunit*{\subtitlepunct}}
        \ifentrytype{book}{\iffieldundef{volume}{}%				%%LCB ergänzt
@@ -378,7 +362,7 @@
 \newbibmacro*{location+edition+year}{%				% LCB: erledigt
 \ifbool{bbx:verlag}%				%optional
 {\printtext[parens]{%  
-  {\printlist{location}%
+  {\iflistundef{location}{}{\printlist{location}}%
   \iffieldundef{publisher}{%                                          %%>> JF: geändert, Publisher hinzugefügt
     \setunit*{\addcolon\addspace}%                                    %%>>
     \printlist{publisher}}{}%                                         %%>>
@@ -401,7 +385,7 @@
              \printfield{edition}\addspace}}%
              \printtext[parens]{%
           \iffieldundef{origyear}{%
-              \printlist[][1-1]{location}\addspace\printfield{year}}%                     % ORT
+              \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%                     % ORT
             {%
               \iflistundef{origlocation}{%        % Nachdruck, falls kein origlocation angegeben, ausgabe von location
                     \printlist[][1-1]{location}}{%
@@ -410,8 +394,7 @@
               \printfield{origyear}%
                   \addsemicolon\addspace%
               \printtext{Nachdr}\adddot\addspace%
-              \printlist[][1-1]{location}\addspace\printfield{year}%
-            }%
+    \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%
     }}%
 	}																							
 							
@@ -465,7 +448,7 @@
 \newbibmacro*{reftitle}{%
   \iffieldundef{title}{}{%
     \printtext{Art\adddot\addspace}%
-    \printtext[quotes]{%
+    \printtext[emph]{%
       \usebibmacro{title}\setunit{\addspace}%
       \iffieldundef{number}{}{\printfield[brackets]{number}}%
 }}}%
@@ -669,16 +652,32 @@
 \usebibmacro{bibindex}%
  \usebibmacro{begentry}%
 \ifbool{cbx:lexikon}{%
-  \printfield{maintitle}\addspace\printfield{volume}\addspace\printfield[parens]{year}\addspace\printfield{pages}\addspace\printtext{s\adddot\addnbthinspace v\adddot}\addspace\printfield{title}\addspace\printtext[parens]{\printnames[first-last-inits]{author}}}{%
+  				\printfield{maintitle}%
+  				\addspace\printfield{volume}%
+  				\addspace\printfield[parens]{year}%
+  				\addspace\printfield{pages}%
+  				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
+  				\addspace\printfield{title}%
+  				\addspace\printtext[parens]{\printnames[first-last-inits]{author}}}{%
   			\usebibmacro{author}%
    			 	\newunit\newblock%  
   			  	\usebibmacro{reftitle}%
   				\newunit\newblock%
-				\usebibmacro{refmaintitle}%
- 				\setunit{\addspace}%
-  				\usebibmacro{year}%
-  				\newunit\newblock%
-  				\usebibmacro{pages}}%
+				 \usebibmacro{in:}%
+				 \newunit\newblock%
+			  \usebibmacro{booktitle+volume+editor}%
+  \setunit{\addspace}%
+   \usebibmacro{series+number}%
+  \setunit*{\addspace}\newblock%
+  \usebibmacro{location+edition+year}%
+  \ifbool{bbx:jahrreihe}{%
+    \setunit{\addspace}%
+    \usebibmacro{series+number}}{}%
+  \setunit*{\addspace}\newblock%                             %%>> JF: geändert, zuvor: \newunit\newblock%
+  \usebibmacro{pages}%
+  \setunit{\addspace}%
+  \usebibmacro{addendum}%
+  \usebibmacro{url+urldate}}%
  \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \usebibmacro{savestuff}%
@@ -712,85 +711,45 @@
 \newbibmacro{mycrossref}{%
   \textcite{\thefield{crossref}}}%
 %
-  
-\AtBeginDocument{%
-\ifbool{bbx:shorthandwidthbool}%
-  {}
-  {%
-  \defbibenvironment{bibliography}
-    {\list
-       {\ifbool{cbx:unbekannt}{	\usebibmacro{shorthand+year}}{%		%unbekannte Autoren
-				\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik} or bool {cbx:frg} or bool {cbx:nurshorthand}}%
-				{\printfield[shorthandwidth]{shorthand}}%
-			{\printtext{\printnames[cite:author]{labelname}}%
-     				\addspace\printtext[\ifbool{cbx:jahrinklammern}{parens}{}]{%
-       					 \printfield{labelyear}\printfield{extrayear}}%
-       					 }}%
-							}%
-       {\setlength{\labelwidth}{\shorthandwidth}%
-        \setlength{\leftmargin}{\labelwidth}%
-        \setlength{\labelsep}{\biblabelsep}%
-        \addtolength{\leftmargin}{\labelsep}%
-        \setlength{\itemsep}{\bibitemsep}%
-        \setlength{\parsep}{\bibparsep}%
-        \renewcommand*{\makelabel}[1]{##1\hss}}}
-    {\endlist}
-    {\item}
-    }%
-    }
 
-%%%%%%%%%%%cite-commands (LCB) %%%%%%%%%%%%%%%%%
-\DeclareCiteCommand{\citeauthor} % Autoren mit vollem Namen im Fließtext
-{\boolfalse{citetracker}%
-\boolfalse{pagetracker}%
-\usebibmacro{prenote}}%
-{\ifciteindex%
-	{\indexnames{labelname}}%
-	{}%
-	\printtext[bibhyperref]{%
-		\ifboolexpr{bool {cbx:frgantik} or bool {cbx:antik} or bool {cbx:frg}}{% 	wenn antiker Autor, dann nur deutscher Rufname
-							\newunit\printfield[]{usera}% %Rufname muss im custom-Feld "usera" stehen
-								}{% 
-\iffootnote{\printnames{labelname}}{%
-		\ifboolexpr{bool {cbx:nachname} or bool {cbx:vollername}}{%							
-					\ifbool{cbx:nachname}{%
-							\printnames{labelname}}{}%
-			   		\ifbool{cbx:vollername}{%
-			   		   				\printnames[first-last]{author}%
-	 								\ifnameundef{author}{\printnames[first-last]{editor}}{}}{}%	
-			   				}{%
-			   				\ifnameundef{author}{\printnames[first-last-inits]{editor}}{\printnames[first-last-inits]{author}}%
-							}}%
-			   				}%			   				
-			   				}}%
-{\multicitedelim}%
-{\usebibmacro{postnote}}%
-% 
-%
-    \DeclareCiteCommand{\citetitle} % Titel werden in kursiv gesetzt
-  {\boolfalse{citetracker}%
-  	\boolfalse{pagetracker}%
-  	\usebibmacro{prenote}}%
-  {%\ifciteindex%
-  %	{\indexfield{indextitle}}		% LCB: Kollidiert mit Sek.-Autoren im Index
-  %	{}%
-  	\printtext[bibhyperref]{%
-   \ifbool{cbx:antik}{%wenn Titel eines antiken Autors, dann ohne (moderne) Jahreszahl
-  		\emph{%
-  			\printfield{title}%
-  			\iffieldundef{subtitle}{}{\adddot\addspace\printfield{subtitle}}%
-  		}}%
-  		{\emph{%
-  				\printfield{title}%
-  				\iffieldundef{subtitle}{}{\adddot\addspace\printfield{subtitle}}%
-  			}%
-  		\addspace%
-  		\mkbibparens{\printfield{year}%
-  		\iffieldundef{origyear}{}{\addspace\mkbibparens{\printfield{origyear}}}%
-  		}%
-  	}}}%
-  	{\multicitedelim}%
-  	{\usebibmacro{postnote}}%
+
+%%%%%%%%%% Bibliographielayout für Autor-Jahr-Auflistung %%%%%%%%%% 
+%%
+  \AtBeginBibliography{%
+   \renewbibmacro{begentry}{% 
+					\ifboolexpr{bool {cbx:antik} 
+									or bool {cbx:frgantik} 
+									or bool {cbx:frg} 
+									or bool {cbx:nurshorthand}}%
+							{}%						%hier Länge für Abstand angeben
+							{\newline}%				%Für Zeilenumbruch bei Sekundärliteratur
+      					 }}%
+\defbibenvironment{bibliography}
+    {\list{%
+\ifbool{cbx:unbekannt}{\usebibmacro{shorthand+year}}{%		%unbekannte Autoren
+					\ifboolexpr{bool {cbx:antik} 
+									or bool {cbx:frgantik} 
+									or bool {cbx:frg} 
+									or bool {cbx:nurshorthand}}%
+							{\printfield{shorthand}}
+							{\printtext{\printnames[cite:author]{labelname}}%
+     				\addspace\printtext[\ifbool{cbx:jahrinklammern}{parens}{}]{%
+      					 \printfield{labelyear}\printfield{extrayear}}
+       					 \usebibmacro{begentry}}}%
+    }%
+       {%
+       \setlength{\labelwidth}{\shorthandwidth}%
+    \setlength{\leftmargin}{\labelwidth}%
+%% %       \setlength{\labelsep}{\labelwidth}%
+       \addtolength{\leftmargin}{\labelsep}%
+%% %                      \setlength{\itemindent}{\leftmargin}%
+%%  %      \setlength{\itemsep}{\bibitemsep}%
+  %      \setlength{\parsep}{\bibparsep}%
+   \renewcommand*{\makelabel}[1]{##1\hss}%
+       }
+      }
+    {\endlist}
+ {\item }
 %  	
 %%%
 \endinput
