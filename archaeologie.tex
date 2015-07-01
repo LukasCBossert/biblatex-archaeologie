@@ -166,13 +166,32 @@ Henri Lefebvre, The Production of Space \textsuperscript{30}(Maien, MA 1991; Nac
 * * *
 \end{center}
  \DescribeMacro{jahrreihe}
-%% Mit der Option "jahrreihe" kann man bewirken, dass die Reihe (Felder "series" und "number") erst \emph{nach} dem Jahr ausgegeben werden. Bei \ref{book:c} ändert das die Ausgabe zum Beispiel zu
-%%
-%% \begin{bsp}
-%% Vgl. {\sc Riess}, Willhelm: Apuleius und die Räuber. Ein Beitrag zur historischen Kriminalforschung, Stuttgart 2001 (HABES 31), 19.
-%% \end{bsp}
-%%
-
+ Mit der Option "jahrreihe" kann man bewirken, dass die Reihe (Felder "series" und "number") erst \emph{nach} dem Jahr ausgegeben werden, was von der Richtlinie des DAI abweicht. 
+ Bei Sammelbänden kann diese Option zum Tragen kommen:
+ 
+" @Incollection{Mundt_2015,"\\
+"   Author                   = {Mundt, Felix},"\\
+"  Title                    = {Der Mensch, das Licht und die Stadt},"\\
+"  Subtitle                 = {Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung},"\\
+"  Pages                    = {179--206},"\\
+"  Editor                   = {Therese Fuhrer and Felix Mundt and Jan Stenger},"\\
+"    Maintitle                = {Cityscaping},"\\
+"  Mainsubtitle             = {Constructing and Modelling Images of the City},"\\
+"  Publisher                = {de Gruyter},"\\
+"  Year                     = {2015},"\\
+"  Number                   = {3},"\\
+"  Series                   = {Philologus. Supplemente},"\\
+"  Location                 = {Berlin and Boston},"\\
+"}"\\
+ 
+ Ohne eine Option wird in der Bibliographie daraus:
+ \begin{bsp}•\end{bsp}
+ 
+ 
+ mit der aktivierten Option "jahrreihe" verändert sich die Reihenfolge:
+ \begin{bsp}•\end{bsp}
+ 
+ 
 
 %% \DescribeMacro{fnverweise}
 %% Die Option "fnverweise" fügt an ein Folgezitat den Hinweis \enquote{(Wie Anm. \meta{Nummer der Fußnote des Erstzitats})}. Hier empfiehlt es sich wahrscheinlich entweder ganz auf des Jahr (also "mitjahr=false") oder zumindest auf die Klammern ("jahrkeineklammern") zu verzichten. Wurde der folgende Eintrag zum ersten Mal in Fußnote 3 zitiert, liefert ein erneuter "\cite"-Befehl
@@ -257,7 +276,7 @@ wie folgt ausgelesen:
 \begin{bsp}
  \ldots Auch "\citeauthor{Quint_inst}" nennt in "\citetitle{Quint_inst}" die notwendigen physischen Qualitäten eines Redners.\par
 
-\ldots Auch Quintilian nennt in \emph{Ausbildung des Redners} die notwendigen phsysischen Qualitäten eines Redners. 
+\ldots Auch Quintilian nennt in \emph{Ausbildung des Redners} die notwendigen physischen Qualitäten eines Redners. 
 \end{bsp}
 
 
@@ -298,15 +317,64 @@ Mit der aktivierten angesprochenen Funktion "longjournal" wird daraus:
 Angabe aller Erscheinungsorte und Verlagsort. Damit geht auch eine Änderung der Auflagezahl einher, die dann direkt vor das Erscheinungsjahr gesetzt wird.
 Erstauflage wird in eckiger Klammer nach dem Erscheinungsjahr gesetzt.
 
+"@Book{Emme_2013,"\\
+"  Author                   = {Burkhard Emme},"\\
+"  Title                    = {Peristyl und Polis},"\\
+"  Subtitle                 = {Entwicklung und Funktionen öffentlicher griechischer Hofanlagen},"\\
+"  Number                   = {1},"\\
+"  Publisher                = {Walter de Gruyter},"\\
+"  Series                   = {Urban Spaces},"\\
+"  Year                     = {2013},"\\
+"  Location                 = {Berlin},"\\
+"}"\\
+
+ Ohne eine Option wird in der Bibliographie daraus:
+ \begin{bsp}•\end{bsp}
+ 
+ 
+ mit der aktivierten Option "verlag" verändert sich die Reihenfolge:
+ \begin{bsp}•\end{bsp}
+ 
+ 
+ 
+ 
 \begin{center}
 * * *
 \end{center}
 \DescribeMacro{hrsgv}
 
-Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit einem "(Hrsg.)" gekennzeichnet, sondern nach dem Titel des Sammelbandes mit dem Zusatz "hrsg. v.".
+Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit einem "(Hrsg.)" gekennzeichnet, sondern nach dem Titel des Sammelbandes mit dem Zusatz "hrsg. v."
 
 
 
+"@Inproceedings{Wulf-Rheidt_2013,"\\
+"  Author                   = {Wulf-Rheidt, Ulrike},"\\
+"  Title                    = {Der Palast auf dem Palatin -- Zentrum im Zentrum},"\\
+"  Subtitle                 = {Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?},"\\
+" Pages                    = {277--289},"\\
+"  Editor                   = {Dally, Ortwin and Fless, Friederike and Haensch,"\\
+"									Rudolf and Pirson, Felix and Sievers, Susanne},"\\
+"  Maintitle                = {Politische Räume in vormodernen Gesellschaften},"\\
+"  Mainsubtitle             = {Gestaltung – Wahrnehmung – Funktion},"\\
+"  Year                     = {2013},"\\
+"  Eventdate                = {2009-11-18/2009-11-22},"\\
+"  Eventtitle               = {Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI},"\\
+" Venue                    = {Berlin},"\\
+"  Publisher                = {Verlag Marie Leidorf},"\\
+"  Location                 = {Rahden/Westf.},"\\
+"  Series                   = {Menschen – Kulturen – Traditionen},"\\
+"  Volume                   = {6},"\\
+"}"\\
+
+
+ Ohne eine Option wird in der Bibliographie daraus:
+ \begin{bsp}•\end{bsp}
+ 
+ 
+ mit der aktivierten Option "hrsgv" verändert sich die Reihenfolge:
+ \begin{bsp}•\end{bsp}
+ 
+ 
 
 
 \begin{center}
@@ -315,6 +383,10 @@ Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit ein
 \DescribeMacro{jahrinklammern}
 
 Setzt die Jahreszahlen in der Fußnote und in der Bibliographie in runde Klammern.
+
+
+
+
 
 \begin{center}
 * * *
