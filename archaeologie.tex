@@ -74,7 +74,12 @@ Die einfachste und einzige Weise zum Zitieren wird mit "\cite" bewerkstelligt:\p
  \begin{syntax}"\cite"\oarg{postnote}\marg{Schlüssel}\end{syntax}
  \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der "bib"-Datei.
 
-
+ \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}
+Zum ›normalen‹ "\cite"-Kommando gibt es die Möglichkeit im Fließtext und in den Anmerkungen auf den Autor/Herausgeber und das Werk zu verweisen.
+Dies wird über den Befehl\par
+  \begin{syntax}"\citeauthor"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax} \par 
+  und \par 
+   \begin{syntax}"\citetitle"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax}ausgeführt. Weitere Informationen siehe unten.
 
 %\todo[inline]{Vielleicht können wir hier am Anfang eine Standardpräambel inkl. Bibliographieaufteilung vorschlagen, die dann "biblatex"-Unversierte ohne nachzudenken übernehmen können. 
 %Dort muss nur klar gemacht werden, dass die bib-Datei die entsprechenden keywords und options enhalten muss (antik, Quelle etc.)}
@@ -206,14 +211,10 @@ Henri Lefebvre, The Production of Space \textsuperscript{30}(Maien, MA 1991; Nac
 \begin{center}
 * * *
 \end{center}
- \DescribeMacro{\citeauthor} 
-  \DescribeMacro{\citetitle}
-\DescribeMacro{vollername}
-\DescribeMacro{nurnachname}
-
+\DescribeMacro{vollername}\DescribeMacro{nurnachname}
 Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
 Autoren/Herausgeber werden über "\citeauthor"\marg{Schlüssel} aufgerufen.
-Ebenso ist auch das Auslesen der Werktitle über "\citetitle"\marg{Schlüssel} möglich, wobei der Titel in eine "emph{}"-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.
+Ebenso ist auch das Auslesen der Werktitel über "\citetitle"\marg{Schlüssel} möglich, wobei der Titel in eine "emph{}"-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.
 
 Zunächst erfolgt die Ausgabe der Autoren, bzw. Herausgeber mit den Initialen des Vornamens und mit dem Nachnamen. 
 Die Darstellung der Namen kann jedoch noch auf zwei andere  Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via "hyperref" verlinkt. Die zwei Arten sind: mit dem vollen Vor- und Zunamen und nur mit dem Nachnamen. In einer Fußnote jedoch wird stets nur der/die Nachnamen gesetzt.
@@ -350,7 +351,8 @@ Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit ein
 "@Inproceedings{Wulf-Rheidt_2013,"\\
 "  Author                   = {Wulf-Rheidt, Ulrike},"\\
 "  Title                    = {Der Palast auf dem Palatin -- Zentrum im Zentrum},"\\
-"  Subtitle                 = {Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?},"\\
+"  Subtitle                 = {Geplanter Herrschersitz oder"\\
+"									 Produkt eines langen Entwicklungsprozesses?},"\\
 " Pages                    = {277--289},"\\
 "  Editor                   = {Dally, Ortwin and Fless, Friederike and Haensch,"\\
 "									Rudolf and Pirson, Felix and Sievers, Susanne},"\\
@@ -358,7 +360,8 @@ Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit ein
 "  Mainsubtitle             = {Gestaltung – Wahrnehmung – Funktion},"\\
 "  Year                     = {2013},"\\
 "  Eventdate                = {2009-11-18/2009-11-22},"\\
-"  Eventtitle               = {Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI},"\\
+"  Eventtitle               = {Internationale Tagung des DAI"\\
+"							 und des DFG-Exzellenzclusters TOPOI},"\\
 " Venue                    = {Berlin},"\\
 "  Publisher                = {Verlag Marie Leidorf},"\\
 "  Location                 = {Rahden/Westf.},"\\
@@ -450,25 +453,23 @@ Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprech
  \DescribeMacro{@collection}
  Der Typ "@collection" entspricht hier dem Typ "@book".
 
- \subsection{Typ \texttt{@inbook}}\label{inbook}
+ \subsection{Typ \texttt{@inbook / @incollection}}\label{inbook}
 
  \DescribeMacro{@incollection}
- Kapitel aus Sammelbändern macht man am Besten mit dem Typ "@incollection". Am besten sieht man das wieder an Hand eines Beispiels:\\[3pt]
-%%"@inbook{christ,"\\
-%%"	author={Karl Christ},"\\
-%%"	title={Der hessische Raum in der römischen Kaiserzeit},"\\
-%%"	maintitle={Aus Geschichte und ihren Hilfswissenschaften},"\\
-%%"	maintitleaddon={Festschrift für Walter Heinemeyer zum 65."\\
-%%"Geburtstag},"\\
-%%"	editor={Herbert Bannasch and H-P. Lachmann},"\\
-%%"	series={Veröffentlichungen der Historischen Komission für"\\
-%%"Hessen},"\\
-%%"	number={40},"\\
-%%"	location={Marburg},"\\
-%%"	year={1979},"\\
-%%"	pages={528--543}"\\
-%%"}"\\[3pt]
-%% Beim Erstzitat liefert dann zum Beispiel "\cite[13]{christ}":
+ Kapitel aus Sammelbändern macht man am Besten mit dem Typ "@incollection". 
+ Am besten sieht man das wieder an Hand eines Beispiels:\\[3pt]
+ 
+"@Incollection{Carter_2014,"\\
+"  Title                    = {Spectacle in Rome, Italy, and the Provinces},"\\
+"  Author                   = {Carter, Michael J. and Edmondson, Jonathan},"\\
+"  Editor                   = {Bruun, Christer and Edmondson, Jonathan},"\\
+"  Pages                    = {537--558},"\\
+"  Publisher                = {Oxford University Press},"\\
+"  Year                     = {2014},"\\
+"  Location                 = {Oxford},"\\
+"  Maintitle                = {The Oxford Handbook of Roman Epigraphy},"\\
+"}"\\
+
 %%
 %% \begin{bsp}
 %% {\sc Christ}, Karl: Der hessische Raum in der römischen Kaiserzeit, in: Aus Geschichte und ihren Hilfswissenschaften. Festschrift für Walter Heinemeyer zum 65. Geburtstag, hrsg. v. Herbert Bannasch und H-P. Lachmann (Veröﬀentlichungen der Historischen Komission für Hessen 40), Marburg 1979, 528--543, hier 13. 
@@ -501,24 +502,22 @@ Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprech
 
  \subsection{Typ \texttt{@article}}\label{article}
 %%
-%% \DescribeMacro{@article}
-%% Artikel aus Fachzeitschriften können folgendermaßen behandelt werden: Der "bib"-Eintrag\\[3pt]
-%%"@article{strobel,"\\
-%%"	author={Karl Strobel},"\\
-%%"	title={Der Aufstand des L. Antonius Saturninus und der so"\\
-%%"genannte zweite Schattenkrieg Domitians},"\\
-%%"	shorttitle={L. Antonius Saturninus und der zweite"\\
-%%"Schattenkrieg Domitians},"\\
-%%"	journal={Tyche},"\\
-%%"	number={1},"\\
-%%"	year={1986},"\\
-%%"	pages={203--220}"\\
-%%"}"\\[3pt]
-%% wird bei erstmaligem "\cite[7]{strobel}" zu
-%%
-%% \begin{bsp}
-%% {\sc Strobel}, Karl: Der Aufstand des L. Antonius Saturninus und der so genannte zweite Schattenkrieg Domitians, in: Tyche 1 (1986), 203--220, hier 7.
-%% \end{bsp}
+\DescribeMacro{@article}
+
+"@Article{Evangelidis_2014,"\\
+"  Title                    = {Agoras {and} Fora},"\\
+"  Author                   = {Evangelidis, Vasilis},"\\
+"  Journal                  = {The Annual of the British School at Athens},"\\
+"  Pages                    = {335--356},"\\
+"  Volume                   = {109},"\\
+"  Year                     = {2014},"\\
+"  Doi                      = {10.1017/s006824541400015x},"\\
+"  Shortjournal             = {BSA},"\\
+"  Subtitle                 = {Developments in the Central Public Space of"\\
+"										 the Cities of Greece during the {Roman} Period},"\\
+"}"\\
+
+
 %%
 %% und bei wiederholtem zitieren zu
 %%
