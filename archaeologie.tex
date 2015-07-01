@@ -128,21 +128,6 @@ Henri Lefebvre, The Production of Space \textsuperscript{30}(Maien, MA 1991; Nac
  
  \begin{bsp}Henri Lefebvre, The Production of Space, Originaltitel: La production de l’espace, aus dem Französischen übers. von Donald Nicholson-Smith  \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011)\end{bsp}
  
- 
- 
-%% \DescribeMacro{nurinit}
-%% Wenn in den Kurzzitaten \ref{book:a} und \ref{book:b} -- so weit vorhanden -- die vollen Vornamen angezeigt werden sollen (wie auch im Vollzitat), so kann man das mit der Option "mitvn" erreichen. Wenn bei \emph{allen} vorkommenden Vornamen nur Initialien benutzt werden sollen, so geschieht dies durch die Option "nurinit" und wenn dies nur bei Namen, die in Zitaten (nicht in der Bibliographie) auftauchen passieren soll, so benutzt man die Optionen "citeinit". Das ist die Voreinstellung. Wenn man also gar keine Vornamen möchte, so sollte man dem Paket die Option "citeinit=false" übergeben.
-%%
-%% \DescribeMacro{mitjahr}
-%% Standardmäßig wird bei einem Kurzzitat auch das Jahr in Klammern mit angegeben. Wenn man das nicht möchte, so sollte man die Paketoption "mitjahr=false" verwenden. Dadurch (zusammen mit "citeinit=false") verwandelt sich zum Beispiel \ref{book:a} in
-%%
-%% \begin{bsp} 
-%% {\sc Southern}: Domitian, 5.
-%% \end{bsp}
-%%
-%% \DescribeMacro{jahrkeineklammern}
-%% Möchte man nur auf die Klammern verzichten, so ist einem das durch die Option "jahrkeineklammern" möglich.
-%%
 
 
 \begin{center}
@@ -247,7 +232,7 @@ Oder mit den Optionen:
 \end{bsp}
 
 
-Werden allerdings mit "\citeauthor", bzw. "\citetitle"  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag "options=antik" geschrieben werden), dann wird für den Autorenname das Feld "usera" ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
+Werden allerdings mit "\citeauthor", bzw. "\citetitle"  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag "options=antik" geschrieben werden), dann wird für den Autorenname das Feld "namea" ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
 Bei antiken Werktitel wird keine Jahreszahl dazugeschrieben.
 
 Somit wird aus dem Bibliographieeintrag
@@ -264,7 +249,7 @@ Somit wird aus dem Bibliographieeintrag
 "  Origlanguage             = {latin},"\\
 "  Shorthand                = {Quint. inst.},"\\
 "  Subtitle                 = {Institutio oratoria},"\\
-"  Usera                    = {Quintilian}"\\
+"  Namea                    = {Quintilian}"\\
 "}"
 
 wie folgt ausgelesen:
@@ -310,12 +295,15 @@ Mit der aktivierten angesprochenen Funktion "longjournal" wird daraus:
 \end{center}
 \DescribeMacro{verlag}
 
+Angabe aller Erscheinungsorte und Verlagsort. Damit geht auch eine Änderung der Auflagezahl einher, die dann direkt vor das Erscheinungsjahr gesetzt wird.
+Erstauflage wird in eckiger Klammer nach dem Erscheinungsjahr gesetzt.
 
 \begin{center}
 * * *
 \end{center}
 \DescribeMacro{hrsgv}
 
+Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit einem "(Hrsg.)" gekennzeichnet, sondern nach dem Titel des Sammelbandes mit dem Zusatz "hrsg. v.".
 
 
 
@@ -326,12 +314,19 @@ Mit der aktivierten angesprochenen Funktion "longjournal" wird daraus:
 \end{center}
 \DescribeMacro{jahrinklammern}
 
+Setzt die Jahreszahlen in der Fußnote und in der Bibliographie in runde Klammern.
 
 \begin{center}
 * * *
 \end{center}
 \DescribeMacro{kapitaelchen}
+Die Option ändert die Formatierung der Zitation, sodass die Namen in Kapitälchen gesetzt werden.
 
+\begin{center}
+* * *
+\end{center}
+\DescribeMacro{miturl}
+Angabe von DOI/URL/eprint
 
 
  \section{Beschreibung der Eintragtypen}
@@ -869,7 +864,6 @@ Beispielsweise kann man eine Unterbibliographie haben, in der nur die Sigeln (Le
  \item[jahrreihe] Die Reihe wird erst nach der Jahreszahl ausgegeben. Siehe \cref{book}.
  \item[jahrinklammern] Die Jahreszahl wird in Klammern gesetzt. Siehe \cref{book}.
 
- \item[nurinit] \todo{ist das noch relevant?} Bei allen Namen werden nur Initialien für die Vornamen verwendet. Siehe \cref{book}.
  
 \item[uebersetzung]
 \item[longjournal]
@@ -879,6 +873,7 @@ Beispielsweise kann man eine Unterbibliographie haben, in der nur die Sigeln (Le
 \item[nurnachname]
 \item[vollername]
 \item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt.
+\item[miturl] Ausgabe von DOI/eprint/URL wenn gewünscht
  \end{description}
 
  \subsection{Eintragsoptionen}
