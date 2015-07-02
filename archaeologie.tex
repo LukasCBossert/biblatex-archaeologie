@@ -236,7 +236,7 @@ Im Fließtext schreibt man:
 
 \begin{bsp} \ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".\end{bsp}
 
-Und nach dem Texen wird dann in der Standardeinstellung (ohne weitere Optionen):
+Und nach dem Kompilieren wird dann in der Standardeinstellung (ohne weitere Optionen):
 \begin{bsp} \ldots , dies behaupten ebenso R. M. Boehmer  and N. Wrede in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).\end{bsp}
 
 Oder mit den Optionen:
@@ -591,8 +591,7 @@ M. Torelli, Il ‚diribitorium‘ di Alba Fucens e il ‚campus‘ eroico di Her
  \DescribeMacro{@inreference}
  Mit dem Typ "@inreference" können beispielsweise Lexikonartikel zitiert werden.
  
- 
- Wichtig ist, dass darauf geachtet wird, dass bei gewählter Option  "lexika=true" (in der Präambel) und bei der Zitation in Klammern (), der Befehl "\cite"\marg{Schlüssel} in die Umgebung "\mkbibparens{}" gesetzt wird, damit die Klammerregelung automatisch angewendet wird.
+\DescribeMacro{\mkbibparens} Wichtig ist, dass darauf geachtet wird, dass bei gewählter Option  "lexika=true" (in der Präambel) und bei der Zitation in Klammern (), der Befehl "\cite"\marg{Schlüssel} in die Umgebung "\mkbibparens{}" gesetzt wird, damit die Klammerregelung automatisch angewendet wird.
 
  %% Wenn wir neben \cite in der cbx noch \parencite definieren würden, 
  %% bräuchte man diese Besonderheit mit \mkbibparens nicht. 
