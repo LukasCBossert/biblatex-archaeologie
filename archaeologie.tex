@@ -24,8 +24,27 @@
 % Um Kommentare einzufügen
 % \usepackage[disable]{todonotes} % notes not showed
 \usepackage[draft]{todonotes}   % notes showed
-
-
+\usepackage[					% use  for bibliography
+	backend=biber,
+%style=authortitle-dw, 
+	%style=geschichtsfrkl, fnverweise=true,
+	style=archaeologie,
+	%lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+	uebersetzung,
+	nurinit,
+	%longjournal,
+	%verlag,
+	%hrsgv,
+	%jahrreihe,
+	%jahrinklammern,
+	%nurnachname,
+	%vollername,
+	%kapitaelchen,
+	miturl,
+	%fnverweise, %*noch nicht lauffähig
+	%%%%%%%%%%%%%%%%%%%%%%%
+]{biblatex}
+\addbibresource{archaeologie.bib}
 \begin{document}
 %  \DocInput{archaeologie.dtx}
 
