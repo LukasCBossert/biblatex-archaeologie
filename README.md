@@ -7,19 +7,5 @@ Dies ist die README-Datei für den biblatex-Stil "archaeologie", der die Vorgabe
 Der Stil ist noch NICHT veröffentlicht und befindet sich in der fortgeschrittenen Beta-Phase.
 
 
-Zum Stil gehören die Beschreibung ("archaeologie.tex", bzw. "archaeologie.pdf"), sowie die beiden Dateien "archaeologie.bbx" sowie "archaeologie.cbx".
-Zudem gibt es ein Minimalbeispiel ("MWE_archaeologie.tex") mit dazugehörender Bibliographie ("MWE_archaeologie.bib").
+Zum Stil gehören die Beschreibung ("archaeologie.pdf"), sowie die beiden Dateien "archaeologie.bbx" sowie "archaeologie.cbx".
 
-
-
-
-alles, was hier nicht mehr drin steht, wurde schon in "archaeologie.tex" verarbeitet
-
-
-
-
-##################
-##    WICHTIG   ##
-##################
-
-nicht das Feld "address" verwenden, sondern immer "location" !!!!
