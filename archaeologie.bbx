@@ -3386,12 +3386,12 @@ minnames=1%
     \ifblank{#3}{}{%
       \ifbool{bbx:bibvollername}{#3\addspace}{#4\addspace}}%
     \ifblank{#5}{}{\addspace #5\addnbspace}%
-   {#1}
-    \ifnumcomp{\value{listcount}}{<}{\value{liststop}-1}%
-       {\daiautorentrennzeichen\addspace}%
-       {%
-        \ifmorenames{\andothersdelim\bibstring{andothers}}{}%
-       }%
+   {#1}%
+    \ifthenelse{\value{listcount}<\value{listtotal}}{%
+      \daiautorentrennzeichen\addspace%
+    }{%
+      \ifmorenames{\andothersdelim\bibstring{andothers}}{}%
+    }%
 }%
 
 \DeclareListFormat{location}{%
@@ -3476,7 +3476,7 @@ minnames=1%
 \renewbibmacro*{author/editor}{%
   \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
     \ifnameundef{editor}{}{%
-      \printnames[author]{editor}\addspace%
+ 	\printnames[][-\value{listtotal}]{editor}\addspace%      
       \printtext[parens]{\bibstring{editor}}\newunit%
       }%
   }{%
