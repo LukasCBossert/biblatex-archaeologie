@@ -11,7 +11,7 @@ bibencoding=utf8,%
 sortlocale=de,%
 dateabbrev=false,% 
 sorting=nyt,%
-maxnames=3,% 
+maxnames=2,% 
 minnames=1%
 }%
 \begingroup\newif\ifmy
@@ -3553,8 +3553,7 @@ minnames=1%
                    \printtext{%
                    		\bibstring{volumes}}%
                    		\newunit}}%
-               {\printtext{\bibstring{volume}}\addspace%
-                 \printfield{volume}%
+               {\usebibmacro{volume}%
                  \setunit*{%
                  \addcolon%
                  \addspace}}%
@@ -3653,7 +3652,8 @@ minnames=1%
 
 \newbibmacro*{volume}{%
  \iffieldundef{volume}{}%
-      {\bibstring{volume}\addspace\printfield{volume}\newunit}}
+      {%\bibstring{volume}\addspace
+      \printfield{volume}\newunit}}
 
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{
