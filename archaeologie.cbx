@@ -51,13 +51,13 @@
               {\setunit{\addspace}}%
               {\newunit}%
   \iffieldundef{postnote}{}%
-    {\ifboolexpr{bool{cbx:antik}}{%
+    {\ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik}}{%
        \ifbool{cbx:antik}{\printfield{postnote}}{}%
-       \ifbool{cbx:frg}{%
+       \ifbool{cbx:frgantik}{%
          \printfield{postnote}\addspace%
          \ifnameundef{shorteditor}%
            {\printnames[frg]{editor}}%  
-           {\printnames[frg]{shorteditor}}\addperiod%
+           {\printnames[frg]{shorteditor}}%
        }{}%
      }{\printfield{postnote}%
      }%
@@ -67,7 +67,7 @@
 \newbibmacro*{cite:name}{%    
   \ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
-    \ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik} or bool{cbx:frg}}{%
+    \ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik}}{%
       \printnames{namea}%
     }{%
       \iffootnote{%
@@ -154,14 +154,14 @@
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifbool{bbx:lexika}{}{\usebibmacro{postnote}}}%
+  {\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}{\usebibmacro{postnote}}}%
   
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifbool{bbx:lexika}{}{\usebibmacro{postnote}}}%
+  {\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}{\usebibmacro{postnote}}}%
   
 
 \DeclareCiteCommand{\citeauthor}%
