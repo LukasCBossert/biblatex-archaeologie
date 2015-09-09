@@ -1,0 +1,1410 @@
+\documentclass[a4paper]{ltxdoc}
+\CodelineNumbered
+\AtBeginDocument{\RecordChanges}
+\AtEndDocument{\PrintChanges}
+%\usepackage{hypdoc}
+ % \usepackage[no-math]{fontspec}
+\usepackage[LGR,T1]{fontenc}
+  \usepackage{polyglossia}
+ \setdefaultlanguage{german}
+	\setotherlanguages{greek}
+%\newfontfamily\greekfont[Script=Greek]{libertine}.
+ \usepackage[oldstyle]{libertineRoman}
+%\usepackage{roboto}%Schriftart für Sansserif 
+\usepackage{coolthms}
+\usepackage{csquotes}
+\usepackage{multicol}
+\usepackage{framed}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 2pt}
+\setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
+\usepackage{changepage}
+
+   
+\newenvironment{bsp}{\begin{framed}\begin{small}
+\begin{adjustwidth}{1cm}{1cm}}{\end{adjustwidth}
+\end{small}\end{framed}}
+
+
+\hypersetup{colorlinks=true}
+\listfiles
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+\usepackage{wallpaper}
+%\CenterWallPaper{0.9}{proofreading} %% for proofreading
+
+% Um Kommentare einzufügen
+ \usepackage[disable]{todonotes} % notes not showed
+\usepackage[					% use  for bibliography
+	backend=biber,
+	style=archaeologie,
+	%lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+	%uebersetzung,
+	%bibvollername,
+	%keineabkuerzung,
+	%verlag,
+	%hrsgv,
+	%jahrreihe,
+	%	jahrinklammern,
+	%nurnachname,
+	%vollername,
+	%kapitaelchen,
+	%miturl,
+	%%%%%%%%%%%%%%%%%%%%%%%
+]{biblatex}
+
+\addbibresource{archaeologie.bib}
+\renewcommand\bibfont{\normalfont\small}
+
+
+\hypersetup{  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     =  blue, %Colour for external hyperlinks
+  linkcolor    = black, %Colour of internal links
+  citecolor   = blue, %Colour of citations
+  }	
+\begin{document}
+%  \DocInput{archaeologie.dtx}
+
+\MakeShortVerb{\"}
+ \newenvironment{syntax}{\begin{small}\medskip\hspace*{2em}}{\par\medskip\end{small}}
+ \def\verbatimchar{;}
+
+
+
+ \title{\texttt{archaeologie} -- \\\texttt{biblatex} für Archäologen\footnote{Ebenso nützlich und geeignet für (Alt-)Historiker und (Alt-)Philologen.}}
+ \author{Lukas C. Bossert\thanks{\url{LukasCB@me.com}} \and Johannes Friedl\thanks{\url{NN}}}
+ \date{Version: \today}
+ 
+ 
+ 
+ \maketitle
+ \begin{abstract}
+\noindent Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um.
+
+\noindent This citation-style takes care of the citation and bibliography rules made by the German Archaeology Insitute.
+%Zudem gibt es auch die Möglichkeit im Autor-Jahr- und Autor-Titel-System zu zitieren und bibliographieren. 
+ \end{abstract}
+\begin{small}
+\begin{multicols}{2}
+{\parskip=0mm \tableofcontents}
+
+\end{multicols}
+\end{small}
+
+\section{Verwendung}
+ \DescribeMacro{archaeologie} Der Name des Stils ist "archaeologie" und wird an entsprechender Stelle geladen.
+
+\begin{syntax} "\usepackage[style=archaeologie,%"\\
+ "            "\meta{weitere Optionen}"]{biblatex}"\\
+ "\bibliography"\marg{"bib"-Datei}\end{syntax}\par
+ 
+Dabei kann man weitere der \enquote{konventionellen} "biblatex"-Optionen oder der -- weiter unten beschriebenen -- von "archaeologie" zur Verfügung gestellten Optionen laden.
+
+ "archaeologie" lädt standardmäßig den DAI-Stil im Autor-Jahr-System. Um schnell und einfach im DAI-Stil zu zitieren, benötigt es keine weiteren Einstellungen und Optionen.
+
+Nicht vergessen sollte man den "\printbibliography"-Befehl, sodass  eine Bibliographie angelegt und ausgegeben wird. 
+%Diese kann "biblatex"-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  
+ Da "archaeologie" unterschiedliche Zitierweisen von Textsorten wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographieaufteilung dementsprechend anzupassen. Verschiedene Möglichkeiten zur Gestaltung der Bibliographie siehe  \cref{bibliographie}.
+ 
+\section{Übersicht}
+
+ Im Folgenden sind   kurz die möglichen Optionen, mit denen der Stil "archaeologie" aufgerufen werden kann, aufgeführt. 
+ Dazu kann man -- quasi auf eigene Gefahr -- noch die konventionellen "biblatex"-Optionen (insbesondere zur Formatierung der Abstände etc. des Literaturverzeichnisses) verwenden. Näheres zu diesen findet man in der Dokumentation von "biblatex".
+
+ \subsection{Paketoptionen (Präambel)}
+
+%% Folgende Optionen können dem Paket "biblatex" beim Laden mit auf den Weg gegeben werden oder auch danach mit "\ExecuteBibliographyOptions" nachgereicht werden. Eventuell lohnt es sich auch einen Blick auf die Beispiele in \cref{beispiele} zu werfen.
+
+ \begin{description}
+
+ %\item[dai-verweis] \todo[noline]{funktioniert noch nicht} Bei Folgezitaten wird auf die Fußnotenzahl des Erstzitats verwiesen. Siehe \cref{dai-verweis}.
+ \item[hrsgv] Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. Siehe \cref{hrsgv}.
+ \item[jahrreihe] Die Reihe wird erst nach der Jahreszahl ausgegeben. Siehe \cref{jahrreihe}.
+ \item[jahrinklammern] Die Jahreszahl wird in Klammern gesetzt. Siehe \cref{jahrinklammern}.
+\item[uebersetzung] Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Bei Einträgen, die "options=antik" haben, ist dies Standard. Siehe \cref{uebersetzung}. 
+\item[keineabkuerzung] Die Abkürzungen von Zeitschriften und Serien ("shortjournal"/"shortseries") werden ausgeschrieben, wofür die Felder "journaltitle" und "series" ausgelesen werden. Siehe \cref{keineabkuerzung}.
+\item[verlag] Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe. Siehe \cref{verlag}.
+\item[bibvollername] Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie. Siehe \cref{bibvollername}.
+\item[lexika]  Siehe \cref{lexika}.
+\item[nurnachname] Schreibt die Autoren/-Herausgeber, die über "\citeauthor"\marg{Schlüssel} im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten). Siehe \cref{nurnachname}.
+\item[vollername]Schreibt die Autoren/-Herausgeber, die über "\citeauthor"\marg{Schlüssel} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind. Siehe \cref{vollername}.
+\item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt. Siehe \cref{kapitaelchen}.
+\item[miturl] Ausgabe von DOI/eprint/URL wenn gewünscht. Siehe \cref{miturl}.
+ \end{description}
+
+ \subsection{Literaturoptionen (Bibliographieeintrag)}
+ Zusätzlich kann ein einzelner Eintrag durch folgende Werte in seinem "options"-Feld manipuliert werden. Siehe dazu auch \cref{optionen-literatur} und \cref{beispiele}. 
+
+ \begin{description}
+ \item[antik] Zeichnet den Eintrag als antike Quelle aus. Siehe \cref{antik}.
+% \item[frg] Zeichnet den Eintrag als Fragment aus. Siehe \cref{frg}.
+ \item[frgantik] Zeichnet den Eintrag als antikes Fragment aus. Siehe \cref{frgantik}.
+ \item[nurshorthand] Nur das "shorthand"-Feld wird beim Folgezitat ausgegeben. Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). Siehe \cref{nurshorthand}.
+ \item[lexikon] Zeichnet den Eintrag als ein zitierfähiges Lexikon aus, das über den abgekürzten Haupttitel zitiert wird (RE, DNP, LTUR, LIMC, etc.). Siehe \cref{lexikon}.
+ \item[unbekannt] Zeichnet den Eintrag als anonymes Werk aus, sodass nach dem Feld "shorthand" zitiert wird. Siehe \cref{unbekannt}.
+ \end{description}
+
+ \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
+
+
+ 
+
+
+ \subsection{cite-Befehle}\label{cite-befehle}
+ \DescribeMacro{\cite}
+Die einfachste Weise zum Zitieren wird mit "\cite" bewerkstelligt:\par
+ \begin{syntax}"\cite"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax}
+ wobei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \meta{postnote} für gewöhnlich die Seitenzahl. Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:\par
+ \begin{syntax}"\cite"\oarg{postnote}\marg{Schlüssel}\end{syntax}
+ \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der "bib"-Datei.
+
+\begin{center} * * * \end{center}
+ \DescribeMacro{\parencite}
+ Möchte man Literaturangaben in den Fußnoten in Klammern setzen, dann empfiehlt sich dies mittels\par
+   \begin{syntax}"\parencite"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax} zu tun.
+ Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
+ Dies ist vor allem bei Lexikaeinträgen der Fall, wie das Beispiel unter \cref{inreference} zeigt.
+\begin{center} * * * \end{center}
+ \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}
+Zum ›normalen‹ "\cite"-Kommando gibt es die Möglichkeit im Fließtext und in den Anmerkungen auf den Autor/Herausgeber und das Werk zu verweisen.
+Dies wird über den Befehl\par
+  \begin{syntax}"\citeauthor"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax} \par 
+  und \par 
+   \begin{syntax}"\citetitle"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax}ausgeführt. Weitere Informationen unter \cref{vollername}.
+
+%\todo[inline]{Vielleicht können wir hier am Anfang eine Standardpräambel inkl. Bibliographieaufteilung vorschlagen, die dann "biblatex"-Unversierte ohne nachzudenken übernehmen können. 
+%Dort muss nur klar gemacht werden, dass die bib-Datei die entsprechenden keywords und options enhalten muss (antik, Quelle etc.)}
+
+\subsection{Einträge mit @string}
+Die Zitationsrichtlinie des DAI sieht vor, dass vor allem Zeitschriften und Reihen nach einer vorgegebenen Liste abgekürzt werden.\footnote{\url{https://www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf/2c74093b-c8b6-4c6a-8af1-17a155109505} (\today)}
+
+ \DescribeMacro{@string}Der Stil "archaeologie" geht auf diese Vorgabe ein und kürzt Zeitschriften/Reihen ab.
+Um Fehler zu vermeiden und unnötiges Tippen der teilweise langen Zeitschriftennamen, bzw. Reihen zu ersparen, arbeitet "archaeologie" mit "@string"-Angaben.
+Dies hat den Vorteil, dass  mittels "@string" mehreren Bibliographieeinträgen einen zentral definierten Wert zugewiesen wird.
+Der "@string" wird in der "bib"-Datei am Anfang geladen, daher muss er vor alle anderen Bibliographieeinträge stehen.
+
+Um dieses Angebot an ›Vereinfachung‹ zu nutzen,  müssen Zeitschriftennamen ("journaltitle") und ihre Kurzformen ("shortjournal"), sowie Reihen ("series") und deren Kurzformen ("shortseries") mittels "@string" geschrieben werden.
+In \cref{listen} sind die Abkürzungen nach DAI-Vorgabe aufgeführt, sodass der "@string" (mit den Ergänzungen "-kurz", bzw. "-lang") (in Fettdruck) abgelesen werden kann.
+Dieser "@string"
+% (bspw. "AyasofyaMuezYil"; siehe \ref{AyasofyaMuezYil-kurz}, bzw. \ref{AyasofyaMuezYil-lang}) 
+wird dann OHNE Klammersetzung in die Felder (bspw. "journaltitle") geschrieben.\footnote{Verwendet man bspw. das Programm JabRef in der Fensteransicht, dann muss \#"AyasofyaMuezYil"\# geschrieben werden. JabRef konvertiert dies intern zu einem "@string".}
+
+Ein Beispiel zeigt den Umgang:
+
+"@article{Koyunlu_1990,"\\
+"author = {Koyunlu, A.},"\\
+"title = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},"\\
+"pages = {147--156},"\\
+"volume = {11},"\\
+"year = {1990},"\\
+"journaltitle = AyasofyaMuezYil-lang,"\\
+"shortjournal = AyasofyaMuezYil-kurz"\\
+"}"\\
+
+Dieser Artikel erschien in einer nicht geläufigen Zeitschrift, die zudem nach DAI-Vorgabe mit ›AyasofyaMüzYıl‹ abgekürzt werden soll.
+Um sich bei diesem Beispiel die Arbeit zu sparen den Buchstaben ›ı‹ manuell einzufügen, wird er im "@string" mit ›i‹ geschrieben (weitere Besonderheiten siehe \cref{listen}) und erscheint dann beim Kompilieren mit der korrekten Schreibweise:
+
+
+\begin{bsp}
+\begin{refsection}
+\nocite{Koyunlu_1990}
+\printbibliography[title={Forschungsliteratur}]
+\end{refsection}
+\end{bsp}
+
+
+Die standardmäßige Abkürzung kann optional ausgeschaltet werden.
+Verwendet man die Option "keineabkuerzung" (siehe \cref{keineabkuerzung}), dann ändert sich die Ausgabe entsprechend:
+\begin{bsp}\todo[noline]{manuelles Beispiel}
+A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
+%\fullcite{Koyunlu_1990}
+\end{bsp}
+
+Ein Vorteil ist, dass man eine eigene Bibliographie mit den Abkürzungen der Zeitschriften und Reihen machen kann. Einzelheiten dazu siehe \cref{bibliographie}.
+
+Findet sich die Zeitschrift oder Reihe {\color{red}nicht} in der unter \cref{listen} aufgeführten Liste, dann wird diese  {\color{red}nicht} abgekürzt und ganz normal in "{}" bei "journaltitle="\marg{Zeitschriftentitel} gesetzt.
+In den folgenden Beispielen wird, wo möglich, mit "@string" gearbeitet.
+
+\section{Optionale Steuerung}
+Nachfolgend werden die Optionen des Stils "archaeologie" immer auch konkret an Beispielen erläutert.
+Änderungen, die durch die Optionen erfolgen, sind {\color{red}rot} markiert.
+In {\color{blue}blau} sind bibliographische Einträge, die mit dem nächsten Literaturverzeichnis verknüpft sind.
+
+ \subsection{Optionen in der Präambel}\label{optionen-preamble}
+ 
+ In der Präambel kann man, wie folgt, den Stil "archaeologie" über das Paket "biblatex" laden:
+ 
+" \usepackage[%"\\						
+"		" "backend=biber,			% aktiviert biber"\\
+"		" "style=archaeologie, 	% lädt den Stil 'archaeologie'"\\
+"		" "lexika=true, 				%true =  bspw. LTUR 2 (1994) 123 s. v."\\
+"		" "]{biblatex}"
+ 
+In diesem Beispiel wurde der Stil "archaeologie" mit der Option "lexika" geladen ("=true"). 
+Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weitere verschiedene Optionen manipuliert, die entsprechend ebenfalls in der Präambel geladen werden können.
+
+
+\subsubsection{dai-verweis}\label{dai-verweis}
+ \DescribeMacro{dai-verweis}
+ Diese Option ermöglicht in den Fußnoten die Angabe eines Rückverweis zur Erstnennung des zitierten Bibliographieeintrags.
+ "#### Work in Progress ####"
+ 
+
+\subsubsection{uebersetzung}\label{uebersetzung}
+\DescribeMacro{uebersetzung}
+Wenn diese Option aktiviert wird, erfolgt die Angabe  eines Originaltitels, die Sprache, aus welcher übersetzt wurde und des Übersetzers des Werkes. Diese Option ist standardmäßig auf "=false" gesetzt. 
+Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
+ 
+  "@Book{Lefebvre_2011,"\\
+"  Title 			= {The Production of Space},"\\
+"  Author		= {Henri Lefebvre},"\\
+"  Publisher 	= {Blackwell Publishing Ltd},"\\
+"  Year			= {2011},"\\
+"  Edition		= {30},"\\
+"  Location	= {Maien, MA and Oxford and Victoria},"\\
+"  Origdate	= {1991},"\\
+"  Origlanguage	= {french},"\\
+"  Origtitle	= {La production de l’espace},"\\
+"  Translator	= {Donald Nicholson-Smith}"\\
+" }"
+
+wird in der Bibliographie zunächst auf diese Weise umgesetzt:
+%\begin{bsp}
+%%Henri Lefebvre, The Production of Space \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011)
+%%\todo[noline]{dynamisches Beispiel}\fullcite{Lefebvre_2011}
+%\end{bsp}
+ \begin{bsp}
+\begin{refsection}
+\nocite{Lefebvre_2011}
+\printbibliography[title={Forschungsliteratur}]
+\end{refsection}
+\end{bsp}
+
+
+ mit der aktivierten Option "uebersetzung" wird daraus:
+ 
+\begin{bsp}%
+%\fullcite{Lefebvre_2011}
+\todo[noline]{manuelles Beispiel}H. Lefebvre, The Production of Space{\color{red}, Originaltitel: La production de l’espace, aus dem Französischen übers. von Donald Nicholson-Smith} \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011) 
+\end{bsp}
+ 
+
+
+\subsubsection{lexika}\label{lexika}
+\DescribeMacro{lexika}  Lexikoneinträge können in den Fußnoten in verschiedenen Zitationsformen dargestellt werden.
+ Voraussetzung ist, dass  beim Bibliographiedatensatz bei "options = {lexikon}" (siehe \cref{lexikon}) gesetzt wird. 
+ Zudem   bietet sich optional an ebenso  "keywords = {lexikon}" zu setzen, um diese Einträge dann in der Bibliographie auszuschließen (über "notkeyword=lexikon", bzw. "keyword=lexikon").
+ 
+ Am folgenden Beispielsdatensatz wird die Option verdeutlicht:\\
+ 
+%  \begin{bsp}
+"	@Inreference{Nieddu_1995,"\\
+"  Title			= {Dei Consentes},"\\
+"  Author		= {Nieddu, Giuseppe},"\\
+"  Year			= {1995},"\\
+"  Maintitle	= {LTUR},"\\
+"  Pages 		= {9--10},"\\
+"  Volume		= {2},"\\
+"  Bookpagination	= {column},"\\
+"  Keywords	= {lexikon},"\\
+"  Options 	= {lexikon},"\\
+"  }"\\
+%  \end{bsp}
+  \begin{refsection}
+  Die Ausgabe von "\cite{Nieddu_1995}" ist nun auf zwei Arten möglich:
+   \begin{bsp}
+
+ \begin{enumerate}
+ \item standardmäßig wird daraus:  %Nieddu 1995
+ \todo[noline]{dynamisches Beispiel}\cite{Nieddu_1995}
+ \item mit der Option "lexika" wird dies zu: \todo[noline]{manuelles Beispiel}
+ LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
+ % \cite{Nieddu_1995}
+  \end{enumerate}
+   \end{bsp}
+ Trägt man eine konkrete Spalten/Seitenzahl ein ("\cite[9]{Nieddu_1995}"), dann wird diese Angabe in der Fußnote angegeben:
+ \begin{bsp} LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
+\end{bsp}
+
+Verwendet man diese Option, dann empfiehlt es sich für die Bibliographie die in den Fußnoten voll zitierten Einträge auszuschließen.\footnote{%
+Dies wird möglich, indem "notkeyword=lexikon" bei den Optionen von "printbibliography" gesetzt wird.}
+Ansonsten sieht der Eintrag wie folgt aus:
+  \begin{bsp}
+
+\nocite{Nieddu_1995}
+\printbibliography[title={Forschungsliteratur}]
+
+\end{bsp}
+ \end{refsection}
+ 
+ 
+\subsubsection{jahrreihe}\label{jahrreihe}
+ \DescribeMacro{jahrreihe}
+ Mit der Option "jahrreihe" kann man bewirken, dass die Reihe (Felder "series" und "number") erst \emph{nach} dem Jahr ausgegeben werden, was von der Richtlinie des DAI abweicht. 
+ Bei Sammelbänden kann diese Option zum Tragen kommen:
+ 
+" @Incollection{Mundt_2015,"\\
+"  Author  = {Mundt, Felix},"\\
+"  Title   = {Der Mensch, das Licht und die Stadt},"\\
+"  Subtitle  = {Rhetorische Theorie und Praxis antiker"\\
+"								"" und humanistischer Städtebeschreibung},"\\
+"  Pages   = {179--206},"\\
+"  Editor  = {Therese Fuhrer and Felix Mundt and Jan Stenger},"\\
+" Maintitle = {Cityscaping},"\\
+" Mainsubtitle             = {Constructing and Modelling Images of the City},"\\
+"  Publisher = {de Gruyter},"\\
+"  Year    = {2015},"\\
+"  Number  = {3},"\\
+"  Series  = Philologus-kurz # "''". Suppl."'' ","\footnote{Hier zeigt sich eine Besonderheit der "@string": Zuerst wird die Kurzform der Abkürzung mittels "Philologus-kurz" aufgerufen, dann mit einem "\#" erweitert und mit ''". Suppl."'' ergänzt. In der Ausgabe wird dann die Ergänzung zum "@string" hinzugezogen. }\\
+"  Shortseries          		= Philologus-lang # "''". Suppl."'' ","\\
+"  Location  = {Berlin and Boston},"\\
+"}"\\
+ 
+ Ohne eine Option wird in der Bibliographie daraus:
+% \begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Mundt_2015}\end{bsp}
+  \begin{bsp}
+\begin{refsection}
+\nocite{Mundt_2015}
+\printbibliography[title={Forschungsliteratur}]
+\end{refsection}
+\end{bsp}
+ 
+ mit der aktivierten Option "jahrreihe" verändert sich die Reihenfolge:
+ \begin{bsp}
+F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer – F. Mundt – J. Stenger (Hrsg.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus. Suppl. 3,} 179–206
+\end{bsp}
+
+\subsubsection{vollername / nurnachname}\label{vollername}\label{nurnachname}
+\DescribeMacro{vollername}
+\DescribeMacro{nurnachname}
+Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
+Autoren/Herausgeber werden über "\citeauthor"\marg{Schlüssel} aufgerufen.
+Ebenso ist auch das Auslesen der Werktitel über "\citetitle"\marg{Schlüssel} möglich, wobei der Titel in eine "emph{}"-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.
+
+Zunächst erfolgt die Ausgabe der Autoren, bzw. Herausgeber mit den Initialen des Vornamens und mit dem Nachnamen. 
+Die Darstellung der Namen kann jedoch noch auf zwei andere  Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via "hyperref" verlinkt. Die zwei Arten sind: mit dem vollen Vor- und Zunamen und nur mit dem Nachnamen. In einer Fußnote jedoch wird stets nur der/die Nachnamen gesetzt.
+
+Ein Beispiel macht dies klarer.
+Der Bibliographieeintrag lautet:
+
+"@Article{Boehmer_1985,"\\
+"  Title   = {Astragalspiele in und um Warka},"\\
+"  Author  = {Boehmer, Rainer Michael and Wrede, Nadja},"\\
+"  Journaltitle = BaM-lang,"\\
+"  Shortjournal  = BaM-kurz,"\\
+"  Pages   = {399--404},"\\
+"  Volume  = {16},"\\
+"  Year    = {1985},"\\
+"  }"\par
+
+Im Fließtext schreibt man:
+\begin{refsection}
+\begin{bsp}
+\ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".
+\end{bsp}
+
+Und nach dem Kompilieren wird dann in der Standardeinstellung (ohne weitere Optionen):
+\begin{bsp} \todo[noline]{dynamisches Beispiel}\ldots , dies behaupten ebenso  \citeauthor{Boehmer_1985} in ihrem jüngsten Werk \citetitle{Boehmer_1985}.\end{bsp}
+
+Oder mit den Optionen "vollername" (\cref{name:a}) und "nurnachname" (\cref{name:b}):
+\begin{bsp}
+ \begin{enumerate}
+\item\label{name:a} 
+ \ldots , dies behaupten ebenso {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+\item\label{name:b}  
+\ldots , dies behaupten ebenso  {\color{red}Boehmer und  Wrede} in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+
+ \end{enumerate}
+\end{bsp}
+
+\begin{bsp}
+\nocite{Boehmer_1985}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+\end{refsection}
+
+
+Werden allerdings mit "\citeauthor", bzw. "\citetitle"  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag "options=antik" geschrieben werden), dann wird für den Autorenname das Feld "namea" ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
+
+Um Fehler zu vermeiden ist es absolut wichtig, dass dieses Feld wie die anderen Namensfelder behandelt wird. Möchte man »Plinius, d. Ä.« als deutschen Rufnamen ausgeben, dann muss man schreiben: "namea = {Plinius, {d.\,Ä.}}".
+
+Bei antiken Werktitel wird keine Jahreszahl dazugeschrieben.
+Somit wird aus dem Bibliographieeintrag
+
+"@Book{Quint_inst,"\\
+"  Title   = {Ausbildung des Redners},"\\
+"  Author  = {Fabius Quintilianus, Marcus},"\\
+"  Translator  = {Rahn, Helmut},"\\
+"  Year    = {2015},"\\
+"  Edition = {6},"\\
+"  Keywords  = {Quelle},"\\
+"  Location  = {Darmstadt},"\\
+"  Options = {antik},"\\
+"  Origlanguage  = {latin},"\\
+"  Shorthand = {Quint. inst.},"\\
+"  Subtitle  = {Institutio oratoria},"\\
+"  Namea   = {Quintilian}"\\
+"}"
+
+wie folgt  Autor und  Buchttitel ausgelesen:
+\begin{refsection}
+
+ \ldots\ Auch "\citeauthor{Quint_inst}" nennt in "\citetitle{Quint_inst}" die notwendigen physischen Qualitäten eines Redners.\par
+ 
+ \begin{bsp}
+ \ldots\ \todo[noline]{dynamisches Beispiel}Auch \citeauthor{Quint_inst} nennt in \citetitle{Quint_inst} die notwendigen physischen Qualitäten eines Redners.\par
+\end{bsp}
+
+
+\begin{bsp}
+\nocite{Quint_inst}
+\printbibliography[title={Antike Quellen}]
+\end{bsp}
+\end{refsection}
+
+
+
+\subsubsection{jahrinklammern}\label{jahrinklammern}
+\DescribeMacro{jahrinklammern}%
+Setzt die Jahreszahlen aller Einträge in der Fußnote und in der Bibliographie in runde Klammern.
+Anstatt wie standardmäßig aus  "\cite[123]{Ball_2013}"
+\begin{bsp} Ball – Dobbins 2013, 123 \end{bsp}
+ wird, wird mit der Option: 
+\begin{bsp}
+Ball – Dobbins {\color{red}(}2013{\color{red})}, 123
+\end{bsp}
+
+%und in der Bibliographie:
+%
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Ball_2013}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
+
+
+
+
+\subsubsection{kapitaelchen}\label{kapitaelchen}
+\DescribeMacro{kapitaelchen}
+Die Option ändert die Formatierung der Zitation, sodass die Namen in den Anmerkungen/Fußnoten und in der Bibliographie in Kapitälchen gesetzt werden.
+Anstatt wie standardmäßig aus  "\cite[123]{Ball_2013}"
+\begin{bsp} Ball – Dobbins 2013, 123 \end{bsp}
+ wird, wird mit der Option: 
+\begin{bsp}
+{\scshape {\color{red}Ball – Dobbins}} 2013, 123
+\end{bsp}
+
+Entsprechend in der Bibliographie:
+\begin{bsp}
+{\scshape {\color{red}Ball – Dobbins}} 2013\\
+\hspace*{3em}L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking\\\hspace*{3em}on the Pompeii Forum, AJA 117/3, 2013, 461–492
+
+\end{bsp}
+
+
+
+\subsubsection{bibvollername}\label{bibvollername}
+\DescribeMacro{bibvollername}
+Ausgabe des vollen Namens (soweit Vor- und Zuname ausgeschrieben wurden) in der Bibliographie.
+
+\begin{bsp}
+\begin{refsection}
+\nocite{Ball_2013}
+\printbibliography[title={Forschungsliteratur}]
+\end{refsection}
+\end{bsp}
+
+Mit aktivierter Option wird dies zu:
+
+\begin{bsp}
+{\color{red}Larry F. Ball – John J. Dobbins}, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
+%\fullcite{Ball_2013}
+
+\end{bsp}
+
+
+\subsubsection{keineabkuerzung}\label{keineabkuerzung}
+\DescribeMacro{keineabkuerzung}
+Die DAI-Vorgabe sieht vor, Zeitschriften nur abgekürzt wiederzugeben, dafür wird das Feld "shortjournal" vom Bibliographieeintrag ausgelesen. Gibt es keine Abkürzung, also wurde das Feld "shortjournal" leer gelesen, wird automatisch das Feld "journal" ausgelesen.
+Möchte man hingegen den vollen Zeitschriftennamen in der Bibliographie haben, dann muss man die Option "keineabkuerzung" aktivieren.
+
+"@Article{Ball_2013,"\\
+"  Title   = {Pompeii Forum Project},"\\
+"  Author  = {Larry F. Ball and John J. Dobbins},"\\
+"  Journaltitle = AJA-lang,"\\
+"  Pages   = {461--492},"\\
+"  Volume  = {117},"\\
+"  Year    = {2013},"\\
+"  Number  = {3},"\\
+"  Shortjournal   = AJA-kurz,"\\
+"  Subtitle  = {Current Thinking on the Pompeii Forum}"\\
+"  }"\\
+
+Ohne eine Zusätzliche Option wird der Eintrag in der Bibliographie wie folgt umgesetzt:
+
+%\begin{bsp}
+%\todo[noline]{dynamisches Beispiel}\fullcite{Ball_2013}
+%\end{bsp}
+\begin{bsp}
+\begin{refsection}
+\nocite{Ball_2013}
+\printbibliography[title={Forschungsliteratur}]
+\end{refsection}
+\end{bsp}
+
+
+Mit der aktivierten angesprochenen Funktion "keineabkuerzung" wird daraus:
+
+\begin{bsp}\todo[noline]{manuelles Beispiel}L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum,  {\color{red}American Journal of Archaeology} 117/3, 2013, 461–492\end{bsp}
+
+\subsubsection{verlag}\label{verlag}
+\DescribeMacro{verlag} 
+Angabe aller Erscheinungsorte und Verlagsort. Damit geht auch eine Änderung der Auflagezahl einher, die dann direkt vor das Erscheinungsjahr gesetzt wird.
+Erstauflage wird in eckiger Klammer nach dem Erscheinungsjahr gesetzt.
+
+"@Book{Emme_2013,"\\
+"  Author  = {Burkhard Emme},"\\
+"  Title   = {Peristyl und Polis},"\\
+"  Subtitle  = {Entwicklung und Funktionen %"\\
+"								""öffentlicher griechischer Hofanlagen},"\\
+"  Number  = {1},"\\
+"  Publisher = {Walter de Gruyter},"\\
+"  Series  = {Urban Spaces},"\\
+"  Year    = {2013},"\\
+"  Location  = {Berlin and New York},"\\
+"}"\\
+
+ Ohne eine Option wird in der Bibliographie daraus:
+% \begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Emme_2013}\end{bsp}
+ \begin{bsp}
+\begin{refsection}
+\nocite{Emme_2013}
+\printbibliography[title={Forschungsliteratur}]
+\end{refsection}
+\end{bsp}
+ 
+ mit der aktivierten Option "verlag" verändert sich die Reihenfolge:
+ \begin{bsp}
+ \todo[noline]{manuelles Beispiel}
+ B. Emme, Peristyl und Polis. Entwicklung und Funktionen öffentlicher griechischer Hofanlagen, Urban Spaces 1 (Berlin {\color{red} – New York: Walter de Gruyter} 2013)\end{bsp}
+ 
+ 
+ 
+ 
+\subsubsection{hrsgv}\label{hrsgv}
+\DescribeMacro{hrsgv}
+Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit einem "(Hrsg.)" gekennzeichnet, sondern nach dem Titel des Sammelbandes mit dem Zusatz "hrsg. v."
+
+
+
+"@Inproceedings{Wulf-Rheidt_2013,"\\
+"  Author  = {Wulf-Rheidt, Ulrike},"\\
+"  Title   = {Der Palast auf dem Palatin -- Zentrum im Zentrum},"\\
+"  Subtitle  = {Geplanter Herrschersitz oder"\\
+"									 Produkt eines langen Entwicklungsprozesses?},"\\
+" Pages   = {277--289},"\\
+"  Editor  = {Dally, Ortwin and Fless, Friederike and Haensch,"\\
+"									Rudolf and Pirson, Felix and Sievers, Susanne},"\\
+"  Maintitle = {Politische Räume in vormodernen Gesellschaften},"\\
+"  Mainsubtitle             = {Gestaltung – Wahrnehmung – Funktion},"\\
+"  Year    = {2013},"\\
+"  Eventdate = {2009-11-18/2009-11-22},"\\
+"  Eventtitle               = {Internationale Tagung des DAI"\\
+"							 und des DFG-Exzellenzclusters TOPOI},"\\
+" Venue   = {Berlin},"\\
+"  Publisher = {Verlag Marie Leidorf},"\\
+"  Location  = {Rahden/Westf.},"\\
+"  Series  = MKT-lang,"\\
+" Shortseries 		= MKT-kurz,"\\
+"  Number  = {6},"\\
+"}"\\
+
+
+ Ohne eine Option wird in der Bibliographie daraus:
+ %\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Wulf-Rheidt_2013}\end{bsp}
+  \begin{bsp}
+\begin{refsection}
+\nocite{Wulf-Rheidt_2013}
+\printbibliography[title={Forschungsliteratur}]
+\end{refsection}
+\end{bsp}
+ 
+ mit der aktivierten Option "hrsgv" verändert sich die Reihenfolge:
+ \begin{bsp} \todo[noline]{manuelles Beispiel}
+U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?, in:  {\color{red}Politische Räume in vormodernen Gesellschaften. Gestaltung – Wahrnehmung – Funktion, hrsg. v. O. Dally – F. Fless – R. Haensch – F. Pirson – S. Sievers}. Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI Berlin 18.–22. November 2009, MKT 6 (Rahden/Westf. 2013) 277–289
+ \end{bsp}
+ 
+ 
+
+
+\subsubsection{miturl}\label{miturl}
+\DescribeMacro{miturl}
+Für Bibliographieeinträge die online sind ("@Online") werden  die URLs/DOI immer mit angegeben.
+
+" @Online{Selle_2008,"\\
+" Title   = {Raum und Verhalten},"\\
+" Author  = {Selle, Klaus},"\\
+" Url     = {http://www.pt.rwth-aachen.de/%"\\
+"dokumente/lehre_materialien/c8_raum_verhalten.pdf},"\\
+" Urldate 				= {2015-06-26},"\\
+" Year    = {2008},"\\
+" Subtitle  = {Grundlagen und erste Folgerungen für das Wohnen in der Stadt},"\\
+" }"\\
+
+%\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Selle_2008}\end{bsp}
+ \begin{bsp}
+\begin{refsection}
+\nocite{Selle_2008}
+\printbibliography[title={Forschungsliteratur}]
+\end{refsection}
+\end{bsp}
+
+Handelt es sich jedoch um einen Artikel o. ä., dann kann man die Angabe der URL/DOI/eprint optional steuern:
+
+" @Article{Mastrocinque_2012,"\\
+" Title   = {Magnetometry at Grumentum in Ancient Lucania},"\\
+" Author           = {Mastrocinque, Attilio and Saggioro, Fabio},"\\
+" Journaltitle           = {The Journal of Fasti Online},"\\
+" Pages   = {1--5},"\\
+" Year    = {2012},"\\
+" Url     = {www.fastionline.org/docs/FOLDER-it-2012-245.pdf},"\\
+" urldate				 = {2015-07-21},"\\
+" }"\\
+
+
+\begin{bsp}\todo[noline]{manuelles Beispiel}
+A. Mastrocinque – F. Saggioro, Magnetometry at Grumentum in Ancient Lucania, The Journal of Fasti Online, 2012, 1–5,\\
+ {\color{red}<"www.fastionline.org/docs/FOLDER-it-2012-245.pdf"> (21. 07. 2015)}
+\end{bsp}
+
+\subsection{Optionen der Literatureinträge}\label{optionen-literatur}
+\subsubsection{antik}\label{antik}
+ \DescribeMacro{antik} \emph{Die Formatierungen von "antik" und "frgantik" sind zu großen Teilen vom Bibliographiestil "geschichtsfrkl" v.1.1 (Jonathan Zachhuber) übernommen und modifiziert worden.}
+ 
+Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option "antik" zu versehen. Wir betrachten wieder ein Beispiel:\\[3pt]
+"@Book{Cic_Att,"\\
+"  Title = {Atticus-Briefe},"\\
+"  Author = {Tullius Cicero, Marcus},"\\
+"  Editor  = {Kasten, Helmut},   % wird bei @book nicht ausgelesen"\\
+"  Publisher = {Artemis {\&} Winkler},"\\
+"  Series  = {Tusculum Bücherei},"\\
+"  Year = {1980},"\\
+"  Edition = {3},"\\
+"  Keywords = {Quelle},"\\
+"  Location = {Düsseldorf and Zürich},"\\
+"  Options = {antik},"\\
+"  Origlanguage = {latin},"\\
+"  Origyear = {1959},"\\
+"  Shorthand  = {Cic. Att.},"\\
+"  Translator = {Kasten, Helmut},"\\
+"  Namea = {Cicero}     % relevant für \citeauthor"\\
+"	}"\\[3pt]
+
+
+ Beim Zitieren wird  nur das Feld "shorthand" berücksichtigt: 
+ "\cite[1, 3,3]{Cic_Att}" liefert
+ \begin{refsection}
+\begin{bsp}
+\cite[1, 3,3]{Cic_Att}
+%Cic. Att. 1, 3,3
+\end{bsp}
+Dieses Feld "shorthand" wird für das Literaturverzeichnis verwendet, wo es als ›Schlüssel‹ auftaucht.: 
+\begin{bsp}
+\printbibliography[title={Antike Quellen}]
+\end{bsp}
+\end{refsection}
+
+
+
+Es gibt auch antike Texte, die in einem Sammelband ("@incollection") herausgegeben sind. 
+Dieser Fall stellt jedoch kein Problem dar und wird analog zu "@book" geplottet.
+Ein Beispiel verschafft Klarheit:
+
+"@Incollection{Cic_Sest,"\\
+"  Title = {Rede für P.\ Sestius},"\\
+"  Author = {Tullius Cicero, Marcus},"\\
+"  Editor  = {Fuhrmann, Manfred},"\\
+"  Pages = {110--185},"\\
+"  Publisher = {Artemis \& Winkler},"\\
+"  Year = {1993},"\\
+"  Series = {Sammlung Tusculum},"\\
+"  Volume = {2},"\\
+"  Keywords = {Quelle},"\\
+"  Location = {München},"\\
+"  Maintitle= {Die politischen Reden},"\\
+"  Options = {antik},"\\
+"  Origlanguage = {latin},"\\
+"  Origtitle = {pro P.\ Sestio},"\\
+"  Shorthand = {Cic. Sest.},"\\
+"  Translator = {Fuhrmann, Manfred},"\\
+"  Namea = {Cicero}"\\
+"}"\\
+
+
+\begin{bsp}
+\begin{refsection}
+\nocite{Cic_Sest}
+\printbibliography[title={Antike Quellen}]
+\end{refsection}
+\end{bsp}
+
+
+%\subsubsection{frg}\label{frg}
+% \DescribeMacro{frg}
+%%% Wenn man Fragmente zitiert kann man dazu die Option "frg" bzw. "frgantik" wählen. Das wirkt sich dann leicht unterschiedlich auf die Zitatsform aus. Wir betrachten das am besten wieder an Beispielen: Der "bib"-Eintrag\\[3pt]
+%"@book{alkaios,"\\
+%"	author={{Alkaios}},"\\
+%"	shorthand={Alk.},"\\
+%"	sortname={Edgar Lobel and Denys Page},"\\
+%"	maintitle={Poetarum Lesbiorum Fragmenta},"\\
+%"	editor={Edgar Lobel and Denys Page},"\\
+%"	shorteditor={LP},"\\
+%"	address={Oxford},"\\
+%"	year={1955},"\\
+%"	keywords={quelle},"\\
+%"	options={frg}"\\
+%"}"\\[3pt]
+%
+%\begin{refsection} 
+% \begin{bsp}
+% \cite[2]{alkaios}
+% \end{bsp}
+% 
+% In der Bibliographie  unterscheidet sich der Eintrag gegenüber "antik"  geringfügig:
+%\begin{bsp}
+%\printbibliography[title={Antike Quellen}]
+%\end{bsp}
+%\end{refsection}
+
+%% Das "sorttitle"-Feld sorgt hier dafür, dass der Eintrag nicht unter \enquote{Alkaios} sondern den Namen der Herausgeber sortiert wird. Im Literaturverzeichnis sieht das dann folgendermaßen aus:
+%%\begin{bsp} {\sc Lobel}, Edgar / {\sc Page}, Denys (Hrsg.): Poetarum Lesbiorum Fragmenta, Oxford 1955.\end{bsp}
+%% Wenn man ihn zitiert, erscheint bei "\cite[2]{alkaios}"
+%% \begin{bsp} Alk. frg. 2 LP.\end{bsp}
+%% Bemerkenswert ist insbesondere die Verwendung des "shorteditor"-Feldes. Ansonsten wird nur der Nachname des Herausgebers angegeben. Details findet man in \cref{driver}.
+%%
+
+\subsubsection{frgantik}\label{frgantik}
+ \DescribeMacro{frgantik}
+ Mit der Option "frgantik" werden die Bibliographieeinträge versehen, die antike Fragmente beinhalten, da die Herausgeber dieser Fragmente relevant sind. Dies wird in der Zitierweise berücksichtigt. 
+ \\[3pt]
+"@Book{Fest,"\\
+"  Title = {De verborum significatu quae supersunt cum Pauli epitome},"\\
+"  Author = {Pompeius Festus, {Sex}tus},"\\
+"  Editor = {Lindsay, Wallace Martin},"\\
+"  Publisher = {Teubner},"\\
+"  Series = {Bibliotheca scriptorum et Graecorum et Romanorum Teubneriana},"\\
+"  Year = {1965},"\\
+"  Keywords = {Quelle},"\\
+"  Location = {Leipzig},"\\
+"  Options = {frgantik},"\\
+"  Origyear = {1913},"\\
+"  Shorthand = {Fest.},"\\
+"  Namea = {Festus}"\\
+"}"\\[3pt]
+ Zitiert man diesen Eintrag durch "\cite[3]{Fest}", so wird der oder die Herausgeber genannt.
+\begin{refsection} 
+ \begin{bsp}\todo[noline]{dynamisches Beispiel}
+ \cite[3]{Fest}
+ \end{bsp}
+ 
+ In der Bibliographie  unterscheidet sich der Eintrag gegenüber "antik"  geringfügig:
+\begin{bsp}
+\printbibliography[title={Antike Quellen}]
+\end{bsp}
+\end{refsection}
+ 
+\subsubsection{unbekannt}\label{unbekannt}
+ \DescribeMacro{unbekannt}
+ Für manche Artikel oder Bücher lässt sich kein Autor oder Herausgeber ermitteln. 
+ Diese Werke werden dann als anonym gekennzeichnet und nicht nach dem (anonymen) Autor/Herausgeber zitiert, sondern nach einer gewählten "shorthand". 
+ Dafür muss  "options={unbekannt}" stehen. 
+ 
+" @Article{Cosa_1949,"\\
+"  Title   = {Cosa},"\\
+"  Journaltitle  = ClJ-lang,"\\
+"  Shortjournal  = ClJ-kurz,"\\
+"  Pages   = {141--149},"\\
+"  Volume  = {45},"\\
+"  Year    = {1949},"\\
+"  Number  = {1},"\\
+"  Keywords  = {unbekannt},"\\
+"  Options = {unbekannt},"\\
+"  Shorthand = {Cosa},"\\
+"  Subtitle  = {Republican Colony in Etruria},"\\
+"}"\\
+ 
+
+ 
+ Die "shorthand" wurde in diesem Fall analog zum Titel gewählt (Cosa).
+ Zitiert man dieses Werk in einer Fußnote, dann wird
+
+ "\cite[vgl.][145--146]{Cosa_1949}" 
+
+ zu
+ \begin{refsection}
+ \begin{bsp} 
+ \cite[vgl.][145--146]{Cosa_1949}
+% vgl.  [Cosa 1949], 145--146
+ \end{bsp}
+ 
+Und für die Bibliographie:
+\begin{bsp}
+%\nocite{Cosa_1949}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+\subsubsection{lexikon}\label{lexikon}
+\DescribeMacro{lexikon}
+Diese Eintragsoption ist für Lexikoneinträge ("@inreference"; siehe \cref{@inrefrence}) sinnvoll, wenn diese zu den ›gängigen Lexika‹ gehören (RE, DNP, LTUR, LIMC, etc.).
+Dann muss im Bibliographieeintrag gesetzt werden: "options={lexikon}".
+Ein Beispiel illustriert dies:
+
+"@Inreference{Rosenberger_2012,"\\
+"  Title   = {Öffentlich/privat bei den Römern},"\\
+"  Author  = {Rosenberger, Veit},"\\
+"  Maintitle = ThesCRA-kurz,      "\emph{Verwendung von @string}\\
+"  Pages   = {11--16},"\\
+"  Volume  = {8},"\\
+"  Year    = {2012},"\\
+"  Bookpagination = {column},"\\
+"  Keywords  = {lexikon},"\\
+"  Options = {lexikon}"\\
+"}"\\\par
+
+Diese Option kommt nur in Kombination mit der Paketoption "lexika" (siehe \cref{lexika}) zum Tragen, wodurch sich die Zitation in der Fußnote und Bibliographie geändert wird.
+
+
+
+\subsubsection{nurshorthand}\label{nurshorthand}
+\DescribeMacro{nurshorthand}
+Für bestimmte Corpora (Inschriften, Münzen, etc.) wird für gewöhnlich mit einer gängigen Abkürzung zitiert.
+Diese Abkürzung des Corpus wird im Bibliographieeintrag unter "shorthand" eingetragen.
+Nun kann man sehr einfach das gewünschte Corpus in der Fußnote zitieren, mit  "prenote" und "postnote"-Feldern. Bei anderen Autoren-Einträge, die mittels "shorthand" zitiert werden, wird ein Komma zwischen Nachname und "postnote" gesetzt. Dank "options=nurshorthand" fällt dieses Komma weg.
+
+Das Beispiel zeigt die Option für die lateinischen Inschriften:
+
+"@Book{CIL,"\\
+" Title   = CIL-lang,"\\
+"  Keywords  = {Sigel},"\\
+"  Options = {nurshorthand},"\\
+"  Shorthand = CIL-kurz,"\\
+"}"\\
+
+Zitiert wird, wie gewöhnlich, mit "\cite[06, 01234]{CIL}". Daraus wird:
+
+ \begin{refsection}
+\begin{bsp}
+\cite[06, 01234]{CIL}
+%Cic. Att. 1, 3,3
+\end{bsp}
+Dieses Feld "shorthand" wird für das Literaturverzeichnis verwendet, wo es als ›Schlüssel‹ auftaucht.: 
+\begin{bsp}
+\printbibliography[keyword=Sigel,%
+title={Abkürzungen und Sigel}]\end{bsp}
+\end{refsection}
+
+
+
+Aufgrund der Setzung von "keywords=Sigel" können diese Art von Corpora in einer separaten Bibliographie aufgeführt werden. Siehe dazu \cref{bibliographie}
+
+\changes{v1.1}{2015/06/15}{Modifikation der Option "nurshorthand".}
+
+
+ \section{Beschreibung der Eintragtypen (Beispiele)} \label{beispiele}
+
+
+ Der "archaeologie"-Zitierstil definiert verschiedene bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
+
+
+
+ \subsection{Typ \texttt{@book}}\label{book}
+
+ \DescribeMacro{@book}
+ Fangen wir ganz einfach an: Zu einem einfachen Buch sieht der Eintrag in der "bib"-Datei ungefähr folgendermaßen aus:\\[3pt]
+
+
+"@Book{Mann_2011,"\\
+"  Author  = {Mann, Christian},"\\
+"  Title   = {»Um keinen Kranz, um das Leben kämpfen wir!«},"\\
+"  Subtitle  = {Gladiatoren im Osten des Römischen Reiches" \\" und die Frage der Romanisierung},"\\
+" Series  = {Studien zur Alten Geschichte},"\\
+"  Number  = {14},"\\
+"  Location  = {Berlin},"\\
+"  Publisher = {Verlag Antike},"\\
+"  Year    = {2011},"\par
+"}"\\
+\begin{refsection}
+Zitiert man daraus mit "\footnote{\cite[Vgl.][142--144]{Mann_2011}.}", dann erscheint in der Fußnote\footnote{\cite[Vgl.][142--144]{Mann_2011}.}.
+In der Bibliographie wird der Eintrag wiedergegeben mit:
+%\begin{bsp}\fullcite{Mann_2011}\end{bsp}
+\begin{bsp}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+
+Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprechend zu zitieren, gehört der Zusatz ins Feld "titleaddon", bzw. wenn es sich um ein "@inbook" oder "@inproceedings" handelt, entsprechend ins Feld "maintitleaddon" (\cref{inbook}).
+
+
+"@Book{Boehm_2001,"\\
+ " Title   = {Ithake},"\\
+ " Editor  = {Böhm, Stephanie and Eickstedt, Klaus-Valtin von},"\\
+ " Titleaddon = {Festschrift für Jörg Schäfer"\\ "zum 75. Geburtstag am 25. April 2001},"\\
+ " Publisher = {Ergon-Verlag},"\\
+  "Year    = {2001},"\\
+ " Location = {Würzburg},"\\
+"}"\par
+
+%\begin{bsp}\fullcite{Boehm_2001}\end{bsp}
+\begin{refsection}
+\begin{bsp}
+\nocite{Boehm_2001}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+ \DescribeMacro{@collection}
+ Der Typ "@collection" entspricht hier dem Typ "@book".
+
+ \subsection{Typ \texttt{@inbook / @incollection}}\label{inbook}
+
+ \DescribeMacro{@incollection}
+ Kapitel aus Sammelbändern macht man am Besten mit dem Typ "@incollection". 
+ Am besten sieht man das wieder an Hand eines Beispiels:\\[3pt]
+ 
+"@Incollection{Carter_2014,"\\
+"  Title   = {Spectacle in Rome, Italy, and the Provinces},"\\
+"  Author  = {Carter, Michael J. and Edmondson, Jonathan},"\\
+"  Editor  = {Bruun, Christer and Edmondson, Jonathan},"\\
+"  Pages   = {537--558},"\\
+"  Publisher = {Oxford University Press},"\\
+"  Year    = {2014},"\\
+"  Location  = {Oxford},"\\
+"  Maintitle = {The Oxford Handbook of Roman Epigraphy},"\\
+"}"\\
+
+%\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Carter_2014}\end{bsp}
+\begin{refsection}
+\begin{bsp}
+\nocite{Carter_2014}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+ 
+Zitiert man einen Beitrag aus einer Festschrift, o.ä., dann kann das folgendermaßen aussehen:
+
+"@Incollection{Hoelscher_2001,"\\
+ " Author  = {Hölscher, Tonio},"\\
+ " Title   = {Schatzhäuser -- Banketthäuser?},"\\
+ " Pages   = {143--152},"\\
+ " Editor  = {Böhm, Stephanie and Eickstedt, Klaus-Valtin von},"\\
+ " Maintitle = {Ithake},"\\
+ " Maintitleaddon = {Festschrift für Jörg Schäfer"\\ "zum 75. Geburtstag am 25. April 2001},"\\
+ " Publisher = {Ergon-Verlag},"\\
+  "Year    = {2001},"\\
+ " Location = {Würzburg},"\\
+"}"\par
+
+In der Bibliographie ist die Darstellung:
+
+%\begin{bsp}\fullcite{Hoelscher_2001}\end{bsp}
+\begin{refsection}
+\begin{bsp}
+\nocite{Hoelscher_2001}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+ 
+ Der Typ "@inbook" entspricht hier dem Typ "@incollection".
+
+ \subsection{Typ \texttt{@article}}\label{article}
+%%
+\DescribeMacro{@article}
+
+"@Article{Evangelidis_2014,"\\
+"  Title   = {Agoras {and} Fora},"\\
+"  Author  = {Evangelidis, Vasilis},"\\
+"  Journaltitle         = BSA-lang,"\\
+"  Pages   = {335--356},"\\
+"  Volume  = {109},"\\
+"  Year    = {2014},"\\
+"  Doi     = {10.1017/s006824541400015x},"\\
+"  Shortjournal             = BSA-kurz,"\\
+"  Subtitle  = {Developments in the Central Public Space of"\\
+"										 the Cities of Greece during the {Roman} Period},"\\
+"}"\\
+
+
+%\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Evangelidis_2014}\end{bsp}
+\begin{refsection}
+\begin{bsp}
+\nocite{Evangelidis_2014}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+
+
+\subsection{Typ \texttt{@proceedings}}\label{proceedings}
+
+ Für Beiträge innerhalb eines Konferenzbandes müssen die Felder "venue", "eventdate" und "eventtitle" ausgefüllt werden. Ansonsten alle anderen Felder entsprechend wie bei "@book":
+ 
+" @Proceedings{Kurapkat_2014,"\\
+"Title   = {Die Architektur des Weges},"\\
+"Editor  = {Kurapkat, Dietmar and Schneider, Peter I."\\
+"									and Wulf-Rheidt, Ulrike},"\\
+"Year    = {2014},"\\
+"Eventdate = {2012-02-08/2012-02-11},"\\
+"Eventtitle = {Kolloquium Architekturreferat des DAI},"\\
+"Location  = {Regensburg},"\\
+"Number  = {11},"\\
+"Publisher = {Schnell + Steiner},"\\
+"Series  = DiskAB-lang,"\\
+"Shortseries  = DiskAB-kurz,"\\
+"Subtitle  = {Gestaltete Bewegung im gebauten Raum},"\\
+"Venue   = {Berlin},"\\
+" }"\\
+
+So wird daraus: 
+ 
+%\begin{bsp}\todo[noline]{dynamisches Beispiel}
+%\fullcite{Kurapkat_2014}
+%\end{bsp}
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Kurapkat_2014}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+ 
+\subsection{Typ \texttt{@inproceedings}}\label{inproceedings}
+
+Wie bei "@proceedings" so auch hier:
+
+
+" @Inproceedings{Torelli_1991,"\\
+"  Author			= {Torelli, Mario},"\\
+"  Title				= {Il ›diribitorium‹ di Alba Fucens e il ›campus‹ eroico di Herdonia},"\\
+"  Pages			= {39--63},"\\
+"  Editor			= {Mertens, Josef},"\\
+"  Maintitle		= {Comunitá indigene e problemi della romanizzazione"\\
+"							 nell’Italia centro-meridionale (IV--III sec. a.C.)},"\\
+"  Year				= {1991},"\\
+"  Eventtitle		= {Actes du Colloque International Organisé"\\
+"							à l'Occasion du 50. Anniversaire de l'Academia Belgica et"\\
+"							du 40. Anniversaire des Fouilles Belges en Italie},"\\
+"  Venue			= {Roma},"\\
+"  Eventdate	= {1990-02-01/1990-02-03},"\\
+"  Publisher		= {Institut Historique Belge de Rome},"\\
+"  Location		= {Bruxelles},"\\
+"  Series			= {Études de philologie, d'archéologie et d'histoire anciennes},"\\
+"  Number		= {29},"\\
+"  Hyphenate 	= {italian},"\\
+"  Shorttitle		= {Il ›diribitorium‹}"\\
+"}" \\
+
+Und daraus wird:
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Torelli_1991}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+ \subsection{Typ \texttt{@inreference}}\label{inreference}
+
+ \DescribeMacro{@inreference}
+ Mit dem Typ "@inreference" können beispielsweise Lexikonartikel zitiert werden.
+ 
+
+ 
+ "@Inreference{Neils_1994,"\\
+ "  Title   = {Theseus},"\\
+ "  Author  = {Neils, Jenifer},"\\
+ "  Year    = {1994},"\\
+ "  Maintitle = LIMC-kurz,        "\emph{Angabe des @string}\\
+ " Options	= {lexikon},"\\
+ "  Pages   = {922--951},"\\
+ "  Volume  = {7.1},"\\
+ "} "
+
+ Verwendet man den normalen "\cite"\oarg{prenote}\oarg{postnote}\marg{Schlüssel}-Befehl, dann wird bei eingetragener Option ("lexikon") die \oarg{postnote} nicht nachgestellt, sondern nach der Jahresangabe des Lexikons gesetzt.
+ Ist die \oarg{postnote} leer, dann werden die Seiten aus dem Bibliographieeintrag ausgelesen und an diese Stelle gesetzt:
+  
+ \begin{bsp}
+	\ldots\ ("\cite[vgl.][930 Nr. 283]{Neils_1994}").
+	
+	...\ (vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)).
+	% \ldots (\fullcite[vgl.][930 Nr. 283]{Neils_1994}).
+ \end{bsp}
+ 
+\DescribeMacro{\mkbibparens} 
+Dieses Beispiel zeigt, dass keine Klammerregelung angewendet wurde, was nicht gewünscht ist. 
+Es ist zu beachten, dass bei gewählter Option  "lexika=true" (in der Präambel) und bei einer gewünschten  Zitation in Klammern (), der Befehl "\parencite"\marg{Schlüssel} verwendet wird (\ref{cite-befehle}), damit die Klammerregelung automatisch angewendet wird.
+Dies funktioniert so: 
+ 
+ \begin{bsp}
+	\ldots\ "\parencite[vgl.][930 Nr. 283]{Neils_1994}}."
+ 
+ 	...\ (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]).
+
+	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
+ \end{bsp}
+
+
+Da im Bibliographieeintrag "options={lexikon}" (siehe \cref{lexikon}) geschrieben wurde, kann man nun bei gewählter Option "lexika=true" alle Lexikoneinträge von der Bibliographie ausschließen (da sie ja in der Fußnote vollzitiert werden).
+Dies funktioniert, indem man "notkeyword=lexikon" ergänzt bei:
+
+"\printbibliography[%"\\
+"            ""notkeyword=lexikon,%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Forschungsliteratur}]" 
+
+Ansonsten sieht der Eintrag in der Bibliographie so aus:
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Neils_1994}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+ 
+ \subsection{Typ \texttt{@review}}\label{review}
+\DescribeMacro{@review}
+Rezensionen, die in Zeitschriften erschienen sind, werden als "@review" verarbeitet.
+Oft zitiert man die Rezension und das rezensierte Werk in seiner Arbeit.
+Das folgende Beispiel geht auf diesen Fall ein und erläutert die relevanten Punkte und Besonderheiten.
+
+Dafür sind zwei Bibliographieeinträge notwendig.
+Zuerst das rezensierte Werk:
+
+"@Book{Welch_2007,"\\
+"  Title                    = {The {Roman} Amphitheatre},"\\
+"  Author                   = {Welch, Katherine E.},"\\
+"  Location                 = {Cambridge and New York},"\\
+"  Publisher                = CUP,"\\
+"  Subtitle                 = {From its Origins to the Colosseum},"\\
+"  Year                     = {2007}"\\
+"}"\\
+
+und schließlich die dazugehörige Rezension:
+
+"@Review{Bell_2011,"\\
+"  Author                   = {Bell, Sinclair},"\\
+"  Titleaddon = {\fullcite{Welch_2007}},%" \emph{Besonderheit!!}\\
+"  Number                   = {1},"\\
+"  Volume                   = {115},"\\
+"  Pages                    = {1--4},"\\
+"  Year                     = {2011},"\\
+"  Journaltitle             = AJA-lang,"\\
+"  Publisher                = {Archaeological Institute of America},"\\
+"  Shortjournal             = AJA-kurz,"\\
+"}"\\
+
+Im Bibliographieeintrag der Rezension ("Bell_2011") wird im Feld "Titleaddon" mittels "\fullcite{Welch_2007}" Bezug auf das rezensierte Werk ("Welch_2007") genommen.
+Dies ist für die Bibliographie relevant: Es ist nun nicht mehr notwendig das rezensierte Werk mit allen dazugehörigen Angaben einzutippen, da die dies automatisch über das Vollzitat erfolgt.
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Bell_2011}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+Manche Rezensionen sind ausführlicher und haben daher einen eigenen Titel, der angegeben werden soll.
+In diesem Fall wird das Feld "Title" ausgefüllt, ansonsten bleibt alles gleich: 
+
+"@Review{Hufschmid_2010,"\\
+"  Title                    = {Von Caesars \emph{theatron kynegetikon}"\\
+" zum \emph{amphitheatrum novum} Vespasians},"\\
+"  Titleaddon = {\fullcite{Welch_2007}},%" \emph{Besonderheit!!}\\
+"  Author                   = {Hufschmid, Thomas},"\\
+"  Pages                    = {487--504},"\\
+"  Volume                   = {23},"\\
+"  Year                     = {2010},"\\
+"  Journaltitle             = JRA-lang,"\\
+"  Shortjournal             = JRA-kurz,"\\
+"}"\\
+
+In der Bibliographie wird dann zuerst der eigene Titel der Rezension ausgegeben, dann die Angaben zum rezensierten Werk.
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Hufschmid_2010}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+Der Vorteil mit "fullcite" zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
+Der ›Nachteil‹ ist, dass in der Bibliographie immer beide Einträge erscheinen (Rezension und rezensiertes Werk), obwohl man vielleicht das rezensierte Werk nicht explizit zitiert hat.
+
+
+ \subsection{Typ \texttt{@thesis}}\label{thesis}
+Master- und (unpublizierte) Doktorarbeiten sind als "@thesis" aufzunehmen.
+Wichtige Felder sind "type="\marg{"phdthesis"} bzw. \marg{"mathesis"}  und "institution="\marg{Universität}.
+
+Beispiel:
+
+" 	@Thesis{Arnolds_2005,"\\
+"   Title      	= {Funktionen republikanischer und frühkaiserzeitlicher"\\ 
+"					Forumsbasiliken in Italien},"\\
+"  	Author	= {Markus Arnolds},"\\
+"  	Date			= {2005-05-31},"\\
+"  	Institution	= {Ruprecht-Karls-Universität zu Heidelberg},"\\
+"  	Type		= {phdthesis},"\\
+"  	Year			= {2005},"\\
+"  	Url			= {http://nbn-resolving.de/urn:nbn:de:bsz:16-heidok-74406},"\\
+"  	Urldate	= {2015-04-17}"\\
+"	}"\
+
+In der Bibiographie wird das zu:
+
+%\begin{bsp}\todo[noline]{dynamisches Beispiel}
+%\fullcite{Arnolds_2005}
+%\end{bsp}
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Arnolds_2005}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+ 
+ 
+ \changes{v1.1}{2015/06/04}{Umsetzung von "@thesis" im Stil.}
+
+
+
+%%
+%%
+
+
+ \section{Bibliographie}\label{bibliographie}
+ \DescribeMacro{\printbibliography}
+ Zwar ist es keine spezielle Eigenschaft dieser "biblatex"-Formate aber vielleicht in diesem Zusammenhang doch sinnvoll zu erwähnen, wie man mit "biblatex" seperate Quellen- und Literaturverzeichnisse ausgeben lassen kann. Zunächst sollten alle Quellen in der "bib"-Datei mit dem Feld
+ "keyword={Quelle},"
+ versehen werden. 
+Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  "heading=bibnumbered", bzw. "heading=subbibnumbered" geladen werden.
+
+"\printbibheading[heading=bibnumbered,%"\\
+"            ""title={Bibliographie}] %" \emph{Überschrift für Bibliographieumgebung}\\
+"\printbibliography[keyword=Quelle,%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Antike Quellen}]"\\
+"\printbibliography[notkeyword=Quelle,%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Forschungsliteratur}]" 
+
+\begin{refsection}
+\nocite{*}
+
+Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis getrennt voneinander ausgegeben. 
+\setcounter{section}{0}
+\begin{bsp}\todo[noline]{dynamisches Beispiel}
+\renewcommand\bibfont{\normalfont\footnotesize}
+\printbibheading[heading=bibnumbered,
+            title={Bibliographie}]
+\printbibliography[keyword=Quelle,
+            heading=subbibnumbered,
+            title={Antike Quellen}]
+\printbibliography[notkeyword=Quelle,
+           	heading=subbibnumbered,
+            title={Forschungsliteratur}]
+\end{bsp}
+
+
+Es können mehrere Bibliographien über "\printbibliography" erstellt werden, die jeweils unterschiedliche Einträge haben können.
+Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln (Lexika, Handbücher, Inschriftencorpora, etc) aufgeführt werden, sodass diese dann aus der "Forschungsliteratur" herausfliegen (dort  "notkeyword=Sigel" ergänzen). Dafür wird das Feld "keyword" auf den Inhalt "Sigel" ausgelesen:
+
+"\printbibliography[keyword=Sigel,%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Abkürzungen und Sigel}]"\\
+
+Die Teilbibliographie umfasst dann nur Einträge, die unter "keywords = {Sigel}" stehen haben:
+\begin{bsp}\todo[noline]{dynamisches Beispiel}
+
+\printbibliography[keyword=Sigel,
+           heading=subbibnumbered,
+            title={Abkürzungen und Sigel}]
+\end{bsp}
+
+Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.
+Dies geschieht  für die Zeitschriften mit:
+
+"\printbiblist[%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Zeitschriftenabkürzungenl}]{shortjournal}"\\
+\begin{bsp}
+\printbiblist[heading=subbibnumbered,title={Zeitschriftenabkürzungen}]{shortjournal}
+\end{bsp}
+
+bzw. für die Reihen:
+
+"\printbiblist[%"\\
+"            ""heading=subbibnumbered,%"\\
+"            ""title={Reihenabkürzungen}]{shortseries}"\\
+
+\begin{bsp}
+\printbiblist[heading=subbibnumbered,title={Reihenabkürzungen}]{shortseries}\end{bsp}
+
+\end{refsection}
+\setcounter{section}{5}
+\section{Abkürzungen nach DAI-Richtlinie}\label{listen}
+
+Da manche Kürzel von Zeitschriften oder Reihen nicht als @string übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
+Generell gilt, dass Akzente weggelassen wurden, Umlaute ausgeschrieben (ä--> ae), ähnliche Buchstaben mit Äquivalenten ersetzt wurden (ı --> i).
+Nachfolgend werden zwei Listen angeführt, die die Auflistung nach @string (links) und Ausgabe (rechts) zeigen.
+Die erste Liste enthält die Abkürzungen (\cref{liste-kurz}), die zweite Liste die ausgeschriebenen Namen (\cref{liste-lang}).
+Es empfiehlt sich, in diesen Listen die @string-Angaben nachzuschauen und dann für "journaltitle" und "shortjournal", bzw. "series" und "shortseries" einzutragen: Es wird immer der gleiche "@string" aus der unten aufgeführten Liste in "journaltitle" und "shorttitle" eingetragen.
+Die Unterscheidung, ob in der Bibliographie die Abkürzung (Standard) oder der voller Titel genannt werden soll, erfolgt automatisch über die Option "keineabkuerzung" (Siehe \cref{keineabkuerzung}).
+
+
+\subsection{Kurzformen\label{liste-kurz}}
+\begin{multicols}{3}
+\input{dai-abkuerzungen-kurz-liste.tex}
+\end{multicols}
+
+
+\subsection{Langformen\label{liste-lang}}
+Die Ausgabe erfolgt über die Option "keineabkuerzung".
+\begin{multicols}{2}
+\input{dai-abkuerzungen-lang-liste.tex}
+\end{multicols}
+
+
+ \changes{v1.1}{2015/07/06}{Erstellung der Liste mit Abkürzungen}
+
+
+
+\section{Umsetzung}
+\label{driver}
+"archaeologie" besteht aus einem Bibliographieformat ("bbx") und einem Zitierformat ("cbx"). 
+%%
+
+\subsection{archaeologie.bbx}
+%"archaeologie" baut auf dem "standard"-Stil von "biblatex" auf, der entsprechend geladen werden muss.
+%	\begin{macrocode}
+%\ProvidesFile{archaeologie.bbx}%
+%               [2015/09/15 v1.0  archaeologie -- %
+%                biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
+%\RequireBibliographyStyle{standard}
+%	\end{macro}
+
+
+\subsection{archaeologie.cbx}
+
+ \changes{v0.1}{2015/06/04}{Started Project}
+ \changes{v0.9}{2015/07/07}{First public version}
+\PrintChanges
+\PrintIndex
+
+
+\end{document}
