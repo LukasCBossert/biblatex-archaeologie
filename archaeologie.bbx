@@ -3251,7 +3251,6 @@ minnames=1%
 \newbool{bbx:verlag}					
 \newbool{bbx:miturl}					
 \newbool{cbx:antik}%
-\newbool{cbx:frg}%
 \newbool{cbx:frgantik}%
 \newbool{cbx:nurshorthand}%
 \newbool{cbx:unbekannt}%		
@@ -3278,11 +3277,7 @@ minnames=1%
 
 %% \DeclareEntryOption %%
 \DeclareEntryOption{antik}[true]{\csuse{bool#1}{cbx:antik}}%
-\DeclareEntryOption{frg}[true]{\csuse{bool#1}{cbx:frg}}%
-\DeclareEntryOption{frgantik}[true]{%
-	\csuse{bool#1}{cbx:frgantik}%
-	\csuse{bool#1}{cbx:frg}%
-	}%
+\DeclareEntryOption{frgantik}[true]{\csuse{bool#1}{cbx:frgantik}}%
 \DeclareEntryOption{nurshorthand}[true]{\csuse{bool#1}{cbx:nurshorthand}}%
 \DeclareEntryOption{unbekannt}[true]{\csuse{bool#1}{cbx:unbekannt}}%
 \DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
@@ -3474,7 +3469,7 @@ minnames=1%
         \printnames[][-\value{listtotal}]{author}\newunit%
       }}%
 \renewbibmacro*{author/editor}{%
-  \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frg}}{%
+  \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frgantik}}{%
     \ifnameundef{editor}{}{%
  	\printnames[][-\value{listtotal}]{editor}\addspace%      
       \printtext[parens]{\bibstring{editor}}\newunit%
@@ -3750,7 +3745,7 @@ minnames=1%
     					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
     \setunit*{\newunit\addspace}%
 		\usebibmacro{bytranslator+others}}%
-		{\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik} or bool {cbx:frg}}{%
+		{\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
   		       					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%%
     \setunit{\addcomma\addspace}%
 		\usebibmacro{bytranslator+others}{}%
@@ -3847,7 +3842,7 @@ minnames=1%
   \usebibmacro{author}%
   \ifnameundef{author}{}{\newunit\newblock}%  
     \usebibmacro{title}%
-  \ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik} or bool {cbx:frg}}{%
+  \ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
   		       	\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
     \setunit{\addspace}%
 		\usebibmacro{bytranslator+others}{}%
@@ -3949,7 +3944,6 @@ minnames=1%
       \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
     \ifboolexpr{bool {cbx:antik}%
 	     or bool {cbx:frgantik}% 
-	     or bool {cbx:frg}% 
 	     or bool {cbx:nurshorthand}%
 	  }%
       {}%			
@@ -3961,7 +3955,6 @@ minnames=1%
 {%		
 					\ifboolexpr{bool {cbx:antik}% 
 									or bool {cbx:frgantik}% 
-									or bool {cbx:frg}% 
 									or bool {cbx:nurshorthand}}%
 							{\printfield{shorthand}}%
 							{\printtext{\printnames[cite:author]{labelname}}%
