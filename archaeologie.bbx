@@ -11,7 +11,7 @@ bibencoding=utf8,%
 sortlocale=de,%
 dateabbrev=false,% 
 sorting=nyt,%
-maxnames=3,% 
+maxnames=2,% 
 minnames=1%
 }%
 \begingroup\newif\ifmy
@@ -3307,6 +3307,48 @@ minnames=1%
 \DeclareFieldFormat{url}{\printtext{<}\url{#1}\printtext{>}}
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 
+\NewBibliographyString{origtitle}
+\NewBibliographyString{firstprint}
+\NewBibliographyString{translated}
+
+
+\shorthandon{"}
+\DefineBibliographyStrings{english}{%
+  origtitle = {original title},
+  firstprint = {first edition},
+  translated = {{translated}{trans\adddot}},
+    fromamerican     = {from American},
+  frombrazilian    = {from Brazilian},
+  fromcroatian     = {from Croatian},
+  fromdanish       = {from Danish},
+  fromdutch        = {from Dutch},
+  fromenglish      = {from English},
+  fromfinnish      = {from Finnish},
+  fromfrench       = {from French},
+  fromgerman       = {from German},
+  fromgreek        = {from Greek},
+  fromitalian      = {from Italian},
+  fromlatin        = {from Latin},
+  fromnorwegian    = {from Norwegian},
+  fromportuguese   = {from Portuguese},
+  fromrussian      = {from Russian},
+  fromspanish      = {from Spanish},
+  fromswedish      = {from Swedish},
+}
+\DefineBibliographyStrings{ngerman}{%
+  origtitle = {Originaltitel},
+  firstprint = {{Erstauflage}{Erstauf"|l.}},
+  translated = {{\"ubersetzt}{\"ubers\adddot}}
+}
+\DefineBibliographyStrings{german}{%
+  origtitle = {Originaltitel},
+  firstprint = {{Erstauflage}{Erstauf"|l.}},
+  translated = {{\"ubersetzt}{\"ubers\adddot}}
+}
+\shorthandoff{"}
+
+
+
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}%
 \renewcommand*{\intitlepunct}{\addcolon\addspace}%
 \renewcommand*{\newunitpunct}{\addcomma\addspace}%
@@ -3372,22 +3414,16 @@ minnames=1%
     }%
 }%
 
+
 \DeclareNameFormat{first-last-inits}{%
   \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
   \usebibmacro{name:andothers}%
 }
 
-\DeclareNameFormat{editor}{%
-    \ifblank{#3}{}{%
-      \ifbool{bbx:bibvollername}{#3\addspace}{#4\addspace}}%
-    \ifblank{#5}{}{\addspace #5\addnbspace}%
-   {#1}%
-    \ifthenelse{\value{listcount}<\value{listtotal}}{%
-      \daiautorentrennzeichen\addspace%
-    }{%
-      \ifmorenames{\andothersdelim\bibstring{andothers}}{}%
-    }%
-}%
+\DeclareNameAlias{editor}{author}
+\DeclareNameAlias{Translator}{author}
+
+
 
 \DeclareListFormat{location}{%
   #1\ifthenelse{\value{listcount}<\value{liststop}}%
@@ -3529,6 +3565,15 @@ minnames=1%
 \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
    
+\renewbibmacro*{maintitle}{%
+\printfield[titlecase]{maintitle}%
+\iffieldundef{mainsubtitle}{}{\setunit{\subtitlepunct}}%
+\printfield[titlecase]{mainsubtitle}%
+\setunit*{\newunit}%
+\iffieldundef{maintitleaddon}{}{\newunit\printfield[titlecase]{maintitleaddon}}%
+\iffieldundef{volume}{\newunit}{\addspace}%
+}
+
 \newbibmacro*{maintitle+title+volumes}{%
   \iffieldsequal{maintitle}{title}
     {\clearfield{maintitle}%
@@ -3536,27 +3581,25 @@ minnames=1%
      \clearfield{maintitleaddon}}
     {\iffieldundef{maintitle}{}%
        {\usebibmacro{maintitle}%
-       \newunit\newblock%
          \ifbool{cbx:antik}%
             {\usebibmacro{title}%
-            \addcomma%
-            \addspace}%
-            {\iffieldundef{volume}
+            \iffieldundef{volume}{\newunit\newblock}{}}%
+            {\iffieldundef{volume}%
                 {\iffieldundef{volumes}{}{%
                    \printfield{volumes}%
                    \addspace%
                    \printtext{%
                    		\bibstring{volumes}}%
                    		\newunit}}%
-               {\printtext{\bibstring{volume}}\addspace%
-                 \printfield{volume}%
+               {\printfield{volume}%
                  \setunit*{%
                  \addcolon%
                  \addspace}}%
         }}}%
    \iffieldundef{volumes}{%
    			\usebibmacro{title}}{}%
-   \newunit}%
+   \newunit}%   
+   
 
 \renewbibmacro{event+venue+date}{%
 \setunit{\adddot\addspace}%  
@@ -3580,17 +3623,17 @@ minnames=1%
 
 \newbibmacro*{originaltitel}{%
 					\addcomma\addspace%
-    					\printtext{Originaltitel}%
+    					\bibstring{origtitle}%
     					\addcolon\addspace%
     					\printfield{origtitle}%
     					\addcomma}
     					
 \newbibmacro*{Erstauflage}{%
-					\printtext{Erstauflage}\addcolon\addspace}
+					\bibstring{firstprint}\addcolon\addspace}
   
 \newbibmacro*{location+edition+year}{%		
 \ifbool{bbx:verlag}%				
-{    \iflistundef{location}{}{\printtext[parens]}{%  		
+{\iflistundef{location}{}{\printtext[parens]}{%  		
   {\iflistundef{location}{}{\printlist{location}}%
   \iffieldundef{publisher}{%                               
     \setunit*{\addcolon\addspace}%        
@@ -3624,7 +3667,7 @@ minnames=1%
                   \setunit*{\addspace}%               
               \printfield{origyear}%
                   \addsemicolon\addspace%
-              \printtext{Nachdr}\adddot\addspace%
+              \bibstring{reprint}\adddot\addspace%
     \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%
     }}%
 }																							
@@ -3639,6 +3682,14 @@ minnames=1%
   \printfield{year}%
   \newunit}
   
+\renewbibmacro*{bytranslator+others}{%
+\ifnameundef{translator}{\iffieldundef{origlanguage}{}{\bibstring{translated}
+\addspace\lbx@lfromlang\addspace%
+%\printtext{\"ubers\adddot}%
+}}{\bibstring{bytranslator}%
+\addspace%
+\printnames[author]{translator}%
+}}
 \newbibmacro*{addendum}{%
 }%
 %                                                                    %
@@ -3648,12 +3699,11 @@ minnames=1%
 
 \newbibmacro*{volume}{%
  \iffieldundef{volume}{}%
-      {\bibstring{volume}\addspace\printfield{volume}\newunit}}
+      {\printfield{volume}\newunit}}
 
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{
     \usebibmacro{maintitle}%
-    \newunit
     \usebibmacro{volume}
   }{%
     \ifbool{bbx:hrsgv}{%
@@ -3668,7 +3718,7 @@ minnames=1%
         \printnames[author][-\value{listtotal}]{editor}%
      }%
            {\printnames[author][-\value{listtotal}]{editor}\addspace%
-      \printtext[parens]{\bibstring{editor}}\addcomma\addspace%
+      \printtext[parens]{\bibstring{editor}}\newunit\newblock%\addcomma\addspace%
       \usebibmacro{maintitle}%
           \usebibmacro{volume}
       \newunit%
