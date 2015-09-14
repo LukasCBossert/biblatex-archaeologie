@@ -23,6 +23,7 @@
 \setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
 \usepackage{changepage}
 
+\makeindex
    
 \newenvironment{bsp}{\begin{framed}\begin{small}
 \begin{adjustwidth}{1cm}{1cm}}{\end{adjustwidth}
@@ -1360,12 +1361,17 @@ bzw. für die Reihen:
 \setcounter{section}{5}
 \section{Abkürzungen nach DAI-Richtlinie}\label{listen}
 
-Da manche Kürzel von Zeitschriften oder Reihen nicht als @string übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
+Da die Schreibweise von manchen Kürzeln der Zeitschriften oder Reihen nicht als "@string" übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
 Generell gilt, dass Akzente weggelassen wurden, Umlaute ausgeschrieben (ä--> ae), ähnliche Buchstaben mit Äquivalenten ersetzt wurden (ı --> i).\footnote{Für problemloses Kompilieren und Verarbeiten der nichtlateinischen Buchstaben wird \hologo{XeLaTeX} oder  \hologo{LuaTeX} empfohlen.}
 Nachfolgend werden zwei Listen angeführt, die die Auflistung nach @string (links) und Ausgabe (rechts) zeigen.
 Die erste Liste enthält die Abkürzungen (\cref{liste-kurz}), die zweite Liste die ausgeschriebenen Namen (\cref{liste-lang}).
-Es empfiehlt sich, in diesen Listen die @string-Angaben nachzuschauen und dann für "journaltitle" und "shortjournal", bzw. "series" und "shortseries" einzutragen: Es wird immer der gleiche "@string" aus der unten aufgeführten Liste in "journaltitle" und "shorttitle" eingetragen.
-Die Unterscheidung, ob in der Bibliographie die Abkürzung (Standard) oder der voller Titel genannt werden soll, erfolgt automatisch über die Option "keineabkuerzung" (Siehe \cref{keineabkuerzung}).
+Es empfiehlt sich, in diesen Listen die "@string"-Angaben nachzuschauen und dann für "journaltitle" und "shortjournal", bzw. "series" und "shortseries" einzutragen.
+
+Die Unterscheidung, ob in der Bibliographie die Abkürzung (Standard) oder der voller Titel genannt werden soll, erfolgt automatisch über die Option "keineabkuerzung" (Siehe \cref{keineabkuerzung}). Ist diese Option nicht aktiviert, dann werden standardmäßig die Abkürzungen angegeben.
+
+Beim Kompilieren wird eine Bibliographiedatei ("dai-abkuerzungen.bib") erstellt, in der die Angaben der "@strings" gespeichert sind.
+Diese Bibliographiedatei wird zusätzlich zur eigenen Bibliographie geladen.
+Ist "dai-abkuerzungen.bib" bereits vorhanden, dann wird sie nicht neu generiert.
 
 
 \subsection{Kurzformen\label{liste-kurz}}
@@ -1385,25 +1391,25 @@ Die Ausgabe erfolgt über die Option "keineabkuerzung".
 
 
 
-\section{Umsetzung}
-\label{driver}
-"archaeologie" besteht aus einem Bibliographieformat ("bbx") und einem Zitierformat ("cbx"). 
-%%
-
-\subsection{archaeologie.bbx}
-%"archaeologie" baut auf dem "standard"-Stil von "biblatex" auf, der entsprechend geladen werden muss.
-%	\begin{macrocode}
-%\ProvidesFile{archaeologie.bbx}%
-%               [2015/09/15 v1.0  archaeologie -- %
-%                biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
-%\RequireBibliographyStyle{standard}
-%	\end{macro}
-
-
-\subsection{archaeologie.cbx}
+%\section{Umsetzung}
+%\label{driver}
+%"archaeologie" besteht aus einem Bibliographieformat ("bbx") und einem Zitierformat ("cbx"). 
+%%%
+%
+%\subsection{archaeologie.bbx}
+%%"archaeologie" baut auf dem "standard"-Stil von "biblatex" auf, der entsprechend geladen werden muss.
+%%	\begin{macrocode}
+%%\ProvidesFile{archaeologie.bbx}%
+%%               [2015/09/15 v1.0  archaeologie -- %
+%%                biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
+%%\RequireBibliographyStyle{standard}
+%%	\end{macro}
+%
+%
+%\subsection{archaeologie.cbx}
 
  \changes{v0.1}{2015/06/04}{Started Project}
- \changes{v0.9}{2015/07/07}{First public version}
+ \changes{v1}{2015/09/15}{First public version}
 \PrintChanges
 \PrintIndex
 
