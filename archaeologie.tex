@@ -1,17 +1,19 @@
-\documentclass[a4paper]{ltxdoc}
+\documentclass[a4paper,english,greek,german]{ltxdoc}
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
-%\usepackage{hypdoc}
- % \usepackage[no-math]{fontspec}
-\usepackage[LGR,T1]{fontenc}
-  \usepackage{polyglossia}
- \setmainlanguage{german}
-	\setotherlanguages{greek,english}
+  \usepackage[utf8]{inputenc}		% defines file's character encoding
+  \usepackage[T1,LGR]{fontenc}		% font types and character verification
+  \usepackage[oldstyle, %für minuskel-Zahlen
+  					]{libertine}
+%\renewcommand*\familydefault{\sfdefault}
+%   \setmainlanguage{english}
+%% \setmainlanguage{german}
+%	\setotherlanguages{greek,english}
 	\usepackage{metalogo}
 	\usepackage{hologo}
 %\newfontfamily\greekfont[Script=Greek]{libertine}.
- \usepackage[oldstyle]{libertineRoman}
+ \usepackage[]{babel}
 %\usepackage{roboto}%Schriftart für Sansserif 
 \usepackage{coolthms}
 \usepackage{csquotes}
@@ -87,7 +89,7 @@
  \begin{abstract}
 \noindent Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild jedoch auch zu verändern, um eigenen Vorlieben anzupassen.\\
 \vspace*{1em}\\
-\noindent This citation-style covers the citation and bibliography rules of the German Archaeology Insitute. Various options are available to change and adjust the outcome according to one's own preferences.\footnote{The style is compatible with the English language, since all "bibstrings" used are defined bilingually.}
+\noindent This citation-style covers the citation and bibliography rules of the German Archaeology Institute. Various options are available to change and adjust the outcome according to one's own preferences.\footnote{The style is compatible with the English language, since all "bibstrings" used are defined bilingually.}
  \end{abstract}
  \vspace*{1em}
 \begin{small}

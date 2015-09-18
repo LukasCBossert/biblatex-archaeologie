@@ -1,11 +1,16 @@
 ####################################
-##      biblatex-archaeologie     ##
+##      bibLaTeX-archaeologie     ##
 ####################################
-
-Dies ist die README-Datei für den biblatex-Stil "archaeologie", der die Vorgaben des Deutschen Archäologischen Instituts für LaTeX umsetzt.
-
-Der Stil ist noch NICHT veröffentlicht und befindet sich in der fortgeschrittenen Beta-Phase.
+Version: [2015/09/17 v1.1]
 
 
-Zum Stil gehören die Beschreibung ("archaeologie.pdf"), sowie die beiden Dateien "archaeologie.bbx" sowie "archaeologie.cbx".
+Der Stil setzt die Zitations- und Bibliographievorgaben des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um.Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
+
+Zum Stil gehören
+* "archaeologie.pdf",
+* "archaeologie.bbx",
+* "archaeologie.cbx".
+
+This citation-style covers the citation and bibliography rules of the German Archaeology Institute. 
+Various options are available to change and adjust the outcome according to one’s own preferences.
 
