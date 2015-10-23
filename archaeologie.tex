@@ -1,11 +1,17 @@
-\documentclass[a4paper,english,greek,german]{ltxdoc}
+\documentclass[a4paper,
+latin,
+greek,
+english,
+ngerman,
+]{ltxdoc}
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
-  \usepackage[utf8]{inputenc}		% defines file's character encoding
+ % \usepackage[utf8]{inputenc}		% defines file's character encoding
   \usepackage[T1,LGR]{fontenc}		% font types and character verification
-  \usepackage[oldstyle, %für minuskel-Zahlen
-  					]{libertine}
+%  \usepackage[oldstyle, %für minuskel-Zahlen
+%  					]{libertine}
+%\usepackage[]{mathpazo}
 %\renewcommand*\familydefault{\sfdefault}
 %   \setmainlanguage{english}
 %% \setmainlanguage{german}
@@ -13,7 +19,7 @@
 	\usepackage{metalogo}
 	\usepackage{hologo}
 %\newfontfamily\greekfont[Script=Greek]{libertine}.
- \usepackage[]{babel}
+ \usepackage{babel}
 %\usepackage{roboto}%Schriftart für Sansserif 
 \usepackage{coolthms}
 \usepackage{csquotes}
@@ -32,23 +38,21 @@
 \end{small}\end{framed}}
 
 
-\hypersetup{colorlinks=true}
 \listfiles
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
 
-\usepackage{wallpaper}
-%\CenterWallPaper{0.9}{proofreading} %% for proofreading
 
-% Um Kommentare einzufügen
  \usepackage[disable]{todonotes} % notes not showed
 \usepackage[					% use  for bibliography
 	backend=biber,
-	style=archaeologie,
+	style=style/archaeologie,
+%style=archaeologie,
 	%lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
 	%uebersetzung,
 	%bibvollername,
+%	firstinits=true,
 	%keineabkuerzung,
 	%verlag,
 	%hrsgv,
@@ -97,6 +101,13 @@
 {\parskip=0mm \tableofcontents}
 \end{multicols}
 \end{small}
+
+\section{Letzte Änderungen}
+Für Anmerkungen und Hilfe Dank an ›moewe‹ und Herbert Voß.
+
+\begin{itemize}
+\item XXX
+\end{itemize}
 
 \section{Verwendung}
  \DescribeMacro{archaeologie} Der Name des Stils ist "archaeologie" und wird an entsprechender Stelle geladen.
@@ -506,7 +517,7 @@ Anstatt wie standardmäßig aus  "\cite[123]{Ball_2013}"
 Entsprechend in der Bibliographie:
 \begin{bsp}
 {\scshape {\color{red}Ball – Dobbins}} 2013\\
-\hspace*{3em}L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking\\\hspace*{3em}on the Pompeii Forum, AJA 117/3, 2013, 461–492
+\hspace*{3em}L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
 
 \end{bsp}
 

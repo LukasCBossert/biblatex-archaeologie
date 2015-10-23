@@ -1,0 +1,53 @@
+% archaeologie.lbx, lukas c. bossert | Johannes Friedl 2015
+
+\ProvidesFile{archaeologie_english.lbx}%
+               [2015/11/1 v1.2  archaeologie --%
+                biblatex fuer Archaeologen, Historiker und Philologen, lbx-Datei]
+\InheritBibliographyExtras{english}
+
+\NewBibliographyString{origtitle}
+\NewBibliographyString{firstprint}
+\NewBibliographyString{translated}
+\NewBibliographyString{review}
+\NewBibliographyString{reference}
+
+
+\DeclareBibliographyStrings{%
+  inherit          = {english},
+  reference = {{Article}{Art\adddot}},
+  review = {{review\addspace to}{review\addspace to}},
+  origtitle = {{original title}{orig\adddot title}},
+  firstprint = {{first\addspace edition}{first\addspace edition}},
+  translated = {{translated}{trans\adddot}},
+    fromamerican     ={{from American} {from\addspace American}},
+  frombrazilian    = {{from\addspace Brazilian}{from\addspace Brazilian}},
+  fromcroatian     = {{from\addspace Croatian}{from\addspace Croatian}},
+  fromdanish       = {{from\addspace Danish}{from\addspace Danish}},
+  fromdutch        = {{from\addspace Dutch}{from\addspace Dutch}},
+  fromenglish      = {{from\addspace English}{from\addspace English}},
+  fromfinnish      = {{frin Finnish}{from\addspace Finnish}},
+  fromfrench       = { {from\addspace French}{from\addspace French}},
+  fromgerman       ={{from\addspace German} {from\addspace German}},
+  fromgreek        = {{from\addspace Greek}{from\addspace Greek}},
+  fromitalian      = {{from\addspace Italian}{from\addspace Italian}},
+  fromlatin        = {{from\addspace Latin}{from\addspace Latin}},
+  fromnorwegian    = {{from\addspace Norwegian}{from\addspace Norwegian}},
+  fromportuguese   = {{from\addspace Portuguese}{from\addspace Portuguese}},
+  fromrussian      = {{from\addspace Russian}{from\addspace Russian}},
+  fromspanish      = {{from\addspace Spanish}{from\addspace Spanish}},
+  fromswedish      = {{from\addspace Swedish}{from\addspace Swedish}},
+}
+
+
+
+%\DeclareBibliographyStrings{%
+%  inherit          = {ngerman},
+%  reference = {{Artikel}{Art\adddot}},
+%  review = {{Rezension\addspace zu}{Rez\adddot\addabthinspace zu}},
+%  byauthor         = {{von}{v\adddot}},
+%  byeditor         = {{herausgegeben\addspace von}{hrsg\adddot\addabthinspace v\adddot}},
+%  origtitle = {{Originaltitel}{Orig\adddot title}},
+%  firstprint = {Erstauflage}{Erstaufl\adddot},
+%  bytranslator     = {{\lbx@lfromlang \"ubersetzt von}{\lbx@sfromlang \"ubers\adddot\addabthinspace v\adddot}},
+% }
+\endinput

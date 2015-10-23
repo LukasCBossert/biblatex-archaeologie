@@ -7,6 +7,7 @@
 \typeout{* * * archaeologie * * *  biblatex fuer Archaeologen, Historiker und Philologen}}
 \ExecuteBibliographyOptions{%
 pagetracker=true,%
+firstinits=true,
 bibencoding=utf8,%
 sortlocale=de,%
 dateabbrev=false,% 
@@ -3247,6 +3248,7 @@ minnames=1%
 \end{filecontents}
 \fi\endgroup
 \addbibresource{dai-abkuerzungen.bib}
+
 \newbool{bbx:hrsgv}
 \newbool{bbx:jahrreihe}
 \newbool{bbx:bibvollername}
@@ -3265,7 +3267,7 @@ minnames=1%
 %% \DeclareBibliographyOption %%
 \DeclareBibliographyOption{hrsgv}[true]{\csuse{bool#1}{bbx:hrsgv}}
 \DeclareBibliographyOption{jahrreihe}[true]{\csuse{bool#1}{bbx:jahrreihe}}
-\DeclareBibliographyOption{bibvollername}[true]{\csuse{bool#1}{bbx:bibvollername}}
+\DeclareBibliographyOption{bibvollername}[true]{\ExecuteBibliographyOptions{firstinits=false}}
 \DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}}
 \DeclareBibliographyOption{keineabkuerzung}[true]{\csuse{bool#1}{bbx:keineabkuerzung}}
 \DeclareBibliographyOption{uebersetzung}[true]{\csuse{bool#1}{bbx:uebersetzung}}
@@ -3311,58 +3313,29 @@ minnames=1%
 \DeclareFieldFormat{emph}{\mkbibemph{#1}}%
 \DeclareFieldFormat{url}{\printtext{<}\url{#1}\printtext{>}}
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
+\DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
 
-\NewBibliographyString{origtitle}
-\NewBibliographyString{firstprint}
-\NewBibliographyString{translated}
+\DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
+\DeclareRedundantLanguages{english,american}{english,american,british,%
+                       canadian,australian,newzealand,USenglish,UKenglish}
+\DeclareLanguageMapping{ngerman}{archaeologie}
+\DeclareLanguageMapping{english}{archaeologie_english}
 
 
-
-\DefineBibliographyStrings{english}{%
-  origtitle = {original title},
-  firstprint = {first edition},
-  translated = {trans\adddot},
-    fromamerican     = {from American},
-  frombrazilian    = {from Brazilian},
-  fromcroatian     = {from Croatian},
-  fromdanish       = {from Danish},
-  fromdutch        = {from Dutch},
-  fromenglish      = {from English},
-  fromfinnish      = {from Finnish},
-  fromfrench       = {from French},
-  fromgerman       = {from German},
-  fromgreek        = {from Greek},
-  fromitalian      = {from Italian},
-  fromlatin        = {from Latin},
-  fromnorwegian    = {from Norwegian},
-  fromportuguese   = {from Portuguese},
-  fromrussian      = {from Russian},
-  fromspanish      = {from Spanish},
-  fromswedish      = {from Swedish},
-}
-\DefineBibliographyStrings{ngerman}{%
-  origtitle = {Originaltitel},
-  firstprint = {Erstaufl\adddot},
-  translated = {\"ubers\adddot}
-}
-\DefineBibliographyStrings{german}{%
-  origtitle = {Originaltitel},
-  firstprint = {Erstaufl\adddot},
-  translated = {\"ubers\adddot}
-}
 
 
 
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}%
 \renewcommand*{\intitlepunct}{\addcolon\addspace}%
 \renewcommand*{\newunitpunct}{\addcomma\addspace}%
-\newcommand*{\autorenschriftart}{\scshape}%
 \newcommand*{\daiautorentrennzeichen}{\addnbspace\textendash}%
 \newcommand*{\autorentrennzeichen}{\addcomma}%
 \newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}%
 \renewcommand{\finentrypunct}{}%
-\let\bibnamedashOrig\bibnamedash%
-\renewcommand*{\bibnamedash}{\rule[3pt]{2.5em}{.6pt}\space}
+\renewcommand{\multinamedelim}{\daiautorentrennzeichen\addspace}
+\renewcommand{\finalnamedelim}{\multinamedelim}
+%\let\bibnamedashOrig\bibnamedash%
+%\renewcommand*{\bibnamedash}{\rule[3pt]{2.5em}{.6pt}\space}
 
 \DeclareBibliographyAlias{collection}{book}
 \DeclareBibliographyAlias{reference}{book}
@@ -3405,29 +3378,10 @@ minnames=1%
     \iffieldundef{journaltitle}{\skipentry}{%
         \ifcsdef{\strfield{journaltitle}}{\skipentry}{\savefieldcs{journaltitle}{\strfield{journaltitle}}}%   
             }}%  
-    
-\DeclareNameFormat{author}{%
-    \ifblank{#3}{}{%
-      \ifbool{bbx:bibvollername}{#3\addspace}{#4\addspace}}%
-    \ifblank{#5}{}{\addspace #5\addnbspace}%
-   {#1}%
-    \ifthenelse{\value{listcount}<\value{listtotal}}{%
-      \daiautorentrennzeichen\addspace%
-    }{%
-      \ifmorenames{\andothersdelim\bibstring{andothers}}{}%
-    }%
-}%
 
-
-\DeclareNameFormat{first-last-inits}{%
-  \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%
-  \usebibmacro{name:andothers}%
-}
-
+\DeclareNameAlias{author}{first-last}
 \DeclareNameAlias{editor}{author}
-\DeclareNameAlias{Translator}{author}
-
-
+\DeclareNameAlias{translator}{author}
 
 \DeclareListFormat{location}{%
   #1\ifthenelse{\value{listcount}<\value{liststop}}%
@@ -3444,7 +3398,6 @@ minnames=1%
 				\printtext{%
 						\bibstring{in}%
 						\intitlepunct%
-						\addspace%
 				}%
 		}%
 }%
@@ -3551,19 +3504,15 @@ minnames=1%
           			\printfield[titlecase]{journalsubtitle}}}%          
           {\printfield{shortjournal}}}}%
 
-\newbibmacro{year}{%
-  \iffieldundef{year}{}{\mkbibparens{year}}}%
-  
-\newbibmacro*{journal+number+year}{%  
-  \usebibmacro{journal}%
-  \setunit*{\addnbspace}%   
-  \printfield{volume}%                          
-  \iffieldundef{number}{}{%           
-     \printtext{%
-     	\slash%
-     	\printfield{number}}}%      
-  \newunit%       
-  \printfield{year}%     
+
+\newbibmacro{journal+number+year}{%
+\usebibmacro{journal}%
+\setunit{\addnbspace}%
+\printfield{volume}%
+\setunit{\addslash}% 
+\printfield{number}%
+\newunit%
+\printfield{year}%
 }%
 
 \newbibmacro*{pages}{%
@@ -3696,13 +3645,15 @@ minnames=1%
 \newbibmacro*{addendum}{%
 }%
 %                                                                    %
-\newbibmacro*{signatur}{%
-  \iffieldundef{note}{}{\printtext[parens]{\printfield{note}}\nopunct}%
-}%
 
-\newbibmacro*{volume}{%
- \iffieldundef{volume}{}%
-      {\printfield{volume}\newunit}}
+\newbibmacro{signatur}{\printfield{note}} 
+
+
+%%%\newbibmacro*{volume}{%
+%%% \iffieldundef{volume}{}%
+%%%      {\printfield{volume}\newunit}}
+\newbibmacro*{volume}{\printfield{volume}\newunit}
+
 
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{
@@ -3713,10 +3664,7 @@ minnames=1%
       \usebibmacro{maintitle}%
          \usebibmacro{volume}
       \newunit%
-      \printtext{hrsg%
-      \adddot%
-      \addspace%
-       v\adddot}%
+      \bibstring{byeditor}%
       \setunit{\addspace}%
         \printnames[author][-\value{listtotal}]{editor}%
      }%
@@ -3730,17 +3678,13 @@ minnames=1%
 
 \newbibmacro*{reftitle}{%
   \iffieldundef{title}{}{%
-    \printtext{Art\adddot\addspace}%
+	\bibstring{reference}
+	\addspace%
     \printtext[emph]{%
       \usebibmacro{title}\setunit{\addspace}%
       \iffieldundef{number}{}{\printfield[brackets]{number}}%
 }}}%
 
-
-\newbibmacro*{refmaintitle}{%
-  \iffieldundef{maintitle}{}{%
-    \printfield{maintitle}\setunit*{\addspace}\printfield{volume}%
-}}%
 
 
 %% DeclareBibliographyDriver %%
@@ -3760,7 +3704,7 @@ minnames=1%
 }
 
 \DeclareBibliographyDriver{shorthand}{%
-\iffieldundef{title}{\printfield{maintitle}}{\printfield[title]{title}}}          			
+\iffieldundef{title}{\printfield{maintitle}}{\printfield{title}}}          			
           			
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
@@ -3937,7 +3881,7 @@ minnames=1%
   				\addspace\printfield{pages}%
   				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
   				\addspace\printfield{title}%
-  				\addspace\printtext[parens]{\printnames[first-last-inits]{author}}}{%
+  				\addspace\printtext[parens]{\printnames[firstinits]{author}}}{%
   			\usebibmacro{author}%
    			 	\newunit\newblock%  
   			  	\usebibmacro{reftitle}%
@@ -3974,9 +3918,8 @@ minnames=1%
     \iffieldundef{title}{}{\printfield{title}}%
    \iffieldundef{titleaddon}{}{%
    	\newunit
-   			\printtext{Rez}\adddot\addspace 
-   			\printtext{zu}%
-			\setunit{\addnbspace}
+   			\bibstring{review}%
+			\setunit{\addnbspace}%
  			\printfield{titleaddon}%
  			}%
   \newunit\newblock
