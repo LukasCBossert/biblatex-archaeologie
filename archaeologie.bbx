@@ -7,7 +7,7 @@
 \typeout{* * * archaeologie * * *  biblatex fuer Archaeologen, Historiker und Philologen}}
 \ExecuteBibliographyOptions{%
 pagetracker=true,%
-firstinits=true,
+%firstinits=true,
 bibencoding=utf8,%
 sortlocale=de,%
 dateabbrev=false,% 
@@ -3267,7 +3267,7 @@ minnames=1%
 %% \DeclareBibliographyOption %%
 \DeclareBibliographyOption{hrsgv}[true]{\csuse{bool#1}{bbx:hrsgv}}
 \DeclareBibliographyOption{jahrreihe}[true]{\csuse{bool#1}{bbx:jahrreihe}}
-\DeclareBibliographyOption{bibvollername}[true]{\ExecuteBibliographyOptions{firstinits=false}}
+\DeclareBibliographyOption{bibvollername}[true]{\csuse{bool#1}{bbx:bibvollername}}
 \DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}}
 \DeclareBibliographyOption{keineabkuerzung}[true]{\csuse{bool#1}{bbx:keineabkuerzung}}
 \DeclareBibliographyOption{uebersetzung}[true]{\csuse{bool#1}{bbx:uebersetzung}}
@@ -3332,8 +3332,8 @@ minnames=1%
 \newcommand*{\autorentrennzeichen}{\addcomma}%
 \newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}%
 \renewcommand{\finentrypunct}{}%
-\renewcommand{\multinamedelim}{\daiautorentrennzeichen\addspace}
-\renewcommand{\finalnamedelim}{\multinamedelim}
+%\renewcommand{\multinamedelim}{\daiautorentrennzeichen\addspace}
+%\renewcommand{\finalnamedelim}{\multinamedelim}
 %\let\bibnamedashOrig\bibnamedash%
 %\renewcommand*{\bibnamedash}{\rule[3pt]{2.5em}{.6pt}\space}
 
@@ -3379,7 +3379,26 @@ minnames=1%
         \ifcsdef{\strfield{journaltitle}}{\skipentry}{\savefieldcs{journaltitle}{\strfield{journaltitle}}}%   
             }}%  
 
-\DeclareNameAlias{author}{first-last}
+\DeclareNameFormat{author}{%		
+    \ifblank{#3}{}{%		
+      \ifbool{bbx:bibvollername}{#3\addspace}{#4\addspace}}%		
+    \ifblank{#5}{}{\addspace #5\addnbspace}%		
+   {#1}%		
+    \ifthenelse{\value{listcount}<\value{listtotal}}{%		
+      \daiautorentrennzeichen\addspace%		
+    }{%		
+      \ifmorenames{\andothersdelim\bibstring{andothers}}{}%		
+    }%		
+}%		
+
+
+\DeclareNameFormat{first-last-inits}{%		
+  \usebibmacro{name:first-last}{#1}{#4}{#5}{#7}%		
+  \usebibmacro{name:andothers}%		
+}
+
+%\DeclareNameAlias{author}{%
+%\ifbool{bbx:bibvollername}{first-last}{first-last-inits}}
 \DeclareNameAlias{editor}{author}
 \DeclareNameAlias{translator}{author}
 
