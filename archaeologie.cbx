@@ -74,13 +74,13 @@
         \printnames{labelname}%
       }{%
         \ifbool{cbx:nurnachname}{%
-          \printnames{labelname}%%
+          \printnames{labelname}%
         }{%
           \ifbool{cbx:vollername}{%
             \ifnameundef{author}{%
-              \printnames[first-last]{editor}%
+              \printnames[voll]{editor}%
             }{%
-              \printnames[first-last]{author}%
+              \printnames[voll]{author}%
             }%
           }{%
             \ifnameundef{author}{%
@@ -165,7 +165,13 @@
   
 
 \DeclareCiteCommand{\citeauthor}%
-  {\usebibmacro{prenote}}%
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+     \addspace\bibstring{and}\space}%
+   \usebibmacro{prenote}}
   {\usebibmacro{cite:name}}
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
