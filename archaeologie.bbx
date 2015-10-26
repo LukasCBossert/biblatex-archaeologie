@@ -3643,9 +3643,6 @@ firstinits=false,
 																										
 \renewbibmacro*{institution+location+date}{%
   \printlist{location}%
-  \iflistundef{institution}
-    {\setunit*{\addcomma\space}}
-    {\setunit*{\adddot\space}}%
   \printlist{institution}%
   \setunit*{\space}%
   \printfield{year}%
@@ -3672,22 +3669,22 @@ firstinits=false,
 
 
 \newbibmacro*{booktitle+volume+editor}{%
-  \ifnameundef{editor}{
+  \ifnameundef{editor}{%
     \usebibmacro{maintitle}%
-    \usebibmacro{volume}
+    \usebibmacro{volume}%
   }{%
     \ifbool{bbx:hrsgv}{%
       \usebibmacro{maintitle}%
-         \usebibmacro{volume}
+         \usebibmacro{volume}%
       \newunit%
       \bibstring{byeditor}%
       \setunit{\addspace}%
         \printnames[author][-\value{listtotal}]{editor}%
      }%
            {\printnames[author][-\value{listtotal}]{editor}\addspace%
-      \printtext[parens]{\bibstring{editor}}\newunit\newblock%\addcomma\addspace%
+      \printtext[parens]{\bibstring{editor}}\newunit\newblock
       \usebibmacro{maintitle}%
-          \usebibmacro{volume}
+          \usebibmacro{volume}%
       \newunit%
      }%
 }}%
@@ -3726,8 +3723,8 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   {\ifbool{cbx:unbekannt}{}{%
-	\usebibmacro{author}
-\newunit\newblock%
+	\usebibmacro{author}%
+\newblock%
   }}%
   \usebibmacro{title}%
   \newunit\newblock
@@ -3784,13 +3781,14 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-    \newunit\newblock%
+    \newblock%
 	\usebibmacro{title}%
 	\setunit{\addspace}
-    \printtext[parens]{{\printfield{type}}\addspace\setunit{\addspace}%
+    \printtext[parens]{\printfield{type}%
+    \setunit*{\addspace}%
   \usebibmacro{institution+location+date}}%
   \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
-  \setunit{\addperiod\addspace}%
+  \setunit*{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
@@ -3800,7 +3798,7 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-    \newunit\newblock%
+    \newblock%
       \usebibmacro{maintitle+title+volumes}%
 \usebibmacro{event+venue+date}%
   \setunit{\addspace}%
@@ -3822,12 +3820,11 @@ firstinits=false,
 
 \DeclareBibliographyDriver{inproceedings}{%		
   \usebibmacro{bibindex}%
-  \usebibmacro{begentry}%
+  \usebibmacro{begentry}%%
   \usebibmacro{author}%
-  \ifnameundef{author}{}%
   \newunit\newblock%
   \usebibmacro{title}%
-  \newunit\newblock
+  \newunit\newblock%
   \usebibmacro{in:}%
   \usebibmacro{booktitle+volume+editor}%
   \usebibmacro{event+venue+date}%
