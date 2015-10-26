@@ -15,7 +15,11 @@
 \newbool{cbx:jahrinklammern}%
 \newbool{cbx:kapitaelchen}%*
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
-\DeclareBibliographyOption{jahrinklammern}[true]{\csuse{bool#1}{cbx:jahrinklammern}}%
+\DeclareFieldFormat{citeyear}{#1}
+\DeclareBibliographyOption{jahrinklammern}[true]{%
+  \ifstrequal{#1}{true}
+    {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}}
+    {\DeclareFieldFormat{citeyear}{##1}}}
 \DeclareBibliographyOption{kapitaelchen}[true]{\csuse{bool#1}{cbx:kapitaelchen}}%
 
 \DeclareFieldFormat{prenote}{#1\isdot}%
@@ -95,24 +99,18 @@
       }{\printfield{shorttitle}}}%                   
 
 
-\newbibmacro*{cite:year}{%			
+\renewbibmacro*{cite:year}{%            
   \iffieldundef{labelyear}
     {}%
-    {\ifbool{cbx:jahrinklammern}%
-       {\printtext[bibhyperref]{\printtext[parens]{\printfield{labelyear}\printfield{extrayear}}}}%
-       {\printtext[bibhyperref]{\printfield{labelyear}\printfield{extrayear}}}%
-}}
+    {\printtext[bibhyperref]{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
 
 
 
-\newbibmacro*{shorthand+year}{%
-\printtext[brackets]{\printfield{shorthand}%
- \setunit{\addspace}%
- {\ifbool{cbx:jahrinklammern}%
-       {\printtext[]{\printtext[parens]{\printfield{labelyear}\printfield{extrayear}}}}%
-       {\printtext[]{\printfield{labelyear}\printfield{extrayear}}}%
-       }%
-}}
+\renewbibmacro*{shorthand+year}{%
+  \printtext[brackets]{%
+    \printfield{shorthand}%
+    \setunit{\addspace}%
+    \printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}
   
 
   
