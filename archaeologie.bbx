@@ -3813,6 +3813,7 @@ firstinits=false,
     \usebibmacro{series+number}%
     \newunit}{}%
   \usebibmacro{addendum}%
+  \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \usebibmacro{savestuff}%
