@@ -43,30 +43,23 @@
     {\citeautorentrennzeichen}{\ifmorenames{\andothersdelim\bibstring{andothers}}{}}{}%
 }
 
-\renewbibmacro*{prenote}{%
-  \iffieldundef{prenote}{}%
-    {\printfield{prenote}%
-     \setunit{\addspace}}}%
+
 \renewbibmacro*{postnote}{%
   \ifboolexpr{bool {cbx:antik}%
-           or bool {cbx:frgantik}%
-           or bool {cbx:nurshorthand}%                
-           }%                                                
-              {\setunit{\addspace}}%
-              {\newunit}%
-  \iffieldundef{postnote}{}%
-    {\ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik}}{%
-       \ifbool{cbx:antik}{\printfield{postnote}}{}%
-       \ifbool{cbx:frgantik}{%
-         \printfield{postnote}\addspace%
-         \ifnameundef{shorteditor}%
-           {\printnames[frg]{editor}}%  
-           {\printnames[frg]{shorteditor}}%
-       }{}%
-     }{\printfield{postnote}%
-     }%
-   }%
-}%
+              or bool {cbx:frgantik}%
+              or bool {cbx:nurshorthand}%
+              }%
+    {\setunit{\addspace}}%
+    {\newunit}%
+  \iffieldundef{postnote}
+    {}%
+    {\printfield{postnote}%
+     \ifbool{cbx:frgantik}
+       {\setunit{\addspace}%
+        \ifnameundef{shorteditor}%
+           {\printnames[frg]{editor}}%
+           {\printnames[frg]{shorteditor}}}
+       {}}}
 
 \newbibmacro*{cite:name}{%    
   \ifciteindex{\indexnames{labelname}}{}%
