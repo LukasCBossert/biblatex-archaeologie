@@ -99,14 +99,14 @@
       }{\printfield{shorttitle}}}%                   
 
 
-\renewbibmacro*{cite:year}{%            
+\newbibmacro*{cite:year}{%            
   \iffieldundef{labelyear}
     {}%
     {\printtext[bibhyperref]{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
 
 
 
-\renewbibmacro*{shorthand+year}{%
+\newbibmacro*{shorthand+year}{%
   \printtext[brackets]{%
     \printfield{shorthand}%
     \setunit{\addspace}%
