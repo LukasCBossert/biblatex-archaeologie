@@ -13,9 +13,11 @@ sortlocale=de,%
 dateabbrev=false,% 
 sorting=nyt,%
 maxnames=2,% 
-minnames=1%
+minnames=1,%
+maxbibnames=999,%
 }%
 
+      
 \addbibresource{dai-abkuerzungen.bib}
 
 \newbool{bbx:hrsgv}
@@ -58,7 +60,10 @@ firstinits=false,
 
 %% \DeclareEntryOption %%
 \DeclareEntryOption{antik}[true]{\csuse{bool#1}{cbx:antik}}%
-\DeclareEntryOption{frgantik}[true]{\csuse{bool#1}{cbx:frgantik}}%
+\DeclareEntryOption{frgantik}[true]{%
+  \ifstrequal{#1}{true}{\togglefalse{blx@useauthor}}{}%
+  \csuse{bool#1}{cbx:frgantik}%
+}%
 \DeclareEntryOption{nurshorthand}[true]{\csuse{bool#1}{cbx:nurshorthand}}%
 \DeclareEntryOption{unbekannt}[true]{\csuse{bool#1}{cbx:unbekannt}}%
 \DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
@@ -242,19 +247,21 @@ firstinits=false,
   \iftoggle{bbx:url}%
     {\usebibmacro{url+urldate}}%
     {}}%
-\renewbibmacro*{author}{%
-  \ifnameundef{author}{}{%
-        \printnames[][-\value{listtotal}]{author}\newunit%
-      }}%
-\renewbibmacro*{author/editor}{%
-  \ifboolexpr{test{\ifnameundef{author}} or bool{cbx:frgantik}}{%
-    \ifnameundef{editor}{}{%
- 	\printnames[][-\value{listtotal}]{editor}\addspace%      
-      \printtext[parens]{\bibstring{editor}}\newunit%
-      }%
-  }{%
-    \usebibmacro{author}%
-  }}%
+
+\DeclareFieldFormat{editortype}{\mkbibparens{#1}}
+\renewbibmacro*{editor}{%
+  \ifboolexpr{
+    test \ifuseeditor
+    and
+    not test {\ifnameundef{editor}}
+  }
+    {\printnames{editor}%
+     \setunit{\addspace}%
+     \usebibmacro{editorstrg}%
+     \clearname{editor}}
+    {}}
+    
+    
 \newbibmacro*{series}{%
 	\ifbool{bbx:keineabkuerzung}%
     			{\printtext[seriestitle]{%
@@ -492,8 +499,8 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   {\ifbool{cbx:unbekannt}{}{%
-	\usebibmacro{author}%
-\newblock%
+\usebibmacro{author/editor}
+\newunit\newblock
   }}%
   \usebibmacro{title}%
   \newunit\newblock
@@ -549,8 +556,8 @@ firstinits=false,
 \DeclareBibliographyDriver{thesis}{%		
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \usebibmacro{author}%
-    \newblock%
+\usebibmacro{author/editor}
+    \newunit\newblock%
 	\usebibmacro{title}%
 	\setunit{\addspace}
     \printtext[parens]{\printfield{type}%
@@ -567,7 +574,7 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-    \newblock%
+   \newunit\newblock%
       \usebibmacro{maintitle+title+volumes}%
 \usebibmacro{event+venue+date}%
   \setunit{\addspace}%
@@ -590,7 +597,7 @@ firstinits=false,
 \DeclareBibliographyDriver{inproceedings}{%		
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%%
-  \usebibmacro{author}%
+\usebibmacro{author/editor}
   \newunit\newblock%
   \usebibmacro{title}%
   \newunit\newblock%
@@ -687,20 +694,17 @@ firstinits=false,
  \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}}%
   \usebibmacro{savestuff}%
- 							   \iftoggle{bbx:related}		
- 						   {\usebibmacro{related:init}%
-   							  \usebibmacro{related}}
-   								 {}%
   \usebibmacro{finentry}%
 }
 
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \usebibmacro{author}%
+\usebibmacro{author/editor}
+\newunit\newblock
     \iffieldundef{title}{}{\printfield{title}}%
    \iffieldundef{titleaddon}{}{%
-   	\newunit
+   	\newunit\newblock
    			\bibstring{review}%
 			\setunit{\addnbspace}%
  			\printfield{titleaddon}%
