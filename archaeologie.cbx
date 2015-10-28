@@ -140,7 +140,7 @@
         {\bibhyperref{\printfield{shorthand}}}%
         {}%
        \ifbool{cbx:lexikon}{\usebibmacro{lexikon}}{}}%
-       {\ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{editor}}}%
+       {\ifnameundef{labelname}%
          {\bibhyperref{\usebibmacro{shorthand+year}}}%
          {\bibhyperref{\printnames[cite:author]{labelname}%    
            \setunit{\addspace}\usebibmacro{cite:year}}}%

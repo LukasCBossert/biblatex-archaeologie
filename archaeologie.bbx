@@ -494,7 +494,7 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit\newblock%
+  \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{title}%
   \newunit\newblock%
   \ifbool{bbx:uebersetzung}{%
@@ -515,7 +515,7 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \newunit\newblock%
+  \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{maintitle+title+volumes}%
   \newunit\newblock%   
   \ifbool{bbx:uebersetzung}{%
@@ -547,8 +547,8 @@ firstinits=false,
 \DeclareBibliographyDriver{thesis}{%		
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-\usebibmacro{author/editor}
-    \newunit\newblock%
+  \usebibmacro{author/editor}
+  \setunit*{\labelnamepunct}\newblock%
 	\usebibmacro{title}%
 	\setunit{\addspace}
     \printtext[parens]{\printfield{type}%
@@ -565,7 +565,7 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-   \newunit\newblock%
+  \setunit*{\labelnamepunct}\newblock%
       \usebibmacro{maintitle+title+volumes}%
 \usebibmacro{event+venue+date}%
   \setunit{\addspace}%
@@ -589,7 +589,7 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%%
 \usebibmacro{author/editor}
-  \newunit\newblock%
+  \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{title}%
   \newunit\newblock%
   \usebibmacro{in:}%
@@ -618,7 +618,7 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \newunit\newblock%  
+  \setunit*{\labelnamepunct}\newblock% 
   \usebibmacro{title}%
   \ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
   		       	\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
@@ -664,7 +664,7 @@ firstinits=false,
   				\addspace\printfield{title}%
   				\addspace\printtext[parens]{\printnames[firstinits]{author}}}{%
   			\usebibmacro{author}%
-   			 	\newunit\newblock%  
+  			\setunit*{\labelnamepunct}\newblock%
   			  	\usebibmacro{reftitle}%
   				\newunit\newblock%
 				 \usebibmacro{in:}%
@@ -691,8 +691,8 @@ firstinits=false,
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-\usebibmacro{author/editor}
-\newunit\newblock
+  \usebibmacro{author/editor}
+  \setunit*{\labelnamepunct}\newblock%
     \iffieldundef{title}{}{\printfield{title}}%
    \iffieldundef{titleaddon}{}{%
    	\newunit\newblock
@@ -725,7 +725,7 @@ firstinits=false,
 
 \defbibenvironment{bibliography}
     {\list{%
-\ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{editor}}}%
+  \ifnameundef{labelname}%
   {\usebibmacro{shorthand+year}}
   {%		
 					\ifboolexpr{bool {cbx:antik}% 
