@@ -3259,8 +3259,7 @@ minnames=1%
 \newbool{bbx:miturl}					
 \newbool{cbx:antik}%
 \newbool{cbx:frgantik}%
-\newbool{cbx:nurshorthand}%
-\newbool{cbx:unbekannt}%		
+\newbool{cbx:nurshorthand}%		
 \newbool{cbx:lexikon}%			
 \newbool{cbx:nurnachname}			
 \newbool{cbx:vollername}		
@@ -3291,7 +3290,6 @@ firstinits=false,
 \DeclareEntryOption{antik}[true]{\csuse{bool#1}{cbx:antik}}%
 \DeclareEntryOption{frgantik}[true]{\csuse{bool#1}{cbx:frgantik}}%
 \DeclareEntryOption{nurshorthand}[true]{\csuse{bool#1}{cbx:nurshorthand}}%
-\DeclareEntryOption{unbekannt}[true]{\csuse{bool#1}{cbx:unbekannt}}%
 \DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
 
 \newbibmacro{savestuff}{%
@@ -3722,12 +3720,10 @@ firstinits=false,
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  {\ifbool{cbx:unbekannt}{}{%
-	\usebibmacro{author}%
-\newblock%
-  }}%
+  \usebibmacro{author}%
+  \newblock%
   \usebibmacro{title}%
-  \newunit\newblock
+  \newblock
   \ifbool{bbx:uebersetzung}{%
     					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
     \setunit{\addspace}%
@@ -3745,13 +3741,11 @@ firstinits=false,
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
- {\ifbool{cbx:unbekannt}{}{%  
-\ifboolexpr{test {\ifnameundef{author}}%
-  and test {\ifnameundef{editor}}}{}{\usebibmacro{author/editor}%
-\newunit\newblock}}}%
-  	\usebibmacro{maintitle+title+volumes}%
-  		 \newunit\newblock%   
-\ifbool{bbx:uebersetzung}{%
+  \usebibmacro{author/editor}%
+  \newblock%
+  \usebibmacro{maintitle+title+volumes}%
+  \newblock%   
+  \ifbool{bbx:uebersetzung}{%
     					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
     \setunit*{\newunit\addspace}%
 		\usebibmacro{bytranslator+others}}%
@@ -3851,8 +3845,8 @@ firstinits=false,
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \ifnameundef{author}{}{\newunit\newblock}%  
-    \usebibmacro{title}%
+  \newblock%  
+  \usebibmacro{title}%
   \ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
   		       	\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
     \setunit{\addspace}%
@@ -3961,8 +3955,9 @@ firstinits=false,
 
 \defbibenvironment{bibliography}
     {\list{%
-\ifbool{cbx:unbekannt}{\usebibmacro{shorthand+year}}%%unbekannte Autoren
-{%		
+\ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{editor}}}%
+  {\usebibmacro{shorthand+year}}
+  {%		
 					\ifboolexpr{bool {cbx:antik}% 
 									or bool {cbx:frgantik}% 
 									or bool {cbx:nurshorthand}}%

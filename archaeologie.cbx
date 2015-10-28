@@ -18,7 +18,8 @@
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareBibliographyOption{jahrinklammern}[true]{%
   \ifstrequal{#1}{true}
-    {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}}
+    {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
+    \csuse{bool#1}{cbx:jahrinklammern}}
     {\DeclareFieldFormat{citeyear}{##1}}}
 \DeclareBibliographyOption{kapitaelchen}[true]{\csuse{bool#1}{cbx:kapitaelchen}}%
 
@@ -130,20 +131,21 @@
             }}%
 }
 
-\newbibmacro*{cite}{%
-  \ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik}}%
-  {\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}%
-  {\ifboolexpr{bool {cbx:nurshorthand} or bool {cbx:unbekannt} or bool {cbx:lexikon}}%
-    {%      
-      \ifbool{cbx:nurshorthand}{\bibhyperref{\printfield{shorthand}}}{}%
-       \ifbool{cbx:unbekannt}{\bibhyperref{\usebibmacro{shorthand+year}}}{}%     
+\newbibmacro*{cite}
+  {\ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik}}%
+    {\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}%
+    {\ifboolexpr{bool {cbx:nurshorthand} or bool {cbx:lexikon}}%
+      {\ifbool{cbx:nurshorthand}%
+        {\bibhyperref{\printfield{shorthand}}}%
+        {}%
        \ifbool{cbx:lexikon}{\usebibmacro{lexikon}}{}}%
-       %
-     {\bibhyperref{\printnames[cite:author]{labelname}%    
-           \setunit{\addspace}\usebibmacro{cite:year}%
-            }}%
-         }%
+       {\ifboolexpr{test {\ifnameundef{author}} and test {\ifnameundef{editor}}}%
+         {\bibhyperref{\usebibmacro{shorthand+year}}}%
+         {\bibhyperref{\printnames[cite:author]{labelname}%    
+           \setunit{\addspace}\usebibmacro{cite:year}}}%
       }%
+    }%
+  }%
 
 
 %%% Cite Commands %%%
