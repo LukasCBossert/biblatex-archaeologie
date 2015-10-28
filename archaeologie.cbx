@@ -13,7 +13,8 @@
 
 %%%%%%%% cbx %%%%%%%%%%
 \newbool{cbx:jahrinklammern}%
-\newbool{cbx:kapitaelchen}%*
+\newbool{cbx:kapitaelchen}%
+\newbool{cbx:antiktranslator}%
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareBibliographyOption{jahrinklammern}[true]{%
@@ -21,16 +22,18 @@
     {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}}
     {\DeclareFieldFormat{citeyear}{##1}}}
 \DeclareBibliographyOption{kapitaelchen}[true]{\csuse{bool#1}{cbx:kapitaelchen}}%
+\DeclareBibliographyOption{antiktranslator}[true]{\csuse{bool#1}{cbx:antiktranslator}}%
 
 
 \DeclareFieldFormat{prenote}{#1\isdot}%
 \DeclareFieldFormat{postnote}{#1}%
 \DeclareFieldFormat{shorttitle}{#1}%
 \DeclareNameFormat{frg}{%
-  #1%
+#1%
   \ifthenelse{\value{listcount}<\value{liststop}}%
     {\addspace\textendash\addspace}{}%
 }%
+
 \renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
 \newcommand*{\citeautorenschriftart}{\ifbool{cbx:kapitaelchen}{\scshape}{}}% 
 \newcommand*{\citeautorentrennzeichen}{\addnbspace\textendash\addspace}%
@@ -55,12 +58,16 @@
   \iffieldundef{postnote}
     {}%
     {\printfield{postnote}%
-     \ifbool{cbx:frgantik}
+     \ifbool{cbx:frgantik}%
        {\setunit{\addspace}%
         \ifnameundef{shorteditor}%
            {\printnames[frg]{editor}}%
-           {\printnames[frg]{shorteditor}}}
-       {}}}
+           {\printnames[frg]{shorteditor}}}%
+       {\ifbool{cbx:antiktranslator}{\addspace%
+       \mkbibparens{\bibstring{translated}\addspace\printnames[frg]{translator}}}}%
+       {}%
+ }%
+ }
 
 \newbibmacro*{cite:name}{%    
   \ifciteindex{\indexnames{labelname}}{}%

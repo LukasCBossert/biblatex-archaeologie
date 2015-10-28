@@ -48,11 +48,9 @@ ngerman,
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-%style=archaeologie,
 	%lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
 	%uebersetzung,
 	%bibvollername,
-%	firstinits=true,
 	%keineabkuerzung,
 	%verlag,
 	%hrsgv,
@@ -60,7 +58,8 @@ ngerman,
 	%	jahrinklammern,
 	%nurnachname,
 	%vollername,
-	kapitaelchen,
+	%kapitaelchen,
+	%antiktranslator,
 	%miturl,
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
@@ -147,6 +146,7 @@ Nicht vergessen sollte man den "\printbibliography"-Befehl, sodass  eine Bibliog
 \item[nurnachname] Schreibt die Autoren/-Herausgeber, die über "\citeauthor"\marg{Schlüssel} im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten). Siehe \cref{nurnachname}.
 \item[vollername]Schreibt die Autoren/-Herausgeber, die über "\citeauthor"\marg{Schlüssel} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind. Siehe \cref{vollername}.
 \item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt. Siehe \cref{kapitaelchen}.
+\item[antiktranslator] Damit wird in der Fußnote hinter die Zitation antiker Textstellen der Übersetzer genannt.
 \item[miturl] Ausgabe von DOI/eprint/URL wenn gewünscht. Siehe \cref{miturl}.
  \end{description}
 

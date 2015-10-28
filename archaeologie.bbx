@@ -97,21 +97,18 @@ firstinits=false,
 \DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
 \DeclareRedundantLanguages{english,american}{english,american,british,%
                        canadian,australian,newzealand,USenglish,UKenglish}
-\DeclareLanguageMapping{ngerman}{archaeologie}
+\DeclareLanguageMapping{ngerman}{archaeologie_ngerman}
 \DeclareLanguageMapping{english}{archaeologie_english}
-
-
 
 
 
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}%
 \renewcommand*{\intitlepunct}{\addcolon\addspace}%
 \renewcommand*{\newunitpunct}{\addcomma\addspace}%
-\newcommand*{\daiautorentrennzeichen}{\addnbspace\textendash}%
 \newcommand*{\autorentrennzeichen}{\addcomma}%
 \newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}%
 \renewcommand{\finentrypunct}{}%
-\renewcommand{\multinamedelim}{\daiautorentrennzeichen\addspace}
+\renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}%ehemals \daiautorentrennzeichen
 \renewcommand{\finalnamedelim}{\multinamedelim}
 \newcommand*{\volnumdelim}{\addslash}
 \newcommand*{\jourvoldelim}{\addnbspace}
