@@ -734,8 +734,8 @@ firstinits=false,
   \setunit*{\labelnamepunct}\newblock%
     \iffieldundef{title}{}{\printfield{title}}%
    	\newunit\newblock
-   			\bibstring{review}%
-			\setunit{\addnbspace}%
+   \iffieldundef{related}{}{\bibstring{review}%
+			\setunit{\addnbspace}}%
   \iftoggle{bbx:related}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
