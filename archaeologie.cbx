@@ -13,7 +13,6 @@
 
 %%%%%%%% cbx %%%%%%%%%%
 \newbool{cbx:jahrinklammern}%
-\newbool{cbx:kapitaelchen}%
 \newbool{cbx:antiktranslator}%
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
 \DeclareFieldFormat{citeyear}{#1}
@@ -22,7 +21,6 @@
     {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
     \csuse{bool#1}{cbx:jahrinklammern}}
     {\DeclareFieldFormat{citeyear}{##1}}}
-\DeclareBibliographyOption{kapitaelchen}[true]{\csuse{bool#1}{cbx:kapitaelchen}}%
 \DeclareBibliographyOption{antiktranslator}[true]{\csuse{bool#1}{cbx:antiktranslator}}%
 
 
@@ -36,17 +34,8 @@
 }%
 
 \renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
-%%\newcommand*{\citeautorenschriftart}{\ifbool{cbx:kapitaelchen}{\scshape}{}}% 
-%\newcommand*{\citeautorentrennzeichen}{\addnbspace\textendash\addspace}%
 
-              
-%\DeclareNameFormat{cite:author}{%
-%  {\citeautorenschriftart%
-%   \ifblank{#5}{}{#5\addspace}%
-%   #1}%
-%  \ifthenelse{\value{listcount}<\value{liststop}}%
-%    {\citeautorentrennzeichen}{\ifmorenames{\andothersdelim\bibstring{andothers}}{}}{}%
-%}
+
 
 
 \renewbibmacro*{postnote}{%
@@ -75,31 +64,7 @@
   \ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
     \iffootnote{\c@uniquename=0 \printnames{labelname}}{\printnames{labelname}}}}
-%    
-%\newbibmacro*{cite:name}{%    
-%  \ifciteindex{\indexnames{labelname}}{}%
-%  \printtext[bibhyperref]{%
-%    \ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik}}{%
-%      \printnames{namea}%
-%    }{%
-%      \iffootnote{%
-%        \printnames{labelname}%
-%      }{%
-%        \ifbool{cbx:nurnachname}{%
-%          \printnames{labelname}%
-%        }{%
-%          \ifbool{cbx:vollername}{%
-%            \ifnameundef{author}{%
-%              \printnames[voll]{editor}%
-%            }{%
-%              \printnames[voll]{author}%
-%            }%
-%          }{%
-%            \ifnameundef{author}{%
-%              \printnames[first-last-inits]{editor}%
-%            }{%
-%              \printnames[first-last-inits]{author}%
-%}}}}}}}%
+
 
 \newbibmacro*{cite:title}{%                           
      \iffieldundef{shorttitle}{%                   

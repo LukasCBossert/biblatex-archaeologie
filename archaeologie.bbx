@@ -56,7 +56,11 @@ firstinits=false,
 		\csuse{boolfalse}{cbx:nurnachname}%
 		\csuse{booltrue}{cbx:vollername}%
 		}%
-
+\DeclareBibliographyOption{kapitaelchen}[true]{%
+  \ifstrequal{#1}{true}%
+    {\AtEveryCite{\renewcommand*{\mkbibnamelast}[1]{\textsc{#1}}}}%
+    {}}%
+    
 %% \DeclareEntryOption %%
 \DeclareEntryOption{antik}[true]{\csuse{bool#1}{cbx:antik}}%
 \DeclareEntryOption{frgantik}[true]{%
@@ -66,6 +70,7 @@ firstinits=false,
 \DeclareEntryOption{nurshorthand}[true]{\csuse{bool#1}{cbx:nurshorthand}}%
 \DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
 
+    
 \newbibmacro{savestuff}{%
  		\savename{editor}{\bbx@lasteditor}%
    		\savefield{namehash}{\bbx@lasthash}%
@@ -91,6 +96,8 @@ firstinits=false,
 \DeclareFieldFormat{url}{\printtext{<}\url{#1}\printtext{>}}
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 \DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
+\DeclareFieldFormat{shorthandwidth}{#1}
+
 
 \DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
 \DeclareRedundantLanguages{english,american}{english,american,british,%
@@ -103,7 +110,6 @@ firstinits=false,
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}%
 \renewcommand*{\intitlepunct}{\addcolon\addspace}%
 \renewcommand*{\newunitpunct}{\addcomma\addspace}%
-\newcommand*{\autorentrennzeichen}{\addcomma}%
 \newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}%
 \renewcommand{\finentrypunct}{}%
 \renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}%ehemals \daiautorentrennzeichen
@@ -810,8 +816,7 @@ firstinits=false,
         \printtext[citeyear]{%
           \printfield{labelyear}\printfield{extrayear}}}}}
 
-\DeclareFieldFormat{shorthandwidth}{#1}
-\AtEveryCite{\ifbool{cbx:kapitaelchen}{\renewcommand*{\mkbibnamelast}[1]{\textsc{#1}}}{}}
+
 
 \AtBeginBibliography{
 \renewbibmacro{begentry}{\usebibmacro{kicklabel}}}
