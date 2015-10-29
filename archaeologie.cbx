@@ -13,7 +13,6 @@
 
 %%%%%%%% cbx %%%%%%%%%%
 \newbool{cbx:jahrinklammern}%
-\newbool{cbx:antiktranslator}%
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareBibliographyOption{jahrinklammern}[true]{%
@@ -21,7 +20,6 @@
     {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
     \csuse{bool#1}{cbx:jahrinklammern}}
     {\DeclareFieldFormat{citeyear}{##1}}}
-\DeclareBibliographyOption{antiktranslator}[true]{\csuse{bool#1}{cbx:antiktranslator}}%
 
 
 \DeclareFieldFormat{prenote}{#1\isdot}%
@@ -53,9 +51,6 @@
         \ifnameundef{shorteditor}%
            {\printnames[frg]{editor}}%
            {\printnames[frg]{shorteditor}}}%
-       {\ifbool{cbx:antiktranslator}{\addspace%
-       \mkbibparens{\bibstring{translated}\addspace\printnames[frg]{translator}}}}%
-       {}%
  }%
  }
 
