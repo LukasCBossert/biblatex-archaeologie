@@ -435,20 +435,29 @@ firstinits=false,
   \printfield{year}%
   \newunit}
   
-\renewbibmacro*{bytranslator+others}{%
-\ifnameundef{translator}{\iffieldundef{origlanguage}{}{\bibstring{translated}
-\addspace\lbx@lfromlang\addspace%
-}}{\bibstring{bytranslator}%
-\addspace%
-\printnames[author]{translator}%
-}}
+
 \newbibmacro*{addendum}{%
 }%
-%                                                                    %
+                                                               
 
 \newbibmacro{signatur}{\printfield{note}} 
 
-
+\newbibmacro{translation}{%
+  \ifbool{bbx:uebersetzung}{%
+    					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
+    \setunit*{\newunit\addspace}%
+ 		{\usebibmacro{byeditor+others}}}%
+		{\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
+  		       					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%%
+    \setunit{\addcomma\addspace}%
+			\ifentrytype{book}{%
+			\usebibmacro{byeditor+others}%
+			}{\usebibmacro{bytranslator+others}}%
+		{}%
+  	 }{}}%
+}
+		
+		
 %%%\newbibmacro*{volume}{%
 %%% \iffieldundef{volume}{}%
 %%%      {\printfield{volume}\newunit}}
@@ -539,15 +548,7 @@ firstinits=false,
   \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{maintitle+title+volumes}%
   \newunit\newblock%   
-  \ifbool{bbx:uebersetzung}{%
-    					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
-    \setunit*{\newunit\addspace}%
-		\usebibmacro{bytranslator+others}}%
-		{\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
-  		       					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%%
-    \setunit{\addcomma\addspace}%
-		\usebibmacro{bytranslator+others}{}%
-  		   }{}}%
+\usebibmacro{translation}%
    \setunit{\addspace}%
   \ifbool{bbx:jahrreihe}{}%
    	 {\newunit\usebibmacro{series+number}}%
@@ -661,15 +662,8 @@ firstinits=false,
   \usebibmacro{author}%
   \setunit*{\labelnamepunct}\newblock% 
   \usebibmacro{title}%
-  \ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
-  		       	\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
-    \setunit{\addspace}%
-		\usebibmacro{bytranslator+others}{}%
-  		   }{%
-  			\ifbool{bbx:uebersetzung}{%
-    					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
-    \setunit{\addspace}%
-		\usebibmacro{bytranslator+others}}{}}%
+\newunit\newblock
+\usebibmacro{translation}
   \newunit\newblock
   \usebibmacro{in:}%
   \usebibmacro{booktitle+volume+editor}%
