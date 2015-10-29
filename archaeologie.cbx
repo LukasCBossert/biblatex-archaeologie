@@ -36,8 +36,8 @@
 }%
 
 \renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
-\newcommand*{\citeautorenschriftart}{\ifbool{cbx:kapitaelchen}{\scshape}{}}% 
-\newcommand*{\citeautorentrennzeichen}{\addnbspace\textendash\addspace}%
+%%\newcommand*{\citeautorenschriftart}{\ifbool{cbx:kapitaelchen}{\scshape}{}}% 
+%\newcommand*{\citeautorentrennzeichen}{\addnbspace\textendash\addspace}%
 
               
 %\DeclareNameFormat{cite:author}{%
@@ -70,11 +70,11 @@
  }%
  }
 
-\renewbibmacro*{cite:name}{% 
-  \c@uniquename=0% 0: only last names, 1: last name + first name initials, 2: full name
+\renewbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
+  \ifbool{cbx:vollername}{\c@uniquename=2}{\ifbool{cbx:nurnachname}{\c@uniquename=0}{\c@uniquename=1}}
   \ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
-    \printnames{labelname}}}
+    \iffootnote{\c@uniquename=0 \printnames{labelname}}{\printnames{labelname}}}}
 %    
 %\newbibmacro*{cite:name}{%    
 %  \ifciteindex{\indexnames{labelname}}{}%
