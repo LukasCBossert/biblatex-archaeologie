@@ -59,7 +59,7 @@
  }%
  }
 
-\renewbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
+\newbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
   \ifbool{cbx:vollername}{\c@uniquename=2}{\ifbool{cbx:nurnachname}{\c@uniquename=0}{\c@uniquename=1}}
   \ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
@@ -98,7 +98,7 @@
   				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
   				\addspace\printfield{title}%
   				\addspace\printtext[parens]{\printnames[first-last-inits]{author}}%
-  }{\bibhyperref{\printnames[cite:author]{labelname}%              
+  }{\bibhyperref{\printnames{labelname}%              
            \setunit{\addspace}\usebibmacro{cite:year}%
             }}%
 }
@@ -113,7 +113,7 @@
        \ifbool{cbx:lexikon}{\usebibmacro{lexikon}}{}}%
        {\ifnameundef{labelname}%
          {\bibhyperref{\usebibmacro{shorthand+year}}}%
-         {\bibhyperref{\printnames[cite:author]{labelname}%    
+         {\bibhyperref{\printnames{labelname}%    
            \setunit{\addspace}\usebibmacro{cite:year}}}%
       }%
     }%

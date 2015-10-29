@@ -56,9 +56,10 @@ firstinits=false,
 		\csuse{boolfalse}{cbx:nurnachname}%
 		\csuse{booltrue}{cbx:vollername}%
 		}%
-\DeclareBibliographyOption{kapitaelchen}[true]{%
+
+    \DeclareBibliographyOption{kapitaelchen}[true]{%
   \ifstrequal{#1}{true}%
-    {\AtEveryCite{\renewcommand*{\mkbibnamelast}[1]{\textsc{#1}}}}%
+    {\AtEveryCite{\renewcommand*{\mkbibnamelast}[1]{\textsc{##1}}}}%
     {}}%
     
 %% \DeclareEntryOption %%
