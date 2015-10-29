@@ -75,7 +75,7 @@ firstinits=false,
 \newbibmacro{savestuff}{%
  		\savename{editor}{\bbx@lasteditor}%
    		\savefield{namehash}{\bbx@lasthash}%
-   		\savefield{maintitle}{\bbx@lastmaintitle}%
+   		\savefield{booktitle}{\bbx@lastbooktitle}%
 		}%
 		
 \DeclareFieldFormat*{title}{#1}%
@@ -313,22 +313,22 @@ firstinits=false,
 \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
    
-\renewbibmacro*{maintitle}{%
-\printfield[titlecase]{maintitle}%
-\iffieldundef{mainsubtitle}{}{\setunit{\subtitlepunct}}%
-\printfield[titlecase]{mainsubtitle}%
-\setunit*{\newunit}%
-\iffieldundef{maintitleaddon}{}{\newunit\printfield[titlecase]{maintitleaddon}}%
-\iffieldundef{volume}{\newunit}{\addspace}%
-}
+%\renewbibmacro*{maintitle}{%
+%\printfield[titlecase]{maintitle}%
+%\iffieldundef{mainsubtitle}{}{\setunit{\subtitlepunct}}%
+%\printfield[titlecase]{mainsubtitle}%
+%\setunit*{\newunit}%
+%\iffieldundef{maintitleaddon}{}{\newunit\printfield[titlecase]{maintitleaddon}}%
+%\iffieldundef{volume}{\newunit}{\addspace}%
+%}
 
-\newbibmacro*{maintitle+title+volumes}{% %%% soll aufgedröselt und wird obsolet
-  \iffieldsequal{maintitle}{title}
-    {\clearfield{maintitle}%
-     \clearfield{mainsubtitle}%
-     \clearfield{maintitleaddon}}
-    {\iffieldundef{maintitle}{}%
-       {\usebibmacro{maintitle}%
+\newbibmacro*{booktitle+title+volumes}{% %%% soll aufgedröselt und wird obsolet
+  \iffieldsequal{booktitle}{title}
+    {\clearfield{booktitle}%
+     \clearfield{booksubtitle}%
+     \clearfield{booktitleaddon}}
+    {\iffieldundef{booktitle}{}%
+       {\usebibmacro{booktitle}%
          \ifbool{cbx:antik}%
             {\usebibmacro{title}%
             \iffieldundef{volume}{\newunit\newblock}{}}%
@@ -466,11 +466,11 @@ firstinits=false,
 
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{%
-    \usebibmacro{maintitle}%
+    \usebibmacro{booktitle}%
     \usebibmacro{volume}%
   }{%
     \ifbool{bbx:hrsgv}{%
-      \usebibmacro{maintitle}%
+      \usebibmacro{booktitle}%
          \usebibmacro{volume}%
       \newunit%
       \bibstring{byeditor}%
@@ -479,7 +479,7 @@ firstinits=false,
      }%
            {\printnames[author][-\value{listtotal}]{editor}\addspace%
       \printtext[parens]{\bibstring{editor}}\newunit\newblock
-      \usebibmacro{maintitle}%
+      \usebibmacro{booktitle}%
           \usebibmacro{volume}%
       \newunit%
      }%
@@ -508,12 +508,12 @@ firstinits=false,
           			\printfield[titlecase]{series}}}
 
 \DeclareDataInheritance{reference}{inreference}{%
-  \inherit{shorthand}{maintitle}
+  \inherit{shorthand}{booktitle}
   \noinherit{volumes}
 }
 
 \DeclareBibliographyDriver{shorthand}{%
-\iffieldundef{title}{\printfield{maintitle}}{\printfield{title}}}          			
+\iffieldundef{title}{\printfield{booktitle}}{\printfield{title}}}          			
           			
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
@@ -546,7 +546,7 @@ firstinits=false,
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
   \setunit*{\labelnamepunct}\newblock%
-  \usebibmacro{maintitle+title+volumes}%
+  \usebibmacro{booktitle+title+volumes}%
   \newunit\newblock%   
 \usebibmacro{translation}%
    \setunit{\addspace}%
@@ -598,7 +598,7 @@ firstinits=false,
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
   \setunit*{\labelnamepunct}\newblock%
-      \usebibmacro{maintitle+title+volumes}%
+      \usebibmacro{booktitle+title+volumes}%
 \usebibmacro{event+venue+date}%
   \setunit{\addspace}%
   \ifbool{bbx:jahrreihe}{}%
@@ -696,7 +696,7 @@ firstinits=false,
 \usebibmacro{bibindex}%
  \usebibmacro{begentry}%
 \ifbool{cbx:lexikon}{%
-  				\printfield{maintitle}%
+  				\printfield{booktitle}%
   				\addspace\printfield{volume}%
   				\addspace\printfield[parens]{year}%
   				\addspace\printfield{pages}%
