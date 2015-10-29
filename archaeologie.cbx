@@ -89,7 +89,7 @@
   
 \newbibmacro*{lexikon}{%
   \ifbool{bbx:lexika}{%
-  				\printfield{maintitle}\addspace%
+  				\printfield{booktitle}\addspace%
   				\printfield{volume}%
   				\addspace
   				\printfield[parens]{year}%
@@ -97,8 +97,8 @@
   							\iffieldundef{postnote}{\printfield{pages}}{\printfield{postnote}}%
   				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
   				\addspace\printfield{title}%
-  				\addspace\printtext[parens]{\printnames[first-last-inits]{author}}%
-  }{\bibhyperref{\printnames{labelname}%              
+  				\addspace\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
+  				  }{\bibhyperref{\printnames{labelname}%              
            \setunit{\addspace}\usebibmacro{cite:year}%
             }}%
 }
