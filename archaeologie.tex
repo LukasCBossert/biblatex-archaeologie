@@ -58,7 +58,7 @@ ngerman,
 	%	jahrinklammern,
 	%nurnachname,
 	%vollername,
-	kapitaelchen,
+	%kapitaelchen,
 	%antiktranslator,
 	%miturl,
 	%%%%%%%%%%%%%%%%%%%%%%%
@@ -421,7 +421,10 @@ Im Fließtext schreibt man:
 \ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".
 \end{bsp}
 
-Und nach dem Kompilieren wird dann in der Standardeinstellung (ohne weitere Optionen):
+Und nach dem Kompilieren wird dann in der Standardeinstellung (ohne weitere Optionen):\footnote{Wird der Befehel "citeauthor" in einer Fußnote verwendet, dann werden nur die Nachnamen ausgegeben, unabhängig der Optionen "vollername" (\cref{name:a}) und "nurnachname" (\cref{name:b}): \begin{bsp}
+\ldots , dies behaupten ebenso  "\citeauthor{Boehmer_1985}" in ihrem jüngsten Werk "\citetitle{Boehmer_1985}".
+\end{bsp} }
+
 \begin{bsp} \todo[noline]{dynamisches Beispiel}\ldots , dies behaupten ebenso  \citeauthor{Boehmer_1985} in ihrem jüngsten Werk \citetitle{Boehmer_1985}.\end{bsp}
 
 Oder mit den Optionen "vollername" (\cref{name:a}) und "nurnachname" (\cref{name:b}):
@@ -442,9 +445,9 @@ Oder mit den Optionen "vollername" (\cref{name:a}) und "nurnachname" (\cref{name
 \end{refsection}
 
 
-Werden allerdings mit "\citeauthor", bzw. "\citetitle"  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag "options=antik" geschrieben werden), dann wird für den Autorenname das Feld "namea" ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
+Werden allerdings mit "\citeauthor", bzw. "\citetitle"  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag "options=antik" geschrieben werden), dann wird für den Autorenname das Feld "shortauthor" ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
 
-Um Fehler zu vermeiden ist es absolut wichtig, dass dieses Feld wie die anderen Namensfelder behandelt wird. Möchte man »Plinius, d. Ä.« als deutschen Rufnamen ausgeben, dann muss man schreiben: "namea = {Plinius, {d.\,Ä.}}".
+Um Fehler zu vermeiden ist es absolut wichtig, dass dieses Feld wie die anderen Namensfelder behandelt wird. Möchte man »Plinius, d. Ä.« als deutschen Rufnamen ausgeben, dann muss man schreiben: "shortauthor = {Plinius, {d.\,Ä.}}".
 
 Bei antiken Werktitel wird keine Jahreszahl dazugeschrieben.
 Somit wird aus dem Bibliographieeintrag
@@ -461,7 +464,7 @@ Somit wird aus dem Bibliographieeintrag
 "  Origlanguage  = {latin},"\\
 "  Shorthand = {Quint. inst.},"\\
 "  Subtitle  = {Institutio oratoria},"\\
-"  Namea   = {Quintilian}"\\
+"  Shortauthor   = {Quintilian}"\\
 "}"
 
 wie folgt  Autor und  Buchttitel ausgelesen:
@@ -717,7 +720,7 @@ Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option "a
 "  Origyear = {1959},"\\
 "  Shorthand  = {Cic. Att.},"\\
 "  Translator = {Kasten, Helmut},"\\
-"  Namea = {Cicero}     % relevant für \citeauthor"\\
+"  Shortauthor = {Cicero}     % relevant für \citeauthor"\\
 "	}"\\[3pt]
 
 
@@ -757,7 +760,7 @@ Ein Beispiel verschafft Klarheit:
 "  Origtitle = {pro P.\ Sestio},"\\
 "  Shorthand = {Cic. Sest.},"\\
 "  Translator = {Fuhrmann, Manfred},"\\
-"  Namea = {Cicero}"\\
+"  Shortauthor = {Cicero}"\\
 "}"\\
 
 
@@ -819,7 +822,7 @@ Ein Beispiel verschafft Klarheit:
 "  Options = {frgantik},"\\
 "  Origyear = {1913},"\\
 "  Shorthand = {Fest.},"\\
-"  Namea = {Festus}"\\
+"  Shortauthor = {Festus}"\\
 "}"\\[3pt]
  Zitiert man diesen Eintrag durch "\cite[3]{Fest}", so wird der oder die Herausgeber genannt.
 \begin{refsection} 
