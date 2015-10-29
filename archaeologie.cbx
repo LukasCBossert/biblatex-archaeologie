@@ -40,13 +40,13 @@
 \newcommand*{\citeautorentrennzeichen}{\addnbspace\textendash\addspace}%
 
               
-\DeclareNameFormat{cite:author}{%
-  {\citeautorenschriftart%
-   \ifblank{#5}{}{#5\addspace}%
-   #1}%
-  \ifthenelse{\value{listcount}<\value{liststop}}%
-    {\citeautorentrennzeichen}{\ifmorenames{\andothersdelim\bibstring{andothers}}{}}{}%
-}
+%\DeclareNameFormat{cite:author}{%
+%  {\citeautorenschriftart%
+%   \ifblank{#5}{}{#5\addspace}%
+%   #1}%
+%  \ifthenelse{\value{listcount}<\value{liststop}}%
+%    {\citeautorentrennzeichen}{\ifmorenames{\andothersdelim\bibstring{andothers}}{}}{}%
+%}
 
 
 \renewbibmacro*{postnote}{%
@@ -70,30 +70,36 @@
  }%
  }
 
-\newbibmacro*{cite:name}{%    
+\renewbibmacro*{cite:name}{% 
+  \c@uniquename=0% 0: only last names, 1: last name + first name initials, 2: full name
   \ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
-    \ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik}}{%
-      \printnames{namea}%
-    }{%
-      \iffootnote{%
-        \printnames{labelname}%
-      }{%
-        \ifbool{cbx:nurnachname}{%
-          \printnames{labelname}%
-        }{%
-          \ifbool{cbx:vollername}{%
-            \ifnameundef{author}{%
-              \printnames[voll]{editor}%
-            }{%
-              \printnames[voll]{author}%
-            }%
-          }{%
-            \ifnameundef{author}{%
-              \printnames[first-last-inits]{editor}%
-            }{%
-              \printnames[first-last-inits]{author}%
-}}}}}}}%
+    \printnames{labelname}}}
+%    
+%\newbibmacro*{cite:name}{%    
+%  \ifciteindex{\indexnames{labelname}}{}%
+%  \printtext[bibhyperref]{%
+%    \ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik}}{%
+%      \printnames{namea}%
+%    }{%
+%      \iffootnote{%
+%        \printnames{labelname}%
+%      }{%
+%        \ifbool{cbx:nurnachname}{%
+%          \printnames{labelname}%
+%        }{%
+%          \ifbool{cbx:vollername}{%
+%            \ifnameundef{author}{%
+%              \printnames[voll]{editor}%
+%            }{%
+%              \printnames[voll]{author}%
+%            }%
+%          }{%
+%            \ifnameundef{author}{%
+%              \printnames[first-last-inits]{editor}%
+%            }{%
+%              \printnames[first-last-inits]{author}%
+%}}}}}}}%
 
 \newbibmacro*{cite:title}{%                           
      \iffieldundef{shorttitle}{%                   

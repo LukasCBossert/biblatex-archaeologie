@@ -113,6 +113,7 @@ firstinits=false,
 %\let\bibnamedashOrig\bibnamedash%
 %\renewcommand*{\bibnamedash}{\rule[3pt]{2.5em}{.6pt}\space}
 
+
 \DeclareBibliographyAlias{collection}{book}
 \DeclareBibliographyAlias{reference}{book}
 \DeclareBibliographyAlias{institution}{school}
@@ -187,18 +188,18 @@ firstinits=false,
 		}%
 }%
 
-\newbibmacro{labelwidthbib}{%
- 	\printtext{%
- 			\printnames[cite:author]{labelname}%
- 			}%
-     	\addspace%
-     	\printtext[%
-     		\ifbool{cbx:jahrinklammern}{parens}{}%
-     		]{%
-       	 		\printfield{labelyear}%
-       	 		\printfield{extrayear}%
-       	 }%
- }%
+%%%\newbibmacro{labelwidthbib}{%
+%%% 	\printtext{%
+%%% 			\printnames[cite:author]{labelname}%
+%%% 			}%
+%%%     	\addspace%
+%%%     	\printtext[%
+%%%     		\ifbool{cbx:jahrinklammern}{parens}{}%
+%%%     		]{%
+%%%       	 		\printfield{labelyear}%
+%%%       	 		\printfield{extrayear}%
+%%%       	 }%
+%%% }%
        	 
 \newbibmacro*{bbx:parunit}{%
   \ifbibliography{%
@@ -314,7 +315,7 @@ firstinits=false,
 \iffieldundef{volume}{\newunit}{\addspace}%
 }
 
-\newbibmacro*{maintitle+title+volumes}{%
+\newbibmacro*{maintitle+title+volumes}{% %%% soll aufgedröselt und wird obsolet
   \iffieldsequal{maintitle}{title}
     {\clearfield{maintitle}%
      \clearfield{mainsubtitle}%
@@ -341,6 +342,9 @@ firstinits=false,
    \newunit}%   
    
 
+  
+  
+
 \renewbibmacro{event+venue+date}{%
 \setunit{\adddot\addspace}%  
   \printfield{eventtitle}%
@@ -361,12 +365,17 @@ firstinits=false,
        \ifentrytype{book}{\usebibmacro{volume}}{}}%
   \newunit{\addspace}\printfield{titleaddon}\isdot}%
 
+%\newbibmacro*{originaltitel}{%
+%					\addcomma\addspace%
+%    					\bibstring{origtitle}%
+%    					\addcolon\addspace%
+%    					\printfield{origtitle}%
+%    					\addcomma}
+    					
 \newbibmacro*{originaltitel}{%
-					\addcomma\addspace%
-    					\bibstring{origtitle}%
-    					\addcolon\addspace%
-    					\printfield{origtitle}%
-    					\addcomma}
+					\addspace%
+    					\printfield[emph]{origtitle}%
+\addcomma}
     					
 \newbibmacro*{Erstauflage}{%
 					\bibstring{firstprint}\addcolon\addspace}
@@ -752,39 +761,78 @@ firstinits=false,
 
 
 %% Bibliographielayout für Autor-Jahr-Auflistung %%
+%\newsavebox\arch@labelbox%
+%\AtBeginBibliography{%
+%  \renewbibmacro{begentry}{% 
+%      \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
+%    \ifboolexpr{bool {cbx:antik}%
+%	     or bool {cbx:frgantik}% 
+%	     or bool {cbx:nurshorthand}%
+%	  }%
+%      {}%			
+%      {\ifdim\shorthandwidth < .9\wd\arch@labelbox\newline\fi}}}%
+%
+%\defbibenvironment{bibliography}
+%    {\list{%
+%  \ifnameundef{labelname}%
+%  {\usebibmacro{shorthand+year}}
+%  {%		
+%					\ifboolexpr{bool {cbx:antik}% 
+%									or bool {cbx:frgantik}% 
+%									or bool {cbx:nurshorthand}}%
+%							{\printfield{shorthand}}%
+%							{\printtext{\printnames[cite:author]{labelname}}%
+%     				\addspace\printtext[\ifbool{cbx:jahrinklammern}{parens}{}]{%
+%       					 \printfield{labelyear}\printfield{extrayear}}%
+%       					 \usebibmacro{begentry}}}%
+%    }%
+%       {%
+%       \setlength{\labelwidth}{\shorthandwidth}%
+%       \setlength{\leftmargin}{\labelwidth}%
+%        \addtolength{\leftmargin}{\labelsep}%
+%   \renewcommand*{\makelabel}[1]{##1\hss}%
+%       }
+%        }
+%    {\endlist}
+%  {\item}
+\newbibmacro{labelwidthbib}{%
+  \csuse{blx@hook@cite}%
+  \csuse{blx@hook@citekey}%
+  \defcounter{maxnames}{\blx@maxcitenames}%\usebibmacro{cite}%
+  \ifnameundef{labelname}
+    {\usebibmacro{shorthand+year}}
+    {\ifboolexpr{bool {cbx:antik}%
+                 or bool {cbx:frgantik}% 
+                 or bool {cbx:nurshorthand}}%
+       {\printfield{shorthand}}%
+       {\printnames{labelname}%
+        \setunit{\addspace}%
+        \printtext[citeyear]{%
+          \printfield{labelyear}\printfield{extrayear}}}}}
+
+\DeclareFieldFormat{shorthandwidth}{#1}
+\AtEveryCite{\ifbool{cbx:kapitaelchen}{\renewcommand*{\mkbibnamelast}[1]{\textsc{#1}}}{}}
+
+\AtBeginBibliography{
+\renewbibmacro{begentry}{\usebibmacro{kicklabel}}}
 \newsavebox\arch@labelbox%
-\AtBeginBibliography{%
-  \renewbibmacro{begentry}{% 
-      \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
-    \ifboolexpr{bool {cbx:antik}%
-	     or bool {cbx:frgantik}% 
-	     or bool {cbx:nurshorthand}%
-	  }%
-      {}%			
-      {\ifdim\shorthandwidth < .9\wd\arch@labelbox\newline\fi}}}%
+\newbibmacro{kicklabel}{% 
+  \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
+  \global\togglefalse{blx@insert}%
+  \ifdim\shorthandwidth<\wd\arch@labelbox\newline\fi}
 
 \defbibenvironment{bibliography}
-    {\list{%
-  \ifnameundef{labelname}%
-  {\usebibmacro{shorthand+year}}
-  {%		
-					\ifboolexpr{bool {cbx:antik}% 
-									or bool {cbx:frgantik}% 
-									or bool {cbx:nurshorthand}}%
-							{\printfield{shorthand}}%
-							{\printtext{\printnames[cite:author]{labelname}}%
-     				\addspace\printtext[\ifbool{cbx:jahrinklammern}{parens}{}]{%
-       					 \printfield{labelyear}\printfield{extrayear}}%
-       					 \usebibmacro{begentry}}}%
-    }%
-       {%
-       \setlength{\labelwidth}{\shorthandwidth}%
-       \setlength{\leftmargin}{\labelwidth}%
-        \addtolength{\leftmargin}{\labelsep}%
-   \renewcommand*{\makelabel}[1]{##1\hss}%
-       }
-        }
-    {\endlist}
+  {\list
+     {\usebibmacro{labelwidthbib}}
+     {\setlength{\labelwidth}{\shorthandwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}%
+      \renewcommand*{\makelabel}[1]{##1\hss}}}
+  {\endlist}
   {\item}
+  
 %  
 \endinput
