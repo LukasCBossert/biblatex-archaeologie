@@ -1215,7 +1215,7 @@ und schließlich die dazugehörige Rezension:
 
 "@Review{Bell_2011,"\\
 "  Author                   = {Bell, Sinclair},"\\
-"  Titleaddon = {\fullcite{Welch_2007}},%" \emph{Besonderheit!!}\\
+"  Related = {Welch_2007},%" \emph{Besonderheit!!}\\
 "  Number                   = {1},"\\
 "  Volume                   = {115},"\\
 "  Pages                    = {1--4},"\\
@@ -1225,7 +1225,7 @@ und schließlich die dazugehörige Rezension:
 "  Shortjournal             = AJA-kurz,"\\
 "}"\\
 
-Im Bibliographieeintrag der Rezension ("Bell_2011") wird im Feld "Titleaddon" mittels "\fullcite{Welch_2007}" Bezug auf das rezensierte Werk ("Welch_2007") genommen.
+Im Bibliographieeintrag der Rezension ("Bell_2011") wird im Feld "Related" mittels Eintrag "{Welch_2007}" Bezug auf das rezensierte Werk ("Welch_2007") genommen.
 Dies ist für die Bibliographie relevant: Es ist nun nicht mehr notwendig das rezensierte Werk mit allen dazugehörigen Angaben einzutippen, da die dies automatisch über das Vollzitat erfolgt.
 
 \begin{refsection}
@@ -1241,7 +1241,7 @@ In diesem Fall wird das Feld "Title" ausgefüllt, ansonsten bleibt alles gleich:
 "@Review{Hufschmid_2010,"\\
 "  Title                    = {Von Caesars \emph{theatron kynegetikon}"\\
 " zum \emph{amphitheatrum novum} Vespasians},"\\
-"  Titleaddon = {\fullcite{Welch_2007}},%" \emph{Besonderheit!!}\\
+"  Related = {Welch_2007},%" \emph{Besonderheit!!}\\
 "  Author                   = {Hufschmid, Thomas},"\\
 "  Pages                    = {487--504},"\\
 "  Volume                   = {23},"\\
@@ -1259,8 +1259,8 @@ In der Bibliographie wird dann zuerst der eigene Titel der Rezension ausgegeben,
 \end{bsp}
  \end{refsection}
 
-Der Vorteil mit "fullcite" zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
-Der ›Nachteil‹ ist, dass in der Bibliographie immer beide Einträge erscheinen (Rezension und rezensiertes Werk), obwohl man vielleicht das rezensierte Werk nicht explizit zitiert hat.
+Der Vorteil mit "Related" zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
+Zudem wird das rezensierte Werk bei der Erwähung in der Rezension nicht automatisch in die Bibliographie als eigener Eintrag aufgenommen, sondern erst dann, wenn es selbst explizit zitiert wird.
 
 
  \subsection{Typ \texttt{@thesis}}\label{thesis}

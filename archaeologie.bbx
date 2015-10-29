@@ -733,12 +733,13 @@ firstinits=false,
   \usebibmacro{author/editor}
   \setunit*{\labelnamepunct}\newblock%
     \iffieldundef{title}{}{\printfield{title}}%
-   \iffieldundef{titleaddon}{}{%
    	\newunit\newblock
    			\bibstring{review}%
 			\setunit{\addnbspace}%
- 			\printfield{titleaddon}%
- 			}%
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}% 			%
   \newunit\newblock
   \usebibmacro{journal+number+year}%
   \newunit\newblock%
@@ -746,10 +747,6 @@ firstinits=false,
   \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
   \usebibmacro{signatur}%
   \newunit\newblock
-  \iftoggle{bbx:related}
-    {\usebibmacro{related:init}%
-     \usebibmacro{related}}
-    {}%
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }%
