@@ -766,42 +766,8 @@ firstinits=false,
   \usebibmacro{finentry}%
 }%
 
+\newsavebox\arch@labelbox%
 
-%% Bibliographielayout für Autor-Jahr-Auflistung %%
-%\newsavebox\arch@labelbox%
-%\AtBeginBibliography{%
-%  \renewbibmacro{begentry}{% 
-%      \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
-%    \ifboolexpr{bool {cbx:antik}%
-%	     or bool {cbx:frgantik}% 
-%	     or bool {cbx:nurshorthand}%
-%	  }%
-%      {}%			
-%      {\ifdim\shorthandwidth < .9\wd\arch@labelbox\newline\fi}}}%
-%
-%\defbibenvironment{bibliography}
-%    {\list{%
-%  \ifnameundef{labelname}%
-%  {\usebibmacro{shorthand+year}}
-%  {%		
-%					\ifboolexpr{bool {cbx:antik}% 
-%									or bool {cbx:frgantik}% 
-%									or bool {cbx:nurshorthand}}%
-%							{\printfield{shorthand}}%
-%							{\printtext{\printnames[cite:author]{labelname}}%
-%     				\addspace\printtext[\ifbool{cbx:jahrinklammern}{parens}{}]{%
-%       					 \printfield{labelyear}\printfield{extrayear}}%
-%       					 \usebibmacro{begentry}}}%
-%    }%
-%       {%
-%       \setlength{\labelwidth}{\shorthandwidth}%
-%       \setlength{\leftmargin}{\labelwidth}%
-%        \addtolength{\leftmargin}{\labelsep}%
-%   \renewcommand*{\makelabel}[1]{##1\hss}%
-%       }
-%        }
-%    {\endlist}
-%  {\item}
 \newbibmacro{labelwidthbib}{%
   \csuse{blx@hook@cite}%
   \csuse{blx@hook@citekey}%
@@ -817,15 +783,12 @@ firstinits=false,
         \printtext[citeyear]{%
           \printfield{labelyear}\printfield{extrayear}}}}}
 
+\DeclareFieldFormat{shorthandwidth}{#1}
 
-
-\AtBeginBibliography{
-\renewbibmacro{begentry}{\usebibmacro{kicklabel}}}
-\newsavebox\arch@labelbox%
 \newbibmacro{kicklabel}{% 
   \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
   \global\togglefalse{blx@insert}%
-  \ifdim\shorthandwidth<\wd\arch@labelbox\newline\fi}
+  \ifdim\shorthandwidth<.9\wd\arch@labelbox\leavevmode\newline\fi}
 
 \defbibenvironment{bibliography}
   {\list
@@ -838,7 +801,7 @@ firstinits=false,
       \setlength{\parsep}{\bibparsep}%
       \renewcommand*{\makelabel}[1]{##1\hss}}}
   {\endlist}
-  {\item}
-  
+  {\item\usebibmacro{kicklabel}}
+
 %  
 \endinput
