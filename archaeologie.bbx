@@ -558,7 +558,7 @@ firstinits=false,
     \usebibmacro{series+number}%
     \newunit}{}%
   \usebibmacro{addendum}%
-  \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
+\usebibmacro{doi+eprint+url}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \newunit\newblock
@@ -580,7 +580,7 @@ firstinits=false,
     \printtext[parens]{\printfield{type}%
     \setunit*{\addspace}%
   \usebibmacro{institution+location+date}}%
-  \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
+  \usebibmacro{doi+eprint+url}%
   \setunit*{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \newunit\newblock
@@ -609,7 +609,7 @@ firstinits=false,
     \usebibmacro{series+number}%
     \newunit}{}%
   \usebibmacro{addendum}%
-  \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
+  \usebibmacro{doi+eprint+url}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \usebibmacro{savestuff}%
@@ -643,7 +643,7 @@ firstinits=false,
   \usebibmacro{pages}%
   \setunit{\addspace}%
   \usebibmacro{addendum}%
-  \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
+  \usebibmacro{doi+eprint+url}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \newunit\newblock
@@ -678,7 +678,7 @@ firstinits=false,
   \usebibmacro{pages}%
   \setunit{\addspace}%
   \usebibmacro{addendum}%
-  \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
+  \usebibmacro{doi+eprint+url}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \newunit\newblock
@@ -722,7 +722,7 @@ firstinits=false,
   \usebibmacro{pages}%
   \setunit{\addspace}%
   \usebibmacro{addendum}%
-  \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
+  \usebibmacro{doi+eprint+url}%
  \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}}%
   \newunit\newblock
@@ -747,7 +747,7 @@ firstinits=false,
   \usebibmacro{journal+number+year}%
   \newunit\newblock%
   \usebibmacro{pages}%
-  \ifbool{bbx:miturl}{\usebibmacro{doi+eprint+url}}{}%
+  \usebibmacro{doi+eprint+url}%
   \usebibmacro{signatur}%
   \newunit\newblock
   \usebibmacro{savestuff}%
