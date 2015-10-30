@@ -146,7 +146,6 @@ Nicht vergessen sollte man den "\printbibliography"-Befehl, sodass  eine Bibliog
 \item[vollername]Schreibt die Autoren/-Herausgeber, die über "\citeauthor"\marg{Schlüssel} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind. Siehe \cref{vollername}.
 \item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt. Siehe \cref{kapitaelchen}.
 \item[antiktranslator] Damit wird in der Fußnote hinter die Zitation antiker Textstellen der Übersetzer genannt.
-\item[miturl] Ausgabe von DOI/eprint/URL wenn gewünscht. Siehe \cref{miturl}.
  \end{description}
 
  \subsection{Literaturoptionen (Bibliographieeintrag)}
@@ -685,45 +684,45 @@ U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Her
  
 
 
-\subsubsection{miturl}\label{miturl}
-\DescribeMacro{miturl}
-Für Bibliographieeinträge die online sind ("@Online") werden  die URLs/DOI immer mit angegeben.
-
-" @Online{Selle_2008,"\\
-" Title   = {Raum und Verhalten},"\\
-" Author  = {Selle, Klaus},"\\
-" Url     = {http://www.pt.rwth-aachen.de/%"\\
-"dokumente/lehre_materialien/c8_raum_verhalten.pdf},"\\
-" Urldate 				= {2015-06-26},"\\
-" Year    = {2008},"\\
-" Subtitle  = {Grundlagen und erste Folgerungen für das Wohnen in der Stadt},"\\
-" }"\\
-
-%\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Selle_2008}\end{bsp}
- \begin{bsp}
-\begin{refsection}
-\nocite{Selle_2008}
-\printbibliography[title={Forschungsliteratur}]
-\end{refsection}
-\end{bsp}
-
-Handelt es sich jedoch um einen Artikel o. ä., dann kann man die Angabe der URL/DOI/eprint optional steuern:
-
-" @Article{Mastrocinque_2012,"\\
-" Title   = {Magnetometry at Grumentum in Ancient Lucania},"\\
-" Author           = {Mastrocinque, Attilio and Saggioro, Fabio},"\\
-" Journaltitle           = {The Journal of Fasti Online},"\\
-" Pages   = {1--5},"\\
-" Year    = {2012},"\\
-" Url     = {www.fastionline.org/docs/FOLDER-it-2012-245.pdf},"\\
-" urldate				 = {2015-07-21},"\\
-" }"\\
-
-
-\begin{bsp}\todo[noline]{manuelles Beispiel}
-A. Mastrocinque – F. Saggioro, Magnetometry at Grumentum in Ancient Lucania, The Journal of Fasti Online, 2012, 1–5,\\
- {\color{red}<"www.fastionline.org/docs/FOLDER-it-2012-245.pdf"> (21. 07. 2015)}
-\end{bsp}
+%%\subsubsection{miturl}\label{miturl}
+%%\DescribeMacro{miturl}
+%%Für Bibliographieeinträge die online sind ("@Online") werden  die URLs/DOI immer mit angegeben.
+%%
+%%" @Online{Selle_2008,"\\
+%%" Title   = {Raum und Verhalten},"\\
+%%" Author  = {Selle, Klaus},"\\
+%%" Url     = {http://www.pt.rwth-aachen.de/%"\\
+%%"dokumente/lehre_materialien/c8_raum_verhalten.pdf},"\\
+%%" Urldate 				= {2015-06-26},"\\
+%%" Year    = {2008},"\\
+%%" Subtitle  = {Grundlagen und erste Folgerungen für das Wohnen in der Stadt},"\\
+%%" }"\\
+%%
+%%%\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Selle_2008}\end{bsp}
+%% \begin{bsp}
+%%\begin{refsection}
+%%\nocite{Selle_2008}
+%%\printbibliography[title={Forschungsliteratur}]
+%%\end{refsection}
+%%\end{bsp}
+%%
+%%Handelt es sich jedoch um einen Artikel o. ä., dann kann man die Angabe der URL/DOI/eprint optional steuern:
+%%
+%%" @Article{Mastrocinque_2012,"\\
+%%" Title   = {Magnetometry at Grumentum in Ancient Lucania},"\\
+%%" Author           = {Mastrocinque, Attilio and Saggioro, Fabio},"\\
+%%" Journaltitle           = {The Journal of Fasti Online},"\\
+%%" Pages   = {1--5},"\\
+%%" Year    = {2012},"\\
+%%" Url     = {www.fastionline.org/docs/FOLDER-it-2012-245.pdf},"\\
+%%" urldate				 = {2015-07-21},"\\
+%%" }"\\
+%%
+%%
+%%\begin{bsp}\todo[noline]{manuelles Beispiel}
+%%A. Mastrocinque – F. Saggioro, Magnetometry at Grumentum in Ancient Lucania, The Journal of Fasti Online, 2012, 1–5,\\
+%% {\color{red}<"www.fastionline.org/docs/FOLDER-it-2012-245.pdf"> (21. 07. 2015)}
+%%\end{bsp}
 
 \subsection{Optionen der Literatureinträge}\label{optionen-literatur}
 \subsubsection{antik}\label{antik}

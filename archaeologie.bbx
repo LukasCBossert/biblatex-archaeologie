@@ -27,7 +27,6 @@ maxbibnames=999,%
 \newbool{bbx:keineabkuerzung}%		
 \newbool{bbx:uebersetzung}%		
 \newbool{bbx:verlag}					
-\newbool{bbx:miturl}					
 \newbool{cbx:antik}%
 \newbool{cbx:frgantik}%
 \newbool{cbx:nurshorthand}%		
@@ -47,7 +46,6 @@ firstinits=false,
 \DeclareBibliographyOption{keineabkuerzung}[true]{\csuse{bool#1}{bbx:keineabkuerzung}}
 \DeclareBibliographyOption{uebersetzung}[true]{\csuse{bool#1}{bbx:uebersetzung}}
 \DeclareBibliographyOption{verlag}[true]{\csuse{bool#1}{bbx:verlag}}
-\DeclareBibliographyOption{miturl}[true]{\csuse{bool#1}{bbx:miturl}}
 \DeclareBibliographyOption{nurnachname}[true]{%
 		\csuse{booltrue}{cbx:nurnachname}%
 		\csuse{boolfalse}{cbx:vollername}%
@@ -528,7 +526,7 @@ firstinits=false,
   \usebibmacro{journal+number+year}%
   \newunit\newblock%
   \usebibmacro{pages}%
-  \ifbool{bbx:miturl}{\setunit{\addspace}\usebibmacro{doi+eprint+url}}{}%
+  \usebibmacro{doi+eprint+url}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \newunit\newblock
