@@ -98,6 +98,7 @@ firstinits=false,
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 \DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
 \DeclareFieldFormat{shorthandwidth}{#1}
+\DeclareFieldFormat{origtitle}{\mkbibemph{#1}}
 
 
 \DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
@@ -434,22 +435,32 @@ firstinits=false,
 
 \newbibmacro{signatur}{\printfield{note}} 
 
+%\newbibmacro{translation}{%
+%  \ifbool{bbx:uebersetzung}{%
+%    					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
+%    \setunit*{\newunit\addspace}%
+% 		{\usebibmacro{byeditor+others}}}%
+%		{\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
+%  		       					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%%
+%    \setunit{\addcomma\addspace}%
+%			\ifentrytype{book}{%
+%			\usebibmacro{byeditor+others}%
+%			}{\usebibmacro{bytranslator+others}}%
+%		{}%
+%  	 }{}}%
+%}
 \newbibmacro{translation}{%
-  \ifbool{bbx:uebersetzung}{%
-    					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
-    \setunit*{\newunit\addspace}%
- 		{\usebibmacro{byeditor+others}}}%
-		{\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
-  		       					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%%
-    \setunit{\addcomma\addspace}%
-			\ifentrytype{book}{%
-			\usebibmacro{byeditor+others}%
-			}{\usebibmacro{bytranslator+others}}%
-		{}%
-  	 }{}}%
-}
-		
-		
+  \printfield{origtitle}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{byeditor+others}}		
+				
+\AtEveryBibitem{%
+  \ifboolexpr{bool {bbx:uebersetzung} or bool {cbx:antik} or bool {cbx:frgantik}}
+    {}
+    {\clearname{translator}%
+     \clearfield{origtitle}}}
+     
+     
 %%%\newbibmacro*{volume}{%
 %%% \iffieldundef{volume}{}%
 %%%      {\printfield{volume}\newunit}}
@@ -514,10 +525,7 @@ firstinits=false,
   \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{title}%
   \newunit\newblock%
-  \ifbool{bbx:uebersetzung}{%
-    					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
-    \setunit{\addspace}%
- \newunit\usebibmacro{bytranslator+others}}{}%
+  \usebibmacro{translation}%
   \usebibmacro{journal+number+year}%
   \newunit\newblock%
   \usebibmacro{pages}%

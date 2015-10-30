@@ -269,7 +269,10 @@ Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weite
 
 \subsubsection{uebersetzung}\label{uebersetzung}
 \DescribeMacro{uebersetzung}
-Wenn diese Option aktiviert wird, erfolgt die Angabe  eines Originaltitels, die Sprache, aus welcher übersetzt wurde und des Übersetzers des Werkes. Diese Option ist standardmäßig auf "=false" gesetzt. 
+Wenn diese Option aktiviert wird, erfolgt die Angabe  eines Originaltitels, die Sprache, aus welcher übersetzt wurde und des Übersetzers des Werkes.
+Werke, bei denen "options={antik}" oder "options={frgantik}" (also antike Autoren und Fragmente) gesetzt wurde, werden stehts mit Originaltitel, Sprache und Übersetzer angegeben.
+
+Die Option "uebersetzung"  ist standardmäßig auf "=false" gesetzt. 
 Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
  
   "@Book{Lefebvre_2011,"\\
@@ -302,9 +305,32 @@ wird in der Bibliographie zunächst auf diese Weise umgesetzt:
  
 \begin{bsp}%
 %\fullcite{Lefebvre_2011}
-\todo[noline]{manuelles Beispiel}H. Lefebvre, The Production of Space{\color{red}, Originaltitel: La production de l’espace, aus dem Französischen übers. von Donald Nicholson-Smith} \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011) 
+H. Lefebvre, The Production of Space, {\color{red} \emph{La production de l’espace}, aus dem Französischen übers. von D. Nicholson-Smith} \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011) 
 \end{bsp}
  
+Dies funktioniert nicht nur bei den Einträgen "@book", sondern auch bei "@article":
+
+" @Article{Lefebvre_1977," \\
+"   Title                    = {Die Produktion des städtischen Raums}," \\
+"   Author                   = {Lefebvre, Henri}," \\
+"   Journaltitle             = {ARCH+}," \\
+"   Number                   = {9}," \\
+"   Pages                    = {52--57}," \\
+"   Volume                   = {34}," \\
+"   Year                     = {1977}," \\
+"   Origlanguage             = {french}," \\
+"   Origtitle                = {Introduction à l'espace urbain}," \\
+"   Translator               = {Franz Hiss and Hans-Ulrich Wegener}" \\
+" }" \\
+
+Daraus wird dann:
+
+\begin{bsp}%
+%\fullcite{Lefebvre_1977}
+ H. Lefebvre, Die Produktion des städtischen Raums, \emph{Introduction à l’espace urbain}, aus dem Französischen übers. von F. Hiss – H.-U. Wegener, ARCH+ 34/9, 1977, 52–57
+\end{bsp}
+
+
 
 
 \subsubsection{lexika}\label{lexika}
