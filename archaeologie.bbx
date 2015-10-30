@@ -188,18 +188,7 @@ firstinits=false,
 		}%
 }%
 
-%%%\newbibmacro{labelwidthbib}{%
-%%% 	\printtext{%
-%%% 			\printnames[cite:author]{labelname}%
-%%% 			}%
-%%%     	\addspace%
-%%%     	\printtext[%
-%%%     		\ifbool{cbx:jahrinklammern}{parens}{}%
-%%%     		]{%
-%%%       	 		\printfield{labelyear}%
-%%%       	 		\printfield{extrayear}%
-%%%       	 }%
-%%% }%
+
        	 
 \newbibmacro*{bbx:parunit}{%
   \ifbibliography{%
@@ -315,7 +304,31 @@ firstinits=false,
 %\iffieldundef{volume}{\newunit}{\addspace}%
 %}
 
+\newbibmacro{translation}{%
+  \printfield{origtitle}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{byeditor+others}}		
+  
 \newbibmacro*{related:reviewof}[1]{\usebibmacro*{related:default}{#1}}
+
+\newbibmacro*{related:translationof}[1]{%
+  \entrydata{#1}{%
+    \renewbibmacro*{name:hook}[1]{%
+      \ifnumequal{\value{listcount}}{1}
+        {\begingroup
+         \mkrelatedstring%
+         \lbx@initnamehook{#1}%
+         \endgroup}
+        {}}%
+    \usebibmacro{translation}%
+    \printtext[emph]{\usebibmacro{title}}%
+    \setunit{\addspace}%
+\usebibmacro{location+edition+year}%
+      }}
+
+
+      
+      
 
 \newbibmacro*{booktitle+title+volumes}{% %%% soll aufgedröselt und wird obsolet
   \iffieldsequal{booktitle}{title}
@@ -437,24 +450,8 @@ firstinits=false,
 
 \newbibmacro{signatur}{\printfield{note}} 
 
-%\newbibmacro{translation}{%
-%  \ifbool{bbx:uebersetzung}{%
-%    					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%
-%    \setunit*{\newunit\addspace}%
-% 		{\usebibmacro{byeditor+others}}}%
-%		{\ifboolexpr{bool {cbx:antik} or bool {cbx:frgantik}}{%
-%  		       					\iffieldundef{origtitle}{}{\usebibmacro{originaltitel}}%%
-%    \setunit{\addcomma\addspace}%
-%			\ifentrytype{book}{%
-%			\usebibmacro{byeditor+others}%
-%			}{\usebibmacro{bytranslator+others}}%
-%		{}%
-%  	 }{}}%
-%}
-\newbibmacro{translation}{%
-  \printfield{origtitle}%
-  \setunit{\addcomma\space}%
-  \usebibmacro{byeditor+others}}		
+
+
 				
 \AtEveryBibitem{%
   \ifboolexpr{bool {bbx:uebersetzung} or bool {cbx:antik} or bool {cbx:frgantik}}
