@@ -378,12 +378,7 @@ firstinits=false,
        \ifentrytype{book}{\usebibmacro{volume}}{}}%
   \newunit{\addspace}\printfield{titleaddon}\isdot}%
 
-%\newbibmacro*{originaltitel}{%
-%					\addcomma\addspace%
-%    					\bibstring{origtitle}%
-%    					\addcolon\addspace%
-%    					\printfield{origtitle}%
-%    					\addcomma}
+
     					
 \newbibmacro*{originaltitel}{%
 					\addspace%
@@ -466,7 +461,7 @@ firstinits=false,
 
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{%
-    \usebibmacro{booktitle}%
+    \usebibmacro{maintitle+booktitle}%
     \usebibmacro{volume}%
   }{%
     \ifbool{bbx:hrsgv}{%
@@ -479,7 +474,7 @@ firstinits=false,
      }%
            {\printnames[author][-\value{listtotal}]{editor}\addspace%
       \printtext[parens]{\bibstring{editor}}\newunit\newblock
-      \usebibmacro{booktitle}%
+      \usebibmacro{maintitle+booktitle}%
           \usebibmacro{volume}%
       \newunit%
      }%
@@ -654,14 +649,14 @@ firstinits=false,
 }%
 
 \DeclareBibliographyDriver{inbook}{%	
-  \usebibmacro{bibindex}%
-  \usebibmacro{begentry}%
-  \usebibmacro{author}%
-  \setunit*{\labelnamepunct}\newblock% 
+   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%%
+\usebibmacro{author/editor}
+  \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{title}%
-\newunit\newblock
-\usebibmacro{translation}
-  \newunit\newblock
+    \newunit\newblock
+  \usebibmacro{translation}
+  \newunit\newblock%
   \usebibmacro{in:}%
   \usebibmacro{booktitle+volume+editor}%
   \setunit{\addspace}%
@@ -737,7 +732,7 @@ firstinits=false,
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}
   \setunit*{\labelnamepunct}\newblock%
-    \iffieldundef{title}{}{\printfield{title}}%
+    \iffieldundef{title}{}{\usebibmacro{title}}%
    	\newunit\newblock
 \usebibmacro{related:init}
 \usebibmacro{related}%			%
