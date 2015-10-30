@@ -315,6 +315,9 @@ firstinits=false,
 %\iffieldundef{volume}{\newunit}{\addspace}%
 %}
 
+\newbibmacro*{related:review}[1]{\usebibmacro*{related:default}{#1}}
+
+
 \newbibmacro*{booktitle+title+volumes}{% %%% soll aufgedröselt und wird obsolet
   \iffieldsequal{booktitle}{title}
     {\clearfield{booktitle}%
@@ -742,12 +745,8 @@ firstinits=false,
   \setunit*{\labelnamepunct}\newblock%
     \iffieldundef{title}{}{\printfield{title}}%
    	\newunit\newblock
-   \iffieldundef{related}{}{\bibstring{review}%
-			\setunit{\addnbspace}}%
-  \iftoggle{bbx:related}
-    {\usebibmacro{related:init}%
-     \usebibmacro{related}}
-    {}% 			%
+\usebibmacro{related:init}
+\usebibmacro{related}%			%
   \newunit\newblock
   \usebibmacro{journal+number+year}%
   \newunit\newblock%
