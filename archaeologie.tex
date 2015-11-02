@@ -110,6 +110,7 @@ Neben internen Änderungen an der Programmierung und am Codeaufgabe (Auslagerung
 \item Die Eintrags-Option "unbekannt" fällt weg; es reicht wenn der Eintrag für Autor/Editor freibleibt und dafür das Feld "label" ausgefüllt wird.
 \item Die Präambel-Option "miturl" fällt weg; es wird nun eine URL/DOI/etc. angezeigt, wenn dies im Bibliographieeintrag entsprechend eingetragen ist.
 \item Einfügung der Möglichkeit Werke miteinander zu verknüpfen ("related") (\cref{book})
+\item Umbenennung der Eintrags-Option "nurshorthand" in "corpus" (\cref{corpus})
 \end{itemize}
 
 \section{Verwendung}
@@ -160,7 +161,7 @@ Nicht vergessen sollte man den "\printbibliography"-Befehl, sodass  eine Bibliog
  \item[antik] Zeichnet den Eintrag als antike Quelle aus. Siehe \cref{antik}.
 % \item[frg] Zeichnet den Eintrag als Fragment aus. Siehe \cref{frg}.
  \item[frgantik] Zeichnet den Eintrag als antikes Fragment aus. Siehe \cref{frgantik}.
- \item[nurshorthand] Nur das "shorthand"-Feld wird beim Folgezitat ausgegeben. Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). Siehe \cref{nurshorthand}.
+ \item[corpus] Nur das "shorthand"-Feld wird beim Folgezitat ausgegeben. Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). Siehe \cref{corpus}.
  \item[lexikon] Zeichnet den Eintrag als ein zitierfähiges Lexikon aus, das über den abgekürzten Haupttitel zitiert wird (RE, DNP, LTUR, LIMC, etc.). Siehe \cref{lexikon}.
  %\item[unbekannt] Zeichnet den Eintrag als anonymes Werk aus, sodass nach dem Feld "shorthand" zitiert wird. Siehe \cref{unbekannt}.
  \end{description}
@@ -889,19 +890,19 @@ Diese Option kommt nur in Kombination mit der Paketoption "lexika" (siehe \cref{
 
 
 
-\subsubsection{nurshorthand}\label{nurshorthand}
-\DescribeMacro{nurshorthand}
+\subsubsection{corpus}\label{c}
+\DescribeMacro{corpus}
 Für bestimmte Corpora (Inschriften, Münzen, etc.) wird für gewöhnlich mit einer gängigen Abkürzung zitiert.
 Diese Abkürzung des Corpus wird im Bibliographieeintrag unter "shorthand" eingetragen.
-Nun kann man sehr einfach das gewünschte Corpus in der Fußnote zitieren, mit  "prenote" und "postnote"-Feldern. Bei anderen Autoren-Einträge, die mittels "shorthand" zitiert werden, wird ein Komma zwischen Nachname und "postnote" gesetzt. Dank "options=nurshorthand" fällt dieses Komma weg.
+Nun kann man sehr einfach das gewünschte Corpus in der Fußnote zitieren, mit  "prenote" und "postnote"-Feldern. Bei anderen Autoren-Einträge, die mittels "shorthand" zitiert werden, wird ein Komma zwischen Nachname und "postnote" gesetzt. Dank "options=corpus" fällt dieses Komma weg.
 
 Das Beispiel zeigt die Option für die lateinischen Inschriften:
 
 "@Book{CIL,"\\
 " Title   = CIL-lang,"\\
 "  Keywords  = {Sigel},"\\
-"  Options = {nurshorthand},"\\
-"  Shorthand = CIL-kurz,"\\
+"  Options = {corpus},"\\
+"  Label = CIL-kurz,"\\
 "}"\\
 
 Zitiert wird, wie gewöhnlich, mit "\cite[06, 01234]{CIL}". Daraus wird:
@@ -921,7 +922,7 @@ title={Abkürzungen und Sigel}]\end{bsp}
 
 Aufgrund der Setzung von "keywords=Sigel" können diese Art von Corpora in einer separaten Bibliographie aufgeführt werden. Siehe dazu \cref{bibliographie}
 
-\changes{v1.1}{2015/06/15}{Modifikation der Option "nurshorthand".}
+\changes{v1.1}{2015/06/15}{Modifikation der Option "corpus".}
 
 
  \section{Beschreibung der Eintragtypen (Beispiele)} \label{beispiele}

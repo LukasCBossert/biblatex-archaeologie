@@ -30,7 +30,7 @@ maxbibnames=999,%
 \newbool{bbx:verlag}					
 \newbool{cbx:antik}%
 \newbool{cbx:frgantik}%
-\newbool{cbx:nurshorthand}%		
+\newbool{cbx:corpus}%		
 \newbool{cbx:lexikon}%			
 \newbool{cbx:nurnachname}			
 \newbool{cbx:vollername}		
@@ -61,7 +61,7 @@ maxbibnames=999,%
   \ifstrequal{#1}{true}{\togglefalse{blx@useauthor}}{}%
   \csuse{bool#1}{cbx:frgantik}%
 }%
-\DeclareEntryOption{nurshorthand}[true]{\csuse{bool#1}{cbx:nurshorthand}}%
+\DeclareEntryOption{corpus}[true]{\csuse{bool#1}{cbx:corpus}}%
 \DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
 
 		
@@ -822,11 +822,13 @@ maxbibnames=999,%
   \csuse{blx@hook@cite}%
   \csuse{blx@hook@citekey}%
   \defcounter{maxnames}{\blx@maxcitenames}%\usebibmacro{cite}%
-  \ifnameundef{labelname}
-    {\usebibmacro{shorthand+year}}
+  \ifnameundef{labelname}%
+ 	 	 {\usebibmacro{cite:label+year}
+    }%
     {\ifboolexpr{bool {cbx:antik}%
                  or bool {cbx:frgantik}% 
-                 or bool {cbx:nurshorthand}}%
+   %              or bool {cbx:corpus}%
+                 }%
        {\printfield{shorthand}}%
        {\printnames{labelname}%
         \setunit{\addspace}%

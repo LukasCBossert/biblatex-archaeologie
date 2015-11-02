@@ -38,8 +38,8 @@
 
 \renewbibmacro*{postnote}{%
   \ifboolexpr{bool {cbx:antik}%
-              or bool {cbx:frgantik}%
-              or bool {cbx:nurshorthand}%
+             	 or bool {cbx:frgantik}%
+			   	or bool {cbx:corpus}%
               }%
     {\setunit{\addspace}}%
     {\newunit}%
@@ -48,11 +48,15 @@
     {\printfield{postnote}%
      \ifbool{cbx:frgantik}%
        {\setunit{\addspace}%
-        \ifnameundef{shorteditor}%
-           {\printnames[frg]{editor}}%
-           {\printnames[frg]{shorteditor}}}%
+  \usebibmacro{cite:frgname}}%
  }%
  }
+
+\newbibmacro*{cite:frgname}{%
+      \ifnameundef{shorteditor}%
+           {\printnames[frg]{editor}}%
+           {\printnames[frg]{shorteditor}}
+}
 
 \newbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
   \ifbool{cbx:vollername}{\c@uniquename=2}{\ifbool{cbx:nurnachname}{\c@uniquename=0}{\c@uniquename=1}}
@@ -70,19 +74,22 @@
 \newbibmacro*{cite:year}{%            
   \iffieldundef{labelyear}
     {}%
-    {\printtext[bibhyperref]{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
+    {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
 
+\newbibmacro*{cite:label}{%
+  \iffieldundef{label}
+    {\printfield[citetitle]{labeltitle}}
+    {\printfield{label}}}
 
+\newbibmacro*{cite:label+year}{%
+		\usebibmacro{cite:label}%
+         \ifbool{cbx:corpus}{}{\addspace%
+         \usebibmacro{cite:year}%
+         }%
+         }
 
-\newbibmacro*{shorthand+year}{%
-  \printtext[brackets]{%
-    \printfield{shorthand}%
-    \setunit{\addspace}%
-    \printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}
-  
-
-  
-\newbibmacro*{lexikon}{%
+ 
+\newbibmacro*{cite:lexikon}{%
   \ifbool{bbx:lexika}{%
   				\printfield{booktitle}\addspace%
   				\printfield{volume}%
@@ -98,22 +105,39 @@
             }}%
 }
 
-\newbibmacro*{cite}
-  {\ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik}}%
-    {\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}%
-    {\ifboolexpr{bool {cbx:nurshorthand} or bool {cbx:lexikon}}%
-      {\ifbool{cbx:nurshorthand}%
-        {\bibhyperref{\printfield{shorthand}}}%
-        {}%
-       \ifbool{cbx:lexikon}{\usebibmacro{lexikon}}{}}%
+%\newbibmacro*{cite}
+%  {\ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik}}%
+%    {\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}%
+%    {\ifboolexpr{bool {cbx:corpus} or bool {cbx:lexikon}}%
+%      {\ifbool{cbx:corpus}{\bibhyperref{\printfield{shorthand}}}{}%
+%       \ifbool{cbx:lexikon}{\usebibmacro{lexikon}}{}}%
+%       {\ifnameundef{labelname}%
+%         {\bibhyperref{\usebibmacro{shorthand+year}}}%
+%         {\bibhyperref{\printnames{labelname}%    
+%           \setunit{\addspace}\usebibmacro{cite:year}}}%
+%      }%
+%    }%
+%  }%
+
+\newbibmacro*{cite}{%
+  \ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik} or bool{cbx:lexikon}}%
+    {%
+    \ifbool{cbx:antik}{\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}{}
+    \ifbool{cbx:frgantik}{\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}{}
+    \ifbool{cbx:lexikon}{\usebibmacro{cite:lexikon}}{}
+    }%
        {\ifnameundef{labelname}%
-         {\bibhyperref{\usebibmacro{shorthand+year}}}%
+         {\bibhyperref{\usebibmacro{cite:label+year}}}%
          {\bibhyperref{\printnames{labelname}%    
            \setunit{\addspace}\usebibmacro{cite:year}}}%
       }%
     }%
-  }%
+%
 
+
+
+
+    
 
 %%% Cite Commands %%%
 \DeclareCiteCommand{\cite}%              
@@ -152,7 +176,7 @@
       {\mkbibemph{\usebibmacro{cite:title}}% 
       			\addspace%
       			\mkbibparens{\printfield{year}%
-      			\iffieldundef{origyear}{}{\addspace\mkbibparens{\printfield{origyear}}}%
+      			\iffieldundef{origyear}{}{\addspace\printfield[parens]{origyear}}%
      	}%
     	}}}%
     {\multicitedelim}%
