@@ -1,0 +1,12 @@
+%% archaeologie.dbx, 
+%% Copyright (c) Lukas C. Bossert | Johannes Friedl 2015
+
+\ProvidesFile{archaeologie.dbx}%
+               [2015/11/1 v1.2  archaeologie --%
+                biblatex fuer Archaeologen, Historiker und Philologen, dbx-Datei]
+                
+ % new translator etc.  fields for "inner" work, that is translator of title (not booktitle) in @in...
+\DeclareDatamodelFields[type=list,datatype=name]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
+\DeclareDatamodelEntryfields[inbook,incollection,inproceedings,inreference]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
+
+\endinput

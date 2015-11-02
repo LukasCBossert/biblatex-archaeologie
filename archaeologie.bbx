@@ -3,7 +3,8 @@
                 biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
-\usepackage{filecontents}%
+%\urlstyle{same}%
+\urlstyle{sf}%
 \typeout{* * * archaeologie * * *  biblatex fuer Archaeologen, Historiker und Philologen}}
 \ExecuteBibliographyOptions{%
 pagetracker=true,%
@@ -36,12 +37,7 @@ maxbibnames=999,%
 %% \DeclareBibliographyOption %%
 \DeclareBibliographyOption{hrsgv}[true]{\csuse{bool#1}{bbx:hrsgv}}
 \DeclareBibliographyOption{jahrreihe}[true]{\csuse{bool#1}{bbx:jahrreihe}}
-\DeclareBibliographyOption{bibvollername}[true]{
-\ExecuteBibliographyOptions{%
-firstinits=false,
-}%
-%\csuse{bool#1}{bbx:bibvollername}
-}
+\DeclareBibliographyOption{bibvollername}[true]{\ExecuteBibliographyOptions{firstinits=false}}
 \DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}}
 \DeclareBibliographyOption{keineabkuerzung}[true]{\csuse{bool#1}{bbx:keineabkuerzung}}
 \DeclareBibliographyOption{uebersetzung}[true]{\csuse{bool#1}{bbx:uebersetzung}}
@@ -54,8 +50,7 @@ firstinits=false,
 		\csuse{boolfalse}{cbx:nurnachname}%
 		\csuse{booltrue}{cbx:vollername}%
 		}%
-
-    \DeclareBibliographyOption{kapitaelchen}[true]{%
+\DeclareBibliographyOption{kapitaelchen}[true]{%
   \ifstrequal{#1}{true}%
     {\AtEveryCite{\renewcommand*{\mkbibnamelast}[1]{\textsc{##1}}}}%
     {}}%
@@ -69,12 +64,6 @@ firstinits=false,
 \DeclareEntryOption{nurshorthand}[true]{\csuse{bool#1}{cbx:nurshorthand}}%
 \DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
 
-    
-\newbibmacro{savestuff}{%
- 		\savename{editor}{\bbx@lasteditor}%
-   		\savefield{namehash}{\bbx@lasthash}%
-   		\savefield{booktitle}{\bbx@lastbooktitle}%
-		}%
 		
 \DeclareFieldFormat*{title}{#1}%
 \DeclareFieldFormat{subtitle}{#1}%
@@ -92,7 +81,7 @@ firstinits=false,
 \DeclareFieldFormat{brackets}{\mkbibbrackets{#1}}%
 \DeclareFieldFormat{quotes}{\mkbibquote{#1}}%
 \DeclareFieldFormat{emph}{\mkbibemph{#1}}%
-\DeclareFieldFormat{url}{\printtext{<}\url{#1}\printtext{>}}
+\DeclareFieldFormat{url}{\textless\url{#1}\textgreater}
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 \DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
 \DeclareFieldFormat{shorthandwidth}{#1}
@@ -172,7 +161,93 @@ firstinits=false,
           {\orttrennzeichen}{}%
 }%
 
+\AtEveryBibitem{%
+  \ifboolexpr{bool {bbx:uebersetzung} or bool {cbx:antik} or bool {cbx:frgantik}}%
+    {}%
+    {%
+    \clearname{translator}%
+     \clearfield{origtitle}
+	}%
+ }
+     
+     
+%%%%%%%%%%%%%bibmacro%%%%%%%%%%%
 
+%% provide macros to deal with intranslator, withincommentator, withinannotator, withinintroduction, withinforeword, withinafterword
+%% that is fields referring to the title work and not the booktitle work in inbook etc. works
+% these macros are essentially the same as the standard macros without the "in"
+\newbibmacro*{byineditor+others}{%
+  \ifnameundef{ineditor}
+    {}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{ineditor}%
+     \clearname{ineditor}%
+     \newunit}%
+  %\usebibmacro{byeditorx}%
+  \usebibmacro{byintranslator+others}}
+
+\newbibmacro*{byintranslator+others}{%
+  \ifnameundef{intranslator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{intranslator}%
+     \clearname{intranslator}%
+     \newunit%\setunit{\addcomma\addspace}%\newunit
+    }%
+  \usebibmacro{withinothers}}
+
+\newbibmacro*{withincommentator}{%
+  \ifnameundef{incommentator}
+    {}
+    {\bibstring{withcommentator}%
+     \setunit{\addspace}%
+     \printnames[withcommentator]{incommentator}}}
+
+\newbibmacro*{withinannotator}{%
+  \ifnameundef{inannotator}
+    {}
+    {\bibstring{withannotator}%
+     \setunit{\addspace}%
+     \printnames[withannotator]{inannotator}}}
+
+\newbibmacro*{withinintroduction}{%
+  \ifnameundef{inintroduction}
+    {}
+    {\bibstring{withintroduction}%
+     \setunit{\addspace}%
+     \printnames[withintroduction]{inintroduction}}}
+
+\newbibmacro*{withinforeword}{%
+  \ifnameundef{inforeword}
+    {}
+    {\bibstring{withforeword}%
+     \setunit{\addspace}%
+     \printnames[withforeword]{inforeword}}}
+
+\newbibmacro*{withinafterword}{%
+  \ifnameundef{inafterword}
+    {}
+    {\bibstring{withafterword}%
+     \setunit{\addspace}%
+     \printnames[withafterword]{inafterword}}}
+
+\newbibmacro*{withinothers}{%
+  \usebibmacro{withincommentator}%
+  \clearname{incommentator}%
+  \newunit
+  \usebibmacro{withinannotator}%
+  \clearname{inannotator}%
+  \newunit
+  \usebibmacro{withinintroduction}%
+  \clearname{inintroduction}%
+  \newunit
+  \usebibmacro{withinforeword}%
+  \clearname{inforeword}%
+  \newunit
+  \usebibmacro{withinafterword}%
+  \clearname{inafterword}}
 
 \renewbibmacro{in:}{\ifthenelse{% 		
 		\ifentrytype{article}%
@@ -244,7 +319,13 @@ firstinits=false,
      \clearname{editor}}
     {}}
     
-    
+\newbibmacro{savestuff}{%
+ 		\savename{editor}{\bbx@lasteditor}%
+   		\savefield{namehash}{\bbx@lasthash}%
+   		\savefield{booktitle}{\bbx@lastbooktitle}%
+		}%
+		
+		    
 \newbibmacro*{series}{%
 	\ifbool{bbx:keineabkuerzung}%
     			{\printtext[seriestitle]{%
@@ -293,24 +374,22 @@ firstinits=false,
 \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
    
-%\renewbibmacro*{maintitle}{%
-%\printfield[titlecase]{maintitle}%
-%\iffieldundef{mainsubtitle}{}{\setunit{\subtitlepunct}}%
-%\printfield[titlecase]{mainsubtitle}%
-%\setunit*{\newunit}%
-%\iffieldundef{maintitleaddon}{}{\newunit\printfield[titlecase]{maintitleaddon}}%
-%\iffieldundef{volume}{\newunit}{\addspace}%
-%}
+
 
 \newbibmacro{translation}{%
   \printfield{origtitle}%
   \setunit{\addcomma\space}%
-  \usebibmacro{byeditor+others}}		
+  \usebibmacro{byeditor+others}}
+  
+\newbibmacro{intranslation}{%
+  \printfield{origtitle}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{byineditor+others}}				
   
 \newbibmacro*{related:reviewof}[1]{\usebibmacro*{related:default}{#1}}
 
 \newbibmacro*{related:translationof}[1]{%
-  \entrydata{#1}{%
+  \entrydata*{#1}{%
     \renewbibmacro*{name:hook}[1]{%
       \ifnumequal{\value{listcount}}{1}
         {\begingroup
@@ -318,11 +397,12 @@ firstinits=false,
          \lbx@initnamehook{#1}%
          \endgroup}
         {}}%
-    \usebibmacro{translation}%
+	\printnames{savedtranslator}%
     \printtext[emph]{\usebibmacro{title}}%
     \setunit{\addspace}%
 \usebibmacro{location+edition+year}%
-      }}
+}%
+}
 
 
       
@@ -381,12 +461,16 @@ firstinits=false,
 
     					
 \newbibmacro*{originaltitel}{%
-					\addspace%
-    					\printfield[emph]{origtitle}%
-\addcomma}
+		\addspace%
+    		\printfield[emph]{origtitle}%
+		\addcomma%
+		}
     					
 \newbibmacro*{Erstauflage}{%
-					\bibstring{firstprint}\addcolon\addspace}
+		\bibstring{firstprint}%
+		\addcolon%
+		\addspace%
+		}
   
 \newbibmacro*{location+edition+year}{%		
 \ifbool{bbx:verlag}%				
@@ -437,25 +521,8 @@ firstinits=false,
   \newunit}
   
 
-\newbibmacro*{addendum}{%
-}%
-                                                               
-
+\newbibmacro*{addendum}{}%
 \newbibmacro{signatur}{\printfield{note}} 
-
-
-
-				
-\AtEveryBibitem{%
-  \ifboolexpr{bool {bbx:uebersetzung} or bool {cbx:antik} or bool {cbx:frgantik}}
-    {}
-    {\clearname{translator}%
-     \clearfield{origtitle}}}
-     
-     
-%%%\newbibmacro*{volume}{%
-%%% \iffieldundef{volume}{}%
-%%%      {\printfield{volume}\newunit}}
 \newbibmacro*{volume}{\printfield{volume}\newunit}
 
 
@@ -621,6 +688,8 @@ firstinits=false,
   \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{title}%
   \newunit\newblock%
+  \usebibmacro{intranslation}
+  \newunit\newblock%
   \usebibmacro{in:}%
   \usebibmacro{booktitle+volume+editor}%
   \usebibmacro{event+venue+date}%
@@ -655,7 +724,7 @@ firstinits=false,
   \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{title}%
     \newunit\newblock
-  \usebibmacro{translation}
+  \usebibmacro{intranslation}
   \newunit\newblock%
   \usebibmacro{in:}%
   \usebibmacro{booktitle+volume+editor}%
