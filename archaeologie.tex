@@ -48,7 +48,7 @@ ngerman,
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-%	lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+	%lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
 	%uebersetzung,
 	%bibvollername,
 	%keineabkuerzung,
@@ -82,7 +82,7 @@ ngerman,
 
 
  \title{\texttt{archaeologie} -- \\\texttt{biblatex} für Archäologen\footnote{Ebenso nützlich und geeignet für (Alt-)Historiker und (Alt-)Philologen.}}
- \author{Lukas C. Bossert\thanks{\url{LukasCB@me.com}} \and Johannes Friedl\thanks{\url{NN}}}
+ \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl\thanks{\url{NN}}}
  \date{Version: \today}
  
  
@@ -101,10 +101,15 @@ ngerman,
 \end{small}
 
 \section{Letzte Änderungen}
-Für Anmerkungen und Hilfe Dank an ›moewe‹ und Herbert Voß.
+Für Anmerkungen und Hilfe Dank an ›moewew‹ und Herbert Voß.
 
+Neben internen Änderungen an der Programmierung und am Codeaufgabe (Auslagerung verschiedener Dateien)  hat sich vor allem folgendes verändert:
 \begin{itemize}
-\item XXX
+\item Die Verwendung von "maintitle" wurde auf "booktitle" (bei Einträgen von "@in...") umgestellt.
+\item Der Rufname antiker Autoren wird nicht mehr unter "namea" sondern unter "shortauthor" eingetragen.
+\item Die Eintrags-Option "unbekannt" fällt weg; es reicht wenn der Eintrag für Autor/Editor freibleibt und dafür das Feld "label" ausgefüllt wird.
+\item Die Präambel-Option "miturl" fällt weg; es wird nun eine URL/DOI/etc. angezeigt, wenn dies im Bibliographieeintrag entsprechend eingetragen ist.
+\item Einfügung der Möglichkeit Werke miteinander zu verknüpfen ("related") (\cref{book})
 \end{itemize}
 
 \section{Verwendung}
@@ -157,7 +162,7 @@ Nicht vergessen sollte man den "\printbibliography"-Befehl, sodass  eine Bibliog
  \item[frgantik] Zeichnet den Eintrag als antikes Fragment aus. Siehe \cref{frgantik}.
  \item[nurshorthand] Nur das "shorthand"-Feld wird beim Folgezitat ausgegeben. Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). Siehe \cref{nurshorthand}.
  \item[lexikon] Zeichnet den Eintrag als ein zitierfähiges Lexikon aus, das über den abgekürzten Haupttitel zitiert wird (RE, DNP, LTUR, LIMC, etc.). Siehe \cref{lexikon}.
- \item[unbekannt] Zeichnet den Eintrag als anonymes Werk aus, sodass nach dem Feld "shorthand" zitiert wird. Siehe \cref{unbekannt}.
+ %\item[unbekannt] Zeichnet den Eintrag als anonymes Werk aus, sodass nach dem Feld "shorthand" zitiert wird. Siehe \cref{unbekannt}.
  \end{description}
 
  \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
@@ -344,7 +349,7 @@ Daraus wird dann:
 "  Title			= {Dei Consentes},"\\
 "  Author		= {Nieddu, Giuseppe},"\\
 "  Year			= {1995},"\\
-"  Maintitle	= {LTUR},"\\
+"  Booktitle	= {LTUR},"\\
 "  Pages 		= {9--10},"\\
 "  Volume		= {2},"\\
 "  Bookpagination	= {column},"\\
@@ -392,8 +397,8 @@ Ansonsten sieht der Eintrag wie folgt aus:
 "								"" und humanistischer Städtebeschreibung},"\\
 "  Pages   = {179--206},"\\
 "  Editor  = {Therese Fuhrer and Felix Mundt and Jan Stenger},"\\
-" Maintitle = {Cityscaping},"\\
-" Mainsubtitle             = {Constructing and Modelling Images of the City},"\\
+" Booktitle = {Cityscaping},"\\
+" Booksubtitle             = {Constructing and Modelling Images of the City},"\\
 "  Publisher = {de Gruyter},"\\
 "  Year    = {2015},"\\
 "  Number  = {3},"\\
@@ -652,8 +657,8 @@ Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit ein
 " Pages   = {277--289},"\\
 "  Editor  = {Dally, Ortwin and Fless, Friederike and Haensch,"\\
 "									Rudolf and Pirson, Felix and Sievers, Susanne},"\\
-"  Maintitle = {Politische Räume in vormodernen Gesellschaften},"\\
-"  Mainsubtitle             = {Gestaltung – Wahrnehmung – Funktion},"\\
+"  Booktitle = {Politische Räume in vormodernen Gesellschaften},"\\
+"  Booksubtitle             = {Gestaltung – Wahrnehmung – Funktion},"\\
 "  Year    = {2013},"\\
 "  Eventdate = {2009-11-18/2009-11-22},"\\
 "  Eventtitle               = {Internationale Tagung des DAI"\\
@@ -779,7 +784,7 @@ Ein Beispiel verschafft Klarheit:
 "  Volume = {II},"\\
 "  Keywords = {Quelle},"\\
 "  Location = {München},"\\
-"  Maintitle= {Die politischen Reden},"\\
+"  Booktitle= {Die politischen Reden},"\\
 "  Options = {antik},"\\
 "  Origlanguage = {latin},"\\
 "  Origtitle = {pro P.\ Sestio},"\\
@@ -861,43 +866,6 @@ Ein Beispiel verschafft Klarheit:
 \end{bsp}
 \end{refsection}
  
-\subsubsection{unbekannt}\label{unbekannt}
- \DescribeMacro{unbekannt}
- Für manche Artikel oder Bücher lässt sich kein Autor oder Herausgeber ermitteln. 
- Diese Werke werden dann als anonym gekennzeichnet und nicht nach dem (anonymen) Autor/Herausgeber zitiert, sondern nach einer gewählten "shorthand". 
- Dafür muss  "options={unbekannt}" stehen. 
- 
-" @Article{Cosa_1949,"\\
-"  Title   = {Cosa},"\\
-"  Journaltitle  = ClJ-lang,"\\
-"  Shortjournal  = ClJ-kurz,"\\
-"  Pages   = {141--149},"\\
-"  Volume  = {45},"\\
-"  Year    = {1949},"\\
-"  Number  = {1},"\\
-"  Label = {Cosa},"\\
-"  Subtitle  = {Republican Colony in Etruria},"\\
-"}"\\
-
- 
- Die "shorthand" wurde in diesem Fall analog zum Titel gewählt (Cosa).
- Zitiert man dieses Werk in einer Fußnote, dann wird
-
- "\cite[vgl.][145--146]{Cosa_1949}" 
-
- zu
- \begin{refsection}
- \begin{bsp} 
- \cite[vgl.][145--146]{Cosa_1949}
-% vgl.  [Cosa 1949], 145--146
- \end{bsp}
- 
-Und für die Bibliographie:
-\begin{bsp}
-%\nocite{Cosa_1949}
-\printbibliography[title={Forschungsliteratur}]
-\end{bsp}
- \end{refsection}
 
 \subsubsection{lexikon}\label{lexikon}
 \DescribeMacro{lexikon}
@@ -908,7 +876,7 @@ Ein Beispiel illustriert dies:
 "@Inreference{Rosenberger_2012,"\\
 "  Title   = {Öffentlich/privat bei den Römern},"\\
 "  Author  = {Rosenberger, Veit},"\\
-"  Maintitle = ThesCRA-kurz,      "\emph{Verwendung von @string}\\
+"  Booktitle = ThesCRA-kurz,      "\emph{Verwendung von @string}\\
 "  Pages   = {11--16},"\\
 "  Volume  = {8},"\\
 "  Year    = {2012},"\\
@@ -964,8 +932,8 @@ Aufgrund der Setzung von "keywords=Sigel" können diese Art von Corpora in einer
 
 
  \subsection{Typ \texttt{@book}}\label{book}
-
  \DescribeMacro{@book}
+ \DescribeMacro{@collection}\footnote{Der Typ "@collection" entspricht hier dem Typ "@book".}
  Fangen wir ganz einfach an: Zu einem einfachen Buch sieht der Eintrag in der "bib"-Datei ungefähr folgendermaßen aus:\\[3pt]
 
 
@@ -988,8 +956,8 @@ In der Bibliographie wird der Eintrag wiedergegeben mit:
 \end{bsp}
  \end{refsection}
 
-
-Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprechend zu zitieren, gehört der Zusatz ins Feld "titleaddon", bzw. wenn es sich um ein "@inbook" oder "@inproceedings" handelt, entsprechend ins Feld "maintitleaddon" (\cref{inbook}).
+\subsubsection{Festschriften u.ä.}
+Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprechend zu zitieren, gehört der Zusatz ins Feld "titleaddon", bzw. wenn es sich um ein "@inbook" oder "@inproceedings" handelt, entsprechend ins Feld "Booktitleaddon" (\cref{inbook}).
 
 
 "@Book{Boehm_2001,"\\
@@ -1009,13 +977,49 @@ Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprech
 \end{bsp}
  \end{refsection}
  
- 
- 
- \cite{Zanker_2013}
- \cite{Zanker_2014}
+ \subsubsection{Übersetzungen u.ä.}
+Liegt ein Werk in Übersetzung vor, gibt es die Möglichkeit den Übersetzer/in, Ausgangssprache und ursprünglichen Titel automatisch anzeigen zu lassen.
+Dies funktioniert mit den Literatureinträgen "related" und "relatedtype"  (\cref{review}).
 
- \DescribeMacro{@collection}
- Der Typ "@collection" entspricht hier dem Typ "@book".
+Im Beispiel wird die Verwendung klar:
+Das Ausgangswerk ist "Zanker_2014".
+
+" @Book{Zanker_2014,"\\
+"   Title                    = {Die römische Stadt},"\\
+"   Author                   = {Zanker, Paul},"\\
+"   Location                 = {München},"\\
+"   Publisher                = {CHB},"\\
+"   Subtitle                 = {Eine kurze Geschichte},"\\
+"   Year                     = {2014},"\\
+"   Language                 = {german},"\\
+" }"\\
+
+Die Übersetzung davon ist "Zanker_2013":
+
+" @Book{Zanker_2013,"\\
+"   Title                    = {La città romana},"\\
+"   Author                   = {Zanker, Paul},"\\
+"   Location                 = {Roma-Bari},"\\
+"   Publisher                = {GLF},"\\
+"   Series                   = {Storia della città},"\\
+"   Year                     = {2013},"\\
+"   Language                  = {italian},"\\
+"   Relatedtype              = {translationof},"\\
+"   Related                  = {Zanker_2014},"\\
+"   Translator               = {Senatore, Anna Maria}"\\
+" }"\\
+
+
+
+ \begin{refsection}
+\begin{bsp}
+\nocite{Zanker_2013,Zanker_2014}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+
+
 
  \subsection{Typ \texttt{@inbook / @incollection}}\label{inbook}
 
@@ -1031,7 +1035,7 @@ Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprech
 "  Publisher = {Oxford University Press},"\\
 "  Year    = {2014},"\\
 "  Location  = {Oxford},"\\
-"  Maintitle = {The Oxford Handbook of Roman Epigraphy},"\\
+"  Booktitle = {The Oxford Handbook of Roman Epigraphy},"\\
 "}"\\
 
 %\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Carter_2014}\end{bsp}
@@ -1049,8 +1053,8 @@ Zitiert man einen Beitrag aus einer Festschrift, o.ä., dann kann das folgenderm
  " Title   = {Schatzhäuser -- Banketthäuser?},"\\
  " Pages   = {143--152},"\\
  " Editor  = {Böhm, Stephanie and Eickstedt, Klaus-Valtin von},"\\
- " Maintitle = {Ithake},"\\
- " Maintitleaddon = {Festschrift Jörg Schäfer},"\\
+ " Booktitle = {Ithake},"\\
+ " Booktitleaddon = {Festschrift Jörg Schäfer},"\\
  " Publisher = {Ergon-Verlag},"\\
   "Year    = {2001},"\\
  " Location = {Würzburg},"\\
@@ -1139,7 +1143,7 @@ Wie bei "@proceedings" so auch hier:
 "  Title				= {Il ›diribitorium‹ di Alba Fucens e il ›campus‹ eroico di Herdonia},"\\
 "  Pages			= {39--63},"\\
 "  Editor			= {Mertens, Josef},"\\
-"  Maintitle		= {Comunitá indigene e problemi della romanizzazione"\\
+"  Booktitle		= {Comunitá indigene e problemi della romanizzazione"\\
 "							 nell’Italia centro-meridionale (IV--III sec. a.C.)},"\\
 "  Year				= {1991},"\\
 "  Eventtitle		= {Actes du Colloque International Organisé"\\
@@ -1175,7 +1179,7 @@ Und daraus wird:
  "  Title   = {Theseus},"\\
  "  Author  = {Neils, Jenifer},"\\
  "  Year    = {1994},"\\
- "  Maintitle = LIMC-kurz,        "\emph{Angabe des @string}\\
+ "  Booktitle = LIMC-kurz,        "\emph{Angabe des @string}\\
  " Options	= {lexikon},"\\
  "  Pages   = {922--951},"\\
  "  Volume  = {7.1},"\\
@@ -1245,6 +1249,7 @@ und schließlich die dazugehörige Rezension:
 "@Review{Bell_2011,"\\
 "  Author                   = {Bell, Sinclair},"\\
 "  Related = {Welch_2007},%" \emph{Besonderheit!!}\\
+"  Relatedtype = {reviewof},%" \emph{Besonderheit!!}\\
 "  Number                   = {1},"\\
 "  Volume                   = {115},"\\
 "  Pages                    = {1--4},"\\
@@ -1255,6 +1260,7 @@ und schließlich die dazugehörige Rezension:
 "}"\\
 
 Im Bibliographieeintrag der Rezension ("Bell_2011") wird im Feld "Related" mittels Eintrag "{Welch_2007}" Bezug auf das rezensierte Werk ("Welch_2007") genommen.
+Das Feld "Relatedtype" enthält die Information in welcher Beziehung das Werk ("Bell_2011") zu "Welch_2007" steht. Die Angabe "reviewof" ist der "bibstring" für Rezensionen und enthält sprachabhängig (Deutsch und Englisch) die Bezeichnung "Rez. zu" bzw. "Review of".
 Dies ist für die Bibliographie relevant: Es ist nun nicht mehr notwendig das rezensierte Werk mit allen dazugehörigen Angaben einzutippen, da  dies automatisch über die "Related"-Funktion erfolgt.
 
 \begin{refsection}
@@ -1271,6 +1277,7 @@ In diesem Fall wird das Feld "Title" ausgefüllt, ansonsten bleibt alles gleich:
 "  Title                    = {Von Caesars \emph{theatron kynegetikon}"\\
 " zum \emph{amphitheatrum novum} Vespasians},"\\
 "  Related = {Welch_2007},%" \emph{Besonderheit!!}\\
+"  Relatedtype = {reviewof},%" \emph{Besonderheit!!}\\
 "  Author                   = {Hufschmid, Thomas},"\\
 "  Pages                    = {487--504},"\\
 "  Volume                   = {23},"\\
@@ -1288,7 +1295,7 @@ In der Bibliographie wird dann zuerst der eigene Titel der Rezension ausgegeben,
 \end{bsp}
  \end{refsection}
 
-Der Vorteil mit "Related" zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
+Der Vorteil mit "Related" und "Relatedtype" zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
 Zudem wird das rezensierte Werk bei der Erwähung in der Rezension nicht automatisch in die Bibliographie als eigener Eintrag aufgenommen, sondern erst dann, wenn es selbst explizit zitiert wird.
 
 
@@ -1327,6 +1334,44 @@ In der Bibiographie wird das zu:
  \changes{v1.1}{2015/06/04}{Umsetzung von "@thesis" im Stil.}
 
 
+\subsection{Verschiedenes}
+\subsubsection{Anonymes Werk}\label{unbekannt}
+
+ Für manche Artikel oder Bücher lässt sich kein Autor oder Herausgeber ermitteln. 
+ Diese Werke werden dann als anonym gekennzeichnet und nicht nach dem (anonymen) Autor/Herausgeber zitiert, sondern nach einem gewählten "label". 
+
+ 
+" @Article{Cosa_1949,"\\
+"  Title   = {Cosa},"\\
+"  Journaltitle  = ClJ-lang,"\\
+"  Shortjournal  = ClJ-kurz,"\\
+"  Pages   = {141--149},"\\
+"  Volume  = {45},"\\
+"  Year    = {1949},"\\
+"  Number  = {1},"\\
+"  Label = {Cosa},"\\
+"  Subtitle  = {Republican Colony in Etruria},"\\
+"}"\\
+
+ 
+ Das "Label" wurde in diesem Fall analog zum Titel gewählt (Cosa).
+ Zitiert man dieses Werk in einer Fußnote, dann wird
+
+ "\cite[vgl.][145--146]{Cosa_1949}" 
+
+ zu
+ \begin{refsection}
+ \begin{bsp} 
+ \cite[vgl.][145--146]{Cosa_1949}
+% vgl.  [Cosa 1949], 145--146
+ \end{bsp}
+ 
+Und für die Bibliographie:
+\begin{bsp}
+%\nocite{Cosa_1949}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
 
 %%
 %%
@@ -1412,9 +1457,9 @@ Es empfiehlt sich, in diesen Listen die "@string"-Angaben nachzuschauen und dann
 
 Die Unterscheidung, ob in der Bibliographie die Abkürzung (Standard) oder der voller Titel genannt werden soll, erfolgt automatisch über die Option "keineabkuerzung" (Siehe \cref{keineabkuerzung}). Ist diese Option nicht aktiviert, dann werden standardmäßig die Abkürzungen angegeben.
 
-Beim Kompilieren wird eine Bibliographiedatei ("dai-abkuerzungen.bib") erstellt, in der die Angaben der "@strings" gespeichert sind.
-Diese Bibliographiedatei wird zusätzlich zur eigenen Bibliographie geladen.
-Ist "dai-abkuerzungen.bib" bereits vorhanden, dann wird sie nicht neu generiert.
+%%Beim Kompilieren wird eine Bibliographiedatei ("dai-abkuerzungen.bib") erstellt, in der die Angaben der "@strings" gespeichert sind.
+%%Diese Bibliographiedatei wird zusätzlich zur eigenen Bibliographie geladen.
+%%Ist "dai-abkuerzungen.bib" bereits vorhanden, dann wird sie nicht neu generiert.
 
 
 \subsection{Kurzformen\label{liste-kurz}}
