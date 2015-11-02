@@ -374,6 +374,20 @@ maxbibnames=999,%
 \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
    
+   
+\renewbibmacro*{maintitle+booktitle}{%
+  \iffieldundef{maintitle}
+    {}
+    {\usebibmacro{maintitle}%
+     \newunit\newblock
+     \iffieldundef{volume}
+       {}
+       {\printfield{volume}%
+        \printfield{part}%
+        \setunit{\addcolon\space}}}%
+  \usebibmacro{booktitle}
+  }
+  
 
 
 \newbibmacro{translation}{%
@@ -408,16 +422,17 @@ maxbibnames=999,%
       
       
 
-\newbibmacro*{booktitle+title+volumes}{% %%% soll aufgedröselt und wird obsolet
-  \iffieldsequal{booktitle}{title}
-    {\clearfield{booktitle}%
-     \clearfield{booksubtitle}%
-     \clearfield{booktitleaddon}}
-    {\iffieldundef{booktitle}{}%
-       {\usebibmacro{booktitle}%
+\newbibmacro*{maintitle+title+volumes}{% 
+  \iffieldsequal{maintitle}{title}
+    {\clearfield{maintitle}%
+     \clearfield{mainsubtitle}%
+     \clearfield{maintitleaddon}}
+    {\iffieldundef{maintitle}{}%
+       {\usebibmacro{maintitle}%
          \ifbool{cbx:antik}%
             {\usebibmacro{title}%
-            \iffieldundef{volume}{\newunit\newblock}{}}%
+            \iffieldundef{volume}{\newunit\newblock}{}
+            }%
             {\iffieldundef{volume}%
                 {\iffieldundef{volumes}{}{%
                    \printfield{volumes}%
@@ -432,7 +447,8 @@ maxbibnames=999,%
         }}}%
    \iffieldundef{volumes}{%
    			\usebibmacro{title}}{}%
-   \newunit}%   
+   \newunit
+   }%   
    
 
   
@@ -454,7 +470,7 @@ maxbibnames=999,%
        \printfield[titlecase]{title}%
        \setunit*{\subtitlepunct}
        \printfield[titlecase]{subtitle}}%
-     \iffieldundef{titleaddon}{\setunit*{\addspace}}{\setunit*{\subtitlepunct}}
+     \iffieldundef{titleaddon}{\setunit*{\addspace}}{\setunit*{\subtitlepunct}}%
        \ifentrytype{book}{\usebibmacro{volume}}{}}%
   \newunit{\addspace}\printfield{titleaddon}\isdot}%
 
@@ -521,6 +537,7 @@ maxbibnames=999,%
   \newunit}
   
 
+
 \newbibmacro*{addendum}{}%
 \newbibmacro{signatur}{\printfield{note}} 
 \newbibmacro*{volume}{\printfield{volume}\newunit}
@@ -540,7 +557,8 @@ maxbibnames=999,%
         \printnames[author][-\value{listtotal}]{editor}%
      }%
            {\printnames[author][-\value{listtotal}]{editor}\addspace%
-      \printtext[parens]{\bibstring{editor}}\newunit\newblock
+      \printtext[parens]{\bibstring{editor}}%
+      \newunit\newblock%
       \usebibmacro{maintitle+booktitle}%
           \usebibmacro{volume}%
       \newunit%
@@ -589,23 +607,23 @@ maxbibnames=999,%
   \newunit\newblock%
   \usebibmacro{pages}%
   \usebibmacro{doi+eprint+url}%
-  \setunit{\addperiod\addspace}%
-  \usebibmacro{signatur}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
   \newunit\newblock
   \iftoggle{bbx:related}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
-  \usebibmacro{savestuff}%
-  \usebibmacro{finentry}%
-}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
   \setunit*{\labelnamepunct}\newblock%
-  \usebibmacro{booktitle+title+volumes}%
+  \usebibmacro{maintitle+title+volumes}%
   \newunit\newblock%   
 \usebibmacro{translation}%
    \setunit{\addspace}%
@@ -657,7 +675,7 @@ maxbibnames=999,%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
   \setunit*{\labelnamepunct}\newblock%
-      \usebibmacro{booktitle+title+volumes}%
+      \usebibmacro{maintitle+title+volumes}%
 \usebibmacro{event+venue+date}%
   \setunit{\addspace}%
   \ifbool{bbx:jahrreihe}{}%

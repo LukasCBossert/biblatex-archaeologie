@@ -1099,7 +1099,17 @@ In der Bibliographie ist die Darstellung:
 \end{bsp}
  \end{refsection}
 
+Es gibt die Möglichkeit bei Zeitschriftenartikel den Publikationszustand anzugeben.
+Die beliebige Eingabe erfolgt im Feld "pubstate" und wird ans Ende des bibliographischen Eintrages gesetzt.
 
+Es empfiehlt sich allerdings sich auf ein paar Standarts zu beschränken, da diese sprachabhängig ausgegeben werden:
+\begin{description}
+\item[inpreparation] Typoskript wird für die Publikation vorbereitet. \\("pubstate = {inpreparation}")
+\item[submitted] Typoskript wurde bei der Zeitschrift eingereicht.\\("pubstate = {submitted}")
+\item[forthcoming] Typoskript wurde von der Zeitschrift akzeptiert.\\("pubstate = {forthcoming}")
+\item[inpress] Typoskript liegt bereits als fertig gesetzter Artikel vor.\\("pubstate = {inpress}")
+\item[prepublished] Artikel liegt in einer (online) Vorabversion vor. \\("pubstate = {prepublished}")
+\end{description}
 
 \subsection{Typ \texttt{@proceedings}}\label{proceedings}
 
@@ -1377,7 +1387,7 @@ Und für die Bibliographie:
 %%
 %%
 
-
+\newpage
  \section{Bibliographie}\label{bibliographie}
  \DescribeMacro{\printbibliography}
  Zwar ist es keine spezielle Eigenschaft dieser "biblatex"-Formate aber vielleicht in diesem Zusammenhang doch sinnvoll zu erwähnen, wie man mit "biblatex" seperate Quellen- und Literaturverzeichnisse ausgeben lassen kann. Zunächst sollten alle Quellen in der "bib"-Datei mit dem Feld
