@@ -109,11 +109,7 @@
            \setunit{\addspace}\usebibmacro{cite:year}%
             }}%
 }
-\newbibmacro*{cite:bib:lexikon}{%
-			\printnames{labelname}%              
-           \setunit{\addspace}%
-           \usebibmacro{cite:year}%
-            }%
+
 
 \newbibmacro*{cite}{%
   \printtext[bibhyperref]{%
@@ -129,8 +125,9 @@
         {\printfield{shorthand}}}}}%
 
 \newbibmacro*{cite:bib}{%
-    \ifbool{cbx:lexikon}
-      {\usebibmacro{cite:bib:lexikon}}
+\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{%
+%<--- Hier muss die Bedingung rein "Lösche Eintrag"		
+	}{%
       {\iffieldundef{shorthand}
         {\ifnameundef{labelname}%
            {\usebibmacro{cite:label}
@@ -138,7 +135,7 @@
            {\printnames{labelname}%
             \setunit{\nameyeardelim}}%
          \usebibmacro{cite:year}}%
-        {\printfield{shorthand}}}}%
+        {\printfield{shorthand}}}}}%
     
 
 %%% Cite Commands %%%
