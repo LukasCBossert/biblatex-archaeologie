@@ -78,10 +78,11 @@
     \iffootnote{\c@uniquename=0 \printnames{labelname}}{\printnames{labelname}}}}
 
 
-\newbibmacro*{cite:title}{%                           
-     \iffieldundef{shorttitle}{%                   
-  \printfield{title}%           
-      }{\printfield{shorttitle}}}%                   
+%%\newbibmacro*{cite:title}{%                           
+%%     \iffieldundef{shorttitle}{%                   
+%%  \printfield{title}%           
+%%      }{\printfield{shorttitle}}}%                   
+\newbibmacro*{cite:title}{\printfield[citetitle]{labeltitle}}%  
 
 
 \newbibmacro*{cite:year}{%            
@@ -94,25 +95,21 @@
     {\printfield[citetitle]{labeltitle}}
     {\printfield{label}}}
 
-\newbibmacro*{cite:label+year}{%
-		\usebibmacro{cite:label}%
-         \ifbool{cbx:corpus}{}{\addspace%
-         \usebibmacro{cite:year}%
-         }%
-         }
+
 
  
 \newbibmacro*{cite:lexikon}{%
   \ifbool{bbx:lexika}{%
-  				\printfield{booktitle}\addspace%
+  				\printfield{booktitle}%
+  				\setunit{\addspace}%
   				\printfield{volume}%
-  				\addspace
+  				 \setunit{\addspace}%
   				\printfield[parens]{year}%
-  				\addspace%
+  				\setunit{\addspace}%
   							\iffieldundef{postnote}{\printfield{pages}}{\printfield{postnote}}%
-  				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
-  				\addspace\printfield{title}%
-  				\addspace\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
+  				\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
+  				\setunit{\addspace}\printfield{title}%
+  				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
   				  }{\printtext[bibhyperref]{\printnames{labelname}%              
            \setunit{\addspace}\usebibmacro{cite:year}%
             }}%
@@ -170,10 +167,10 @@
     \boolfalse{pagetracker}%
     \usebibmacro{prenote}}%
   {\printtext[bibhyperref]{%
-   \ifbool{cbx:antik}{\mkbibemph{\usebibmacro{cite:title}}}%
-      {\mkbibemph{\usebibmacro{cite:title}}% 
-      			\addspace%
-      			\mkbibparens{\printfield{year}%
+   \ifbool{cbx:antik}{\printtext[emph]{\usebibmacro{cite:title}}}%
+      {\printtext[emph]{\usebibmacro{cite:title}}% 
+      			\setunit{\addspace}%
+      			\printtext[parens]{\printfield{year}%
       			\iffieldundef{origyear}{}{\addspace\printfield[parens]{origyear}}%
      	}%
     	}}}%

@@ -841,18 +841,24 @@ maxbibnames=999,%
 \newbibmacro{labelwidthbib}{%
   \csuse{blx@hook@cite}%
   \csuse{blx@hook@citekey}%
-  \defcounter{maxnames}{\blx@maxcitenames}%\usebibmacro{cite}%
-    \ifboolexpr{bool {cbx:antik}%
-                 or bool {cbx:frgantik}% 
-                 or bool {cbx:corpus}%
-                 }%
-       {\printfield{shorthand}}
-       {\ifnameundef{labelname}%
- 	 	 {\usebibmacro{cite:label+year}}%
-       {\printnames{labelname}%
-        \setunit{\addspace}%
-        \printtext[citeyear]{%
-          \printfield{labelyear}\printfield{extrayear}}}}}
+  \defcounter{maxnames}{\blx@maxcitenames}%
+  \usebibmacro{cite}}
+  
+%\newbibmacro{labelwidthbib}{%
+%  \csuse{blx@hook@cite}%
+%  \csuse{blx@hook@citekey}%
+%  \defcounter{maxnames}{\blx@maxcitenames}%\usebibmacro{cite}%
+%    \ifboolexpr{bool {cbx:antik}%
+%                 or bool {cbx:frgantik}% 
+%                 or bool {cbx:corpus}%
+%                 }%
+%       {\printfield{shorthand}}
+%       {\ifnameundef{labelname}%
+% 	 	 {\usebibmacro{cite:label+year}}%
+%       {\printnames{labelname}%
+%        \setunit{\addspace}%
+%        \printtext[citeyear]{%
+%          \printfield{labelyear}\printfield{extrayear}}}}}
 
 \DeclareFieldFormat{shorthandwidth}{#1}
 
