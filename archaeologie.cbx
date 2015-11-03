@@ -112,10 +112,9 @@
 
 
 \newbibmacro*{cite}{%
-  \printtext[bibhyperref]{%
-    \ifbool{cbx:lexikon}
+    \ifbool{cbx:lexikon}%
       {\usebibmacro{cite:lexikon}}
-      {\iffieldundef{shorthand}
+      {\printtext[bibhyperref]{\iffieldundef{shorthand}
         {\ifnameundef{labelname}%
            {\usebibmacro{cite:label}
             \setunit{\labelyeardelim}}%

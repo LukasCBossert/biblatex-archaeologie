@@ -608,6 +608,7 @@ maxbibnames=999,%
   \usebibmacro{journal+number+year}%
   \newunit\newblock%
   \usebibmacro{pages}%
+  \setunit{\addspace}
   \usebibmacro{doi+eprint+url}%
   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
@@ -864,7 +865,10 @@ maxbibnames=999,%
       \setlength{\parsep}{\bibparsep}%
       \renewcommand*{\makelabel}[1]{##1\hss}}}
   {\endlist}
-  {\item\usebibmacro{kicklabel}}
+  {%
+  \ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}{%
+  \item\usebibmacro{kicklabel}}%
+  }
 
 %  
 \endinput
