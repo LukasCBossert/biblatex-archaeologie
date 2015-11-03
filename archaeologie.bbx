@@ -854,14 +854,13 @@ maxbibnames=999,%
   \csuse{blx@hook@cite}%
   \csuse{blx@hook@citekey}%
   \defcounter{maxnames}{\blx@maxcitenames}%\usebibmacro{cite}%
-  \ifnameundef{labelname}%
- 	 	 {\usebibmacro{cite:label+year}
-    }%
-    {\ifboolexpr{bool {cbx:antik}%
+    \ifboolexpr{bool {cbx:antik}%
                  or bool {cbx:frgantik}% 
-   %              or bool {cbx:corpus}%
+                 or bool {cbx:corpus}%
                  }%
-       {\printfield{shorthand}}%
+       {\printfield{shorthand}}
+       {\ifnameundef{labelname}%
+ 	 	 {\usebibmacro{cite:label+year}}%
        {\printnames{labelname}%
         \setunit{\addspace}%
         \printtext[citeyear]{%

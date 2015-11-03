@@ -120,10 +120,11 @@
 %  }%
 
 \newbibmacro*{cite}{%
-  \ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik} or bool{cbx:lexikon}}%
+  \ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik} or bool {cbx:corpus} or bool{cbx:lexikon}}%
     {%
-    \ifbool{cbx:antik}{\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}{}
-    \ifbool{cbx:frgantik}{\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}{}
+    \ifbool{cbx:antik}{\bibhyperref{\printfield{shorthand}}}{}
+    \ifbool{cbx:frgantik}{\bibhyperref{\printfield{shorthand}}}{}
+	\ifbool{cbx:corpus}{\bibhyperref{\printfield{shorthand}}}{}
     \ifbool{cbx:lexikon}{\usebibmacro{cite:lexikon}}{}
     }%
        {\ifnameundef{labelname}%
