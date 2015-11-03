@@ -374,6 +374,20 @@ maxbibnames=999,%
 \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
    
+\renewbibmacro*{booktitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{booktitle}}
+    and
+    test {\iffieldundef{booksubtitle}}
+  }
+    {}
+    {\printtext[booktitle]{%
+       \printfield[titlecase]{booktitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{booksubtitle}}%
+     }%
+  \printfield{booktitleaddon}}
+  
    
 \renewbibmacro*{maintitle+booktitle}{%
   \iffieldundef{maintitle}
