@@ -109,7 +109,11 @@
            \setunit{\addspace}\usebibmacro{cite:year}%
             }}%
 }
-
+\newbibmacro*{cite:bib:lexikon}{%
+			\printnames{labelname}%              
+           \setunit{\addspace}%
+           \usebibmacro{cite:year}%
+            }%
 
 \newbibmacro*{cite}{%
   \printtext[bibhyperref]{%
@@ -126,7 +130,7 @@
 
 \newbibmacro*{cite:bib}{%
     \ifbool{cbx:lexikon}
-      {\usebibmacro{cite:lexikon}}
+      {\usebibmacro{cite:bib:lexikon}}
       {\iffieldundef{shorthand}
         {\ifnameundef{labelname}%
            {\usebibmacro{cite:label}
