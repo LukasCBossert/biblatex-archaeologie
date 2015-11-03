@@ -1,6 +1,6 @@
-##########################
+#####################################
 ##      bibLaTeX-archaeologie     ##
-#########################
+#####################################
 Version: [2015/11/11 v1.2]
 
 archaeologie: biblatex fuer Archaeologen, Historiker und Philologen (Deutsch und Englisch)
@@ -35,4 +35,4 @@ dai-abkuerzungen.bib
 
  This work has the LPPL maintenance status 'maintained'.
   
- The Current Maintainer of this work is Lukas C. Bossert and Johannes Friedl.
+ The Current Maintainer of this work is Lukas C. Bossert.
