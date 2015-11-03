@@ -374,34 +374,7 @@ maxbibnames=999,%
 \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
    
-\renewbibmacro*{booktitle}{%
-  \ifboolexpr{
-    test {\iffieldundef{booktitle}}
-    and
-    test {\iffieldundef{booksubtitle}}
-  }
-    {}
-    {\printtext[booktitle]{%
-       \printfield[titlecase]{booktitle}%
-       \setunit{\subtitlepunct}%
-       \printfield[titlecase]{booksubtitle}}%
-     }%
-  \printfield{booktitleaddon}}
-  
-   
-\renewbibmacro*{maintitle+booktitle}{%
-  \iffieldundef{maintitle}
-    {}
-    {\usebibmacro{maintitle}%
-     \newunit\newblock
-     \iffieldundef{volume}
-       {}
-       {\printfield{volume}%
-        \printfield{part}%
-        \setunit{\addcolon\space}}}%
-  \usebibmacro{booktitle}
-  }
-  
+
 
 
 \newbibmacro{translation}{%
@@ -560,10 +533,12 @@ maxbibnames=999,%
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{%
     \usebibmacro{maintitle+booktitle}%
+    \setunit{\addspace}%
     \usebibmacro{volume}%
   }{%
     \ifbool{bbx:hrsgv}{%
       \usebibmacro{booktitle}%
+          \setunit{\addspace}%
          \usebibmacro{volume}%
       \newunit%
       \bibstring{byeditor}%
@@ -574,6 +549,7 @@ maxbibnames=999,%
       \printtext[parens]{\bibstring{editor}}%
       \newunit\newblock%
       \usebibmacro{maintitle+booktitle}%
+          \setunit{\addspace}%
           \usebibmacro{volume}%
       \newunit%
      }%
