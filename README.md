@@ -16,13 +16,13 @@ Various options are available to change and adjust the outcome according to one‚
 
 
 Zum Stil geh√∂ren:
-*archaeologie.pdf
-*archaeologie.cbx
-*archaeologie.bbx
-*archaeologie.dbx
-*archaeologie_ngerman.lbx
-*archaeologie_english.lbx
-*dai-abkuerzungen.bib
+- archaeologie.pdf
+- archaeologie.cbx
+- archaeologie.bbx
+- archaeologie.dbx
+- archaeologie_ngerman.lbx
+- archaeologie_english.lbx
+- dai-abkuerzungen.bib
 
 
  This work may be distributed and/or modified under the
