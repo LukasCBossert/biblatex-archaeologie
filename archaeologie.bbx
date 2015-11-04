@@ -777,7 +777,7 @@ maxbibnames=999,%
 \DeclareBibliographyDriver{inreference}{%
 \usebibmacro{bibindex}%
  \usebibmacro{begentry}%
-\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}%
+\ifbool{cbx:lexikon}%
  			{\printfield{booktitle}%
   				\setunit{\addspace}\printfield{volume}%
   				 \setunit{\addspace}\printfield[parens]{year}%
