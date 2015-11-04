@@ -777,16 +777,16 @@ maxbibnames=999,%
 \DeclareBibliographyDriver{inreference}{%
 \usebibmacro{bibindex}%
  \usebibmacro{begentry}%
-\ifbool{cbx:lexikon}{%
-  				\printfield{booktitle}%
-  				\addspace\printfield{volume}%
-  				\addspace\printfield[parens]{year}%
-  				\addspace\printfield{pages}%
-  				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
-  				\addspace\printfield{title}%
-  				\addspace\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
-  				}%
-  				{%
+\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}%
+ 			{\printfield{booktitle}%
+  				\setunit{\addspace}\printfield{volume}%
+  				 \setunit{\addspace}\printfield[parens]{year}%
+  				\setunit{\addspace}\printfield{postnote}%
+  				\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
+  				\setunit{\addspace}\printfield{title}%
+  				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
+ } 				
+{%
   			\usebibmacro{author}%
   			\setunit*{\labelnamepunct}\newblock%
   			  	\usebibmacro{reftitle}%
@@ -809,11 +809,11 @@ maxbibnames=999,%
  \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}}%
   \newunit\newblock
-  \iftoggle{bbx:related}
+\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{\iftoggle{bbx:related}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
-  \usebibmacro{savestuff}%
+  \usebibmacro{savestuff}}{}%
   \usebibmacro{finentry}%
 }
 
@@ -865,9 +865,7 @@ maxbibnames=999,%
       \setlength{\parsep}{\bibparsep}%
       \renewcommand*{\makelabel}[1]{##1\hss}}}
   {\endlist}
-  {\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}%
-  {\item\usebibmacro{kicklabel}}%
-  }
+  {\item\usebibmacro{kicklabel}}
 
 %  
 \endinput
