@@ -840,12 +840,14 @@ maxbibnames=999,%
 \newsavebox\arch@labelbox%
 
 \newbibmacro{labelwidthbib}{%
-  \csuse{blx@hook@cite}%
-  \csuse{blx@hook@citekey}%
-  \defcounter{maxnames}{\blx@maxcitenames}%
-  \usebibmacro{cite:nolink}}
+  \begingroup
+    \DeclareFieldFormat{bibhyperref}{##1}%
+    \csuse{blx@hook@cite}%
+    \csuse{blx@hook@citekey}%
+    \defcounter{maxnames}{\blx@maxcitenames}%
+    \usebibmacro{cite}%
+  \endgroup}   
 
-\DeclareFieldFormat{shorthandwidth}{#1}
 
 \newbibmacro{kicklabel}{% 
   \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
@@ -863,9 +865,8 @@ maxbibnames=999,%
       \setlength{\parsep}{\bibparsep}%
       \renewcommand*{\makelabel}[1]{##1\hss}}}
   {\endlist}
-  {%
-  \ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}{%
-  \item\usebibmacro{kicklabel}}%
+  {\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}%
+  {\item\usebibmacro{kicklabel}}%
   }
 
 %  
