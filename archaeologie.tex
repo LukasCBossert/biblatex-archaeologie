@@ -61,7 +61,7 @@ ngerman,
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-	%lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+	 lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr
 	%uebersetzung,
 	%bibvollername,
 	%keineabkuerzung,
@@ -378,12 +378,12 @@ Daraus wird dann:
  \begin{enumerate}
  \item standardmäßig wird daraus:  %Nieddu 1995
  \todo[noline]{dynamisches Beispiel}\cite{Nieddu_1995}
- \item mit der Option |lexika| wird dies zu: \todo[noline]{manuelles Beispiel}
+ \item mit der Option |lexika| wird dies zu:
  LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
  % \cite{Nieddu_1995}
   \end{enumerate}
    \end{bsp}
- Trägt man eine konkrete Spalten/Seitenzahl ein (|\cite[9]{Nieddu_1995}|), dann wird diese Angabe in der Fußnote angegeben:
+ Trägt man eine konkrete Spalten/Seitenzahl ein (|\cite[9]{Nieddu_1995}|), dann wird diese Angabe in der Fußnote\footnote{\cite[9]{Nieddu_1995}} angegeben:
  \begin{bsp} LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
 \end{bsp}
 
@@ -1443,9 +1443,8 @@ Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln
 |            ||title={Abkürzungen und Sigel}]|\\
 
 Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {Sigel}| stehen haben:
-\begin{bsp}\todo[noline]{dynamisches Beispiel}
-
-\printbibliography[keyword=Sigel,
+\begin{bsp}
+\printbibliography[keyword={Sigel},
            heading=subbibnumbered,
             title={Abkürzungen und Sigel}]
 \end{bsp}
