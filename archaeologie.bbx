@@ -338,16 +338,10 @@ maxbibnames=999,%
 		}%
 		
 		    
-\newbibmacro*{series}{%
-	\ifbool{bbx:keineabkuerzung}%
-    			{\printtext[seriestitle]{%
-          			\printfield[titlecase]{series}%
-          			}}%
-          {\iffieldundef{shortseries}%
-          		{\printtext[seriestitle]{%
-          			\printfield[titlecase]{series}%
-          			}}%          
-          {\printfield{shortseries}}}}%
+\renewbibmacro*{series}{%
+  \ifboolexpr{test {\iffieldundef{shortseries}} or bool {bbx:keineabkuerzung}}
+    {\printtext[seriestitle]{\printfield[titlecase]{series}}}
+    {\printfield{shortseries}}}%
 
 \renewbibmacro*{series+number}{%
    {%
@@ -360,17 +354,12 @@ maxbibnames=999,%
 }%
 
 \renewbibmacro*{journal}{%
-	\ifbool{bbx:keineabkuerzung}%
-    			{\printtext[journaltitle]{%
-          			\printfield[titlecase]{journaltitle}%
-          			\setunit{\subtitlepunct}%
-          			\printfield[titlecase]{journalsubtitle}}}%
-          {\iffieldundef{shortjournal}%
-          		{\printtext[journaltitle]{%
-          			\printfield[titlecase]{journaltitle}%
-          			\setunit{\subtitlepunct}%
-          			\printfield[titlecase]{journalsubtitle}}}%          
-          {\printfield{shortjournal}}}}%
+  \ifboolexpr{test {\iffieldundef{shortjournal}} or bool {bbx:keineabkuerzung}}
+    {\printtext[journaltitle]{%
+       \printfield[titlecase]{journaltitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{journalsubtitle}}}
+    {\printfield{shortjournal}}}
 
 
 \newbibmacro{journal+number+year}{%
@@ -385,9 +374,6 @@ maxbibnames=999,%
 
 \newbibmacro*{pages}{%
    \printfield{pages}\isdot}%
-   
-
-
 
 \newbibmacro{translation}{%
   \printfield{origtitle}%
@@ -417,10 +403,6 @@ maxbibnames=999,%
 }%
 }
 
-
-      
-      
-
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}
     {\clearfield{maintitle}%
@@ -448,10 +430,6 @@ maxbibnames=999,%
    			\usebibmacro{title}}{}%
    \newunit
    }%   
-   
-
-  
-  
 
 \renewbibmacro{event+venue+date}{%
 \setunit{\adddot\addspace}%  
@@ -486,47 +464,82 @@ maxbibnames=999,%
 		\addcolon%
 		\addspace%
 		}
-  
-\newbibmacro*{location+edition+year}{%		
-\ifbool{bbx:verlag}%				
-{\iflistundef{location}{}{\printtext[parens]}{%  		
-  {\iflistundef{location}{}{\printlist{location}}%
-  \iffieldundef{publisher}{%                               
-    \setunit*{\addcolon\addspace}%        
-    \printlist{publisher}}{}%                 
-  \iffieldundef{edition}{\setunit{\addspace}}{%
-       \iffieldint{edition}%
-           {\setunit{\addspace}%
-             \mkbibsuperscript{\printfield{edition}}}%
-           {\setunit{\addcomma\addspace}%
-             \printfield{edition}\addcomma\addspace}}%
-  \printfield{year}%
-        \iffieldundef{origyear}{}{%           
-          \addspace\printtext[brackets]{%
+
+\newbibmacro*{edition}{%
+  \iffieldint{edition}%
+    {\setunit*{\addspace}\mkbibsuperscript{\printfield{edition}}}%
+    {\printfield{edition}%
+      \ifbool{bbx:verlag}%
+        {\setunit*{\addcomma\addspace}}%
+        {\setunit*{\addspace}}}}
+
+\newbibmacro*{location+edition+year}{%
+  \ifbool{bbx:verlag}%
+    {\printtext[parens]{%
+        \printlist[][1-1]{location}%
+        \setunit*{\addcolon\addspace}%
+        \printlist{publisher}%
+        \usebibmacro{edition}%
+        \printfield{year}%
+        \setunit*{\addspace}%
+        \iffieldundef{origyear}{}{%
+        \printtext[parens]{%
           \usebibmacro{Erstauflage}%
-          \printfield{origyear}}}%
-  }%
-  }}{%
-      \iffieldundef{edition}{\setunit{\addspace}}{%  
-             \iffieldint{edition}%
-              {\setunit{\addspace}%
-             \mkbibsuperscript{\printfield{edition}}}%
-             {\setunit{\addcomma\addspace}%
-             \printfield{edition}\addspace}}%
-             \iflistundef{location}{}{\printtext[parens]}{%
-          \iffieldundef{origyear}{%
-              \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%     
-            {%
-              \iflistundef{origlocation}{% 
-                    \printlist[][1-1]{location}}{%
-                    \printlist[][1-1]{origlocation}}%
-                  \setunit*{\addspace}%               
-              \printfield{origyear}%
-                  \addsemicolon\addspace%
-              \bibstring{reprint}\adddot\addspace%
-    \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%
-    }}%
-}																							
+          \printfield{origyear}}}}}%
+    {\usebibmacro{edition}%
+      \printtext[parens]{%
+        \ifthenelse{\iffieldundef{origlocation} \AND \NOT \iffieldundef{origyear}}%
+          {\printlist[][1-1]{location}}%
+          {\printlist[][1-1]{origlocation}}%
+        \setunit*{\addspace}%
+        \printfield{origyear}%
+        \setunit*{\addsemicolon\addspace}%
+        \iffieldundef{origyear}{}{\bibstring{reprint}}%
+        \setunit*{\adddot\addspace}%
+        \printlist[][1-1]{location}%
+        \setunit*{\addspace}%
+        \printfield{year}}}}
+
+% \newbibmacro*{location+edition+year}{%		
+% \ifbool{bbx:verlag}%				
+% {\iflistundef{location}{}{\printtext[parens]}{%  		
+%   {\iflistundef{location}{}{\printlist{location}}%
+%   \iffieldundef{publisher}{%                               
+%     \setunit*{\addcolon\addspace}%        
+%     \printlist{publisher}}{}%                 
+%   \iffieldundef{edition}{\setunit{\addspace}}{%
+%        \iffieldint{edition}%
+%            {\setunit{\addspace}%
+%              \mkbibsuperscript{\printfield{edition}}}%
+%            {\setunit{\addcomma\addspace}%
+%              \printfield{edition}\addcomma\addspace}}%
+%   \printfield{year}%
+%         \iffieldundef{origyear}{}{%           
+%           \addspace\printtext[brackets]{%
+%           \usebibmacro{Erstauflage}%
+%           \printfield{origyear}}}%
+%   }%
+%   }}{%
+%       \iffieldundef{edition}{\setunit{\addspace}}{%  
+%              \iffieldint{edition}%
+%               {\setunit{\addspace}%
+%              \mkbibsuperscript{\printfield{edition}}}%
+%              {\setunit{\addcomma\addspace}%
+%              \printfield{edition}\addspace}}\printtext[parens]}{%
+%              \iflistundef{location}{}{%
+%           \iffieldundef{origyear}{%
+%               \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%     
+%             {%
+%               \iflistundef{origlocation}{% 
+%                     \printlist[][1-1]{location}}{%
+%                     \printlist[][1-1]{origlocation}}%
+%                   \setunit*{\addspace}%               
+%               \printfield{origyear}%
+%                   \addsemicolon\addspace%
+%               \bibstring{reprint}\adddot\addspace%
+%     \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%
+%     }}%
+% }																							
 																										
 \renewbibmacro*{institution+location+date}{%
   \printlist{location}%
@@ -627,19 +640,15 @@ maxbibnames=999,%
   \setunit*{\labelnamepunct}\newblock%
   \usebibmacro{maintitle+title+volumes}%
   \newunit\newblock%   
-\usebibmacro{translation}%
-   \setunit{\addspace}%
-  \ifbool{bbx:jahrreihe}{}%
-   	 {\newunit\usebibmacro{series+number}}%
-  \setunit{\addspace}\newblock%                        
+  \usebibmacro{translation}%
+  \ifbool{bbx:jahrreihe}{}{\newunit\usebibmacro{series+number}}%
+  \setunit*{\addspace}\newblock%                        
   \usebibmacro{location+edition+year}%
-  \setunit{\addspace}%
-  \ifbool{bbx:jahrreihe}{%
-    \usebibmacro{series+number}%
-    \newunit}{}%
+  \setunit*{\addspace}\newblock%
+  \ifbool{bbx:jahrreihe}{\usebibmacro{series+number}\newunit}{}%
   \usebibmacro{addendum}%
 \usebibmacro{doi+eprint+url}%
-  \setunit{\addperiod\addspace}%
+  \setunit*{\addperiod\addspace}%
   \usebibmacro{signatur}%
   \newunit\newblock
   \iftoggle{bbx:related}
@@ -679,7 +688,7 @@ maxbibnames=999,%
   \setunit*{\labelnamepunct}\newblock%
       \usebibmacro{maintitle+title+volumes}%
 \usebibmacro{event+venue+date}%
-  \setunit{\addspace}%
+  \setunit*{\addspace}%
   \ifbool{bbx:jahrreihe}{}%
     {\newunit\usebibmacro{series+number}}%
   \setunit*{\addspace}\newblock%        
