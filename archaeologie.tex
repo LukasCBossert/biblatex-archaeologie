@@ -903,6 +903,8 @@ Ein Beispiel illustriert dies:
 |  Options = {lexikon}|\\
 |}|\\\par
 
+Zusätzlich ist der Eintrag über |related={ThesCRA}| mit dem dazugehörigen Lexikon (|@reference|) verknüpft, was für die Auflösung der Abkürzung (ThesCRA) hilfreich ist.
+
 | @Reference{ThesCRA,|\\
 |   Title                    = ThesCRA-lang,|\\
 |  Editor                   = {{Fondation pour le Lexicon Iconographicum Mythologiae Classicae}},|\\
@@ -1247,15 +1249,16 @@ Dies funktioniert so:
  \end{bsp}
 
 
-Da im Bibliographieeintrag |options={lexikon}| (siehe \cref{lexikon}) geschrieben wurde, kann man nun bei gewählter Option |lexika=true| alle Lexikoneinträge von der Bibliographie ausschließen (da sie ja in der Fußnote vollzitiert werden).
-Dies funktioniert, indem man |notkeyword=lexikon| ergänzt bei:
+Da im Bibliographieeintrag |options={lexikon}| (siehe \cref{lexikon}) geschrieben wurde, werden bei gewählter Präambel-Option |lexika=true| alle Lexikoneinträge von der Bibliographie ausgeschlossen, da sie ja in der Fußnote vollzitiert werden.
 
-|\printbibliography[%|\\
-|            ||notkeyword=lexikon,%|\\
-|            ||heading=subbibnumbered,%|\\
-|            ||title={Forschungsliteratur}]| 
-
-Ansonsten sieht der Eintrag in der Bibliographie so aus:
+%Dies funktioniert, indem man |notkeyword=lexikon| ergänzt bei:
+%
+%|\printbibliography[%|\\
+%|            ||notkeyword=lexikon,%|\\
+%|            ||heading=subbibnumbered,%|\\
+%|            ||title={Forschungsliteratur}]| 
+%
+Ansonsten  (Präambel-Option |lexika=false| = default)  sieht der Eintrag in der Bibliographie so aus:
 
 \begin{refsection}
 \begin{bsp}

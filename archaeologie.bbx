@@ -419,7 +419,19 @@ maxbibnames=999,%
 }%
 }
 
-
+\newbibmacro*{related:inreferenceof}[1]{%
+  \entrydata*{#1}{%
+    \renewbibmacro*{name:hook}[1]{%
+      \ifnumequal{\value{listcount}}{1}
+        {\begingroup
+      %   \mkrelatedstring%
+         \lbx@initnamehook{#1}%
+         \endgroup}
+        {}}%
+    \printfield{Shorthand}%
+    \setunit{\addspace}%
+}%
+}
       
       
 
@@ -780,7 +792,9 @@ maxbibnames=999,%
 \usebibmacro{bibindex}%
  \usebibmacro{begentry}%
 \ifbool{cbx:lexikon}%
- 			{\printfield{booktitle}%
+ 			{%\usebibmacro{related:init}
+			%\usebibmacro{related}%		
+ 			\printfield{booktitle}%
   				\setunit{\addspace}\printfield{volume}%
   				 \setunit{\addspace}\printfield[parens]{year}%
   				\setunit{\addspace}\printfield{postnote}%
