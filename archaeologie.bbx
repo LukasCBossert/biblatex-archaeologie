@@ -433,17 +433,13 @@ maxbibnames=999,%
             {\iffieldundef{volume}%
                 {\iffieldundef{volumes}{}{%
                    \printfield{volumes}%
-                   \addspace%
-                   \printtext{%
-                   		\bibstring{volumes}}%
-                   		\newunit}}%
+                   \setunit*{\addspace}%
+                   \bibstring{volumes}%
+                   \newunit}}%
                {\printfield{volume}%
-                 \setunit*{%
-                 \addcolon%
-                 \addspace}}%
-        }}}%
+                 \setunit*{\addcolon\addspace}}}}}%
    \iffieldundef{volumes}{%
-   			\usebibmacro{title}}{}%
+   \usebibmacro{title}}{}%
    \newunit
    }%   
 
