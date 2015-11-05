@@ -74,8 +74,10 @@ maxbibnames=999,%
   \csuse{bool#1}{cbx:frgantik}%
 }%
 \DeclareEntryOption{corpus}[true]{\csuse{bool#1}{cbx:corpus}}%
-\DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
-
+%\DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
+\DeclareEntryOption{lexikon}[true]{%
+  \csuse{bool#1}{cbx:lexikon}%
+  \ifbool{bbx:lexika}{\settoggle{blx@skipbib}{#1}}}%
 		
 \DeclareFieldFormat*{title}{#1}%
 \DeclareFieldFormat{subtitle}{#1}%
@@ -403,6 +405,20 @@ maxbibnames=999,%
 }%
 }
 
+\newbibmacro*{related:inreferenceof}[1]{%
+  \entrydata*{#1}{%
+    \renewbibmacro*{name:hook}[1]{%
+      \ifnumequal{\value{listcount}}{1}
+        {\begingroup
+      %   \mkrelatedstring%
+         \lbx@initnamehook{#1}%
+         \endgroup}
+        {}}%
+    \printfield{Shorthand}%
+    \setunit{\addspace}%
+}%
+}
+      
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}
     {\clearfield{maintitle}%
@@ -500,46 +516,7 @@ maxbibnames=999,%
         \setunit*{\addspace}%
         \printfield{year}}}}
 
-% \newbibmacro*{location+edition+year}{%		
-% \ifbool{bbx:verlag}%				
-% {\iflistundef{location}{}{\printtext[parens]}{%  		
-%   {\iflistundef{location}{}{\printlist{location}}%
-%   \iffieldundef{publisher}{%                               
-%     \setunit*{\addcolon\addspace}%        
-%     \printlist{publisher}}{}%                 
-%   \iffieldundef{edition}{\setunit{\addspace}}{%
-%        \iffieldint{edition}%
-%            {\setunit{\addspace}%
-%              \mkbibsuperscript{\printfield{edition}}}%
-%            {\setunit{\addcomma\addspace}%
-%              \printfield{edition}\addcomma\addspace}}%
-%   \printfield{year}%
-%         \iffieldundef{origyear}{}{%           
-%           \addspace\printtext[brackets]{%
-%           \usebibmacro{Erstauflage}%
-%           \printfield{origyear}}}%
-%   }%
-%   }}{%
-%       \iffieldundef{edition}{\setunit{\addspace}}{%  
-%              \iffieldint{edition}%
-%               {\setunit{\addspace}%
-%              \mkbibsuperscript{\printfield{edition}}}%
-%              {\setunit{\addcomma\addspace}%
-%              \printfield{edition}\addspace}}\printtext[parens]}{%
-%              \iflistundef{location}{}{%
-%           \iffieldundef{origyear}{%
-%               \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%     
-%             {%
-%               \iflistundef{origlocation}{% 
-%                     \printlist[][1-1]{location}}{%
-%                     \printlist[][1-1]{origlocation}}%
-%                   \setunit*{\addspace}%               
-%               \printfield{origyear}%
-%                   \addsemicolon\addspace%
-%               \bibstring{reprint}\adddot\addspace%
-%     \iflistundef{location}{}{\printlist[][1-1]{location}\addspace}\printfield{year}}%
-%     }}%
-% }																							
+																
 																										
 \renewbibmacro*{institution+location+date}{%
   \printlist{location}%
@@ -621,6 +598,7 @@ maxbibnames=999,%
   \usebibmacro{journal+number+year}%
   \newunit\newblock%
   \usebibmacro{pages}%
+  \setunit{\addspace}
   \usebibmacro{doi+eprint+url}%
   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
@@ -785,16 +763,18 @@ maxbibnames=999,%
 \DeclareBibliographyDriver{inreference}{%
 \usebibmacro{bibindex}%
  \usebibmacro{begentry}%
-\ifbool{cbx:lexikon}{%
-  				\printfield{booktitle}%
-  				\addspace\printfield{volume}%
-  				\addspace\printfield[parens]{year}%
-  				\addspace\printfield{pages}%
-  				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
-  				\addspace\printfield{title}%
-  				\addspace\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
-  				}%
-  				{%
+\ifbool{cbx:lexikon}%
+ 			{%\usebibmacro{related:init}
+			%\usebibmacro{related}%		
+ 			\printfield{booktitle}%
+  				\setunit{\addspace}\printfield{volume}%
+  				 \setunit{\addspace}\printfield[parens]{year}%
+  				\setunit{\addspace}\printfield{postnote}%
+  				\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
+  				\setunit{\addspace}\printfield{title}%
+  				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
+ } 				
+{%
   			\usebibmacro{author}%
   			\setunit*{\labelnamepunct}\newblock%
   			  	\usebibmacro{reftitle}%
@@ -817,10 +797,9 @@ maxbibnames=999,%
  \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}}%
   \newunit\newblock
-  \iftoggle{bbx:related}
-    {\usebibmacro{related:init}%
-     \usebibmacro{related}}
-    {}%
+%\iftoggle{bbx:related}
+%    {\usebibmacro{related:init}%
+%     \usebibmacro{related}}%
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
 }
@@ -848,14 +827,14 @@ maxbibnames=999,%
 \newsavebox\arch@labelbox%
 
 \newbibmacro{labelwidthbib}{%
-  \csuse{blx@hook@cite}%
-  \csuse{blx@hook@citekey}%
-  \defcounter{maxnames}{\blx@maxcitenames}%
-  \usebibmacro{cite:bib}}
-  
+  \begingroup
+    \DeclareFieldFormat{bibhyperref}{##1}%
+    \csuse{blx@hook@cite}%
+    \csuse{blx@hook@citekey}%
+    \defcounter{maxnames}{\blx@maxcitenames}%
+    \usebibmacro{cite}%
+  \endgroup}   
 
-
-\DeclareFieldFormat{shorthandwidth}{#1}
 
 \newbibmacro{kicklabel}{% 
   \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%

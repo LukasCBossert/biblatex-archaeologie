@@ -94,7 +94,6 @@
 
  
 \newbibmacro*{cite:lexikon}{%
-  \ifbool{bbx:lexika}{%
   				\printfield{booktitle}%
   				\setunit{\addspace}%
   				\printfield{volume}%
@@ -105,37 +104,32 @@
   				\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
   				\setunit{\addspace}\printfield{title}%
   				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
-  				  }{\printtext[bibhyperref]{\printnames{labelname}%              
-           \setunit{\addspace}\usebibmacro{cite:year}%
-            }}%
 }
 
 
-\newbibmacro*{cite}{%
-  \printtext[bibhyperref]{%
-    \ifbool{cbx:lexikon}
-      {\usebibmacro{cite:lexikon}}
-      {\iffieldundef{shorthand}
+\newbibmacro{cite}{%
+    \ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}%
+      {\usebibmacro{cite:lexikon}}%
+      {\printtext[bibhyperref]{\iffieldundef{shorthand}
         {\ifnameundef{labelname}%
-           {\usebibmacro{cite:label}
+           {\usebibmacro{cite:label}%
             \setunit{\labelyeardelim}}%
            {\printnames{labelname}%
             \setunit{\nameyeardelim}}%
          \usebibmacro{cite:year}}%
-        {\printfield{shorthand}}}}}%
+        {\printfield{shorthand}}}}%
+}
+%%\newbibmacro{cite:bib}{%
+%%      {\iffieldundef{shorthand}
+%%        {\ifnameundef{labelname}%
+%%           {\usebibmacro{cite:label}%
+%%            \setunit{\labelyeardelim}}%
+%%           {\printnames{labelname}%
+%%            \setunit{\nameyeardelim}}%
+%%         \usebibmacro{cite:year}}%
+%%        {\printfield{shorthand}}}%
+%%}
 
-\newbibmacro*{cite:bib}{%
-\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{%
-%<--- Hier muss die Bedingung rein "Lösche Eintrag"		
-	}{%
-      {\iffieldundef{shorthand}
-        {\ifnameundef{labelname}%
-           {\usebibmacro{cite:label}
-            \setunit{\labelyeardelim}}%
-           {\printnames{labelname}%
-            \setunit{\nameyeardelim}}%
-         \usebibmacro{cite:year}}%
-        {\printfield{shorthand}}}}}%
     
 
 %%% Cite Commands %%%

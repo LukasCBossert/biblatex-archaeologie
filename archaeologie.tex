@@ -61,7 +61,7 @@ ngerman,
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-	%lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr oder Autor-Zitation
+	% lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr
 	%uebersetzung,
 	%bibvollername,
 	%keineabkuerzung,
@@ -377,24 +377,28 @@ Daraus wird dann:
 
  \begin{enumerate}
  \item standardmäßig wird daraus:  %Nieddu 1995
- \todo[noline]{dynamisches Beispiel}\cite{Nieddu_1995}
- \item mit der Option |lexika| wird dies zu: \todo[noline]{manuelles Beispiel}
+ \cite{Nieddu_1995}
+ \item mit der Option |lexika| wird dies zu:
  LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
  % \cite{Nieddu_1995}
   \end{enumerate}
    \end{bsp}
- Trägt man eine konkrete Spalten/Seitenzahl ein (|\cite[9]{Nieddu_1995}|), dann wird diese Angabe in der Fußnote angegeben:
- \begin{bsp} LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
+ Trägt man eine konkrete Spalten/Seitenzahl ein (|\cite[9]{Nieddu_1995}|), dann wird diese Angabe in der Fußnote  angegeben:
+ \begin{bsp}
+\begin{enumerate} 
+ \item standardmäßig wird daraus:  %Nieddu 1995
+ \cite[9]{Nieddu_1995}
+ \item mit der Option |lexika| wird dies zu:
+  LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
+  \end{enumerate}
 \end{bsp}
 
 Verwendet man diese Option, dann empfiehlt es sich für die Bibliographie die in den Fußnoten voll zitierten Einträge auszuschließen.\footnote{%
 Dies wird möglich, indem |notkeyword=lexikon| bei den Optionen von |printbibliography| gesetzt wird.}
 Ansonsten sieht der Eintrag wie folgt aus:
   \begin{bsp}
-
 \nocite{Nieddu_1995}
 \printbibliography[title={Forschungsliteratur}]
-
 \end{bsp}
  \end{refsection}
  
@@ -894,10 +898,22 @@ Ein Beispiel illustriert dies:
 |  Pages   = {11--16},|\\
 |  Volume  = {8},|\\
 |  Year    = {2012},|\\
-|  Bookpagination = {column},|\\
+|  related={ThesCRA},|\\
 |  Keywords  = {lexikon},|\\
 |  Options = {lexikon}|\\
 |}|\\\par
+
+Zusätzlich ist der Eintrag über |related={ThesCRA}| mit dem dazugehörigen Lexikon (|@reference|) verknüpft, was für die Auflösung der Abkürzung (ThesCRA) hilfreich ist.
+
+| @Reference{ThesCRA,|\\
+|   Title                    = ThesCRA-lang,|\\
+|  Editor                   = {{Fondation pour le Lexicon Iconographicum Mythologiae Classicae}},|\\
+|   Year                     = {2004--2012},|\\
+|   location = {Los Angeles},|\\
+|   Keywords                 = {Sigel},|\\
+|   Options                  = {corpus},|\\
+|  Shorthand             = ThesCRA-kurz,|\\
+| }|\\\par
 
 Diese Option kommt nur in Kombination mit der Paketoption |lexika| (siehe \cref{lexika}) zum Tragen, wodurch sich die Zitation in der Fußnote und Bibliographie geändert wird.
 
@@ -1233,15 +1249,16 @@ Dies funktioniert so:
  \end{bsp}
 
 
-Da im Bibliographieeintrag |options={lexikon}| (siehe \cref{lexikon}) geschrieben wurde, kann man nun bei gewählter Option |lexika=true| alle Lexikoneinträge von der Bibliographie ausschließen (da sie ja in der Fußnote vollzitiert werden).
-Dies funktioniert, indem man |notkeyword=lexikon| ergänzt bei:
+Da im Bibliographieeintrag |options={lexikon}| (siehe \cref{lexikon}) geschrieben wurde, werden bei gewählter Präambel-Option |lexika=true| alle Lexikoneinträge von der Bibliographie ausgeschlossen, da sie ja in der Fußnote vollzitiert werden.
 
-|\printbibliography[%|\\
-|            ||notkeyword=lexikon,%|\\
-|            ||heading=subbibnumbered,%|\\
-|            ||title={Forschungsliteratur}]| 
-
-Ansonsten sieht der Eintrag in der Bibliographie so aus:
+%Dies funktioniert, indem man |notkeyword=lexikon| ergänzt bei:
+%
+%|\printbibliography[%|\\
+%|            ||notkeyword=lexikon,%|\\
+%|            ||heading=subbibnumbered,%|\\
+%|            ||title={Forschungsliteratur}]| 
+%
+Ansonsten  (Präambel-Option |lexika=false| = default)  sieht der Eintrag in der Bibliographie so aus:
 
 \begin{refsection}
 \begin{bsp}
@@ -1422,7 +1439,7 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 
 Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis getrennt voneinander ausgegeben. 
 \setcounter{section}{0}
-\begin{bsp}\todo[noline]{dynamisches Beispiel}
+\begin{bsp}
 \renewcommand\bibfont{\normalfont\footnotesize}
 \printbibheading[heading=bibnumbered,
             title={Bibliographie}]
@@ -1443,9 +1460,8 @@ Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln
 |            ||title={Abkürzungen und Sigel}]|\\
 
 Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {Sigel}| stehen haben:
-\begin{bsp}\todo[noline]{dynamisches Beispiel}
-
-\printbibliography[keyword=Sigel,
+\begin{bsp}
+\printbibliography[keyword={Sigel},
            heading=subbibnumbered,
             title={Abkürzungen und Sigel}]
 \end{bsp}
