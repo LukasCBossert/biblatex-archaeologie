@@ -74,8 +74,10 @@ maxbibnames=999,%
   \csuse{bool#1}{cbx:frgantik}%
 }%
 \DeclareEntryOption{corpus}[true]{\csuse{bool#1}{cbx:corpus}}%
-\DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
-
+%\DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
+\DeclareEntryOption{lexikon}[true]{%
+  \csuse{bool#1}{cbx:lexikon}%
+  \ifbool{bbx:lexika}{\settoggle{blx@skipbib}{#1}}}%
 		
 \DeclareFieldFormat*{title}{#1}%
 \DeclareFieldFormat{subtitle}{#1}%
@@ -846,7 +848,7 @@ maxbibnames=999,%
     \csuse{blx@hook@cite}%
     \csuse{blx@hook@citekey}%
     \defcounter{maxnames}{\blx@maxcitenames}%
-    \usebibmacro{cite:bib}%
+    \usebibmacro{cite}%
   \endgroup}   
 
 
