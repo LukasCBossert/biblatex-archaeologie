@@ -809,11 +809,12 @@ maxbibnames=999,%
  \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}}%
   \newunit\newblock
-\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{\iftoggle{bbx:related}
-    {\usebibmacro{related:init}%
-     \usebibmacro{related}}
-    {}%
-  \usebibmacro{savestuff}}{}%
+%\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}% Das beste Ergebnis scheint mir, wenn es ausgeschaltet ist
+%		{\iftoggle{bbx:related}
+%    {\usebibmacro{related:init}%
+%     \usebibmacro{related}}
+%    {}%
+%  \usebibmacro{savestuff}}%
   \usebibmacro{finentry}%
 }
 
@@ -845,7 +846,7 @@ maxbibnames=999,%
     \csuse{blx@hook@cite}%
     \csuse{blx@hook@citekey}%
     \defcounter{maxnames}{\blx@maxcitenames}%
-    \usebibmacro{cite}%
+    \usebibmacro{cite:bib}%
   \endgroup}   
 
 
