@@ -462,14 +462,6 @@ maxbibnames=999,%
      \iffieldundef{titleaddon}{\setunit*{\addspace}}{\setunit*{\subtitlepunct}}%
        \ifentrytype{book}{\usebibmacro{volume}}{}}%
   \newunit{\addspace}\printfield{titleaddon}\isdot}%
-
-
-    					
-\newbibmacro*{originaltitel}{%
-		\addspace%
-    		\printfield[emph]{origtitle}%
-		\addcomma%
-		}
     					
 \newbibmacro*{Erstauflage}{%
 		\bibstring{firstprint}%
