@@ -73,7 +73,8 @@ maxbibnames=999,%
   \ifstrequal{#1}{true}{\togglefalse{blx@useauthor}}{}%
   \csuse{bool#1}{cbx:frgantik}%
 }%
-\DeclareEntryOption{corpus}[true]{\csuse{bool#1}{cbx:corpus}}%
+\DeclareEntryOption{corpus}[true]{\csuse{bool#1}{cbx:corpus}
+}%
 %\DeclareEntryOption{lexikon}[true]{\csuse{bool#1}{cbx:lexikon}}%
 \DeclareEntryOption{lexikon}[true]{%
   \csuse{bool#1}{cbx:lexikon}%
@@ -479,8 +480,9 @@ maxbibnames=999,%
 
 \newbibmacro*{edition}{%
   \iffieldint{edition}%
-    {\setunit*{\addspace}\mkbibsuperscript{\printfield{edition}}}%
-    {\printfield{edition}%
+    {\setunit{\addspace}\mkbibsuperscript{\printfield{edition}}}%
+    {\setunit*{\addspace}%
+\printfield{edition}%
       \ifbool{bbx:verlag}%
         {\setunit*{\addcomma\addspace}}%
         {\setunit*{\addspace}}}}
