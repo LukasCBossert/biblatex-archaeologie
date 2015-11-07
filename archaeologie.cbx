@@ -1,0 +1,180 @@
+% archaeologie --%
+%               biblatex fuer Archaeologen, Historiker und Philologen
+% Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
+%  
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+
+\ProvidesFile{archaeologie.cbx}%
+               [2015/11/11 v1.2  archaeologie --%
+                biblatex fuer Archaeologen, Historiker und Philologen, cbx-Datei]
+\ExecuteBibliographyOptions{%
+  citetracker=true,% 
+  idemtracker=false,% 
+  ibidtracker=true,%
+  opcittracker=true,%
+  loccittracker=true,%
+  labeldate=true,%
+  sortcites=false%
+}%
+
+%%%%%%%% cbx %%%%%%%%%%
+\newbool{cbx:jahrinklammern}%
+%%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
+\DeclareBibliographyOption{jahrinklammern}[true]{%
+  \ifstrequal{#1}{true}
+    {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
+    \csuse{bool#1}{cbx:jahrinklammern}}
+    {\DeclareFieldFormat{citeyear}{##1}}}
+
+\DeclareFieldFormat{citeyear}{#1}
+\DeclareFieldFormat{prenote}{#1\isdot}%
+\DeclareFieldFormat{postnote}{#1}%
+\DeclareFieldFormat{shorttitle}{#1}%
+
+\DeclareNameFormat{frg}{%
+#1%
+  \ifthenelse{\value{listcount}<\value{liststop}}%
+    {\addspace\textendash\addspace}{}%
+}%
+
+\renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
+\newcommand*{\labelyeardelim}{\addspace}
+
+
+
+
+\renewbibmacro*{postnote}{%
+  \ifboolexpr{bool {cbx:antik}%
+             	 or bool {cbx:frgantik}%
+			   	or bool {cbx:corpus}%
+              }%
+    {\setunit{\addspace}}%
+    {\newunit}%
+  \iffieldundef{postnote}
+    {}%
+    {\printfield{postnote}%
+     \ifbool{cbx:frgantik}%
+       {\setunit{\addspace}%
+  \usebibmacro{cite:frgname}}%
+ }%
+ }
+
+\newbibmacro*{cite:frgname}{%
+      \ifnameundef{shorteditor}%
+           {\printnames[frg]{editor}}%
+           {\printnames[frg]{shorteditor}}
+}
+
+\newbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
+  \ifbool{cbx:vollername}{\c@uniquename=2}{\ifbool{cbx:nurnachname}{\c@uniquename=0}{\c@uniquename=1}}
+  \ifciteindex{\indexnames{labelname}}{}%
+  \printtext[bibhyperref]{%
+    \iffootnote{\c@uniquename=0 \printnames{labelname}}{\printnames{labelname}}}}
+
+\newbibmacro*{cite:title}{\printfield{labeltitle}}%  
+
+
+\newbibmacro*{cite:year}{%            
+  \iffieldundef{labelyear}
+    {}%
+    {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
+
+\newbibmacro*{cite:label}{%
+  \iffieldundef{label}
+    {\printfield[citetitle]{labeltitle}}
+    {\printfield{label}}}
+
+
+
+ 
+\newbibmacro*{cite:lexikon}{%
+  				\printfield{booktitle}%
+  				\setunit{\addspace}%
+  				\printfield{volume}%
+  				 \setunit{\addspace}%
+  				\printfield[parens]{year}%
+  				\setunit{\addspace}%
+  							\iffieldundef{postnote}{\printfield{pages}}{\printfield{postnote}}%
+  				\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
+  				\setunit{\addspace}\printfield{title}%
+  				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
+}
+
+
+\newbibmacro{cite}{%
+    \ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}%
+      {\usebibmacro{cite:lexikon}}%
+      {\printtext[bibhyperref]{\iffieldundef{shorthand}
+        {\ifnameundef{labelname}%
+           {\usebibmacro{cite:label}%
+            \setunit{\labelyeardelim}}%
+           {\printnames{labelname}%
+            \setunit{\nameyeardelim}}%
+         \usebibmacro{cite:year}}%
+        {\printfield{shorthand}}}}%
+}
+%%\newbibmacro{cite:bib}{%
+%%      {\iffieldundef{shorthand}
+%%        {\ifnameundef{labelname}%
+%%           {\usebibmacro{cite:label}%
+%%            \setunit{\labelyeardelim}}%
+%%           {\printnames{labelname}%
+%%            \setunit{\nameyeardelim}}%
+%%         \usebibmacro{cite:year}}%
+%%        {\printfield{shorthand}}}%
+%%}
+
+    
+
+%%% Cite Commands %%%
+\DeclareCiteCommand{\cite}%              
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+  \usebibmacro{cite}}%
+  {\multicitedelim}%
+  {\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}{\usebibmacro{postnote}}}%
+  
+\DeclareCiteCommand{\parencite}[\mkbibparens]%
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+  \usebibmacro{cite}}%
+  {\multicitedelim}%
+  {\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}{\usebibmacro{postnote}}}%
+  
+
+\DeclareCiteCommand{\citeauthor}%
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+     \addspace\bibstring{and}\space}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{cite:name}}
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}%
+
+\DeclareCiteCommand{\citetitle} %
+  {\boolfalse{citetracker}%
+    \boolfalse{pagetracker}%
+    \usebibmacro{prenote}}%
+  {\printtext[bibhyperref]{%
+   \ifbool{cbx:antik}{\printtext[emph]{\usebibmacro{cite:title}}}%
+      {\printtext[emph]{\usebibmacro{cite:title}}% 
+      			\setunit{\addspace}%
+      			\printtext[parens]{\printfield{year}%
+      			\iffieldundef{origyear}{}{\addspace\printfield[parens]{origyear}}%
+     	}%
+    	}}}%
+    {\multicitedelim}%
+    {\usebibmacro{postnote}}%
+%
+\endinput
+%%
+%% End of file `archaeologie.cbx'.
