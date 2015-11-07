@@ -481,7 +481,11 @@ maxbibnames=999,%
       }}
 
 \newbibmacro*{location+edition+year}{%
-  \ifbool{bbx:verlag}%
+\ifboolexpr{test {\iflistundef{location}}%
+  and test {\iffieldundef{publisher}}%
+  and test {\iffieldundef{year}}}%
+  {}
+  {\ifbool{bbx:verlag}%
     {\printtext[parens]{%
         \printlist[][1-1]{location}%
         \setunit*{\addcolon\addspace}%
@@ -508,7 +512,7 @@ maxbibnames=999,%
         \setunit*{\adddot\addspace}%
         \printlist[][1-1]{location}%
         \setunit*{\addspace}%
-        \printfield{year}}}}
+        \printfield{year}}}}}
 																		
 \renewbibmacro*{institution+location+date}{%
   \printlist{location}%
