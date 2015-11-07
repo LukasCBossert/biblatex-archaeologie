@@ -61,11 +61,11 @@ ngerman,
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-	 lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr
+	% lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr
 	%uebersetzung,
 	%bibvollername,
 	%keineabkuerzung,
-	verlag,
+	%verlag,
 	%hrsgv,
 	%jahrreihe,
 	%	jahrinklammern,
@@ -118,7 +118,7 @@ ngerman,
 \section{Letzte Änderungen}
 Für Anmerkungen und Hilfe Dank an ›moewew‹ und Herbert Voß.
 
-Neben internen Änderungen an der Programmierung und am Codeaufgabe (Auslagerung verschiedener Dateien)  hat sich vor allem folgendes verändert:
+Neben internen Änderungen an der Programmierung und der Auslagerung verschiedener Dateien  hat sich vor allem folgendes verändert:
 \begin{itemize}
 \item Die Verwendung von |maintitle| wurde auf |booktitle| (bei Einträgen von |@in...|) umgestellt.
 \item Der Rufname antiker Autoren wird nicht mehr unter |namea| sondern unter |shortauthor| eingetragen.
@@ -162,7 +162,7 @@ Nicht vergessen sollte man den |\printbibliography|-Befehl, sodass  eine Bibliog
 \item[keineabkuerzung] Die Abkürzungen von Zeitschriften und Serien (|shortjournal|/|shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. Siehe \cref{keineabkuerzung}.
 \item[verlag] Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe. Siehe \cref{verlag}.
 \item[bibvollername] Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie. Siehe \cref{bibvollername}.
-\item[lexika]  Siehe \cref{lexika}.
+\item[lexika]  Bibliographieeinträge mit |Options={lexikon}| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{lexika}.
 \item[nurnachname] Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\marg{Schlüssel} im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten). Siehe \cref{nurnachname}.
 \item[vollername]Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\marg{Schlüssel} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind. Siehe \cref{vollername}.
 \item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt. Siehe \cref{kapitaelchen}.
@@ -212,7 +212,7 @@ Dies wird über den Befehl\par
 %Dort muss nur klar gemacht werden, dass die bib-Datei die entsprechenden keywords und options enhalten muss (antik, Quelle etc.)}
 
 \subsection{Einträge mit @string}
-Die Zitationsrichtlinie des DAI sieht vor, dass vor allem Zeitschriften und Reihen nach einer vorgegebenen Liste abgekürzt werden.\footnote{\url{https://www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf/2c74093b-c8b6-4c6a-8af1-17a155109505} (\today)}
+Die Zitationsrichtlinie des DAI sieht vor, dass vor allem Zeitschriften und Reihen nach einer vorgegebenen Liste abgekürzt werden.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
 
  \DescribeMacro{@string}Der Stil |archaeologie| geht auf diese Vorgabe ein und kürzt Zeitschriften/Reihen ab.
 Um Fehler zu vermeiden und unnötiges Tippen der teilweise langen Zeitschriftennamen, bzw. Reihen zu ersparen, arbeitet |archaeologie| mit |@string|-Angaben.
@@ -220,7 +220,7 @@ Dies hat den Vorteil, dass  mittels |@string| mehreren Bibliographieeinträgen e
 Der |@string| wird in der |bib|-Datei am Anfang geladen, daher muss er vor alle anderen Bibliographieeinträge stehen.
 
 Um dieses Angebot an ›Vereinfachung‹ zu nutzen,  müssen Zeitschriftennamen (|journaltitle|) und ihre Kurzformen (|shortjournal|), sowie Reihen (|series|) und deren Kurzformen (|shortseries|) mittels |@string| geschrieben werden.
-In \cref{listen} sind die Abkürzungen nach DAI-Vorgabe aufgeführt, sodass der |@string| (mit den Ergänzungen |-kurz|, bzw. |-lang|) (in Fettdruck) abgelesen werden kann.
+In \cref{listen} sind die Abkürzungen nach DAI-Vorgabe aufgeführt, sodass der |@string| (mit den Ergänzungen |-kurz|, bzw. |-lang|) (linke Spalte) abgelesen werden kann.
 Dieser |@string|
 % (bspw. |AyasofyaMuezYil|; siehe \ref{AyasofyaMuezYil-kurz}, bzw. \ref{AyasofyaMuezYil-lang}) 
 wird dann OHNE Klammersetzung in die Felder (bspw. |journaltitle|) geschrieben.\footnote{Verwendet man bspw. das Programm JabRef in der Fensteransicht, dann muss \#|AyasofyaMuezYil|\# geschrieben werden. JabRef konvertiert dies intern zu einem |@string|.}
@@ -238,7 +238,7 @@ Ein Beispiel zeigt den Umgang:
 |}|\\
 
 Dieser Artikel erschien in einer nicht geläufigen Zeitschrift, die zudem nach DAI-Vorgabe mit ›AyasofyaMüzYıl‹ abgekürzt werden soll.
-Um sich bei diesem Beispiel die Arbeit zu sparen den Buchstaben ›ı‹ manuell einzufügen, wird er im |@string| mit ›i‹ geschrieben (weitere Besonderheiten siehe \cref{listen}) und erscheint dann beim Kompilieren mit der korrekten Schreibweise:
+Um sich bei diesem Beispiel die Arbeit zu sparen den Buchstaben ›ı‹ manuell einzufügen, wird er im |@string| mit ›i‹ geschrieben (weitere Besonderheiten siehe \cref{listen}) und erscheint dann nach dem Kompilieren in der korrekten Schreibweise:
 
 
 \begin{bsp}
@@ -750,7 +750,7 @@ U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Her
 
 \subsection{Optionen der Literatureinträge}\label{optionen-literatur}
 \subsubsection{antik}\label{antik}
- \DescribeMacro{antik} \emph{Die Formatierungen von |antik| und |frgantik| sind zu großen Teilen vom Bibliographiestil |geschichtsfrkl| v.1.1 (Jonathan Zachhuber) übernommen und modifiziert worden.}
+ \DescribeMacro{antik} \emph{Die Formatierungen von |antik| und |frgantik| sind vom Bibliographiestil |geschichtsfrkl| v.1.1 (Jonathan Zachhuber) inspiriert und modifiziert worden.}
  
 Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option |antik| zu versehen. Wir betrachten wieder ein Beispiel:\\[3pt]
 |@Book{Cic_Att,|\\
@@ -861,8 +861,9 @@ Ein Beispiel verschafft Klarheit:
  \\[3pt]
 |@Book{Fest,|\\
 |  Title = {De verborum significatu quae supersunt cum Pauli epitome},|\\
-|  Author = {Pompeius Festus, {Sex}tus},|\\
+|  Author = {Pompeius Festus, {\relax Sex}tus},|\\
 |  Editor = {Lindsay, Wallace Martin},|\\
+|  ShortEditor = {L},|\\
 |  Publisher = {Teubner},|\\
 |  Series = {Bibliotheca scriptorum et Graecorum et Romanorum Teubneriana},|\\
 |  Year = {1965},|\\
@@ -873,7 +874,7 @@ Ein Beispiel verschafft Klarheit:
 |  Shorthand = {Fest.},|\\
 |  Shortauthor = {Festus}|\\
 |}|\\[3pt]
- Zitiert man diesen Eintrag durch |\cite[3]{Fest}|, so wird der oder die Herausgeber genannt.
+ Zitiert man diesen Eintrag durch |\cite[3]{Fest}|, so wird der oder die Herausgeber genannt; ist das Feld |Shorteditor| ausgefüllt, dann wird dieses angegeben, ansonsten die Nachnamen aus |Editor|.
 \begin{refsection} 
  \begin{bsp}\todo[noline]{dynamisches Beispiel}
  \cite[3]{Fest}
@@ -916,7 +917,7 @@ Zusätzlich ist der Eintrag über |related={ThesCRA}| mit dem dazugehörigen Lex
 |  Shorthand             = ThesCRA-kurz,|\\
 | }|\\\par
 
-Diese Option kommt nur in Kombination mit der Paketoption |lexika| (siehe \cref{lexika}) zum Tragen, wodurch sich die Zitation in der Fußnote und Bibliographie geändert wird.
+Diese Option ist vorallem in Kombination mit der Paketoption |lexika| (siehe \cref{lexika}) relevant, da  sich die Zitation in der Fußnote ändert und der Eintrag in der Bibliographie nicht aufgeführt wird (da er in der Fußnote vollreferenziert ist).
 
 
 
