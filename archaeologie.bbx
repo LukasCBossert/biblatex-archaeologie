@@ -349,7 +349,7 @@ maxbibnames=999,%
    {%
      \iffieldundef{series}{}{%
            \usebibmacro{series}%
-           \setunit{\addspace}%
+           \setunit*{\addspace}%
            \printfield{number}%
          }%
     }%
@@ -428,7 +428,7 @@ maxbibnames=999,%
        {\usebibmacro{maintitle}%
          \ifbool{cbx:antik}%
             {\usebibmacro{title}%
-            \iffieldundef{volume}{\newunit\newblock}{}
+            \iffieldundef{volume}{\newunit\newblock}{}%
             }%
             {\iffieldundef{volume}%
                 {\iffieldundef{volumes}{}{%
@@ -440,8 +440,7 @@ maxbibnames=999,%
                  \setunit*{\addcolon\addspace}}}}}%
    \iffieldundef{volumes}{%
    \usebibmacro{title}}{}%
-   \newunit
-   }%   
+   \newunit}%   
 
 \renewbibmacro{event+venue+date}{%
 \setunit{\adddot\addspace}%  
@@ -457,25 +456,22 @@ maxbibnames=999,%
               test {\iffieldundef{subtitle}}}{}%
     {\printtext[title]{%
        \printfield[titlecase]{title}%
-       \setunit*{\subtitlepunct}
+       \setunit*{\subtitlepunct}%
        \printfield[titlecase]{subtitle}}%
      \iffieldundef{titleaddon}{\setunit*{\addspace}}{\setunit*{\subtitlepunct}}%
        \ifentrytype{book}{\usebibmacro{volume}}{}}%
-  \newunit{\addspace}\printfield{titleaddon}\isdot}%
+  \newunit\printfield{titleaddon}\isdot}%
     					
 \newbibmacro*{Erstauflage}{%
 		\bibstring{firstprint}%
-		\addcolon%
-		\addspace%
+		\setunit{\addcolon\addspace}%
 		}
 
 \newbibmacro*{edition}{%
   \iffieldint{edition}%
-    {\setunit*{\addspace}\mkbibsuperscript{\printfield{edition}}}%
+    {\mkbibsuperscript{\printfield{edition}}}%
     {\printfield{edition}%
-      \ifbool{bbx:verlag}%
-        {\setunit*{\addcomma\addspace}}%
-        {\setunit*{\addspace}}}}
+      }}
 
 \newbibmacro*{location+edition+year}{%
   \ifbool{bbx:verlag}%
@@ -483,6 +479,7 @@ maxbibnames=999,%
         \printlist[][1-1]{location}%
         \setunit*{\addcolon\addspace}%
         \printlist{publisher}%
+        \setunit*{\addspace}%
         \usebibmacro{edition}%
         \printfield{year}%
         \setunit*{\addspace}%
@@ -490,7 +487,8 @@ maxbibnames=999,%
         \printtext[parens]{%
           \usebibmacro{Erstauflage}%
           \printfield{origyear}}}}}%
-    {\usebibmacro{edition}%
+    {\setunit*{\addspace}%
+    \usebibmacro{edition}%
       \printtext[parens]{%
         \ifthenelse{\iffieldundef{origlocation} \AND \NOT \iffieldundef{origyear}}%
           {\printlist[][1-1]{location}}%
@@ -503,22 +501,17 @@ maxbibnames=999,%
         \printlist[][1-1]{location}%
         \setunit*{\addspace}%
         \printfield{year}}}}
-
-																
-																										
+																		
 \renewbibmacro*{institution+location+date}{%
   \printlist{location}%
   \printlist{institution}%
   \setunit*{\space}%
   \printfield{year}%
   \newunit}
-  
-
 
 \newbibmacro*{addendum}{}%
 \newbibmacro{signatur}{\printfield{note}} 
 \newbibmacro*{volume}{\printfield{volume}\newunit}
-
 
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{%
@@ -535,7 +528,7 @@ maxbibnames=999,%
       \setunit{\addspace}%
         \printnames[author][-\value{listtotal}]{editor}%
      }%
-           {\printnames[author][-\value{listtotal}]{editor}\addspace%
+           {\printnames[author][-\value{listtotal}]{editor}\setunit*{\addspace}%
       \printtext[parens]{\bibstring{editor}}%
       \newunit\newblock%
       \usebibmacro{maintitle+booktitle}%
@@ -608,7 +601,7 @@ maxbibnames=999,%
   \newunit\newblock%   
   \usebibmacro{translation}%
   \ifbool{bbx:jahrreihe}{}{\newunit\usebibmacro{series+number}}%
-  \setunit*{\addspace}\newblock%                        
+  \setunit{\addspace}\newblock%                        
   \usebibmacro{location+edition+year}%
   \setunit*{\addspace}\newblock%
   \ifbool{bbx:jahrreihe}{\usebibmacro{series+number}\newunit}{}%
@@ -695,7 +688,7 @@ maxbibnames=999,%
   \usebibmacro{location+edition+year}%
   \ifbool{bbx:jahrreihe}{%
     \setunit{\addspace}%
-    \usebibmacro{series+number}\setunit{\addcomma\addspace}}{}%
+    \usebibmacro{series+number}\setunit*{\addcomma\addspace}}{}%
   \addspace\newblock%                     
   \usebibmacro{pages}%
   \setunit{\addspace}%
@@ -730,7 +723,7 @@ maxbibnames=999,%
   \usebibmacro{location+edition+year}%
   \ifbool{bbx:jahrreihe}{%
     \setunit{\addspace}%
-    \usebibmacro{series+number}}\setunit{\addcomma\addspace}{}%
+    \usebibmacro{series+number}}\setunit*{\addcomma\addspace}{}%
   \setunit*{\addspace}\newblock%                      
   \usebibmacro{pages}%
   \setunit{\addspace}%
@@ -776,7 +769,7 @@ maxbibnames=999,%
   \usebibmacro{location+edition+year}%
   \setunit{\addspace}%
   \ifbool{bbx:jahrreihe}{%
-    \newunit\usebibmacro{series+number}\setunit{\addcomma\addspace}}{}%
+    \newunit\usebibmacro{series+number}\setunit*{\addcomma\addspace}}{}%
   \setunit*{\addspace}\newblock%                  
   \usebibmacro{pages}%
   \setunit{\addspace}%
