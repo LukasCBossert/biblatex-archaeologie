@@ -61,11 +61,11 @@ ngerman,
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-	% lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr
+	 lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr
 	%uebersetzung,
 	%bibvollername,
 	%keineabkuerzung,
-	%verlag,
+	verlag,
 	%hrsgv,
 	%jahrreihe,
 	%	jahrinklammern,
@@ -77,6 +77,7 @@ ngerman,
 ]{biblatex}
 
 \addbibresource{archaeologie.bib}
+\addbibresource{corpora.bib}
 \renewcommand\bibfont{\normalfont\small}
 
 \usepackage{listings}
@@ -1431,6 +1432,7 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 |            ||heading=subbibnumbered,%|\\
 |            ||title={Antike Quellen}]|\\
 |\printbibliography[notkeyword=Quelle,%|\\
+|            ||notkeyword=Sigel,%|\\
 |            ||heading=subbibnumbered,%|\\
 |            ||title={Forschungsliteratur}]| 
 
@@ -1446,7 +1448,9 @@ Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturver
 \printbibliography[keyword=Quelle,
             heading=subbibnumbered,
             title={Antike Quellen}]
-\printbibliography[notkeyword=Quelle,
+\printbibliography[%
+		notkeyword=Quelle,%
+		notkeyword=Sigel,%
            	heading=subbibnumbered,
             title={Forschungsliteratur}]
 \end{bsp}
