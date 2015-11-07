@@ -37,6 +37,8 @@ ngerman,
 \usepackage{coolthms}
 \usepackage{csquotes}
 \usepackage{multicol}
+\setlength{\columnsep}{1.5cm}
+\setlength{\columnseprule}{0.2pt}
 \usepackage{framed}
 \usepackage{enumitem}
 \setlength{\parindent}{0pt}
@@ -77,7 +79,7 @@ ngerman,
 ]{biblatex}
 
 \addbibresource{archaeologie.bib}
-\addbibresource{antike-corpora.bib}
+%\addbibresource{antike-corpora.bib} %Version 2.0
 \renewcommand\bibfont{\normalfont\small}
 
 \usepackage{listings}
@@ -97,9 +99,10 @@ ngerman,
 
 
 
- \title{\texttt{archaeologie} -- \\\texttt{biblatex} für Archäologen\footnote{Ebenso nützlich und geeignet für (Alt-)Historiker und (Alt-)Philologen.}}
+ \title{\texttt{archaeologie} -- \\\texttt{biblatex} für Archäologen\footnote{Ebenso nützlich und geeignet für (Alt-)Historiker und (Alt-)Philologen.
+ Die Entwicklung des Codes findet unter \url{https://github.com/giovannotti/biblatex-archaeologie} statt: Anmerkungen und Fehlermeldungen sind sehr willkommen.} }
  \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
- \date{Version: \today}
+ \date{Version: 1.2 (2015/11/11)}
  
  
  \maketitle
@@ -1427,12 +1430,15 @@ Und für die Bibliographie:
  versehen werden. 
 Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  |heading=bibnumbered|, bzw. |heading=subbibnumbered| geladen werden.
 
-|\printbibheading[heading=bibnumbered,%|\\
+|\printbibheading[%|\\
+|            ||heading=bibnumbered,|\\
 |            ||title={Bibliographie}] %| \emph{Überschrift für Bibliographieumgebung}\\
-|\printbibliography[keyword=Quelle,%|\\
+|\printbibliography[%|\\
+|            ||keyword=Quelle,|\\
 |            ||heading=subbibnumbered,%|\\
 |            ||title={Antike Quellen}]|\\
-|\printbibliography[notkeyword=Quelle,%|\\
+|\printbibliography[%|\\
+|            ||notkeyword=Quelle,|\\
 |            ||notkeyword=Sigel,%|\\
 |            ||heading=subbibnumbered,%|\\
 |            ||title={Forschungsliteratur}]| 
