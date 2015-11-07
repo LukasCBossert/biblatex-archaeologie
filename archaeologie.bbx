@@ -514,16 +514,9 @@ maxitems=2,
           \printfield{origyear}}}}}%
     {\usebibmacro{edition}%
       \printtext[parens]{%
-<<<<<<< Updated upstream
         \ifthenelse{\iffieldundef{origlocation} \AND \NOT \iffieldundef{origyear}}%
           {\printlist{location}}%
           {\printlist{origlocation}}%
-=======
-        \ifthenelse{\iffieldundef{origlocation}%
-        			 \AND \NOT \iffieldundef{origyear}}%
-          {\printlist[][1-1]{location}}%
-          {\printlist[][1-1]{origlocation}}%
->>>>>>> Stashed changes
         \setunit*{\addspace}%
         \printfield{origyear}%
         \setunit*{\addsemicolon\addspace}%
