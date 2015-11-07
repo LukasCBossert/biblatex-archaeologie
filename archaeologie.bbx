@@ -27,7 +27,7 @@ dateabbrev=false,%
 sorting=nyt,%
 maxnames=2,% 
 minnames=1,%
-maxitems=1,
+maxitems=1%
 maxbibnames=999,%
 }%
 
@@ -55,7 +55,7 @@ maxbibnames=999,%
 \DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}}
 \DeclareBibliographyOption{keineabkuerzung}[true]{\csuse{bool#1}{bbx:keineabkuerzung}}
 \DeclareBibliographyOption{uebersetzung}[true]{\csuse{bool#1}{bbx:uebersetzung}}
-\DeclareBibliographyOption{verlag}[true]{\csuse{bool#1}{bbx:verlag}}
+\DeclareBibliographyOption{verlag}[true]{\csuse{bool#1}{bbx:verlag}\ExecuteBibliographyOptions{maxitems=2,}}
 \DeclareBibliographyOption{nurnachname}[true]{%
 		\csuse{booltrue}{cbx:nurnachname}%
 		\csuse{boolfalse}{cbx:vollername}%
