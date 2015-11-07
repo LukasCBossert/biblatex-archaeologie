@@ -27,6 +27,7 @@ dateabbrev=false,%
 sorting=nyt,%
 maxnames=2,% 
 minnames=1,%
+maxitems=1,
 maxbibnames=999,%
 }%
 
@@ -487,7 +488,7 @@ maxbibnames=999,%
   {}
   {\ifbool{bbx:verlag}%
     {\printtext[parens]{%
-        \printlist[][1-1]{location}%
+        \printlist{location}%
         \setunit*{\addcolon\addspace}%
         \printlist{publisher}%
         \iffieldint{edition}%
@@ -503,14 +504,14 @@ maxbibnames=999,%
     {\usebibmacro{edition}%
       \printtext[parens]{%
         \ifthenelse{\iffieldundef{origlocation} \AND \NOT \iffieldundef{origyear}}%
-          {\printlist[][1-1]{location}}%
-          {\printlist[][1-1]{origlocation}}%
+          {\printlist{location}}%
+          {\printlist{origlocation}}%
         \setunit*{\addspace}%
         \printfield{origyear}%
         \setunit*{\addsemicolon\addspace}%
         \iffieldundef{origyear}{}{\bibstring{reprint}}%
         \setunit*{\adddot\addspace}%
-        \printlist[][1-1]{location}%
+        \printlist{location}%
         \setunit*{\addspace}%
         \printfield{year}}}}}
 																		
