@@ -513,9 +513,10 @@ maxitems=2,
           \printfield{origyear}}}}}%
     {\usebibmacro{edition}%
       \printtext[parens]{%
-        \ifthenelse{\iffieldundef{origlocation} \AND \NOT \iffieldundef{origyear}}%
-          {\printlist{location}}%
-          {\printlist{origlocation}}%
+        \ifthenelse{\iffieldundef{origlocation}%
+        			 \AND \NOT \iffieldundef{origyear}}%
+          {\printlist[][1-1]{location}}%
+          {\printlist[][1-1]{origlocation}}%
         \setunit*{\addspace}%
         \printfield{origyear}%
         \setunit*{\addsemicolon\addspace}%
@@ -865,8 +866,7 @@ maxitems=2,
 \newbibmacro{kicklabel}{% 
   \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
   \global\togglefalse{blx@insert}%
-  \ifdim\shorthandwidth%
-  			< .9\wd\arch@labelbox\leavevmode\newline\fi%
+  \ifdim\shorthandwidth<.9\wd\arch@labelbox\leavevmode\newline\fi%
   }
 
 \defbibenvironment{bibliography}%
