@@ -444,9 +444,10 @@ maxitems=2,
                    \printfield{volumes}%
                    \setunit*{\addspace}%
                    \bibstring{volumes}%
-                   \newunit}}%
-               {\printfield{volume}%
-                 \setunit*{\addcolon\addspace}}}}}%
+                   \setunit{\addspace}}}%
+               {\setunit{\addspace}
+               \printfield{volume}%
+                 \setunit*{\adddot\addspace}}}}}%
    \iffieldundef{volumes}{%
    \usebibmacro{title}}{}%
    \newunit%
@@ -545,8 +546,11 @@ maxitems=2,
 			} 
 			
 \newbibmacro*{volume}{%
-			\printfield{volume}\newunit%
-			}
+	\iffieldundef{maintitle}{%
+			\printfield{volume}%
+			\newunit}%
+			{}%
+	}
 			
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{%

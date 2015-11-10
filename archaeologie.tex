@@ -965,7 +965,8 @@ Aufgrund der Setzung von |keywords=Sigel| können diese Art von Corpora in einer
  \section{Beschreibung der Eintragtypen (Beispiele)} \label{beispiele}
 
 
- Der |archaeologie|-Zitierstil definiert verschiedene bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
+ Der |archaeologie|-Zitierstil definiert unterschiedliche bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. 
+ Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
 
 
 
@@ -1056,6 +1057,31 @@ Die Übersetzung davon ist |Zanker_2013|:
 \end{bsp}
  \end{refsection}
 
+ \subsubsection{Mehrbändige Monographien mit Untertitel}
+Es kommt vor, dass man einen Band einer mehrbändigen Monographie zitiert, der einen eigenen Untertitel hat.
+Damit die jeweilige Zahl des Bandes an korrekter Stelle ausgegen wird, 
+muss ein Bibliographieeintrag wie folgt aussehen:
+
+|@Book{MacDonald_1986,|\\
+|  Title                    = {An urban Appraisal},|\\
+| Author                   = {MacDonald, William L.},|\\
+| Location                 = {New Haven and London},|\\
+| Number                   = {35},|\\
+| Publisher                = {YUP},|\\
+| Series                   = {Yale Publictions in the History of Art},|\\
+| Year                     = {1986},|\\
+| Volume                   = {II},|\\
+| Maintitle                = {The Architecture of the Roman Empire}|\\
+|}|\\
+
+Damit werden Haupttitel der Monographie (|Maintitle|) und Titel des Bandes (|Titel|) getrennt voneinander eingegeben, sodass die Bandzahl (|volume|) vor den Titel gesetzt werden kann.
+
+\begin{refsection}
+\begin{bsp}
+\nocite{MacDonald_1986}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
 
 
 
