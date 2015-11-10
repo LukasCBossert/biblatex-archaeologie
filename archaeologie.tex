@@ -121,15 +121,18 @@ ngerman,
 \section{Letzte Änderungen}
 Für Anmerkungen und Hilfe Dank an ›moewew‹ und Herbert Voß.
 
-Neben internen Änderungen an der Programmierung und der Auslagerung verschiedener Dateien  hat sich vor allem folgendes verändert:
-\begin{itemize}
-\item Die Verwendung von |maintitle| wurde auf |booktitle| (bei Einträgen von |@in...|) umgestellt.
-\item Der Rufname antiker Autoren wird nicht mehr unter |namea| sondern unter |shortauthor| eingetragen.
-\item Die Eintrags-Option |unbekannt| fällt weg; es reicht wenn der Eintrag für Autor/Editor freibleibt und dafür das Feld |label| ausgefüllt wird.
-\item Die Präambel-Option |miturl| fällt weg; es wird nun eine URL/DOI/etc. angezeigt, wenn dies im Bibliographieeintrag entsprechend eingetragen ist.
-\item Einfügung der Möglichkeit Werke miteinander zu verknüpfen (|related|) (\cref{book})\\ Dies kommt vor allem bei |@review| zum tragen, wo man das rezensierte Werk nicht mehr über |titleaddon| einfügt (\cref{review}).
-\item Umbenennung der Eintrags-Option |nurshorthand| in |corpus| (\cref{corpus})
-\end{itemize}
+%Neben internen Änderungen an der Programmierung und der Auslagerung verschiedener Dateien  hat sich vor allem folgendes verändert:
+%\begin{itemize}
+%\item Die Verwendung von |maintitle| wurde auf |booktitle| (bei Einträgen von |@in...|) umgestellt.
+%\item Der Rufname antiker Autoren wird nicht mehr unter |namea| sondern unter |shortauthor| eingetragen.
+%\item Die Eintrags-Option |unbekannt| fällt weg; es reicht wenn der Eintrag für Autor/Editor freibleibt und dafür das Feld |label| ausgefüllt wird.
+%\item Die Präambel-Option |miturl| fällt weg; es wird nun eine URL/DOI/etc. angezeigt, wenn dies im Bibliographieeintrag entsprechend eingetragen ist.
+%\item Einfügung der Möglichkeit Werke miteinander zu verknüpfen (|related|) (\cref{book})\\ Dies kommt vor allem bei |@review| zum tragen, wo man das rezensierte Werk nicht mehr über |titleaddon| einfügt (\cref{review}).
+%\item Umbenennung der Eintrags-Option |nurshorthand| in |corpus| (\cref{corpus})
+%\end{itemize}
+
+\changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
+
 
 \section{Verwendung}
  \DescribeMacro{archaeologie} Der Name des Stils ist |archaeologie| und wird an entsprechender Stelle geladen.

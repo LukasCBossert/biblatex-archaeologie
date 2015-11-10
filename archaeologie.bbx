@@ -11,13 +11,13 @@
 % version 2005/12/01 or later.
 
 \ProvidesFile{archaeologie.bbx}%
-               [2015/11/11 v1.2  archaeologie --%
+               [2015/11/11 v2.0  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
-%\urlstyle{same}%
 \urlstyle{sf}%
-\typeout{* * * archaeologie * * *  biblatex fuer Archaeologen, Historiker und Philologen}}
+\typeout{* * * archaeologie * * *  biblatex fuer Archaeologen, Historiker und Philologen}
+}
 \ExecuteBibliographyOptions{%
 pagetracker=true,%
 firstinits=true,
@@ -794,9 +794,10 @@ maxitems=2,
  		{\printfield{booktitle}%
   		\setunit{\addspace}\printfield{volume}%
   		\setunit{\addspace}\printfield[parens]{year}%
-  		\setunit{\addspace} \usebibmacro{pages}%
+  		\setunit{\addspace}\usebibmacro{pages}%
   		\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
   		\setunit{\addspace}\printfield{title}%
+  		\iffieldundef{number}{}{\setunit{\addspace}\printtext[brackets]{\printfield{number}}}%
   		\setunit{\addspace}\printtext[parens]{%
   			\c@uniquename=1%
   			\printnames{labelname}}%

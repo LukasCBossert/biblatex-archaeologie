@@ -103,6 +103,7 @@
   							\iffieldundef{postnote}{\printfield{pages}}{\printfield{postnote}}%
   				\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
   				\setunit{\addspace}\printfield{title}%
+  				 \iffieldundef{number}{}{\setunit{\addspace}\printtext[brackets]{\printfield{number}}}%
   				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
 }
 
