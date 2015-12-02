@@ -102,7 +102,7 @@ ngerman,
  \title{\texttt{archaeologie} -- \\\texttt{biblatex} für Archäologen\footnote{Ebenso nützlich und geeignet für (Alt-)Historiker und (Alt-)Philologen.
  Die Entwicklung des Codes findet unter \url{https://github.com/giovannotti/biblatex-archaeologie} statt: Anmerkungen und Fehlermeldungen sind sehr willkommen.} }
  \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
- \date{Version: 1.2 (2015/11/11)}
+ \date{Version: 1.22 (2015-12-06)}
  
  
  \maketitle
@@ -307,7 +307,8 @@ Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
 |  Year			= {2011},|\\
 |  Edition		= {30},|\\
 |  Location	= {Maien, MA and Oxford and Victoria},|\\
-|  Origdate	= {1991},|\\
+|  Origlocation	= {Oxford},|\\
+|  Origyear	= {1991},|\\
 |  Origlanguage	= {french},|\\
 |  Origtitle	= {La production de l’espace},|\\
 |  Translator	= {Donald Nicholson-Smith}|\\
@@ -330,7 +331,7 @@ wird in der Bibliographie zunächst auf diese Weise umgesetzt:
  
 \begin{bsp}%
 %\fullcite{Lefebvre_2011}
-H. Lefebvre, The Production of Space, {\color{red} \emph{La production de l’espace}, aus dem Französischen übers. von D. Nicholson-Smith} \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011) 
+H. Lefebvre, The Production of Space, {\color{red} \emph{La production de l’espace}, aus dem Französischen übers. von D. Nicholson-Smith} \textsuperscript{30}(Oxford 1991; Nachdr. Maien, MA 2011) 
 \end{bsp}
  
 Dies funktioniert nicht nur bei den Einträgen |@book|, sondern auch bei |@article|:
@@ -895,7 +896,7 @@ Ein Beispiel verschafft Klarheit:
 
 \subsubsection{lexikon}\label{lexikon}
 \DescribeMacro{lexikon}
-Diese Eintragsoption ist für Lexikoneinträge (|@inreference|; siehe \cref{@inrefrence}) sinnvoll, wenn diese zu den ›gängigen Lexika‹ gehören (RE, DNP, LTUR, LIMC, etc.).
+Diese Eintragsoption ist für Lexikoneinträge (|@inreference|; siehe \cref{inreference}) sinnvoll, wenn diese zu den ›gängigen Lexika‹ gehören (RE, DNP, LTUR, LIMC, etc.).
 Dann muss im Bibliographieeintrag gesetzt werden: |options={lexikon}|.
 Ein Beispiel illustriert dies:
 
@@ -977,7 +978,7 @@ Aufgrund der Setzung von |keywords=Sigel| können diese Art von Corpora in einer
 
 
 |@Book{Mann_2011,|\\
-|  Author  = {Mann, Christian},|\\
+|  Author  = {Mann, {\relax Ch}ristian},|\\
 |  Title   = {»Um keinen Kranz, um das Leben kämpfen wir!«},|\\
 |  Subtitle  = {Gladiatoren im Osten des Römischen Reiches| \\| und die Frage der Romanisierung},|\\
 | Series  = {Studien zur Alten Geschichte},|\\
@@ -1133,8 +1134,75 @@ In der Bibliographie ist die Darstellung:
 \printbibliography[title={Forschungsliteratur}]
 \end{bsp}
  \end{refsection}
+ \subsubsection{Kleinere Kurzreihen}
+Es kommt auch vor, dass man einen Band einer kleinen Reihe (nicht Serie) zitieren muss.
+Zum Beispiel dieses Buch:
+
+|@Incollection{Fentress_2003,|\\
+|  Title                    = {Cosa in the Republic and Early Empire},|\\
+|  Author                   = {Fentress, Elizabeth and John Bodel and Adam Rabinowitz and Rabun Taylor},|\\
+|  Booksubtitle             = {Excavations 1991--1997},|\\
+|  Booktitle                = {An Intermittent Town},|\\
+|  Editor                   = {Fentress, Elizabeth},|\\
+|  Location                 = {Ann Arbor, Mich.},|\\
+|  Number                   = {2},|\\
+|  Pages                    = {13--62},|\\
+|  Publisher                = UMP,|\\
+|  Series                   = MemAmAc-lang,|\\
+|  Shortseries              = MemAmAc-kurz,|\\
+|  Year                     = {2003},|\\
+|  Volume                   = {V},|\\
+|  Language                 = {english},|\\
+|  Maintitle                = {Cosa},|\\
+|}|\par
+
+Es handelt sich also um den fünften Band (Volume) mit dem Titel (Title) ›Cosa in the Republic and Early Empire‹ der Reihe ›Cosa‹ (Maintitle) darstellt, was wiederum den zweiten Band (Number) der Serie ›MemAmAc‹ ist.
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Fentress_2003}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+ 
+ 
+ \subsubsection{Bestandskatalog}
+ Die Angabe von Bestandskatalogen weicht in einer Kleinigkeit von Sammelbänden o.ä. ab:
+ Es wird kein Titel genannt. Damit fällt auch das Komma nach dem Autor weg.
+Zwei Beispiele verdeutlichen dies.
+
+|@inbook{Kohlmeyer_1983,|\\
+|author = {K. Kohlmeyer},|\\
+|editor = {U. Gehrig},|\\
+|booktitle = {Tierbilder aus vier Jahrtausenden},|\\
+|booksubtitle = {Antiken der Sammlung Mildenberg},|\\
+|location = {Mainz},|\\
+|year = {1983}|\\
+|}|\\
+
+und
+
+
+|@inbook{Parlasca_1969,|\\
+|author = {K. Parlasca},|\\
+|booktitle = {Helbig},|\\
+|volume = {III},|\\
+|edition = {4},|\\
+|location = {Tübingen},|\\
+|year ={1969},|\\
+|}|\\
+
+
+
+ \begin{refsection}
+\begin{bsp}
+\nocite{Kohlmeyer_1983,Parlasca_1969}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
  
  Der Typ |@inbook| entspricht hier dem Typ |@incollection|.
+
 
  \subsection{Typ \texttt{@article}}\label{article}
 %%
@@ -1173,6 +1241,29 @@ Es empfiehlt sich allerdings sich auf ein paar Standarts zu beschränken, da die
 \item[inpress] Typoskript liegt bereits als fertig gesetzter Artikel vor.\\(|pubstate = {inpress}|)
 \item[prepublished] Artikel liegt in einer (online) Vorabversion vor. \\(|pubstate = {prepublished}|)
 \end{description}
+
+Ein Beispiel zeigt die Anwendung für |pubstate = {forthcoming}|
+
+|@Article{Bossert_2016,|\\
+|  Title                    = {\ldots\ \textsc{in formam anitqvam restitvto}?}, |\\
+| Subtitle = {Überlegungen zur Inschrift der ›Porticus Deorum Consentium‹ (CIL\,VI 102)|\\
+|					 und ihren Ergänzungen im 19.{\,}Jahrhundert},|\\
+ | Author                   = {Lukas C. Bossert},|\\
+ | Volume                   = {2},|\\
+ | Year                     = {2016},|\\
+ | Journaltitle                  = {BeStAR. Berliner Studien zum Antiken Rom},|\\
+ | shortjournal = {BeStAR},|\\
+| pubstate = {forthcoming},|\\
+|}|\\
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Bossert_2016}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
+
+
 
 \subsection{Typ \texttt{@proceedings}}\label{proceedings}
 
@@ -1344,7 +1435,11 @@ Dies ist für die Bibliographie relevant: Es ist nun nicht mehr notwendig das re
 \printbibliography[title={Forschungsliteratur}]
 \end{bsp}
  \end{refsection}
+ 
+Der Vorteil mit |Related| und |Relatedtype| zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
+Zudem wird das rezensierte Werk bei der Erwähung in der Rezension nicht automatisch in die Bibliographie als eigener Eintrag aufgenommen, sondern erst dann, wenn es selbst explizit zitiert wird.
 
+\subsubsection{Rezensionen mit eigenem Titel}
 Manche Rezensionen sind ausführlicher und haben daher einen eigenen Titel, der angegeben werden soll.
 In diesem Fall wird das Feld |Title| ausgefüllt, ansonsten bleibt alles gleich: 
 
@@ -1370,8 +1465,42 @@ In der Bibliographie wird dann zuerst der eigene Titel der Rezension ausgegeben,
 \end{bsp}
  \end{refsection}
 
-Der Vorteil mit |Related| und |Relatedtype| zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
-Zudem wird das rezensierte Werk bei der Erwähung in der Rezension nicht automatisch in die Bibliographie als eigener Eintrag aufgenommen, sondern erst dann, wenn es selbst explizit zitiert wird.
+
+\subsubsection{Sammelrezensionen}
+Es kann vorkommen, dass Rezensionen nicht nur ein Werk unter die Lupe nehmen, sondern zwei oder noch mehr.
+Dies ist jedoch kein Problem, da das Vorgehen fast analog zu den oben genannten Beispielen ist.
+\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch \citetitle{Welch_2007} von \citeauthor{Welch_2007} rezensiert, sondern es zugleich mit \citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.
+
+
+|@Review{Taylor_2008,|\\
+|  Author                   = {Taylor, Rabun},|\\
+| Number                   = {3},|\\
+| Pages                    = {443--445},|\\
+|  Related                  = {Sear_2006,Welch_2007},|\\
+| Relatedtype              = {reviewof},|\\
+|  Shortjournal             = {Journal of the Society of Architectural Historians},|\\
+|  Volume                   = {67},|\\
+|  Year                     = {2008},|\\
+|}|\\
+
+
+|@Book{Sear_2006,|\\
+|  Title                    = {Roman Theatres},|\\
+|  Author                   = {Sear, Frank},|\\
+|  Location                 = {Oxford},|\\
+|  Publisher                = OUP,|\\
+|  Series                   = {Oxford Monographs on Classical Archeology},|\\
+|  Subtitle                 = {An Architectural Study},|\\
+|  Year                     = {2006},|\\
+|}|\\
+
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Sear_2006,Taylor_2008,Welch_2007}
+\printbibliography[title={Forschungsliteratur}]
+\end{bsp}
+ \end{refsection}
 
 
  \subsection{Typ \texttt{@thesis}}\label{thesis}

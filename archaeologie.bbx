@@ -11,7 +11,7 @@
 % version 2005/12/01 or later.
 
 \ProvidesFile{archaeologie.bbx}%
-               [2015/11/11 v2.0  archaeologie --%
+               [2015/12/06 v1.22  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
@@ -123,6 +123,7 @@ maxitems=2,
 \renewcommand{\finentrypunct}{}
 \renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}
 \renewcommand{\finalnamedelim}{\multinamedelim}
+\renewcommand*\relateddelim{\addnbspace\textendash\addspace}
 \newcommand*{\volnumdelim}{\addslash}
 \newcommand*{\jourvoldelim}{\addnbspace}
 
@@ -338,7 +339,7 @@ maxitems=2,
   }%
     {\printnames{editor}%
      \setunit{\addspace}%
-     \usebibmacro{editorstrg}%
+ \printtext[parens]{\bibstring{editor}}
      \clearname{editor}}%
     {}%
     }
@@ -462,20 +463,67 @@ maxitems=2,
   \newunit%
   }
   
+%\renewbibmacro*{title}{%
+%  \ifboolexpr{test {\iffieldundef{title}} and%
+%              test {\iffieldundef{subtitle}}}{}%
+%    {\printtext[title]{%
+%       \printfield[titlecase]{title}%
+%       \setunit*{\subtitlepunct}%
+%       \printfield[titlecase]{subtitle}}%
+%     \iffieldundef{titleaddon}{%
+%     			\setunit*{\addspace}}%
+%     			{\setunit*{\subtitlepunct}}%
+%       \ifentrytype{book}{\usebibmacro{volume}}{}}%
+%  \setunit{\subtitlepunct}
+%  \printfield{titleaddon}\isdot%
+%  }
 \renewbibmacro*{title}{%
-  \ifboolexpr{test {\iffieldundef{title}} and%
-              test {\iffieldundef{subtitle}}}{}%
+  \ifboolexpr{
+    test {\iffieldundef{title}}
+    and
+    test {\iffieldundef{subtitle}}
+  }
+    {}
     {\printtext[title]{%
        \printfield[titlecase]{title}%
-       \setunit*{\subtitlepunct}%
+       \setunit{\subtitlepunct}%
        \printfield[titlecase]{subtitle}}%
-     \iffieldundef{titleaddon}{%
-     			\setunit*{\addspace}}%
-     			{\setunit*{\subtitlepunct}}%
-       \ifentrytype{book}{\usebibmacro{volume}}{}}%
-  \newunit\printfield{titleaddon}\isdot%
+     \setunit{\subtitlepunct}
+     }%
+  \printfield{titleaddon}}
+  
+\renewbibmacro*{booktitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{booktitle}}
+    and
+    test {\iffieldundef{booksubtitle}}
   }
-    					
+    {}
+    {\printtext[booktitle]{%
+       \printfield[titlecase]{booktitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{booksubtitle}}%
+	\setunit{\subtitlepunct}
+     }%
+  \printfield{booktitleaddon}}
+  	
+\renewbibmacro*{maintitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{maintitle}}
+    and
+    test {\iffieldundef{mainsubtitle}}
+  }
+    {}
+    {\printtext[maintitle]{%
+       \printfield[titlecase]{maintitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{mainsubtitle}}%
+	\setunit{\subtitlepunct}
+     }%
+  \printfield{maintitleaddon}}
+
+
+
 \newbibmacro*{Erstauflage}{%
 		\bibstring{firstprint}%
 		\setunit{\addcolon\addspace}%
@@ -515,8 +563,8 @@ maxitems=2,
       \printtext[parens]{%
         \ifthenelse{\iffieldundef{origlocation}%
         			 \AND \NOT \iffieldundef{origyear}}%
-          {\printlist[][1-1]{location}}%
-          {\printlist[][1-1]{origlocation}}%
+          %{\printlist[][1-1]{location}}%
+          {\printlist{origlocation}}{}%
         \setunit*{\addspace}%
         \printfield{origyear}%
         \setunit*{\addsemicolon\addspace}%
@@ -539,7 +587,11 @@ maxitems=2,
   }
 
 \newbibmacro*{addendum}{}
-
+\renewbibmacro*{addendum+pubstate}{%
+  \printfield{addendum}%
+  \iffieldundef{\thefield{datelabesource}year}{}
+  {\newunit\newblock\printfield{pubstate}}}
+  
 \newbibmacro{signatur}{%
 			\printfield{note}%
 			} 
@@ -550,7 +602,19 @@ maxitems=2,
 			\newunit}%
 			{}%
 	}
-			
+\renewbibmacro*{maintitle+booktitle}{%
+  \iffieldundef{maintitle}
+    {}
+    {\usebibmacro{maintitle}%
+     \iffieldundef{volume}
+       {\setunit{\maintitlepunct}}% 
+       {\setunit{\addspace}
+        \printfield{volume}%
+        \printfield{part}%
+        \setunit{\adddot\space}}}%
+  \usebibmacro{booktitle}%
+  \newunit}
+  			
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}{%
     \usebibmacro{maintitle+booktitle}%
@@ -763,7 +827,8 @@ maxitems=2,
   \usebibmacro{title}%
     \newunit\newblock%
   \usebibmacro{intranslation}%
-  \newunit\newblock%
+\iffieldundef{title}{\setunit{\addspace}}%
+ {\newunit\newblock}%
   \usebibmacro{in:}%
   \usebibmacro{booktitle+volume+editor}%
   \setunit{\addspace}%
