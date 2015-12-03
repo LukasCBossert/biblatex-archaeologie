@@ -463,20 +463,7 @@ maxitems=2,
   \newunit%
   }
   
-%\renewbibmacro*{title}{%
-%  \ifboolexpr{test {\iffieldundef{title}} and%
-%              test {\iffieldundef{subtitle}}}{}%
-%    {\printtext[title]{%
-%       \printfield[titlecase]{title}%
-%       \setunit*{\subtitlepunct}%
-%       \printfield[titlecase]{subtitle}}%
-%     \iffieldundef{titleaddon}{%
-%     			\setunit*{\addspace}}%
-%     			{\setunit*{\subtitlepunct}}%
-%       \ifentrytype{book}{\usebibmacro{volume}}{}}%
-%  \setunit{\subtitlepunct}
-%  \printfield{titleaddon}\isdot%
-%  }
+
 \renewbibmacro*{title}{%
   \ifboolexpr{
     test {\iffieldundef{title}}
@@ -563,9 +550,7 @@ maxitems=2,
       \printtext[parens]{%
         \ifthenelse{\iffieldundef{origlocation}%
         			 \AND \NOT \iffieldundef{origyear}}%
-          %{\printlist[][1-1]{location}}%
-          {\printlist{origlocation}}{}%
-        \setunit*{\addspace}%
+          {\printlist{origlocation}\setunit*{\addspace}}{}%
         \printfield{origyear}%
         \setunit*{\addsemicolon\addspace}%
         \iffieldundef{origyear}{}{\bibstring{reprint}}%
