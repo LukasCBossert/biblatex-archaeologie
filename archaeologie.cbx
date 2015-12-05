@@ -109,9 +109,13 @@
 
 
 \newbibmacro{cite}{%
-    \ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}%
-      {\usebibmacro{cite:lexikon}}%
-      {\printtext[bibhyperref]{\iffieldundef{shorthand}
+	\ifboolexpr{
+		 test {\ifbool{bbx:lexika}}
+		 and 
+		 test	{\ifentrytype{inreference}}
+		 }%
+{\usebibmacro{cite:lexikon}}%
+      {\printtext[bibhyperref]{\iffieldundef{shorthand}%
         {\ifnameundef{labelname}%
            {\usebibmacro{cite:label}%
             \setunit{\labelyeardelim}}%
@@ -120,16 +124,7 @@
          \usebibmacro{cite:year}}%
         {\printfield{shorthand}}}}%
 }
-%%\newbibmacro{cite:bib}{%
-%%      {\iffieldundef{shorthand}
-%%        {\ifnameundef{labelname}%
-%%           {\usebibmacro{cite:label}%
-%%            \setunit{\labelyeardelim}}%
-%%           {\printnames{labelname}%
-%%            \setunit{\nameyeardelim}}%
-%%         \usebibmacro{cite:year}}%
-%%        {\printfield{shorthand}}}%
-%%}
+
 
     
 
@@ -139,14 +134,14 @@
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}{\usebibmacro{postnote}}}%
+  {\ifbool{bbx:lexika}{}{\usebibmacro{postnote}}}%
   
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifboolexpr{bool{cbx:lexikon} and bool {bbx:lexika}}{}{\usebibmacro{postnote}}}%
+  {\ifbool{bbx:lexika}{}{\usebibmacro{postnote}}}%
   
 
 \DeclareCiteCommand{\citeauthor}%

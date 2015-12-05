@@ -120,17 +120,13 @@ ngerman,
 
 \section{Letzte Änderungen}
 Für Anmerkungen und Hilfe Dank an ›moewew‹ und Herbert Voß.
-Ansonsten kleine Korrekturen zur Anpassung an die Vorgaben des Deutschen Archäologischen Instituts.
+
+Änderungen seit Version 1.22
 
 %Neben internen Änderungen an der Programmierung und der Auslagerung verschiedener Dateien  hat sich vor allem folgendes verändert:
-%\begin{itemize}
-%\item Die Verwendung von |maintitle| wurde auf |booktitle| (bei Einträgen von |@in...|) umgestellt.
-%\item Der Rufname antiker Autoren wird nicht mehr unter |namea| sondern unter |shortauthor| eingetragen.
-%\item Die Eintrags-Option |unbekannt| fällt weg; es reicht wenn der Eintrag für Autor/Editor freibleibt und dafür das Feld |label| ausgefüllt wird.
-%\item Die Präambel-Option |miturl| fällt weg; es wird nun eine URL/DOI/etc. angezeigt, wenn dies im Bibliographieeintrag entsprechend eingetragen ist.
-%\item Einfügung der Möglichkeit Werke miteinander zu verknüpfen (|related|) (\cref{book})\\ Dies kommt vor allem bei |@review| zum tragen, wo man das rezensierte Werk nicht mehr über |titleaddon| einfügt (\cref{review}).
-%\item Umbenennung der Eintrags-Option |nurshorthand| in |corpus| (\cref{corpus})
-%\end{itemize}
+\begin{itemize}
+\item Die Verwendung von |lexikon| als Eintragsoption fällt weg, da alle Lexika gleich behandelt werden. (\cref{inreference}).
+\end{itemize}
 
 \changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
 
@@ -895,39 +891,6 @@ Ein Beispiel verschafft Klarheit:
 \end{refsection}
  
 
-\subsubsection{lexikon}\label{lexikon}
-\DescribeMacro{lexikon}
-Diese Eintragsoption ist für Lexikoneinträge (|@inreference|; siehe \cref{inreference}) sinnvoll, wenn diese zu den ›gängigen Lexika‹ gehören (RE, DNP, LTUR, LIMC, etc.).
-Dann muss im Bibliographieeintrag gesetzt werden: |options={lexikon}|.
-Ein Beispiel illustriert dies:
-
-|@Inreference{Rosenberger_2012,|\\
-|  Title   = {Öffentlich/privat bei den Römern},|\\
-|  Author  = {Rosenberger, Veit},|\\
-|  Booktitle = ThesCRA-kurz,      |\emph{Verwendung von @string}\\
-|  Pages   = {11--16},|\\
-|  Volume  = {8},|\\
-|  Year    = {2012},|\\
-|  related={ThesCRA},|\\
-|  Keywords  = {lexikon},|\\
-|  Options = {lexikon}|\\
-|}|\\\par
-
-Zusätzlich ist der Eintrag über |related={ThesCRA}| mit dem dazugehörigen Lexikon (|@reference|) verknüpft, was für die Auflösung der Abkürzung (ThesCRA) hilfreich ist.
-
-| @Reference{ThesCRA,|\\
-|   Title                    = ThesCRA-lang,|\\
-|  Editor                   = {{Fondation pour le Lexicon Iconographicum Mythologiae Classicae}},|\\
-|   Year                     = {2004--2012},|\\
-|   location = {Los Angeles},|\\
-|   Keywords                 = {Sigel},|\\
-|   Options                  = {corpus},|\\
-|  Shorthand             = ThesCRA-kurz,|\\
-| }|\\\par
-
-Diese Option ist vorallem in Kombination mit der Paketoption |lexika| (siehe \cref{lexika}) relevant, da  sich die Zitation in der Fußnote ändert und der Eintrag in der Bibliographie nicht aufgeführt wird (da er in der Fußnote vollreferenziert ist).
-
-
 
 \subsubsection{corpus}\label{corpus}
 \DescribeMacro{corpus}
@@ -1337,9 +1300,13 @@ Und daraus wird:
  \subsection{Typ \texttt{@inreference}}\label{inreference}
 
  \DescribeMacro{@inreference}
- Mit dem Typ |@inreference| können beispielsweise Lexikonartikel zitiert werden.
- 
+ Mit dem Typ |@inreference| können  Lexikonartikel zitiert werden.
+ Dabei gibt es generall zwei Möglichkeiten wie der Eintrag dargestellt wird:
+ Entweder gleich wie alle anderen Einträge mit ›Autor Jahr‹-Angabe, oder speziell nach den Vorgaben des Deutschen Archäologischen Instituts, sodass der Eintrag in der Fußnote vollzitiert und -referenziert ist:
+›Lexikon Band (Jahr) Seitenzahlen s.\,v. Titel des Artikels (Autor)‹.
+Für die erste Variante bedarf es keine Änderung, präferiert man die zweite Variante, so muss in der Präambel die Option |lexika=true| gesetzt werden. \DescribeMacro{lexika=true}
 
+An einem Beispiel wird die Anwendung deutlich.
  
  |@Inreference{Neils_1994,|\\
  |  Title   = {Theseus},|\\
@@ -1348,8 +1315,22 @@ Und daraus wird:
  |  Booktitle = LIMC-kurz,        |\emph{Angabe des @string}\\
  | Options	= {lexikon},|\\
  |  Pages   = {922--951},|\\
+ |  Related   = {LIMC},|\\
  |  Volume  = {7.1},|\\
  |} |
+
+Zusätzlich lohnt es sich den Eintrag über |related| mit dem Hauptwerk (in diesem Falle ›LIMC‹) zu verküpfen:
+
+ |@Reference{LIMC, |\\
+ | Title                    = LIMC-lang,|\\
+ |  Keywords                 = {Sigel},|\\
+ |  Options                  = {corpus},|\\
+ |  Shorthand                = LIMC-kurz |\\
+ |}|\\
+ 
+ Dies hat den Vorteil, dass man die Abkürzung ›LIMC‹ in der Teilbibliographie ›Lexika und Corpora‹ (\cref{bib:sigel}) danke des |Keywords = {Sigel}| automatisiert auflösen kann. Dafür muss der Bibliographieeintrag |@reference{LIMC}| nicht manuell zitiert werden, da dies über den Eintrag |related| bei |@inreference{Neils_1994}| dynamischt erfolgt.
+ 
+ 
 
  Verwendet man den normalen |\cite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}-Befehl, dann wird bei eingetragener Option (|lexikon|) die \oarg{postnote} nicht nachgestellt, sondern nach der Jahresangabe des Lexikons gesetzt.
  Ist die \oarg{postnote} leer, dann werden die Seiten aus dem Bibliographieeintrag ausgelesen und an diese Stelle gesetzt:
@@ -1375,15 +1356,8 @@ Dies funktioniert so:
  \end{bsp}
 
 
-Da im Bibliographieeintrag |options={lexikon}| (siehe \cref{lexikon}) geschrieben wurde, werden bei gewählter Präambel-Option |lexika=true| alle Lexikoneinträge von der Bibliographie ausgeschlossen, da sie ja in der Fußnote vollzitiert werden.
+Da der Bibliographieeintrag ein Lexikonartikel ist|@inreference|, werden bei gewählter Präambel-Option |lexika=true| alle Lexikoneinträge von der Bibliographie ausgeschlossen, da sie ja in der Fußnote vollzitiert werden.
 
-%Dies funktioniert, indem man |notkeyword=lexikon| ergänzt bei:
-%
-%|\printbibliography[%|\\
-%|            ||notkeyword=lexikon,%|\\
-%|            ||heading=subbibnumbered,%|\\
-%|            ||title={Forschungsliteratur}]| 
-%
 Ansonsten  (Präambel-Option |lexika=false| = default)  sieht der Eintrag in der Bibliographie so aus:
 
 \begin{refsection}
@@ -1392,6 +1366,40 @@ Ansonsten  (Präambel-Option |lexika=false| = default)  sieht der Eintrag in der
 \printbibliography[title={Forschungsliteratur}]
 \end{bsp}
  \end{refsection}
+ 
+
+
+
+ Diese Handhabe gilt nicht nur für ›kanonische Lexika‹ der Altertumswissenschaften (RE, LIMC, DNP, LTUR, LÄ, etc.) sondern kann auf alle Lexika angewendet werden.
+ 
+ Da es nicht für alle Lexika eine Abkürzungskonvention  des  Titels gibt, können und sollten diese selbst abkürzt werden.\footnote{Dies ist sehr emphehlenswert, da in der Bibliographie der Abstand zwischen der Autor-Jahr-Abkürzung und dem Vollzitat sich nach der längsten ›Shorthand‹ richtet.}
+ 
+ Ein weiteres Beispiel:
+| @Inreference{Weinbrenner_1914,|\\
+|  Title                    = {Rennbahn},|\\
+| Author                   = {Weinbrenner},|\\
+|  Number                   = {2},|\\
+|  Pages                    = {636--637},|\\
+|  Volume                   = {9},|\\
+|  Year                     = {1914},|\\
+|  related = {Lexikon-der-Technik},|\\
+|  Booktitle                = {Lexikon d. T.},|\\
+|}|\\
+
+Der Lexikoneintrag ist über |related| verknüpft mit:
+
+|@reference{Lexikon-der-Technik,|\\
+| editor = {Otto Lueger},|\\
+| location = {Stuttgart},|\\
+|year = {1904--1920},|\\
+|edition = {2},|\\
+|shorthand = {Lexikon d. T.},|\\
+| Keywords                 = {Sigel},|\\
+| title = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},|\\
+|}|\\
+
+Wichtig ist, dass |booktitle| des |@inreference| und |shorthand| des |@reference| gleich sind, damit der Titel des Lexikons entsprechend aufgelöst werden kann.
+
  
  \subsection{Typ \texttt{@review}}\label{review}
 \DescribeMacro{@review}
@@ -1498,7 +1506,11 @@ Dies ist jedoch kein Problem, da das Vorgehen fast analog zu den oben genannten 
 
 \begin{refsection}
 \begin{bsp}
-\nocite{Sear_2006,Taylor_2008,Welch_2007}
+\nocite{
+%Sear_2006,
+Taylor_2008,
+%Welch_2007
+}
 \printbibliography[title={Forschungsliteratur}]
 \end{bsp}
  \end{refsection}
@@ -1633,7 +1645,7 @@ Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {Sigel}|
 \begin{bsp}
 \printbibliography[keyword={Sigel},
            heading=subbibnumbered,
-            title={Abkürzungen und Sigel}]
+            title={Abkürzungen und Sigel}]\label{bib:sigel}
 \end{bsp}
 
 Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.

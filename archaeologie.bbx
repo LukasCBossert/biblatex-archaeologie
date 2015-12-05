@@ -44,7 +44,6 @@ maxbibnames=999,%
 \newbool{cbx:antik}%
 \newbool{cbx:frgantik}%
 \newbool{cbx:corpus}%		
-\newbool{cbx:lexikon}%			
 \newbool{cbx:nurnachname}			
 \newbool{cbx:vollername}		
 
@@ -53,7 +52,8 @@ maxbibnames=999,%
 \DeclareBibliographyOption{hrsgv}[true]{\csuse{bool#1}{bbx:hrsgv}}
 \DeclareBibliographyOption{jahrreihe}[true]{\csuse{bool#1}{bbx:jahrreihe}}
 \DeclareBibliographyOption{bibvollername}[true]{\ExecuteBibliographyOptions{firstinits=false}}
-\DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}}
+\DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}
+	\ExecuteBibliographyOptions[inreference]{skipbib=true}}
 \DeclareBibliographyOption{keineabkuerzung}[true]{\csuse{bool#1}{bbx:keineabkuerzung}}
 \DeclareBibliographyOption{uebersetzung}[true]{\csuse{bool#1}{bbx:uebersetzung}}
 \DeclareBibliographyOption{verlag}[true]{\csuse{bool#1}{bbx:verlag}
@@ -81,10 +81,7 @@ maxitems=2,
   \csuse{bool#1}{cbx:frgantik}%
 }
 \DeclareEntryOption{corpus}[true]{\csuse{bool#1}{cbx:corpus}}
-\DeclareEntryOption{lexikon}[true]{%
-  \csuse{bool#1}{cbx:lexikon}%
-  \ifbool{bbx:lexika}{\settoggle{blx@skipbib}{#1}}}
-		
+
 \DeclareFieldFormat*{title}{#1}
 \DeclareFieldFormat{subtitle}{#1}
 \DeclareFieldFormat{booktitle}{#1}
@@ -843,8 +840,7 @@ maxitems=2,
 \DeclareBibliographyDriver{inreference}{%
 \usebibmacro{bibindex}%
  \usebibmacro{begentry}%
-\ifbool{cbx:lexikon}%
- 		{\printfield{booktitle}%
+\printfield{booktitle}%
   		\setunit{\addspace}\printfield{volume}%
   		\setunit{\addspace}\printfield[parens]{year}%
   		\setunit{\addspace}\usebibmacro{pages}%
@@ -854,30 +850,11 @@ maxitems=2,
   		\setunit{\addspace}\printtext[parens]{%
   			\c@uniquename=1%
   			\printnames{labelname}}%
- 		}{%
-  		\usebibmacro{author}%
-  		\setunit*{\labelnamepunct}\newblock%
-  		\usebibmacro{reftitle}%
-  		\newunit\newblock%
-		\usebibmacro{in:}%
-		\newunit\newblock%
-		\usebibmacro{booktitle+volume+editor}%
-  		\setunit{\addspace}%
-   		\usebibmacro{series+number}%
- 		\setunit*{\addspace}\newblock%
-  		\usebibmacro{location+edition+year}%
-  		\setunit{\addspace}%
-  		\ifbool{bbx:jahrreihe}{%
-  		\newunit\usebibmacro{series+number}%
-  		\setunit*{\addcomma\addspace}}{}%
- 		\setunit*{\addspace}\newblock%                  
- 		\usebibmacro{pages}%
-  		\setunit{\addspace}%
+  		\setunit*{\addspace}%
   		\usebibmacro{addendum}%
   		\usebibmacro{doi+eprint+url}%
  		\setunit{\addperiod\addspace}%
   		\usebibmacro{signatur}%
-  	}%
   		\newunit\newblock
   		\usebibmacro{savestuff}%
   		\usebibmacro{finentry}%
@@ -925,17 +902,15 @@ maxitems=2,
 
 \defbibenvironment{bibliography}%
   {\list%
-     {\usebibmacro{labelwidthbib}}
+     {\usebibmacro{labelwidthbib}}%
      {\setlength{\labelwidth}{\shorthandwidth}%
       \setlength{\leftmargin}{\labelwidth}%
       \setlength{\labelsep}{\biblabelsep}%
       \addtolength{\leftmargin}{\labelsep}%
       \setlength{\itemsep}{\bibitemsep}%
       \setlength{\parsep}{\bibparsep}%
-      \renewcommand*{\makelabel}[1]{##1\hss}}}
+      \renewcommand*{\makelabel}[1]{##1\hss}}}%
   {\endlist}
-  {\item%
-  	\usebibmacro{kicklabel}%
-  	}
+  {\item\usebibmacro{kicklabel}}
 
 \endinput
