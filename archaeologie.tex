@@ -14,7 +14,9 @@
 latin,
 greek,
 english,
-ngerman,
+french,
+italian,
+ngerman
 ]{ltxdoc}
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
@@ -35,7 +37,12 @@ ngerman,
  \usepackage{babel}
 %\usepackage{roboto}%Schriftart für Sansserif 
 \usepackage{coolthms}
-\usepackage{csquotes}
+%\usepackage{csquotes}
+\usepackage[					% advanced quotes
+	strict=true,					% 	- warning are errors now
+	style=german,					% 	- german quotes
+	%german=guillemets, %		muss für \MakeAutoQuote (s.u.) deaktiviert sein
+]{csquotes}
 \usepackage{multicol}
 \setlength{\columnsep}{1.5cm}
 \setlength{\columnseprule}{0.2pt}
@@ -63,6 +70,7 @@ ngerman,
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
+	%babel=other,
 	% lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr
 	%uebersetzung,
 	%bibvollername,
@@ -425,8 +433,8 @@ Ansonsten sieht der Eintrag wie folgt aus:
 |  Publisher = {de Gruyter},|\\
 |  Year    = {2015},|\\
 |  Number  = {3},|\\
-|  Series  = Philologus-kurz # |''| Suppl.|'' |,|\footnote{Hier zeigt sich eine Besonderheit der |@string|: Zuerst wird die Kurzform der Abkürzung mittels |Philologus-kurz| aufgerufen, dann mit einem |\#| erweitert und mit ''| Suppl.|'' ergänzt. In der Ausgabe wird dann die Ergänzung zum |@string| hinzugezogen. }\\
-|  Shortseries          		= Philologus-lang # |''| Suppl.|'' |,|\\
+|  Series  = Philologus-lang # |''| Supplement|'' |,|\footnote{Hier zeigt sich eine Besonderheit der |@string|: Zuerst wird die Langform der Serie mittels |Philologus-lang| aufgerufen, dann mit einem |\#| erweitert und mit ''| Supplement|'' ergänzt. In der Ausgabe wird dann die Ergänzung zum |@string| hinzugezogen. }\\
+|  Shortseries          		= Philologus-kurz # |''| Suppl.|'' |,|\\
 |  Location  = {Berlin and Boston},|\\
 |}|\\
  
@@ -943,7 +951,7 @@ Aufgrund der Setzung von |keywords=Sigel| können diese Art von Corpora in einer
 
 |@Book{Mann_2011,|\\
 |  Author  = {Mann, {\relax Ch}ristian},|\\
-|  Title   = {»Um keinen Kranz, um das Leben kämpfen wir!«},|\\
+|  Title   = {\enquote{Um keinen Kranz, um das Leben kämpfen wir!}},|\\
 |  Subtitle  = {Gladiatoren im Osten des Römischen Reiches| \\| und die Frage der Romanisierung},|\\
 | Series  = {Studien zur Alten Geschichte},|\\
 |  Number  = {14},|\\
@@ -1269,7 +1277,7 @@ Wie bei |@proceedings| so auch hier:
 
 | @Inproceedings{Torelli_1991,|\\
 |  Author			= {Torelli, Mario},|\\
-|  Title				= {Il ›diribitorium‹ di Alba Fucens e il ›campus‹ eroico di Herdonia},|\\
+|  Title				= {Il \enquote{diribitorium} di Alba Fucens e il \enquote{campus} eroico di Herdonia},|\\
 |  Pages			= {39--63},|\\
 |  Editor			= {Mertens, Josef},|\\
 |  Booktitle		= {Comunitá indigene e problemi della romanizzazione|\\
@@ -1285,7 +1293,7 @@ Wie bei |@proceedings| so auch hier:
 |  Series			= {Études de philologie, d'archéologie et d'histoire anciennes},|\\
 |  Number		= {29},|\\
 |  Hyphenate 	= {italian},|\\
-|  Shorttitle		= {Il ›diribitorium‹}|\\
+|  Shorttitle		= {Il \enquote{diribitorium}}|\\
 |}| \\
 
 Und daraus wird:

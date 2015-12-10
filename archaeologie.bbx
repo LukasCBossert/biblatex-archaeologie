@@ -21,6 +21,8 @@
 \ExecuteBibliographyOptions{%
 pagetracker=true,%
 firstinits=true,
+sortlocale=de_DE, 
+language=auto,autolang=other,
 bibencoding=utf8,%
 sortlocale=de,%
 dateabbrev=false,% 
@@ -104,12 +106,17 @@ maxitems=2,
 \DeclareFieldFormat{shorthandwidth}{#1}
 \DeclareFieldFormat{origtitle}{\mkbibemph{#1}}
 
+\DeclareRedundantLanguages{italian}{italian}
 
+%\DeclareRedundantLanguages{french}{french}
 \DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
 \DeclareRedundantLanguages{english,american}{english,american,british,%
                        canadian,australian,newzealand,USenglish,UKenglish}
 \DeclareLanguageMapping{ngerman}{archaeologie-ngerman}
 \DeclareLanguageMapping{english}{archaeologie-english}
+\DeclareLanguageMapping{french}{archaeologie-french}
+\DeclareLanguageMapping{italian}{archaeologie-italian}
+
 
 
 
