@@ -16,7 +16,8 @@
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
 \urlstyle{sf}%
-\typeout{* * * archaeologie * * *  biblatex fuer Archaeologen, Historiker und Philologen}
+\typeout{* * * archaeologie * * *  biblatex fuer Archaeologen, 
+Historiker und Philologen}
 }
 \ExecuteBibliographyOptions{%
 pagetracker=true,%
@@ -552,10 +553,12 @@ maxitems=2,
           \printfield{origyear}}}}}%
     {\usebibmacro{edition}%
       \printtext[parens]{%
-        \ifthenelse{\iffieldundef{origlocation}%
-        			 \AND \NOT \iffieldundef{origyear}}%
-          {\printlist{origlocation}\setunit*{\addspace}}{}%
-        \printfield{origyear}%
+        \ifboolexpr{test {\iflistundef{origlocation}}%
+        			 and test {\iffieldundef{origyear}}}%
+         {}{\iflistundef{origlocation}%
+          		{\printlist{location}}%
+          		{\printlist{origlocation}}%
+          \addspace\printfield{origyear}}%
         \setunit*{\addsemicolon\addspace}%
         \iffieldundef{origyear}{}{\bibstring{reprint}}%
         \setunit*{\adddot\addspace}%
