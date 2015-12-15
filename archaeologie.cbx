@@ -134,14 +134,22 @@
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifbool{bbx:lexika}{}{\usebibmacro{postnote}}}%
+  {	\ifboolexpr{
+  test {\ifbool{bbx:lexika}}
+  and 
+  test	{\ifentrytype{inreference}}
+  }{}{\usebibmacro{postnote}}}%
   
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifbool{bbx:lexika}{}{\usebibmacro{postnote}}}%
+  {	\ifboolexpr{
+  test {\ifbool{bbx:lexika}}
+  and 
+  test	{\ifentrytype{inreference}}
+  }{}{\usebibmacro{postnote}}}%
   
 
 \DeclareCiteCommand{\citeauthor}%
