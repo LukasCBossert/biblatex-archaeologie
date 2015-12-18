@@ -557,11 +557,10 @@ maxitems=2,
         			 and test {\iffieldundef{origyear}}}%
          {}{\iflistundef{origlocation}%
           		{\printlist{location}}%
-          		{\printlist{origlocation}}%
-          \addspace\printfield{origyear}}%
+          		{\printlist{origlocation}}%	
+          \setunit{\addspace}\printfield{origyear}%
         \setunit*{\addsemicolon\addspace}%
-        \iffieldundef{origyear}{}{\bibstring{reprint}}%
-        \setunit*{\adddot\addspace}%
+        \iffieldundef{origyear}{}{\bibstring{reprint}\addspace}}%
         \printlist{location}%
         \setunit*{\addspace}%
         \printfield{year}%
