@@ -131,24 +131,25 @@
 %%% Cite Commands %%%
 \DeclareCiteCommand{\cite}%              
   {\usebibmacro{prenote}}%
-  {\usebibmacro{citeindex}%
-  \usebibmacro{cite}}%
-  {\multicitedelim}%
-  {	\ifboolexpr{
-  test {\ifbool{bbx:lexika}}
-  and 
-  test	{\ifentrytype{inreference}}
-  }{}{\usebibmacro{postnote}}}%
+{\usebibmacro{citeindex}%
+\usebibmacro{cite}}%
+{\multicitedelim}%
+{\ifboolexpr{%
+test{\ifbool{bbx:lexika}}%
+and%
+test{\ifentrytype{inreference}}%
+}{}{\usebibmacro{postnote}}}%
+
   
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {	\ifboolexpr{
-  test {\ifbool{bbx:lexika}}
-  and 
-  test	{\ifentrytype{inreference}}
+  {\ifboolexpr{%
+  test{\ifbool{bbx:lexika}}%
+  and%
+  test{\ifentrytype{inreference}}%
   }{}{\usebibmacro{postnote}}}%
   
 
@@ -159,8 +160,8 @@
    \renewcommand*{\finalnamedelim}{%
      \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
      \addspace\bibstring{and}\space}%
-   \usebibmacro{prenote}}
-  {\usebibmacro{cite:name}}
+   \usebibmacro{prenote}}%
+  {\usebibmacro{cite:name}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 
