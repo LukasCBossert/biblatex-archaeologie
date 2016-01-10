@@ -67,6 +67,9 @@ ngerman
 
 
  \usepackage[disable]{todonotes} % notes not showed
+ 
+ 
+    
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
@@ -89,6 +92,8 @@ ngerman
 \addbibresource{archaeologie.bib}
 %\addbibresource{antike-corpora.bib} %Version 2.0
 \renewcommand\bibfont{\normalfont\small}
+
+
 
 \usepackage{listings}
 \lstMakeShortInline[basicstyle=\small\ttfamily]{|}
@@ -204,11 +209,27 @@ Die einfachste Weise zum Zitieren wird mit |\cite| bewerkstelligt:\par
  wobei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \meta{postnote} für gewöhnlich die Seitenzahl. Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:\par
  \begin{syntax}|\cite|\oarg{postnote}\marg{Schlüssel}\end{syntax}
  \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der |bib|-Datei.
-
 \begin{center} * * * \end{center}
  \DescribeMacro{\parencite}
  Möchte man Literaturangaben in den Fußnoten in Klammern setzen, dann empfiehlt sich dies mittels\par
    \begin{syntax}|\parencite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax} zu tun.
+ Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
+ Dies ist vor allem bei Lexikaeinträgen der Fall, wie das Beispiel unter \cref{inreference} zeigt.
+\begin{center} * * * \end{center}
+ \DescribeMacro{\cites}
+ Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der |\cites|-Befehl:\par
+ \begin{syntax}\noindent|\cites|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\
+ 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\%
+ 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\ldots
+ 				\end{syntax}
+ 
+ \begin{center} * * * \end{center}
+ \DescribeMacro{\parencites}
+ Möchte man mehrere Literaturangaben in den Fußnoten in Klammern setzen, dann empfiehlt sich dies mittels\par
+ \begin{syntax}\noindent|\parencites|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\
+ 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\%
+ 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\ldots
+ 				\end{syntax} zu tun.
  Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
  Dies ist vor allem bei Lexikaeinträgen der Fall, wie das Beispiel unter \cref{inreference} zeigt.
 \begin{center} * * * \end{center}
@@ -1358,21 +1379,38 @@ Es ist zu beachten, dass bei gewählter Option  |lexika=true| (in der Präambel)
 Dies funktioniert so: 
  
  \begin{bsp}
-	\ldots\ |\parencite[vgl.][930 Nr. 283]{Neils_1994}}.|
+	\ldots\ |\parencite[vgl.][930 Nr. 283]{Neils_1994}.|
  
  	...\ (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]).
 
 	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
  \end{bsp}
 
+\DescribeMacro{\parencites}
+Gleiches gilt auch für das Zitieren von mehreren Einträgen in Klammern: Dafür wird analog der Befehl |\parencites|\marg{Schlüssel} verwendet:
+ \begin{bsp}
+	\ldots\ |\parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}.|
+ 
+ 	...\ (vgl. Neils 1994, 930 Nr. 283; Nieddu 1995, 9).
+ 	 \end{bsp}
 
-Da der Bibliographieeintrag ein Lexikonartikel ist|@inreference|, werden bei gewählter Präambel-Option |lexika=true| alle Lexikoneinträge von der Bibliographie ausgeschlossen, da sie ja in der Fußnote vollzitiert werden.
+ 	bzw. mit der Präambel-Option |lexika=true|:
+ 	 \begin{bsp}
+
+ 	\ldots (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]; LTUR 2 [1995] 9 s. v. Dei Consentes [G. Nieddu])
+
+	%\ldots\ \parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}
+	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
+ \end{bsp}
+
+
+Da der Bibliographieeintrag ein Lexikonartikel ist (|@inreference|), werden bei gewählter Präambel-Option |lexika=true| alle Lexikoneinträge von der Bibliographie ausgeschlossen, da sie ja in der Fußnote vollzitiert werden.
 
 Ansonsten  (Präambel-Option |lexika=false| = default)  sieht der Eintrag in der Bibliographie so aus:
 
 \begin{refsection}
 \begin{bsp}
-\nocite{Neils_1994}
+\nocite{Neils_1994,Nieddu_1995}
 \printbibliography[title={Forschungsliteratur}]
 \end{bsp}
  \end{refsection}
@@ -1409,6 +1447,16 @@ Der Lexikoneintrag ist über |related| verknüpft mit:
 |}|\\
 
 Wichtig ist, dass |booktitle| des |@inreference| und |shorthand| des |@reference| gleich sind, damit der Titel des Lexikons entsprechend aufgelöst werden kann.
+
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Lexikon-der-Technik,Weinbrenner_1914}
+ \printbibliography[keyword=Sigel,title={Abkürzungen und Sigel}]
+\printbibliography[title={Forschungsliteratur},notkeyword=Sigel]
+\end{bsp}
+ \end{refsection}
+
 
  
  \subsection{Typ \texttt{@review}}\label{review}
