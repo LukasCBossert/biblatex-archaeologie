@@ -1,12 +1,12 @@
 #####################################
 ##      bibLaTeX-archaeologie     ##
 #####################################
-Version: 1.22 [2015/12/06]
+Version: 1.3 [2016-01-31]
 
 archaeologie: biblatex fuer Archaeologen, 
 Historiker und Philologen (Deutsch und Englisch)
 
-Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
+Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 
 Email: lukas@digitales-altertum.de
 
@@ -29,6 +29,8 @@ Zum Stil gehören:
 - archaeologie.dbx
 - archaeologie-ngerman.lbx
 - archaeologie-english.lbx
+- archaeologie-french.lbx
+- archaeologie-italian.lbx
 - dai-abkuerzungen.bib
 - antike-corpora.bib
 

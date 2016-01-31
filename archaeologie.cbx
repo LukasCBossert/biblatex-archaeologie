@@ -1,6 +1,6 @@
 % archaeologie --%
 %               biblatex fuer Archaeologen, Historiker und Philologen
-% Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -11,7 +11,7 @@
 % version 2005/12/01 or later.
 
 \ProvidesFile{archaeologie.cbx}%
-               [2015/12/06 v1.22  archaeologie --%
+               [2016/01/31 v1.3  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, cbx-Datei]
 \ExecuteBibliographyOptions{%
   citetracker=true,% 
@@ -42,7 +42,7 @@
     {\addspace\textendash\addspace}{}%
 }%
 
-\renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
+\renewcommand*{\multicitedelim}{\addsemicolon\addspace}%
 \newcommand*{\labelyeardelim}{\addspace}
 
 
@@ -100,7 +100,7 @@
   				\printfield[parens]{year}%
   				\setunit{\addspace}%
   							\iffieldundef{postnote}{\printfield{pages}}{\printfield{postnote}}%
-  				\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
+  				  		\iffieldundef{title}{}{\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}}%
   				\setunit{\addspace}\printfield{title}%
   				 \iffieldundef{number}{}{\setunit{\addspace}\printtext[brackets]{\printfield{number}}}%
   				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
@@ -139,7 +139,11 @@ and%
 test{\ifentrytype{inreference}}%
 }{}{\usebibmacro{postnote}}}%
 
-%  
+
+
+
+
+
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
@@ -179,32 +183,24 @@ test{\ifentrytype{inreference}}%
     {\multicitedelim}%
     {\usebibmacro{postnote}}%
     
-%    
-%    
-%\makeatletter
-%
-% original definition of \cites
-\DeclareMultiCiteCommand{\cbx@cites}{\cite}{\multicitedelim}
 
-% new definition
+\DeclareMultiCiteCommand{\cbx@cites}{\cite}{\multicitedelim}
 \DeclareMultiCiteCommand{\cites}[\cbx@cite@wrapper\cbx@cites]{\cbx@cite}{}
 \DeclareMultiCiteCommand{\cbx@parencites}[\mkbibparens]{\parencite}{\multicitedelim}
 \DeclareMultiCiteCommand{\parencites}[\cbx@cite@wrapper\cbx@parencites]{\cbx@cite}{}
 
-% first pass saves keys, prenotes, postnotes
+
 \DeclareCiteCommand{\cbx@cite}
 {\csxdef{prenote:\thefield{entrykey}}{\thefield{prenote}}}
 {\listxadd\cbx@savekeys{\thefield{entrykey}}}
 {}
 {\csxdef{postnote:\thefield{entrykey}}{\thefield{postnote}}}
 
-% second pass outputs sorted citation list
 \newrobustcmd{\cbx@cite@wrapper}[2]{%
 	\def\cbx@savekeys{}%
 	\def\cbx@citecall{#1}%
 	#2\cbx@sortkeysinit\cbx@citesort\cbx@citecall}
 
-% internal list of saved keys => sorted argument list
 \def\cbx@citesort{%
 	\def\do##1{%
 		\ifinlist{##1}{\cbx@savekeys}
@@ -212,8 +208,6 @@ test{\ifentrytype{inreference}}%
 				[\csuse{prenote:##1}][\csuse{postnote:##1}]{##1}}}
 		{}}%
 	\dolistloop{\cbx@sortkeys}}
-
-% internal list of sorted entry keys
 \def\cbx@sortkeysinit{%
 	\ifcsundef{blx@sort@\the\c@refsection}
 	{\global\letcs{\cbx@sortkeys}
@@ -221,10 +215,7 @@ test{\ifentrytype{inreference}}%
 	{\global\letcs{\cbx@sortkeys}{blx@sort@\the\c@refsection}}}% BibTeX
 \def\cbx@sortkeys{}
 
-%\makeatother
-%
 
-%
+
 \endinput
-%%
 %% End of file `archaeologie.cbx'.

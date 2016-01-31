@@ -1,6 +1,6 @@
 % archaeologie --%
 %               biblatex fuer Archaeologen, Historiker und Philologen
-% Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -11,7 +11,6 @@
 % version 2005/12/01 or later.
 
 \documentclass[a4paper,
-latin,
 greek,
 english,
 french,
@@ -69,10 +68,13 @@ ngerman
  \usepackage[disable]{todonotes} % notes not showed
  
  
-    
+
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
+%	eprint=false,
+%	doi=false,
+%	url=false,
 	%babel=other,
 	% lexika=true, %true = in Fußnote Zitation nach DAI (LTUR 2 (19994} 123 s.v. ); false = Zitation nach Autor-Jahr
 	%uebersetzung,
@@ -86,8 +88,10 @@ ngerman
 	%vollername,
 	%kapitaelchen,
 	%miturl,
+%	abstand=6em,
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
+
 
 \addbibresource{archaeologie.bib}
 %\addbibresource{antike-corpora.bib} %Version 2.0
@@ -115,7 +119,7 @@ ngerman
  \title{\texttt{archaeologie} -- \\\texttt{biblatex} für Archäologen\footnote{Ebenso nützlich und geeignet für (Alt-)Historiker und (Alt-)Philologen.
  Die Entwicklung des Codes findet unter \url{https://github.com/giovannotti/biblatex-archaeologie} statt: Anmerkungen und Fehlermeldungen sind sehr willkommen.} }
  \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
- \date{Version: 1.22 (2015-12-06)}
+ \date{Version: 1.3 (2016-01-31)}
  
  
  \maketitle
@@ -138,7 +142,11 @@ Für Anmerkungen und Hilfe Dank an ›moewew‹ und Herbert Voß.
 
 %Neben internen Änderungen an der Programmierung und der Auslagerung verschiedener Dateien  hat sich vor allem folgendes verändert:
 \begin{itemize}
-\item Die Verwendung von |lexikon| als Eintragsoption fällt weg, da alle Lexika gleich behandelt werden. (\cref{inreference}).
+\item Die Verwendung von |lexikon| als Eintragsoption fällt weg, da alle Lexika gleich behandelt werden (\cref{inreference}).
+
+\item Hinzufügen der |cite|-Befehle |cites| und |parencites| (\cref{cite-befehle}).
+
+\item Hinzufügen der Präambel-Option |abstand| (\cref{Abstand})
 \end{itemize}
 
 \changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
@@ -182,6 +190,9 @@ Nicht vergessen sollte man den |\printbibliography|-Befehl, sodass  eine Bibliog
 \item[nurnachname] Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\marg{Schlüssel} im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten). Siehe \cref{nurnachname}.
 \item[vollername]Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\marg{Schlüssel} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind. Siehe \cref{vollername}.
 \item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt. Siehe \cref{kapitaelchen}.
+\item[abstand] Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
+\cref{Abstand}
+
  \end{description}
 
  \subsection{Literaturoptionen (Bibliographieeintrag)}
@@ -222,6 +233,7 @@ Die einfachste Weise zum Zitieren wird mit |\cite| bewerkstelligt:\par
  				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\%
  				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\ldots
  				\end{syntax}
+
  
  \begin{center} * * * \end{center}
  \DescribeMacro{\parencites}
@@ -353,8 +365,7 @@ wird in der Bibliographie zunächst auf diese Weise umgesetzt:
 \end{bsp}
 
 
- mit der aktivierten Option |uebersetzung| wird daraus:
- 
+ mit der aktivierten Option |uebersetzung| wird daraus: 
 \begin{bsp}%
 %\fullcite{Lefebvre_2011}
 H. Lefebvre, The Production of Space, {\color{red} \emph{La production de l’espace}, aus dem Französischen übers. von D. Nicholson-Smith} \textsuperscript{30}(Oxford 1991; Nachdr. Maien, MA 2011) 
@@ -387,7 +398,7 @@ Daraus wird dann:
 
 \subsubsection{lexika}\label{lexika}
 \DescribeMacro{lexika}  Lexikoneinträge können in den Fußnoten in verschiedenen Zitationsformen dargestellt werden.
- Voraussetzung ist, dass  beim Bibliographiedatensatz bei |options = {lexikon}| (siehe \cref{lexikon}) gesetzt wird. 
+ Voraussetzung ist, dass  es sich um ein |@inreference| handelt (siehe \cref{inreference}).
  Zudem   bietet sich optional an ebenso  |keywords = {lexikon}| zu setzen, um diese Einträge dann in der Bibliographie auszuschließen (über |notkeyword=lexikon|, bzw. |keyword=lexikon|).
  
  Am folgenden Beispielsdatensatz wird die Option verdeutlicht:\\
@@ -402,7 +413,6 @@ Daraus wird dann:
 |  Volume		= {2},|\\
 |  Bookpagination	= {column},|\\
 |  Keywords	= {lexikon},|\\
-|  Options 	= {lexikon},|\\
 |  }|\\
 %  \end{bsp}
   \begin{refsection}
@@ -700,7 +710,6 @@ Erstauflage wird in eckiger Klammer nach dem Erscheinungsjahr gesetzt.
 Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit einem |(Hrsg.)| gekennzeichnet, sondern nach dem Titel des Sammelbandes mit dem Zusatz |hrsg. v.|
 
 
-
 |@Inproceedings{Wulf-Rheidt_2013,|\\
 |  Author  = {Wulf-Rheidt, Ulrike},|\\
 |  Title   = {Der Palast auf dem Palatin -- Zentrum im Zentrum},|\\
@@ -739,6 +748,20 @@ U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Her
  \end{bsp}
  
  
+\subsubsection{Abstand}\label{Abstand}
+\DescribeMacro{abstand}
+In der Bibliographie richtet sich der Abstand zwischen dem Label (Autor und Jahr)  und der vollständigen bibliographischen Angabe nach der Länge der längsten |shorthand| (|shorthandwidth|), wie sie i.d.R. bei antiken Werken vorkommt. 
+
+Verwendet man beispielsweise keine |shorthand| im Text, dann erfolgt keine ›zweispaltige‹ Ausgabe in der Bibliographie, da in der Zeile direkt unter dem Label die vollständige bibliographie Auflösung erscheint.
+Andererseits ist es ebenso möglich, dass man eine sehr lange |shorthand| in der Bibliographie hat, dann ist der Abstand zwischen dem Label und der bibliographischen Auflösung sehr lange.
+
+In einem solchen Falle kann der Abstand (|shorthandwidth|) selbst bestimmt werden.
+Dafür gibt man die eigens gewählte Länge wie folgt an:
+
+|abstand = XY|
+
+Dafür kann XY für jede Länge stehen (bspw. |3em|, |7pt| oder |4cm|).
+
 
 
 %%\subsubsection{miturl}\label{miturl}
@@ -1588,8 +1611,8 @@ Beispiel:
 |  	Institution	= {Ruprecht-Karls-Universität zu Heidelberg},|\\
 |  	Type		= {phdthesis},|\\
 |  	Year			= {2005},|\\
-|  	Url			= {http://nbn-resolving.de/urn:nbn:de:bsz:16-heidok-74406},|\\
-|  	Urldate	= {2015-04-17}|\\
+|  eprint       = {urn:nbn:de:bsz:16-heidok-74406}, |\\
+|  eprinttype = {urn},|\\
 |	}|\
 
 In der Bibiographie wird das zu:
@@ -1713,7 +1736,8 @@ Dies geschieht  für die Zeitschriften mit:
 |            ||heading=subbibnumbered,%|\\
 |            ||title={Zeitschriftenabkürzungenl}]{shortjournal}|\\
 \begin{bsp}
-\printbiblist[heading=subbibnumbered,title={Zeitschriftenabkürzungen}]{shortjournal}
+\printbiblist[heading=subbibnumbered,
+title={Zeitschriftenabkürzungen}]{shortjournal}
 \end{bsp}
 
 bzw. für die Reihen:

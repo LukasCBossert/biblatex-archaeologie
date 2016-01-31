@@ -1,6 +1,6 @@
 % archaeologie --%
 %               biblatex fuer Archaeologen, Historiker und Philologen
-% Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -11,7 +11,7 @@
 % version 2005/12/01 or later.
 
 \ProvidesFile{archaeologie.bbx}%
-               [2015/12/06 v1.22  archaeologie --%
+               [2016/01/31 v1.3  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
@@ -38,6 +38,7 @@ maxbibnames=999,%
 %\addbibresource{antike-corpora.bib} % Version 2.0
 
 \newbool{bbx:hrsgv}
+\newbool{bbx:abstand}
 \newbool{bbx:jahrreihe}
 \newbool{bbx:bibvollername}
 \newbool{bbx:lexika}		
@@ -51,18 +52,23 @@ maxbibnames=999,%
 \newbool{cbx:vollername}		
 
 
+
 %% \DeclareBibliographyOption %%
 \DeclareBibliographyOption{hrsgv}[true]{\csuse{bool#1}{bbx:hrsgv}}
+\DeclareBibliographyOption{abstand}[]{%
+			\csuse{booltrue}{bbx:abstand}	
+			\newcommand{\abstand}{#1}%
+			}
 \DeclareBibliographyOption{jahrreihe}[true]{\csuse{bool#1}{bbx:jahrreihe}}
 \DeclareBibliographyOption{bibvollername}[true]{\ExecuteBibliographyOptions{firstinits=false}}
 \DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}
-	\ExecuteBibliographyOptions[inreference]{skipbib=true}}
+			\ExecuteBibliographyOptions[inreference]{skipbib=true}}
 \DeclareBibliographyOption{keineabkuerzung}[true]{\csuse{bool#1}{bbx:keineabkuerzung}}
 \DeclareBibliographyOption{uebersetzung}[true]{\csuse{bool#1}{bbx:uebersetzung}}
 \DeclareBibliographyOption{verlag}[true]{\csuse{bool#1}{bbx:verlag}
-\ExecuteBibliographyOptions{%
-maxitems=2,
-}%
+			\ExecuteBibliographyOptions{%
+			maxitems=2,
+			}%
 }
 \DeclareBibliographyOption{nurnachname}[true]{%
 		\csuse{booltrue}{cbx:nurnachname}%
@@ -113,9 +119,7 @@ maxitems=2,
     {\nolinkurl{#1}}}
 
     
-\DeclareRedundantLanguages{italian}{italian}
 
-%\DeclareRedundantLanguages{french}{french}
 \DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
 \DeclareRedundantLanguages{english,american}{english,american,british,%
                        canadian,australian,newzealand,USenglish,UKenglish}
@@ -167,11 +171,9 @@ maxitems=2,
     \sort{%
         \field[padside=left,padwidth=4,padchar=0]{volume}%
         \literal{0000}}}
+        
 \DeclareSortingScheme{shortseries}{\sort{\field{shortseries}}}
 \DeclareSortingScheme{shortjournal}{\sort{\field{shortjournal}}}
-
-
-
 
 \defbibcheck{shortseries}{%	
     \iffieldundef{shortseries}{\skipentry}{}%
@@ -859,7 +861,7 @@ maxitems=2,
   		\setunit{\addspace}\printfield{volume}%
   		\setunit{\addspace}\printfield[parens]{year}%
   		\setunit{\addspace}\usebibmacro{pages}%
-  		\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}%
+  		\iffieldundef{title}{}{\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}}%
   		\setunit{\addspace}\printfield{title}%
   		\iffieldundef{number}{}{\setunit{\addspace}\printtext[brackets]{\printfield{number}}}%
   		\setunit{\addspace}\printtext[parens]{%
@@ -918,7 +920,8 @@ maxitems=2,
 \defbibenvironment{bibliography}%
   {\list%
      {\usebibmacro{labelwidthbib}}%
-     {\setlength{\labelwidth}{\shorthandwidth}%
+     {\setlength{\labelwidth}{%
+     		\ifbool{bbx:abstand}{\abstand}{\shorthandwidth}}%
       \setlength{\leftmargin}{\labelwidth}%
       \setlength{\labelsep}{\biblabelsep}%
       \addtolength{\leftmargin}{\labelsep}%
