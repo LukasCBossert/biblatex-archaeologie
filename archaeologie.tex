@@ -186,7 +186,7 @@ Nicht vergessen sollte man den |\printbibliography|-Befehl, sodass  eine Bibliog
 \item[keineabkuerzung] Die Abkürzungen von Zeitschriften und Serien (|shortjournal|/|shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. Siehe \cref{keineabkuerzung}.
 \item[verlag] Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe. Siehe \cref{verlag}.
 \item[bibvollername] Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie. Siehe \cref{bibvollername}.
-\item[lexika]  Bibliographieeinträge mit |@inproceeding| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{lexika}.
+\item[lexika]  Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{lexika}.
 \item[nurnachname] Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\marg{Schlüssel} im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten). Siehe \cref{nurnachname}.
 \item[vollername]Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\marg{Schlüssel} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind. Siehe \cref{vollername}.
 \item[kapitaelchen] Die Namen in den Fußnoten werden in Kapitälchen gesetzt. Siehe \cref{kapitaelchen}.
@@ -437,9 +437,8 @@ Daraus wird dann:
   \end{enumerate}
 \end{bsp}
 
-Verwendet man diese Option, dann empfiehlt es sich für die Bibliographie die in den Fußnoten voll zitierten Einträge auszuschließen.\footnote{%
-Dies wird möglich, indem |notkeyword=lexikon| bei den Optionen von |printbibliography| gesetzt wird.}
-Ansonsten sieht der Eintrag wie folgt aus:
+Verwendet man diese Option (|lexika|), dann werden die als |@inreference| gekennzeichneten Einträge automatisch von der (End-)Bibliographie ausgeschlossen,  da sie bereits in den Fußnoten vollständig bibliographiert sind.
+Verwendet man die Option nicht, dann sieht  der Eintrag wie folgt aus:
   \begin{bsp}
 \nocite{Nieddu_1995}
 \printbibliography[title={Forschungsliteratur}]
@@ -748,7 +747,7 @@ U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Her
  \end{bsp}
  
  
-\subsubsection{Abstand}\label{Abstand}
+\subsubsection{abstand}\label{Abstand}
 \DescribeMacro{abstand}
 In der Bibliographie richtet sich der Abstand zwischen dem Label (Autor und Jahr)  und der vollständigen bibliographischen Angabe nach der Länge der längsten |shorthand| (|shorthandwidth|), wie sie i.d.R. bei antiken Werken vorkommt. 
 
