@@ -4,7 +4,8 @@
 Version: 1.3 [2016-01-31]
 
 archaeologie: biblatex fuer Archaeologen, 
-Historiker und Philologen (Deutsch und Englisch)
+Historiker und Philologen 
+(Deutsch, Englisch, Italienisch und Französisch)
 
 Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 
@@ -14,12 +15,14 @@ Der Stil setzt die Zitations- und Bibliographievorgaben
 des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. 
 Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild 
 jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
-****
+
+********************************************
 This citation-style covers the citation and bibliography rules of 
 the German Archaeology Institute. 
 Various options are available to change and adjust 
 the outcome according to one’s own preferences.
-****
+(German, English, Italian, French)
+********************************************
 
 
 Zum Stil gehören:
