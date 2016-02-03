@@ -23,12 +23,12 @@
 }%
 
 %%%%%%%% cbx %%%%%%%%%%
-\newbool{cbx:yearinparens}%jahrinklammern
+\newbool{cbx:jahrinklammern}%
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
-\DeclareBibliographyOption{yearinparens}[true]{%
+\DeclareBibliographyOption{jahrinklammern}[true]{%
   \ifstrequal{#1}{true}
     {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
-    \csuse{bool#1}{cbx:yearinparens}}
+    \csuse{bool#1}{cbx:jahrinklammern}}
     {\DeclareFieldFormat{citeyear}{##1}}}
 
 \DeclareFieldFormat{citeyear}{#1}
@@ -71,7 +71,7 @@
 }
 
 \newbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
-  \ifbool{cbx:fullnames}{\c@uniquename=2}{\ifbool{cbx:lastnames}{\c@uniquename=0}{\c@uniquename=1}}
+  \ifbool{cbx:vollername}{\c@uniquename=2}{\ifbool{cbx:nurnachname}{\c@uniquename=0}{\c@uniquename=1}}
   \ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
     \iffootnote{\c@uniquename=0 \printnames{labelname}}{\printnames{labelname}}}}
@@ -109,7 +109,7 @@
 
 \newbibmacro{cite}{%
 	\ifboolexpr{%
-		 test {\ifbool{bbx:inreferences}}%
+		 test {\ifbool{bbx:lexika}}%
 		 and %
 		 test	{\ifentrytype{inreference}}%
 		 }%
@@ -134,7 +134,7 @@
 \usebibmacro{cite}}%
 {\multicitedelim}%
 {\ifboolexpr{%
-test{\ifbool{bbx:inreferences}}%
+test{\ifbool{bbx:lexika}}%
 and%
 test{\ifentrytype{inreference}}%
 }{}{\usebibmacro{postnote}}}%
@@ -150,7 +150,7 @@ test{\ifentrytype{inreference}}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
   {\ifboolexpr{%
-  test{\ifbool{bbx:inreferences}}%
+  test{\ifbool{bbx:lexika}}%
   and%
   test{\ifentrytype{inreference}}%
   }{}{\usebibmacro{postnote}}}%

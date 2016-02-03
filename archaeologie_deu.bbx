@@ -37,48 +37,48 @@ maxbibnames=999,%
 \addbibresource{dai-abkuerzungen.bib}
 %\addbibresource{antike-corpora.bib} % Version 2.0
 
-\newbool{bbx:edby}%hrsgv
-\newbool{bbx:width}%abstand
-\newbool{bbx:yearseries}%jahrserie  
-\newbool{bbx:bibfullname}%bibfullnames
-\newbool{bbx:inreferences}		%lexika
-\newbool{bbx:noabbrevs}%		keineabkuerzung
-\newbool{bbx:translation}%		uebersetzung
-\newbool{bbx:publisher}% 	verlag		
+\newbool{bbx:hrsgv}
+\newbool{bbx:abstand}
+\newbool{bbx:jahrreihe}
+\newbool{bbx:bibvollername}
+\newbool{bbx:lexika}		
+\newbool{bbx:keineabkuerzung}%		
+\newbool{bbx:uebersetzung}%		
+\newbool{bbx:verlag}					
 \newbool{cbx:antik}%
 \newbool{cbx:frgantik}%
 \newbool{cbx:corpus}%		
-\newbool{cbx:lastnames}%	nurnachname	
-\newbool{cbx:fullnames}%	vollername		
+\newbool{cbx:nurnachname}			
+\newbool{cbx:vollername}		
 
 
 
 %% \DeclareBibliographyOption %%
-\DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
-\DeclareBibliographyOption{width}[]{%
-			\csuse{booltrue}{bbx:width}	
-			\newcommand{\width}{#1}%
+\DeclareBibliographyOption{hrsgv}[true]{\csuse{bool#1}{bbx:hrsgv}}
+\DeclareBibliographyOption{abstand}[]{%
+			\csuse{booltrue}{bbx:abstand}	
+			\newcommand{\abstand}{#1}%
 			}
-\DeclareBibliographyOption{yearseries}[true]{\csuse{bool#1}{bbx:yearseries}}
-\DeclareBibliographyOption{bibfullname}[true]{\ExecuteBibliographyOptions{firstinits=false}}
-\DeclareBibliographyOption{reference}[true]{\csuse{bool#1}{bbx:inreferences}
+\DeclareBibliographyOption{jahrreihe}[true]{\csuse{bool#1}{bbx:jahrreihe}}
+\DeclareBibliographyOption{bibvollername}[true]{\ExecuteBibliographyOptions{firstinits=false}}
+\DeclareBibliographyOption{lexika}[true]{\csuse{bool#1}{bbx:lexika}
 			\ExecuteBibliographyOptions[inreference]{skipbib=true}}
-\DeclareBibliographyOption{noabbrevs}[true]{\csuse{bool#1}{bbx:noabbrevs}}
-\DeclareBibliographyOption{translation}[true]{\csuse{bool#1}{bbx:translation}}
-\DeclareBibliographyOption{publisher}[true]{\csuse{bool#1}{bbx:publisher}
+\DeclareBibliographyOption{keineabkuerzung}[true]{\csuse{bool#1}{bbx:keineabkuerzung}}
+\DeclareBibliographyOption{uebersetzung}[true]{\csuse{bool#1}{bbx:uebersetzung}}
+\DeclareBibliographyOption{verlag}[true]{\csuse{bool#1}{bbx:verlag}
 			\ExecuteBibliographyOptions{%
 			maxitems=2,
 			}%
 }
-\DeclareBibliographyOption{lastnames}[true]{%
-		\csuse{booltrue}{cbx:lastnames}%
-		\csuse{boolfalse}{cbx:fullnames}%
+\DeclareBibliographyOption{nurnachname}[true]{%
+		\csuse{booltrue}{cbx:nurnachname}%
+		\csuse{boolfalse}{cbx:vollername}%
 		}		
-\DeclareBibliographyOption{fullnames}[true]{%
-		\csuse{boolfalse}{cbx:lastnames}%
-		\csuse{booltrue}{cbx:fullnames}%
+\DeclareBibliographyOption{vollername}[true]{%
+		\csuse{boolfalse}{cbx:nurnachname}%
+		\csuse{booltrue}{cbx:vollername}%
 		}
-\DeclareBibliographyOption{scshape}[true]{%
+\DeclareBibliographyOption{kapitaelchen}[true]{%
   \ifstrequal{#1}{true}%
     {\AtEveryCite{\renewcommand*{\mkbibnamelast}[1]{\textsc{##1}}}}%
     {}}
@@ -197,7 +197,7 @@ maxbibnames=999,%
 }
 
 \AtEveryBibitem{%
-  \ifboolexpr{bool {bbx:translation} or bool {cbx:antik} or bool {cbx:frgantik}}%
+  \ifboolexpr{bool {bbx:uebersetzung} or bool {cbx:antik} or bool {cbx:frgantik}}%
     {}%
     {%
     \clearname{translator}%
@@ -366,7 +366,7 @@ maxbibnames=999,%
 		    
 \newbibmacro*{series}{%
   \ifboolexpr{test {\iffieldundef{shortseries}} %
-  						or bool {bbx:noabbrevs}}%
+  						or bool {bbx:keineabkuerzung}}%
     {\printtext[seriestitle]{\printfield[titlecase]{series}}}%
     {\printfield{shortseries}}%
     }
@@ -377,7 +377,7 @@ maxbibnames=999,%
            \usebibmacro{series}%
            \setunit*{\addspace}%
            \printfield{number}%
-           \ifbool{bbx:yearseries}%
+           \ifbool{bbx:jahrreihe}%
             {\newunit}%
             {\setunit{\addspace}}%
          }%
@@ -386,7 +386,7 @@ maxbibnames=999,%
 
 \renewbibmacro*{journal}{%
   \ifboolexpr{test {\iffieldundef{shortjournal}} %
-  					or bool {bbx:noabbrevs}}%
+  					or bool {bbx:keineabkuerzung}}%
     {\printtext[journaltitle]{%
        \printfield[titlecase]{journaltitle}%
        \setunit{\subtitlepunct}%
@@ -544,7 +544,7 @@ maxbibnames=999,%
   and test {\iffieldundef{publisher}}%
   and test {\iffieldundef{year}}}%
   {}%
-  {\ifbool{bbx:publisher}%
+  {\ifbool{bbx:verlag}%
     {\printtext[parens]{%
         \printlist{location}%
         \setunit*{\addcolon\addspace}%
@@ -620,7 +620,7 @@ maxbibnames=999,%
     \setunit{\addspace}%
     \usebibmacro{volume}%
   }{%
-    \ifbool{bbx:edby}{%
+    \ifbool{bbx:hrsgv}{%
       \usebibmacro{booktitle}%
           \setunit{\addspace}%
          \usebibmacro{volume}%
@@ -713,12 +713,12 @@ maxbibnames=999,%
   \usebibmacro{maintitle+title+volumes}%
   \newunit\newblock%   
   \usebibmacro{translation}%
-  \ifbool{bbx:yearseries}{}%
+  \ifbool{bbx:jahrreihe}{}%
   	{\newunit\usebibmacro{series+number}}%
   \setunit{\addspace}\newblock%                        
   \usebibmacro{location+edition+year}%
   \setunit*{\addspace}\newblock%
-  \ifbool{bbx:yearseries}%
+  \ifbool{bbx:jahrreihe}%
   			{\usebibmacro{series+number}}{}%
   \usebibmacro{addendum}%
 \usebibmacro{doi+eprint+url}%
@@ -764,12 +764,12 @@ maxbibnames=999,%
       \usebibmacro{maintitle+title+volumes}%
 \usebibmacro{event+venue+date}%
   \setunit*{\addspace}%
-  \ifbool{bbx:yearseries}{}%
+  \ifbool{bbx:jahrreihe}{}%
     {\newunit\usebibmacro{series+number}}%
   \setunit{\addspace}\newblock%        
   \usebibmacro{location+edition+year}%
   \setunit*{\addspace}\newblock% 
-  \ifbool{bbx:yearseries}{%
+  \ifbool{bbx:jahrreihe}{%
     \usebibmacro{series+number}}{}%
   \usebibmacro{addendum}%
   \usebibmacro{doi+eprint+url}%
@@ -796,12 +796,12 @@ maxbibnames=999,%
   \usebibmacro{booktitle+volume+editor}%
   \usebibmacro{event+venue+date}%
   \setunit{\addspace}%
-  \ifbool{bbx:yearseries}{}%
+  \ifbool{bbx:jahrreihe}{}%
   			{\newunit\usebibmacro{series+number}}%
   \setunit{\addspace}\newblock%                   
   \usebibmacro{location+edition+year}%
   \setunit*{\addspace}\newblock% 
-  \ifbool{bbx:yearseries}{%
+  \ifbool{bbx:jahrreihe}{%
     \usebibmacro{series+number}}{}%                   
   \usebibmacro{pages}%
   \setunit{\addspace}%
@@ -831,12 +831,12 @@ maxbibnames=999,%
   \usebibmacro{in:}%
   \usebibmacro{booktitle+volume+editor}%
   \setunit{\addspace}%
-  \ifbool{bbx:yearseries}{}%
+  \ifbool{bbx:jahrreihe}{}%
     {\newunit\usebibmacro{series+number}}%
   \setunit{\addspace}\newblock%                        
   \usebibmacro{location+edition+year}%
   \setunit*{\addspace}\newblock% 
-  \ifbool{bbx:yearseries}%
+  \ifbool{bbx:jahrreihe}%
     {\usebibmacro{series+number}}{}%
   \usebibmacro{pages}%
   \setunit{\addspace}%
@@ -921,7 +921,7 @@ maxbibnames=999,%
   {\list%
      {\usebibmacro{labelwidthbib}}%
      {\setlength{\labelwidth}{%
-     		\ifbool{bbx:width}{\width}{\shorthandwidth}}%
+     		\ifbool{bbx:abstand}{\abstand}{\shorthandwidth}}%
       \setlength{\leftmargin}{\labelwidth}%
       \setlength{\labelsep}{\biblabelsep}%
       \addtolength{\leftmargin}{\labelsep}%
