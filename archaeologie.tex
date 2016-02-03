@@ -11,6 +11,7 @@
 % version 2005/12/01 or later.
 
 \documentclass[a4paper,
+10pt,
 greek,
 french,
 italian,
@@ -19,27 +20,15 @@ ngerman,english
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
- % \usepackage[utf8]{inputenc}		% defines file's character encoding
   \usepackage[T1,LGR]{fontenc}		% font types and character verification
-% \usepackage[oldstyle, %für minuskel-Zahlen
-% 					]{libertine}
 \usepackage{ebgaramond}
-%\usepackage[]{mathpazo}
-%\renewcommand*\familydefault{\sfdefault}
-%   \setmainlanguage{english}
-%% \setmainlanguage{german}
-%	\setotherlanguages{greek,english}
 	\usepackage{metalogo}
 	\usepackage{hologo}
-%\newfontfamily\greekfont[Script=Greek]{libertine}.
  \usepackage{babel}
-%\usepackage{roboto}%Schriftart für Sansserif 
 \usepackage{coolthms}
-%\usepackage{csquotes}
 \usepackage[					% advanced quotes
 	strict=true,					% 	- warning are errors now
-	style=german,					% 	- german quotes
-	%german=guillemets, %		muss für \MakeAutoQuote (s.u.) deaktiviert sein
+	style=english,					% 	- german quotes
 ]{csquotes}
 \usepackage{multicol}
 \setlength{\columnsep}{1.5cm}
@@ -84,7 +73,7 @@ ngerman,english
 	%	yearinparens,
 	%lastnames,
 	%fullnames,
-	scshape,
+%	scshape,
 %	width=6em,
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
@@ -113,30 +102,28 @@ ngerman,english
 
 
 
- \title{\texttt{archaeologie} -- \\\texttt{biblatex} for Archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
+ \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
 The development of the code is done at \url{https://github.com/giovannotti/biblatex-archaeologie}: 
-Comments and critics are welcome.} }
+Comments and critics are welcome. 
+We thank  ›moewew‹ und Herbert Voß for their big help on the code.
+} }
  \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
  \date{Version: 1.3 (2016-01-31)}
  
  
  \maketitle
  \begin{abstract}
-%\noindent Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild jedoch auch zu verändern, um eigenen Vorlieben anzupassen.\\
-%\vspace*{1em}\\
-\noindent This citation-style covers the citation and bibliography rules of the German Archaeology Institute. Various options are available to change and adjust the outcome according to one's own preferences.\footnote{The style is compatible with the English language, since all |bibstrings| used are defined bilingually.}
+ \begin{multicols}{2}
+\noindent This citation-style covers the citation and bibliography rules of the German Archaeology Institute. Various options are available to change and adjust the outcome according to one's own preferences. 
+The style is compatible with the English, Italian and French languages, since all |bibstrings| used are defined in each language.\columnbreak\\
+\noindent \foreignlanguage{ngerman}{Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
+Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wurde ebenso für die Sprachen Englisch, Italienisch und Französisch angepasst.
+}
+ \end{multicols}
  \end{abstract}
- \vspace*{1em}
-\begin{small}
-\begin{multicols}{2}
-{\parskip=0mm \tableofcontents}
-\end{multicols}
-\end{small}
+\section{Last changes}
 
-\section{Letzte Änderungen}
-Für Anmerkungen und Hilfe Dank an ›moewew‹ und Herbert Voß.
-
-Änderungen seit Version 1.22
+Änderungen seit Version 1.3
 
 %Neben internen Änderungen an der Programmierung und der Auslagerung verschiedener Dateien  hat sich vor allem folgendes verändert:
 \begin{itemize}
@@ -149,13 +136,41 @@ Für Anmerkungen und Hilfe Dank an ›moewew‹ und Herbert Voß.
 
 \changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
 
+\newpage
+% \vspace*{1em}
+%\begin{small}
+\begin{multicols}{2}
+{\parskip=0mm \tableofcontents}
+\end{multicols}
+%\end{small}
 
-\section{Verwendung}
- \DescribeMacro{archaeologie} Der Name des Stils ist |archaeologie| und wird an entsprechender Stelle geladen.
+
+
+\newpage\section{Use -- Verwendung}
+ \DescribeMacro{archaeologie} \begin{multicols}{2}%
+This style is called |archaeologie| and has to be loaded in the preamble of your file.
+
+\begin{syntax} |\usepackage[style=archaeologie,%|\\
+ |            |\meta{more options}|]{biblatex}|\\
+ |\bibliography|\marg{|bib|-file}\end{syntax}\par
+ 
+You can use more of the  \enquote{konventionellen} |biblatex|-options or use the options of |archaeologie| -- as described below.
+
+By default |archaeologie| is loading the citation style of the German Archaeology Institute (DAI) with the author-year-system.
+If you would like to use this system as it is, you don’t have to do anything else.
+
+Do not forget the code for the  |\printbibliography|-command, so you will get a bibliography.
+%Diese kann |biblatex|-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  
+Since |archaeologie|supports different citation styles regarding different kind of  opuses it is advised to show this differentiation with different bibliographies. 
+There are various possibilities to do that we show a fast and easy way to do so  (\cref{bibliographie}). \\
+ \columnbreak\selectlanguage{ngerman}
+
+%\foreignlanguage{ngerman}{%
+ Der Name des Stils ist |archaeologie| und wird an entsprechender Stelle geladen.
 
 \begin{syntax} |\usepackage[style=archaeologie,%|\\
  |            |\meta{weitere Optionen}|]{biblatex}|\\
- |\bibliography|\marg{|bib|-Datei}\end{syntax}\par
+ |\bibliography|\marg{|bib|-Datei}\end{syntax}
  
 Dabei kann man weitere der \enquote{konventionellen} |biblatex|-Optionen oder der -- weiter unten beschriebenen -- von |archaeologie| zur Verfügung gestellten Optionen laden.
 
@@ -163,35 +178,99 @@ Dabei kann man weitere der \enquote{konventionellen} |biblatex|-Optionen oder de
 
 Nicht vergessen sollte man den |\printbibliography|-Befehl, sodass  eine Bibliographie angelegt und ausgegeben wird. 
 %Diese kann |biblatex|-typisch formatiert werden, beispielsweise sind die Einträge standardmäßig ab der zweiten Zeile eingerückt und alphabetisch sortiert.  
- Da |archaeologie| unterschiedliche Zitierweisen von Textsorten wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographieaufteilung dementsprechend anzupassen. Verschiedene Möglichkeiten zur Gestaltung der Bibliographie siehe  \cref{bibliographie}.
- 
-\section{Übersicht}
+ Da |archaeologie| unterschiedliche Zitierweisen von Textsorten wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographieaufteilung dementsprechend anzupassen. Verschiedene Möglichkeiten zur Gestaltung der Bibliographie  (\cref{bibliographie}).
+ \end{multicols}
+\newpage\section{Übersicht}
 
  Im Folgenden sind   kurz die möglichen Optionen, mit denen der Stil |archaeologie| aufgerufen werden kann, aufgeführt. 
  Dazu kann man -- quasi auf eigene Gefahr -- noch die konventionellen |biblatex|-Optionen (insbesondere zur Formatierung der Abstände etc. des Literaturverzeichnisses) verwenden. Näheres zu diesen findet man in der Dokumentation von |biblatex|.
 
  \subsection{Paketoptionen (Präambel)}
-
-%% Folgende Optionen können dem Paket |biblatex| beim Laden mit auf den Weg gegeben werden oder auch danach mit |\ExecuteBibliographyOptions| nachgereicht werden. Eventuell lohnt es sich auch einen Blick auf die Beispiele in \cref{beispiele} zu werfen.
-
+\begin{multicols}{2}
  \begin{description}
+\item[edby] In |incollections| the editor is now shown after the book title.   \cref{edby}. \columnbreak
+\foreignlanguage{ngerman}{ \item[edby] Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.} nach dem Buchtitel.  \cref{edby}.}
+\end{description}
+\end{multicols}
+\begin{multicols}{2}
+ \begin{description}
+ \item[yearseries] Die Reihe wird erst nach der Jahreszahl ausgegeben.  \cref{yearseries}.\columnbreak
+ \foreignlanguage{ngerman}{ \item[yearseries] Die Reihe wird erst nach der Jahreszahl ausgegeben.  \cref{yearseries}.}
+\end{description}
+\end{multicols}
 
- %\item[dai-footnote] \todo[noline]{funktioniert noch nicht} Bei Folgezitaten wird auf die Fußnotenzahl des Erstzitats verwiesen. Siehe \cref{dai-footnote}.
- \item[edby] Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. Siehe \cref{edby}.
- \item[yearseries] Die Reihe wird erst nach der Jahreszahl ausgegeben. Siehe \cref{yearseries}.
- \item[yearinparens] Die Jahreszahl wird in Klammern gesetzt. Siehe \cref{yearinparens}.
-\item[translation] Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Bei Einträgen, die |options=antik| haben, ist dies Standard. Siehe \cref{translation}. 
-\item[noabbrevs] Die Abkürzungen von Zeitschriften und Serien (|shortjournal|/|shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. Siehe \cref{noabbrevs}.
-\item[publisher] Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe. Siehe \cref{publisher}.
-\item[bibfullname] Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie. Siehe \cref{bibfullname}.
-\item[inreferences]  Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{inreferences}.
-\item[lastnames] Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\marg{Schlüssel} im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten). Siehe \cref{lastnames}.
-\item[fullnames]Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\marg{Schlüssel} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind. Siehe \cref{fullnames}.
-\item[scshape] Die Namen in den Fußnoten werden in Kapitälchen gesetzt. Siehe \cref{scshape}.
+\begin{multicols}{2}
+ \begin{description}
+ \item[yearinparens] Die Jahreszahl wird in Klammern gesetzt.  \cref{yearinparens}.\columnbreak
+\foreignlanguage{ngerman}{  \item[yearinparens] Die Jahreszahl wird in Klammern gesetzt.  \cref{yearinparens}.}
+  \end{description}
+\end{multicols}
+
+  \begin{multicols}{2}
+ \begin{description}
+\item[translation] Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Bei Einträgen, die |options=antik| haben, ist dies Standard.  \cref{translation}. \columnbreak
+\foreignlanguage{ngerman}{\item[translation] Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Bei Einträgen, die |options=antik| haben, ist dies Standard.  \cref{translation}.}
+\end{description}
+\end{multicols}
+
+\begin{multicols}{2}
+ \begin{description}
+\item[noabbrevs] Die Abkürzungen von Zeitschriften und Serien (|shortjournal|/|shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden.  \cref{noabbrevs}.\columnbreak
+\foreignlanguage{ngerman}{\item[noabbrevs] Die Abkürzungen von Zeitschriften und Serien (|shortjournal|/|shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden.  \cref{noabbrevs}.}
+\end{description}
+\end{multicols}
+
+\begin{multicols}{2}
+ \begin{description}
+\item[publisher] Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe.  \cref{publisher}.\columnbreak
+\foreignlanguage{ngerman}{\item[publisher] Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe.  \cref{publisher}.}
+\end{description}
+\end{multicols}
+
+\begin{multicols}{2}
+ \begin{description}
+\item[bibfullname] Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie.  \cref{bibfullname}.\columnbreak
+\foreignlanguage{ngerman}{\item[bibfullname] Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie.  \cref{bibfullname}.}
+\end{description}
+\end{multicols}
+
+\begin{multicols}{2}
+ \begin{description}
+\item[inreferences]  Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{inreferences}.\columnbreak
+\foreignlanguage{ngerman}{\item[inreferences]  Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{inreferences}.}
+\end{description}
+\end{multicols}
+
+\begin{multicols}{2}
+ \begin{description}
+\item[lastnames] Schreibt die Autoren/-Herausgeber, die über  |citeauthor|\-\marg{key}  im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten).  \cref{lastnames}.\columnbreak
+\foreignlanguage{ngerman}{\item[lastnames] Schreibt die Autoren/-Herausgeber, die über    |citeauthor|\-\marg{key} im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten).  \cref{lastnames}.}
+\end{description}
+\end{multicols}
+
+\begin{multicols}{2}
+ \begin{description}
+\item[fullnames]Schreibt die Autoren/-Herausgeber, die über |citeauthor|\-\marg{key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  \cref{fullnames}.\columnbreak
+\foreignlanguage{ngerman}{\item[fullnames]Schreibt die Autoren/-Herausgeber, die über  |citeauthor|\-\marg{key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  \cref{fullnames}.}
+\end{description}
+\end{multicols}
+
+\begin{multicols}{2}
+ \begin{description}
+\item[scshape] Die Namen in den Fußnoten werden in Kapitälchen gesetzt \cref{scshape}, ausgenommen sind Werke unbekannter Herkunft (\cref{unbekannt}) und Werke antiker Autoren (\cref{antik,frgantik}).\columnbreak
+\foreignlanguage{ngerman}{\item[scshape] Die Namen in den Fußnoten werden in Kapitälchen gesetzt \cref{scshape}, ausgenommen sind Werke unbekannter Herkunft (\cref{unbekannt}) und Werke antiker Autoren (\cref{antik,frgantik}).}
+\end{description}
+\end{multicols}
+
+\begin{multicols}{2}
+ \begin{description}
 \item[width] Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
-\cref{width}
+\cref{width}.\columnbreak
+\foreignlanguage{ngerman}{\item[width] Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
+\cref{width}.}
+\end{description}
+\end{multicols}
 
- \end{description}
 
  \subsection{Literaturoptionen (Bibliographieeintrag)}
  Zusätzlich kann ein einzelner Eintrag durch folgende Werte in seinem |options|-Feld manipuliert werden. Siehe dazu auch \cref{optionen-literatur} und \cref{beispiele}. 
@@ -597,7 +676,8 @@ Ball – Dobbins {\color{red}(}2013{\color{red})}, 475
 
 \subsubsection{scshape}\label{scshape}
 \DescribeMacro{scshape}
-Die Option ändert die Formatierung der Zitation, sodass die Namen in den Anmerkungen/Fußnoten und in der Bibliographie in Kapitälchen gesetzt werden.
+Die Option ändert die Formatierung der Zitation, sodass die Namen in den Anmerkungen/Fußnoten und in der Bibliographie in Kapitälchen gesetzt werden. Ausgenommen sind hierbei die Einträge, die über ein |label| (\cref{unbekannt}) ausgegeben werden, da es sich dabei nicht um einen Nachnamen, sondern eine selbst gewählte Bezeichnung handelt. 
+Ebenso sind antike Autoren (|options=antik|, bzw. |options={frgantik}|) von dieser Option ausgenommen.
 Anstatt wie standardmäßig aus  |\cite[475]{Ball_2013}|
 \begin{bsp} \cite[475]{Ball_2013} \end{bsp}
  wird, wird mit der Option: 
