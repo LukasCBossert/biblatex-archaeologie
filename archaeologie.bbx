@@ -11,7 +11,7 @@
 % version 2005/12/01 or later.
 
 \ProvidesFile{archaeologie.bbx}%
-               [2016/01/31 v1.3  archaeologie --%
+               [2016/03/10 v1.4  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
@@ -22,10 +22,10 @@ Historiker und Philologen}
 \ExecuteBibliographyOptions{%
 pagetracker=true,%
 giveninits=true,
-%sortlocale=de_DE, 
-language=auto,autolang=other,
+sortlocale=auto,
+language=auto,
+autolang=other,
 bibencoding=utf8,%
-%sortlocale=de,%
 dateabbrev=false,% 
 sorting=nyt,%
 maxnames=2,% 
@@ -903,12 +903,12 @@ maxbibnames=999,%
 \newbibmacro{labelwidthbib}{%
   \begingroup%
     \DeclareFieldFormat{bibhyperref}{##1}%
-    \csuse{blx@hook@cite}%
+   \csuse{blx@hook@cite}%
     \csuse{blx@hook@citekey}%
     \defcounter{maxnames}{\blx@maxcitenames}%
     \usebibmacro{cite}%
   \endgroup%
-  }   
+}   
 
 
 \newbibmacro{kicklabel}{% 

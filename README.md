@@ -1,7 +1,7 @@
-#####################################
+##########################
 ##      bibLaTeX-archaeologie     ##
-#####################################
-Version: 1.3 [2016-01-31]
+#########################
+               [2016/03/10 v1.4  archaeologie]
 
 archaeologie: biblatex fuer Archaeologen, 
 Historiker und Philologen 
