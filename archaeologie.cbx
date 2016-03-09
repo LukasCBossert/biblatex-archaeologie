@@ -36,12 +36,26 @@
 \DeclareFieldFormat{postnote}{#1}%
 \DeclareFieldFormat{shorttitle}{#1}%
 
-\DeclareNameFormat{frg}{%
-#1%
-  \ifthenelse{\value{listcount}<\value{liststop}}%
-    {\addspace\textendash\addspace}{}%
-}%
 
+      
+ \DeclareNameFormat{frg}{%
+        \nameparts{#1}%
+        \ifgiveninits
+          {\usebibmacro{name:family}
+          {\namepartfamily}
+          {\namepartgiveni}
+          {\namepartprefix}
+          {\namepartsuffix}}
+        {\usebibmacro{name:family}
+          {\namepartfamily}
+          {\namepartgiven}
+          {\namepartprefix}
+          {\namepartsuffix}}%
+      \usebibmacro{name:andothers}}
+
+
+      
+      
 \renewcommand*{\multicitedelim}{\addsemicolon\addspace}%
 \newcommand*{\labelyeardelim}{\addspace}
 
@@ -182,40 +196,5 @@ test{\ifentrytype{inreference}}%
     	}}}%
     {\multicitedelim}%
     {\usebibmacro{postnote}}%
-    
-
-\DeclareMultiCiteCommand{\cbx@cites}{\cite}{\multicitedelim}
-\DeclareMultiCiteCommand{\cites}[\cbx@cite@wrapper\cbx@cites]{\cbx@cite}{}
-\DeclareMultiCiteCommand{\cbx@parencites}[\mkbibparens]{\parencite}{\multicitedelim}
-\DeclareMultiCiteCommand{\parencites}[\cbx@cite@wrapper\cbx@parencites]{\cbx@cite}{}
-
-
-\DeclareCiteCommand{\cbx@cite}
-{\csxdef{prenote:\thefield{entrykey}}{\thefield{prenote}}}
-{\listxadd\cbx@savekeys{\thefield{entrykey}}}
-{}
-{\csxdef{postnote:\thefield{entrykey}}{\thefield{postnote}}}
-
-\newrobustcmd{\cbx@cite@wrapper}[2]{%
-	\def\cbx@savekeys{}%
-	\def\cbx@citecall{#1}%
-	#2\cbx@sortkeysinit\cbx@citesort\cbx@citecall}
-
-\def\cbx@citesort{%
-	\def\do##1{%
-		\ifinlist{##1}{\cbx@savekeys}
-		{\protected@xappto\cbx@citecall{%
-				[\csuse{prenote:##1}][\csuse{postnote:##1}]{##1}}}
-		{}}%
-	\dolistloop{\cbx@sortkeys}}
-\def\cbx@sortkeysinit{%
-	\ifcsundef{blx@sort@\the\c@refsection}
-	{\global\letcs{\cbx@sortkeys}
-		{blx@slists@\the\c@refsection @entry@\blx@sorting}}% Biber
-	{\global\letcs{\cbx@sortkeys}{blx@sort@\the\c@refsection}}}% BibTeX
-\def\cbx@sortkeys{}
-
-
-
 \endinput
 %% End of file `archaeologie.cbx'.
