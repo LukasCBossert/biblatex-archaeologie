@@ -21,6 +21,7 @@ Historiker und Philologen}
 }
 \ExecuteBibliographyOptions{%
 pagetracker=true,%
+citecounter=true,
 giveninits=true,
 sortlocale=auto,
 language=auto,
@@ -45,6 +46,7 @@ maxbibnames=999,%
 \newbool{bbx:noabbrevs}%		keineabkuerzung
 \newbool{bbx:translation}%		uebersetzung
 \newbool{bbx:publisher}% 	verlag		
+\newbool{bbx:counter}%			
 \newbool{cbx:antik}%
 \newbool{cbx:frgantik}%
 \newbool{cbx:corpus}%		
@@ -60,8 +62,9 @@ maxbibnames=999,%
 			\newcommand{\width}{#1}%
 			}
 \DeclareBibliographyOption{yearseries}[true]{\csuse{bool#1}{bbx:yearseries}}
+\DeclareBibliographyOption{counter}[true]{\csuse{bool#1}{bbx:counter}}
 \DeclareBibliographyOption{bibfullname}[true]{\ExecuteBibliographyOptions{firstinits=false}}
-\DeclareBibliographyOption{reference}[true]{\csuse{bool#1}{bbx:inreferences}
+\DeclareBibliographyOption{inreferences}[true]{\csuse{bool#1}{bbx:inreferences}
 			\ExecuteBibliographyOptions[inreference]{skipbib=true}}
 \DeclareBibliographyOption{noabbrevs}[true]{\csuse{bool#1}{bbx:noabbrevs}}
 \DeclareBibliographyOption{translation}[true]{\csuse{bool#1}{bbx:translation}}
@@ -135,7 +138,13 @@ maxbibnames=999,%
 \renewcommand*{\intitlepunct}{\addcolon\addspace}
 \renewcommand*{\newunitpunct}{\addcomma\addspace}
 \newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}
-\renewcommand{\finentrypunct}{}
+\renewcommand{\finentrypunct}{ 
+		\ifbool{bbx:counter}{%http://tex.stackexchange.com/a/14159/98739
+			\addspace$\vert$ \addspace\scshape 
+			\iflanguage{ngerman}{%
+				wurde \ifnumequal{\value{citecounter}}{0}{{\color{red}{keinmal}}}{\arabic{citecounter}-mal} zitiert.}{%
+			cited \ifnumequal{\value{citecounter}}{0}{{\color{red}{not once}}}{\arabic{citecounter}~time\ifnumequal{\value{citecounter}}{1}{}{s}}.%
+}}{}}
 \renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}
 \renewcommand{\finalnamedelim}{\multinamedelim}
 \renewcommand*\relateddelim{\addnbspace\textendash\addspace}

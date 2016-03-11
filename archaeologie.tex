@@ -14,8 +14,9 @@
 10pt,
 greek,
 french,
-italian,english,
-ngerman,
+italian, %ngerman,
+english,
+ngerman
 ]{ltxdoc}
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
@@ -28,7 +29,7 @@ ngerman,
 \usepackage{coolthms}
 \usepackage[					% advanced quotes
 	strict=true,					% 	- warning are errors now
-	style=english,					% 	- german quotes
+	style=ngerman,					% 	- german quotes
 ]{csquotes}
 \usepackage{multicol}
 \setlength{\columnsep}{1.5cm}
@@ -75,6 +76,7 @@ ngerman,
 	%fullnames,
 %	scshape,
 %	width=6em,
+counter,
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
 
@@ -114,11 +116,11 @@ We thank  ›moewew‹ und Herbert Voß for their big help on the code.
  \maketitle
  \begin{abstract}
  \begin{multicols}{2}
-\noindent This citation-style covers the citation and bibliography rules of the German Archaeology Institute. Various options are available to change and adjust the outcome according to one's own preferences. 
-The style is compatible with the English, Italian and French languages, since all |bibstrings| used are defined in each language.\columnbreak\\
-\noindent \foreignlanguage{ngerman}{Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
+\noindent \foreignlanguage{english}{This citation-style covers the citation and bibliography rules of the German Archaeology Institute. Various options are available to change and adjust the outcome according to one's own preferences. 
+The style is compatible with the English, Italian and French languages, since all |bibstrings| used are defined in each language.}\columnbreak\\
+\noindent Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
 Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wurde ebenso für die Sprachen Englisch, Italienisch und Französisch angepasst.
-}
+
  \end{multicols}
  \end{abstract}
 \section{Letzte Änderungen}
@@ -126,6 +128,7 @@ Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wur
 \begin{itemize}
 \item Anpassung an |biblatex 3.3|, was dazu führte, dass alle gängigen |\cite|-Befehle verwendet werden können.
 \item Umstellung der  Optionsnamen auf englische Bezeichnungen (s. \cref{preamble_options}).
+\item Hinzufügen der Paketoption |counter| (s. \cref{counter}).
 \end{itemize}
 
 \changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
@@ -135,9 +138,7 @@ Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wur
 {\parskip=0mm \tableofcontents}
 \end{multicols}
 
-
-
-\newpage\section{Verwendung}
+\section{Verwendung}
  \DescribeMacro{archaeologie}  Der Name des Stils ist |archaeologie| und wird an entsprechender Stelle geladen.
 
 \begin{syntax} |\usepackage[style=archaeologie,%|\\
@@ -186,6 +187,7 @@ Im Folgenden sind   kurz die möglichen Optionen, mit denen der Stil |archaeolog
 \item[width] (zuvor |abstand|)  Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
 \cref{width}.
 
+\item[counter] Angabe über die Anzahl an Zitationen des Werks im Text. \cref{counter}.
 \end{description}
 
 
@@ -764,7 +766,44 @@ Dafür gibt man die eigens gewählte Länge wie folgt an:
 
 Dafür kann XY für jede Länge stehen (bspw. |3em|, |7pt| oder |4cm|).
 
+\subsubsection{counter}\label{counter}
+ \DescribeMacro{counter} 
+ Möchte man die Anzahl an Zitationen eines Werks im Text erfahren, 
+ dann reicht es wenn man in der Präambel die Option |counter| aktiviert (|counter=true|).\footnote{Idee basiert auf \href{http://tex.stackexchange.com/a/14159/98739}{http://tex.stackexchange.com/a/14159/98739} und wurde entsprechend angepasst.}
+ Dadurch wird am Ende eines jeden Literatureintrages die Anzahl der zitierten Einträge geschrieben. 
+ Die Ausgabe erfolgt bei eingestellter Sprache |ngerman|(im Paket |babel| oder in der |documentclass|)  entsprechend auf Deutsch,
+ ansonsten auf Englisch.
+\begin{bsp}
+Böhm – Eickstedt 2001\\
+\indent S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde 1-mal zitiert.}
+\end{bsp} 
 
+Ist ein Eintrag ohne Zitation in die Bibliographie geraten, wird dies entsprechend angezeigt:
+\begin{bsp}
+Böhm – Eickstedt 2001\\
+\indent S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde {\color{red}{keinmal}} zitiert.}
+\end{bsp} 
+
+
+
+Für alle Sprachen außer Deutsch:
+ \begin{bsp}
+Böhm – Eickstedt 2001\\
+ \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited {{\color{red}{not once}}}.}
+ \end{bsp}
+  
+ \begin{bsp}
+Böhm – Eickstedt 2001\\
+ \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 1 time.}
+ \end{bsp}
+
+Bei mehrmaligeb Zitationen ändert sich die Ausgabe entsprechend:
+  \begin{bsp}
+ Böhm – Eickstedt 2001\\
+ \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}
+\end{bsp}
+ 
+ 
 
 %%\subsubsection{miturl}\label{miturl}
 %%\DescribeMacro{miturl}
@@ -1170,7 +1209,6 @@ Zum Beispiel dieses Buch:
 |  Shortseries              = MemAmAc-kurz,|\\
 |  Year                     = {2003},|\\
 |  Volume                   = {V},|\\
-|  Language                 = {english},|\\
 |  Maintitle                = {Cosa},|\\
 |}|\par
 
@@ -1634,8 +1672,8 @@ In der Bibiographie wird das zu:
  \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
 
 
-\subsection{Verschiedenes}
-\subsubsection{Anonymes Werk}\label{unbekannt}
+\section{Verschiedenes}
+\subsection{Anonymes Werk}\label{unbekannt}
 
  Für manche Artikel oder Bücher lässt sich kein Autor oder Herausgeber ermitteln. 
  Diese Werke werden dann als anonym gekennzeichnet und nicht nach dem (anonymen) Autor/Herausgeber zitiert, sondern nach einem gewählten |label|. 
@@ -1675,6 +1713,8 @@ Und für die Bibliographie:
 
 %%
 %%
+
+
 
 \newpage
  \section{Bibliographie}\label{bibliographie}
