@@ -59,7 +59,7 @@ ngerman
  
 
 \usepackage[					% use  for bibliography
-%	backend=biber,
+	backend=biber,
 	style=archaeologie,
 %	eprint=false,
 %	doi=false,
@@ -76,7 +76,8 @@ ngerman
 	%fullnames,
 %	scshape,
 %	width=6em,
-counter,
+%counter,
+strings
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
 
@@ -110,7 +111,7 @@ Comments and critics are welcome.
 We thank  ›moewew‹ und Herbert Voß for their big help on the code.
 } }
  \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
- \date{Version: 1.3 (2016-01-31)}
+ \date{Version: 1.41 (2016-03-12)}
  
  
  \maketitle
@@ -124,8 +125,9 @@ Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wur
  \end{multicols}
  \end{abstract}
 \section{Letzte Änderungen}
-Änderungen seit Version 1.3
+Änderungen seit Version 1.3 und 1.4
 \begin{itemize}
+\item Optionales An- oder Abschalten der extra Bibliographie |dai-abkuerzungen.bib| (s. \cref{strings}).
 \item Anpassung an |biblatex 3.3|, was dazu führte, dass alle gängigen |\cite|-Befehle verwendet werden können.
 \item Umstellung der  Optionsnamen auf englische Bezeichnungen (s. \cref{preamble_options}).
 \item Hinzufügen der Paketoption |counter| (s. \cref{counter}).
@@ -159,6 +161,7 @@ Im Folgenden sind   kurz die möglichen Optionen, mit denen der Stil |archaeolog
 
  \subsection{Paketoptionen (Präambel)}\label{preamble_options}
  \begin{description}
+ \item[strings] Aktiviert die extra Bibliographiedatei |dai-abkuerzungen|, mit der man Zeitschrifen oder Reihen mit entsprechenden Abkürzungen zitieren kann. s. \cref{strings}. 
  \item[edby] (zuvor |hrsgv|) Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. Siehe \cref{edby}.
 
 
@@ -326,6 +329,13 @@ In {\color{blue}blau} sind bibliographische Einträge, die mit dem nächsten Lit
  
 In diesem Beispiel wurde der Stil |archaeologie| mit der Option |inreferences| geladen (|=true|). 
 Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weitere verschiedene Optionen manipuliert, die entsprechend ebenfalls in der Präambel geladen werden können.
+
+\subsubsection{strings}\label{strings}
+ \DescribeMacro{strings}
+ Möchte man die oben erwähnte Methode mit |@string| verwenden, muss in der Präambel die Option |strings| aktiviert sein.
+ Zudem sollte sichergestellt werden, dass die Datei |dai-abkuerzungen.bib|\footnote{Herunterzuladen von \href{https://www.ctan.org/tex-archive/macros/latex/contrib/biblatex-contrib/archaeologie/dai-abkuerzungen.bib}{https://www.ctan.org/tex-archive/macros/latex/contrib/biblatex-contrib/archaeologie/dai-abkuerzungen.bib}.} sich entweder im selben Verzeichnis wie das Hauptdokument befindet, oder
+eine Internetverbindung besteht.
+Verwendet man keine der unter \cref{listen} angegebenen |@string|-Einträge, muss nichts weiter gemacht werden.
 
 
 \subsubsection{dai-footnote}\label{dai-footnote}

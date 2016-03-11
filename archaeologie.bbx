@@ -11,7 +11,7 @@
 % version 2005/12/01 or later.
 
 \ProvidesFile{archaeologie.bbx}%
-               [2016/03/10 v1.4  archaeologie --%
+               [2016/03/12 v1.41  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
@@ -35,8 +35,6 @@ maxitems=1,
 maxbibnames=999,%
 }%
 
-\addbibresource{dai-abkuerzungen.bib}
-%\addbibresource{antike-corpora.bib} % Version 2.0
 
 \newbool{bbx:edby}%hrsgv
 \newbool{bbx:width}%abstand
@@ -53,14 +51,16 @@ maxbibnames=999,%
 \newbool{cbx:lastnames}%	nurnachname	
 \newbool{cbx:fullnames}%	vollername		
 
+\DeclareBibliographyOption{strings}[true]{%
+\IfFileExists{dai-abkuerzungen.bib}{\addbibresource{dai-abkuerzungen.bib}}{\addbibresource[location=remote]{https://www.ctan.org/tex-archive/macros/latex/contrib/biblatex-contrib/archaeologie/dai-abkuerzungen.bib}}}
+%\addbibresource{antike-corpora.bib} % Version 2.0
 
 
 %% \DeclareBibliographyOption %%
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
 \DeclareBibliographyOption{width}[]{%
 			\csuse{booltrue}{bbx:width}	
-			\newcommand{\width}{#1}%
-			}
+			\newcommand{\width}{#1}}
 \DeclareBibliographyOption{yearseries}[true]{\csuse{bool#1}{bbx:yearseries}}
 \DeclareBibliographyOption{counter}[true]{\csuse{bool#1}{bbx:counter}}
 \DeclareBibliographyOption{bibfullname}[true]{\ExecuteBibliographyOptions{firstinits=false}}
