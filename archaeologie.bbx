@@ -50,6 +50,8 @@ maxbibnames=999,%
 \newbool{cbx:corpus}%		
 \newbool{cbx:lastnames}%	nurnachname	
 \newbool{cbx:fullnames}%	vollername		
+\newlength{\labwidthsameline}
+\setlength{\labwidthsameline}{3em}%default soll die Länge der längsten Shorthand sein aka \shorthandwidth
 
 \DeclareBibliographyOption{strings}[true]{%
 \IfFileExists{dai-abkuerzungen.bib}{\addbibresource{dai-abkuerzungen.bib}}{\addbibresource[location=remote]{https://www.ctan.org/tex-archive/macros/latex/contrib/biblatex-contrib/archaeologie/dai-abkuerzungen.bib}}}
@@ -60,10 +62,10 @@ maxbibnames=999,%
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
 \DeclareBibliographyOption{width}[]{%
 			\csuse{booltrue}{bbx:width}	
-			\newcommand{\width}{#1}}
+			\setlength{\labwidthsameline}{#1}}
 \DeclareBibliographyOption{yearseries}[true]{\csuse{bool#1}{bbx:yearseries}}
 \DeclareBibliographyOption{counter}[true]{\csuse{bool#1}{bbx:counter}}
-\DeclareBibliographyOption{bibfullname}[true]{\ExecuteBibliographyOptions{firstinits=false}}
+\DeclareBibliographyOption{bibfullname}[true]{\ExecuteBibliographyOptions{giveninits=false}}
 \DeclareBibliographyOption{inreferences}[true]{\csuse{bool#1}{bbx:inreferences}
 			\ExecuteBibliographyOptions[inreference]{skipbib=true}}
 \DeclareBibliographyOption{noabbrevs}[true]{\csuse{bool#1}{bbx:noabbrevs}}
@@ -83,7 +85,7 @@ maxbibnames=999,%
 		}
 \DeclareBibliographyOption{scshape}[true]{%
   \ifstrequal{#1}{true}%
-    {\AtEveryCite{\renewcommand*{\mkbibnamelast}[1]{\textsc{##1}}}}%
+    {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
     {}}
     
 %% \DeclareEntryOption %%
@@ -912,25 +914,24 @@ maxbibnames=999,%
 \newbibmacro{labelwidthbib}{%
   \begingroup%
     \DeclareFieldFormat{bibhyperref}{##1}%
-   \csuse{blx@hook@cite}%
+    \csuse{blx@hook@cite}%
     \csuse{blx@hook@citekey}%
     \defcounter{maxnames}{\blx@maxcitenames}%
     \usebibmacro{cite}%
   \endgroup%
 }   
 
-
 \newbibmacro{kicklabel}{% 
   \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
   \global\togglefalse{blx@insert}%
-  \ifdim\shorthandwidth<.9\wd\arch@labelbox\leavevmode\newline\fi%
-  }
+  \ifdim.9\wd\arch@labelbox>\labwidthsameline\leavevmode\newline\fi%
+}
+
 
 \defbibenvironment{bibliography}%
   {\list%
      {\usebibmacro{labelwidthbib}}%
-     {\setlength{\labelwidth}{%
-     		\ifbool{bbx:width}{\width}{\shorthandwidth}}%
+     {\setlength{\labelwidth}{\labwidthsameline}%
       \setlength{\leftmargin}{\labelwidth}%
       \setlength{\labelsep}{\biblabelsep}%
       \addtolength{\leftmargin}{\labelsep}%

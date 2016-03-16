@@ -139,6 +139,9 @@
 }
 
 
+
+
+
     
 
 %% Cite Commands %%%
@@ -156,8 +159,6 @@ test{\ifentrytype{inreference}}%
 
 
 
-
-
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
@@ -169,7 +170,16 @@ test{\ifentrytype{inreference}}%
   test{\ifentrytype{inreference}}%
   }{}{\usebibmacro{postnote}}}%
   
-
+  
+\DeclareMultiCiteCommand{\cites}%
+        {\cite}{\multicitedelim}
+\DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
+        {\parencite}{\multicitedelim}
+   \DeclareMultiCiteCommand{\textcites}%
+        {\cite}{\multicitedelim}     
+        
+        
+        
 \DeclareCiteCommand{\citeauthor}%
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
