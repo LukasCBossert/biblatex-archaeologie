@@ -58,20 +58,21 @@
       
 \renewcommand*{\multicitedelim}{\addsemicolon\addspace}%
 \newcommand*{\labelyeardelim}{\addspace}
-
-
-
-
-\renewbibmacro*{postnote}{%
+\renewcommand{\textcitedelim}{}
+\renewcommand{\postnotedelim}{
   \ifboolexpr{bool {cbx:antik}%
              	 or bool {cbx:frgantik}%
 			   	or bool {cbx:corpus}%
               }%
     {\setunit{\addspace}}%
-    {\newunit}%
-  \iffieldundef{postnote}
+    {\newunitpunct}%
+}
+
+
+\renewbibmacro*{postnote}{%
+\iffieldundef{postnote}
     {}%
-    {\printfield{postnote}%
+    {\postnotedelim\printfield{postnote}%
      \ifbool{cbx:frgantik}%
        {\setunit{\addspace}%
   \usebibmacro{cite:frgname}}%
@@ -81,7 +82,7 @@
 \newbibmacro*{cite:frgname}{%
       \ifnameundef{shorteditor}%
            {\printnames[frg]{editor}}%
-           {\printnames[frg]{shorteditor}}
+           {\printnames[frg]{shorteditor}}%
 }
 
 \newbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
@@ -97,11 +98,11 @@
   \iffieldundef{labelyear}
     {}%
     {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
-
-\newbibmacro*{cite:label}{%
-  \iffieldundef{label}
-    {\printfield[citetitle]{labeltitle}}
-    {\printfield{label}}}
+%
+%\newbibmacro*{cite:label}{%
+%  \iffieldundef{label}
+%    {\printfield[citetitle]{labeltitle}}
+%    {\printfield{label}}}
 
 
 
@@ -135,14 +136,75 @@
            {\printnames{labelname}%
             \setunit{\nameyeardelim}}%
          \usebibmacro{cite:year}}%
-        {\printfield{shorthand}}}}%
+        {\usebibmacro{cite:shorthand}}}}%
 }
 
 
+\newbibmacro*{citeyear}{%
+  \iffieldundef{shorthand}
+    {\iffieldundef{labelyear}
+       {\usebibmacro{cite:label}}
+       {\usebibmacro{cite:labelyear+extrayear}}}
+    {\usebibmacro{cite}}}
+
+\newbibmacro*{textcite}{%aus authoryear
+  \ifnameundef{labelname}
+    {\iffieldundef{shorthand}
+       {\usebibmacro{cite:label}%
+        \setunit{%
+          \global\booltrue{cbx:yearinparens}%
+          \nonameyeardelim\bibopenparen}%
+        \ifnumequal{\value{citecount}}{1}
+          {\usebibmacro{prenote}}
+          {}%
+        \usebibmacro{cite:labelyear+extrayear}}
+       {\usebibmacro{cite}}}
+    {\printnames{labelname}%
+     \setunit{%
+       \global\booltrue{cbx:yearinparens}%
+       \nameyeardelim\bibopenparen}%
+     \ifnumequal{\value{citecount}}{1}
+       {\usebibmacro{prenote}}
+       {}%
+     \usebibmacro{citeyear}}}
+
+\newbibmacro*{cite:shorthand}{%
+  \printtext[bibhyperref]{\printfield{shorthand}}}
+
+\newbibmacro*{cite:label}{%
+  \iffieldundef{label}
+    {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}
+    {\printtext[bibhyperref]{\printfield{label}}}}
+
+\newbibmacro*{cite:labelyear+extrayear}{%
+  \iffieldundef{labelyear}%
+    {}%
+    {\printtext[bibhyperref]{%
+       \printfield{labelyear}%
+       \printfield{extrayear}}}}
+
+\newbibmacro*{textcite:postnote}{%
+  \ifboolexpr{bool {cbx:antik}%
+             	 or bool {cbx:frgantik}%
+			   	or bool {cbx:corpus}%
+              }%
+    {\setunit{\addspace}}%
+{}%
+  \iffieldundef{postnote}
+    {\ifbool{cbx:yearinparens}
+       {\bibcloseparen}
+       {}}
+    {\ifbool{cbx:yearinparens}
+       {\setunit{\postnotedelim}}
+       {\setunit{\extpostnotedelim\bibopenparen}}%
+     \printfield{postnote}%
+      \ifbool{cbx:frgantik}%
+       {\setunit{\addspace}%
+  \usebibmacro{cite:frgname}%
+  \bibcloseparen}%
+  \bibcloseparen}}
 
 
-
-    
 
 %% Cite Commands %%%
 \DeclareCiteCommand{\cite}%              
@@ -156,8 +218,19 @@ and%
 test{\ifentrytype{inreference}}%
 }{}{\usebibmacro{postnote}}}%
 
-
-
+\DeclareCiteCommand{\textcite}%aus authoryear
+  {\boolfalse{cbx:yearinparens}}
+  {\usebibmacro{citeindex}%
+   \iffirstcitekey
+     {\setcounter{textcitetotal}{1}}
+     {\stepcounter{textcitetotal}%
+      \textcitedelim}%
+   \usebibmacro{textcite}}
+  {\ifbool{cbx:parens}
+     {\bibcloseparen\global\boolfalse{cbx:yearinparens}}
+     {}}
+  {\usebibmacro{textcite:postnote}}
+ 
 
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
@@ -176,7 +249,7 @@ test{\ifentrytype{inreference}}%
 \DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
         {\parencite}{\multicitedelim}
    \DeclareMultiCiteCommand{\textcites}%
-        {\cite}{\multicitedelim}     
+        {\textcite}{\addspace\bibstring{and}\addspace} 
         
         
         

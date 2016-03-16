@@ -71,13 +71,13 @@ ngerman
 	%publisher,
 	%edby,
 	%yearseries,
-		%yearinparens,
+%yearinparens,
 	%lastnames,
 	%fullnames,
 %	scshape,
 %	width=6em,
 %counter,
-strings
+strings,
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
 
@@ -250,15 +250,6 @@ Zu den bisher aufgeführten |\cite|-Befehlen gibt es zusätzlich die Möglichkei
  \begin{syntax}\noindent|\textcite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}
  				\end{syntax} 
 
-%\textcite{Koyunlu_1990}
-%
-%\textcite[23]{Koyunlu_1990}
-%
-%
-%\textcites{Lefebvre_2011}{Koyunlu_1990}
-%
-%
-%\textcites[34]{Lefebvre_2011}[34]{Koyunlu_1990}
 
 
 \begin{center} * * * \end{center}
@@ -774,13 +765,8 @@ U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Her
  
 \subsubsection{width}\label{width}
 \DescribeMacro{width}
-In der Bibliographie richtet sich der Abstand zwischen dem Label (Autor und Jahr)  und der vollständigen bibliographischen Angabe nach der Länge der längsten |shorthand| (|shorthandwidth|), wie sie i.d.R. bei antiken Werken vorkommt. 
-
-Verwendet man beispielsweise keine |shorthand| im Text, dann erfolgt keine ›zweispaltige‹ Ausgabe in der Bibliographie, da in der Zeile direkt unter dem Label die vollständige bibliographie Auflösung erscheint.
-Andererseits ist es ebenso möglich, dass man eine sehr lange |shorthand| in der Bibliographie hat, dann ist der Abstand zwischen dem Label und der bibliographischen Auflösung sehr lange.
-
-In einem solchen Falle kann der Abstand (|shorthandwidth|) selbst bestimmt werden.
-Dafür gibt man die eigens gewählte Länge wie folgt an:
+In der Bibliographie ist der Abstand zwischen dem Label (Autor und Jahr)  und der vollständigen bibliographischen Angabe mit dem Wert |4em| angegeben.
+Wünscht man einen anderen Abstand, dann kann dieser selbst gewählt werden:
 
 |width = XY|
 

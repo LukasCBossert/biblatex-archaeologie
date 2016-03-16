@@ -58,10 +58,10 @@ maxbibnames=999,%
 \setlength{\labwidthsameline}{4em}
 
 
-
+\DeclareBibliographyOption{strings}[true]{%
 \addbibresource{dai-abkuerzungen.bib}
-\addbibresource{antike-corpora.bib} 
-
+%\addbibresource{antike-corpora.bib} 
+}
 
 %% \DeclareBibliographyOption %%
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
@@ -161,7 +161,6 @@ maxbibnames=999,%
 \newcommand*{\jourvoldelim}{\addnbspace}
 
 
-
 \DeclareBibliographyAlias{collection}{book}
 \DeclareBibliographyAlias{reference}{book}
 \DeclareBibliographyAlias{institution}{school}
@@ -224,8 +223,9 @@ maxbibnames=999,%
  }
  
  
+\AtBeginDocument{%
 \ifbool{bbx:initials}{%
-\DeclareStyleSourcemap{%%		%http://tex.stackexchange.com/a/295486/98739     
+\DeclareStyleSourcemap{%%       %http://tex.stackexchange.com/a/295486/98739     
   \maps[datatype=bibtex]{%
     \map{%
         % Author field
@@ -250,7 +250,7 @@ maxbibnames=999,%
         replace={\regexp{\{\\relax\{\}$1\}$3}}]% Insert \relax after abbreviating
 }}}
 }{}
-
+}
      
 %%%%%%%%%%%%%bibmacro%%%%%%%%%%%
 
