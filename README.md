@@ -1,7 +1,8 @@
-##########################
+#####################################
 ##      bibLaTeX-archaeologie     ##
-#########################
-               [2016/03/12 v1.41  archaeologie]
+###################################
+[2016/03/17 v1.42]
+
 
 archaeologie: biblatex fuer Archaeologen, 
 Historiker und Philologen 
@@ -18,7 +19,7 @@ jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
 
 ********************************************
 This citation-style covers the citation and bibliography rules of 
-the German Archaeology Institute. 
+the German Archaeological Institute. 
 Various options are available to change and adjust 
 the outcome according to one’s own preferences.
 (German, English, Italian, French)
@@ -34,8 +35,8 @@ Zum Stil gehören:
 - archaeologie-english.lbx
 - archaeologie-french.lbx
 - archaeologie-italian.lbx
-- dai-abkuerzungen.bib
-- antike-corpora.bib
+- archaeologie-abbrv.bib
+- archaeologie-corpora.bib
 
 
 This work may be distributed and/or modified under the

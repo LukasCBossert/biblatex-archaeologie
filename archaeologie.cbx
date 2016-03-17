@@ -11,7 +11,7 @@
 % version 2005/12/01 or later.
 
 \ProvidesFile{archaeologie.cbx}%
-               [2016/03/12 v1.41  archaeologie --%
+               [2016/03/17 v1.42  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, cbx-Datei]
 \ExecuteBibliographyOptions{%
   citetracker=true,% 
@@ -95,14 +95,11 @@
 
 
 \newbibmacro*{cite:year}{%            
-  \iffieldundef{labelyear}
+  \iffieldundef{labelyear}%
     {}%
     {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
-%
-%\newbibmacro*{cite:label}{%
-%  \iffieldundef{label}
-%    {\printfield[citetitle]{labeltitle}}
-%    {\printfield{label}}}
+
+
 
 
 
@@ -249,7 +246,7 @@ test{\ifentrytype{inreference}}%
 \DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
         {\parencite}{\multicitedelim}
    \DeclareMultiCiteCommand{\textcites}%
-        {\textcite}{\addspace\bibstring{and}\addspace} 
+        {\textcite}{\addspace\bibstring{and}\space} 
         
         
         
