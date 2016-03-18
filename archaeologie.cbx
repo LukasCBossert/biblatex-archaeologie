@@ -1,227 +1,280 @@
+% archaeologie --%
+%               biblatex fuer Archaeologen, Historiker und Philologen
+% Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
+%  
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+
 \ProvidesFile{archaeologie.cbx}%
-               [2015/06/04 v0.8  archaeologie-- %
+               [2016/03/17 v1.42  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, cbx-Datei]
 \ExecuteBibliographyOptions{%
-  citetracker=true,% wenn "false", dann in FN jeder Eintrag mit Vollzitation
-  idemtracker=false,% LCB: Muss auf false stehen
+  citetracker=true,% 
+  idemtracker=false,% 
   ibidtracker=true,%
   opcittracker=true,%
   loccittracker=true,%
   labeldate=true,%
-  sortcites=false%
 }%
 
 %%%%%%%% cbx %%%%%%%%%%
-\newbool{cbx:seen}%obsolet?
-\newbool{cbx:mitjahr}%
-\newbool{cbx:kurztitel}%                                            %%>> JF: neu, option kurztitel=true/false
-\newbool{cbx:fnverweise}%
-\newbool{cbx:jahrinklammern}%*verwendet
-\newbool{cbx:neueseitevollzitat}% obsolet?
-\newbool{cbx:kapitaelchen}%*
-
-
+\newbool{cbx:yearinparens}%jahrinklammern
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
-\DeclareBibliographyOption{mitjahr}[true]{\csuse{bool#1}{cbx:mitjahr}}%
-\DeclareBibliographyOption{kurztitel}[true]{\csuse{bool#1}{cbx:kurztitel}}%%>> JF: neu, option kurztitel=true/false
-\DeclareBibliographyOption{fnverweise}[true]{\csuse{bool#1}{cbx:fnverweise}}%
-\DeclareBibliographyOption{jahrinklammern}[true]{\csuse{bool#1}{cbx:jahrinklammern}}%
-\DeclareBibliographyOption{neueseitevollzitat}[true]{\csuse{bool#1}{cbx:neueseitevollzitat}}%obsolet?
-\DeclareBibliographyOption{kapitaelchen}[true]{\csuse{bool#1}{cbx:kapitaelchen}}%
+\DeclareBibliographyOption{yearinparens}[true]{%
+  \ifstrequal{#1}{true}
+    {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
+    \csuse{bool#1}{cbx:yearinparens}}
+    {\DeclareFieldFormat{citeyear}{##1}}}
 
+\DeclareFieldFormat{citeyear}{#1}
 \DeclareFieldFormat{prenote}{#1\isdot}%
 \DeclareFieldFormat{postnote}{#1}%
 \DeclareFieldFormat{shorttitle}{#1}%
-\DeclareNameFormat{frg}{%
-  #1%
-  \ifthenelse{\value{listcount}<\value{liststop}}%
-    {\addspace\textendash\addspace}{}%
-}%
-\renewcommand*{\multicitedelim}{\setunit{\addsemicolon\addspace}}%
-\newcommand*{\citeautorenschriftart}{\ifbool{cbx:kapitaelchen}{\scshape}{}}% 
-%\newcommand*{\citeautorenschriftart}{}% 
-%\newcommand*{\citeautorentrennzeichen}{\ifbool{bbx:dai}{\addnbspace\textendash\addspace}{\addslash}}%
-\newcommand*{\citeautorentrennzeichen}{\addnbspace\textendash\addspace}%
 
-                         
-\DeclareNameFormat{cite:author}{%
-  {\citeautorenschriftart%
-   \ifblank{#5}{}{#5\addspace}%
-   #1}%
-  \ifthenelse{\value{listcount}<\value{liststop}}%
-    {\citeautorentrennzeichen}{\ifmorenames{\andothersdelim\bibstring{andothers}}{}}{}%
+
+      
+ \DeclareNameFormat{frg}{%
+        \nameparts{#1}%
+        \ifgiveninits
+          {\usebibmacro{name:family}
+          {\namepartfamily}
+          {\namepartgiveni}
+          {\namepartprefix}
+          {\namepartsuffix}}
+        {\usebibmacro{name:family}
+          {\namepartfamily}
+          {\namepartgiven}
+          {\namepartprefix}
+          {\namepartsuffix}}%
+      \usebibmacro{name:andothers}}
+
+
+      
+      
+\renewcommand*{\multicitedelim}{\addsemicolon\addspace}%
+\newcommand*{\labelyeardelim}{\addspace}
+\renewcommand{\textcitedelim}{}
+\renewcommand{\postnotedelim}{
+  \ifboolexpr{bool {cbx:antik}%
+             	 or bool {cbx:frgantik}%
+			   	or bool {cbx:corpus}%
+              }%
+    {\setunit{\addspace}}%
+    {\newunitpunct}%
 }
 
-\renewbibmacro*{prenote}{%
-  \iffieldundef{prenote}{}%
-    {\printfield{prenote}%
-     \setunit{\addspace}}}%
-\renewbibmacro*{postnote}{%
-  \ifboolexpr{bool {cbx:antik}%
-           or bool {cbx:frg}%
-           or bool {cbx:frgantik}%
-           or bool {cbx:nurshorthand}%                
-           }%                                                
-              {\setunit{\addspace}}%
-              {\newunit}%
-  \iffieldundef{postnote}{}%
-    {%\ifboolexpr{not bool {cbx:seen}%
-      %       and not test {\iffieldundef{pages}}%
-      %       and not bool {cbx:urkunde}%               %%>>  
-      %       and not bool {cbx:manual}%                 %%>> JF: neu, options=manual
-      %       }%                                         %%>>
-      %       {\printtext{hier}\addspace}{}%
-     \ifboolexpr{bool{cbx:antik} or bool{cbx:frg}}{%
-       \ifbool{cbx:antik}{\printfield{postnote}}{}%
-       \ifbool{cbx:frg}{%
-         \printfield{postnote}\addspace%
-         \ifnameundef{shorteditor}%
-           {\printnames[frg]{editor}}%    %%> LCB: alt:  {\printnames[frg]{editor}\addperiod}%
-           {\printnames[frg]{shorteditor}}\addperiod%
-       }{}%
-     }{\printfield{postnote}%
-     }%
-   }%
-   \setunit{\addperiod}%
-   \savefield{postnote}{\cbx@lastpagenumber}%
-   \savefield{entrykey}{\cbx@lastentrykey}%
-}%
 
-\newbibmacro*{cite:name}{%    % Wird für Zitation des Autors (\citeauthor) verwendet
+\renewbibmacro*{postnote}{%
+\iffieldundef{postnote}
+    {}%
+    {\postnotedelim\printfield{postnote}%
+     \ifbool{cbx:frgantik}%
+       {\setunit{\addspace}%
+  \usebibmacro{cite:frgname}}%
+ }%
+ }
+
+\newbibmacro*{cite:frgname}{%
+      \ifnameundef{shorteditor}%
+           {\printnames[frg]{editor}}%
+           {\printnames[frg]{shorteditor}}%
+}
+
+\newbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
+  \ifbool{cbx:fullnames}{\c@uniquename=2}{\ifbool{cbx:lastnames}{\c@uniquename=0}{\c@uniquename=1}}
   \ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
-    \ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik} or bool{cbx:frg}}{%
-      \printnames{namea}% Rufname antiker Autoren aus dem Bib-Feld "namea"
-    }{%
-      \iffootnote{%
-        \printnames{labelname}%
-      }{%
-        \ifbool{cbx:nurnachname}{%
-          \printnames{labelname}%
-        }{%
-          \ifbool{cbx:vollername}{%
-            \ifnameundef{author}{%
-              \printnames[first-last]{editor}%
-            }{%
-              \printnames[first-last]{author}%
-            }%
-          }{%
-            \ifnameundef{author}{%
-              \printnames[first-last-inits]{editor}%
-            }{%
-              \printnames[first-last-inits]{author}%
-}}}}}}}%
+    \iffootnote{\c@uniquename=0 \printnames{labelname}}{\printnames{labelname}}}}
 
-\newbibmacro*{cite:title}{%                           %%>> JF: neu, option kurztitel=true/false
-     \iffieldundef{shorttitle}{%                     %%>>
-  \printfield{title}%           %%--> LCB: damit wird nur der title ohne subtitle ausgelesen
-     %  \usebibmacro{title}%                           %%>>
-      }{\printfield{shorttitle}}}%                    %%>>
+\newbibmacro*{cite:title}{\printfield{labeltitle}}%  
 
 
-\newbibmacro*{fnverweis}{%
-  \ifbool{cbx:fnverweise}{%
-    \setunit{\addspace}%
-    \printtext[parens]{a\adddot\addspace O\adddot\addspace%		%LCB: DAI-Anpassung
-                \ref{footref:\thefield{entrykey}}}}%
-}%
-
-\newbibmacro*{cite:year}{%			%LCB: erledigt
-  \iffieldundef{labelyear}
+\newbibmacro*{cite:year}{%            
+  \iffieldundef{labelyear}%
     {}%
-    {\ifbool{cbx:jahrinklammern}%
-       {\printtext[bibhyperref]{\printtext[parens]{\printfield{labelyear}\printfield{extrayear}}}}%
-       {\printtext[bibhyperref]{\printfield{labelyear}\printfield{extrayear}}}%
-}}
+    {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
 
 
 
-\newbibmacro*{shorthand+year}{%
-\printtext[brackets]{\printfield{shorthand}%
- \setunit{\addspace}%
- {\ifbool{cbx:jahrinklammern}%
-       {\printtext[]{\printtext[parens]{\printfield{labelyear}\printfield{extrayear}}}}%
-       {\printtext[]{\printfield{labelyear}\printfield{extrayear}}}%
-       }%
-}}
-  
-  
-\newbibmacro*{lexikon}{%
-  \ifbool{bbx:lexika}{%
-  \printfield{maintitle}\addspace\printfield{volume}%
-  				\addspace\printfield[parens]{year}%
-  				\addspace%
+
+
+ 
+\newbibmacro*{cite:lexikon}{%
+  				\printfield{booktitle}%
+  				\setunit{\addspace}%
+  				\printfield{volume}%
+  				 \setunit{\addspace}%
+  				\printfield[parens]{year}%
+  				\setunit{\addspace}%
   							\iffieldundef{postnote}{\printfield{pages}}{\printfield{postnote}}%
-  				\addspace\printtext{s\adddot\addnbthinspace v\adddot}%
-  				\addspace\printfield{title}%
-  				\addspace\printtext[parens]{\printnames[first-last-inits]{author}}%
-  }{\printnames[cite:author]{labelname}%              %
-           \setunit{\addspace}\usebibmacro{cite:year}%
-%           {\newunitpunct%
-%              \usebibmacro{cite:title}%
-%                 \ifbool{cbx:mitjahr}%
-%                    {\setunit{\addspace}%
-%                    \usebibmacro{cite:year}}{}}%
-            }%
+  				  		\iffieldundef{title}{}{\setunit{\addspace}\printtext{s\adddot\addnbthinspace v\adddot}}%
+  				\setunit{\addspace}\printfield{title}%
+  				 \iffieldundef{number}{}{\setunit{\addspace}\printtext[brackets]{\printfield{number}}}%
+  				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
 }
 
-\newbibmacro*{cite}{%
-  \ifboolexpr{bool{cbx:antik} or bool {cbx:frgantik}}%
-  {\bibhyperref{\printfield{shorthand}\setunit{\adddot\addspace}}}%
-  {\ifboolexpr{bool {cbx:nurshorthand} or bool {cbx:unbekannt} or bool {cbx:lexikon}}%
-    {%      
-      \ifbool{cbx:nurshorthand}{\bibhyperref{\printfield{shorthand}}}{}%
-       \ifbool{cbx:unbekannt}{\bibhyperref{\usebibmacro{shorthand+year}}}{}%     
-       \ifbool{cbx:lexikon}{\bibhyperref{\usebibmacro{lexikon}}}{}}
-       %
-     {\bibhyperref{\printnames[cite:author]{labelname}%              %%>> JF: zuvor, \usebibmacro{cite:name}%
-           \setunit{\addspace}\usebibmacro{cite:year}%
-%           {\newunitpunct%
-%              \usebibmacro{cite:title}%
-%                 \ifbool{cbx:mitjahr}%
-%                    {\setunit{\addspace}%
-%                    \usebibmacro{cite:year}}{}}%
-            }}%
-         }%
-      }%
-%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%% Cite Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newbibmacro{cite}{%
+	\ifboolexpr{%
+		 test {\ifbool{bbx:inreferences}}%
+		 and %
+		 test	{\ifentrytype{inreference}}%
+		 }%
+{\usebibmacro{cite:lexikon}}%
+      {\printtext[bibhyperref]{\iffieldundef{shorthand}%
+        {\ifnameundef{labelname}%
+           {\usebibmacro{cite:label}%
+            \setunit{\labelyeardelim}}%
+           {\printnames{labelname}%
+            \setunit{\nameyeardelim}}%
+         \usebibmacro{cite:year}}%
+        {\usebibmacro{cite:shorthand}}}}%
+}
 
+
+\newbibmacro*{citeyear}{%
+  \iffieldundef{shorthand}
+    {\iffieldundef{labelyear}
+       {\usebibmacro{cite:label}}
+       {\usebibmacro{cite:labelyear+extrayear}}}
+    {\usebibmacro{cite}}}
+
+\newbibmacro*{textcite}{%aus authoryear
+  \ifnameundef{labelname}
+    {\iffieldundef{shorthand}
+       {\usebibmacro{cite:label}%
+        \setunit{%
+          \global\booltrue{cbx:yearinparens}%
+          \nonameyeardelim\bibopenparen}%
+        \ifnumequal{\value{citecount}}{1}
+          {\usebibmacro{prenote}}
+          {}%
+        \usebibmacro{cite:labelyear+extrayear}}
+       {\usebibmacro{cite}}}
+    {\printnames{labelname}%
+     \setunit{%
+       \global\booltrue{cbx:yearinparens}%
+       \nameyeardelim\bibopenparen}%
+     \ifnumequal{\value{citecount}}{1}
+       {\usebibmacro{prenote}}
+       {}%
+     \usebibmacro{citeyear}}}
+
+\newbibmacro*{cite:shorthand}{%
+  \printtext[bibhyperref]{\printfield{shorthand}}}
+
+\newbibmacro*{cite:label}{%
+  \iffieldundef{label}
+    {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}
+    {\printtext[bibhyperref]{\printfield{label}}}}
+
+\newbibmacro*{cite:labelyear+extrayear}{%
+  \iffieldundef{labelyear}%
+    {}%
+    {\printtext[bibhyperref]{%
+       \printfield{labelyear}%
+       \printfield{extrayear}}}}
+
+\newbibmacro*{textcite:postnote}{%
+  \ifboolexpr{bool {cbx:antik}%
+             	 or bool {cbx:frgantik}%
+			   	or bool {cbx:corpus}%
+              }%
+    {\setunit{\addspace}}%
+{}%
+  \iffieldundef{postnote}
+    {\ifbool{cbx:yearinparens}
+       {\bibcloseparen}
+       {}}
+    {\ifbool{cbx:yearinparens}
+       {\setunit{\postnotedelim}}
+       {\setunit{\extpostnotedelim\bibopenparen}}%
+     \printfield{postnote}%
+      \ifbool{cbx:frgantik}%
+       {\setunit{\addspace}%
+  \usebibmacro{cite:frgname}%
+  \bibcloseparen}%
+  \bibcloseparen}}
+
+
+
+%% Cite Commands %%%
 \DeclareCiteCommand{\cite}%              
   {\usebibmacro{prenote}}%
-  {\usebibmacro{citeindex}\usebibmacro{cite}}%
-  {\multicitedelim}%
-  {\usebibmacro{postnote}}%
-  
+{\usebibmacro{citeindex}%
+\usebibmacro{cite}}%
+{\multicitedelim}%
+{\ifboolexpr{%
+test{\ifbool{bbx:inreferences}}%
+and%
+test{\ifentrytype{inreference}}%
+}{}{\usebibmacro{postnote}}}%
+
+\DeclareCiteCommand{\textcite}%aus authoryear
+  {\boolfalse{cbx:yearinparens}}
+  {\usebibmacro{citeindex}%
+   \iffirstcitekey
+     {\setcounter{textcitetotal}{1}}
+     {\stepcounter{textcitetotal}%
+      \textcitedelim}%
+   \usebibmacro{textcite}}
+  {\ifbool{cbx:parens}
+     {\bibcloseparen\global\boolfalse{cbx:yearinparens}}
+     {}}
+  {\usebibmacro{textcite:postnote}}
+ 
+
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
-  {\usebibmacro{citeindex}\usebibmacro{cite}}%
+  {\usebibmacro{citeindex}%
+  \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\usebibmacro{postnote}}%
+  {\ifboolexpr{%
+  test{\ifbool{bbx:inreferences}}%
+  and%
+  test{\ifentrytype{inreference}}%
+  }{}{\usebibmacro{postnote}}}%
   
-
+  
+\DeclareMultiCiteCommand{\cites}%
+        {\cite}{\multicitedelim}
+\DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
+        {\parencite}{\multicitedelim}
+   \DeclareMultiCiteCommand{\textcites}%
+        {\textcite}{\addspace\bibstring{and}\space} 
+        
+        
+        
 \DeclareCiteCommand{\citeauthor}%
-  {\usebibmacro{prenote}}%
-  {\usebibmacro{cite:name}}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+     \addspace\bibstring{and}\space}%
+   \usebibmacro{prenote}}%
+  {\usebibmacro{cite:name}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 
-\DeclareCiteCommand{\citetitle} % Titel werden in kursiv gesetzt
+\DeclareCiteCommand{\citetitle} %
   {\boolfalse{citetracker}%
     \boolfalse{pagetracker}%
     \usebibmacro{prenote}}%
   {\printtext[bibhyperref]{%
-   \ifbool{cbx:antik}{\mkbibemph{\usebibmacro{cite:title}}}%%wenn antiker Titel, dann ohne (moderne) Jahreszahl
-      {\mkbibemph{\usebibmacro{cite:title}}% moderner Titel
-      			\addspace%
-      			\mkbibparens{\printfield{year}%
-      			\iffieldundef{origyear}{}{\addspace\mkbibparens{\printfield{origyear}}}%
-     									 }%
+   \ifbool{cbx:antik}{\printtext[emph]{\usebibmacro{cite:title}}}%
+      {\printtext[emph]{\usebibmacro{cite:title}}% 
+      			\setunit{\addspace}%
+      			\printtext[parens]{\printfield{year}%
+      			\iffieldundef{origyear}{}{\addspace\printfield[parens]{origyear}}%
+     	}%
     	}}}%
     {\multicitedelim}%
     {\usebibmacro{postnote}}%
-%
 \endinput
-%%
 %% End of file `archaeologie.cbx'.
