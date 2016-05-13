@@ -125,14 +125,9 @@ Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wur
  \end{multicols}
  \end{abstract}
 \section{Letzte Änderungen}
-Änderungen seit Version 1.4
+Änderungen seit Version 1.42
 \begin{itemize}
-\item Verbesserung der |\textcite|-Befehle
-\item Vereinheitlichung des Abstands zwischen Label und Bibliographieeintrag (s. \cref{width}).
-\item Optionales An- oder Abschalten der extra Bibliographie |archaeologie-abbrv.bib| (s. \cref{strings}).
-\item Anpassung an |biblatex 3.3|, was dazu führte, dass alle gängigen |\cite|-Befehle verwendet werden können.
-\item Umstellung der  Optionsnamen auf englische Bezeichnungen (s. \cref{preamble_options}).
-\item Hinzufügen der Paketoption |counter| (s. \cref{counter}).
+\item Hinzufügen des Bibliographieeintrags |@talk|
 \end{itemize}
 
 \changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
@@ -1685,6 +1680,43 @@ In der Bibiographie wird das zu:
  
  \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
 
+ \subsection{Typ \texttt{@talk}}\label{talk}
+ Mit dem neu definierten Eintragstyp |@talk| können Vorträge von Einzelkolloquien oder von Konferenzen zitiert werden.
+ Folgende Felder können benutzt werden: 
+ | author|,
+| title|,
+| subtitle|,
+| titleaddon|,
+| date|,
+| venue|,
+| institution|,
+| eventtitle|,
+| eventdate|,
+| url|,
+| urldate|,
+| note|.
+ 
+ 
+| @Talk{Bergmann,|\\
+| 	author      = {Bergmann, Birgit},|\\
+| 	title       = {\enquote{An exciting find}},|\\
+| 	date        = {2015-04-27},|\\
+| 	subtitle    = {Neues zum Forums-Fries der Praedia Iuliae Felicis},|\\
+| 	titleaddon  = {(Pompeii II, 4)},|\\
+| 	url         = {https://www.antikezentrum.hu-berlin.de/de/veranstaltungskalender/bibergmann},|\\
+| 	urldate     = {2016-05-14},|\\
+| 	eventtitle  = {Kolloquium der Klassischen Archäologie},|\\
+| 	institution = {Freie Universität Berlin},|\\
+| 	venue       = {Berlin},|\\
+| }|\\
+ 
+ Für die Bibliographie wird dies zu: 
+\begin{refsection}
+	\begin{bsp}
+		\nocite{Bergmann}
+		\printbibliography[title={Forschungsliteratur}]
+	\end{bsp}
+\end{refsection}
 
 \section{Verschiedenes}
 \subsection{Anonymes Werk}\label{unbekannt}

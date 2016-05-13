@@ -18,5 +18,21 @@
  % new translator etc.  fields for "inner" work, that is translator of title (not booktitle) in @in...
 \DeclareDatamodelFields[type=list,datatype=name]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
 \DeclareDatamodelEntryfields[inbook,incollection,inproceedings,inreference]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
+\DeclareDatamodelEntrytypes{talk}
+\DeclareDatamodelEntryfields[talk]{
+author,
+title,
+subtitle,
+titleaddon,
+date,
+venue,
+institution,
+eventtitle,
+eventdate,
+url,
+urldate,
+note,
+}
+
 
 \endinput

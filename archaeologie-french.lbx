@@ -15,23 +15,24 @@
                [2016/03/17 v1.42  archaeologie --%
                 biblatex fuer Archaeologen, Historiker und Philologen, lbx-Datei]
 \InheritBibliographyExtras{french}
-\DefineBibliographyExtras{french}{\restorecommand\mkbibnamelast}
+%\DefineBibliographyExtras{french}{\restorecommand\mkbibnamelast}%Grund?
 
 \NewBibliographyString{origtitle}
 \NewBibliographyString{firstprint}
 \NewBibliographyString{reviewof}
 \NewBibliographyString{reference}
 \NewBibliographyString{translationof}
+\NewBibliographyString{talk}
 
-
-%\DeclareBibliographyStrings{%
-%  inherit          = {english},
+\DeclareBibliographyStrings{%
+  inherit          = {french},
 %    translationof = {{Translation\addspace of}{Transl\adddot\addspace of}},
 %  reference = {{Article}{Art\adddot}},
-%  reviewof = {{critique\addspace du}{critique\addspace du}},
+  reviewof = {{critique\addspace du}{critique\addspace du}},
 %  origtitle = {{original title}{orig\adddot title}},
 %  firstprint = {{first\addspace edition}{first\addspace edition}},
-%}
+  talk = {{conférence}{conférence}},
+}
 
 
 
