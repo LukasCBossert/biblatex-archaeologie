@@ -22,7 +22,7 @@ ngerman
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
   \usepackage[T1,LGR]{fontenc}		% font types and character verification
-\usepackage{ebgaramond}
+\usepackage{libertine}
 	\usepackage{metalogo}
 	\usepackage{hologo}
  \usepackage{babel}
@@ -77,7 +77,7 @@ ngerman
 %	scshape,
 %	width=6em,
 %counter,
-ancient,
+%ancient,
 strings,
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
@@ -1858,13 +1858,11 @@ bzw. für die Reihen:
 
 \section{Antike Autoren und Werke}\label{ancient-list}
 Liste der antiken Autoren und Werke in der gesonderten Bibliographie |archaeologie-ancient.bib|.
-\begin{refsection}
-	\nocite{*}
-%\printbibliography[keyword=ancient]
-\printbibliography[keyword=ancient,
-heading=subbibnumbered,
-title={Antike Autoren und Werke}]
-\end{refsection}
+Sortierung folgt der abgekürzten Zitierweise, |bibtexkey| ist der gefettete Eintrag.
+
+\begin{multicols}{2}
+	\input{archaeologie-ancient.tex}
+\end{multicols}
 
 \section{Abkürzungen nach DAI-Richtlinie}\label{listen}
 
