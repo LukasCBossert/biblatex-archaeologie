@@ -62,6 +62,9 @@ maxbibnames=999,%
 \addbibresource{archaeologie-abbrv.bib}
 %\addbibresource{archaeologie-corpora.bib} 
 }
+\DeclareBibliographyOption{ancient}[true]{%
+\addbibresource{archaeologie-ancient.bib}
+}
 
 %% \DeclareBibliographyOption %%
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
@@ -629,7 +632,7 @@ maxbibnames=999,%
   \setunit*{\space}%
   \printfield{year}%
   \newunit%
-  }
+}
 
 \newbibmacro*{addendum}{}
 \renewbibmacro*{addendum+pubstate}{%
@@ -862,6 +865,32 @@ maxbibnames=999,%
     {}%
   \usebibmacro{savestuff}%
   \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{talk}{%		
+\usebibmacro{bibindex}%
+\usebibmacro{begentry}%%
+\usebibmacro{author/editor}
+\setunit*{\labelnamepunct}\newblock%
+\usebibmacro{title}%
+\newunit\newblock%
+\bibstring{talk}\addspace\printdate
+\newunit\newblock%
+ \printlist{institution}%
+\newunit\newblock%
+\usebibmacro{event+venue+date}% 
+\setunit{\addspace}%
+\usebibmacro{addendum}%
+\usebibmacro{doi+eprint+url}%
+\setunit{\addperiod\addspace}%
+\usebibmacro{signatur}%
+\newunit\newblock
+\iftoggle{bbx:related}
+{\usebibmacro{related:init}%
+\usebibmacro{related}}
+{}%
+\usebibmacro{savestuff}%
+\usebibmacro{finentry}%
 }
 
 \DeclareBibliographyDriver{inbook}{%	

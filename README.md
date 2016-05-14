@@ -1,43 +1,9 @@
-##########################
+####################################
 ##      bibLaTeX-archaeologie     ##
-#########################
-                              [2016/03/17 v1.42]
+####################################
+  
 
-
-archaeologie: biblatex fuer Archaeologen, 
-Historiker und Philologen 
-(Deutsch, Englisch, Italienisch und Französisch)
-
-Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
-
-Email: lukas@digitales-altertum.de
-
-Der Stil setzt die Zitations- und Bibliographievorgaben 
-des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. 
-Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild 
-jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
-
-********************************************
-This citation-style covers the citation and bibliography rules of 
-the German Archaeological Institute. 
-Various options are available to change and adjust 
-the outcome according to one’s own preferences.
-(German, English, Italian, French)
-********************************************
-
-
-Zum Stil gehören:
-- archaeologie.pdf
-- archaeologie.cbx
-- archaeologie.bbx
-- archaeologie.dbx
-- archaeologie-ngerman.lbx
-- archaeologie-english.lbx
-- archaeologie-french.lbx
-- archaeologie-italian.lbx
-- archaeologie-abbrv.bib
-- archaeologie-corpora.bib
-
+Testing branch for the implementation of the preamble-option "dai-footnote"
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
