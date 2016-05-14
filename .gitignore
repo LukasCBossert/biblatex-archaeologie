@@ -24,3 +24,11 @@
 *.thm
 
 *.toc
+
+*.ods#
+
+*.gz(busy)
+
+*.ods#
+
+.~lock.archaeologie-loeb.ods#
