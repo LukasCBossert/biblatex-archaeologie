@@ -23,6 +23,11 @@ ngerman
 \AtEndDocument{\PrintChanges}
   \usepackage[T1,LGR]{fontenc}		% font types and character verification
 \usepackage{libertine}
+%\renewcommand*\ttdefault{cmvtt}
+%\renewcommand*\ttdefault{txtt}
+\usepackage{inconsolata}
+
+
 	\usepackage{metalogo}
 	\usepackage{hologo}
  \usepackage{babel}
@@ -77,7 +82,7 @@ ngerman
 %	scshape,
 %	width=6em,
 %counter,
-%ancient,
+ancient,
 strings,
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
@@ -129,7 +134,8 @@ Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wur
 \section{Letzte Änderungen}
 Änderungen seit Version 1.42
 \begin{itemize}
-\item Hinzufügen des Bibliographieeintrags |@talk|
+\item Hinzufügen des Bibliographieeintrags |@talk| (\cref{talk})
+\item Hinzufügen einer extra Bibliographie für antike Autoren und Werke (\cref{ancient-list,ancient})
 \end{itemize}
 
 \changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
@@ -348,12 +354,41 @@ Es bietet sich an, ebenso antike Autoren und deren Werke über die entsprechende
 Dafür muss am Ende des Textes auch keine gesonderte Bibliographie antiker Autoren erfolgen, sodass diese nur im Fließtext referenziert sind.
 
 Da das Anlegen eines Bibliographieeintrags pro Autor und Werk sehr viel Arbeit ist und ggf. für jeden neuen Text wiederum erstellt oder kopiert werden muss, gibt es eine gesonderte Bibliographie (archaeologie-ancient.bib),
-die mit über 500 Einträge den Großteil antiker Autoren und deren Werke nach Zitierrichtlinie von Der Neue Pauly enthält.
+die mit knapp 600 Einträge den Großteil antiker Autoren und deren Werke nach der Zitierrichtlinie von Der Neue Pauly enthält.
 
 Mit der Option |ancient| wird die Bibliographie geladen.
 Deren Einträge mit den |bibtexkeys| kann unter \cref{ancient-list} eingesehen werden.
+\begin{refsection}
+Nun ist es möglich im Fließtext antike Autoren oder antike Werke zu zitieren.
+Zum Beispiel wird aus 
+|\cite[3,2,5--7]{Apul_met}| \cite[3,2,5--7]{Apul_met}.
+
+Da der Bibliographieeintrag wie folgt aussieht \\
+|@Book{Apul_met,|\\
+|	author ={Apuleius Madaurensis, Lucius},  |\\
+|	origtitle = {metamorphoses }, |\\
+|	shorthand = {Apul. met.}, |\\
+|	shortauthor = {Apuleius}, |\\
+|	keywords = {ancient}, |\\
+|	options = {antik}|\\
+|	}|\\
+
+wird in der Bibliographie daraus (sofern man es aufgelistet haben möchte):\\
+  	|\printbibliography[keyword = ancient,|\\
+  	|								|| title={Antike Autoren}]|
 
 
+  \begin{bsp}
+
+  	\nocite{Apul_met}
+  	\printbibliography[keyword = ancient,title={Antike Autoren}]
+  \end{bsp}
+
+
+Mit dem |bibtexkey| des antiken Autors, bzw. antiken Werks kann man auch die Namen oder das Werk im Fließtext zitieren:
+|\citeauthor{Apul_met}| --> 
+\citeauthor{Apul_met}
+\end{refsection}
 \subsubsection{dai-footnote}\label{dai-footnote}
  \DescribeMacro{dai-footnote}
  Diese Option ermöglicht in den Fußnoten die Angabe eines Rückverweises zur Erstnennung des zitierten Bibliographieeintrags.\\
