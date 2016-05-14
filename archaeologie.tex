@@ -77,12 +77,14 @@ ngerman
 %	scshape,
 %	width=6em,
 %counter,
+ancient,
 strings,
 	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
 
 
 \addbibresource{archaeologie.bib}
+%\addbibresource{archaeologie-ancient.bib}
 %\addbibresource{antike-corpora.bib} %Version 2.0
 \renewcommand\bibfont{\normalfont\small}
 
@@ -340,6 +342,16 @@ Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weite
  Möchte man die oben erwähnte Methode mit |@string| verwenden, muss in der Präambel die Option |strings| aktiviert sein.
  Damit wird die Bibliographie |archaeologie-abbrv.bib| geladen, in der die unter \cref{listen} aufgeführten Abkürzungen gespeichert sind.
 Verwendet man keine  |@string|-Einträge, muss nichts weiter gemacht werden.
+
+\subsubsection{ancient}\label{ancient}
+Es bietet sich an, ebenso antike Autoren und deren Werke über die entsprechenden |\cite|-Befehle anzusteuern, um Einheitlichkeit zu garantieren und gleichzeitig die Fehleranfälligkeit zu minimieren.
+Dafür muss am Ende des Textes auch keine gesonderte Bibliographie antiker Autoren erfolgen, sodass diese nur im Fließtext referenziert sind.
+
+Da das Anlegen eines Bibliographieeintrags pro Autor und Werk sehr viel Arbeit ist und ggf. für jeden neuen Text wiederum erstellt oder kopiert werden muss, gibt es eine gesonderte Bibliographie (archaeologie-ancient.bib),
+die mit über 500 Einträge den Großteil antiker Autoren und deren Werke nach Zitierrichtlinie von Der Neue Pauly enthält.
+
+Mit der Option |ancient| wird die Bibliographie geladen.
+Deren Einträge mit den |bibtexkeys| kann unter \cref{ancient-list} eingesehen werden.
 
 
 \subsubsection{dai-footnote}\label{dai-footnote}
@@ -1801,6 +1813,7 @@ Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturver
 \printbibliography[%
 		notkeyword=Quelle,%
 		notkeyword=Sigel,%
+		notkeyword=ancient,
            	heading=subbibnumbered,
             title={Forschungsliteratur}]
 \end{bsp}
@@ -1842,6 +1855,17 @@ bzw. für die Reihen:
 
 \end{refsection}
 \setcounter{section}{5}
+
+\section{Antike Autoren und Werke}\label{ancient-list}
+Liste der antiken Autoren und Werke in der gesonderten Bibliographie |archaeologie-ancient.bib|.
+\begin{refsection}
+	\nocite{*}
+%\printbibliography[keyword=ancient]
+\printbibliography[keyword=ancient,
+heading=subbibnumbered,
+title={Antike Autoren und Werke}]
+\end{refsection}
+
 \section{Abkürzungen nach DAI-Richtlinie}\label{listen}
 
 Da die Schreibweise von manchen Kürzeln der Zeitschriften oder Reihen nicht als |@string| übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
