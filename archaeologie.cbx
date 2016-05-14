@@ -24,12 +24,15 @@
 
 %%%%%%%% cbx %%%%%%%%%%
 \newbool{cbx:yearinparens}%jahrinklammern
+\newbool{cbx:seenote}%dai-footnote
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
 \DeclareBibliographyOption{yearinparens}[true]{%
   \ifstrequal{#1}{true}
     {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
     \csuse{bool#1}{cbx:yearinparens}}
     {\DeclareFieldFormat{citeyear}{##1}}}
+\DeclareBibliographyOption{seenote}[true]{\csuse{bool#1}%
+{cbx:seenote}}%
 
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareFieldFormat{prenote}{#1\isdot}%
@@ -84,6 +87,14 @@
            {\printnames[frg]{editor}}%
            {\printnames[frg]{shorteditor}}%
 }
+
+\newbibmacro*{seenote}{%
+\ifbool{cbx:seenote}{%
+\setunit{\addspace}%
+\bibstring{loccit}\addspace\printtext[parens]{\bibstring{note}\addspace%
+\ref{footref:\thefield{entrykey}}}}%
+}%
+
 
 \newbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
   \ifbool{cbx:fullnames}{\c@uniquename=2}{\ifbool{cbx:lastnames}{\c@uniquename=0}{\c@uniquename=1}}
