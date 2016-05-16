@@ -73,7 +73,7 @@ ngerman
 %	doi=false,
 %	url=false,
 %inreferences,
-seenote,
+%seenote,
 	%translation,
 	%bibfullname,
 	%noabbrevs,
@@ -402,11 +402,18 @@ Mit dem |bibtexkey| des antiken Autors, bzw. antiken Werks kann man auch die Nam
 Die Erstnennung erfolgt als Vollzitat, danach wird nur auf die Fußnote verwiesen.
 
 Es können die Befehle |\cite(s)|, |\parencite(s}| verwendet werden, |\textcite(s)| werden wie |\cite(s)| ausgegeben.
- \begin{refsection}
- \footnote{\cite{Ball_2013}}
- \footnote{\cite{Ball_2013}}
 
- \end{refsection}
+% \footnote{\cite{Ball_2013}}
+% \footnote{\cite{Ball_2013}}
+Erstnennung von |\footnote{\cite{Ball_2013}}|:
+ \begin{bsp}
+L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current  inking on the Pompeii Forum, 117/3, 2013, 461–492
+ \end{bsp}
+
+Folgenennung  von |\footnote{\cite[123]{Ball_2013}}|:
+ \begin{bsp}
+Ball – Dobbins a. O. (Anm. [Fußnotenummer Erstnennung]) 123
+ \end{bsp}
  \changes{v1.5}{2016/05/31}{Rückverweis}
 
 \subsubsection{translation}\label{translation}
