@@ -24,15 +24,20 @@
 
 %%%%%%%% cbx %%%%%%%%%%
 \newbool{cbx:yearinparens}%jahrinklammern
-\newbool{cbx:seenote}%dai-footnote
+\newbool{cbx:seenote}%dai-footnote 
+\newbool{cbx:seen}%dai-footnote
 %%%%%%%% \DeclareBibliographyOption %%%%%%%%%%
+
+
 \DeclareBibliographyOption{yearinparens}[true]{%
   \ifstrequal{#1}{true}
     {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
     \csuse{bool#1}{cbx:yearinparens}}
     {\DeclareFieldFormat{citeyear}{##1}}}
 \DeclareBibliographyOption{seenote}[true]{\csuse{bool#1}%
-{cbx:seenote}}%
+	{cbx:seenote} %
+	\ExecuteBibliographyOptions{maxnames=999}
+	}%
 
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareFieldFormat{prenote}{#1\isdot}%
@@ -61,7 +66,7 @@
       
 \renewcommand*{\multicitedelim}{\addsemicolon\addspace}%
 \newcommand*{\labelyeardelim}{\addspace}
-\renewcommand{\textcitedelim}{}
+\renewcommand{\textcitedelim}{\multicitedelim}
 \renewcommand{\postnotedelim}{
   \ifboolexpr{bool {cbx:antik}%
              	 or bool {cbx:frgantik}%
@@ -72,8 +77,9 @@
 }
 
 
+
 \renewbibmacro*{postnote}{%
-\iffieldundef{postnote}
+\iffieldundef{postnote}%
     {}%
     {\postnotedelim\printfield{postnote}%
      \ifbool{cbx:frgantik}%
@@ -89,15 +95,22 @@
 }
 
 \newbibmacro*{seenote}{%
-\ifbool{cbx:seenote}{%
+\ifnameundef{labelname}%
+           {\usebibmacro{cite:label}%
+            \setunit{\labelyeardelim}}%
+           {\printnames{labelname}%
+            \setunit{\nameyeardelim}}%
 \setunit{\addspace}%
-\bibstring{loccit}\addspace\printtext[parens]{\bibstring{note}\addspace%
-\ref{footref:\thefield{entrykey}}}}%
+\bibstring{loccit}\addspace%
+\printtext[parens]{\bibstring{seenote}\addspace%
+\ref{footref:\thefield{entrykey}}}%
+\renewcommand{\postnotedelim}{\addspace}%
 }%
 
 
+
 \newbibmacro*{cite:name}{%   % 0: only last names, 1: last name + first name initials, 2: full name
-  \ifbool{cbx:fullnames}{\c@uniquename=2}{\ifbool{cbx:lastnames}{\c@uniquename=0}{\c@uniquename=1}}
+  \ifbool{cbx:fullnames}{\c@uniquename=2}{\ifbool{cbx:lastnames}{\c@uniquename=0}{\c@uniquename=1}}%
   \ifciteindex{\indexnames{labelname}}{}%
   \printtext[bibhyperref]{%
     \iffootnote{\c@uniquename=0 \printnames{labelname}}{\printnames{labelname}}}}
@@ -109,10 +122,6 @@
   \iffieldundef{labelyear}%
     {}%
     {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
-
-
-
-
 
  
 \newbibmacro*{cite:lexikon}{%
@@ -129,6 +138,22 @@
   				\setunit{\addspace}\printtext[parens]{\c@uniquename=1 \printnames{labelname}}%
 }
 
+\newbibmacro{cite:seenote}{%
+\ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik} or bool {cbx:corpus}}%
+		{\usebibmacro{cite:shorthand}}{%
+  \ifciteseen{\usebibmacro{seenote}}{%
+  	\ifboolexpr{%
+  	test {\ifentrytype{book}}%
+  	or %
+  	 test {\ifentrytype{proceedings}}%
+  	or %
+  	test {\ifentrytype{inreference}}%
+  	}{\renewcommand{\postnotedelim}{\addspace}}{}%
+  \bibhypertarget{ref:\thefield{entrykey}}{%
+        \usedriver{}{\thefield{entrytype}}%
+         \iffootnote{\label{footref:\thefield{entrykey}}}%
+   }}}%
+}
 
 \newbibmacro{cite}{%
 	\ifboolexpr{%
@@ -136,48 +161,55 @@
 		 and %
 		 test	{\ifentrytype{inreference}}%
 		 }%
-{\usebibmacro{cite:lexikon}}%
+{\usebibmacro{cite:lexikon}}{%
+\ifbool{cbx:seenote}{\usebibmacro{cite:seenote}}{%
       {\printtext[bibhyperref]{\iffieldundef{shorthand}%
         {\ifnameundef{labelname}%
            {\usebibmacro{cite:label}%
             \setunit{\labelyeardelim}}%
            {\printnames{labelname}%
             \setunit{\nameyeardelim}}%
-         \usebibmacro{cite:year}}%
+        \usebibmacro{cite:year}}%
         {\usebibmacro{cite:shorthand}}}}%
+       }%
+    }%
+  \ifciteseen{\global\booltrue{cbx:seen}}%
+                  {\global\boolfalse{cbx:seen}}%
+  \usebibmacro{savestuff}
 }
 
 
 \newbibmacro*{citeyear}{%
-  \iffieldundef{shorthand}
-    {\iffieldundef{labelyear}
-       {\usebibmacro{cite:label}}
-       {\usebibmacro{cite:labelyear+extrayear}}}
+  \iffieldundef{shorthand}%
+    {\iffieldundef{labelyear}%
+       {\usebibmacro{cite:label}}%
+       {\usebibmacro{cite:labelyear+extrayear}}}%
     {\usebibmacro{cite}}}
 
 \newbibmacro*{textcite}{%aus authoryear
-  \ifnameundef{labelname}
-    {\iffieldundef{shorthand}
+  \ifnameundef{labelname}%
+    {\iffieldundef{shorthand}%
        {\usebibmacro{cite:label}%
         \setunit{%
           \global\booltrue{cbx:yearinparens}%
           \nonameyeardelim\bibopenparen}%
-        \ifnumequal{\value{citecount}}{1}
-          {\usebibmacro{prenote}}
+        \ifnumequal{\value{citecount}}{1}%
+          {\usebibmacro{prenote}}%
           {}%
-        \usebibmacro{cite:labelyear+extrayear}}
-       {\usebibmacro{cite}}}
+        \usebibmacro{cite:labelyear+extrayear}}%
+       {\usebibmacro{cite}}}%
     {\printnames{labelname}%
      \setunit{%
        \global\booltrue{cbx:yearinparens}%
        \nameyeardelim\bibopenparen}%
-     \ifnumequal{\value{citecount}}{1}
-       {\usebibmacro{prenote}}
+     \ifnumequal{\value{citecount}}{1}%
+       {%\usebibmacro{prenote}
+       }%
        {}%
      \usebibmacro{citeyear}}}
 
 \newbibmacro*{cite:shorthand}{%
-  \printtext[bibhyperref]{\printfield{shorthand}}}
+  \ifbool{cbx:seenote}{\printfield{shorthand}}{\printtext[bibhyperref]{\printfield{shorthand}}}}
 
 \newbibmacro*{cite:label}{%
   \iffieldundef{label}
@@ -194,16 +226,15 @@
 \newbibmacro*{textcite:postnote}{%
   \ifboolexpr{bool {cbx:antik}%
              	 or bool {cbx:frgantik}%
-			   	or bool {cbx:corpus}%
-              }%
-    {\setunit{\addspace}}%
+			   	or bool {cbx:corpus}}%
+              {\setunit{\addspace}}%
 {}%
-  \iffieldundef{postnote}
-    {\ifbool{cbx:yearinparens}
-       {\bibcloseparen}
-       {}}
-    {\ifbool{cbx:yearinparens}
-       {\setunit{\postnotedelim}}
+  \iffieldundef{postnote}%
+    {\ifbool{cbx:yearinparens}%
+       {\bibcloseparen}%
+       {}}%
+    {\ifbool{cbx:yearinparens}%
+       {\setunit{\postnotedelim}}%
        {\setunit{\extpostnotedelim\bibopenparen}}%
      \printfield{postnote}%
       \ifbool{cbx:frgantik}%
@@ -227,17 +258,19 @@ test{\ifentrytype{inreference}}%
 }{}{\usebibmacro{postnote}}}%
 
 \DeclareCiteCommand{\textcite}%aus authoryear
-  {\boolfalse{cbx:yearinparens}}
+  {\boolfalse{cbx:yearinparens}%
+  \usebibmacro{prenote}%
+  }%
   {\usebibmacro{citeindex}%
-   \iffirstcitekey
-     {\setcounter{textcitetotal}{1}}
+   \iffirstcitekey%
+     {\setcounter{textcitetotal}{1}}%
      {\stepcounter{textcitetotal}%
       \textcitedelim}%
-   \usebibmacro{textcite}}
-  {\ifbool{cbx:parens}
-     {\bibcloseparen\global\boolfalse{cbx:yearinparens}}
-     {}}
-  {\usebibmacro{textcite:postnote}}
+   \ifbool{cbx:seenote}{\usebibmacro{cite:seenote}}{\usebibmacro{textcite}}}%
+  {\ifbool{cbx:parens}%
+     {\bibcloseparen\global\boolfalse{cbx:yearinparens}}%
+     {}}%
+  {\ifbool{cbx:seenote}{\usebibmacro{postnote}}{\usebibmacro{textcite:postnote}}}
  
 
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
@@ -257,7 +290,7 @@ test{\ifentrytype{inreference}}%
 \DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
         {\parencite}{\multicitedelim}
    \DeclareMultiCiteCommand{\textcites}%
-        {\textcite}{\addspace\bibstring{and}\space} 
+        {\textcite}{\textcitedelim} 
         
         
         
