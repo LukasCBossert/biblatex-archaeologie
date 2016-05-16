@@ -22,10 +22,13 @@ ngerman
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
   \usepackage[T1,LGR]{fontenc}		% font types and character verification
+%  \renewcommand*\ttdefault{lcmtt}
 \usepackage{libertine}
 %\renewcommand*\ttdefault{cmvtt}
 %\renewcommand*\ttdefault{txtt}
-\usepackage{inconsolata}
+%\usepackage{inconsolata}
+\renewcommand*\ttdefault{lmvtt}
+
 
 
 	\usepackage{metalogo}
@@ -70,6 +73,7 @@ ngerman
 %	doi=false,
 %	url=false,
 %inreferences,
+seenote,
 	%translation,
 	%bibfullname,
 	%noabbrevs,
@@ -96,7 +100,7 @@ strings,
 
 
 \usepackage{listings}
-\lstMakeShortInline[basicstyle=\small\ttfamily]{|}
+\lstMakeShortInline[basicstyle=\footnotesize\ttfamily\bfseries]{|}
 
 \hypersetup{  colorlinks   = true, %Colours links instead of ugly boxes
   urlcolor     =  blue, %Colour for external hyperlinks
@@ -350,6 +354,7 @@ Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weite
 Verwendet man keine  |@string|-Einträge, muss nichts weiter gemacht werden.
 
 \subsubsection{ancient}\label{ancient}
+ \DescribeMacro{ancient}
 Es bietet sich an, ebenso antike Autoren und deren Werke über die entsprechenden |\cite|-Befehle anzusteuern, um Einheitlichkeit zu garantieren und gleichzeitig die Fehleranfälligkeit zu minimieren.
 Dafür muss am Ende des Textes auch keine gesonderte Bibliographie antiker Autoren erfolgen, sodass diese nur im Fließtext referenziert sind.
 
@@ -379,21 +384,30 @@ wird in der Bibliographie daraus (sofern man es aufgelistet haben möchte):\\
 
 
   \begin{bsp}
-
   	\nocite{Apul_met}
   	\printbibliography[keyword = ancient,title={Antike Autoren}]
   \end{bsp}
 
 
 Mit dem |bibtexkey| des antiken Autors, bzw. antiken Werks kann man auch die Namen oder das Werk im Fließtext zitieren:
-|\citeauthor{Apul_met}| --> 
-\citeauthor{Apul_met}
+|\citeauthor{Apul_met} in \citetitle{Apul_met}| --> 
+\citeauthor{Apul_met} in \citetitle{Apul_met}
 \end{refsection}
-\subsubsection{dai-footnote}\label{dai-footnote}
- \DescribeMacro{dai-footnote}
- Diese Option ermöglicht in den Fußnoten die Angabe eines Rückverweises zur Erstnennung des zitierten Bibliographieeintrags.\\
-{\color{red} |#### Work in Progress #### Lauffähig in Version 2.0|}
- 
+ \changes{v1.5}{2016/05/31}{Extra Bibliographie}
+
+\subsubsection{seenote}\label{seenote}
+ \DescribeMacro{seenote}
+ Diese Option ermöglicht in den Fußnoten die Angabe eines Rückverweises zur Erstnennung des zitierten Bibliographieeintrags.
+
+Die Erstnennung erfolgt als Vollzitat, danach wird nur auf die Fußnote verwiesen.
+
+Es können die Befehle |\cite(s)|, |\parencite(s}| verwendet werden, |\textcite(s)| werden wie |\cite(s)| ausgegeben.
+ \begin{refsection}
+ \footnote{\cite{Ball_2013}}
+ \footnote{\cite{Ball_2013}}
+
+ \end{refsection}
+ \changes{v1.5}{2016/05/31}{Rückverweis}
 
 \subsubsection{translation}\label{translation}
 \DescribeMacro{translation}
@@ -1764,6 +1778,7 @@ In der Bibiographie wird das zu:
 		\printbibliography[title={Forschungsliteratur}]
 	\end{bsp}
 \end{refsection}
+ \changes{v1.5}{2016/05/31}{Rückverweis}
 
 \section{Verschiedenes}
 \subsection{Anonymes Werk}\label{unbekannt}
@@ -1898,6 +1913,7 @@ Sortierung folgt der abgekürzten Zitierweise, |bibtexkey| ist der gefettete Ein
 \begin{multicols}{2}
 	\input{archaeologie-ancient.tex}
 \end{multicols}
+ \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
 \section{Abkürzungen nach DAI-Richtlinie}\label{listen}
 
