@@ -48,7 +48,6 @@ ngerman
 \setlength{\parskip}{6pt plus 2pt minus 2pt}
 \setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
 \usepackage{changepage}
-
 \makeindex
    
 \newenvironment{bsp}{\begin{framed}\begin{small}
@@ -86,9 +85,8 @@ ngerman
 %	scshape,
 %	width=6em,
 %counter,
-ancient,
+%ancient,
 strings,
-	%%%%%%%%%%%%%%%%%%%%%%%
 ]{biblatex}
 
 
@@ -172,6 +170,11 @@ Im Folgenden sind   kurz die möglichen Optionen, mit denen der Stil |archaeolog
  \begin{description}
  \item[strings] Aktiviert die extra Bibliographiedatei |archaeologie-abbrv.bib|, mit der man Zeitschrifen oder Reihen mit entsprechenden Abkürzungen zitieren kann. s. \cref{strings}. 
  \item[edby] (zuvor |hrsgv|) Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. Siehe \cref{edby}.
+
+\item[seenote] Aktiviert die Möglichkeit in Fußnoten zunächst als Vollzitat, dann als Rückverweis auf die Erstnennung zu zitieren. \cref{seenote}
+
+\item[ancient] Damit wird eine separate Bibliographie geladen,
+in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. \cref{ancient}
 
 
 \item[yearseries] (zuvor |jahrreihe|) Die Reihe wird erst nach der Jahreszahl ausgegeben.  \cref{yearseries}.
@@ -368,17 +371,18 @@ Nun ist es möglich im Fließtext antike Autoren oder antike Werke zu zitieren.
 Zum Beispiel wird aus 
 |\cite[3,2,5--7]{Apul_met}| \cite[3,2,5--7]{Apul_met}.
 
-Da der Bibliographieeintrag wie folgt aussieht \\
+Der Bibliographieeintrag sie wie folgt aus:
+
 |@Book{Apul_met,|\\
-|	author ={Apuleius Madaurensis, Lucius},  |\\
-|	origtitle = {metamorphoses }, |\\
-|	shorthand = {Apul. met.}, |\\
-|	shortauthor = {Apuleius}, |\\
-|	keywords = {ancient}, |\\
-|	options = {antik}|\\
+|	author 			={Apuleius Madaurensis, Lucius},  |\\
+|	title 				= {metamorphoses}, |\\
+|	shorthand 	= {Apul. met.}, |\\
+|	shortauthor 	= {Apuleius}, |\\
+|	keywords 		= {ancient}, |\\
+|	options 		= {antik}|\\
 |	}|\\
 
-wird in der Bibliographie daraus (sofern man es aufgelistet haben möchte):\\
+Daraus wird in der Bibliographie (sofern man es aufgelistet haben möchte):\\
   	|\printbibliography[keyword = ancient,|\\
   	|								|| title={Antike Autoren}]|
 
@@ -1976,5 +1980,5 @@ Die Ausgabe erfolgt über die Option |noabbrevs|.
 \PrintChanges
 \PrintIndex
 
-
+\lstlistoflistings 
 \end{document}
