@@ -175,7 +175,7 @@
     }%
   \ifciteseen{\global\booltrue{cbx:seen}}%
                   {\global\boolfalse{cbx:seen}}%
-  \usebibmacro{savestuff}
+  \usebibmacro{savestuff}%
 }
 
 
@@ -203,7 +203,7 @@
        \global\booltrue{cbx:yearinparens}%
        \nameyeardelim\bibopenparen}%
      \ifnumequal{\value{citecount}}{1}%
-       {%\usebibmacro{prenote}
+       {%\usebibmacro{prenote}%
        }%
        {}%
      \usebibmacro{citeyear}}}
