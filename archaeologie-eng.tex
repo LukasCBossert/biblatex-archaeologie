@@ -205,41 +205,57 @@ For that please see the excellent documentation of  |biblatex|.
  \begin{description}
  \item[strings] 
  Aktiviert die extra Bibliographiedatei |archaeologie-abbrv.bib|, mit der man Zeitschrifen oder Reihen mit entsprechenden Abkürzungen zitieren kann. s. \cref{strings}. 
- \item[edby] (zuvor |hrsgv|) Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. Siehe \cref{edby}.
+
+ \item[edby] 
+  Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. Siehe \cref{edby}.
 
 \item[initials] 
-\item[seenote] Aktiviert die Möglichkeit in Fußnoten zunächst als Vollzitat, dann als Rückverweis auf die Erstnennung zu zitieren. \cref{seenote}
+\item[seenote] 
+Aktiviert die Möglichkeit in Fußnoten zunächst als Vollzitat, dann als Rückverweis auf die Erstnennung zu zitieren. \cref{seenote}
 
-\item[ancient] Damit wird eine separate Bibliographie geladen,
+\item[ancient] 
+Damit wird eine separate Bibliographie geladen,
 in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. \cref{ancient}
 
 
-\item[yearseries] (zuvor |jahrreihe|) Die Reihe wird erst nach der Jahreszahl ausgegeben.  \cref{yearseries}.
+\item[yearseries] 
+ Die Reihe wird erst nach der Jahreszahl ausgegeben.  \cref{yearseries}.
  
- \item[yearinparens] (zuvor |jahrinklammer|)  Die Jahreszahl wird in Klammern gesetzt.  \cref{yearinparens}.
+ \item[yearinparens]
+ Die Jahreszahl wird in Klammern gesetzt.  \cref{yearinparens}.
 
-\item[translation] (zuvor |uebersetzung|)  Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Bei Einträgen, die |options=antik| haben, ist dies Standard.  \cref{translation}. 
+\item[translation] 
+Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Bei Einträgen, die |options=antik| haben, ist dies Standard.  \cref{translation}. 
 
-\item[noabbrevs] (zuvor |keineabkuerzung|)  Die Abkürzungen von Zeitschriften und Serien (|shortjournal|\linebreak |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden.  \cref{noabbrevs}.
+\item[noabbrevs] 
+ Die Abkürzungen von Zeitschriften und Serien (|shortjournal|\linebreak |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden.  \cref{noabbrevs}.
 
-\item[publisher] (zuvor |verlag|)  Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe.  \cref{publisher}.
+\item[publisher] 
+ Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe.  \cref{publisher}.
 
-\item[bibfullname] (zuvor |bibvollername|)  Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie.  \cref{bibfullname}.
+\item[bibfullname] 
+Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie.  \cref{bibfullname}.
 
-\item[inreferences] (zuvor |lexika|)  Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{inreferences}.
+\item[inreferences] 
+Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{inreferences}.
 
-\item[lastnames] (zuvor |nurnachname|)  Schreibt die Autoren/-Herausgeber, die über  |citeauthor|\-\marg{key}  im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten).  \cref{lastnames}.
+\item[lastnames] 
+Schreibt die Autoren/-Herausgeber, die über  |citeauthor|\-\marg{key}  im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten).  \cref{lastnames}.
 
-\item[fullnames] (zuvor |vollername|)  Schreibt die Autoren/-Herausgeber, die über |citeauthor|\-\marg{key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  \cref{fullnames}.
+\item[fullnames] 
+Schreibt die Autoren/-Herausgeber, die über |citeauthor|\-\marg{key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  \cref{fullnames}.
 
 
-\item[scshape] (zuvor |kapitaelchen|)  Die Namen in den Fußnoten werden in Kapitälchen gesetzt \cref{scshape}, ausgenommen sind Werke unbekannter Herkunft (\cref{unbekannt}) und Werke antiker Autoren (\cref{antik,frgantik}).
+\item[scshape] 
+Die Namen in den Fußnoten werden in Kapitälchen gesetzt \cref{scshape}, ausgenommen sind Werke unbekannter Herkunft (\cref{unbekannt}) und Werke antiker Autoren (\cref{antik,frgantik}).
 
 
-\item[width] (zuvor |abstand|)  Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
+\item[width]
+Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
 \cref{width}.
 
-\item[counter] Angabe über die Anzahl an Zitationen des Werks im Text. \cref{counter}.
+\item[counter] 
+Angabe über die Anzahl an Zitationen des Werks im Text. \cref{counter}.
 \end{description}
 
 
@@ -247,10 +263,15 @@ in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text z
  Zusätzlich kann ein einzelner Eintrag durch folgende Werte in seinem |options|-Feld manipuliert werden. Siehe dazu auch \cref{optionen-literatur} und \cref{beispiele}. 
 
  \begin{description}
- \item[antik] Zeichnet den Eintrag als antike Quelle aus. Siehe \cref{antik}.
+ \item[antik] 
+ Zeichnet den Eintrag als antike Quelle aus. Siehe \cref{antik}.
 % \item[frg] Zeichnet den Eintrag als Fragment aus. Siehe \cref{frg}.
- \item[frgantik] Zeichnet den Eintrag als antikes Fragment aus. Siehe \cref{frgantik}.
- \item[corpus] Nur das |shorthand|-Feld wird beim Folgezitat ausgegeben. Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). Siehe \cref{corpus}.
+
+ \item[frgantik] Z
+ eichnet den Eintrag als antikes Fragment aus. Siehe \cref{frgantik}.
+
+ \item[corpus] 
+ Nur das |shorthand|-Feld wird beim Folgezitat ausgegeben. Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). Siehe \cref{corpus}.
 % \item[lexikon] Zeichnet den Eintrag als ein zitierfähiges Lexikon aus, das über den abgekürzten Haupttitel zitiert wird (RE, DNP, LTUR, LIMC, etc.). Siehe \cref{lexikon}.
  %\item[unbekannt] Zeichnet den Eintrag als anonymes Werk aus, sodass nach dem Feld |shorthand| zitiert wird. Siehe \cref{unbekannt}.
  \end{description}
