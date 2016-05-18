@@ -15,8 +15,8 @@
 greek,
 french,
 italian, %ngerman,
-english,
-ngerman
+ngerman,
+english
 ]{ltxdoc}
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
@@ -28,42 +28,6 @@ ngerman
 %\renewcommand*\ttdefault{txtt}
 %\usepackage{inconsolata}
 \renewcommand*\ttdefault{lmvtt}
-
-
-
-	\usepackage{metalogo}
-	\usepackage{hologo}
- \usepackage{babel}
-\usepackage{coolthms}
-\usepackage[					% advanced quotes
-	strict=true,					% 	- warning are errors now
-	style=ngerman,					% 	- german quotes
-]{csquotes}
-\usepackage{multicol}
-\setlength{\columnsep}{1.5cm}
-\setlength{\columnseprule}{0.2pt}
-\usepackage{framed}
-\usepackage{enumitem}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 2pt}
-\setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
-\usepackage{changepage}
-\makeindex
-   
-\newenvironment{bsp}{\begin{framed}\begin{small}
-\begin{adjustwidth}{1cm}{1cm}}{\end{adjustwidth}
-\end{small}\end{framed}}
-
-
-\listfiles
-\EnableCrossrefs
-\CodelineIndex
-\RecordChanges
-
-
- \usepackage[disable]{todonotes} % notes not showed
- 
- 
 
 \usepackage[					% use  for bibliography
 	backend=biber,
@@ -88,12 +52,84 @@ ngerman
 %ancient,
 strings,
 ]{biblatex}
+\renewcommand\bibfont{\normalfont
+\footnotesize}
+
+
+\usepackage{marginnote}
+	\usepackage{metalogo}
+	\usepackage{hologo}
+ \usepackage{babel}
+\usepackage{coolthms}
+\usepackage[					% advanced quotes
+	strict=true,					% 	- warning are errors now
+	style=ngerman,					% 	- german quotes
+]{csquotes}
+\usepackage{multicol}
+\setlength{\columnsep}{1.5cm}
+\setlength{\columnseprule}{0.2pt}
+\usepackage{framed}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 2pt}
+\setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
+\usepackage{changepage}
+\makeindex
+   
+\newenvironment{bsp}{\begin{framed}\begin{small}
+\begin{adjustwidth}{1cm}{0cm}}{\end{adjustwidth}
+\end{small}\end{framed}}
+\defbibheading{empty}{}
+
+\newcommand{\printbib}[2][4em]{
+\begingroup
+\begin{bsp}
+\footnotesize
+\begin{refsection}
+\setlength{\labwidthsameline}{#1} 
+\nocite{#2}
+\printbibliography[heading=none]
+\end{refsection}
+\end{bsp}
+\endgroup
+}
+
+\newcommand{\printbiball}[2][4em]{
+\begingroup
+\setlength{\labwidthsameline}{#1} 
+
+\begin{bsp}
+\footnotesize%
+\begin{itemize}%[\bfseries]
+\begin{refsection}%
+\nocite{#2}%
+\item[English:]{\printbibliography[heading=none]}
+\item[German:]\foreignlanguage{ngerman}{\printbibliography[heading=none]}
+\item[Italian:]\foreignlanguage{italian}{\printbibliography[heading=none]}
+\item[French:]\foreignlanguage{french}{\printbibliography[heading=none]}
+\end{refsection}
+\end{itemize}%
+\end{bsp}
+
+\endgroup
+}
+
+
+\listfiles
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+
+ \usepackage[disable]{todonotes} % notes not showed
+ 
+ 
+
 
 
 \addbibresource{archaeologie.bib}
 %\addbibresource{archaeologie-ancient.bib}
 %\addbibresource{antike-corpora.bib} %Version 2.0
-\renewcommand\bibfont{\normalfont\small}
 
 
 
@@ -119,8 +155,8 @@ The development of the code is done at \url{https://github.com/LukasCBossert/bib
 Comments and critics are welcome. 
 We thank  ›moewew‹ und Herbert Voß for their big help on the code.
 } }
- \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
- \date{Version: 1.42 (2016-03-17)}
+\author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
+\date{Version: 1.42 (2016-03-17)}
  
  
  \maketitle
@@ -130,9 +166,9 @@ We thank  ›moewew‹ und Herbert Voß for their big help on the code.
 The style is compatible with the English, Italian and French languages, since all |bibstrings| used are defined in each language.}\columnbreak\\
 \noindent Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
 Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wurde ebenso für die Sprachen Englisch, Italienisch und Französisch angepasst.
-
  \end{multicols}
  \end{abstract}
+
 \section{Letzte Änderungen}
 Änderungen seit Version 1.42
 \begin{itemize}
@@ -298,7 +334,7 @@ wird dann OHNE Klammersetzung in die Felder (bspw. |journaltitle|) geschrieben.\
 
 Ein Beispiel zeigt den Umgang:
 
-|@article{Koyunlu_1990,|\\
+|@article{Koyunlu1990,|\\
 |author = {Koyunlu, A.},|\\
 |title = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},|\\
 |pages = {147--156},|\\
@@ -306,23 +342,23 @@ Ein Beispiel zeigt den Umgang:
 |year = {1990},|\\
 |journaltitle = AyasofyaMuezYil-lang,|\\
 |shortjournal = AyasofyaMuezYil-kurz|\\
-|}|\\
+|}|
 
-Dieser Artikel erschien in einer nicht geläufigen Zeitschrift, die zudem nach DAI-Vorgabe mit ›AyasofyaMüzYıl‹ abgekürzt werden soll.
-Um sich bei diesem Beispiel die Arbeit zu sparen den Buchstaben ›ı‹ manuell einzufügen, wird er im |@string| mit ›i‹ geschrieben (weitere Besonderheiten siehe \cref{listen}) und erscheint dann nach dem Kompilieren in der korrekten Schreibweise:
+Dieser Artikel erschien in einer nicht geläufigen Zeitschrift, 
+die zudem nach DAI-Vorgabe mit ›AyasofyaMüzYıl‹ abgekürzt werden soll.
+Um sich bei diesem Beispiel die Arbeit zu sparen den Buchstaben ›ı‹ manuell einzufügen, 
+wird er im |@string| mit ›i‹ geschrieben (weitere Besonderheiten siehe \cref{listen}) 
+und erscheint dann nach dem Kompilieren in der korrekten Schreibweise:
+
+\printbib[6em]{Koyunlu1990}
 
 
-\begin{bsp}
-\begin{refsection}
-\nocite{Koyunlu_1990}
-\printbibliography[title={Forschungsliteratur}]
-\end{refsection}
-\end{bsp}
+
 
 
 Die standardmäßige Abkürzung kann optional ausgeschaltet werden.
 Verwendet man die Option |noabbrevs| (siehe \cref{noabbrevs}), dann ändert sich die Ausgabe entsprechend:
-\begin{bsp}\todo[noline]{manuelles Beispiel}
+\begin{bsp}
 A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
 %\fullcite{Koyunlu_1990}
 \end{bsp}
@@ -370,7 +406,7 @@ Deren Einträge mit den |bibtexkeys| kann unter \cref{ancient-list} eingesehen w
 Nun ist es möglich im Fließtext antike Autoren oder antike Werke zu zitieren.
 Zum Beispiel wird aus 
 |\cite[3,2,5--7]{Apul_met}| \cite[3,2,5--7]{Apul_met}.
-
+\end{refsection}
 Der Bibliographieeintrag sie wie folgt aus:
 
 |@Book{Apul_met,|\\
@@ -383,16 +419,16 @@ Der Bibliographieeintrag sie wie folgt aus:
 |	}|\\
 
 Daraus wird in der Bibliographie (sofern man es aufgelistet haben möchte):\\
-  	|\printbibliography[keyword = ancient,|\\
-  	|								|| title={Antike Autoren}]|
+  	|\printbibliography[keyword = ancient]|
 
 
-  \begin{bsp}
-  	\nocite{Apul_met}
-  	\printbibliography[keyword = ancient,title={Antike Autoren}]
-  \end{bsp}
+\printbib{Apul_met}
+%  \begin{bsp}
+%  	\nocite{Apul_met}
+%  	\printbibliography[keyword = ancient,title={Antike Autoren}]
+%  \end{bsp}
 
-
+\begin{refsection}
 Mit dem |bibtexkey| des antiken Autors, bzw. antiken Werks kann man auch die Namen oder das Werk im Fließtext zitieren:
 |\citeauthor{Apul_met} in \citetitle{Apul_met}| --> 
 \citeauthor{Apul_met} in \citetitle{Apul_met}
@@ -447,12 +483,15 @@ wird in der Bibliographie zunächst auf diese Weise umgesetzt:
 %%Henri Lefebvre, The Production of Space \textsuperscript{30}(Maien, MA 1991; Nachdr. Maien, MA 2011)
 %%\todo[noline]{dynamisches Beispiel}\fullcite{Lefebvre_2011}
 %\end{bsp}
- \begin{bsp}
-\begin{refsection}
-\nocite{Lefebvre_2011}
-\printbibliography[title={Forschungsliteratur}]
-\end{refsection}
-\end{bsp}
+
+\printbib[6em]{Lefebvre_2011}
+
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Lefebvre_2011}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
 
 
  mit der aktivierten Option |translation| wird daraus: 
@@ -529,11 +568,13 @@ Daraus wird dann:
 
 Verwendet man diese Option (|inreferences|), dann werden die als |@inreference| gekennzeichneten Einträge automatisch von der (End-)Bibliographie ausgeschlossen,  da sie bereits in den Fußnoten vollständig bibliographiert sind.
 Verwendet man die Option nicht, dann sieht  der Eintrag wie folgt aus:
-  \begin{bsp}
-\nocite{Nieddu_1995}
-\printbibliography[title={Forschungsliteratur}]
-\end{bsp}
- \end{refsection}
+  \end{refsection}
+
+\printbib[6em]{Nieddu_1995} 
+% \begin{bsp}
+%\nocite{Nieddu_1995}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{bsp}
  
  
 \subsubsection{yearseries}\label{yearseries}
@@ -560,12 +601,14 @@ Verwendet man die Option nicht, dann sieht  der Eintrag wie folgt aus:
  
  Ohne eine Option wird in der Bibliographie daraus:
 % \begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Mundt_2015}\end{bsp}
-  \begin{bsp}
-\begin{refsection}
-\nocite{Mundt_2015}
-\printbibliography[title={Forschungsliteratur}]
-\end{refsection}
-\end{bsp}
+
+\printbib[5em]{Mundt_2015}
+%  \begin{bsp}
+%\begin{refsection}
+%\nocite{Mundt_2015}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
  
  mit der aktivierten Option |yearseries| verändert sich die Reihenfolge:
  \begin{bsp}
@@ -617,12 +660,13 @@ Oder mit den Optionen |fullnames| (\cref{name:a}) und |lastnames| (\cref{name:b}
 
  \end{enumerate}
 \end{bsp}
-
-\begin{bsp}
-\nocite{Boehmer_1985}
-\printbibliography[title={Forschungsliteratur}]
-\end{bsp}
 \end{refsection}
+\printbib{Boehmer_1985}
+%\begin{bsp}
+%\nocite{Boehmer_1985}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{bsp}
+
 
 
 Werden allerdings mit |\citeauthor|, bzw. |\citetitle|  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag |options=antik| geschrieben werden), dann wird für den Autorenname das Feld |shortauthor| ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
@@ -655,13 +699,13 @@ wie folgt  Autor und  Buchttitel ausgelesen:
  \begin{bsp}
  \ldots\ \todo[noline]{dynamisches Beispiel}Auch \citeauthor{Quint_inst} nennt in \citetitle{Quint_inst} die notwendigen physischen Qualitäten eines Redners.\par
 \end{bsp}
-
-
-\begin{bsp}
-\nocite{Quint_inst}
-\printbibliography[title={Antike Quellen}]
-\end{bsp}
 \end{refsection}
+\printbib{Quint_inst}
+%\begin{bsp}
+%\nocite{Quint_inst}
+%\printbibliography[title={Antike Quellen}]
+%\end{bsp}
+%
 
 
 
@@ -711,12 +755,13 @@ Entsprechend in der Bibliographie:
 \DescribeMacro{bibfullname}
 Ausgabe des vollen Namens (soweit Vor- und Zuname ausgeschrieben wurden) in der Bibliographie.
 
-\begin{bsp}
-\begin{refsection}
-\nocite{Ball_2013}
-\printbibliography[title={Forschungsliteratur}]
-\end{refsection}
-\end{bsp}
+\printbib{Ball_2013}
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Ball_2013}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
 
 Mit aktivierter Option wird dies zu:
 
@@ -749,12 +794,13 @@ Ohne eine Zusätzliche Option wird der Eintrag in der Bibliographie wie folgt um
 %\begin{bsp}
 %\todo[noline]{dynamisches Beispiel}\fullcite{Ball_2013}
 %\end{bsp}
-\begin{bsp}
-\begin{refsection}
-\nocite{Ball_2013}
-\printbibliography[title={Forschungsliteratur}]
-\end{refsection}
-\end{bsp}
+\printbib{Ball_2013}
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Ball_2013}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
 
 
 Mit der aktivierten angesprochenen Funktion |noabbrevs| wird daraus:
@@ -780,17 +826,19 @@ Erstauflage wird in eckiger Klammer nach dem Erscheinungsjahr gesetzt.
 
  Ohne eine Option wird in der Bibliographie daraus:
 % \begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Emme_2013}\end{bsp}
- \begin{bsp}
-\begin{refsection}
-\nocite{Emme_2013}
-\printbibliography[title={Forschungsliteratur}]
-\end{refsection}
-\end{bsp}
+
+\printbib[5em]{Emme_2013}
+% \begin{bsp}
+%\begin{refsection}
+%\nocite{Emme_2013}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
  
  mit der aktivierten Option |publisher| verändert sich die Reihenfolge:
  \begin{bsp}
- \todo[noline]{manuelles Beispiel}
- B. Emme, Peristyl und Polis. Entwicklung und Funktionen öffentlicher griechischer Hofanlagen, Urban Spaces 1 (Berlin {\color{red} – New York: Walter de Gruyter} 2013)\end{bsp}
+ B. Emme, Peristyl und Polis. Entwicklung und Funktionen öffentlicher griechischer Hofanlagen, Urban Spaces 1 (Berlin {\color{red} – New York: Walter de Gruyter} 2013)
+ \end{bsp}
  
  
  
@@ -825,12 +873,14 @@ Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit ein
 
  Ohne eine Option wird in der Bibliographie daraus:
  %\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Wulf-Rheidt_2013}\end{bsp}
-  \begin{bsp}
-\begin{refsection}
-\nocite{Wulf-Rheidt_2013}
-\printbibliography[title={Forschungsliteratur}]
-\end{refsection}
-\end{bsp}
+ 
+ \printbib[7em]{Wulf-Rheidt_2013}
+% \begin{bsp}
+%\begin{refsection}
+%\nocite{Wulf-Rheidt_2013}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
  
  mit der aktivierten Option |edby| verändert sich die Reihenfolge:
  \begin{bsp} \todo[noline]{manuelles Beispiel}
@@ -845,7 +895,7 @@ Wünscht man einen anderen Abstand, dann kann dieser selbst gewählt werden:
 
 |width = XY|
 
-Dafür kann XY für jede Länge stehen (bspw. |3em|, |7pt| oder |4cm|).
+Dafür kann XY für jede Länge stehen (bspw. |3em|, |7pt| oder |4cm|), auch |-1em| ist möglich, womit der Einzug aufgehoben wird.
 
 \subsubsection{counter}\label{counter}
  \DescribeMacro{counter} 
@@ -957,12 +1007,10 @@ Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option |a
 \begin{bsp}
 \cite[1, 3,3]{Cic_Att}
 %Cic. Att. 1, 3,3
-\end{bsp}
+\end{bsp}\end{refsection}
 Dieses Feld |shorthand| wird für das Literaturverzeichnis verwendet, wo es als ›Schlüssel‹ auftaucht.: 
-\begin{bsp}
-\printbibliography[title={Antike Quellen}]
-\end{bsp}
-\end{refsection}
+\printbib{Cic_Att}
+
 
 
 
@@ -980,7 +1028,7 @@ Ein Beispiel verschafft Klarheit:
 |  Series = {Sammlung Tusculum},|\\
 |  Volume = {II},|\\
 |  Keywords = {Quelle},|\\
-|  Location = {München},|\\
+|  Location = Munich,|*\\
 |  Booktitle= {Die politischen Reden},|\\
 |  Options = {antik},|\\
 |  Origlanguage = {latin},|\\
@@ -990,13 +1038,16 @@ Ein Beispiel verschafft Klarheit:
 |  Shortauthor = {Cicero}|\\
 |}|\\
 
-
-\begin{bsp}
-\begin{refsection}
-\nocite{Cic_Sest}
-\printbibliography[title={Antike Quellen}]
-\end{refsection}
-\end{bsp}
+*With |@String{Munich = {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco}|\\
+|{\iflanguage{french}{Munich}{München}}}}}|
+\printbiball{Cic_Sest}
+%
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Cic_Sest}
+%\printbibliography[title={Antike Quellen}]
+%\end{refsection}
+%\end{bsp}
 
 
 %\subsubsection{frg}\label{frg}
@@ -1980,5 +2031,5 @@ Die Ausgabe erfolgt über die Option |noabbrevs|.
 \PrintChanges
 \PrintIndex
 
-\lstlistoflistings 
+
 \end{document}
