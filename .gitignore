@@ -32,3 +32,5 @@
 *.ods#
 
 .~lock.archaeologie-loeb.ods#
+
+*.pdf
