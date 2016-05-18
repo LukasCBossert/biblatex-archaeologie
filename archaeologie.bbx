@@ -769,7 +769,8 @@ maxbibnames=999,%
   \setunit*{\addspace}\newblock%
   \ifbool{bbx:yearseries}%
   			{\usebibmacro{series+number}}{}%
-  \usebibmacro{addendum}%
+  \newunit\newblock%
+  \usebibmacro{addendum+pubstate}%
 \usebibmacro{doi+eprint+url}%
   \setunit*{\addperiod\addspace}%
   \usebibmacro{signatur}%
@@ -793,6 +794,8 @@ maxbibnames=999,%
     \printtext[parens]{\printfield{type}%
     \setunit*{\addspace}%
   \usebibmacro{institution+location+date}}%
+     \newunit\newblock%
+  \usebibmacro{addendum+pubstate}%
   \usebibmacro{doi+eprint+url}%
   \setunit*{\addperiod\addspace}%
   \usebibmacro{signatur}%
@@ -820,7 +823,8 @@ maxbibnames=999,%
   \setunit*{\addspace}\newblock% 
   \ifbool{bbx:yearseries}{%
     \usebibmacro{series+number}}{}%
-  \usebibmacro{addendum}%
+    \newunit\newblock%
+  \usebibmacro{addendum+pubstate}%
   \usebibmacro{doi+eprint+url}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
@@ -853,8 +857,8 @@ maxbibnames=999,%
   \ifbool{bbx:yearseries}{%
     \usebibmacro{series+number}}{}%                   
   \usebibmacro{pages}%
-  \setunit{\addspace}%
-  \usebibmacro{addendum}%
+  \newunit\newblock%
+  \usebibmacro{addendum+pubstate}%
   \usebibmacro{doi+eprint+url}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
@@ -880,7 +884,8 @@ maxbibnames=999,%
 \newunit\newblock%
 \usebibmacro{event+venue+date}% 
 \setunit{\addspace}%
-\usebibmacro{addendum}%
+  \newunit\newblock%
+  \usebibmacro{addendum+pubstate}%
 \usebibmacro{doi+eprint+url}%
 \setunit{\addperiod\addspace}%
 \usebibmacro{signatur}%
@@ -914,8 +919,8 @@ maxbibnames=999,%
   \ifbool{bbx:yearseries}%
     {\usebibmacro{series+number}}{}%
   \usebibmacro{pages}%
-  \setunit{\addspace}%
-  \usebibmacro{addendum}%
+  \newunit\newblock%
+  \usebibmacro{addendum+pubstate}%
   \usebibmacro{doi+eprint+url}%
   \setunit{\addperiod\addspace}%
   \usebibmacro{signatur}%
