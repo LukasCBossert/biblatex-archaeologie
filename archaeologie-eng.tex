@@ -76,9 +76,9 @@ strings,
 \usepackage{changepage}
 \makeindex
    
-\newenvironment{bsp}{\begin{framed}\begin{small}
+\newenvironment{bsp}{\begin{framed}\begin{footnotesize}
 \begin{adjustwidth}{1cm}{0cm}}{\end{adjustwidth}
-\end{small}\end{framed}}
+\end{footnotesize}\end{framed}}
 \defbibheading{empty}{}
 
 \newcommand{\printbib}[2][4em]{
@@ -134,7 +134,34 @@ strings,
 
 
 \usepackage{listings}
-\lstMakeShortInline[basicstyle=\footnotesize\ttfamily\bfseries]{|}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+	language = TeX,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+\lstMakeShortInline[style=mystyle]{|}
 
 \hypersetup{  colorlinks   = true, %Colours links instead of ugly boxes
   urlcolor     =  blue, %Colour for external hyperlinks
@@ -355,17 +382,17 @@ Dieser |@string|
 wird dann OHNE Klammersetzung in die Felder (bspw. |journaltitle|) geschrieben.\footnote{Verwendet man bspw. das Programm JabRef in der Fensteransicht, dann muss \#|AyasofyaMuezYil|\# geschrieben werden. JabRef konvertiert dies intern zu einem |@string|.}
 
 Ein Beispiel zeigt den Umgang:
-
-|@article{Koyunlu1990,|\\
-|author = {Koyunlu, A.},|\\
-|title = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},|\\
-|pages = {147--156},|\\
-|volume = {11},|\\
-|year = {1990},|\\
-|journaltitle = AyasofyaMuezYil-lang,|\\
-|shortjournal = AyasofyaMuezYil-kurz|\\
-|}|
-
+\begin{lstlisting}
+@article{Koyunlu1990,
+	author = {Koyunlu, A.},
+	title = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
+	pages = {147--156},
+	volume = {11},
+	year = {1990},
+	journaltitle = AyasofyaMuezYil-lang,
+	shortjournal = AyasofyaMuezYil-kurz
+}
+\end{lstlisting}
 Dieser Artikel erschien in einer nicht geläufigen Zeitschrift, 
 die zudem nach DAI-Vorgabe mit ›AyasofyaMüzYıl‹ abgekürzt werden soll.
 Um sich bei diesem Beispiel die Arbeit zu sparen den Buchstaben ›ı‹ manuell einzufügen, 
