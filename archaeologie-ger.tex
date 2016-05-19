@@ -294,5 +294,83 @@ Dies wird über den Befehl\par
    \begin{syntax}|\citetitle|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax}ausgeführt. Weitere Informationen unter \cref{fullnames}.
    
 
+ \section{Bibliographie}\label{bibliographie}
+ \DescribeMacro{\printbibliography}
+Wie bei jedem Dokument mit im Text zitierten Werken bedarf es einer Stelle, an der diese auch aufgeschlüsselt werden: die Bibliographie. 
+Für Altertumswissenschaftler (und auch andere) ist es manchmal hilfreich verschiedene Bibliographien im Dokument zu haben, die unterschiedliche Arten von Werke beinhalten, bspw. ein Quellenverzeichnis, Abkürzungen und Forschungsliteratur. 
+Nachfolgend wird gezeigt, wie dies berwerkstelligt werden kann. 
+Zunächst sollten alle Quellen in der |bib|-Datei mit dem Feld
+ |keyword={Quelle},|
+ versehen werden. 
+Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  |heading=bibnumbered|, bzw. |heading=subbibnumbered| geladen werden.
 
+|\printbibheading[%|\\
+|            ||heading=bibnumbered,|\\
+|            ||title={Bibliographie}] %| \emph{Überschrift für Bibliographieumgebung}\\
+|\printbibliography[%|\\
+|            ||keyword=Quelle,|\\
+|            ||heading=subbibnumbered,%|\\
+|            ||title={Antike Quellen}]|\\
+|\printbibliography[%|\\
+|            ||notkeyword=Quelle,|\\
+|            ||notkeyword=Sigel,%|\\
+|            ||heading=subbibnumbered,%|\\
+|            ||title={Forschungsliteratur}]| 
+
+\begin{refsection}
+\nocite{*}
+
+Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis getrennt voneinander ausgegeben. 
+\setcounter{section}{0}
+\begin{bsp}
+\renewcommand\bibfont{\normalfont\footnotesize}
+\printbibheading[heading=bibnumbered,
+            title={Bibliographie}]
+\printbibliography[keyword=Quelle,
+            heading=subbibnumbered,
+            title={Antike Quellen}]
+\printbibliography[%
+		notkeyword=Quelle,%
+		notkeyword=Sigel,%
+		notkeyword=ancient,
+           	heading=subbibnumbered,
+            title={Forschungsliteratur}]
+\end{bsp}
+
+
+Es können mehrere Bibliographien über |\printbibliography| erstellt werden, die jeweils unterschiedliche Einträge haben können.
+Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln (Lexika, Handbücher, Inschriftencorpora, etc) aufgeführt werden, sodass diese dann aus der |Forschungsliteratur| herausfliegen (dort  |notkeyword=Sigel| ergänzen). Dafür wird das Feld |keyword| auf den Inhalt |Sigel| ausgelesen:
+
+|\printbibliography[keyword=Sigel,%|\\
+|            ||heading=subbibnumbered,%|\\
+|            ||title={Abkürzungen und Sigel}]|\\
+
+Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {Sigel}| stehen haben:
+\begin{bsp}
+\printbibliography[keyword={Sigel},
+           heading=subbibnumbered,
+            title={Abkürzungen und Sigel}]\label{bib:sigel}
+\end{bsp}
+
+Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.
+Dies geschieht  für die Zeitschriften mit:
+
+|\printbiblist[%|\\
+|            ||heading=subbibnumbered,%|\\
+|            ||title={Zeitschriftenabkürzungenl}]{shortjournal}|\\
+\begin{bsp}
+\printbiblist[heading=subbibnumbered,
+title={Zeitschriftenabkürzungen}]{shortjournal}
+\end{bsp}
+
+bzw. für die Reihen:
+
+|\printbiblist[%|\\
+|            ||heading=subbibnumbered,%|\\
+|            ||title={Reihenabkürzungen}]{shortseries}|\\
+
+\begin{bsp}
+\printbiblist[heading=subbibnumbered,title={Reihenabkürzungen}]{shortseries}\end{bsp}
+
+\end{refsection}
 \end{document}
