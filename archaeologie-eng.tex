@@ -56,7 +56,7 @@ strings,
 \footnotesize}
 
 
-\usepackage{marginnote}
+
 	\usepackage{metalogo}
 	\usepackage{hologo}
  \usepackage{babel}
@@ -77,7 +77,7 @@ strings,
 \makeindex
    
 \newenvironment{bsp}{\begin{framed}\begin{footnotesize}
-\begin{adjustwidth}{0cm}{0cm}}{\end{adjustwidth}
+\begin{adjustwidth}{.3cm}{.3cm}}{\end{adjustwidth}
 \end{footnotesize}\end{framed}}
 \defbibheading{empty}{}
 
@@ -97,7 +97,6 @@ strings,
 \newcommand{\printbiball}[2][4em]{
 \begingroup
 \setlength{\labwidthsameline}{#1} 
-
 \begin{bsp}
 \footnotesize%
 \begin{itemize}%[\bfseries]
@@ -110,7 +109,6 @@ strings,
 \end{refsection}
 \end{itemize}%
 \end{bsp}
-
 \endgroup
 }
 
@@ -234,7 +232,8 @@ Without any further options the style covers now the rules of the German Archaeo
 But you can change the outcome by using some options which are explained below.
 
 
-At the end of your document you can write the command |\printbibliography| to print  stehen, sodass  eine Bibliographie angelegt und ausgegeben wird. 
+At the end of your document you can write the command |\printbibliography| to print 
+the bibliography. 
 Since |archaeologie| supports different citations of various texts like from ancient authors and from modern scholars we suggest to have them listed in separted bibliographies. 
 Further information are found below   (\cref{bibliographie}).
 
@@ -245,77 +244,86 @@ For that please see the excellent documentation of  |biblatex|.
 
  \subsection{Options in the preamble}\label{preamble_options}
  \begin{description}
+ \item[seenote] 
+By default the style |archaeologie| follows the author-year-system. 
+With this option you can change it to a different outcome (but still according to the rules of the German Archaeological Institute) so the first citation will be a full citation and all the following citations will refer to the first full citation cf. \cref{seenote}
+
+
  \item[strings] 
- Aktiviert die extra Bibliographiedatei |archaeologie-abbrv.bib|, mit der man Zeitschrifen oder Reihen mit entsprechenden Abkürzungen zitieren kann. s. \cref{strings}. 
+ This activates the additional bibliography file  |archaeologie-abbrv.bib|.
+ With this bibliography one can cite journals and series according to the abbreviations of the German Archaeological Institute cf. \cref{strings}. 
 
- \item[edby] 
-  Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. Siehe \cref{edby}.
-
-\item[initials] 
-\item[seenote] 
-Aktiviert die Möglichkeit in Fußnoten zunächst als Vollzitat, dann als Rückverweis auf die Erstnennung zu zitieren. \cref{seenote}
 
 \item[ancient] 
 Damit wird eine separate Bibliographie geladen,
 in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. \cref{ancient}
 
 
+ \item[edby] 
+This activates a switch to have instead of  \enquote{ed.}/\enquote{Hrsg.} now  \enquote{ed. by}/\enquote{hrsg. v.} cf. \cref{edby}.
+
+\item[initials] 
+This option takes care of an automatically abreviation of first names keeping digraphs and trigraphs cf. \cref{initials}
+
+
 \item[yearseries] 
- Die Reihe wird erst nach der Jahreszahl ausgegeben.  \cref{yearseries}.
+This changes the order of series and year  cf. \cref{yearseries}.
  
  \item[yearinparens]
- Die Jahreszahl wird in Klammern gesetzt.  \cref{yearinparens}.
+ The year is shown in parens cf. \cref{yearinparens}.
 
 \item[translation] 
-Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Bei Einträgen, die |options=antik| haben, ist dies Standard.  \cref{translation}. 
+This shows in the bibliography the original title, the translator and the original language.
+If the bibliography entry is set with  |option={antik}| this behaviour is default cf. \cref{translation}. 
 
 \item[noabbrevs] 
- Die Abkürzungen von Zeitschriften und Serien (|shortjournal|\linebreak |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden.  \cref{noabbrevs}.
+By default the short titles of journals and series (|shortjournal| and |shortseries|) are shown  in the bibliography.
+With this option full name is shown instead (|journaltitle| and |series|) cf.  \cref{noabbrevs}.
 
 \item[publisher] 
- Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe.  \cref{publisher}.
+All the locations and the publisher is shown. This changes the format of the edition and the first print cf.  \cref{publisher}.
 
 \item[bibfullname] 
-Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie.  \cref{bibfullname}.
+In the bibliography the full names of the authors and/or editors are shown cf. \cref{bibfullname}.
 
 \item[inreferences] 
-Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Siehe \cref{inreferences}.
+Each bibliography entry wihich is a  |@inreference| is fully referenced according to the rules of the German Archaeological Institute cf. \cref{inreferences}.
 
 \item[lastnames] 
-Schreibt die Autoren/-Herausgeber, die über  |citeauthor|\-\marg{key}  im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten).  \cref{lastnames}.
+Writes only the family names of the authors or editors when theyare cited with  |citeauthor|\-\marg{bibtex-key}.
+In footnotes this is default cf.  \cref{lastnames}.
 
 \item[fullnames] 
-Schreibt die Autoren/-Herausgeber, die über |citeauthor|\-\marg{key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  \cref{fullnames}.
+Writes only the first and family names of the authors or editors when they are cited with  |citeauthor|\-\marg{bibtex-key} cf.  \cref{fullnames}.
 
 
 \item[scshape] 
-Die Namen in den Fußnoten werden in Kapitälchen gesetzt \cref{scshape}, ausgenommen sind Werke unbekannter Herkunft (\cref{unbekannt}) und Werke antiker Autoren (\cref{antik,frgantik}).
+Names in referenced citations are shown with small capital letters cf. \cref{scshape}.
+Bibliography entries with |option={antik}| or |option={frgantik}| (\cref{antik,frgantik}) are not touched by this option.
 
 
 \item[width]
-Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
-\cref{width}.
+The value of |width={value}| defines in the bibliography the width between the label and the reference cf. \cref{width}.
 
 \item[counter] 
-Angabe über die Anzahl an Zitationen des Werks im Text. \cref{counter}.
+This gives the sum of the citations in the text cf. \cref{counter}.
 \end{description}
 
 
  \subsection{Literaturoptionen (Bibliographieeintrag)}
- Zusätzlich kann ein einzelner Eintrag durch folgende Werte in seinem |options|-Feld manipuliert werden. Siehe dazu auch \cref{optionen-literatur} und \cref{beispiele}. 
+ Additionally a single bibliography entry can contain a value in the |options|-field.
+ This changes the behaviour of the entry when it is cited cf. \cref{optionen-literatur,beispiele}. 
 
  \begin{description}
  \item[antik] 
- Zeichnet den Eintrag als antike Quelle aus. Siehe \cref{antik}.
-% \item[frg] Zeichnet den Eintrag als Fragment aus. Siehe \cref{frg}.
+ The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{antik}.
 
- \item[frgantik] Z
- eichnet den Eintrag als antikes Fragment aus. Siehe \cref{frgantik}.
+ \item[frgantik] 
+ The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgantik}.
 
  \item[corpus] 
- Nur das |shorthand|-Feld wird beim Folgezitat ausgegeben. Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). Siehe \cref{corpus}.
-% \item[lexikon] Zeichnet den Eintrag als ein zitierfähiges Lexikon aus, das über den abgekürzten Haupttitel zitiert wird (RE, DNP, LTUR, LIMC, etc.). Siehe \cref{lexikon}.
- %\item[unbekannt] Zeichnet den Eintrag als anonymes Werk aus, sodass nach dem Feld |shorthand| zitiert wird. Siehe \cref{unbekannt}.
+ Only the  |shorthand|-field is printed.
+ This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.) cf. \cref{corpus}.
  \end{description}
 
  \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
@@ -1001,7 +1009,7 @@ Bei mehrmaligeb Zitationen ändert sich die Ausgabe entsprechend:
 \end{bsp}
  
  \subsubsection{initials}\label{initials}
-
+\footnote{\url{http://tex.stackexchange.com/a/295486/98739}}
 %%\subsubsection{miturl}\label{miturl}
 %%\DescribeMacro{miturl}
 %%Für Bibliographieeinträge die online sind (|@Online|) werden  die URLs/DOI immer mit angegeben.
