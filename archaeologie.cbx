@@ -67,7 +67,7 @@
 \renewcommand*{\multicitedelim}{\addsemicolon\addspace}%
 \newcommand*{\labelyeardelim}{\addspace}
 \renewcommand{\textcitedelim}{\multicitedelim}
-\renewcommand{\postnotedelim}{
+\renewcommand{\postnotedelim}{%
   \ifboolexpr{bool {cbx:antik}%
              	 or bool {cbx:frgantik}%
 			   	or bool {cbx:corpus}%
@@ -139,9 +139,11 @@
 }
 
 \newbibmacro{cite:seenote}{%
-\ifboolexpr{bool{cbx:antik} or bool{cbx:frgantik} or bool {cbx:corpus}}%
-		{\usebibmacro{cite:shorthand}}{%
-  \ifciteseen{\usebibmacro{seenote}}{%
+\ifboolexpr{bool{cbx:antik}%
+				or bool{cbx:frgantik}% 
+				or bool{cbx:corpus}}%
+		{\usebibmacro{cite:shorthand}}%
+		{\ifciteseen{\usebibmacro{seenote}}{%
   	\ifboolexpr{%
   	test {\ifentrytype{book}}%
   	or %
@@ -202,18 +204,16 @@
      \setunit{%
        \global\booltrue{cbx:yearinparens}%
        \nameyeardelim\bibopenparen}%
-     \ifnumequal{\value{citecount}}{1}%
-       {%\usebibmacro{prenote}%
-       }%
-       {}%
      \usebibmacro{citeyear}}}
 
 \newbibmacro*{cite:shorthand}{%
-  \ifbool{cbx:seenote}{\printfield{shorthand}}{\printtext[bibhyperref]{\printfield{shorthand}}}}
+  \ifbool{cbx:seenote}%
+  		{\printtext{\printfield{shorthand}}}%
+  		{\printtext[bibhyperref]{\printfield{shorthand}}}}
 
 \newbibmacro*{cite:label}{%
-  \iffieldundef{label}
-    {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}
+  \iffieldundef{label}%
+    {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}%
     {\printtext[bibhyperref]{\printfield{label}}}}
 
 \newbibmacro*{cite:labelyear+extrayear}{%
