@@ -51,7 +51,6 @@ strings,
 \footnotesize}
 
 
-\usepackage{marginnote}
 	\usepackage{metalogo}
 	\usepackage{hologo}
  \usepackage{babel}
@@ -70,10 +69,10 @@ strings,
 \setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
 \usepackage{changepage}
 \makeindex
-   
-\newenvironment{bsp}{\begin{framed}\begin{small}
-\begin{adjustwidth}{1cm}{0cm}}{\end{adjustwidth}
-\end{small}\end{framed}}
+    
+\newenvironment{bsp}{\begin{framed}\begin{footnotesize}
+\begin{adjustwidth}{0cm}{0cm}}{\end{adjustwidth}
+\end{footnotesize}\end{framed}}
 \defbibheading{empty}{}
 
 \newcommand{\printbib}[2][4em]{
@@ -92,7 +91,6 @@ strings,
 \newcommand{\printbiball}[2][4em]{
 \begingroup
 \setlength{\labwidthsameline}{#1} 
-
 \begin{bsp}
 \footnotesize%
 \begin{itemize}%[\bfseries]
@@ -105,7 +103,6 @@ strings,
 \end{refsection}
 \end{itemize}%
 \end{bsp}
-
 \endgroup
 }
 
@@ -129,7 +126,46 @@ strings,
 
 
 \usepackage{listings}
-\lstMakeShortInline[basicstyle=\footnotesize\ttfamily\bfseries]{|}
+ \definecolor{myblue}{RGB}{0,65,137}
+\definecolor{codegreen}{RGB}{147,193,26}
+
+%\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+	language=[LaTeX]TeX,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{myblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+	escapeinside={<@}{@>},
+    texcsstyle=*\color{myblue},
+    morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
+    						@article, @book,@inproceedings@,@proceedings,@talk,@reference,@inreference,@incollection,
+    						},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,            
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    literate=
+            *{\{}{{{\color{codegreen}{\{}}}}{1}
+            {\}}{{{\color{codegreen}{\}}}}}{1}
+            {[}{{{\color{codegreen}{[}}}}{1}
+            {]}{{{\color{codegreen}{]}}}}{1},
+}
+ 
+\lstset{style=mystyle}
+\lstMakeShortInline[style=mystyle]{|}
 
 \hypersetup{  colorlinks   = true, %Colours links instead of ugly boxes
   urlcolor     =  blue, %Colour for external hyperlinks
@@ -164,9 +200,11 @@ Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wur
 \section{Verwendung}
  \DescribeMacro{archaeologie}  Der Name des Stils ist |archaeologie| und wird an entsprechender Stelle geladen.
 
-\begin{syntax} |\usepackage[style=archaeologie,%|\\
- |            |\meta{weitere Optionen}|]{biblatex}|\\
- |\bibliography|\marg{|bib|-Datei}\end{syntax}
+\begin{lstlisting}
+\usepackage[style=archaeologie,%
+					<@\meta{further options}@>]{biblatex}
+\bibliography<@\marg{|bib|-Datei}@>
+\end{lstlisting}
  
 Dabei kann man weitere der \enquote{konventionellen} |biblatex|-Optionen oder der -- weiter unten beschriebenen -- von |archaeologie| zur Verfügung gestellten Optionen laden.
 
@@ -237,63 +275,81 @@ in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text z
 
  
 
-
  \subsection{cite-Befehle}\label{cite-befehle}
  \DescribeMacro{\cite}
-Die einfachste Weise zum Zitieren wird mit |\cite| bewerkstelligt:\par
- \begin{syntax}|\cite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax}
- wobei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \meta{postnote} für gewöhnlich die Seitenzahl. Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:\par
- \begin{syntax}|\cite|\oarg{postnote}\marg{Schlüssel}\end{syntax}
- \meta{Schlüssel} ist dabei in jedem Fall der Schlüssel des Eintrags aus der |bib|-Datei.
+Die einfachste Weise zum Zitieren wird mit |\cite| bewerkstelligt:
+\begin{lstlisting}
+\cite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting}
+
+Dabei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \meta{postnote} für gewöhnlich die Seitenzahl. Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:\par
+\begin{lstlisting}
+\cite<@\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting}
+
+% \begin{syntax}|\cite|\oarg{postnote}\marg{Schlüssel}\end{syntax}
+ \meta{bibtex-key} ist dabei in jedem Fall der Schlüssel des Eintrags aus der |bib|-Datei.
 
  \DescribeMacro{\cites}
  Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der |\cites|-Befehl:\par
- \begin{syntax}\noindent|\cites|(pre-prenote)(post-postnote)\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\
- 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\%
- 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\ldots
- 				\end{syntax}
+\begin{lstlisting}
+\cites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\end{lstlisting}
+ 
+
 \begin{center} * * * \end{center}
  
  \DescribeMacro{\parencite}
- Möchte man Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies mittels\par
-   \begin{syntax}|\parencite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax} zu tun.
+ Möchte man Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies mittels
+\begin{lstlisting}
+\parencite<@\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting} 
+ zu tun.
  Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
  Dies ist vor allem bei Lexikaeinträgen der Fall, wie das Beispiel unter \cref{inreference} zeigt.
 
  \DescribeMacro{\parencites}
- Möchte man mehrere Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies mittels\par
- \begin{syntax}\noindent|\parencites|(pre-prenote)(post-postnote)\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\
- 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\%
- 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\ldots
- 				\end{syntax} zu tun.
+ Möchte man mehrere Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies mittels
+ \begin{lstlisting}
+\parencites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\end{lstlisting}
  Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
  Dies ist vor allem bei Lexikaeinträgen der Fall, wie das Beispiel unter \cref{inreference} zeigt.
  \begin{center} * * * \end{center}
  
  \DescribeMacro{\textcite}
-Zu den bisher aufgeführten |\cite|-Befehlen gibt es zusätzlich die Möglichkeit einen Eintrag bspw. im Fließtext mit |\textcite|  zu zitieren: \par
- \begin{syntax}\noindent|\textcite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}
- 				\end{syntax} 
+Zu den bisher aufgeführten |\cite|-Befehlen gibt es zusätzlich die Möglichkeit einen Eintrag bspw. im Fließtext mit |\textcite|  zu zitieren: 
+\begin{lstlisting}
+\textcite<@\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting} 
 
 \DescribeMacro{\textcites}
-Wiederum gibt es die Möglichkeit mehrere Werke mit |\textcites| anzugeben: \par
- \begin{syntax}\noindent|\textcites|(pre-prenote)(post-postnote)\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\\%
- \indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\%\\%
- 				\indent\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\ldots
- 				\end{syntax} 
-
-
-
+Wiederum gibt es die Möglichkeit mehrere Werke mit |\textcites| anzugeben: 
+  \begin{lstlisting}
+\textcites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\end{lstlisting}
 
 \begin{center} * * * \end{center}
  \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}
 Zum ›normalen‹ |\cite|-Befehl kann man im Fließtext und in den Anmerkungen auf den Autor/Herausgeber und das Werk verweisen.
-Dies wird über den Befehl\par
-  \begin{syntax}|\citeauthor|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax} \par 
-  und \par 
-   \begin{syntax}|\citetitle|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}\end{syntax}ausgeführt. Weitere Informationen unter \cref{fullnames}.
+Dies wird über den Befehl
+\begin{lstlisting}
+\citeauthor<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting} 
+  und 
+\begin{lstlisting}
+\citetitle<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting} 
+ausgeführt. Weitere Informationen unter \cref{fullnames}.
    
 
+   
  \section{Bibliographie}\label{bibliographie}
  \DescribeMacro{\printbibliography}
 Wie bei jedem Dokument mit im Text zitierten Werken bedarf es einer Stelle, an der diese auch aufgeschlüsselt werden: die Bibliographie. 
@@ -304,18 +360,24 @@ Zunächst sollten alle Quellen in der |bib|-Datei mit dem Feld
  versehen werden. 
 Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  |heading=bibnumbered|, bzw. |heading=subbibnumbered| geladen werden.
 
-|\printbibheading[%|\\
-|            ||heading=bibnumbered,|\\
-|            ||title={Bibliographie}] %| \emph{Überschrift für Bibliographieumgebung}\\
-|\printbibliography[%|\\
-|            ||keyword=Quelle,|\\
-|            ||heading=subbibnumbered,%|\\
-|            ||title={Antike Quellen}]|\\
-|\printbibliography[%|\\
-|            ||notkeyword=Quelle,|\\
-|            ||notkeyword=Sigel,%|\\
-|            ||heading=subbibnumbered,%|\\
-|            ||title={Forschungsliteratur}]| 
+\begin{lstlisting}
+\printbibheading[%
+							heading=bibnumbered,%
+							title={Bibliographie}] %Überschrift für Bibliographie
+
+\printbibliography[%
+							keyword=Quelle,%
+							heading=subbibnumbered,%
+							title={Antike Quellen}]
+
+\printbibliography[%
+							notkeyword=Quelle,%
+							notkeyword=Sigel,%
+							heading=subbibnumbered,%
+							title={Forschungsliteratur}]
+\end{lstlisting}
+
+
 
 \begin{refsection}
 \nocite{*}
@@ -324,17 +386,20 @@ Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturver
 \setcounter{section}{0}
 \begin{bsp}
 \renewcommand\bibfont{\normalfont\footnotesize}
-\printbibheading[heading=bibnumbered,
-            title={Bibliographie}]
-\printbibliography[keyword=Quelle,
-            heading=subbibnumbered,
-            title={Antike Quellen}]
+\printbibheading[%
+							heading=bibnumbered,%
+							title={Bibliographie}] %Überschrift für Bibliographieumgebung}
+
 \printbibliography[%
-		notkeyword=Quelle,%
-		notkeyword=Sigel,%
-		notkeyword=ancient,
-           	heading=subbibnumbered,
-            title={Forschungsliteratur}]
+							keyword=Quelle,%
+							heading=subbibnumbered,%
+							title={Antike Quellen}]
+
+\printbibliography[%
+							notkeyword=Quelle,%
+							notkeyword=Sigel,%
+							heading=subbibnumbered,%
+							title={Forschungsliteratur}]
 \end{bsp}
 
 
@@ -354,20 +419,24 @@ Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {Sigel}|
 
 Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.
 Dies geschieht  für die Zeitschriften mit:
+\begin{lstlisting}
+\printbiblist[%
+							heading=subbibnumbered,%
+							title={Zeitschriftenabkürzungenl}]{shortjournal}
+\end{lstlisting}
 
-|\printbiblist[%|\\
-|            ||heading=subbibnumbered,%|\\
-|            ||title={Zeitschriftenabkürzungenl}]{shortjournal}|\\
 \begin{bsp}
 \printbiblist[heading=subbibnumbered,
 title={Zeitschriftenabkürzungen}]{shortjournal}
 \end{bsp}
 
 bzw. für die Reihen:
+\begin{lstlisting}
+\printbiblist[%
+							heading=subbibnumbered,%
+							title={Reihenabkürzungen}]{shortseries}
+\end{lstlisting}
 
-|\printbiblist[%|\\
-|            ||heading=subbibnumbered,%|\\
-|            ||title={Reihenabkürzungen}]{shortseries}|\\
 
 \begin{bsp}
 \printbiblist[heading=subbibnumbered,title={Reihenabkürzungen}]{shortseries}\end{bsp}
