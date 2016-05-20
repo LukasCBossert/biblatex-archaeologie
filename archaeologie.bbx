@@ -448,10 +448,9 @@ maxbibnames=999,%
   \usebibmacro{journal}%
   \setunit{\jourvoldelim}%
   \printfield{volume}%
-  \setunit{\volnumdelim}% 
-  \printfield{number}% 
+  \iffieldundef{number}{}{\setunit{\volnumdelim}\printfield{number}}% 
   \newunit%
-  \printfield{year}%
+  \iffieldundef{year}{\printfield{pubstate}}{\printfield{year}}%
 }
 
 \newbibmacro*{pages}{%
@@ -601,8 +600,8 @@ maxbibnames=999,%
         \iffieldint{edition}%
           {\setunit{\addspace}}%
           {\newunit}%
-        \usebibmacro{edition}%
-        \printfield{year}%
+        \usebibmacro{edition}%        
+        \iffieldundef{year}{\printfield{pubstate}}{\printfield{year}}%
         \setunit*{\addspace}%
         \iffieldundef{origyear}{}{%
         \printtext[parens]{%
@@ -620,7 +619,7 @@ maxbibnames=999,%
         \iffieldundef{origyear}{}{\bibstring{reprint}\addspace}}%
         \printlist{location}%
         \setunit*{\addspace}%
-        \printfield{year}%
+		\iffieldundef{year}{\printfield{pubstate}}{\printfield{year}}%        
         }%
       }%
    }%
@@ -634,6 +633,16 @@ maxbibnames=999,%
   \newunit%
 }
 
+%%http://tex.stackexchange.com/a/154367/98739
+\DeclareLabeldate{%
+  \field{date}
+  \field{eventdate}
+  \field{origdate}
+  \field{urldate}
+  \field{pubstate}
+  \literal{nodate}
+}
+         
 \newbibmacro*{addendum}{}
 \renewbibmacro*{addendum+pubstate}{%
   \printfield{addendum}%
