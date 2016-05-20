@@ -349,6 +349,87 @@ Dies wird über den Befehl
 ausgeführt. Weitere Informationen unter \cref{fullnames}.
    
 
+ \section{Kategorien}
+ Es werden die auslesbaren Felder jeder zur Verfügung stehenden Kategorie aufgelistet.
+ \subsection{@article}
+ Für Artikel aus periodischen Zeitschriften.
+ \begin{itemize}
+\item[Notwendig:] |author|, |title|, |subtitle|,  |titleaddon|, |pages|,
+ |journaltitle|, |shortjournal|, |volume|, |number|,|year|,
+\item[Optional:] 
+ |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
+ \end{itemize}
+ Beispiel:
+ \printbib[8em]{Ball_2013}
+
+ \subsection{@review}
+ Für Rezensionen.
+ \begin{itemize}
+\item[Notwendig:] |author|, |title|, |subtitle|, |titleaddon|, |pages|,
+ |journaltitle|, |shortjournal|, |volume|, |number|,|year|,
+ |related|, |relatedtype|
+\item[Optional:] 
+ |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
+ \end{itemize}
+ 
+  Beispiel:
+ \printbib[5em]{Taylor_2008}
+ 
+  \subsection{@book/@collection}
+  Für Monographien und Sammelbände.
+ \begin{itemize}
+\item[Notwendig:] |author|/|editor|, |title|, |subtitle|, 
+ |location|,|year|,
+\item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|,
+|related|, |relatedtype|,
+|publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|,
+|volume|,
+ |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
+ \end{itemize}
+ 
+  Beispiel:
+ \printbib[5em]{Fentress_2003}
+ 
+ \subsection{@inbook/@incollection}
+ Für Beiträge innerhalb eines Sammelbandes.
+  \begin{itemize}
+\item[Notwendig:] |author|, |editor|, |title|, |subtitle|, 
+ |location|,|year|,
+ |booktitle|, |booksubtitle|, |booktitleaddon|,
+\item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|,
+|related|, |relatedtype|,
+|publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|,
+|volume|,
+ |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
+ \end{itemize}
+ 
+ \subsection{@proceedings}
+Für Konferenz-/Kolloquiumssammelbände, bei denen ein Datum angegeben ist. 
+  \begin{itemize}
+\item[Notwendig:] |author|, |editor|, |title|, |subtitle|, 
+ |location|,|year|,
+ |booktitle|, |booksubtitle|, |booktitleaddon|,
+ |eventdate|, |eventtitle|, |venue|
+\item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|,
+|related|, |relatedtype|,
+|publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|,
+|volume|,
+ |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
+ \end{itemize}
+ 
+ 
+ 
+  \subsection{@inproceedings}
+Für Beiträge innerhalb eines   Konferenz-/Kolloquiumssammelbandes, bei denen ein Datum angegeben ist. 
+   \subsection{@talk}
+  Für (mündliche) Vorträge (Kolloquium, Konferenz) 
+  \subsection{@reference}
+Für Lexika als Gesamtwerk.
+   \subsection{@inreference}
+Für  Beiträge innerhalb eines Lexikon.
+
+   \subsection{@thesis}
+Für (unpublizierte) eingereichte Dissertationen.
    
  \section{Bibliographie}\label{bibliographie}
  \DescribeMacro{\printbibliography}
