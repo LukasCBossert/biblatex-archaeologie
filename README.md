@@ -1,6 +1,6 @@
 #####################################
-##      bibLaTeX-archaeologie     ##
-###################################
+##      bibLaTeX-archaeologie      ##
+#####################################
 [2016/XX/XX v1.XX]
 
 
@@ -27,8 +27,10 @@ the outcome according to one’s own preferences.
 
 
 Zum Stil gehören:
-- archaeologie.pdf
-- archaeologie.tex
+- archaeologie-eng.pdf
+- archaeologie-eng.tex
+- archaeologie-ger.pdf
+- archaeologie-ger.tex
 - archaeologie.cbx
 - archaeologie.bbx
 - archaeologie.dbx
