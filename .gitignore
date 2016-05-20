@@ -3,8 +3,11 @@
 
 *.bbl
 
+<<<<<<< HEAD
 *.bak
 
+=======
+>>>>>>> dai-footnote
 *.bcf
 
 *.blg
@@ -17,14 +20,22 @@
 
 *.out
 
+<<<<<<< HEAD
 *.gz
 
 *.xml
 
+=======
+*.xml
+
+*.gz
+
+>>>>>>> dai-footnote
 *.thm
 
 *.toc
 
+<<<<<<< HEAD
 *.ods#
 
 *.gz(busy)
@@ -33,4 +44,14 @@
 
 .~lock.archaeologie-loeb.ods#
 
+=======
+>>>>>>> dai-footnote
 *.pdf
+
+*.pdf
+
+archaeologie.tex
+
+archaeologie.pdf
+
+README.md
