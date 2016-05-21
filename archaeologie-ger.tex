@@ -239,15 +239,15 @@ in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text z
 
 \item[noabbrevs]   Die Abkürzungen von Zeitschriften und Serien (|shortjournal|\linebreak |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. 
 
-\item[publisher]   Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung der Edition und Erstausgabe.  
+\item[publisher]   Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung devon Auflage (|edition|) und Erstausgabe (|origyear|).  
 
 \item[bibfullname]   Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie.  
 
 \item[inreferences]   Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. 
 
-\item[lastnames]   Schreibt die Autoren/-Herausgeber, die über  |citeauthor|\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten).  
+\item[lastnames]   Schreibt die Autoren/-Herausgeber, die über  |\citeauthor|\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten).  
 
-\item[fullnames]   Schreibt die Autoren/-Herausgeber, die über |citeauthor|\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  
+\item[fullnames]   Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  
 
 
 \item[scshape]   Die Namen in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft  und Werke antiker Autoren.
@@ -255,7 +255,7 @@ in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text z
 
 \item[width]  Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
 
-\item[counter] Angabe über die Anzahl an Zitationen des Werks im Text. 
+\item[counter] Angabe über die Anzahl an Zitationen des Werks im Fließtext. 
 \end{description}
 
 
@@ -303,13 +303,13 @@ Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:
  \DescribeMacro{\parencite}
  Möchte man Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies  zu tun mittels:
 \begin{lstlisting}
-\parencite<@\oarg{postnote}\marg{bibtex-key}%@>
+\parencite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting} 
  Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
  Dies ist vor allem bei Lexikaeinträgen der Fall.
 
  \DescribeMacro{\parencites}
- Möchte man mehrere Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies mittels
+ Möchte man mehrere Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies zu tun mittels
  \begin{lstlisting}
 \parencites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
@@ -322,7 +322,7 @@ Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:
  \DescribeMacro{\textcite}
 Zu den bisher aufgeführten |\cite|-Befehlen gibt es zusätzlich die Möglichkeit einen Eintrag bspw. im Fließtext mit |\textcite|  zu zitieren: 
 \begin{lstlisting}
-\textcite<@\oarg{postnote}\marg{bibtex-key}%@>
+\textcite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting} 
 
 \DescribeMacro{\textcites}
