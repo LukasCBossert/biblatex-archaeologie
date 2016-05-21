@@ -24,42 +24,18 @@ english
   \usepackage[T1,LGR]{fontenc}		% font types and character verification
 %  \renewcommand*\ttdefault{lcmtt}
 \usepackage{libertine}
-%\renewcommand*\ttdefault{cmvtt}
-%\renewcommand*\ttdefault{txtt}
-%\usepackage{inconsolata}
 \renewcommand*\ttdefault{lmvtt}
 
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-%	eprint=false,
-%	doi=false,
-%	url=false,
-%inreferences,
-%seenote,
-	%translation,
-	%bibfullname,
-	%noabbrevs,
-	%publisher,
-	%edby,
-	%yearseries,
-%yearinparens,
-	%lastnames,
-	%fullnames,
-%	scshape,
-%	width=6em,
-%counter,
-%ancient,
 strings,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
 \footnotesize}
-
-
-
-	\usepackage{metalogo}
-	\usepackage{hologo}
- \usepackage{babel}
+\usepackage{metalogo}
+\usepackage{hologo}
+\usepackage{babel}
 \usepackage{coolthms}
 \usepackage[					% advanced quotes
 	strict=true,					% 	- warning are errors now
@@ -81,7 +57,7 @@ strings,
 \end{footnotesize}\end{framed}}
 \defbibheading{empty}{}
 
-\newcommand{\printbib}[2][4em]{
+\newcommand{\printbib}[2][4em]{%
 \begingroup
 \begin{bsp}
 \footnotesize
@@ -94,7 +70,7 @@ strings,
 \endgroup
 }
 
-\newcommand{\printbiball}[2][4em]{
+\newcommand{\printbiball}[2][4em]{%
 \begingroup
 \setlength{\labwidthsameline}{#1} 
 \begin{bsp}
@@ -112,27 +88,17 @@ strings,
 \endgroup
 }
 
-
 \listfiles
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
-
-
- \usepackage[disable]{todonotes} % notes not showed
- 
- 
-
-
-
+% \usepackage[disable]{todonotes} % notes not showed
 \addbibresource{archaeologie.bib}
 %\addbibresource{archaeologie-ancient.bib}
 %\addbibresource{antike-corpora.bib} %Version 2.0
-
-
-
 \usepackage{listings}
- \definecolor{myblue}{RGB}{0,65,137}
+\usepackage{xcolor}
+\definecolor{myblue}{RGB}{0,65,137}
 \definecolor{codegreen}{RGB}{147,193,26}
 
 %\definecolor{codegreen}{rgb}{0,0.6,0}
@@ -169,7 +135,34 @@ strings,
             {[}{{{\color{codegreen}{[}}}}{1}
             {]}{{{\color{codegreen}{]}}}}{1},
 }
- 
+ \lstdefinestyle{code}{
+	language=[LaTeX]TeX,
+    backgroundcolor=\color{white},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{myblue},
+    numberstyle=\small\color{codegray},
+    stringstyle=\color{codepurple},
+	escapeinside={<@}{@>},
+    texcsstyle=*\color{myblue},
+    morekeywords={},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,            
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    literate=
+            *{\{}{{{\color{myblue}{\{}}}}{1}
+            {\}}{{{\color{myblue}{\}}}}}{1}
+            {[}{{{\color{myblue}{[}}}}{1}
+            {]}{{{\color{myblue}{]}}}}{1},
+}
+
 \lstset{style=mystyle}
 \lstMakeShortInline[style=mystyle]{|}
 
@@ -179,28 +172,24 @@ strings,
   citecolor   = blue, %Colour of citations
   }	
 \begin{document}
-%  \DocInput{archaeologie.dtx}
-
 %\MakeShortVerb{\|}
  \newenvironment{syntax}{\begin{small}\medskip\hspace*{2em}}{\par\medskip\end{small}}
  %\def\verbatimchar{;}
 
-
-
- \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
+\title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
 The development of the code is done at \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
-Comments and critics are welcome. 
-We thank  ›moewew‹ and Herbert Voß for their big help on the code.
-} }
+Comments and critics are welcome.
+We thank  ›moewew‹ and Herbert Voß for their big help on the code.%
+}}
 \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
-\date{Version: 1.42 (2016-03-17)}
- 
- 
+\date{Version: 2.0 (2016-05-31)}
  \maketitle
  \begin{abstract}
-This citation-style covers the citation and bibliography rules of the German Archaeological Institute. 
+\noindent This citation-style covers the citation and bibliography rules of the German Archaeological Institute. 
 Various options are available to change and adjust the outcome according to one's own preferences. 
 The style is compatible with the English, Italian and French languages, since all |bibstrings| used are defined in each language.
+
+For a short introduction in German see \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie/archaeologie-ger.pdf}
  \end{abstract}
 
 \section{Last Changes}
@@ -255,8 +244,7 @@ With this option you can change it to a different outcome (but still according t
 
 
 \item[ancient] 
-Damit wird eine separate Bibliographie geladen,
-in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. \cref{ancient}
+A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{ancient}.
 
 
  \item[edby] 
@@ -333,22 +321,21 @@ This gives the sum of the citations in the text cf. \cref{counter}.
 
 
  \subsection{cite-Befehle}\label{cite-befehle}
- \DescribeMacro{\cite}
-Die einfachste Weise zum Zitieren wird mit |\cite| bewerkstelligt:
+ \DescribeMacro{\cite}%
+As always citing is done with  |\cite|:
 \begin{lstlisting}
 \cite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting}
 
-Dabei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \meta{postnote} für gewöhnlich die Seitenzahl. Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:\par
+With \meta{prenote} one can make a short preliminary note  (e.\,g. \enquote{Vgl.}) and  \meta{postnote} is usually used for page numbers.
+If only one optional argument is used then it is the \oarg{postnote}.
 \begin{lstlisting}
 \cite<@\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting}
-
-% \begin{syntax}|\cite|\oarg{postnote}\marg{Schlüssel}\end{syntax}
- \meta{bibtex-key} ist dabei in jedem Fall der Schlüssel des Eintrags aus der |bib|-Datei.
+The \meta{bibtex-key} is the key from the bibliography-file.
 
  \DescribeMacro{\cites}
- Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der |\cites|-Befehl:\par
+If one wants to cite several authors or works a very convenient way is the following using the |\cites|-command:
 \begin{lstlisting}
 \cites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
@@ -357,35 +344,36 @@ Dabei \meta{prenote} eine einleitende Bemerkung (z.B. \enquote{Vgl.}) ist und \m
  
 
 \begin{center} * * * \end{center}
- 
- \DescribeMacro{\parencite}
- Möchte man Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies mittels
+\DescribeMacro{\parencite}
+Sometimes a citation has to be put in parens. 
+Therefore we implemented the command |\parencite|:
 \begin{lstlisting}
 \parencite<@\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting} 
- zu tun.
- Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
- Dies ist vor allem bei Lexikaeinträgen der Fall, wie das Beispiel unter \cref{inreference} zeigt.
+This cite-command takes care of the correct corresponding parentheses and brackets.
+Especially if one cites an inreference the parentheses are changing to (square) brackets.
+The example shown in \cref{inreference} makes it clear.
 
- \DescribeMacro{\parencites}
- Möchte man mehrere Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies mittels
+\DescribeMacro{\parencites}
+Of course there is also the possibility to cite several authors/works in parentheses.
+This is done with |\parencites|:
  \begin{lstlisting}
 \parencites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
 \end{lstlisting}
- Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
- Dies ist vor allem bei Lexikaeinträgen der Fall, wie das Beispiel unter \cref{inreference} zeigt.
+
  \begin{center} * * * \end{center}
  
  \DescribeMacro{\textcite}
-Zu den bisher aufgeführten |\cite|-Befehlen gibt es zusätzlich die Möglichkeit einen Eintrag bspw. im Fließtext mit |\textcite|  zu zitieren: 
+Additionally to the listed |\cite|-commands above there is a third way of citing:
+This is needed if one wants to |\textcite|  the author in the text, then the year and pages will be put in parentheses. 
 \begin{lstlisting}
 \textcite<@\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting} 
 
 \DescribeMacro{\textcites}
-Wiederum gibt es die Möglichkeit mehrere Werke mit |\textcites| anzugeben: 
+And again there is also a  |\textcites| in case of several authos: 
   \begin{lstlisting}
 \textcites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
@@ -393,17 +381,17 @@ Wiederum gibt es die Möglichkeit mehrere Werke mit |\textcites| anzugeben:
 \end{lstlisting}
 
 \begin{center} * * * \end{center}
- \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}
-Zum ›normalen‹ |\cite|-Befehl kann man im Fließtext und in den Anmerkungen auf den Autor/Herausgeber und das Werk verweisen.
-Dies wird über den Befehl
+ \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}%
+Furthermore and additionally to the ›normal‹ |\cite|-commands one can also cite the authors and the work in the text and in the footnotes. 
+This shows how it is done:
 \begin{lstlisting}
 \citeauthor<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting} 
-  und 
+  and for the works 
 \begin{lstlisting}
 \citetitle<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting} 
-ausgeführt. Weitere Informationen unter \cref{fullnames}.
+For further information cf. \cref{fullnames}.
    
 
    
@@ -745,7 +733,7 @@ Und nach dem Kompilieren wird dann in der Standardeinstellung (ohne weitere Opti
 \ldots , dies behaupten ebenso  |\citeauthor{Boehmer_1985}| in ihrem jüngsten Werk |\citetitle{Boehmer_1985}|.
 \end{bsp} }
 
-\begin{bsp} \todo[noline]{dynamisches Beispiel}\ldots , dies behaupten ebenso  \citeauthor{Boehmer_1985} in ihrem jüngsten Werk \citetitle{Boehmer_1985}.\end{bsp}
+\begin{bsp} \ldots , dies behaupten ebenso  \citeauthor{Boehmer_1985} in ihrem jüngsten Werk \citetitle{Boehmer_1985}.\end{bsp}
 
 Oder mit den Optionen |fullnames| (\cref{name:a}) und |lastnames| (\cref{name:b}):
 \begin{bsp}
@@ -957,7 +945,7 @@ Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit ein
 
  
  mit der aktivierten Option |edby| verändert sich die Reihenfolge:
- \begin{bsp} \todo[noline]{manuelles Beispiel}
+ \begin{bsp}
 Wulf-Rheidt 2013\hspace{3em} U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?, in:  {\color{red}Politische Räume in vormodernen Gesellschaften. Gestaltung – Wahrnehmung – Funktion, ed. by O. Dally – F. Fless – R. Haensch – F. Pirson – S. Sievers}. Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI Berlin November 18–22, 2009, MKT 6 (Rahden/Westf. 2013) 277–289
  \end{bsp}
  
@@ -1397,7 +1385,7 @@ Zum Beispiel dieses Buch:
 }
 \end{lstlisting}
 
-Es handelt sich also um den fünften Band (Volume) mit dem Titel (Title) ›Cosa in the Republic and Early Empire‹ der Reihe ›Cosa‹ (Maintitle) darstellt, was wiederum den zweiten Band (Number) der Serie ›MemAmAc‹ ist.
+Es handelt sich also um den fünften Band (|volume|) mit dem Titel (|title|) \emph{Cosa in the Republic and Early Empire} der Reihe \emph{Cosa} (|maintitle|) darstellt, was wiederum den zweiten Band (Number) der Serie \emph{MemAmAc} ist.
 
 
 \printbiball[7em]{Fentress_2003}
@@ -1453,8 +1441,8 @@ year ={1969},
   Volume                   = {109},
   Year                     = {2014},
   Doi                      = {10.1017/s006824541400015x},
-  Journaltitle              = BSA-long,
-  shortjournal =BSA-short,
+  Journaltitle             = BSA-long,
+  shortjournal            = BSA-short,
 }
 \end{lstlisting}
 \printbib[7em]{Evangelidis_2014}
@@ -1743,12 +1731,14 @@ In der Bibliographie wird dann zuerst der eigene Titel der Rezension ausgegeben,
 Es kann vorkommen, dass Rezensionen nicht nur ein Werk unter die Lupe nehmen, sondern zwei oder noch mehr.
 Dies ist jedoch kein Problem, da das Vorgehen fast analog zu den oben genannten Beispielen ist.
 \begin{lstlisting}
-\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch \citetitle{Welch_2007} von \citeauthor{Welch_2007} rezensiert, sondern es zugleich mit \citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.
+\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch
+ \citetitle{Welch_2007} von \citeauthor{Welch_2007} rezensiert, 
+ sondern es zugleich mit \citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.
 \end{lstlisting}
 
-\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch \citetitle{Welch_2007} 
+\begin{bsp}\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch \citetitle{Welch_2007} 
 von \citeauthor{Welch_2007} rezensiert, sondern es zugleich mit 
-\citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.
+\citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.\end{bsp}
 \begin{lstlisting}
 @review{Taylor_2008,
   Author                   = {Taylor, Rabun},
@@ -1926,11 +1916,11 @@ Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturver
 
 Es können mehrere Bibliographien über |\printbibliography| erstellt werden, die jeweils unterschiedliche Einträge haben können.
 Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln (Lexika, Handbücher, Inschriftencorpora, etc) aufgeführt werden, sodass diese dann aus der |Forschungsliteratur| herausfliegen (dort  |notkeyword=Sigel| ergänzen). Dafür wird das Feld |keyword| auf den Inhalt |Sigel| ausgelesen:
-
-|\printbibliography[keyword=Sigel,%|\\
-|            ||heading=subbibnumbered,%|\\
-|            ||title={Abkürzungen und Sigel}]|\\
-
+\begin{lstlisting}
+\printbibliography[keyword=Sigel,%
+            heading=subbibnumbered,%
+            title={Abkürzungen und Sigel}]
+\end{lstlisting}
 Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {Sigel}| stehen haben:
 \begin{bsp}
 \printbibliography[keyword={Sigel},
@@ -1975,7 +1965,6 @@ Sortierung folgt der abgekürzten Zitierweise, |bibtexkey| ist der gefettete Ein
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
 \section{Abkürzungen nach DAI-Richtlinie}\label{listen}
-
 Da die Schreibweise von manchen Kürzeln der Zeitschriften oder Reihen nicht als |@string| übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
 Generell gilt, dass Akzente weggelassen wurden, Umlaute ausgeschrieben (ä--> ae), ähnliche Buchstaben mit Äquivalenten ersetzt wurden (ı --> i).\footnote{Für problemloses Kompilieren und Verarbeiten der nichtlateinischen Buchstaben wird \hologo{XeLaTeX} oder  \hologo{LuaTeX} empfohlen.}
 Nachfolgend werden zwei Listen angeführt, die die Auflistung nach @string (links) und Ausgabe (rechts) zeigen.
@@ -2005,22 +1994,28 @@ Die Ausgabe erfolgt über die Option |noabbrevs|.
  \changes{v1.1}{2015/07/06}{Erstellung der Liste mit Abkürzungen}
 
 
+\clearpage
+\section{Umsetzung}
+\label{driver}
+|archaeologie| consists of various files:
+There is one file that takes care of the bibliography (|bbx|) 
+another looks after the citation-style  (|cbx|)
+and several files which are necessary for the individual languages (|lbx|),
+furthermore there is a |dbx|-file.
 
-%\section{Umsetzung}
-%\label{driver}
-%|archaeologie| besteht aus einem Bibliographieformat (|bbx|) und einem Zitierformat (|cbx|). 
-%%%
-%
-%\subsection{archaeologie.bbx}
-%%|archaeologie| baut auf dem |standard|-Stil von |biblatex| auf, der entsprechend geladen werden muss.
-%%	\begin{macrocode}
-%%\ProvidesFile{archaeologie.bbx}%
-%%               [2015/09/15 v1.0  archaeologie -- %
-%%                biblatex fuer Archaeologen, Historiker und Philologen, bbx-Datei]
-%%\RequireBibliographyStyle{standard}
-%%	\end{macro}
-%
-%
+
+\subsection{archaeologie.bbx}
+|archaeologie| baut auf dem |standard|-Stil von |biblatex| auf, der entsprechend geladen werden muss.
+ \DescribeMacro{bbx}
+\begin{lstlisting}[style=code]
+\ProvidesFile{archaeologie.bbx}%
+               [2016/05/31 v2.0  archaeologie -- %
+                biblatex for archaeologists, 
+                historians and philologists, bbx-file]
+\RequireBibliographyStyle{standard}
+\end{lstlisting}
+
+
 %\subsection{archaeologie.cbx}
 
  \changes{v0.1}{2015/06/04}{Started Project}
