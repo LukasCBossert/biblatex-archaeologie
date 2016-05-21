@@ -333,17 +333,13 @@ maxbibnames=999,%
   \usebibmacro{withinafterword}%
   \clearname{inafterword}}
 
-\renewbibmacro{in:}{\ifthenelse{% 		
+\renewbibmacro{in:}{%
+	\ifthenelse{% 		
 		\ifentrytype{article}%
 		\OR%
 		\ifentrytype{review}}%
-			{}{%
-				\printtext{%
-						\bibstring{in}%
-						\intitlepunct%
-				}%
-		}%
-}
+	{}{\printtext{\bibstring{in}\intitlepunct}}%
+		}
 
 
        	 
