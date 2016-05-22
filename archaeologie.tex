@@ -266,7 +266,7 @@ This changes the order of series and year  cf. \cref{yearseries}.
 
 \item[translation] 
 This shows in the bibliography the original title, the translator and the original language.
-If the bibliography entry is set with  |option={antik}| this behaviour is default cf. \cref{translation}. 
+If the bibliography entry is set with  |option={ancient}| this behaviour is default cf. \cref{translation}. 
 
 \item[noabbrevs] 
 By default the short titles of journals and series (|shortjournal| and |shortseries|) are shown  in the bibliography.
@@ -291,7 +291,7 @@ Writes only the first and family names of the authors or editors when they are c
 
 \item[scshape] 
 Names in referenced citations are shown with small capital letters cf. \cref{scshape}.
-Bibliography entries with |option={antik}| or |option={frgantik}| (\cref{antik,frgantik}) are not touched by this option.
+Bibliography entries with |option={ancient}| or |option={frgancient}| (\cref{ancient,frgancient}) are not touched by this option.
 
 
 \item[width]
@@ -308,10 +308,10 @@ This gives the sum of the citations in the text cf. \cref{counter}.
 
  \begin{description}
  \item[antik] 
- The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{antik}.
+ The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{ancient}.
 
  \item[frgantik] 
- The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgantik}.
+ The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
 
  \item[corpus] 
  Only the  |shorthand|-field is printed.
@@ -499,7 +499,7 @@ Der Bibliographieeintrag sie wie folgt aus:
 	shorthand = {Apul. met.}, 
 	shortauthor = {Apuleius}, 
 	keywords = {ancient}, 
-	options = {antik}
+	options = {ancient}
 }
 \end{lstlisting}
 
@@ -545,7 +545,7 @@ Ball – Dobbins a. O. (Anm. [Fußnotenummer Erstnennung]) 123
 \subsubsection{translation}\label{translation}
 \DescribeMacro{translation}
 Wenn diese Option aktiviert wird, erfolgt die Angabe  eines Originaltitels, die Sprache, aus welcher übersetzt wurde und des Übersetzers des Werkes.
-Werke, bei denen |options={antik}| oder |options={frgantik}| (also antike Autoren und Fragmente) gesetzt wurde, werden stehts mit Originaltitel, Sprache und Übersetzer angegeben.
+Werke, bei denen |options={ancient}| oder |options={frgancient}| (also antike Autoren und Fragmente) gesetzt wurde, werden stehts mit Originaltitel, Sprache und Übersetzer angegeben.
 
 Die Option |translation|  ist standardmäßig auf |=false| gesetzt. 
 Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
@@ -774,7 +774,7 @@ Somit wird aus dem Bibliographieeintrag
   Keywords                 = {Quelle},
   Location                 = {Darmstadt},
   shortauthor                 = {Quintilian},
-  Options                  = {antik},
+  Options                  = {ancient},
   Origlanguage             = {latin},
   Shorthand                = {Quint. inst.},
   Subtitle                 = {Institutio oratoria}
@@ -1043,8 +1043,8 @@ Bei mehrmaligeb Zitationen ändert sich die Ausgabe entsprechend:
 %%\end{bsp}
 
 \subsection{Optionen der Literatureinträge}\label{optionen-literatur}
-\subsubsection{antik}\label{antik}
- \DescribeMacro{antik} \emph{Die Formatierungen von |antik| und |frgantik| sind vom Bibliographiestil |geschichtsfrkl| v.1.1 (Jonathan Zachhuber) inspiriert und modifiziert worden.}
+\subsubsection{ancient}\label{ancient}
+ \DescribeMacro{ancient} \emph{Die Formatierungen von |ancient| und |frgancient| sind vom Bibliographiestil |geschichtsfrkl| v.1.1 (Jonathan Zachhuber) inspiriert und modifiziert worden.}
  
 Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option |antik| zu versehen. Wir betrachten wieder ein Beispiel:
 \begin{lstlisting}
@@ -1059,7 +1059,7 @@ Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option |a
   Keywords                 = {Quelle},
   Location                 = {Düsseldorf and Zürich},
   shortauthor              = {Cicero},
-  Options                  = {antik},
+  Options                  = {ancient},
   Origlanguage             = {latin},
   Origtitle 					= {epistulae ad Atticum},
   Origyear                 = {1959},
@@ -1099,7 +1099,7 @@ Ein Beispiel verschafft Klarheit:
   Location                 = Munich, %bibstring: @String{Munich = {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco}{\iflanguage{french}{Munich}{München}}}}}
   booktitle                = {Die politischen Reden},
   shortauthor                    = {Cicero},
-  Options                  = {antik},
+  Options                  = {ancient},
   Origlanguage             = {latin},
   Origtitle                = {pro P. Sestio},
   Shorthand                = {Cic. Sest.},
@@ -1194,7 +1194,7 @@ Das Beispiel zeigt die Option für die lateinischen Inschriften:
   location  = {Berlin},
   year      = {1863--},
   shorthand = CIL-short,
-  keywords  = {Sigel}, %!
+  keywords  = {corpus}, %!
   options   = {corpus},
 }
 \end{lstlisting}
@@ -1560,12 +1560,12 @@ Zusätzlich lohnt es sich den Eintrag über |related| mit dem Hauptwerk (in dies
   \begin{lstlisting}
 @Reference{LIMC,
   Title                    = LIMC-long,
-  Keywords                 = {Sigel},
+  Keywords                 = {corpus},
   Options                  = {corpus},
   Shorthand                = LIMC-short
 }
  \end{lstlisting}
- Dies hat den Vorteil, dass man die Abkürzung ›LIMC‹ in der Teilbibliographie ›Lexika und Corpora‹ (\cref{bib:sigel}) danke des |Keywords = {Sigel}| automatisiert auflösen kann. Dafür muss der Bibliographieeintrag |@reference{LIMC}| nicht manuell zitiert werden, da dies über den Eintrag |related| bei |@inreference{Neils_1994}| dynamischt erfolgt.
+ Dies hat den Vorteil, dass man die Abkürzung ›LIMC‹ in der Teilbibliographie ›Lexika und Corpora‹ (\cref{bib:corpus}) danke des |keywords = {corpus}| automatisiert auflösen kann. Dafür muss der Bibliographieeintrag |@reference{LIMC}| nicht manuell zitiert werden, da dies über den Eintrag |related| bei |@inreference{Neils_1994}| dynamischt erfolgt.
  
  
 
@@ -1647,7 +1647,7 @@ location = {Stuttgart},
 year = {1904--1920},
 edition = {2},
 shorthand = {Lexikon d. T.},
-  Keywords                 = {Sigel},
+  Keywords                 = {corpus},
   title = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},
 }
 \end{lstlisting}
@@ -1925,11 +1925,11 @@ Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln
             heading=subbibnumbered,%
             title={Abkürzungen und Sigel}]
 \end{lstlisting}
-Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {Sigel}| stehen haben:
+Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {corpus}| stehen haben:
 \begin{bsp}
-\printbibliography[keyword={Sigel},
+\printbibliography[keyword={corpus},
            heading=subbibnumbered,
-            title={Abkürzungen und Sigel}]\label{bib:sigel}
+            title={Abbreviation of corpora}]\label{bib:corpus}
 \end{bsp}
 
 Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.
@@ -1960,9 +1960,9 @@ bzw. für die Reihen:
 \setcounter{section}{5}
 
 \section{Antike Autoren und Werke}\label{ancient-list}
-Liste der antiken Autoren und Werke in der gesonderten Bibliographie |archaeologie-ancient.bib|.
-Sortierung folgt der abgekürzten Zitierweise, |bibtexkey| ist der gefettete Eintrag.
-
+Bibliography |archaeologie-ancient.bib| with a list of ancient authors and texts and their abbrevviation according to  Der Neue Pauly.
+The bold entry in the second line is the |bibtexkey|.
+All the entries have |keywords={ancient}|, |options={ancient}|.
 \begin{multicols}{2}
 	\input{archaeologie-ancient.tex}
 \end{multicols}
@@ -1971,7 +1971,8 @@ Sortierung folgt der abgekürzten Zitierweise, |bibtexkey| ist der gefettete Ein
 \section{Corpora}\label{corpora}
 List of corpora in ancient studies |archaeologie-corpora.bib|.
 This activates the other additional bibliography |archaeologie-abbrv.bib| automatically.
-You can cite them directly using the left entry as \marg{bibtex-key}
+You can cite them directly using the left entry as \marg{bibtex-key}.
+All the entries have |keywords={corpus}|, |options={corpus}|.
 \begin{multicols}{2}
 	\input{archaeologie-corpora.tex}
 \end{multicols}
