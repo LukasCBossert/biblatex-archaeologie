@@ -238,9 +238,9 @@ By default the style |archaeologie| follows the author-year-system.
 With this option you can change it to a different outcome (but still according to the rules of the German Archaeological Institute) so the first citation will be a full citation and all the following citations will refer to the first full citation cf. \cref{seenote}
 
 
- \item[strings] 
+ \item[abbrv] 
  This activates the additional bibliography file  |archaeologie-abbrv.bib|.
- With this bibliography one can cite journals and series according to the abbreviations of the German Archaeological Institute cf. \cref{strings}. 
+ With this bibliography one can cite journals and series according to the abbreviations of the German Archaeological Institute cf. \cref{abbrv}. 
 
 
 \item[ancient] 
@@ -468,9 +468,9 @@ Nachfolgend werden die Optionen des Stils |archaeologie| immer auch konkret an B
 In diesem Beispiel wurde der Stil |archaeologie| mit der Option |inreferences| geladen (|=true|). 
 Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weitere verschiedene Optionen manipuliert, die entsprechend ebenfalls in der Präambel geladen werden können.
 
-\subsubsection{strings}\label{strings}
- \DescribeMacro{strings}
- Möchte man die oben erwähnte Methode mit |@string| verwenden, muss in der Präambel die Option |strings| aktiviert sein.
+\subsubsection{abbrv}\label{abbrv}
+ \DescribeMacro{abbrv}
+ Möchte man die oben erwähnte Methode mit |@string| verwenden, muss in der Präambel die Option |abbrv| aktiviert sein.
  Damit wird die Bibliographie |archaeologie-abbrv.bib| geladen, in der die unter \cref{listen} aufgeführten Abkürzungen gespeichert sind.
 Verwendet man keine  |@string|-Einträge, muss nichts weiter gemacht werden.
 
@@ -1988,7 +1988,7 @@ Es empfiehlt sich, in diesen Listen die |@string|-Angaben nachzuschauen und dann
 
 Die Unterscheidung, ob in der Bibliographie die Abkürzung (Standard) oder der voller Titel genannt werden soll, erfolgt automatisch über die Option |noabbrevs| (Siehe \cref{noabbrevs}). Ist diese Option nicht aktiviert, dann werden standardmäßig die Abkürzungen angegeben.
 
-%%Beim Kompilieren wird eine Bibliographiedatei (|dai-abkuerzungen.bib|) erstellt, in der die Angaben der |@strings| gespeichert sind.
+%%Beim Kompilieren wird eine Bibliographiedatei (|dai-abkuerzungen.bib|) erstellt, in der die Angaben der |@abbrv| gespeichert sind.
 %%Diese Bibliographiedatei wird zusätzlich zur eigenen Bibliographie geladen.
 %%Ist |dai-abkuerzungen.bib| bereits vorhanden, dann wird sie nicht neu generiert.
 
