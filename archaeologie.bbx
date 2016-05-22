@@ -56,11 +56,12 @@ maxbibnames=999,%
 \setlength{\labwidthsameline}{4em}
 %-----------------------
 \DeclareBibliographyOption{strings}[true]{%
-\addbibresource{archaeologie-abbrv.bib}}
+		\csuse{bool#1}{\addbibresource{archaeologie-abbrv.bib}}}
 \DeclareBibliographyOption{corpora}[true]{%
-\addbibresource{archaeologie-corpora.bib}}
+		\addbibresource{archaeologie-corpora.bib}%
+		\ifbool{strings}{}{\addbibresource{archaeologie-abbrv.bib}}}
 \DeclareBibliographyOption{ancient}[true]{%
-\addbibresource{archaeologie-ancient.bib}}
+		\addbibresource{archaeologie-ancient.bib}}
 %-----------------------
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
 \DeclareBibliographyOption{initials}[true]{\csuse{bool#1}{bbx:initials}}
