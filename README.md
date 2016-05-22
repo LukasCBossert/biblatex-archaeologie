@@ -16,7 +16,7 @@ This citation-style covers the citation and bibliography rules of
 the German Archaeological Institute. 
 Various options are available to change and adjust 
 the outcome according to one’s own preferences.
-(German, English, Italian, French)
+(German, English, Italian, French, Spanish)
 
 
 ********************************************
@@ -39,6 +39,7 @@ This style contains:
 - archaeologie-english.lbx
 - archaeologie-french.lbx
 - archaeologie-italian.lbx
+- archaeologie-spanish.lbx
 - archaeologie-abbrv.bib
 - archaeologie-corpora.bib
 - archaeologie-ancient.bib
