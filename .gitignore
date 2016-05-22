@@ -44,6 +44,7 @@
 
 .~lock.archaeologie-loeb.ods#
 
+<<<<<<< HEAD
 =======
 >>>>>>> dai-footnote
 *.pdf
@@ -57,3 +58,10 @@ archaeologie.pdf
 README.md
 
 archaeologie-ger.tex
+=======
+*.pdf
+>>>>>>> documentation
+
+*.csv
+
+*.ods

@@ -1,0 +1,2089 @@
+% archaeologie --%
+%            biblatex for archaeologists, 
+%				historians and philologists
+% Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
+%  
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+
+\documentclass[a4paper,
+10pt,
+greek,
+french,
+italian, %ngerman,
+ngerman,
+english
+]{ltxdoc}
+\CodelineNumbered
+\AtBeginDocument{\RecordChanges}
+\AtEndDocument{\PrintChanges}
+  \usepackage[T1,LGR]{fontenc}		% font types and character verification
+%  \renewcommand*\ttdefault{lcmtt}
+\usepackage{libertine}
+\renewcommand*\ttdefault{lmvtt}
+
+\usepackage[					% use  for bibliography
+	backend=biber,
+	style=archaeologie,
+abbrv,
+]{biblatex}
+\renewcommand\bibfont{\normalfont
+\footnotesize}
+\usepackage{metalogo}
+\usepackage{hologo}
+\usepackage{babel}
+\usepackage{coolthms}
+\usepackage[					% advanced quotes
+	strict=true,					% 	- warning are errors now
+	style=ngerman,					% 	- german quotes
+]{csquotes}
+\usepackage{multicol}
+\setlength{\columnsep}{1.5cm}
+\setlength{\columnseprule}{0.2pt}
+\usepackage{framed}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 2pt}
+\setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
+\usepackage{changepage}
+\makeindex
+   
+\newenvironment{bsp}{\begin{framed}\begin{footnotesize}
+\begin{adjustwidth}{.3cm}{.3cm}}{\end{adjustwidth}
+\end{footnotesize}\end{framed}}
+\defbibheading{empty}{}
+
+\newcommand{\printbib}[2][4em]{%
+\begingroup
+\begin{bsp}
+\footnotesize
+\begin{refsection}
+\setlength{\labwidthsameline}{#1} 
+\nocite{#2}
+\printbibliography[heading=none]
+\end{refsection}
+\end{bsp}
+\endgroup
+}
+
+\newcommand{\printbiball}[2][4em]{%
+\begingroup
+\setlength{\labwidthsameline}{#1} 
+\begin{bsp}
+\footnotesize%
+\begin{itemize}%[\bfseries]
+\begin{refsection}%
+\nocite{#2}%
+\item[English:]{\printbibliography[heading=none]}
+\item[German:]\foreignlanguage{ngerman}{\printbibliography[heading=none]}
+\item[Italian:]\foreignlanguage{italian}{\printbibliography[heading=none]}
+\item[French:]\foreignlanguage{french}{\printbibliography[heading=none]}
+\end{refsection}
+\end{itemize}%
+\end{bsp}
+\endgroup
+}
+
+\listfiles
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+% \usepackage[disable]{todonotes} % notes not showed
+\addbibresource{archaeologie.bib}
+%\addbibresource{archaeologie-ancient.bib}
+%\addbibresource{antike-corpora.bib} %Version 2.0
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{myblue}{RGB}{0,65,137}
+\definecolor{codegreen}{RGB}{147,193,26}
+
+%\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+	language=[LaTeX]TeX,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{myblue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+	escapeinside={<@}{@>},
+    texcsstyle=*\color{myblue},
+    morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
+    						@article, @book,@inproceedings@,@proceedings,@talk,@reference,@inreference,@incollection,
+    						},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,            
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    literate=
+            *{\{}{{{\color{codegreen}{\{}}}}{1}
+            {\}}{{{\color{codegreen}{\}}}}}{1}
+            {[}{{{\color{codegreen}{[}}}}{1}
+            {]}{{{\color{codegreen}{]}}}}{1},
+}
+ \lstdefinestyle{code}{
+	language=[LaTeX]TeX,
+    backgroundcolor=\color{white},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{myblue},
+    numberstyle=\small\color{codegray},
+    stringstyle=\color{codepurple},
+	escapeinside={<@}{@>},
+    texcsstyle=*\color{myblue},
+    morekeywords={},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    stepnumber=1,
+    numbersep=5pt,            
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    literate=
+            *{\{}{{{\color{myblue}{\{}}}}{1}
+            {\}}{{{\color{myblue}{\}}}}}{1}
+            {[}{{{\color{myblue}{[}}}}{1}
+            {]}{{{\color{myblue}{]}}}}{1},
+}
+%%% Always I forget this so I created some aliases
+\def\ContinueLineNumber{\lstset{firstnumber=last}}
+\def\StartLineAt#1{\lstset{firstnumber=#1}}
+\let\numberLineAt\StartLineAt
+
+\lstset{style=mystyle}
+\lstMakeShortInline[style=mystyle]{|}
+
+\hypersetup{  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     =  blue, %Colour for external hyperlinks
+  linkcolor    = black, %Colour of internal links
+  citecolor   = blue, %Colour of citations
+  }	
+\begin{document}
+%\MakeShortVerb{\|}
+ \newenvironment{syntax}{\begin{small}\medskip\hspace*{2em}}{\par\medskip\end{small}}
+ %\def\verbatimchar{;}
+
+\title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
+The development of the code is done at \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
+Comments and critics are welcome.
+We thank  ›moewew‹ and Herbert Voß for their big help on the code.%
+}}
+\author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
+\date{Version: 2.0 (2016-05-31)}
+ \maketitle
+ \begin{abstract}
+\noindent This citation-style covers the citation and bibliography rules of the German Archaeological Institute. 
+Various options are available to change and adjust the outcome according to one's own preferences. 
+The style is compatible with the English, Italian and French languages, since all |bibstrings| used are defined in each language.
+
+For a short introduction in German see \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie/archaeologie-ger.pdf}
+ \end{abstract}
+
+\section{Last Changes}
+Changes since Version 1.42
+\begin{itemize}
+\item Documentation now in English; short introduction in German
+\item Adding  bibliography entry  |@talk| (\cref{talk})
+\item Adding additional bibliography for ancient authors and works (\cref{ancient-list,ancient})
+\end{itemize}
+
+\changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
+
+\newpage
+\begin{multicols}{2}
+{\parskip=0mm \tableofcontents}
+\end{multicols}
+
+\section{Verwendung}
+ \DescribeMacro{archaeologie}  The name of the biblatex-style is  |archaeologie| has to be activated in the preamble. 
+
+\begin{lstlisting}
+\usepackage[style=archaeologie,%
+					<@\meta{further options}@>]{biblatex}
+\bibliography<@\marg{|bib|-Datei}@>
+\end{lstlisting}
+
+ 
+Without any further options the style covers now the rules of the German Archaeological Institute. No additional settings are needed.
+But you can change the outcome by using some options which are explained below.
+
+
+At the end of your document you can write the command |\printbibliography| to print 
+the bibliography. 
+Since |archaeologie| supports different citations of various texts like from ancient authors and from modern scholars we suggest to have them listed in separted bibliographies. 
+Further information are found below   (\cref{bibliographie}).
+
+\section{Overview}
+Following there is a quick overview of the possible options of the style |archaeologie|.
+Furthermore one can -- at your own risk -- also use the conventional  |biblatex|-options which are related of indent, etc. 
+For that please see the excellent documentation of  |biblatex|.
+
+ \subsection{Options in the preamble}\label{preamble_options}
+ \begin{description}
+ \item[seenote] 
+By default the style |archaeologie| follows the author-year-system. 
+With this option you can change it to a different outcome (but still according to the rules of the German Archaeological Institute) so the first citation will be a full citation and all the following citations will refer to the first full citation cf. \cref{seenote}
+
+
+ \item[abbrv] 
+ This activates the additional bibliography file  |archaeologie-abbrv.bib|.
+ With this bibliography one can cite journals and series according to the abbreviations of the German Archaeological Institute cf. \cref{abbrv}. 
+
+
+\item[ancient] 
+A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{ancient}.
+
+\item[corpora] 
+A separate bibliography-file is loaded, in which the common corpora for ancient studies are stored cf. \cref{corpora}.
+This activates the other additional bibliography |archaeologie-abbrv.bib| automatically.
+
+ \item[edby] 
+This activates a switch to have instead of  \enquote{ed.}/\enquote{Hrsg.} now  \enquote{ed. by}/\enquote{hrsg. v.} cf. \cref{edby}.
+
+\item[initials] 
+This option takes care of an automatically abreviation of first names keeping digraphs and trigraphs cf. \cref{initials}
+
+
+\item[yearseries] 
+This changes the order of series and year  cf. \cref{yearseries}.
+ 
+ \item[yearinparens]
+ The year is shown in parens cf. \cref{yearinparens}.
+
+\item[translation] 
+This shows in the bibliography the original title, the translator and the original language.
+If the bibliography entry is set with  |option={ancient}| this behaviour is default cf. \cref{translation}. 
+
+\item[noabbrevs] 
+By default the short titles of journals and series (|shortjournal| and |shortseries|) are shown  in the bibliography.
+With this option full name is shown instead (|journaltitle| and |series|) cf.  \cref{noabbrevs}.
+
+\item[publisher] 
+All the locations and the publisher is shown. This changes the format of the edition and the first print cf.  \cref{publisher}.
+
+\item[bibfullname] 
+In the bibliography the full names of the authors and/or editors are shown cf. \cref{bibfullname}.
+
+\item[inreferences] 
+Each bibliography entry wihich is a  |@inreference| is fully referenced according to the rules of the German Archaeological Institute cf. \cref{inreferences}.
+
+\item[lastnames] 
+Writes only the family names of the authors or editors when theyare cited with  |citeauthor|\-\marg{bibtex-key}.
+In footnotes this is default cf.  \cref{lastnames}.
+
+\item[fullnames] 
+Writes only the first and family names of the authors or editors when they are cited with  |citeauthor|\-\marg{bibtex-key} cf.  \cref{fullnames}.
+
+
+\item[scshape] 
+Names in referenced citations are shown with small capital letters cf. \cref{scshape}.
+Bibliography entries with |option={ancient}| or |option={frgancient}| (\cref{ancient,frgancient}) are not touched by this option.
+
+
+\item[width]
+The value of |width={value}| defines in the bibliography the width between the label and the reference cf. \cref{width}.
+
+\item[counter] 
+This gives the sum of the citations in the text cf. \cref{counter}.
+\end{description}
+
+
+ \subsection{Literaturoptionen (Bibliographieeintrag)}
+ Additionally a single bibliography entry can contain a value in the |options|-field.
+ This changes the behaviour of the entry when it is cited cf. \cref{optionen-literatur,beispiele}. 
+
+ \begin{description}
+ \item[ancient] 
+ The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{ancient}.
+
+ \item[frgancient] 
+ The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
+
+ \item[corpus] 
+ Only the  |shorthand|-field is printed.
+ This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.) cf. \cref{corpus}.
+ \end{description}
+
+ \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
+
+
+ 
+
+
+ \subsection{cite-Befehle}\label{cite-befehle}
+ \DescribeMacro{\cite}%
+As always citing is done with  |\cite|:
+\begin{lstlisting}
+\cite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting}
+
+With \meta{prenote} one can make a short preliminary note  (e.\,g. \enquote{Vgl.}) and  \meta{postnote} is usually used for page numbers.
+If only one optional argument is used then it is the \oarg{postnote}.
+\begin{lstlisting}
+\cite<@\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting}
+The \meta{bibtex-key} is the key from the bibliography-file.
+
+ \DescribeMacro{\cites}
+If one wants to cite several authors or works a very convenient way is the following using the |\cites|-command:
+\begin{lstlisting}
+\cites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\end{lstlisting}
+ 
+
+\begin{center} * * * \end{center}
+\DescribeMacro{\parencite}
+Sometimes a citation has to be put in parens. 
+Therefore we implemented the command |\parencite|:
+\begin{lstlisting}
+\parencite<@\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting} 
+This cite-command takes care of the correct corresponding parentheses and brackets.
+Especially if one cites an inreference the parentheses are changing to (square) brackets.
+The example shown in \cref{inreference} makes it clear.
+
+\DescribeMacro{\parencites}
+Of course there is also the possibility to cite several authors/works in parentheses.
+This is done with |\parencites|:
+ \begin{lstlisting}
+\parencites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\end{lstlisting}
+
+ \begin{center} * * * \end{center}
+ 
+ \DescribeMacro{\textcite}
+Additionally to the listed |\cite|-commands above there is a third way of citing:
+This is needed if one wants to |\textcite|  the author in the text, then the year and pages will be put in parentheses. 
+\begin{lstlisting}
+\textcite<@\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting} 
+
+\DescribeMacro{\textcites}
+And again there is also a  |\textcites| in case of several authos: 
+  \begin{lstlisting}
+\textcites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
+ 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\end{lstlisting}
+
+\begin{center} * * * \end{center}
+ \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}%
+Furthermore and additionally to the ›normal‹ |\cite|-commands one can also cite the authors and the work in the text and in the footnotes. 
+This shows how it is done:
+\begin{lstlisting}
+\citeauthor<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting} 
+  and for the works 
+\begin{lstlisting}
+\citetitle<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\end{lstlisting} 
+For further information cf. \cref{fullnames}.
+   
+
+   
+
+\subsection{Einträge mit @string}
+The citation rule of the German Archaeological Institute says that the journals and series have to be abbreviated according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
+
+ \DescribeMacro{@string}Der Stil |archaeologie| geht auf diese Vorgabe ein und kürzt Zeitschriften/Reihen ab.
+Um Fehler zu vermeiden und unnötiges Tippen der teilweise langen Zeitschriftennamen, bzw. Reihen zu ersparen, arbeitet |archaeologie| mit |@string|-Angaben.
+Dies hat den Vorteil, dass  mittels |@string| mehreren Bibliographieeinträgen einen zentral definierten Wert zugewiesen wird.
+Der |@string| wird in der |bib|-Datei am Anfang geladen, daher muss er vor alle anderen Bibliographieeinträge stehen.
+
+Um dieses Angebot an ›Vereinfachung‹ zu nutzen,  müssen Zeitschriftennamen (|journaltitle|) und ihre Kurzformen (|shortjournal|), sowie Reihen (|series|) und deren Kurzformen (|shortseries|) mittels |@string| geschrieben werden.
+In \cref{listen} sind die Abkürzungen nach DAI-Vorgabe aufgeführt, sodass der |@string| (mit den Ergänzungen |-short|, bzw. |-long|) (linke Spalte) abgelesen werden kann.
+Dieser |@string|
+% (bspw. |AyasofyaMuezYil|; siehe \ref{AyasofyaMuezYil-kurz}, bzw. \ref{AyasofyaMuezYil-lang}) 
+wird dann OHNE Klammersetzung in die Felder (bspw. |journaltitle|) geschrieben.\footnote{Verwendet man bspw. das Programm JabRef in der Fensteransicht, dann muss \#|AyasofyaMuezYil|\# geschrieben werden. JabRef konvertiert dies intern zu einem |@string|.}
+
+Ein Beispiel zeigt den Umgang:
+\begin{lstlisting}
+@article{Koyunlu1990,
+	author = {Koyunlu, A.},
+	title = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
+	pages = {147--156},
+	volume = {11},
+	year = {1990},
+	journaltitle = AyasofyaMuezYil-long,
+	shortjournal = AyasofyaMuezYil-short
+}
+\end{lstlisting}
+Dieser Artikel erschien in einer nicht geläufigen Zeitschrift, 
+die zudem nach DAI-Vorgabe mit ›AyasofyaMüzYıl‹ abgekürzt werden soll.
+Um sich bei diesem Beispiel die Arbeit zu sparen den Buchstaben ›ı‹ manuell einzufügen, 
+wird er im |@string| mit ›i‹ geschrieben (weitere Besonderheiten siehe \cref{listen}) 
+und erscheint dann nach dem Kompilieren in der korrekten Schreibweise:
+
+\printbib[6em]{Koyunlu1990}
+
+
+
+
+
+Die standardmäßige Abkürzung kann optional ausgeschaltet werden.
+Verwendet man die Option |noabbrevs| (siehe \cref{noabbrevs}), dann ändert sich die Ausgabe entsprechend:
+\begin{bsp}
+A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
+%\fullcite{Koyunlu_1990}
+\end{bsp}
+
+Ein Vorteil ist, dass man eine eigene Bibliographie mit den Abkürzungen der Zeitschriften und Reihen machen kann. Einzelheiten dazu siehe \cref{bibliographie}.
+
+Findet sich die Zeitschrift oder Reihe {\color{red}nicht} in der unter \cref{listen} aufgeführten Liste, dann wird diese  {\color{red}nicht} abgekürzt und ganz normal in |{}| bei |journaltitle=|\marg{Zeitschriftentitel} gesetzt.
+In den folgenden Beispielen wird, wo möglich, mit |@string| gearbeitet.
+
+\section{Optionale Steuerung}
+Nachfolgend werden die Optionen des Stils |archaeologie| immer auch konkret an Beispielen erläutert.
+Änderungen, die durch die Optionen erfolgen, sind {\color{red}rot} markiert.
+%In {\color{blue}blau} sind bibliographische Einträge, die mit dem nächsten Literaturverzeichnis verknüpft sind.
+
+ \subsection{Optionen in der Präambel}\label{optionen-preamble}
+ 
+ In der Präambel kann man, wie folgt, den Stil |archaeologie| über das Paket |biblatex| laden:
+ \begin{lstlisting}
+\usepackage[%				
+		backend=biber,				% aktiviert biber
+		style=archaeologie, 	% lädt den Stil 'archaeologie'
+		inreferences=true,		%true = Vollzitat von Lexikaeinträgen
+		]{biblatex}
+\end{lstlisting}
+
+In diesem Beispiel wurde der Stil |archaeologie| mit der Option |inreferences| geladen (|=true|). 
+Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weitere verschiedene Optionen manipuliert, die entsprechend ebenfalls in der Präambel geladen werden können.
+
+\subsubsection{abbrv}\label{abbrv}
+ \DescribeMacro{abbrv}
+ Möchte man die oben erwähnte Methode mit |@string| verwenden, muss in der Präambel die Option |abbrv| aktiviert sein.
+ Damit wird die Bibliographie |archaeologie-abbrv.bib| geladen, in der die unter \cref{listen} aufgeführten Abkürzungen gespeichert sind.
+Verwendet man keine  |@string|-Einträge, muss nichts weiter gemacht werden.
+
+\subsubsection{ancient}\label{ancient}
+ \DescribeMacro{ancient}
+Es bietet sich an, ebenso antike Autoren und deren Werke über die entsprechenden |\cite|-Befehle anzusteuern, um Einheitlichkeit zu garantieren und gleichzeitig die Fehleranfälligkeit zu minimieren.
+Dafür muss am Ende des Textes auch keine gesonderte Bibliographie antiker Autoren erfolgen, sodass diese nur im Fließtext referenziert sind.
+
+Da das Anlegen eines Bibliographieeintrags pro Autor und Werk sehr viel Arbeit ist und ggf. für jeden neuen Text wiederum erstellt oder kopiert werden muss, gibt es eine gesonderte Bibliographie (archaeologie-ancient.bib),
+die mit knapp 600 Einträge den Großteil antiker Autoren und deren Werke nach der Zitierrichtlinie von Der Neue Pauly enthält.
+
+Mit der Option |ancient| wird die Bibliographie geladen.
+Deren Einträge mit den |bibtexkeys| kann unter \cref{ancient-list} eingesehen werden.
+\begin{refsection}
+Nun ist es möglich im Fließtext antike Autoren oder antike Werke zu zitieren.
+Zum Beispiel wird aus 
+|\cite[3,2,5--7]{Apul_met}| \cite[3,2,5--7]{Apul_met}.
+\end{refsection}
+Der Bibliographieeintrag sie wie folgt aus:
+
+ \begin{lstlisting}
+@book{Apul_met,
+	author ={Apuleius Madaurensis, Lucius},  
+	title = {metamorphoses}, 
+	shorthand = {Apul. met.}, 
+	shortauthor = {Apuleius}, 
+	keywords = {ancient}, 
+	options = {ancient}
+}
+\end{lstlisting}
+
+
+
+Daraus wird in der Bibliographie (sofern man es aufgelistet haben möchte):
+|\printbibliography[keyword = ancient]|
+
+\printbib{Apul_met}
+%  \begin{bsp}
+%  	\nocite{Apul_met}
+%  	\printbibliography[keyword = ancient,title={Antike Autoren}]
+%  \end{bsp}
+
+\begin{refsection}
+Mit dem |bibtexkey| des antiken Autors, bzw. antiken Werks kann man auch die Namen oder das Werk im Fließtext zitieren:
+|\citeauthor{Apul_met} in \citetitle{Apul_met}| --> 
+\citeauthor{Apul_met} in \citetitle{Apul_met}
+\end{refsection}
+ \changes{v1.5}{2016/05/31}{Extra Bibliographie}
+
+\subsubsection{seenote}\label{seenote}
+ \DescribeMacro{seenote}
+ Diese Option ermöglicht in den Fußnoten die Angabe eines Rückverweises zur Erstnennung des zitierten Bibliographieeintrags.
+
+Die Erstnennung erfolgt als Vollzitat, danach wird nur auf die Fußnote verwiesen.
+
+Es können die Befehle |\cite(s)|, |\parencite(s}| verwendet werden, |\textcite(s)| werden wie |\cite(s)| ausgegeben.
+
+% \footnote{\cite{Ball_2013}}
+% \footnote{\cite{Ball_2013}}
+Erstnennung von |\footnote{\cite{Ball_2013}}|:
+ \begin{bsp}
+L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current  inking on the Pompeii Forum, 117/3, 2013, 461–492
+ \end{bsp}
+
+Folgenennung  von |\footnote{\cite[123]{Ball_2013}}|:
+ \begin{bsp}
+Ball – Dobbins a. O. (Anm. [Fußnotenummer Erstnennung]) 123
+ \end{bsp}
+ \changes{v1.5}{2016/05/31}{Rückverweis}
+
+\subsubsection{translation}\label{translation}
+\DescribeMacro{translation}
+Wenn diese Option aktiviert wird, erfolgt die Angabe  eines Originaltitels, 
+die Sprache, aus welcher übersetzt wurde und des Übersetzers des Werkes.
+Werke, bei denen |options={ancient}| oder |options={frgancient}| 
+(also antike Autoren und Fragmente) gesetzt wurde, werden stehts mit Originaltitel, Sprache und Übersetzer angegeben.
+
+Die Option |translation|  ist standardmäßig auf |=false| gesetzt. 
+Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
+ \begin{lstlisting}
+@book{Lefebvre_2011,
+  Title                    = {The Production of Space},
+  Author                   = {Lefebvre,Henri},
+  Publisher                = {Blackwell Publishing Ltd},
+  Year                     = {2011},
+  Edition                  = {30},
+  Location                 = {Maien, MA and Oxford and Victoria},
+  Origyear                 = {1991},
+  Origlanguage             = {french},
+  Origtitle                = {La production de l’espace},
+  Translator               = {Donald Nicholson-Smith}
+}
+\end{lstlisting}
+wird in der Bibliographie zunächst auf diese Weise umgesetzt:
+
+
+\printbib[6em]{Lefebvre_2011}
+
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Lefebvre_2011}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
+
+
+ mit der aktivierten Option |translation| wird daraus: 
+\begin{bsp}%
+%\fullcite{Lefebvre_2011}
+ Lefebvre 2011\hspace{2em} H. Lefebvre, The Production of Space, {\color{red} \emph{La production de l’espace}, aus dem Französischen übers. von D. Nicholson-Smith} \textsuperscript{30}(Oxford 1991; Nachdr. Maien, MA 2011) 
+\end{bsp}
+ 
+Dies funktioniert nicht nur bei den Einträgen |@book|, sondern auch bei |@article|:
+\begin{lstlisting}
+@article{Lefebvre_1977,
+  Title                    = {Die Produktion des städtischen Raums},
+  Author                   = {Lefebvre, Henri},
+  Journaltitle             = {ARCH+},
+  Number                   = {9},
+  Pages                    = {52--57},
+  Volume                   = {34},
+  Year                     = {1977},
+  Origlanguage             = {french},
+  Origtitle                = {Introduction à l'espace urbain},
+  Translator               = {Franz Hiss and Hans-Ulrich Wegener}
+}
+\end{lstlisting}
+
+Daraus wird dann:
+
+\begin{bsp}%
+%\fullcite{Lefebvre_1977}
+ Lefebvre 1977\hspace{2em} H. Lefebvre, Die Produktion des städtischen Raums, \emph{Introduction à l’espace urbain}, aus dem Französischen übers. von F. Hiss – H.-U. Wegener, ARCH+ 34/9, 1977, 52–57
+\end{bsp}
+
+
+
+
+\subsubsection{inreferences}\label{inreferences}
+\DescribeMacro{inreferences}  Lexikoneinträge können in den Fußnoten in verschiedenen Zitationsformen dargestellt werden.
+ Voraussetzung ist, dass  es sich um ein |@inreference| handelt (siehe \cref{inreference}).
+ 
+ 
+ Am folgenden Beispielsdatensatz wird die Option verdeutlicht:\\
+ 
+\begin{lstlisting}
+@inreference{Nieddu_1995,
+  Title                    = {Dei Consentes},
+  Author                   = {Nieddu, Giuseppe},
+  Booktitle                = LTUR-short, % bibstring
+  Pages                    = {9--10},
+  Volume                   = {2},
+  Year                     = {1995},
+}
+\end{lstlisting}
+  \begin{refsection}
+  Die Ausgabe von |\cite{Nieddu_1995}| ist nun auf zwei Arten möglich:
+   \begin{bsp}
+
+ \begin{enumerate}
+ \item standardmäßig wird daraus:  %Nieddu 1995
+ \cite{Nieddu_1995}
+ \item mit der Option |inreferences| wird dies zu:
+ LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
+ % \cite{Nieddu_1995}
+  \end{enumerate}
+   \end{bsp}
+ Trägt man eine konkrete Spalten/Seitenzahl ein (|\cite[9]{Nieddu_1995}|), dann wird diese Angabe in der Fußnote  angegeben:
+ \begin{bsp}
+\begin{enumerate} 
+ \item standardmäßig wird daraus:  %Nieddu 1995
+ \cite[9]{Nieddu_1995}
+ \item mit der Option |inreferences| wird dies zu:
+  LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
+  \end{enumerate}
+\end{bsp}
+
+Verwendet man diese Option (|inreferences|), dann werden die als |@inreference| gekennzeichneten Einträge automatisch von der (End-)Bibliographie ausgeschlossen,  da sie bereits in den Fußnoten vollständig bibliographiert sind.
+Verwendet man die Option nicht, dann sieht  der Eintrag wie folgt aus:
+  \end{refsection}
+
+\printbib[6em]{Nieddu_1995} 
+% \begin{bsp}
+%\nocite{Nieddu_1995}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{bsp}
+ 
+ 
+\subsubsection{yearseries}\label{yearseries}
+ \DescribeMacro{yearseries}
+ Mit der Option |yearseries| kann man bewirken, dass die Reihe (Felder |series| und |number|) erst \emph{nach} dem Jahr ausgegeben werden, was von der Richtlinie des DAI abweicht. 
+ Bei Sammelbänden kann diese Option zum Tragen kommen:
+ 
+ \begin{lstlisting}
+ @incollection{Mundt_2015,
+  Title                    = {Der Mensch, das Licht und die Stadt},
+  Author                   = {Mundt, Felix},
+  Editor                   = {Therese Fuhrer and Felix Mundt and Jan Stenger},
+  Pages                    = {179--206},
+  Publisher                = {de Gruyter},
+  Year                     = {2015},
+  Number                   = {3},
+  Series                   = Philologus-long # " Supplement", % bibstring
+  Shortseries          	  	= Philologus-short # " Suppl.",% bibstring
+  Location                 = {Berlin and Boston},
+  booksubtitle             = {Constructing and Modelling Images of the City},
+  booktitle                = {Cityscaping},
+  Subtitle                 = {Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung}
+}
+\end{lstlisting}
+
+ Ohne eine Option wird in der Bibliographie daraus:
+% \begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Mundt_2015}\end{bsp}
+
+\printbib[5em]{Mundt_2015}
+%  \begin{bsp}
+%\begin{refsection}
+%\nocite{Mundt_2015}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
+ 
+ mit der aktivierten Option |yearseries| verändert sich die Reihenfolge:
+ \begin{bsp}
+F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer – F. Mundt – J. Stenger (Hrsg.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206
+\end{bsp}
+
+\subsubsection{fullnames / lastnames}\label{fullnames}\label{lastnames}
+\DescribeMacro{fullnames}
+\DescribeMacro{lastnames}
+Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
+Autoren/Herausgeber werden über |\citeauthor|\marg{Schlüssel} aufgerufen.
+Ebenso ist auch das Auslesen der Werktitel über |\citetitle|\marg{Schlüssel} möglich, wobei der Titel in eine |emph{}|-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.
+
+Zunächst erfolgt die Ausgabe der Autoren, bzw. Herausgeber mit den Initialen des Vornamens und mit dem Nachnamen. 
+Die Darstellung der Namen kann jedoch noch auf zwei andere  Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via |hyperref| verlinkt. Die zwei Arten sind: mit dem vollen Vor- und Zunamen und nur mit dem Nachnamen. In einer Fußnote jedoch wird stets nur der/die Nachnamen gesetzt.
+
+Ein Beispiel macht dies klarer.
+Der Bibliographieeintrag lautet:
+
+\begin{lstlisting}
+@article{Boehmer_1985,
+  Title                    = {Astragalspiele in und um Warka},
+  Author                   = {Boehmer, Rainer Michael and Wrede, Nadja},
+  Pages                    = {399--404},
+  Volume                   = {16},
+  Year                     = {1985},
+  Journaltitle                 = BaM-long, % bibstring
+  Shortjournal = BaM-short, % bibstring
+}
+\end{lstlisting}
+
+
+
+Im Fließtext schreibt man:
+\begin{refsection}
+\begin{lstlisting}
+<@\ldots , dies behaupten ebenso  @>\citeauthor{Boehmer_1985} 
+<@ in ihrem jüngsten Werk @>\citetitle{Boehmer_1985}<@.@> \end{lstlisting}
+
+
+Und nach dem Kompilieren wird dann in der Standardeinstellung (ohne weitere Optionen):\footnote{Wird der Befehel |citeauthor| in einer Fußnote verwendet, dann werden nur die Nachnamen ausgegeben, unabhängig der Optionen |fullnames| (\cref{name:a}) und |lastnames| (\cref{name:b}): \begin{bsp}
+\ldots , dies behaupten ebenso  |\citeauthor{Boehmer_1985}| in ihrem jüngsten Werk |\citetitle{Boehmer_1985}|.
+\end{bsp} }
+
+\begin{bsp} \ldots , dies behaupten ebenso  \citeauthor{Boehmer_1985} in ihrem jüngsten Werk \citetitle{Boehmer_1985}.\end{bsp}
+
+Oder mit den Optionen |fullnames| (\cref{name:a}) und |lastnames| (\cref{name:b}):
+\begin{bsp}
+ \begin{enumerate}
+\item\label{name:a} 
+ \ldots , dies behaupten ebenso {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+\item\label{name:b}  
+\ldots , dies behaupten ebenso  {\color{red}Boehmer und  Wrede} in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+
+ \end{enumerate}
+\end{bsp}
+\end{refsection}
+\printbib{Boehmer_1985}
+%\begin{bsp}
+%\nocite{Boehmer_1985}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{bsp}
+
+
+
+Werden allerdings mit |\citeauthor|, bzw. |\citetitle|  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag |options=antik| geschrieben werden), dann wird für den Autorenname das Feld |shortauthor| ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
+
+Um Fehler zu vermeiden ist es absolut wichtig, dass dieses Feld wie die anderen Namensfelder behandelt wird. Möchte man »Plinius, d. Ä.« als deutschen Rufnamen ausgeben, dann muss man schreiben: |shortauthor = {Plinius, {d.\,Ä.}}|.
+
+Bei antiken Werktitel wird keine Jahreszahl dazugeschrieben.
+Somit wird aus dem Bibliographieeintrag
+\begin{lstlisting}
+@Book{Quint_inst,
+  Title                    = {Ausbildung des Redners},
+  Author                   = {Fabius Quintilianus, Marcus},
+  translator                = {Rahn, Helmut},
+  Year                     = {2015},
+  Edition                  = {6},
+  Keywords                 = {Quelle},
+  Location                 = {Darmstadt},
+  shortauthor                 = {Quintilian},
+  Options                  = {ancient},
+  Origlanguage             = {latin},
+  Shorthand                = {Quint. inst.},
+  Subtitle                 = {Institutio oratoria}
+}
+\end{lstlisting}
+
+
+wie folgt  Autor und  Buchttitel ausgelesen:
+\begin{refsection}
+\begin{lstlisting}
+<@ \ldots\ Auch @> \citeauthor{Quint_inst} <@ nennt in @> \citetitle{Quint_inst} 
+<@ die notwendigen physischen Qualitäten eines Redners.@> \end{lstlisting}
+ 
+\begin{bsp}
+Auch \citeauthor{Quint_inst} nennt in \citetitle{Quint_inst} die notwendigen physischen Qualitäten eines Redners.\par
+\end{bsp}
+\end{refsection}
+
+\printbib[5em]{Quint_inst}
+%\begin{bsp}
+%\nocite{Quint_inst}
+%\printbibliography[title={Antike Quellen}]
+%\end{bsp}
+%
+
+
+
+\subsubsection{yearinparens}\label{yearinparens}
+\DescribeMacro{yearinparens}%
+Setzt die Jahreszahlen aller Einträge in der Fußnote und in der Bibliographie in runde Klammern.
+Anstatt wie standardmäßig aus  |\cite[475]{Ball_2013}|
+\begin{bsp} Ball – Dobbins 2013, 475 \end{bsp}
+ wird, wird mit der Option: 
+\begin{bsp}
+Ball – Dobbins {\color{red}(}2013{\color{red})}, 475
+\end{bsp}
+
+%und in der Bibliographie:
+%
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Ball_2013}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
+
+
+
+
+\subsubsection{scshape}\label{scshape}
+\DescribeMacro{scshape}
+Die Option ändert die Formatierung der Zitation, sodass die Namen in den Anmerkungen/Fußnoten und in der Bibliographie in Kapitälchen gesetzt werden. Ausgenommen sind hierbei die Einträge, die über ein |label| (\cref{unbekannt}) ausgegeben werden, da es sich dabei nicht um einen Nachnamen, sondern eine selbst gewählte Bezeichnung handelt. 
+Ebenso sind antike Autoren (|options=antik|, bzw. |options={frgantik}|) von dieser Option ausgenommen.
+Anstatt wie standardmäßig aus  |\cite[475]{Ball_2013}|
+\begin{bsp} \cite[475]{Ball_2013} \end{bsp}
+ wird, wird mit der Option: 
+\begin{bsp}
+{\scshape {\color{red}Ball – Dobbins}} 2013, 475
+\end{bsp}
+
+Entsprechend in der Bibliographie:
+\begin{bsp}
+{\scshape {\color{red}Ball – Dobbins}} 2013\\
+\hspace*{3em}L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
+
+\end{bsp}
+
+
+
+\subsubsection{bibfullname}\label{bibfullname}
+\DescribeMacro{bibfullname}
+Ausgabe des vollen Namens (soweit Vor- und Zuname ausgeschrieben wurden) in der Bibliographie.
+
+\printbib[8em]{Ball_2013}
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Ball_2013}
+%\printbibliography[title={Forschungsliteratur}]
+%\end{refsection}
+%\end{bsp}
+
+Mit aktivierter Option wird dies zu:
+
+\begin{bsp}
+Ball – Dobbins 2013\hspace{2em} {\color{red}Larry F. Ball – John J. Dobbins}, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
+%\fullcite{Ball_2013}
+
+\end{bsp}
+
+
+\subsubsection{noabbrevs}\label{noabbrevs}
+\DescribeMacro{noabbrevs}
+Die DAI-Vorgabe sieht vor, Zeitschriften nur abgekürzt wiederzugeben, dafür wird das Feld |shortjournal| vom Bibliographieeintrag ausgelesen. Gibt es keine Abkürzung, also wurde das Feld |shortjournal| leer gelesen, wird automatisch das Feld |journal| ausgelesen.
+Möchte man hingegen den vollen Zeitschriftennamen in der Bibliographie haben, dann muss man die Option |noabbrevs| aktivieren.
+\begin{lstlisting}
+@article{Ball_2013,
+  Title                    = {Pompeii Forum Project},
+  Author                   = {Larry F. Ball and John J. Dobbins},
+  Number                   = {3},
+  Pages                    = {461--492},
+  Subtitle                 = {Current Thinking on the Pompeii Forum},
+  Volume                   = {117},
+  Year                     = {2013},
+  Month                    = {July},
+  Journaltitle               = AJA-long, % bibstring
+  shortjournal 				= AJA-short,% bibstring
+}
+\end{lstlisting}
+
+Mit der aktivierten angesprochenen Funktion |noabbrevs| wird daraus:
+\begin{bsp}
+Ball – Dobbins 2013\hspace{2em}  L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum,  {\color{red}American Journal of Archaeology} 117/3, 2013, 461–492\end{bsp}
+
+\subsubsection{publisher}\label{publisher}
+\DescribeMacro{publisher} 
+Angabe aller Erscheinungsorte und Verlagsort. Damit geht auch eine Änderung der Auflagezahl einher, die dann direkt vor das Erscheinungsjahr gesetzt wird.
+Erstauflage wird in eckiger Klammer nach dem Erscheinungsjahr gesetzt.
+\begin{lstlisting}
+@book{Emme_2013,
+  Title                    = {Peristyl und Polis},
+  Author                   = {Burkhard Emme},
+  Number                   = {1},
+  Publisher                = {Walter de Gruyter},
+  Series                   = {Urban Spaces},
+  Year                     = {2013},
+  Location                 = {Berlin and New York},
+  Subtitle                 = {Entwicklung und Funktionen öffentlicher griechischer Hofanlagen}
+}
+\end{lstlisting}
+
+\begin{refsection}\end{refsection}%sicherheitshalber
+ Ohne eine Option wird in der Bibliographie daraus:
+\printbib[5em]{Emme_2013}
+
+ 
+ mit der aktivierten Option |publisher| verändert sich die Reihenfolge:
+ \begin{bsp}
+Emme 2013\hspace{3em} B. Emme, Peristyl und Polis. Entwicklung und Funktionen öffentlicher griechischer Hofanlagen, Urban Spaces 1 (Berlin {\color{red} – New York: Walter de Gruyter} 2013)
+ \end{bsp}
+ 
+ 
+ 
+ 
+\subsubsection{edby}\label{edby}
+\DescribeMacro{edby}
+Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit einem |(Hrsg.)| gekennzeichnet, sondern nach dem Titel des Sammelbandes mit dem Zusatz |hrsg. v.|
+
+\begin{lstlisting}
+@Inproceedings{Wulf-Rheidt_2013,
+  Title                    = {Der Palast auf dem Palatin -- Zentrum im Zentrum},
+  Author                   = {Wulf-Rheidt, Ulrike},
+  Editor                   = {Dally, Ortwin and Fless, Friederike and Haensch, Rudolf and Pirson, Felix and Sievers, Susanne},
+  Eventdate                = {2009-11-18/2009-11-22},
+  Eventtitle               = {Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI},
+  Location                 = {Rahden/Westf\adddot},
+  booksubtitle             = {Gestaltung – Wahrnehmung – Funktion},
+  booktitle                = {Politische Räume in vormodernen Gesellschaften},
+  Pages                    = {277--289},
+  Publisher                = {Verlag Marie Leidorf},
+  Series                   = MKT-long,
+  shortseries = MKT-short,
+  Subtitle                 = {Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?},
+  Venue                    = {Berlin},
+  number                   = {6},
+  Year                     = {2013}
+}
+\end{lstlisting}
+
+ Ohne eine Option wird in der Bibliographie daraus:
+ 
+ \printbib[7em]{Wulf-Rheidt_2013}
+
+ 
+ mit der aktivierten Option |edby| verändert sich die Reihenfolge:
+ \begin{bsp}
+Wulf-Rheidt 2013\hspace{3em} U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?, in:  {\color{red}Politische Räume in vormodernen Gesellschaften. Gestaltung – Wahrnehmung – Funktion, ed. by O. Dally – F. Fless – R. Haensch – F. Pirson – S. Sievers}. Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI Berlin November 18–22, 2009, MKT 6 (Rahden/Westf. 2013) 277–289
+ \end{bsp}
+ 
+ 
+\subsubsection{width}\label{width}
+\DescribeMacro{width}
+In der Bibliographie ist der Abstand zwischen dem Label (Autor und Jahr)  und der vollständigen bibliographischen Angabe mit dem Wert |4em| angegeben.
+Wünscht man einen anderen Abstand, dann kann dieser selbst gewählt werden:
+
+|width = XY|
+
+Dafür kann XY für jede Länge stehen (bspw. |3em|, |7pt| oder |4cm|), auch |-1em| ist möglich, womit der Einzug aufgehoben wird.
+
+\subsubsection{counter}\label{counter}
+ \DescribeMacro{counter} 
+ Möchte man die Anzahl an Zitationen eines Werks im Text erfahren, 
+ dann reicht es wenn man in der Präambel die Option |counter| aktiviert (|counter=true|).\footnote{Idee basiert auf \href{http://tex.stackexchange.com/a/14159/98739}{http://tex.stackexchange.com/a/14159/98739} und wurde entsprechend angepasst.}
+ Dadurch wird am Ende eines jeden Literatureintrages die Anzahl der zitierten Einträge geschrieben. 
+ Die Ausgabe erfolgt bei eingestellter Sprache |ngerman|(im Paket |babel| oder in der |documentclass|)  entsprechend auf Deutsch,
+ ansonsten auf Englisch.
+\begin{bsp}
+Böhm – Eickstedt 2001\\
+\indent S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde 1-mal zitiert.}
+\end{bsp} 
+
+Ist ein Eintrag ohne Zitation in die Bibliographie geraten, wird dies entsprechend angezeigt:
+\begin{bsp}
+Böhm – Eickstedt 2001\\
+\indent S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde {\color{red}{keinmal}} zitiert.}
+\end{bsp} 
+
+
+
+Für alle Sprachen außer Deutsch:
+ \begin{bsp}
+Böhm – Eickstedt 2001\\
+ \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited {{\color{red}{not once}}}.}
+ \end{bsp}
+  
+ \begin{bsp}
+Böhm – Eickstedt 2001\\
+ \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 1 time.}
+ \end{bsp}
+
+Bei mehrmaligeb Zitationen ändert sich die Ausgabe entsprechend:
+  \begin{bsp}
+ Böhm – Eickstedt 2001\\
+ \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}
+\end{bsp}
+ 
+ \subsubsection{initials}\label{initials}
+\footnote{\url{http://tex.stackexchange.com/a/295486/98739}}
+%%\subsubsection{miturl}\label{miturl}
+%%\DescribeMacro{miturl}
+%%Für Bibliographieeinträge die online sind (|@Online|) werden  die URLs/DOI immer mit angegeben.
+%%
+%%| @Online{Selle_2008,|\\
+%%| Title   = {Raum und Verhalten},|\\
+%%| Author  = {Selle, Klaus},|\\
+%%| Url     = {http://www.pt.rwth-aachen.de/%|\\
+%%|dokumente/lehre_materialien/c8_raum_verhalten.pdf},|\\
+%%| Urldate 				= {2015-06-26},|\\
+%%| Year    = {2008},|\\
+%%| Subtitle  = {Grundlagen und erste Folgerungen für das Wohnen in der Stadt},|\\
+%%| }|\\
+%%
+%%%\begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Selle_2008}\end{bsp}
+%% \begin{bsp}
+%%\begin{refsection}
+%%\nocite{Selle_2008}
+%%\printbibliography[title={Forschungsliteratur}]
+%%\end{refsection}
+%%\end{bsp}
+%%
+%%Handelt es sich jedoch um einen Artikel o. ä., dann kann man die Angabe der URL/DOI/eprint optional steuern:
+%%
+%%| @Article{Mastrocinque_2012,|\\
+%%| Title   = {Magnetometry at Grumentum in Ancient Lucania},|\\
+%%| Author           = {Mastrocinque, Attilio and Saggioro, Fabio},|\\
+%%| Journaltitle           = {The Journal of Fasti Online},|\\
+%%| Pages   = {1--5},|\\
+%%| Year    = {2012},|\\
+%%| Url     = {www.fastionline.org/docs/FOLDER-it-2012-245.pdf},|\\
+%%| urldate				 = {2015-07-21},|\\
+%%| }|\\
+%%
+%%
+%%\begin{bsp}\todo[noline]{manuelles Beispiel}
+%%A. Mastrocinque – F. Saggioro, Magnetometry at Grumentum in Ancient Lucania, The Journal of Fasti Online, 2012, 1–5,\\
+%% {\color{red}<|www.fastionline.org/docs/FOLDER-it-2012-245.pdf|> (21. 07. 2015)}
+%%\end{bsp}
+
+\subsection{Optionen der Literatureinträge}\label{optionen-literatur}
+\subsubsection{ancient}\label{ancient}
+ \DescribeMacro{ancient} \emph{Die Formatierungen von |ancient| und |frgancient| sind vom Bibliographiestil |geschichtsfrkl| v.1.1 (Jonathan Zachhuber) inspiriert und modifiziert worden.}
+ 
+Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option |antik| zu versehen. Wir betrachten wieder ein Beispiel:
+\begin{lstlisting}
+@book{Cic_Att,
+  Title                    = {Atticus-Briefe},
+  Author                   = {Tullius Cicero, Marcus},
+  Editor                   = {Kasten, Helmut},
+  Publisher                = {Artemis {\&} Winkler},
+  Series                   = {Tusculum Bücherei},
+  Year                     = {1980},
+  Edition                  = {3},
+  Keywords                 = {Quelle},
+  Location                 = {Düsseldorf and Zürich},
+  shortauthor              = {Cicero},
+  Options                  = {ancient},
+  Origlanguage             = {latin},
+  Origtitle 					= {epistulae ad Atticum},
+  Origyear                 = {1959},
+  Shorthand                = {Cic. Att.},
+  Translator               = {Kasten, Helmut}
+}
+\end{lstlisting}
+ Beim Zitieren wird  nur das Feld |shorthand| berücksichtigt: 
+ \begin{lstlisting}
+ \cite[1, 3,3]{Cic_Att}\end{lstlisting} 
+ liefert
+ \begin{refsection}
+\begin{bsp}
+\cite[1, 3,3]{Cic_Att}
+%Cic. Att. 1, 3,3
+\end{bsp}\end{refsection}
+Dieses Feld |shorthand| wird für das Literaturverzeichnis verwendet, wo es als ›Schlüssel‹ auftaucht.: 
+\printbib{Cic_Att}
+
+
+
+
+Es gibt auch antike Texte, die in einem Sammelband (|@incollection|) herausgegeben sind. 
+Dieser Fall stellt jedoch kein Problem dar und wird analog zu |@book| geplottet.
+Ein Beispiel verschafft Klarheit:
+\begin{lstlisting}
+@inbook{Cic_Sest,
+  Title                    = {Rede für P.\ Sestius},
+  Author                   = {Tullius Cicero, Marcus},
+  Editor                   = {Fuhrmann, Manfred},
+  Pages                    = {110--185},
+  Publisher                = {Artemis \& Winkler},
+  Year                     = {1993},
+  Series                   = {Sammlung Tusculum},
+  volume                   = {II},
+  Keywords                 = {Quelle},
+  Location                 = Munich, %bibstring: @String{Munich = {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco}{\iflanguage{french}{Munich}{München}}}}}
+  booktitle                = {Die politischen Reden},
+  shortauthor                    = {Cicero},
+  Options                  = {ancient},
+  Origlanguage             = {latin},
+  Origtitle                = {pro P. Sestio},
+  Shorthand                = {Cic. Sest.},
+  inTranslator               = {Fuhrmann, Manfred}
+}
+\end{lstlisting}
+
+
+\printbiball{Cic_Sest}
+%
+%\begin{bsp}
+%\begin{refsection}
+%\nocite{Cic_Sest}
+%\printbibliography[title={Antike Quellen}]
+%\end{refsection}
+%\end{bsp}
+
+
+%\subsubsection{frg}\label{frg}
+% \DescribeMacro{frg}
+%%% Wenn man Fragmente zitiert kann man dazu die Option |frg| bzw. |frgantik| wählen. Das wirkt sich dann leicht unterschiedlich auf die Zitatsform aus. Wir betrachten das am besten wieder an Beispielen: Der |bib|-Eintrag\\[3pt]
+%|@book{alkaios,|\\
+%|	author={{Alkaios}},|\\
+%|	shorthand={Alk.},|\\
+%|	sortname={Edgar Lobel and Denys Page},|\\
+%|	maintitle={Poetarum Lesbiorum Fragmenta},|\\
+%|	editor={Edgar Lobel and Denys Page},|\\
+%|	shorteditor={LP},|\\
+%|	address={Oxford},|\\
+%|	year={1955},|\\
+%|	keywords={quelle},|\\
+%|	options={frg}|\\
+%|}|\\[3pt]
+%
+%\begin{refsection} 
+% \begin{bsp}
+% \cite[2]{alkaios}
+% \end{bsp}
+% 
+% In der Bibliographie  unterscheidet sich der Eintrag gegenüber |antik|  geringfügig:
+%\begin{bsp}
+%\printbibliography[title={Antike Quellen}]
+%\end{bsp}
+%\end{refsection}
+
+%% Das |sorttitle|-Feld sorgt hier dafür, dass der Eintrag nicht unter \enquote{Alkaios} sondern den Namen der Herausgeber sortiert wird. Im Literaturverzeichnis sieht das dann folgendermaßen aus:
+%%\begin{bsp} {\sc Lobel}, Edgar / {\sc Page}, Denys (Hrsg.): Poetarum Lesbiorum Fragmenta, Oxford 1955.\end{bsp}
+%% Wenn man ihn zitiert, erscheint bei |\cite[2]{alkaios}|
+%% \begin{bsp} Alk. frg. 2 LP.\end{bsp}
+%% Bemerkenswert ist insbesondere die Verwendung des |shorteditor|-Feldes. Ansonsten wird nur der Nachname des Herausgebers angegeben. Details findet man in \cref{driver}.
+%%
+
+\subsubsection{frgantik}\label{frgantik}
+ \DescribeMacro{frgantik}
+ Mit der Option |frgantik| werden die Bibliographieeinträge versehen, die antike Fragmente beinhalten, da die Herausgeber dieser Fragmente relevant sind. Dies wird in der Zitierweise berücksichtigt. 
+\begin{lstlisting}
+@book{Fest,
+  author      = {Pompeius Festus, {Sex}tus},
+  editor      = {Lindsay, Wallace Martin},
+  title       = {De verborum significatu quae supersunt cum Pauli epitome},
+  publisher   = {Teubner},
+  location    = {Leipzig},
+  year        = {1965},
+  series      = {Bibliotheca scriptorum et Grecorum et Romanorum Teubnerina},
+  origyear    = {1913},
+  shorthand   = {Fest.},
+  shortauthor = {Festus},
+  keywords    = {Quelle},
+  options     = {frgantik},
+  shorteditor = {L},
+}
+\end{lstlisting}
+ Zitiert man diesen Eintrag durch |\cite[3]{Fest}|, so wird der oder die Herausgeber genannt; ist das Feld |Shorteditor| ausgefüllt, dann wird dieses angegeben, ansonsten die Nachnamen aus |Editor|.
+ \begin{bsp}
+ Fest. 3 L
+ \end{bsp}
+ In der Bibliographie  unterscheidet sich der Eintrag gegenüber |antik|  geringfügig:
+\printbib{Fest}
+
+
+
+\subsubsection{corpus}\label{corpus}
+\DescribeMacro{corpus}
+Für bestimmte Corpora (Inschriften, Münzen, etc.) wird für gewöhnlich mit einer gängigen Abkürzung zitiert.
+Diese Abkürzung des Corpus wird im Bibliographieeintrag unter |shorthand| eingetragen.
+Nun kann man sehr einfach das gewünschte Corpus in der Fußnote zitieren, mit  |prenote| und |postnote|-Feldern. Bei anderen Autoren-Einträge, die mittels |shorthand| zitiert werden, wird ein Komma zwischen Nachname und |postnote| gesetzt. Dank |options=corpus| fällt dieses Komma weg.
+
+Das Beispiel zeigt die Option für die lateinischen Inschriften:
+\begin{lstlisting}
+@Book{CIL,
+  title     = CIL-lang,
+  location  = {Berlin},
+  year      = {1863--},
+  shorthand = CIL-short,
+  keywords  = {corpus}, %!
+  options   = {corpus},
+}
+\end{lstlisting}
+
+
+Zitiert wird, wie gewöhnlich, mit 
+\begin{lstlisting}
+\cite[06, 01234]{CIL}.\end{lstlisting}
+ Daraus wird:
+
+
+\begin{bsp}
+CIL 06, 01234
+%Cic. Att. 1, 3,3
+\end{bsp}
+Dieses Feld |shorthand| wird für das Literaturverzeichnis verwendet, wo es als ›Schlüssel‹ auftaucht.: 
+\printbib{CIL}
+
+Aufgrund der Setzung von |keywords=Sigel| können diese Art von Corpora in einer separaten Bibliographie aufgeführt werden. Siehe dazu \cref{bibliographie}
+
+\changes{v1.1}{2015/06/15}{Modifikation der Option |corpus|.}
+
+
+ \section{Beschreibung der Eintragtypen (Beispiele)} \label{beispiele}
+
+
+ Der |archaeologie|-Zitierstil definiert unterschiedliche bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. 
+ Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
+
+
+
+ \subsection{Typ \texttt{@book}}\label{book}
+ \DescribeMacro{@book}
+ \DescribeMacro{@collection}\footnote{Der Typ |@collection| entspricht hier dem Typ |@book|.}
+ Fangen wir ganz einfach an: Zu einem einfachen Buch sieht der Eintrag in der |bib|-Datei ungefähr folgendermaßen aus:
+\begin{lstlisting}
+@book{Mann_2011,
+  Title                    = {\enquote{Um keinen Kranz, um das Leben kämpfen wir!}},
+  Author                   = {Mann, Christian},
+  Location                 = {Berlin},
+  Number                   = {14},
+  Publisher                = {Verlag Antike},
+  Series                   = {Studien zur Alten Geschichte},
+  Subtitle                 = {Gladiatoren im Osten des Römischen Reiches und die Frage der Romanisierung},
+  Year                     = {2011},
+}
+\end{lstlisting}
+Zitiert man daraus mit 
+\begin{lstlisting}
+\footnote{\cite[Vgl.][142--144]{Mann_2011}.}
+\end{lstlisting} dann erscheint in der Fußnote\footnote{Vgl. Mann 2011, 142--144.}.
+In der Bibliographie wird der Eintrag wiedergegeben mit:
+\printbib[5em]{Mann_2011}
+
+\subsubsection{Festschriften, Gedenkschriften u.\,ä.}
+Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprechend zu zitieren, gehört der Zusatz ins Feld |titleaddon|, bzw. wenn es sich um ein |@inbook| oder |@inproceedings| handelt, entsprechend ins Feld |Booktitleaddon| (\cref{inbook}).
+\begin{lstlisting}
+@book{Boehm_2001,
+  Title                    = {Ithake},
+  Editor                   = {Böhm, Stephanie and Eickstedt, Klaus-Valtin von},
+  titleaddon                = {Festschrift Jörg Schäfer},
+  Publisher                = {Ergon-Verlag},
+  Year                     = {2001},
+  location                  = {Würzburg},
+}
+\end{lstlisting}
+
+\printbib[9em]{Boehm_2001}
+ 
+ \subsubsection{Übersetzungen u.ä.}
+Liegt ein Werk in Übersetzung vor, gibt es die Möglichkeit den Übersetzer/in, Ausgangssprache und ursprünglichen Titel automatisch anzeigen zu lassen.
+Dies funktioniert mit den Literatureinträgen |related| und |relatedtype|  (\cref{review}).
+
+Im Beispiel wird die Verwendung klar:
+Das Ausgangswerk ist |Zanker_2014|.
+\begin{lstlisting}
+@Book{Zanker_2014,
+  Title                    = {Die römische Stadt},
+  Author                   = {Zanker, Paul},
+  Location                 = Munich,
+  Publisher                = {CHB},
+  Subtitle                 = {Eine kurze Geschichte},
+  Year                     = {2014},
+  language = {german},
+}
+\end{lstlisting}
+Die Übersetzung davon ist |Zanker_2013|:
+\begin{lstlisting}
+@Book{Zanker_2013,
+  Title                    = {La città romana},
+  Author                   = {Zanker, Paul},
+  Location                 = {Roma-Bari},
+  Publisher                = {GLF},
+  Series                   = {Storia della città},
+  Year                     = {2013},
+  language = {italian},
+    Relatedtype              = {translationof},
+  Related                  = {Zanker_2014},
+  Translator               = {Senatore, Anna Maria}
+}
+\end{lstlisting}
+
+
+\printbiball{Zanker_2013}
+
+
+ \subsubsection{Mehrbändige Monographien mit Untertitel}
+Es kommt vor, dass man einen Band einer mehrbändigen Monographie zitiert, der einen eigenen Untertitel hat.
+Damit die jeweilige Zahl des Bandes an korrekter Stelle ausgegen wird, 
+muss ein Bibliographieeintrag wie folgt aussehen:
+\begin{lstlisting}
+@book{MacDonald_1986,
+  Title                    = {An urban Appraisal},
+  Author                   = {MacDonald, William L.},
+  Location                 = {New Haven and London},
+  Number                   = {35},
+  Publisher                = {YUP},
+  Series                   = {Yale Publictions in the History of Art},
+  Year                     = {1986},
+  Volume                   = {II},
+  Maintitle                = {The Architecture of the Roman Empire}
+}
+\end{lstlisting}
+
+
+Damit werden Haupttitel der Monographie (|Maintitle|) und Titel des Bandes (|Titel|) getrennt voneinander eingegeben, sodass die Bandzahl (|volume|) vor den Titel gesetzt werden kann.
+
+
+\printbib[7em]{MacDonald_1986}
+
+
+ \subsection{Typ \texttt{@inbook / @incollection}}\label{inbook}
+
+ \DescribeMacro{@incollection}
+ Kapitel aus Sammelbändern macht man am Besten mit dem Typ |@incollection|. 
+ Am besten sieht man das wieder an Hand eines Beispiels:
+ 
+ \begin{lstlisting}
+ @Incollection{Carter_2014,
+  Title	= {Spectacle in Rome, Italy, and the Provinces},
+  Author	= {Carter, Michael J. and Edmondson, Jonathan},
+  Editor	= {Bruun, Christer and Edmondson, Jonathan},
+  Pages	= {537--558},
+  Publisher	= {Oxford University Press},
+  Year	= {2014},
+  Location	= {Oxford},
+  Booktitle	= {The Oxford Handbook of Roman Epigraphy}
+}
+\end{lstlisting}
+
+\printbib[12em]{Carter_2014}
+
+ 
+Zitiert man einen Beitrag aus einer Festschrift, o.ä., dann kann das folgendermaßen aussehen:
+\begin{lstlisting}
+@incollection{Hoelscher_2001,
+  Title = {Schatzhäuser -- Banketthäuser?},
+  Author                   = {Hölscher, Tonio},
+  Editor       = {Böhm, Stephanie and Eickstedt, Klaus-Valtin von},
+  booktitle                = {Ithake},
+  booktitleaddon 		= {Festschrift Jörg Schäfer},
+  Pages                    = {143--152},
+  Publisher                = {Ergon-Verlag},
+  Year                     = {2001},
+  location                  = {Würzburg},
+}
+\end{lstlisting}
+
+In der Bibliographie ist die Darstellung:
+
+
+\printbib[6em]{Hoelscher_2001}
+ \subsubsection{Kleinere Kurzreihen}
+Es kommt auch vor, dass man einen Band einer kleinen Reihe (nicht Serie) zitieren muss.
+Zum Beispiel dieses Buch:
+\begin{lstlisting}
+@incollection{Fentress_2003,
+  Title                    = {Cosa in the Republic and Early Empire},
+  Author                   = {Fentress, Elizabeth and John Bodel and Adam Rabinowitz and Rabun Taylor},
+  Booksubtitle             = {Excavations 1991--1997},
+  Booktitle                = {An Intermittent Town},
+  Editor                   = {Fentress, Elizabeth},
+  Location                 = {Ann Arbor, Mich.},
+  Number                   = {2},
+  Pages                    = {13--62},
+  Publisher                = UMP,
+  Series                   = MemAmAc-long,
+  Shortseries              = MemAmAc-short,
+  Year                     = {2003},
+  Volume                   = {V},
+  Maintitle                = {Cosa},
+}
+\end{lstlisting}
+
+Es handelt sich also um den fünften Band (|volume|) mit dem Titel (|title|) \emph{Cosa in the Republic and Early Empire} der Reihe \emph{Cosa} (|maintitle|) darstellt, was wiederum den zweiten Band (Number) der Serie \emph{MemAmAc} ist.
+
+
+\printbiball[7em]{Fentress_2003}
+
+ 
+ 
+ \subsubsection{Bestandskatalog}
+ Die Angabe von Bestandskatalogen weicht in einer Kleinigkeit von Sammelbänden o.ä. ab:
+ Es wird kein Titel genannt. Damit fällt auch das Komma nach dem Autor weg.
+Zwei Beispiele verdeutlichen dies.
+
+\begin{lstlisting}
+@inbook{Kohlmeyer_1983,
+author = {K. Kohlmeyer},
+editor = {U. Gehrig},
+booktitle = {Tierbilder aus vier Jahrtausenden},
+booksubtitle = {Antiken der Sammlung Mildenberg},
+location = {Mainz},
+year = {1983},
+pages = { 20 Nr. 9 },
+}
+\end{lstlisting}
+und
+
+\begin{lstlisting}
+@inbook{Parlasca_1969,
+author = {K. Parlasca},
+booktitle = {Helbig},
+volume = {III},
+edition = {4},
+location = {Tübingen},
+pages = {98\psq\ Nr. 2176}, %! \psq = following page
+year ={1969},
+}
+\end{lstlisting}
+
+
+\printbib[6em]{Kohlmeyer_1983}
+\begin{refsection}\end{refsection}
+\printbiball[6em]{Parlasca_1969}
+
+ Der Typ |@inbook| entspricht hier dem Typ |@incollection|.
+
+
+ \subsection{Typ \texttt{@article}}\label{article}
+\DescribeMacro{@article}
+\begin{lstlisting}
+@Article{Evangelidis_2014,
+  Title                    = {Agoras {and} Fora},
+  Author                   = {Evangelidis, Vasilis},
+  Pages                    = {335--356},
+  Subtitle                 = {Developments in the Central Public Space of the Cities of Greece during the {Roman} Period},
+  Volume                   = {109},
+  Year                     = {2014},
+  Doi                      = {10.1017/s006824541400015x},
+  Journaltitle             = BSA-long,
+  shortjournal            = BSA-short,
+}
+\end{lstlisting}
+\printbib[7em]{Evangelidis_2014}
+\begin{refsection}\end{refsection}
+
+Es gibt die Möglichkeit allen Einträgenl den Publikationszustand anzugeben.
+Die beliebige Eingabe erfolgt im Feld |pubstate| und wird ans Ende des bibliographischen Eintrages gesetzt.
+
+Es empfiehlt sich allerdings sich auf ein paar Standarts zu beschränken, da diese sprachabhängig ausgegeben werden:
+\begin{description}
+\item[inpreparation] Typoskript wird für die Publikation vorbereitet. \\(|pubstate = {inpreparation}|)
+\item[submitted] Typoskript wurde bei der Zeitschrift eingereicht.\\(|pubstate = {submitted}|)
+\item[forthcoming] Typoskript wurde von der Zeitschrift akzeptiert.\\(|pubstate = {forthcoming}|)
+\item[inpress] Typoskript liegt bereits als fertig gesetzter Artikel vor.\\(|pubstate = {inpress}|)
+\item[prepublished] Artikel liegt in einer (online) Vorabversion vor. \\(|pubstate = {prepublished}|)
+\end{description}
+
+Ein Beispiel zeigt die Anwendung für |pubstate = {forthcoming}|
+\begin{lstlisting}
+@article{Bossert_2016,
+	Author  = {Lukas C. Bossert},
+  	Title      = {\ldots\ \textsc{in formam anitqvam restitvto}?},
+  	Subtitle = {Überlegungen zur Inschrift der ›Porticus Deorum Consentium‹ (CIL\,VI 102) und ihren Ergänzungen im 19.{\,}Jh.},
+  	Volume = {2},
+  	Year      = {2016},
+  	Journaltitle    = {BeStAR. Berliner Studien zum Antiken Rom},
+  	Shortjournal = {BeStAR},
+	pubstate = {forthcoming},
+}
+\end{lstlisting}
+
+\printbib[5em]{Bossert_2016}
+
+
+
+\subsection{Typ \texttt{@proceedings}}\label{proceedings}
+
+ Für Beiträge innerhalb eines Konferenzbandes müssen die Felder |venue|, |eventdate| und |eventtitle| ausgefüllt werden. Ansonsten alle anderen Felder entsprechend wie bei |@book|:
+ \begin{lstlisting}
+@proceedings{Kurapkat_2014,
+  Title                    = {Die Architektur des Weges},
+  Editor                   = {Kurapkat, Dietmar and Schneider, Peter I. and Wulf-Rheidt, Ulrike},
+  Eventdate                = {2012-02-08/2012-02-11},
+  Eventtitle               = {Kolloquium Architekturreferat des DAI},
+  Location                 = {Regensburg},
+  Number                   = {11},
+  Organization             = {Architekturreferat des DAI},
+  Publisher                = {Schnell + Steiner},
+  Series                   = DiskAB-long,
+  shortseries = DiskAB-short,
+  Subtitle                 = {Gestaltete Bewegung im gebauten Raum},
+  Venue                    = {Berlin},
+  Year                     = {2014}
+} 
+\end{lstlisting}
+
+So wird daraus: 
+ 
+\printbiball[7em]{Kurapkat_2014}
+
+\subsection{Typ \texttt{@inproceedings}}\label{inproceedings}
+
+Wie bei |@proceedings| so auch hier:
+ \begin{lstlisting}
+@inproceedings{Torelli_1991,
+  Title                    = {Il \enquote{diribitorium} di Alba Fucens e il \enquote{campus} eroico di Herdonia},
+  Author                   = {Torelli, Mario},
+  Editor                   = {Mertens, Josef},
+  Eventdate                = {1990-02-01/1990-02-03},
+  Location                 = {Bruxelles},
+  booksubtitle             = {Actes du Colloque International Organisé à l'Occasion du 50. Anniversaire de l'Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie},
+  booktitle                = {Comunitá indigene e problemi della romanizzazione nell’Italia centro\--meri\-dionale (IV--III sec. a.C.)},
+  Number                   = {29},
+  Pages                    = {39--63},
+  language = {italian},
+  Publisher                = {Institut Historique Belge de Rome},
+  Series                   = {Études de philologie, d'archéologie et d'histoire anciennes},
+  Venue                    = {Roma, Academia Belgica},
+  Year                     = {1991},
+  Hyphenate                = {italian},
+  Shorttitle               = {Il \enquote{diribitorium}}
+}
+\end{lstlisting}
+
+So wird daraus: 
+ 
+\printbiball[4em]{Torelli_1991}
+
+ \subsection{Typ \texttt{@inreference}}\label{inreference}
+ \DescribeMacro{@inreference}
+ Mit dem Typ |@inreference| können  Lexikonartikel zitiert werden.
+ Dabei gibt es generall zwei Möglichkeiten wie der Eintrag dargestellt wird:
+ Entweder gleich wie alle anderen Einträge mit ›Autor Jahr‹-Angabe, oder speziell nach den Vorgaben des Deutschen Archäologischen Instituts, sodass der Eintrag in der Fußnote vollzitiert und -referenziert ist:
+›Lexikon Band (Jahr) Seitenzahlen s.\,v. Titel des Artikels (Autor)‹.
+Für die erste Variante bedarf es keine Änderung, präferiert man die zweite Variante, so muss in der Präambel die Option |inreferences=true| gesetzt werden. \DescribeMacro{inreferences=true}
+
+An einem Beispiel wird die Anwendung deutlich.
+  \begin{lstlisting}
+@Iinreference{Neils_1994,
+  Title                    = {Theseus},
+  Author                   = {Neils, Jenifer},
+  booktitle                = LIMC-short,
+  Pages                    = {922--951},
+  Volume                   = {7.1},
+  Year                     = {1994},
+  keywords={lexikon},
+  }
+\end{lstlisting}
+
+Zusätzlich lohnt es sich den Eintrag über |related| mit dem Hauptwerk (in diesem Falle ›LIMC‹) zu verküpfen:
+  \begin{lstlisting}
+@Reference{LIMC,
+  Title                    = LIMC-long,
+  Keywords                 = {corpus},
+  Options                  = {corpus},
+  Shorthand                = LIMC-short
+}
+ \end{lstlisting}
+ Dies hat den Vorteil, dass man die Abkürzung ›LIMC‹ in der Teilbibliographie ›Lexika und Corpora‹ (\cref{bib:corpus}) danke des |keywords = {corpus}| automatisiert auflösen kann. Dafür muss der Bibliographieeintrag |@reference{LIMC}| nicht manuell zitiert werden, da dies über den Eintrag |related| bei |@inreference{Neils_1994}| dynamischt erfolgt.
+ 
+ 
+
+ Verwendet man den normalen |\cite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}-Befehl, dann wird bei eingetragener Option (|lexikon|) die \oarg{postnote} nicht nachgestellt, sondern nach der Jahresangabe des Lexikons gesetzt.
+ Ist die \oarg{postnote} leer, dann werden die Seiten aus dem Bibliographieeintrag ausgelesen und an diese Stelle gesetzt:
+  
+ \begin{bsp}
+	\ldots\ (|\cite[vgl.][930 Nr. 283]{Neils_1994}|).
+	
+	...\ (vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)).
+	% \ldots (\fullcite[vgl.][930 Nr. 283]{Neils_1994}).
+ \end{bsp}
+ 
+\DescribeMacro{\parencite} 
+Dieses Beispiel zeigt, dass keine Klammerregelung angewendet wurde, was nicht gewünscht ist. 
+Es ist zu beachten, dass bei gewählter Option  |inreferences=true| (in der Präambel) und bei einer gewünschten  Zitation in Klammern (), der Befehl |\parencite|\marg{Schlüssel} verwendet wird (\ref{cite-befehle}), damit die Klammerregelung automatisch angewendet wird.
+Dies funktioniert so: 
+ 
+ \begin{bsp}
+	\ldots\ |\parencite[vgl.][930 Nr. 283]{Neils_1994}.|
+ 
+ 	...\ (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{red}{WRONG!}
+
+	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
+ \end{bsp}
+
+\DescribeMacro{\parencites}
+Gleiches gilt auch für das Zitieren von mehreren Einträgen in Klammern: Dafür wird analog der Befehl |\parencites|\marg{Schlüssel} verwendet:
+ \begin{bsp}
+	\ldots\ |\parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}.|
+ 
+ 	...\ (vgl. Neils 1994, 930 Nr. 283; Nieddu 1995, 9).
+ 	 \end{bsp}
+
+ 	bzw. mit der Präambel-Option |inreferences=true|:
+ 	 \begin{bsp}
+
+ 	\ldots (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]; LTUR 2 [1995] 9 s. v. Dei Consentes [G. Nieddu])
+
+	%\ldots\ \parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}
+	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
+ \end{bsp}
+
+
+Da der Bibliographieeintrag ein Lexikonartikel ist (|@inreference|), werden bei gewählter Präambel-Option |inreferences=true| alle Lexikoneinträge von der Bibliographie ausgeschlossen, da sie ja in der Fußnote vollzitiert werden.
+
+Ansonsten  (Präambel-Option |inreferences=false| = default)  sieht der Eintrag in der Bibliographie so aus:
+
+
+\printbib{Neils_1994}
+\printbib{Nieddu_1995}
+
+ 
+
+
+
+ Diese Handhabe gilt nicht nur für ›kanonische Lexika‹ der Altertumswissenschaften (RE, LIMC, DNP, LTUR, LÄ, etc.) sondern kann auf alle Lexika angewendet werden.
+ 
+ Da es nicht für alle Lexika eine Abkürzungskonvention  des  Titels gibt, können und sollten diese selbst abkürzt werden.\footnote{Dies ist sehr emphehlenswert, da in der Bibliographie der Abstand zwischen der Autor-Jahr-Abkürzung und dem Vollzitat sich nach der längsten ›Shorthand‹ richtet.}
+ 
+ Ein weiteres Beispiel:
+\begin{lstlisting}
+@inreference{Weinbrenner_1914,
+  Title                    = {Rennbahn},
+  Author                   = {Weinbrenner},
+  Number                   = {2},
+  Pages                    = {636--637},
+  Volume                   = {9},
+  Year                     = {1914},
+  related = {Lexikon-der-Technik},
+  Booktitle                = {Lexikon d. T.},
+}
+\end{lstlisting}
+Der Lexikoneintrag ist über |related| verknüpft mit:
+\begin{lstlisting}
+@reference{Lexikon-der-Technik,
+editor = {Otto Lueger},
+location = {Stuttgart},
+year = {1904--1920},
+edition = {2},
+shorthand = {Lexikon d. T.},
+  Keywords                 = {corpus},
+  title = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},
+}
+\end{lstlisting}
+Wichtig ist, dass |booktitle| des |@inreference| und |shorthand| des |@reference| gleich sind, damit der Titel des Lexikons entsprechend aufgelöst werden kann.
+
+
+\begin{refsection}
+\begin{bsp}
+\nocite{Lexikon-der-Technik,Weinbrenner_1914}
+ \printbibliography[keyword=Sigel,title={Abkürzungen und Sigel}]
+\printbibliography[title={Forschungsliteratur},notkeyword=Sigel]
+\end{bsp}
+ \end{refsection}
+
+
+ 
+ \subsection{Typ \texttt{@review}}\label{review}
+\DescribeMacro{@review}
+Rezensionen, die in Zeitschriften erschienen sind, werden als |@review| verarbeitet.
+Oft zitiert man die Rezension und das rezensierte Werk in seiner Arbeit.
+Das folgende Beispiel geht auf diesen Fall ein und erläutert die relevanten Punkte und Besonderheiten.
+
+Dafür sind zwei Bibliographieeinträge notwendig.
+Zuerst das rezensierte Werk:
+\begin{lstlisting}
+@book{Welch_2007,
+  Title                    = {The {Roman} Amphitheatre},
+  Author                   = {Welch, Katherine E.},
+  Location                 = {Cambridge and New York},
+  Publisher                = {CUP},
+  Subtitle                 = {From its Origins to the Colosseum},
+  Year                     = {2007}
+}
+\end{lstlisting}
+und schließlich die dazugehörige Rezension:
+\begin{lstlisting}
+@review{Bell_2011,
+  Author                   = {Bell, Sinclair},
+  Number                   = {1},
+  Volume                   = {115},
+  related = {Welch_2007},
+  relatedtype= {reviewof},
+  pages = {1--4},
+  Year                     = {2011},
+  Journaltitle             = AJA-long,
+  Publisher                = {Archaeological Institute of America},
+  Shortjournal             = AJA-short,
+}
+\end{lstlisting}
+
+Im Bibliographieeintrag der Rezension (|Bell_2011|) wird im Feld |Related| mittels Eintrag |{Welch_2007}| Bezug auf das rezensierte Werk (|Welch_2007|) genommen.
+Das Feld |Relatedtype| enthält die Information in welcher Beziehung das Werk (|Bell_2011|) zu |Welch_2007| steht. Die Angabe |reviewof| ist der |bibstring| für Rezensionen und enthält sprachabhängig (Deutsch und Englisch) die Bezeichnung |Rez. zu| bzw. |Review of|.
+Dies ist für die Bibliographie relevant: Es ist nun nicht mehr notwendig das rezensierte Werk mit allen dazugehörigen Angaben einzutippen, da  dies automatisch über die |Related|-Funktion erfolgt.
+
+
+\printbiball{Bell_2011}
+
+ 
+Der Vorteil mit |Related| und |Relatedtype| zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
+Zudem wird das rezensierte Werk bei der Erwähung in der Rezension nicht automatisch in die Bibliographie als eigener Eintrag aufgenommen, sondern erst dann, wenn es selbst explizit zitiert wird.
+
+\subsubsection{Rezensionen mit eigenem Titel}
+Manche Rezensionen sind ausführlicher und haben daher einen eigenen Titel, der angegeben werden soll.
+In diesem Fall wird das Feld |Title| ausgefüllt, ansonsten bleibt alles gleich: 
+\begin{lstlisting}
+@review{Hufschmid_2010,
+  Title  = {Von Caesars \emph{theatron kynegetikon} zum \emph{amphitheatrum novum} Vespasians},
+  related = {Welch_2007},
+  relatedtype= {reviewof},
+  Author                   = {Hufschmid, Thomas},
+  Pages                    = {487--504},
+  Volume                   = {23},
+  Year                     = {2010},
+  Journaltitle             = JRA-long,
+  Shortjournal             = JRA-short,
+}
+\end{lstlisting}
+In der Bibliographie wird dann zuerst der eigene Titel der Rezension ausgegeben, dann die Angaben zum rezensierten Werk.
+
+
+\printbib[7em]{Hufschmid_2010}
+
+
+\subsubsection{Sammelrezensionen}
+Es kann vorkommen, dass Rezensionen nicht nur ein Werk unter die Lupe nehmen, sondern zwei oder noch mehr.
+Dies ist jedoch kein Problem, da das Vorgehen fast analog zu den oben genannten Beispielen ist.
+\begin{lstlisting}
+\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch
+ \citetitle{Welch_2007} von \citeauthor{Welch_2007} rezensiert, 
+ sondern es zugleich mit \citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.
+\end{lstlisting}
+
+\begin{bsp}\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch \citetitle{Welch_2007} 
+von \citeauthor{Welch_2007} rezensiert, sondern es zugleich mit 
+\citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.\end{bsp}
+\begin{lstlisting}
+@review{Taylor_2008,
+  Author                   = {Taylor, Rabun},
+  Number                   = {3},
+  Pages                    = {443--445},
+  Related                  = {Sear_2006,Welch_2007},
+  Relatedtype              = {reviewof},
+journaltitle             = {Journal of the Society of Architectural Historians},
+  Volume                   = {67},
+  Year                     = {2008},
+}
+\end{lstlisting}
+\begin{lstlisting}
+@book{Sear_2006,
+  Title                    = {Roman Theatres},
+  Author                   = {Sear, Frank},
+  Location                 = {Oxford},
+  Publisher                = OUP,
+  Series                   = {Oxford Monographs on Classical Archeology},
+  Subtitle                 = {An Architectural Study},
+  Year                     = {2006},
+}
+\end{lstlisting}
+
+
+\printbib[5em]{Taylor_2008}
+
+
+ \subsection{Typ \texttt{@thesis}}\label{thesis}
+Master- und (unpublizierte) Doktorarbeiten sind als |@thesis| aufzunehmen.
+Wichtige Felder sind |type=|\marg{|phdthesis|} bzw. \marg{|mathesis|}  und |institution=|\marg{Universität}.
+
+Beispiel:
+\begin{lstlisting}
+@Thesis{Arnolds_2005,
+  Title                    = {Funktionen republikanischer und frühkaiserzeitlicher Forumsbasiliken in Italien},
+  Author                   = {Markus Arnolds},
+  Date                     = {2005-05-31},
+  Institution              = {Ruprecht-Karls-Universität zu Heidelberg},
+  Type                     = {phdthesis},
+  eprint                   = {urn:nbn:de:bsz:16-heidok-74406},
+  eprinttype				={urn},
+}
+\end{lstlisting}
+In der Bibiographie wird das zu:
+
+\printbib[5em]{Arnolds_2005}
+
+ 
+ \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
+
+ \subsection{Typ \texttt{@talk}}\label{talk}
+ Mit dem neu definierten Eintragstyp |@talk| können Vorträge von Einzelkolloquien oder von Konferenzen zitiert werden.
+ Folgende Felder können benutzt werden: 
+ | author|,
+| title|,
+| subtitle|,
+| titleaddon|,
+| date|,
+| venue|,
+| institution|,
+| eventtitle|,
+| eventdate|,
+| url|,
+| urldate|,
+| note|.
+ 
+ \begin{lstlisting}
+@Talk{Bergmann_2015,
+  author      = {Bergmann, Birgit},
+  title       = {\enquote{An exciting find}},
+  date        = {2015-04-27},
+  subtitle    = {Neues zum Forums-Fries der Praedia Iuliae Felicis},
+  titleaddon  = {(Pompeii II, 4)},
+  url         = {https://www.antikezentrum.hu-berlin.de/de/veranstaltungskalender/bibergmann},
+  urldate     = {2016-05-14},
+  eventtitle  = {Kolloquium der Klassischen Archäologie},
+  institution = {Freie Universität Berlin},
+  venue       = {Berlin},
+}
+\end{lstlisting}
+ Für die Bibliographie wird dies zu: 
+
+		\printbib[6em]{Bergmann}
+	
+ \changes{v1.5}{2016/05/31}{Rückverweis}
+
+\section{Verschiedenes}
+\subsection{Anonymes Werk}\label{unbekannt}
+
+ Für manche Artikel oder Bücher lässt sich kein Autor oder Herausgeber ermitteln. 
+ Diese Werke werden dann als anonym gekennzeichnet und nicht nach dem (anonymen) Autor/Herausgeber zitiert, sondern nach einem gewählten |label|. 
+\begin{lstlisting}
+ @article{Cosa_1949,
+Title = {Cosa},
+Journaltitle = ClJ-long,
+Shortjournal = ClJ-short,
+Pages = {141--149},
+Volume = {45},
+Year = {1949},
+Number = {1},
+Label = {Cosa},
+Subtitle = {Republican Colony in Etruria},
+}
+\end{lstlisting}
+ 
+ Das |Label| wurde in diesem Fall analog zum Titel gewählt (Cosa).
+ Zitiert man dieses Werk in einer Fußnote, dann wird
+\begin{lstlisting}
+ \cite[vgl.][145--146]{Cosa_1949}
+\end{lstlisting}
+ zu
+
+ \begin{bsp} 
+ vgl. Cosa 1949, 145--146
+ \end{bsp}
+ 
+Und für die Bibliographie:
+\printbib{Cosa_1949}
+
+
+\newpage
+ \section{Bibliographie}\label{bibliographie}
+ \DescribeMacro{\printbibliography}
+Wie bei jedem Dokument mit im Text zitierten Werken bedarf es einer Stelle, an der diese auch aufgeschlüsselt werden: die Bibliographie. 
+Für Altertumswissenschaftler (und auch andere) ist es manchmal hilfreich verschiedene Bibliographien im Dokument zu haben, die unterschiedliche Arten von Werke beinhalten, bspw. ein Quellenverzeichnis, Abkürzungen und Forschungsliteratur. 
+Nachfolgend wird gezeigt, wie dies berwerkstelligt werden kann. 
+Zunächst sollten alle Quellen in der |bib|-Datei mit dem Feld
+ |keyword={ancient},|
+ versehen werden. 
+Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  |heading=bibnumbered|, bzw. |heading=subbibnumbered| geladen werden.
+
+\begin{lstlisting}
+\printbibheading[%
+							heading=bibnumbered,%
+							title={Bibliography}] %heading for bibliography
+
+\printbibliography[%
+							keyword=ancient,%
+							heading=subbibnumbered,%
+							title={Ancient authors and works}]
+
+\printbibliography[%
+							notkeyword=ancient,%
+							notkeyword=corpus,%
+							heading=subbibnumbered,%
+							title={Secondary literature}]
+\end{lstlisting}
+
+
+
+\begin{refsection}
+\nocite{*}
+
+Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis getrennt voneinander ausgegeben. 
+\setcounter{section}{0}
+\begin{bsp}
+\renewcommand\bibfont{\normalfont\footnotesize}
+\printbibheading[%
+							heading=bibnumbered,%
+							title={Bibliography}] %heading for bibliography
+
+\printbibliography[%
+							keyword=ancient,%
+							heading=subbibnumbered,%
+							title={Ancient authors and works}]
+
+\printbibliography[%
+							notkeyword=ancient,%
+							notkeyword=corpus,%
+							heading=subbibnumbered,%
+							title={Secondary literature}]
+\end{bsp}
+
+
+Es können mehrere Bibliographien über |\printbibliography| erstellt werden, die jeweils unterschiedliche Einträge haben können.
+Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln (Lexika, Handbücher, Inschriftencorpora, etc) aufgeführt werden, sodass diese dann aus der |Forschungsliteratur| herausfliegen (dort  |notkeyword=Sigel| ergänzen). Dafür wird das Feld |keyword| auf den Inhalt |Sigel| ausgelesen:
+\begin{lstlisting}
+\printbibliography[%
+					keyword=corpus,%
+            		heading=subbibnumbered,%
+            		title={Abbreviation and corpora}]
+\end{lstlisting}
+Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {corpus}| stehen haben:
+\begin{bsp}
+\printbibliography[keyword={corpus},
+           heading=subbibnumbered,
+            title={Abbreviation of corpora}]\label{bib:corpus}
+\end{bsp}
+
+Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.
+Dies geschieht  für die Zeitschriften mit:
+\begin{lstlisting}
+\printbiblist[%
+							heading=subbibnumbered,%
+							title={Zeitschriftenabkürzungenl}]{shortjournal}
+\end{lstlisting}
+
+\begin{bsp}
+\printbiblist[heading=subbibnumbered,
+title={Zeitschriftenabkürzungen}]{shortjournal}
+\end{bsp}
+
+bzw. für die Reihen:
+\begin{lstlisting}
+\printbiblist[%
+							heading=subbibnumbered,%
+							title={Reihenabkürzungen}]{shortseries}
+\end{lstlisting}
+
+
+\begin{bsp}
+\printbiblist[heading=subbibnumbered,title={Reihenabkürzungen}]{shortseries}\end{bsp}
+
+\end{refsection}
+\setcounter{section}{5}
+
+\section{Antike Autoren und Werke}\label{ancient-list}
+Bibliography |archaeologie-ancient.bib| with a list of ancient authors and texts and their abbrevviation according to  Der Neue Pauly.
+The bold entry in the second line is the |bibtexkey|.
+All the entries have |keywords={ancient}|, |options={ancient}|.
+\begin{multicols}{2}
+	\input{archaeologie-ancient.tex}
+\end{multicols}
+ \changes{v1.5}{2016/05/31}{Antike Bibliographie}
+
+\section{Corpora}\label{corpora}
+List of corpora in ancient studies |archaeologie-corpora.bib|.
+This activates the other additional bibliography |archaeologie-abbrv.bib| automatically.
+You can cite them directly using the left entry as \marg{bibtex-key}.
+All the entries have |keywords={corpus}|, |options={corpus}|.
+\begin{multicols}{2}
+	\input{archaeologie-corpora.tex}
+\end{multicols}
+ \changes{v1.5}{2016/05/31}{Antike Bibliographie}
+
+
+
+
+\section{Abkürzungen nach DAI-Richtlinie}\label{listen}
+Da die Schreibweise von manchen Kürzeln der Zeitschriften oder Reihen nicht als |@string| übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
+Generell gilt, dass Akzente weggelassen wurden, Umlaute ausgeschrieben (ä--> ae), ähnliche Buchstaben mit Äquivalenten ersetzt wurden (ı --> i).\footnote{Für problemloses Kompilieren und Verarbeiten der nichtlateinischen Buchstaben wird \hologo{XeLaTeX} oder  \hologo{LuaTeX} empfohlen.}
+Nachfolgend werden zwei Listen angeführt, die die Auflistung nach @string (links) und Ausgabe (rechts) zeigen.
+Die erste Liste enthält die Abkürzungen (\cref{liste-kurz}), die zweite Liste die ausgeschriebenen Namen (\cref{liste-lang}).
+Es empfiehlt sich, in diesen Listen die |@string|-Angaben nachzuschauen und dann für |journaltitle| und |shortjournal|, bzw. |series| und |shortseries| einzutragen.
+
+Die Unterscheidung, ob in der Bibliographie die Abkürzung (Standard) oder der voller Titel genannt werden soll, erfolgt automatisch über die Option |noabbrevs| (Siehe \cref{noabbrevs}). Ist diese Option nicht aktiviert, dann werden standardmäßig die Abkürzungen angegeben.
+
+%%Beim Kompilieren wird eine Bibliographiedatei (|dai-abkuerzungen.bib|) erstellt, in der die Angaben der |@abbrv| gespeichert sind.
+%%Diese Bibliographiedatei wird zusätzlich zur eigenen Bibliographie geladen.
+%%Ist |dai-abkuerzungen.bib| bereits vorhanden, dann wird sie nicht neu generiert.
+
+
+\subsection{Kurzformen\label{liste-kurz}}
+\begin{multicols}{2}
+\input{dai-abkuerzungen-kurz-liste.tex}
+\end{multicols}
+
+
+\subsection{Langformen\label{liste-lang}}
+Die Ausgabe erfolgt über die Option |noabbrevs|.
+%\begin{multicols}{1}
+\input{dai-abkuerzungen-lang-liste.tex}
+%\end{multicols}
+
+
+ \changes{v1.1}{2015/07/06}{Erstellung der Liste mit Abkürzungen}
+
+
+\clearpage
+\section{Umsetzung}
+\label{driver}
+|archaeologie| consists of various files:
+There is one file that takes care of the bibliography (|bbx|) 
+another looks after the citation-style  (|cbx|)
+and several files which are necessary for the individual languages (|lbx|),
+furthermore there is a |dbx|-file.
+
+%http://tex.stackexchange.com/questions/95036/continue-line-numbers-in-listings-package
+\subsection{archaeologie.bbx}
+|archaeologie| baut auf dem |standard|-Stil von |biblatex| auf, der entsprechend geladen werden muss.
+ \DescribeMacro{bbx}
+ \StartLineAt{13}
+\begin{lstlisting}[style=code]
+\ProvidesFile{archaeologie.bbx}%
+               [2016/05/31 v2.0  archaeologie -- %
+                biblatex for archaeologists, 
+                historians and philologists, bbx-file]
+\RequireBibliographyStyle{standard}
+\end{lstlisting}
+
+It continues with all required settings
+\ContinueLineNumber
+\begin{lstlisting}[style=code]
+\AtBeginDocument{%
+		\urlstyle{sf}%
+		\typeout{* * * archaeologie * * *  
+				biblatex for archaeologists, 
+               historians and philologists}
+}
+\ExecuteBibliographyOptions{%
+pagetracker=true,%
+citecounter=true,%
+giveninits=true,%
+sortlocale=auto,%
+language=auto,%
+autolang=other,%
+bibencoding=utf8,%
+dateabbrev=false, %
+sorting=nyt,%
+maxnames=2,% 
+minnames=1,%
+maxitems=1,%
+maxbibnames=999,%
+}
+\end{lstlisting}
+ \StartLineAt{426}
+\begin{lstlisting}[style=code]
+\renewbibmacro*{journal}{%
+  \ifboolexpr{test {\iffieldundef{shortjournal}} %
+  					or bool {bbx:noabbrevs}}%
+    {\printtext[journaltitle]{%
+       \printfield[titlecase]{journaltitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{journalsubtitle}}}%
+    {\printfield{shortjournal}}%
+    }
+\end{lstlisting}
+    
+
+%\subsection{archaeologie.cbx}
+
+ \changes{v0.1}{2015/06/04}{Started Project}
+ \changes{v1}{2015/09/15}{First public version}
+\PrintChanges
+\PrintIndex
+
+
+\end{document}
