@@ -27,7 +27,7 @@ jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
 ********************************************
 
 
-Zum Stil gehören:
+This style contains:
 - archaeologie.pdf
 - archaeologie.tex
 - archaeologie-ger.pdf
