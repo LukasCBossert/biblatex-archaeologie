@@ -30,7 +30,7 @@ english
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-strings,
+abbrv,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
 \footnotesize}
@@ -152,6 +152,7 @@ strings,
     captionpos=b,                    
     keepspaces=true,                 
     numbers=left,                    
+    stepnumber=1,
     numbersep=5pt,            
     showspaces=false,                
     showstringspaces=false,
@@ -163,6 +164,10 @@ strings,
             {[}{{{\color{myblue}{[}}}}{1}
             {]}{{{\color{myblue}{]}}}}{1},
 }
+%%% Always I forget this so I created some aliases
+\def\ContinueLineNumber{\lstset{firstnumber=last}}
+\def\StartLineAt#1{\lstset{firstnumber=#1}}
+\let\numberLineAt\StartLineAt
 
 \lstset{style=mystyle}
 \lstMakeShortInline[style=mystyle]{|}
@@ -2021,10 +2026,11 @@ another looks after the citation-style  (|cbx|)
 and several files which are necessary for the individual languages (|lbx|),
 furthermore there is a |dbx|-file.
 
-
+%http://tex.stackexchange.com/questions/95036/continue-line-numbers-in-listings-package
 \subsection{archaeologie.bbx}
 |archaeologie| baut auf dem |standard|-Stil von |biblatex| auf, der entsprechend geladen werden muss.
  \DescribeMacro{bbx}
+ \StartLineAt{13}
 \begin{lstlisting}[style=code]
 \ProvidesFile{archaeologie.bbx}%
                [2016/05/31 v2.0  archaeologie -- %
@@ -2033,6 +2039,44 @@ furthermore there is a |dbx|-file.
 \RequireBibliographyStyle{standard}
 \end{lstlisting}
 
+It continues with all required settings
+\ContinueLineNumber
+\begin{lstlisting}[style=code]
+\AtBeginDocument{%
+		\urlstyle{sf}%
+		\typeout{* * * archaeologie * * *  
+				biblatex for archaeologists, 
+               historians and philologists}
+}
+\ExecuteBibliographyOptions{%
+pagetracker=true,%
+citecounter=true,%
+giveninits=true,%
+sortlocale=auto,%
+language=auto,%
+autolang=other,%
+bibencoding=utf8,%
+dateabbrev=false, %
+sorting=nyt,%
+maxnames=2,% 
+minnames=1,%
+maxitems=1,%
+maxbibnames=999,%
+}
+\end{lstlisting}
+ \StartLineAt{426}
+\begin{lstlisting}[style=code]
+\renewbibmacro*{journal}{%
+  \ifboolexpr{test {\iffieldundef{shortjournal}} %
+  					or bool {bbx:noabbrevs}}%
+    {\printtext[journaltitle]{%
+       \printfield[titlecase]{journaltitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{journalsubtitle}}}%
+    {\printfield{shortjournal}}%
+    }
+\end{lstlisting}
+    
 
 %\subsection{archaeologie.cbx}
 
