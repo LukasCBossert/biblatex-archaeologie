@@ -30,7 +30,8 @@ english
 \usepackage[					% use  for bibliography
 	backend=biber,
 	style=archaeologie,
-abbrv,
+	%corpora,
+	abbrv,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
 \footnotesize}
@@ -776,7 +777,7 @@ Somit wird aus dem Bibliographieeintrag
   translator                = {Rahn, Helmut},
   Year                     = {2015},
   Edition                  = {6},
-  Keywords                 = {Quelle},
+  Keywords                 = {ancient},
   Location                 = {Darmstadt},
   shortauthor                 = {Quintilian},
   Options                  = {ancient},
@@ -799,12 +800,6 @@ Auch \citeauthor{Quint_inst} nennt in \citetitle{Quint_inst} die notwendigen phy
 \end{refsection}
 
 \printbib[5em]{Quint_inst}
-%\begin{bsp}
-%\nocite{Quint_inst}
-%\printbibliography[title={Antike Quellen}]
-%\end{bsp}
-%
-
 
 
 \subsubsection{yearinparens}\label{yearinparens}
@@ -1061,7 +1056,7 @@ Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option |a
   Series                   = {Tusculum Bücherei},
   Year                     = {1980},
   Edition                  = {3},
-  Keywords                 = {Quelle},
+  Keywords                 = {ancient},
   Location                 = {Düsseldorf and Zürich},
   shortauthor              = {Cicero},
   Options                  = {ancient},
@@ -1100,7 +1095,7 @@ Ein Beispiel verschafft Klarheit:
   Year                     = {1993},
   Series                   = {Sammlung Tusculum},
   volume                   = {II},
-  Keywords                 = {Quelle},
+  Keywords                 = {ancient},
   Location                 = Munich, %bibstring: @String{Munich = {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco}{\iflanguage{french}{Munich}{München}}}}}
   booktitle                = {Die politischen Reden},
   shortauthor                    = {Cicero},
@@ -1114,48 +1109,7 @@ Ein Beispiel verschafft Klarheit:
 
 
 \printbiball{Cic_Sest}
-%
-%\begin{bsp}
-%\begin{refsection}
-%\nocite{Cic_Sest}
-%\printbibliography[title={Antike Quellen}]
-%\end{refsection}
-%\end{bsp}
 
-
-%\subsubsection{frg}\label{frg}
-% \DescribeMacro{frg}
-%%% Wenn man Fragmente zitiert kann man dazu die Option |frg| bzw. |frgantik| wählen. Das wirkt sich dann leicht unterschiedlich auf die Zitatsform aus. Wir betrachten das am besten wieder an Beispielen: Der |bib|-Eintrag\\[3pt]
-%|@book{alkaios,|\\
-%|	author={{Alkaios}},|\\
-%|	shorthand={Alk.},|\\
-%|	sortname={Edgar Lobel and Denys Page},|\\
-%|	maintitle={Poetarum Lesbiorum Fragmenta},|\\
-%|	editor={Edgar Lobel and Denys Page},|\\
-%|	shorteditor={LP},|\\
-%|	address={Oxford},|\\
-%|	year={1955},|\\
-%|	keywords={quelle},|\\
-%|	options={frg}|\\
-%|}|\\[3pt]
-%
-%\begin{refsection} 
-% \begin{bsp}
-% \cite[2]{alkaios}
-% \end{bsp}
-% 
-% In der Bibliographie  unterscheidet sich der Eintrag gegenüber |antik|  geringfügig:
-%\begin{bsp}
-%\printbibliography[title={Antike Quellen}]
-%\end{bsp}
-%\end{refsection}
-
-%% Das |sorttitle|-Feld sorgt hier dafür, dass der Eintrag nicht unter \enquote{Alkaios} sondern den Namen der Herausgeber sortiert wird. Im Literaturverzeichnis sieht das dann folgendermaßen aus:
-%%\begin{bsp} {\sc Lobel}, Edgar / {\sc Page}, Denys (Hrsg.): Poetarum Lesbiorum Fragmenta, Oxford 1955.\end{bsp}
-%% Wenn man ihn zitiert, erscheint bei |\cite[2]{alkaios}|
-%% \begin{bsp} Alk. frg. 2 LP.\end{bsp}
-%% Bemerkenswert ist insbesondere die Verwendung des |shorteditor|-Feldes. Ansonsten wird nur der Nachname des Herausgebers angegeben. Details findet man in \cref{driver}.
-%%
 
 \subsubsection{frgantik}\label{frgantik}
  \DescribeMacro{frgantik}
@@ -1172,8 +1126,8 @@ Ein Beispiel verschafft Klarheit:
   origyear    = {1913},
   shorthand   = {Fest.},
   shortauthor = {Festus},
-  keywords    = {Quelle},
-  options     = {frgantik},
+  keywords    = {ancient},
+  options     = {frgancient},
   shorteditor = {L},
 }
 \end{lstlisting}
@@ -1471,19 +1425,18 @@ Es empfiehlt sich allerdings sich auf ein paar Standarts zu beschränken, da die
 
 Ein Beispiel zeigt die Anwendung für |pubstate = {forthcoming}|
 \begin{lstlisting}
-@article{Bossert_2016,
+@article{Bossert,
 	Author  = {Lukas C. Bossert},
   	Title      = {\ldots\ \textsc{in formam anitqvam restitvto}?},
   	Subtitle = {Überlegungen zur Inschrift der ›Porticus Deorum Consentium‹ (CIL\,VI 102) und ihren Ergänzungen im 19.{\,}Jh.},
   	Volume = {2},
-  	Year      = {2016},
   	Journaltitle    = {BeStAR. Berliner Studien zum Antiken Rom},
   	Shortjournal = {BeStAR},
 	pubstate = {forthcoming},
 }
 \end{lstlisting}
 
-\printbib[5em]{Bossert_2016}
+\printbib[8em]{Bossert}
 
 
 

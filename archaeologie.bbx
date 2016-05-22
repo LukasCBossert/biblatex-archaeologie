@@ -52,15 +52,21 @@ maxbibnames=999,%
 \newbool{cbx:corpus}
 \newbool{cbx:lastnames}	
 \newbool{cbx:fullnames}
+\newbool{bib:abbrv}
+\newbool{bib:corpora}
+\newbool{bib:ancient}
 \newsavebox\arch@labelbox
 \newlength{\labwidthsameline}
 \setlength{\labwidthsameline}{4em}
 %-----------------------
 \DeclareBibliographyOption{abbrv}[true]{%
-		\csuse{bool#1}{\addbibresource{archaeologie-abbrv.bib}}}
+		\csuse{bool#1}{bib:abbrv}
+		\addbibresource{archaeologie-abbrv.bib}
+		}
 \DeclareBibliographyOption{corpora}[true]{%
 		\addbibresource{archaeologie-corpora.bib}%
-		\ifbool{abbrv}{}{\addbibresource{archaeologie-abbrv.bib}}}
+	\ifbool{bib:abbrv}{}{\addbibresource{archaeologie-abbrv.bib}}
+		}
 \DeclareBibliographyOption{ancient}[true]{%
 		\addbibresource{archaeologie-ancient.bib}}
 %-----------------------
