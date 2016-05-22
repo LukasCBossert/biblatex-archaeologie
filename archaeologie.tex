@@ -246,6 +246,8 @@ With this option you can change it to a different outcome (but still according t
 \item[ancient] 
 A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{ancient}.
 
+\item[corpora] 
+A separate bibliography-file is loaded, in which the common corpora for ancient studies are stored cf. \cref{corpora}.
 
  \item[edby] 
 This activates a switch to have instead of  \enquote{ed.}/\enquote{Hrsg.} now  \enquote{ed. by}/\enquote{hrsg. v.} cf. \cref{edby}.
@@ -1963,6 +1965,17 @@ Sortierung folgt der abgekürzten Zitierweise, |bibtexkey| ist der gefettete Ein
 	\input{archaeologie-ancient.tex}
 \end{multicols}
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
+
+\section{Corpora}\label{corpora}
+List of corpora in ancient studies |archaeologie-corpora.bib|.
+You can cite them directly using the left entry as \marg{bibtex-key}
+\begin{multicols}{2}
+	\input{archaeologie-corpora.tex}
+\end{multicols}
+ \changes{v1.5}{2016/05/31}{Antike Bibliographie}
+
+
+
 
 \section{Abkürzungen nach DAI-Richtlinie}\label{listen}
 Da die Schreibweise von manchen Kürzeln der Zeitschriften oder Reihen nicht als |@string| übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
