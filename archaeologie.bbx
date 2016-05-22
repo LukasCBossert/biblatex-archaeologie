@@ -1,5 +1,6 @@
 % archaeologie --%
-%               biblatex for archaeologists, historians and philologists
+%            biblatex for archaeologists, 
+%				historians and philologists
 % Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
@@ -55,11 +56,11 @@ maxbibnames=999,%
 \newlength{\labwidthsameline}
 \setlength{\labwidthsameline}{4em}
 %-----------------------
-\DeclareBibliographyOption{strings}[true]{%
+\DeclareBibliographyOption{abbrv}[true]{%
 		\csuse{bool#1}{\addbibresource{archaeologie-abbrv.bib}}}
 \DeclareBibliographyOption{corpora}[true]{%
 		\addbibresource{archaeologie-corpora.bib}%
-		\ifbool{strings}{}{\addbibresource{archaeologie-abbrv.bib}}}
+		\ifbool{abbrv}{}{\addbibresource{archaeologie-abbrv.bib}}}
 \DeclareBibliographyOption{ancient}[true]{%
 		\addbibresource{archaeologie-ancient.bib}}
 %-----------------------
