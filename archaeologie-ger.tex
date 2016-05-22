@@ -502,7 +502,7 @@ Für Altertumswissenschaftler (und auch andere) ist es manchmal hilfreich versch
 
 Nachfolgend wird gezeigt, wie dies berwerkstelligt werden kann. 
 Zunächst sollten alle Quellen in der |bib|-Datei mit dem Feld
- |keyword={Quelle},|
+ |keyword={ancient},|
  versehen werden. 
 Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  |heading=bibnumbered|, bzw. |heading=subbibnumbered| geladen werden.
 
@@ -512,13 +512,13 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 							title={Bibliographie}] %Überschrift für Bibliographie
 
 \printbibliography[%
-							keyword=Quelle,%
+							keyword=ancient,%
 							heading=subbibnumbered,%
 							title={Antike Quellen}]
 
 \printbibliography[%
-							notkeyword=Quelle,%
-							notkeyword=Sigel,%
+							notkeyword=ancient,%
+							notkeyword=corpus,%
 							heading=subbibnumbered,%
 							title={Forschungsliteratur}]
 \end{lstlisting}
@@ -539,13 +539,12 @@ Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturver
 							title={Bibliographie}] %Überschrift für Bibliographieumgebung}
 
 \printbibliography[%
-							keyword=Quelle,%
+							keyword=ancient,%
 							heading=subbibnumbered,%
 							title={Antike Quellen}]
 
 \printbibliography[%
-							notkeyword=Quelle,%
-							notkeyword=Sigel,%
+							notkeyword=corpus,%
 							notkeyword=ancient,%
 							heading=subbibnumbered,%
 							title={Forschungsliteratur}]
@@ -557,16 +556,17 @@ Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln
 
 \begin{lstlisting}
 \printbibliography[%
-						keyword=Sigel,%
+						keyword=corpus,%
 						heading=subbibnumbered,%
 						title={Abkürzungen und Sigel}]
 \end{lstlisting}
 
 Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {Sigel}| stehen haben:
 \begin{bsp}
-\printbibliography[keyword={Sigel},
-           heading=subbibnumbered,
-            title={Abkürzungen und Sigel}]\label{bib:sigel}
+\printbibliography[%
+				keyword={corpus},
+           		heading=subbibnumbered,
+            	title={Abkürzungen und Sigel}]\label{bib:sigel}
 \end{bsp}
 
 Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.

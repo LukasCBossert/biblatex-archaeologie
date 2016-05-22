@@ -307,10 +307,10 @@ This gives the sum of the citations in the text cf. \cref{counter}.
  This changes the behaviour of the entry when it is cited cf. \cref{optionen-literatur,beispiele}. 
 
  \begin{description}
- \item[antik] 
+ \item[ancient] 
  The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{ancient}.
 
- \item[frgantik] 
+ \item[frgancient] 
  The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
 
  \item[corpus] 
@@ -544,8 +544,10 @@ Ball – Dobbins a. O. (Anm. [Fußnotenummer Erstnennung]) 123
 
 \subsubsection{translation}\label{translation}
 \DescribeMacro{translation}
-Wenn diese Option aktiviert wird, erfolgt die Angabe  eines Originaltitels, die Sprache, aus welcher übersetzt wurde und des Übersetzers des Werkes.
-Werke, bei denen |options={ancient}| oder |options={frgancient}| (also antike Autoren und Fragmente) gesetzt wurde, werden stehts mit Originaltitel, Sprache und Übersetzer angegeben.
+Wenn diese Option aktiviert wird, erfolgt die Angabe  eines Originaltitels, 
+die Sprache, aus welcher übersetzt wurde und des Übersetzers des Werkes.
+Werke, bei denen |options={ancient}| oder |options={frgancient}| 
+(also antike Autoren und Fragmente) gesetzt wurde, werden stehts mit Originaltitel, Sprache und Übersetzer angegeben.
 
 Die Option |translation|  ist standardmäßig auf |=false| gesetzt. 
 Ein Beispiel verschafft Klarheit. Folgender Bibliographieeintrag \\
@@ -611,7 +613,7 @@ Daraus wird dann:
 \subsubsection{inreferences}\label{inreferences}
 \DescribeMacro{inreferences}  Lexikoneinträge können in den Fußnoten in verschiedenen Zitationsformen dargestellt werden.
  Voraussetzung ist, dass  es sich um ein |@inreference| handelt (siehe \cref{inreference}).
- Zudem   bietet sich optional an ebenso  |keywords = {lexikon}| zu setzen, um diese Einträge dann in der Bibliographie auszuschließen (über |notkeyword=lexikon|, bzw. |keyword=lexikon|).
+ 
  
  Am folgenden Beispielsdatensatz wird die Option verdeutlicht:\\
  
@@ -623,8 +625,6 @@ Daraus wird dann:
   Pages                    = {9--10},
   Volume                   = {2},
   Year                     = {1995},
-  Bookpagination           = {column},
-  Keywords                 = {lexikon},
 }
 \end{lstlisting}
   \begin{refsection}
@@ -1871,25 +1871,25 @@ Wie bei jedem Dokument mit im Text zitierten Werken bedarf es einer Stelle, an d
 Für Altertumswissenschaftler (und auch andere) ist es manchmal hilfreich verschiedene Bibliographien im Dokument zu haben, die unterschiedliche Arten von Werke beinhalten, bspw. ein Quellenverzeichnis, Abkürzungen und Forschungsliteratur. 
 Nachfolgend wird gezeigt, wie dies berwerkstelligt werden kann. 
 Zunächst sollten alle Quellen in der |bib|-Datei mit dem Feld
- |keyword={Quelle},|
+ |keyword={ancient},|
  versehen werden. 
 Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  |heading=bibnumbered|, bzw. |heading=subbibnumbered| geladen werden.
 
 \begin{lstlisting}
 \printbibheading[%
 							heading=bibnumbered,%
-							title={Bibliographie}] %Überschrift für Bibliographie
+							title={Bibliography}] %heading for bibliography
 
 \printbibliography[%
-							keyword=Quelle,%
+							keyword=ancient,%
 							heading=subbibnumbered,%
-							title={Antike Quellen}]
+							title={Ancient authors and works}]
 
 \printbibliography[%
-							notkeyword=Quelle,%
-							notkeyword=Sigel,%
+							notkeyword=ancient,%
+							notkeyword=corpus,%
 							heading=subbibnumbered,%
-							title={Forschungsliteratur}]
+							title={Secondary literature}]
 \end{lstlisting}
 
 
@@ -1903,27 +1903,28 @@ Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturver
 \renewcommand\bibfont{\normalfont\footnotesize}
 \printbibheading[%
 							heading=bibnumbered,%
-							title={Bibliographie}] %Überschrift für Bibliographieumgebung}
+							title={Bibliography}] %heading for bibliography
 
 \printbibliography[%
-							keyword=Quelle,%
+							keyword=ancient,%
 							heading=subbibnumbered,%
-							title={Antike Quellen}]
+							title={Ancient authors and works}]
 
 \printbibliography[%
-							notkeyword=Quelle,%
-							notkeyword=Sigel,%
+							notkeyword=ancient,%
+							notkeyword=corpus,%
 							heading=subbibnumbered,%
-							title={Forschungsliteratur}]
+							title={Secondary literature}]
 \end{bsp}
 
 
 Es können mehrere Bibliographien über |\printbibliography| erstellt werden, die jeweils unterschiedliche Einträge haben können.
 Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln (Lexika, Handbücher, Inschriftencorpora, etc) aufgeführt werden, sodass diese dann aus der |Forschungsliteratur| herausfliegen (dort  |notkeyword=Sigel| ergänzen). Dafür wird das Feld |keyword| auf den Inhalt |Sigel| ausgelesen:
 \begin{lstlisting}
-\printbibliography[keyword=Sigel,%
-            heading=subbibnumbered,%
-            title={Abkürzungen und Sigel}]
+\printbibliography[%
+					keyword=corpus,%
+            		heading=subbibnumbered,%
+            		title={Abbreviation and corpora}]
 \end{lstlisting}
 Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {corpus}| stehen haben:
 \begin{bsp}
