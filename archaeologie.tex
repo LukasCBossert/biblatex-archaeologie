@@ -102,7 +102,7 @@ english
 %\addbibresource{antike-corpora.bib} %Version 2.0
 \usepackage{listings}
 \usepackage{xcolor}
-\definecolor{myblue}{RGB}{0,65,137}
+\definecolor{codeblue}{RGB}{0,65,137}
 \definecolor{codegreen}{RGB}{147,193,26}
 
 %\definecolor{codegreen}{rgb}{0,0.6,0}
@@ -110,15 +110,15 @@ english
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
  
-\lstdefinestyle{mystyle}{
+\lstdefinestyle{mystyle}{%
 	language=[LaTeX]TeX,
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
-    keywordstyle=\color{myblue},
+    keywordstyle=\color{codeblue},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
 	escapeinside={<@}{@>},
-    texcsstyle=*\color{myblue},
+    texcsstyle=*\color{codeblue},
     morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
     						@article, @book,@inproceedings@,@proceedings,@talk,@reference,@inreference,@incollection,
     						},
@@ -139,15 +139,15 @@ english
             {[}{{{\color{codegreen}{[}}}}{1}
             {]}{{{\color{codegreen}{]}}}}{1},
 }
- \lstdefinestyle{code}{
+ \lstdefinestyle{code}{%
 	language=[LaTeX]TeX,
     backgroundcolor=\color{white},   
     commentstyle=\color{codegreen},
-    keywordstyle=\color{myblue},
+    keywordstyle=\color{codeblue},
     numberstyle=\small\color{codegray},
     stringstyle=\color{codepurple},
 	escapeinside={<@}{@>},
-    texcsstyle=*\color{myblue},
+    texcsstyle=*\color{codeblue},
     morekeywords={},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
@@ -162,10 +162,10 @@ english
     showtabs=false,                  
     tabsize=2,
     literate=
-            *{\{}{{{\color{myblue}{\{}}}}{1}
-            {\}}{{{\color{myblue}{\}}}}}{1}
-            {[}{{{\color{myblue}{[}}}}{1}
-            {]}{{{\color{myblue}{]}}}}{1},
+            *{\{}{{{\color{codeblue}{\{}}}}{1}
+            {\}}{{{\color{codeblue}{\}}}}}{1}
+            {[}{{{\color{codeblue}{[}}}}{1}
+            {]}{{{\color{codeblue}{]}}}}{1},
 }
 %%% Always I forget this so I created some aliases
 \def\ContinueLineNumber{\lstset{firstnumber=last}}
@@ -219,7 +219,7 @@ Changes since Version 1.42
 \section{Verwendung}
  \DescribeMacro{archaeologie}  The name of the biblatex-style is  |archaeologie| has to be activated in the preamble. 
 
-\begin{lstlisting}
+\begin{lstlisting}[style=mystyle]
 \usepackage[style=archaeologie,%
 					<@\meta{further options}@>]{biblatex}
 \bibliography<@\marg{|bib|-Datei}@>
@@ -310,7 +310,7 @@ This gives the sum of the citations in the text cf. \cref{counter}.
 \end{description}
 
 
- \subsection{Literaturoptionen (Bibliographieeintrag)}
+ \subsection{Options in the entries}
  Additionally a single bibliography entry can contain a value in the |options|-field.
  This changes the behaviour of the entry when it is cited cf. \cref{optionen-literatur,beispiele}. 
 
@@ -332,7 +332,7 @@ This gives the sum of the citations in the text cf. \cref{counter}.
  
 
 
- \subsection{cite-Befehle}\label{cite-befehle}
+ \subsection{cite-comands}\label{cite-commands}
  \DescribeMacro{\cite}%
 As always citing is done with  |\cite|:
 \begin{lstlisting}
@@ -408,21 +408,20 @@ For further information cf. \cref{fullnames}.
 
    
 
-\subsection{Einträge mit @string}
+\subsection{Entries with @string}
 The citation rule of the German Archaeological Institute says that the journals and series have to be abbreviated according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
 
- \DescribeMacro{@string}Der Stil |archaeologie| geht auf diese Vorgabe ein und kürzt Zeitschriften/Reihen ab.
-Um Fehler zu vermeiden und unnötiges Tippen der teilweise langen Zeitschriftennamen, bzw. Reihen zu ersparen, arbeitet |archaeologie| mit |@string|-Angaben.
-Dies hat den Vorteil, dass  mittels |@string| mehreren Bibliographieeinträgen einen zentral definierten Wert zugewiesen wird.
-Der |@string| wird in der |bib|-Datei am Anfang geladen, daher muss er vor alle anderen Bibliographieeinträge stehen.
+ \DescribeMacro{@string} The style  |archaeologie| respects the guidelines of the German Archaeological Institute and is compatible with the given 
+ abbreviations of journals and series.
+ To minimize 	the susceptibility to errors and to omit unnecessary typing of sometimes very long journaltitles |archaeologie| works with socalled |@strings|.
+ The advantage is that with  |@string| several bibliography entries can be defined by one central given value. 
+ The  |@string| is loaded at the begin of the  |bib|-file, therefore all the |@strings| have to be before all other bibliography entries.
+ 
+ To use this offer of simplification the fields for the title of the journal (|journaltitle|) and its shortform (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
+In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with the endings |-short|, resp. |-long|) are listed in the left column.  
+This  |@string| has to be written \textsc{without} any curly brackets in the fiels (e.g. |journaltitle| or |shortseries|).\footnote{If you use the program \emph{JabRef} in its non-coding window, then you have to write  \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window.}
 
-Um dieses Angebot an ›Vereinfachung‹ zu nutzen,  müssen Zeitschriftennamen (|journaltitle|) und ihre Kurzformen (|shortjournal|), sowie Reihen (|series|) und deren Kurzformen (|shortseries|) mittels |@string| geschrieben werden.
-In \cref{listen} sind die Abkürzungen nach DAI-Vorgabe aufgeführt, sodass der |@string| (mit den Ergänzungen |-short|, bzw. |-long|) (linke Spalte) abgelesen werden kann.
-Dieser |@string|
-% (bspw. |AyasofyaMuezYil|; siehe \ref{AyasofyaMuezYil-kurz}, bzw. \ref{AyasofyaMuezYil-lang}) 
-wird dann OHNE Klammersetzung in die Felder (bspw. |journaltitle|) geschrieben.\footnote{Verwendet man bspw. das Programm JabRef in der Fensteransicht, dann muss \#|AyasofyaMuezYil|\# geschrieben werden. JabRef konvertiert dies intern zu einem |@string|.}
-
-Ein Beispiel zeigt den Umgang:
+An example shows how to use it:
 \begin{lstlisting}
 @article{Koyunlu1990,
 	author = {Koyunlu, A.},
@@ -434,29 +433,25 @@ Ein Beispiel zeigt den Umgang:
 	shortjournal = AyasofyaMuezYil-short
 }
 \end{lstlisting}
-Dieser Artikel erschien in einer nicht geläufigen Zeitschrift, 
-die zudem nach DAI-Vorgabe mit ›AyasofyaMüzYıl‹ abgekürzt werden soll.
-Um sich bei diesem Beispiel die Arbeit zu sparen den Buchstaben ›ı‹ manuell einzufügen, 
-wird er im |@string| mit ›i‹ geschrieben (weitere Besonderheiten siehe \cref{listen}) 
-und erscheint dann nach dem Kompilieren in der korrekten Schreibweise:
+That article appeared within a rather unusual journal, 
+which should be abbreviated with ›AyasofyaMüzYıl‹.
+To save the time to look for the special character and insert  ›ı‹ manually 
+it is written in the  |@string| with an  ›i‹  (for further information see \cref{listen}) 
+but will be replaced after compiling with the correct character:
 
 \printbib[6em]{Koyunlu1990}
 
-
-
-
-
-Die standardmäßige Abkürzung kann optional ausgeschaltet werden.
-Verwendet man die Option |noabbrevs| (siehe \cref{noabbrevs}), dann ändert sich die Ausgabe entsprechend:
+The default behaviour of abbreviations can be switched off, of course.
+In case you use the option |noabbrevs| (see \cref{noabbrevs}), then the output changes as well:
 \begin{bsp}
 A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
 %\fullcite{Koyunlu_1990}
 \end{bsp}
+The advantage lies in the possibility to create a separate bibliography with all the abbreviations of used journaltitles and series (see  \cref{bibliographie}).
 
-Ein Vorteil ist, dass man eine eigene Bibliographie mit den Abkürzungen der Zeitschriften und Reihen machen kann. Einzelheiten dazu siehe \cref{bibliographie}.
-
-Findet sich die Zeitschrift oder Reihe {\color{red}nicht} in der unter \cref{listen} aufgeführten Liste, dann wird diese  {\color{red}nicht} abgekürzt und ganz normal in |{}| bei |journaltitle=|\marg{Zeitschriftentitel} gesetzt.
-In den folgenden Beispielen wird, wo möglich, mit |@string| gearbeitet.
+If a journal or a series is  {\color{red}not} not included in the list (\cref{listen}) 
+then this journal/series will {\color{red}not}  be abbreviated and with its full name written in  |{}| in the field e.g. |journaltitle=|\marg{Zeitschriftentitel}.
+For the following examples we use |@string| whenever it is clever and possible.
 
 \section{Optionale Steuerung}
 Nachfolgend werden die Optionen des Stils |archaeologie| immer auch konkret an Beispielen erläutert.
