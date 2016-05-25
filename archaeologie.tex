@@ -117,7 +117,7 @@ english
     keywordstyle=\color{codeblue},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-	escapeinside={<@}{@>},
+    escapeinside={*@}{@*},          % if you want to add LaTeX within your code
     texcsstyle=*\color{codeblue},
     morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
     						@article, @book,@inproceedings@,@proceedings,@talk,@reference,@inreference,@incollection,
@@ -146,7 +146,7 @@ english
     keywordstyle=\color{codeblue},
     numberstyle=\small\color{codegray},
     stringstyle=\color{codepurple},
-	escapeinside={<@}{@>},
+	escapeinside={*@}{@*},
     texcsstyle=*\color{codeblue},
     morekeywords={},
     basicstyle=\ttfamily\footnotesize,
@@ -182,7 +182,7 @@ english
   }	
 \begin{document}
 %\MakeShortVerb{\|}
- \newenvironment{syntax}{\begin{small}\medskip\hspace*{2em}}{\par\medskip\end{small}}
+% \newenvironment{syntax}{\begin{small}\medskip\hspace*{2em}}{\par\medskip\end{small}}
  %\def\verbatimchar{;}
 
 \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
@@ -190,7 +190,7 @@ The development of the code is done at \url{https://github.com/LukasCBossert/bib
 Comments and critics are welcome.
 We thank  ›moewew‹ and Herbert Voß for their big help on the code.%
 }}
-\author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
+\author{Lukas C. Bossert\thanks{\href{mailto:lukas@digitales-altertum.de}{lukas@digitales-altertum.de}} \and Johannes Friedl}
 \date{Version: 2.0 (2016-05-31)}
  \maketitle
  \begin{abstract}
@@ -209,23 +209,47 @@ Changes since Version 1.42
 \item Adding additional bibliography for ancient authors and works (\cref{ancient-list,ancient})
 \end{itemize}
 
-\changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
+%\changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
 
 \newpage
 \begin{multicols}{2}
 {\parskip=0mm \tableofcontents}
 \end{multicols}
 
-\section{Verwendung}
+\section{Installation}
+|archaeologie| is part of the distributions MiK\TeX \footnote{Website: \url{http://www.miktex.org}.} 
+and \TeX Live\footnote{Website: \url{http://www.tug.org/texlive}.}~-- thus, you
+can easily install it using the respective package manager. 
+If you would like to
+install |archaeologie| manually, do the following:
+Download the folder |archaeologie| with all relevant files from the CTAN-server\footnote{\url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie.zip}} and copy it to the \texttt{\$LOCALTEXMF} directory of
+ your system.\footnote{If you don't know what that is, have a look at
+\url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tds} or 
+\url{http://mirror.ctan.org/tds/tds.html}.} 
+Refresh your filename database. 
+Here is some additional information from the UK \TeX\ FAQ:
+\begin{itemize}
+	\item \href{%
+    http://www.tex.ac.uk/cgi-bin/texfaq2html?label=install-where}{%
+    Where to install packages}
+	\item \href{%
+	  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=inst-wlcf}{%
+	  Installing files \enquote{where \LaTeX /TeX\ can find them}}
+	\item \href{%
+	  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=privinst}{%
+	  \enquote{Private} installations of files}
+\end{itemize}
+%%introduction from biblatex-dw copied and applied. might to be rewritten.
+
+\section{Usage}
  \DescribeMacro{archaeologie}  The name of the biblatex-style is  |archaeologie| has to be activated in the preamble. 
 
-\begin{lstlisting}[style=mystyle]
+\begin{lstlisting}
 \usepackage[style=archaeologie,%
-					<@\meta{further options}@>]{biblatex}
-\bibliography<@\marg{|bib|-Datei}@>
+					*@\meta{further options}@*]{biblatex}
+\bibliography*@\marg{|bib|-Datei}@*
 \end{lstlisting}
 
- 
 Without any further options the style covers now the rules of the German Archaeological Institute. No additional settings are needed.
 But you can change the outcome by using some options which are explained below.
 
@@ -336,22 +360,22 @@ This gives the sum of the citations in the text cf. \cref{counter}.
  \DescribeMacro{\cite}%
 As always citing is done with  |\cite|:
 \begin{lstlisting}
-\cite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
 
 With \meta{prenote} one can make a short preliminary note  (e.\,g. \enquote{Vgl.}) and  \meta{postnote} is usually used for page numbers.
 If only one optional argument is used then it is the \oarg{postnote}.
 \begin{lstlisting}
-\cite<@\oarg{postnote}\marg{bibtex-key}%@>
+\cite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
 The \meta{bibtex-key} is the key from the bibliography-file.
 
  \DescribeMacro{\cites}
 If one wants to cite several authors or works a very convenient way is the following using the |\cites|-command:
 \begin{lstlisting}
-\cites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
- 																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
- 																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\cites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+ 																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+ 																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
  
 
@@ -360,7 +384,7 @@ If one wants to cite several authors or works a very convenient way is the follo
 Sometimes a citation has to be put in parens. 
 Therefore we implemented the command |\parencite|:
 \begin{lstlisting}
-\parencite<@\oarg{postnote}\marg{bibtex-key}%@>
+\parencite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 This cite-command takes care of the correct corresponding parentheses and brackets.
 Especially if one cites an inreference the parentheses are changing to (square) brackets.
@@ -370,9 +394,9 @@ The example shown in \cref{inreference} makes it clear.
 Of course there is also the possibility to cite several authors/works in parentheses.
 This is done with |\parencites|:
  \begin{lstlisting}
-\parencites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
- 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
- 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\parencites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+ 																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+ 																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
 
  \begin{center} * * * \end{center}
@@ -381,15 +405,15 @@ This is done with |\parencites|:
 Additionally to the listed |\cite|-commands above there is a third way of citing:
 This is needed if one wants to |\textcite|  the author in the text, then the year and pages will be put in parentheses. 
 \begin{lstlisting}
-\textcite<@\oarg{postnote}\marg{bibtex-key}%@>
+\textcite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 
 \DescribeMacro{\textcites}
 And again there is also a  |\textcites| in case of several authos: 
   \begin{lstlisting}
-\textcites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
- 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
- 																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\textcites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+ 																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+ 																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
 
 \begin{center} * * * \end{center}
@@ -397,11 +421,11 @@ And again there is also a  |\textcites| in case of several authos:
 Furthermore and additionally to the ›normal‹ |\cite|-commands one can also cite the authors and the work in the text and in the footnotes. 
 This shows how it is done:
 \begin{lstlisting}
-\citeauthor<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\citeauthor*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
   and for the works 
 \begin{lstlisting}
-\citetitle<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\citetitle*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 For further information cf. \cref{fullnames}.
    
@@ -732,8 +756,8 @@ Der Bibliographieeintrag lautet:
 Im Fließtext schreibt man:
 \begin{refsection}
 \begin{lstlisting}
-<@\ldots , dies behaupten ebenso  @>\citeauthor{Boehmer_1985} 
-<@ in ihrem jüngsten Werk @>\citetitle{Boehmer_1985}<@.@> \end{lstlisting}
+*@\ldots , dies behaupten ebenso  @*\citeauthor{Boehmer_1985} 
+*@ in ihrem jüngsten Werk @*\citetitle{Boehmer_1985}*@.@* \end{lstlisting}
 
 
 Und nach dem Kompilieren wird dann in der Standardeinstellung (ohne weitere Optionen):\footnote{Wird der Befehel |citeauthor| in einer Fußnote verwendet, dann werden nur die Nachnamen ausgegeben, unabhängig der Optionen |fullnames| (\cref{name:a}) und |lastnames| (\cref{name:b}): \begin{bsp}
@@ -788,8 +812,8 @@ Somit wird aus dem Bibliographieeintrag
 wie folgt  Autor und  Buchttitel ausgelesen:
 \begin{refsection}
 \begin{lstlisting}
-<@ \ldots\ Auch @> \citeauthor{Quint_inst} <@ nennt in @> \citetitle{Quint_inst} 
-<@ die notwendigen physischen Qualitäten eines Redners.@> \end{lstlisting}
+*@ \ldots\ Auch @* \citeauthor{Quint_inst} *@ nennt in @* \citetitle{Quint_inst} 
+*@ die notwendigen physischen Qualitäten eines Redners.@* \end{lstlisting}
  
 \begin{bsp}
 Auch \citeauthor{Quint_inst} nennt in \citetitle{Quint_inst} die notwendigen physischen Qualitäten eines Redners.\par
@@ -2034,6 +2058,5 @@ maxbibnames=999,%
  \changes{v1}{2015/09/15}{First public version}
 \PrintChanges
 \PrintIndex
-
 
 \end{document}
