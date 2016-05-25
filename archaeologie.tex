@@ -477,50 +477,52 @@ If a journal or a series is  {\color{red}not} not included in the list (\cref{li
 then this journal/series will {\color{red}not}  be abbreviated and with its full name written in  |{}| in the field e.g. |journaltitle=|\marg{Zeitschriftentitel}.
 For the following examples we use |@string| whenever it is clever and possible.
 
-\section{Optionale Steuerung}
-Nachfolgend werden die Optionen des Stils |archaeologie| immer auch konkret an Beispielen erläutert.
-Änderungen, die durch die Optionen erfolgen, sind {\color{red}rot} markiert.
+\section{Optional preferences}
+Following we give a more detailed insight into the various options of |archaeologie| 
+and show their results on the bases of concrete examples.
+Changes made by the options are {\color{red}coloured}.
 %In {\color{blue}blau} sind bibliographische Einträge, die mit dem nächsten Literaturverzeichnis verknüpft sind.
 
- \subsection{Optionen in der Präambel}\label{optionen-preamble}
- 
- In der Präambel kann man, wie folgt, den Stil |archaeologie| über das Paket |biblatex| laden:
+ \subsection{Options set in the preamble}\label{options-preamble}
+The optional preferences   In the preamble are loaeded within the package  |biblatex|:
  \begin{lstlisting}
 \usepackage[%				
-		backend=biber,				% aktiviert biber
-		style=archaeologie, 	% lädt den Stil 'archaeologie'
-		inreferences=true,		%true = Vollzitat von Lexikaeinträgen
+		backend=biber,				% activates biber which is done by default anyway 
+												%	(but will give an error if not done here)
+		style=archaeologie, 	% loads the style *@|archaeologie|*@
+		inreferences=true,		%true = fullcite of inreferences in the footnotes
 		]{biblatex}
 \end{lstlisting}
+In this example the style |archaeologie| is loaded with the option |inreferences|.
+It doesn’t matter if you write |inreferences,| or |inreferences=true|.
 
-In diesem Beispiel wurde der Stil |archaeologie| mit der Option |inreferences| geladen (|=true|). 
-Die Ausgabe in Fußnote und in Bibliographie wird jedoch maßgeblich durch weitere verschiedene Optionen manipuliert, die entsprechend ebenfalls in der Präambel geladen werden können.
 
 \subsubsection{abbrv}\label{abbrv}
  \DescribeMacro{abbrv}
- Möchte man die oben erwähnte Methode mit |@string| verwenden, muss in der Präambel die Option |abbrv| aktiviert sein.
- Damit wird die Bibliographie |archaeologie-abbrv.bib| geladen, in der die unter \cref{listen} aufgeführten Abkürzungen gespeichert sind.
-Verwendet man keine  |@string|-Einträge, muss nichts weiter gemacht werden.
+ If you want to use the above mentioned method with |@string| you have to activate the option called  |abbrv| in the preamble.
+Once activated the additional bibliography  |archaeologie-abbrv.bib| is loaded. 
+In this bibliography all abbreviations listed in \cref{listen} are stored.
+
 
 \subsubsection{ancient}\label{ancient}
  \DescribeMacro{ancient}
-Es bietet sich an, ebenso antike Autoren und deren Werke über die entsprechenden |\cite|-Befehle anzusteuern, um Einheitlichkeit zu garantieren und gleichzeitig die Fehleranfälligkeit zu minimieren.
-Dafür muss am Ende des Textes auch keine gesonderte Bibliographie antiker Autoren erfolgen, sodass diese nur im Fließtext referenziert sind.
+In the case you cite ancient authors and their works you can do it with the common  |\cite|-command.
+This is recommended and will  guarantee a high level of consistency and  minimize  error-proneness.
+For this case especially we included a modification that respects the different citation of  ancient authors and works.
+With the option |ancient| you load an additional bibliography called |bibliography-ancient.bib| in which we inserted almost 600 entries of ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
+For the complete list of those see  \cref{ancient-list}.
 
-Da das Anlegen eines Bibliographieeintrags pro Autor und Werk sehr viel Arbeit ist und ggf. für jeden neuen Text wiederum erstellt oder kopiert werden muss, gibt es eine gesonderte Bibliographie (archaeologie-ancient.bib),
-die mit knapp 600 Einträge den Großteil antiker Autoren und deren Werke nach der Zitierrichtlinie von Der Neue Pauly enthält.
+You can cite the authors with the bold abbreviation in the second line. 
+The authors and works are separated by a colon.
+Let me make it clear with the example:
 
-Mit der Option |ancient| wird die Bibliographie geladen.
-Deren Einträge mit den |bibtexkeys| kann unter \cref{ancient-list} eingesehen werden.
 \begin{refsection}
-Nun ist es möglich im Fließtext antike Autoren oder antike Werke zu zitieren.
-Zum Beispiel wird aus 
-|\cite[3,2,5--7]{Apul_met}| \cite[3,2,5--7]{Apul_met}.
+With the loaded option |ancient| you write this 
+|\cite[3,2,5--7]{Apul:met}|  and will get in return after compiling  give: \cite[3,2,5--7]{Apul:met}.
 \end{refsection}
-Der Bibliographieeintrag sie wie folgt aus:
-
+The bibliography-entry looks like this
  \begin{lstlisting}
-@book{Apul_met,
+@book{Apul:met,
 	author ={Apuleius Madaurensis, Lucius},  
 	title = {metamorphoses}, 
 	shorthand = {Apul. met.}, 
@@ -529,22 +531,19 @@ Der Bibliographieeintrag sie wie folgt aus:
 	options = {ancient}
 }
 \end{lstlisting}
+All entries in the mentioned additional bibliography contain the line |keywords = {ancient}|.
+With that you can print all ancient authors in a separated bibliography.
+The needed command is:
 
-
-
-Daraus wird in der Bibliographie (sofern man es aufgelistet haben möchte):
 |\printbibliography[keyword = ancient]|
 
-\printbib{Apul_met}
-%  \begin{bsp}
-%  	\nocite{Apul_met}
-%  	\printbibliography[keyword = ancient,title={Antike Autoren}]
-%  \end{bsp}
+\printbib{Apul:met}
 
 \begin{refsection}
-Mit dem |bibtexkey| des antiken Autors, bzw. antiken Werks kann man auch die Namen oder das Werk im Fließtext zitieren:
-|\citeauthor{Apul_met} in \citetitle{Apul_met}| --> 
-\citeauthor{Apul_met} in \citetitle{Apul_met}
+With the  |bibtexkey| (e.g. |Apul:met|) of the entry you can also cite the authors and the titles name 
+like this: 
+|\citeauthor{Apul:met} in \citetitle{Apul:met}| will give 
+\citeauthor{Apul:met} in \citetitle{Apul:met}
 \end{refsection}
  \changes{v1.5}{2016/05/31}{Extra Bibliographie}
 
