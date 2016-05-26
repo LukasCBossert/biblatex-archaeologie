@@ -32,7 +32,7 @@ english
 	backend=biber,
 	style=archaeologie,
 	%corpora,
-	abbrv,
+	lstabbrv,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
 \footnotesize}
@@ -494,12 +494,12 @@ The optional preferences   In the preamble are loaeded within the package  |bibl
 		]{biblatex}
 \end{lstlisting}
 In this example the style |archaeologie| is loaded with the option |inreferences|.
-It doesn’t matter if you write |inreferences,| or |inreferences=true|.
+It doesn't matter if you write |inreferences,| or |inreferences=true|.
 
 
-\subsubsection{abbrv}\label{abbrv}
- \DescribeMacro{abbrv}
- If you want to use the above mentioned method with |@string| you have to activate the option called  |abbrv| in the preamble.
+\subsubsection{lstabbrv}\label{abbrv}
+ \DescribeMacro{lstabbrv}
+ If you want to use the above mentioned method with |@string| you have to activate the option called  |lstabbrv| (list of abbreviations) in the preamble.
 Once activated the additional bibliography  |archaeologie-abbrv.bib| is loaded. 
 In this bibliography all abbreviations listed in \cref{listen} are stored.
 
@@ -885,10 +885,10 @@ Ball – Dobbins 2013\hspace{2em} {\color{red}Larry F. Ball – John J. Dobbins}
 \end{bsp}
 
 
-\subsubsection{noabbrevs}\label{noabbrevs}
-\DescribeMacro{noabbrevs}
+\subsubsection{noabbrv}\label{noabbrevs}
+\DescribeMacro{noabbrv}
 Die DAI-Vorgabe sieht vor, Zeitschriften nur abgekürzt wiederzugeben, dafür wird das Feld |shortjournal| vom Bibliographieeintrag ausgelesen. Gibt es keine Abkürzung, also wurde das Feld |shortjournal| leer gelesen, wird automatisch das Feld |journal| ausgelesen.
-Möchte man hingegen den vollen Zeitschriftennamen in der Bibliographie haben, dann muss man die Option |noabbrevs| aktivieren.
+Möchte man hingegen den vollen Zeitschriftennamen in der Bibliographie haben, dann muss man die Option |noabbrv| aktivieren.
 \begin{lstlisting}
 @article{Ball_2013,
   Title                    = {Pompeii Forum Project},

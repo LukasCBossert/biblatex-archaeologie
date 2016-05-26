@@ -42,7 +42,7 @@
 \newbool{bbx:yearseries}  
 \newbool{bbx:bibfullname}
 \newbool{bbx:inreferences}
-\newbool{bbx:noabbrevs}
+\newbool{bbx:noabbrv}
 \newbool{bbx:translation}
 \newbool{bbx:publisher}		
 \newbool{bbx:initials}
@@ -52,20 +52,20 @@
 \newbool{cbx:corpus}
 \newbool{cbx:lastnames}	
 \newbool{cbx:fullnames}
-\newbool{bib:abbrv}
+\newbool{bib:lstabbrv}
 \newbool{bib:corpora}
 \newbool{bib:ancient}
 \newsavebox\arch@labelbox
 \newlength{\labwidthsameline}
 	\setlength{\labwidthsameline}{4em}
 %-----------------------
-\DeclareBibliographyOption{abbrv}[true]{%
-		\csuse{bool#1}{bib:abbrv}
+\DeclareBibliographyOption{lstabbrv}[true]{%
+		\csuse{bool#1}{bib:lstabbrv}
 		\addbibresource{archaeologie-abbrv.bib}
 }
 \DeclareBibliographyOption{corpora}[true]{%
 		\addbibresource{archaeologie-corpora.bib}%
-		\ifbool{bib:abbrv}%
+		\ifbool{bib:lstabbrv}%
 				{}%
 				{\addbibresource{archaeologie-abbrv.bib}}
 }
@@ -84,7 +84,7 @@
 			\ExecuteBibliographyOptions{giveninits=false}}
 \DeclareBibliographyOption{inreferences}[true]{\csuse{bool#1}{bbx:inreferences}
 			\ExecuteBibliographyOptions[inreference]{skipbib=true}}
-\DeclareBibliographyOption{noabbrevs}[true]{\csuse{bool#1}{bbx:noabbrevs}}
+\DeclareBibliographyOption{noabbrv}[true]{\csuse{bool#1}{bbx:noabbrv}}
 \DeclareBibliographyOption{translation}[true]{\csuse{bool#1}{bbx:translation}}
 \DeclareBibliographyOption{publisher}[true]{\csuse{bool#1}{bbx:publisher}
 		\ExecuteBibliographyOptions{maxitems=2}}
@@ -457,7 +457,7 @@
 %-----------------------				    
 \newbibmacro*{series}{%
   	\ifboolexpr{test {\iffieldundef{shortseries}} %
-  						or bool {bbx:noabbrevs}}%
+  						or bool {bbx:noabbrv}}%
     		{\printtext[seriestitle]{\printfield[titlecase]{series}}}%
     		{\printfield{shortseries}}%
 }
@@ -476,7 +476,7 @@
 %-----------------------
 \renewbibmacro*{journal}{%
   	\ifboolexpr{test {\iffieldundef{shortjournal}}%
-  					or bool {bbx:noabbrevs}}%
+  					or bool {bbx:noabbrv}}%
       {\printtext[journaltitle]{%
       			\printfield[titlecase]{journaltitle}%
        			\setunit{\subtitlepunct}%
