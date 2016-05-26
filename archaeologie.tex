@@ -636,8 +636,7 @@ Once again the entry in the bibliography with switched on option:
 There is the possibility to cite inreferences in the footnote as a full citation.
 It is only required that the bibliography-entry is an |@Inreference|  (cf. \cref{inreference}).
  
-Another example Am folgenden Beispielsdatensatz wird die Option verdeutlicht:\\
- 
+Another example makes it clear: 
 \begin{lstlisting}
 @Inreference{Nieddu_1995,
   author    = {Nieddu, Giuseppe},
@@ -653,33 +652,31 @@ Another example Am folgenden Beispielsdatensatz wird die Option verdeutlicht:\\
    \begin{bsp}
 
  \begin{enumerate}
- \item standardmäßig wird daraus:  %Nieddu 1995
+ \item by default it will give:  %Nieddu 1995
  \cite{Nieddu_1995}
- \item mit der Option |inreferences| wird dies zu:
+ \item with the option |inreferences| it will change to:
  LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
  % \cite{Nieddu_1995}
   \end{enumerate}
    \end{bsp}
- Trägt man eine konkrete Spalten/Seitenzahl ein (|\cite[9]{Nieddu_1995}|), dann wird diese Angabe in der Fußnote  angegeben:
+If the \oarg{postnote} is defined with the columns/page number, (e.g. |\cite[9]{Nieddu_1995}|), 
+then it will change the position for the \oarg{postnote}:
  \begin{bsp}
 \begin{enumerate} 
- \item standardmäßig wird daraus:  %Nieddu 1995
+ \item by default it will give:  %Nieddu 1995
  \cite[9]{Nieddu_1995}
- \item mit der Option |inreferences| wird dies zu:
+ \item with the option |inreferences| it will change to:
   LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
   \end{enumerate}
 \end{bsp}
+With the activated option  (|inreferences|) the cited entries which are defined as a|@inreference| will be automatically omitted in the (final) bibliography,
+because the entries are fully cited before in the footnotes.
 
-Verwendet man diese Option (|inreferences|), dann werden die als |@inreference| gekennzeichneten Einträge automatisch von der (End-)Bibliographie ausgeschlossen,  da sie bereits in den Fußnoten vollständig bibliographiert sind.
-Verwendet man die Option nicht, dann sieht  der Eintrag wie folgt aus:
+If the option is not used (|=flase|) the entry will look like this in the bibliography:
   \end{refsection}
 
 \printbib[6em]{Nieddu_1995} 
-% \begin{bsp}
-%\nocite{Nieddu_1995}
-%\printbibliography[title={Forschungsliteratur}]
-%\end{bsp}
- 
+
  
 \subsubsection{yearseries}\label{yearseries}
  \DescribeMacro{yearseries}
