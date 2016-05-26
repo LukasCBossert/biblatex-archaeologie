@@ -17,8 +17,7 @@
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
-\usepackage[utf8]{inputenc}
-\usepackage[LGR,T1]{fontenc}		% font types and character verification
+\usepackage[T1,LGR]{fontenc}		% font types and character verification
 %  \renewcommand*\ttdefault{lcmtt}
 \usepackage{libertine}
 %\renewcommand*\ttdefault{cmvtt}
@@ -47,7 +46,7 @@
 %	width=6em,
 %counter,
 %ancient,
-abbrv
+lstabbrv,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
 \footnotesize}
@@ -228,7 +227,7 @@ Neben den |archaeologie|-Optionen kann man -- quasi auf eigene Gefahr -- noch di
 \DescribeMacro{seenote} 
 Gibt bei erster Verwendung zunächst das Vollzitat, im Anschluss dann den Rückverweis auf die Erstnennung aus.
 
-\DescribeMacro{abbrv} Aktiviert die separate Bibliographiedatei |archaeologie-abbrv.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch Zeitschriften oder Reihen nach den DAI-Abkürzungsrichtlinien zitieren kann. 
+\DescribeMacro{lstabbrv} Aktiviert die separate Bibliographiedatei |archaeologie-abbrv.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch Zeitschriften oder Reihen nach den DAI-Abkürzungsrichtlinien zitieren kann. 
 
 \DescribeMacro{ancient} Damit wird eine separate Bibliographie geladen,
 in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. 
@@ -245,9 +244,9 @@ Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. Diese 
  
 \DescribeMacro{yearinparens}  Die Jahreszahl wird in Klammern gesetzt.  
 
-\DescribeMacro{translation}   Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Keinen Einfluss hat die Wahl auf Bibliographie-Einträge, die |options=ancient| haben. Dort ist dies Standard.
+\DescribeMacro{translation}   Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Keinen Einfluss hat die Wahl auf Bibliographie-Einträge, die |options=ancient| haben. Dort wird dies standardmäßig angegeben.
 
-\DescribeMacro{noabbrevs}   Die Abkürzungen von Zeitschriften und Serien (|shortjournal| |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. 
+\DescribeMacro{noabbrv}   Die Abkürzungen von Zeitschriften und Serien (|shortjournal| |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. 
 
 \DescribeMacro{publisher}   Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung von Auflage (|edition|) und Erstausgabe (|origyear|).  
 
@@ -255,13 +254,13 @@ Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. Diese 
 
 \DescribeMacro{inreferences}   Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Dies verwirft die vom DAI angegebene, spezielle Lexika-Zitation (LIMC, DNP etc.), die  nicht in der Bibliographie aufgeführt werden. 
 
-\DescribeMacro{lastnames}   Schreibt die Autoren/-Herausgeber, die über  |\citeauthor|\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (dies entspricht dann der Autoren-Darstellung in Fußnoten).  
+\DescribeMacro{lastnames}   Schreibt die Autoren/-Herausgeber, die über  |\citeauthor|\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (dies entspricht der Autoren-Darstellung in Fußnoten).  
 
 \DescribeMacro{fullnames}   Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  
 
-\DescribeMacro{scshape}   Die Namen in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft und Werke antiker Autoren.
+\DescribeMacro{scshape}   Die Namen im Fließtext und in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft und Werke antiker Autoren.
 
-\DescribeMacro{width}  Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
+\DescribeMacro{width}  Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label (Kurzzitat) und dem Vollzitat nach Belieben gesteuert.
 
 \DescribeMacro{counter} Angabe über die Anzahl an Zitationen des Werks im Fließtext. 
 
