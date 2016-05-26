@@ -509,16 +509,16 @@ In this bibliography all abbreviations listed in \cref{listen} are stored.
 In the case you cite ancient authors and their works you can do it with the common  |\cite|-command.
 This is recommended and will  guarantee a high level of consistency and  minimize  error-proneness.
 For this case especially we included a modification that respects the different citation of  ancient authors and works.
-With the option |ancient| you load an additional bibliography called |bibliography-ancient.bib| in which we inserted almost 600 entries of ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
+With the option |ancient| you load an additional bibliography called |bibliography-ancient.bib| in which we inserted almost 600 ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
 For the complete list of those see  \cref{ancient-list}.
 
-You can cite the authors with the bold abbreviation in the second line. 
-The authors and works are separated by a colon.
-Let me make it clear with the example:
-
+You can cite the authors or works with their |bibtex-key| which is on the left. 
+Authors and works are separated by a colon.
+The bold entry on the right is the |shorthand| which will be printed in your paper.
+Let me make it clear with an example:
 \begin{refsection}
-With the loaded option |ancient| you write this 
-|\cite[3,2,5--7]{Apul:met}|  and will get in return after compiling  give: \cite[3,2,5--7]{Apul:met}.
+With the loaded option |ancient| you write  
+|\cite[3,2,5--7]{Apul:met}|  and will get in return after compiling: \cite[3,2,5--7]{Apul:met}.
 \end{refsection}
 The bibliography-entry looks like this
  \begin{lstlisting}
@@ -1855,18 +1855,24 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 
 \begin{lstlisting}
 \printbibheading[%
-							heading=bibnumbered,%
+							%heading=bibnumbered,%
+									% commented for this documentation
+									% uncomment if you want it numbered		
 							title={Bibliography}] %heading for bibliography
 
 \printbibliography[%
 							keyword=ancient,%
-							heading=subbibnumbered,%
+							%heading=subbibnumbered,%
+									% commented for this documentation
+									% uncomment if you want it numbered
 							title={Ancient authors and works}]
 
 \printbibliography[%
 							notkeyword=ancient,%
 							notkeyword=corpus,%
-							heading=subbibnumbered,%
+							%heading=subbibnumbered,%
+									% commented for this documentation
+									% uncomment if you want it numbered
 							title={Secondary literature}]
 \end{lstlisting}
 
@@ -1876,22 +1882,22 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 \nocite{*}
 
 Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis getrennt voneinander ausgegeben. 
-\setcounter{section}{0}
+
 \begin{bsp}
 \renewcommand\bibfont{\normalfont\footnotesize}
 \printbibheading[%
-							heading=bibnumbered,%
+							%heading=bibnumbered,%
 							title={Bibliography}] %heading for bibliography
 
 \printbibliography[%
 							keyword=ancient,%
-							heading=subbibnumbered,%
+							%heading=subbibnumbered,%
 							title={Ancient authors and works}]
 
 \printbibliography[%
 							notkeyword=ancient,%
 							notkeyword=corpus,%
-							heading=subbibnumbered,%
+							%heading=subbibnumbered,%
 							title={Secondary literature}]
 \end{bsp}
 
@@ -1901,27 +1907,37 @@ Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln
 \begin{lstlisting}
 \printbibliography[%
 					keyword=corpus,%
-            		heading=subbibnumbered,%
+            		%heading=subbibnumbered,%
+							% commented for this documentation
+							% uncomment if you want it numbered
             		title={Abbreviation and corpora}]
 \end{lstlisting}
 Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {corpus}| stehen haben:
 \begin{bsp}
-\printbibliography[keyword={corpus},
-           heading=subbibnumbered,
-            title={Abbreviation of corpora}]\label{bib:corpus}
+\printbibliography[%
+						keyword={corpus},
+          				%heading=subbibnumbered,%
+							% commented for this documentation
+							% uncomment if you want it numbered
+            			title={Abbreviation of corpora}]\label{bib:corpus}
 \end{bsp}
 
 Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.
 Dies geschieht  für die Zeitschriften mit:
 \begin{lstlisting}
 \printbiblist[%
-							heading=subbibnumbered,%
-							title={Zeitschriftenabkürzungenl}]{shortjournal}
+					%heading=subbibnumbered,%
+						% commented for this documentation
+						% uncomment if you want it numbered
+					title={Zeitschriftenabkürzungenl}]{shortjournal}
 \end{lstlisting}
 
 \begin{bsp}
-\printbiblist[heading=subbibnumbered,
-title={Zeitschriftenabkürzungen}]{shortjournal}
+\printbiblist[%
+					%heading=subbibnumbered,%
+						% commented for this documentation
+						% uncomment if you want it numbered
+					title={Zeitschriftenabkürzungenl}]{shortjournal}
 \end{bsp}
 
 bzw. für die Reihen:
@@ -1936,8 +1952,7 @@ bzw. für die Reihen:
 \printbiblist[heading=subbibnumbered,title={Reihenabkürzungen}]{shortseries}\end{bsp}
 
 \end{refsection}
-\setcounter{section}{5}
-
+\clearpage
 \section{Antike Autoren und Werke}\label{ancient-list}
 Bibliography |archaeologie-ancient.bib| with a list of ancient authors and texts and their abbrevviation according to  Der Neue Pauly.
 The bold entry in the second line is the |bibtexkey|.
@@ -1946,6 +1961,7 @@ All the entries have |keywords={ancient}|, |options={ancient}|.
 	\input{archaeologie-ancient.tex}
 \end{multicols}
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
+
 
 \section{Corpora}\label{corpora}
 List of corpora in ancient studies |archaeologie-corpora.bib|.
