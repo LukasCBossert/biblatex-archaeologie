@@ -126,7 +126,7 @@ lstabbrv,
 
 
 
-\usepackage{listingsutf8}
+\usepackage{listings}
  \definecolor{myblue}{RGB}{0,65,137}
 \definecolor{codegreen}{RGB}{147,193,26}
 
@@ -213,7 +213,8 @@ Um schnell und einfach im DAI-Stil zu zitieren, bedarf es also keiner weiteren E
 
 Um den Stil den eigenen Bedürfnissen anzupassen können darüber hinaus verschiedene -- weiter unten beschriebene -- Optionen von |archaeologie| oder \enquote{konventionelle} |biblatex|-Optionen geladen werden.
 
-Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der |\cite|-Befehle eingebunden, der |\printbibliography|-Befehl am Ende des Dokuments oder an gewünschter Stelle gibt eine Liste der verwendeten Bibliographie aus. Da |archaeologie| jedoch unterschiedliche Zitierweisen je Textsorte wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographie dementsprechend aufzuteilen (z.\,B. Antike Quellen, Abkürzungen etc.). Einige Möglichkeiten zur Gestaltung der Bibliographie geben wir in \cref{bibliographie}.
+Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der |\cite|-Befehle eingebunden, der |\printbibliography|-Befehl am Ende des Dokuments oder an gewünschter Stelle gibt eine Liste der verwendeten Bibliographie aus. Da |archaeologie| jedoch unterschiedliche Zitierweisen je Textsorte wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographie dementsprechend aufzuteilen (z.\,B. Antike Quellen, Abkürzungen etc.). 
+Einige Möglichkeiten zur Gestaltung der Bibliographie geben wir in \cref{bibliographie}.
 
 Um die externen Bibliographien, die |archaeologie| optional bereitstellt, korrekt einzubinden, ist ein Schrift-Encoding von Nöten, das auch griechische Schriftzeichen enthält. Für \LaTeX{} ist ein Unicode-Encoding z.\,B. über |\inputenc{utf8}| eine mögliche Lösung. \XeLaTeX{} unterstützt Unicode von Hause aus.
 
@@ -231,11 +232,12 @@ Gibt bei erster Verwendung zunächst das Vollzitat, im Anschluss dann den Rückv
 
 \DescribeMacro{ancient} Damit wird eine separate Bibliographie geladen,
 in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. 
-Alle Einträge enthalten |keywords={ancient}|, |options={ancient}|. Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bibliographie}).
+Alle Einträge enthalten |keywords={ancient}|, |options={ancient}|. 
+Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bibliographie}).
  
 \DescribeMacro{corpora} Damit wird eine separate Bibliographie geladen,
 in der über 40 Corpora fertig zitierfähig gespeichert sind.
-Die Option lädt zusätzlich die Bibliographie |archaeologie-abbrv.bib|, deren separate Einbindung durch die Option |abbrv| (s. oben) erfolgt.
+Die Option lädt zusätzlich die Bibliographie |archaeologie-abbrv.bib|, deren separate Einbindung durch die Option |lstabbrv| (s. oben) erfolgt.
 Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bibliographie}).
 
 \DescribeMacro{edby}  Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. 
@@ -244,7 +246,9 @@ Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. Diese 
  
 \DescribeMacro{yearinparens}  Die Jahreszahl wird in Klammern gesetzt.  
 
-\DescribeMacro{translation}   Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Keinen Einfluss hat die Wahl auf Bibliographie-Einträge, die |options=ancient| haben. Dort wird dies standardmäßig angegeben.
+\DescribeMacro{translation}   Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. 
+Keinen Einfluss hat die Wahl auf Bibliographie-Einträge, die |options=ancient| haben. 
+Dort wird dies standardmäßig angegeben.
 
 \DescribeMacro{noabbrv}   Die Abkürzungen von Zeitschriften und Serien (|shortjournal| |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. 
 
@@ -252,7 +256,8 @@ Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. Diese 
 
 \DescribeMacro{bibfullname}   Schreibt die Autoren/-Herausgeber mit vollem Namen in die Bibliographie. Standard ist sonst die Abkürzung der Vornamen. 
 
-\DescribeMacro{inreferences}   Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Dies verwirft die vom DAI angegebene, spezielle Lexika-Zitation (LIMC, DNP etc.), die  nicht in der Bibliographie aufgeführt werden. 
+\DescribeMacro{inreferences}   Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. 
+Dies verwirft die vom DAI angegebene, spezielle Lexika-Zitation (LIMC, DNP etc.), die  nicht in der Bibliographie aufgeführt werden. 
 
 \DescribeMacro{lastnames}   Schreibt die Autoren/-Herausgeber, die über  |\citeauthor|\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (dies entspricht der Autoren-Darstellung in Fußnoten).  
 
@@ -268,12 +273,13 @@ Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. Diese 
  \subsection{Literaturoptionen (Bibliographieeintrag)}
  Zusätzlich kann ein einzelner Eintrag durch folgende Werte in seinem |options|-Feld manipuliert werden. 
 
- \begin{description}
- \item[ancient] Zeichnet den Eintrag als antike Quelle aus. 
- \item[frgancient] Zeichnet den Eintrag als antikes Fragment aus. 
- \item[corpus] Nur das |shorthand|-Feld wird beim Folgezitat ausgegeben. 
+\DescribeMacro{ancient} Zeichnet den Eintrag als antike Quelle aus. 
+
+\DescribeMacro{frgancient} Zeichnet den Eintrag als antikes Fragment aus. 
+
+\DescribeMacro{corpus} Nur das |shorthand|-Feld wird beim Folgezitat ausgegeben. 
  Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). 
- \end{description}
+
 
  \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
 
@@ -281,8 +287,7 @@ Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. Diese 
  
 
  \subsection{cite-Befehle}\label{cite-befehle}
- \DescribeMacro{\cite}
-Die einfachste Weise zum Zitieren wird mit |\cite| bewerkstelligt:
+ \DescribeMacro{\cite} Die einfachste Weise zum Zitieren wird mit |\cite| bewerkstelligt:
 \begin{lstlisting}
 \cite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting}
@@ -295,8 +300,8 @@ Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:
 
  \meta{bibtex-key} ist dabei in jedem Fall der Schlüssel des Eintrags aus der |bib|-Datei.
 
- \DescribeMacro{\cites}
- Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der |\cites|-Befehl:
+
+ \DescribeMacro{\cites} Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der |\cites|-Befehl:
 \begin{lstlisting}
 \cites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
@@ -304,19 +309,18 @@ Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:
 \end{lstlisting}
  
 
-\begin{center} * * * \end{center}
- 
- \DescribeMacro{\parencite}
- Möchte man Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies  zu tun mittels:
+\begin{center} * * * \end{center} 
+ \DescribeMacro{\parencite} Möchte man Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies  zu tun mittels:
+
 \begin{lstlisting}
 \parencite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting} 
  Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
  Dies ist vor allem bei Lexikaeinträgen der Fall.
 
- \DescribeMacro{\parencites}
- Möchte man mehrere Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies zu tun mittels
- \begin{lstlisting}
+
+ \DescribeMacro{\parencites}  Möchte man mehrere Literaturangaben (bspw. in den Fußnoten) in Klammern setzen, dann empfiehlt sich dies zu tun mittels
+\begin{lstlisting}
 \parencites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																			<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
@@ -324,7 +328,6 @@ Wenn nur ein optionales Argument gegeben wird, so ist das die Seitenzahl:
  Dieser Befehl berücksichtigt die Klammerregelung, die besagt, dass runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben werden müssen.
  Dies ist vor allem bei Lexikaeinträgen der Fall.
  \begin{center} * * * \end{center}
- 
  \DescribeMacro{\textcite}
 Zu den bisher aufgeführten |\cite|-Befehlen gibt es zusätzlich die Möglichkeit einen Eintrag bspw. im Fließtext mit |\textcite|  zu zitieren: 
 \begin{lstlisting}

@@ -268,90 +268,88 @@ Furthermore one can -- at your own risk -- also use the conventional  |biblatex|
 For that please see the excellent documentation of  |biblatex|.
 
  \subsection{Options in the preamble}\label{preamble_options}
- \begin{description}
- \item[seenote] 
+ \DescribeMacro{seenote}
 By default the style |archaeologie| follows the author-year-system. 
 With this option you can change it to a different outcome (but still according to the rules of the German Archaeological Institute) so the first citation will be a full citation and all the following citations will refer to the first full citation cf. \cref{seenote}
 
 
- \item[lstabbrv] 
+ \DescribeMacro{lstabbrv}
  This activates the additional bibliography file  |archaeologie-abbrv.bib|.
  With this bibliography one can cite journals and series according to the abbreviations of the German Archaeological Institute cf. \cref{abbrv}. 
 
 
-\item[ancient] 
+ \DescribeMacro{ancient}
 A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{ancient}.
 
-\item[corpora] 
+ \DescribeMacro{corpora}
 A separate bibliography-file is loaded, in which the common corpora for ancient studies are stored cf. \cref{corpora}.
 This activates the other additional bibliography |archaeologie-abbrv.bib| automatically.
 
- \item[edby] 
+ \DescribeMacro{edby}
 This activates a switch to have instead of  \enquote{ed.}/\enquote{Hrsg.} now  \enquote{ed. by}/\enquote{hrsg. v.} cf. \cref{edby}.
 
-\item[initials] 
+ \DescribeMacro{initials}
 This option takes care of an automatically abreviation of first names keeping digraphs and trigraphs cf. \cref{initials}
 
 
-\item[yearseries] 
+ \DescribeMacro{yearseries}
 This changes the order of series and year  cf. \cref{yearseries}.
  
- \item[yearinparens]
+ \DescribeMacro{yearinparens}
  The year is shown in parens cf. \cref{yearinparens}.
 
-\item[translation] 
+ \DescribeMacro{translation}
 This shows in the bibliography the original title, the translator and the original language.
 If the bibliography entry is set with  |option={ancient}| this behaviour is default cf. \cref{translation}. 
 
-\item[noabbrv] 
+ \DescribeMacro{noabbrv}
 By default the short titles of journals and series (|shortjournal| and |shortseries|) are shown  in the bibliography.
 With this option full name is shown instead (|journaltitle| and |series|) cf.  \cref{noabbrevs}.
 
-\item[publisher] 
+ \DescribeMacro{publisher}
 All the locations and the publisher is shown. This changes the format of the edition and the first print cf.  \cref{publisher}.
 
-\item[bibfullname] 
+ \DescribeMacro{bibfullname}
 In the bibliography the full names of the authors and/or editors are shown cf. \cref{bibfullname}.
 
-\item[inreferences] 
-Each bibliography entry wihich is a  |@inreference| is fully referenced according to the rules of the German Archaeological Institute cf. \cref{inreferences}.
+ \DescribeMacro{inreferences}
+Each bibliography entry which is a  |@inreference| is fully referenced according to the rules of the German Archaeological Institute cf. \cref{inreferences}.
 
-\item[lastnames] 
+ \DescribeMacro{lastnames}
 Writes only the family names of the authors or editors when theyare cited with  |citeauthor|\-\marg{bibtex-key}.
 In footnotes this is default cf.  \cref{lastnames}.
 
-\item[fullnames] 
+ \DescribeMacro{fullnames}
 Writes only the first and family names of the authors or editors when they are cited with  |citeauthor|\-\marg{bibtex-key} cf.  \cref{fullnames}.
 
 
-\item[scshape] 
+ \DescribeMacro{scshape}
 Names in referenced citations are shown with small capital letters cf. \cref{scshape}.
 Bibliography entries with |option={ancient}| or |option={frgancient}| (\cref{ancient,frgancient}) are not touched by this option.
 
 
-\item[width]
+ \DescribeMacro{width}
 The value of |width={value}| defines in the bibliography the width between the label and the reference cf. \cref{width}.
 
-\item[counter] 
+ \DescribeMacro{counter}
 This gives the sum of the citations in the text cf. \cref{counter}.
-\end{description}
 
 
  \subsection{Options in the entries}
  Additionally a single bibliography entry can contain a value in the |options|-field.
  This changes the behaviour of the entry when it is cited cf. \cref{optionen-literatur,beispiele}. 
 
- \begin{description}
- \item[ancient] 
+
+ \DescribeMacro{ancient}
  The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{ancient}.
 
- \item[frgancient] 
+ \DescribeMacro{frgancient}
  The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
 
- \item[corpus] 
+ \DescribeMacro{corpus} 
  Only the  |shorthand|-field is printed.
  This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.) cf. \cref{corpus}.
- \end{description}
+
 
  \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
 
