@@ -17,7 +17,8 @@
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
-  \usepackage[T1,LGR]{fontenc}		% font types and character verification
+\usepackage[utf8]{inputenc}
+\usepackage[LGR,T1]{fontenc}		% font types and character verification
 %  \renewcommand*\ttdefault{lcmtt}
 \usepackage{libertine}
 %\renewcommand*\ttdefault{cmvtt}
@@ -46,7 +47,7 @@
 %	width=6em,
 %counter,
 %ancient,
-abbrv,
+abbrv
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
 \footnotesize}
@@ -126,7 +127,7 @@ abbrv,
 
 
 
-\usepackage{listings}
+\usepackage{listingsutf8}
  \definecolor{myblue}{RGB}{0,65,137}
 \definecolor{codegreen}{RGB}{147,193,26}
 
@@ -142,14 +143,15 @@ abbrv,
     keywordstyle=\color{myblue},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-	escapeinside={<@}{@>},
+    escapeinside={<@}{@>},
     texcsstyle=*\color{myblue},
     morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
     						@article, @book,@inproceedings@,@proceedings,@talk,@reference,@inreference,@incollection,
     						},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
-    breaklines=true,                 
+    breaklines=true,   
+    inputencoding=utf8/latin1,              
     captionpos=b,                    
     keepspaces=true,                 
     numbers=left,                    
@@ -173,14 +175,14 @@ abbrv,
   linkcolor    = black, %Colour of internal links
   citecolor   = blue, %Colour of citations
   }	
-\begin{document}
-%  \DocInput{archaeologie.dtx}
+
 
 %\MakeShortVerb{\|}
  \newenvironment{syntax}{\begin{small}\medskip\hspace*{2em}}{\par\medskip\end{small}}
  %\def\verbatimchar{;}
 
-
+\begin{document}
+%  \DocInput{archaeologie.dtx}
 
  \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} für Archäologen\footnote{Ebenso geeignet für (Alt-)Philologen und (Alt-)Historiker.
  Die Entwicklung des Codes findet statt auf \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
@@ -193,8 +195,8 @@ abbrv,
  
  \maketitle
  \begin{abstract}
-\noindent Der Stil setzt die Zitations- und Bibliographievorgaben  des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
-Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wurde ebenso für die Sprachen Englisch, Italienisch und Französisch angepasst.
+\noindent Der Stil setzt die Zitations- und Bibliographievorgaben des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. Verschiedene zusätzliche Optionen erlauben jedoch, das Erscheinungsbild den eigenen Vorlieben anzupassen. Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern unterstützt ebenso die Sprachen Englisch, Italienisch und Französisch. Dieses Dokument ist die deutsche Kurzfassung der englischen Hauptdokumentation, Details findet man dort.
+
  \end{abstract}
 
 
@@ -206,64 +208,62 @@ Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern wur
 					<@\meta{weitere Optionen}@>]{biblatex}
 \bibliography<@\marg{|bib|-Datei}@>
 \end{lstlisting}
- 
-Dabei kann man weitere der \enquote{konventionellen} |biblatex|-Optionen oder der -- weiter unten beschriebenen -- von |archaeologie| zur Verfügung gestellten Optionen laden.
 
- |archaeologie| lädt standardmäßig den DAI-Stil im Autor-Jahr-System. 
- Um schnell und einfach im DAI-Stil zu zitieren, benötigt es keine weiteren Einstellungen und Optionen.
+|archaeologie| funktioniert out-of-the-box und lädt hierfür standardmäßig den DAI-Stil im Autor-Jahr-System. 
+Um schnell und einfach im DAI-Stil zu zitieren, bedarf es also keiner weiteren Einstellungen und Optionen. 
 
-Am Ende des Dokuments oder an gewünschter Stelle muss der  |\printbibliography|-Befehl stehen, sodass  eine Bibliographie angelegt und ausgegeben wird. 
- Da |archaeologie| unterschiedliche Zitierweisen von Textsorten wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographieaufteilung dementsprechend anzupassen. Verschiedene Möglichkeiten zur Gestaltung der Bibliographie  (\cref{bibliographie}).
+Um den Stil den eigenen Bedürfnissen anzupassen können darüber hinaus verschiedene -- weiter unten beschriebene -- Optionen von |archaeologie| oder \enquote{konventionelle} |biblatex|-Optionen geladen werden.
+
+Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der |\cite|-Befehle eingebunden, der |\printbibliography|-Befehl am Ende des Dokuments oder an gewünschter Stelle gibt eine Liste der verwendeten Bibliographie aus. Da |archaeologie| jedoch unterschiedliche Zitierweisen je Textsorte wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographie dementsprechend aufzuteilen (z.\,B. Antike Quellen, Abkürzungen etc.). Einige Möglichkeiten zur Gestaltung der Bibliographie geben wir in \cref{bibliographie}.
+
+Um die externen Bibliographien, die |archaeologie| optional bereitstellt, korrekt einzubinden, ist ein Schrift-Encoding von Nöten, das auch griechische Schriftzeichen enthält. Für \LaTeX{} ist ein Unicode-Encoding z.\,B. über |\inputenc{utf8}| eine mögliche Lösung. \XeLaTeX{} unterstützt Unicode von Hause aus.
 
 \section{Übersicht}
-Im Folgenden sind   kurz die möglichen Optionen, mit denen der Stil |archaeologie| aufgerufen werden kann, aufgeführt. 
- Dazu kann man -- quasi auf eigene Gefahr -- noch die konventionellen |biblatex|-Optionen (insbesondere zur Formatierung der Abstände etc. des Literaturverzeichnisses) verwenden. Näheres zu diesen findet man in der Dokumentation von |biblatex|.
+Im Folgenden stellen wir etwas knapp die Optionen und Einstellungen vor, mit denen der Stil |archaeologie| aufgerufen werden kann. Wer mehr wissen will, sei auf die englische Hauptdokumentation verwiesen. Die Optionen sind nicht Teil der oben angeführten Standardaktivierung von |archaeologie|, sondern können im Bedarfsfall ausgewählt werden.
 
- \subsection{Paketoptionen (Präambel)}\label{preamble_options}
- \begin{description}
- \item[seenote] Aktiviert die Möglichkeit in Fußnoten zunächst als Vollzitat, dann als Rückverweis auf die Erstnennung zu zitieren. 
- 
- \item[abbrv] Aktiviert die extra Bibliographiedatei |archaeologie-abbrv.bib|, mit der man Zeitschrifen oder Reihen mit entsprechenden Abkürzungen zitieren kann. 
- 
+Neben den |archaeologie|-Optionen kann man -- quasi auf eigene Gefahr -- noch die konventionellen |biblatex|-Optionen (insbesondere zur Formatierung der Abstände etc. des Literaturverzeichnisses) verwenden. Näheres zu diesen findet man in der Dokumentation von |biblatex|.
 
-\item[ancient] Damit wird eine separate Bibliographie geladen,
+\subsection{Paketoptionen (Präambel)}\label{preamble_options}
+
+\DescribeMacro{seenote} 
+Gibt bei erster Verwendung zunächst das Vollzitat, im Anschluss dann den Rückverweis auf die Erstnennung aus.
+
+\DescribeMacro{abbrv} Aktiviert die separate Bibliographiedatei |archaeologie-abbrv.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch Zeitschriften oder Reihen nach den DAI-Abkürzungsrichtlinien zitieren kann. 
+
+\DescribeMacro{ancient} Damit wird eine separate Bibliographie geladen,
 in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. 
-Alle Einträge enthalten |keywords={ancient}|, |options={ancient}|.
+Alle Einträge enthalten |keywords={ancient}|, |options={ancient}|. Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bibliographie}).
  
-\item[corpora] Damit wird eine separate Bibliographie geladen,
+\DescribeMacro{corpora} Damit wird eine separate Bibliographie geladen,
 in der über 40 Corpora fertig zitierfähig gespeichert sind.
-Mit dieser Option wird auch die Bibliographie geladen, die sich hinter der Option |abbrv| verbirgt.
-Alle Einträge enthalten  |keywords={corpus}|, |options={corpus}|.
+Die Option lädt zusätzlich die Bibliographie |archaeologie-abbrv.bib|, deren separate Einbindung durch die Option |abbrv| (s. oben) erfolgt.
+Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bibliographie}).
 
- \item[edby]  Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. 
+\DescribeMacro{edby}  Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. 
 
-
-\item[yearseries]  Die Reihe wird erst nach der Jahreszahl ausgegeben.  
+\DescribeMacro{yearseries}  Die Reihe wird erst nach der Jahreszahl ausgegeben.  
  
- \item[yearinparens]  Die Jahreszahl wird in Klammern gesetzt.  
+\DescribeMacro{yearinparens}  Die Jahreszahl wird in Klammern gesetzt.  
 
-\item[translation]   Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Bei Einträgen, die |options=ancient| haben, ist dies Standard.  
+\DescribeMacro{translation}   Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. Keinen Einfluss hat die Wahl auf Bibliographie-Einträge, die |options=ancient| haben. Dort ist dies Standard.
 
-\item[noabbrevs]   Die Abkürzungen von Zeitschriften und Serien (|shortjournal|\linebreak |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. 
+\DescribeMacro{noabbrevs}   Die Abkürzungen von Zeitschriften und Serien (|shortjournal| |shortseries|) werden ausgeschrieben, wofür die Felder |journaltitle| und |series| ausgelesen werden. 
 
-\item[publisher]   Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung devon Auflage (|edition|) und Erstausgabe (|origyear|).  
+\DescribeMacro{publisher}   Angabe aller Verlagsorte und Verlag selbst. Ändert die Formatierung von Auflage (|edition|) und Erstausgabe (|origyear|).  
 
-\item[bibfullname]   Schreibt die Autoren/-Herausgeber mit vollem Namen in der Bibliographie.  
+\DescribeMacro{bibfullname}   Schreibt die Autoren/-Herausgeber mit vollem Namen in die Bibliographie. Standard ist sonst die Abkürzung der Vornamen. 
 
-\item[inreferences]   Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. 
+\DescribeMacro{inreferences}   Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. Dies verwirft die vom DAI angegebene, spezielle Lexika-Zitation (LIMC, DNP etc.), die  nicht in der Bibliographie aufgeführt werden. 
 
-\item[lastnames]   Schreibt die Autoren/-Herausgeber, die über  |\citeauthor|\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (= Erscheinen in Fußnoten).  
+\DescribeMacro{lastnames}   Schreibt die Autoren/-Herausgeber, die über  |\citeauthor|\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (dies entspricht dann der Autoren-Darstellung in Fußnoten).  
 
-\item[fullnames]   Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  
+\DescribeMacro{fullnames}   Schreibt die Autoren/-Herausgeber, die über |\citeauthor|\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  
 
+\DescribeMacro{scshape}   Die Namen in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft und Werke antiker Autoren.
 
-\item[scshape]   Die Namen in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft  und Werke antiker Autoren.
+\DescribeMacro{width}  Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
 
-
-\item[width]  Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label und dem Vollzitat nach Belieben gesteuert.
-
-\item[counter] Angabe über die Anzahl an Zitationen des Werks im Fließtext. 
-\end{description}
+\DescribeMacro{counter} Angabe über die Anzahl an Zitationen des Werks im Fließtext. 
 
 
  \subsection{Literaturoptionen (Bibliographieeintrag)}
@@ -509,7 +509,7 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 \begin{lstlisting}
 \printbibheading[%
 							heading=bibnumbered,%
-							title={Bibliographie}] %Überschrift für Bibliographie
+							title={Bibliographie}]% Überschrift für Bibliographie
 
 \printbibliography[%
 							keyword=ancient,%
