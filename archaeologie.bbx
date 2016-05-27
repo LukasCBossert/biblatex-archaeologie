@@ -649,9 +649,9 @@
 %-----------------------
 \newbibmacro*{location+edition+year}{%
 	\ifboolexpr{%
-			test {\iflistundef{location}}%
- 			and test {\iffieldundef{publisher}}%
-  			and test {\iffieldundef{year}}}%
+			test 			{\iflistundef{location}}%
+ 			and test 	{\iflistundef{publisher}}%
+  			and test 	{\iffieldundef{year}}}%
   		{}%
   		{\ifbool{bbx:publisher}%
     		{\printtext[parens]{%
@@ -666,10 +666,22 @@
         				{\printfield{pubstate}}%
         				{\printfield{year}}%
         			\setunit*{\addspace}%
-        		\iffieldundef{origyear}%
-        				{}%
-        				{\printtext[parens]{\usebibmacro{Erstauflage}%
-          				\printfield{origyear}}}%
+        		\ifboolexpr{%
+							test 			{\iflistundef{origlocation}}%
+ 							and test 	{\iflistundef{origpublisher}}%
+  							and test 	{\iffieldundef{origyear}}}%
+  							{}%
+        					{\printtext[parens]{%\usebibmacro{Erstauflage}%
+        													\printlist{origlocation}%
+        													\iflistundef{origpublisher}%
+        															{}%
+        															{\setunit*{\addcolon\addspace}%
+        																 \printlist{origpublisher}%
+        															}%
+        												\setunit{\addspace}%
+          												\printfield{origyear}%
+          											}%	
+          					}%
           		}%
           }%
     	{\usebibmacro{edition}%

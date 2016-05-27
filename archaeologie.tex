@@ -34,6 +34,7 @@ english
 	%corpora,
 	%seenote,
 	%translation,
+	%publisher,
 	lstabbrv,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
@@ -418,7 +419,7 @@ And again there is also a  |\textcites| in case of several authos:
 \end{lstlisting}
 
 \begin{center} * * * \end{center}
- \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}%
+ \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}\label{citeauthor}
 Furthermore and additionally to the ›normal‹ |\cite|-commands one can also cite the authors and the work in the text and in the footnotes. 
 This shows how it is done:
 \begin{lstlisting}
@@ -680,8 +681,9 @@ If the option is not used (|=flase|) the entry will look like this in the biblio
  
 \subsubsection{yearseries}\label{yearseries}
  \DescribeMacro{yearseries}
- Mit der Option |yearseries| kann man bewirken, dass die Reihe (Felder |series| und |number|) erst \emph{nach} dem Jahr ausgegeben werden, was von der Richtlinie des DAI abweicht. 
- Bei Sammelbänden kann diese Option zum Tragen kommen:
+The option |yearseries| will lead to a switched order of  the fields |series| and |number|.
+The |series| of a |@Book| or a |@Collection| will be printed \emph{after} the year.
+An example with an |@Incollection| will demonstrate the effect of the option:
  
  \begin{lstlisting}
 @Incollection{Mundt_2015,
@@ -701,34 +703,25 @@ If the option is not used (|=flase|) the entry will look like this in the biblio
 }
 \end{lstlisting}
 
- Ohne eine Option wird in der Bibliographie daraus:
-% \begin{bsp}\todo[noline]{dynamisches Beispiel}\fullcite{Mundt_2015}\end{bsp}
-
+Without any option activated it will look like this:
 \printbib[5em]{Mundt_2015}
-%  \begin{bsp}
-%\begin{refsection}
-%\nocite{Mundt_2015}
-%\printbibliography[title={Forschungsliteratur}]
-%\end{refsection}
-%\end{bsp}
+
  
- mit der aktivierten Option |yearseries| verändert sich die Reihenfolge:
+With the activated option  |yearseries| it will change to:
  \begin{bsp}
-F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer – F. Mundt – J. Stenger (Hrsg.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206
+Mundt 2015 \hspace{3em} F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer – F. Mundt – J. Stenger (ed.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206
 \end{bsp}
 
 \subsubsection{fullnames / lastnames}\label{fullnames}\label{lastnames}
 \DescribeMacro{fullnames}
 \DescribeMacro{lastnames}
-Im Fließtext kann direkt auf Autoren (und bei fehlender Autorenangabe wird der oder die Herausgeber genannt) der Forschungsliteratur verwiesen werden. 
-Autoren/Herausgeber werden über |\citeauthor|\marg{Schlüssel} aufgerufen.
-Ebenso ist auch das Auslesen der Werktitel über |\citetitle|\marg{Schlüssel} möglich, wobei der Titel in eine |emph{}|-Umgebung gesetzt wird und das Erscheinungsjahr in Klammern dahinter.
+In your text you can cite authors directly with their names (|\citeauthor|\marg{bibtex-key}) or their works  (|\citetitle|\marg{bibtex-key}) and they will be linked to your bibliography (cf. \cref{citeauthor})
 
-Zunächst erfolgt die Ausgabe der Autoren, bzw. Herausgeber mit den Initialen des Vornamens und mit dem Nachnamen. 
-Die Darstellung der Namen kann jedoch noch auf zwei andere  Arten geschehen und sind stets mit ihrem Bibliographieeintrag zum Bibliographie-\marg{Schlüssel} via |hyperref| verlinkt. Die zwei Arten sind: mit dem vollen Vor- und Zunamen und nur mit dem Nachnamen. In einer Fußnote jedoch wird stets nur der/die Nachnamen gesetzt.
+By default the author’s names will be the abbreviated first name\footnote{Usually only the first letter, but if you have the option |initials| set to true, it might change (cf. \cref{initials}).} and the last name.
+If you prefer to have the full name printed (not in the bibliography!) switch on the option |fullnames|.
+But in case you want the authors shorten only to their last names use |lastnames|.
 
-Ein Beispiel macht dies klarer.
-Der Bibliographieeintrag lautet:
+Let us make it clear with an example of the following bibliographical entry:
 
 \begin{lstlisting}
 @Article{Boehmer_1985,
@@ -742,46 +735,40 @@ Der Bibliographieeintrag lautet:
 }
 \end{lstlisting}
 
-
-
-Im Fließtext schreibt man:
+Let’s assume that is your text and you write:
 \begin{refsection}
 \begin{lstlisting}
-*@\ldots , dies behaupten ebenso  @*\citeauthor{Boehmer_1985} 
-*@ in ihrem jüngsten Werk @*\citetitle{Boehmer_1985}*@.@* \end{lstlisting}
+*@\ldots , this is also shown by @*\citeauthor{Boehmer_1985} 
+*@ in their latest article @*\citetitle{Boehmer_1985}*@.@* \end{lstlisting}
 
+After compiling and without any activated option it will look like this:\footnote{If you cite an author in a footnote only the last names of the authors or editors will always printed,
+it doesn’t matter if you activated |fullnames| (\cref{name:a}) or |lastnames| (\cref{name:b}): 
+\begin{bsp}
+\ldots , this is also shown by  \citeauthor{Boehmer_1985} in their latest article \citetitle{Boehmer_1985}.
+\end{bsp}
+}
 
-Und nach dem Kompilieren wird dann in der Standardeinstellung (ohne weitere Optionen):\footnote{Wird der Befehel |citeauthor| in einer Fußnote verwendet, dann werden nur die Nachnamen ausgegeben, unabhängig der Optionen |fullnames| (\cref{name:a}) und |lastnames| (\cref{name:b}): \begin{bsp}
-\ldots , dies behaupten ebenso  |\citeauthor{Boehmer_1985}| in ihrem jüngsten Werk |\citetitle{Boehmer_1985}|.
-\end{bsp} }
-
-\begin{bsp} \ldots , dies behaupten ebenso  \citeauthor{Boehmer_1985} in ihrem jüngsten Werk \citetitle{Boehmer_1985}.\end{bsp}
+\begin{bsp} 
+\ldots , this is also shown by  \citeauthor{Boehmer_1985} in their latest article \citetitle{Boehmer_1985}.
+\end{bsp}
 
 Oder mit den Optionen |fullnames| (\cref{name:a}) und |lastnames| (\cref{name:b}):
 \begin{bsp}
  \begin{enumerate}
 \item\label{name:a} 
- \ldots , dies behaupten ebenso {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+ \ldots , this is also shown by  {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \item\label{name:b}  
-\ldots , dies behaupten ebenso  {\color{red}Boehmer und  Wrede} in ihrem jüngsten Werk \emph{Astragalspiele in und um Warka} (1985).
+\ldots ,  this is also shown by  {\color{red}Boehmer und  Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 
  \end{enumerate}
 \end{bsp}
 \end{refsection}
-\printbib{Boehmer_1985}
-%\begin{bsp}
-%\nocite{Boehmer_1985}
-%\printbibliography[title={Forschungsliteratur}]
-%\end{bsp}
+\printbib[9em]{Boehmer_1985}
 
+There is a slightly different behaviour if you use  |\citeauthor|, or |\citetitle|  with ancient authors and ancient works |options=antik|;
+Instead of the full name of the field |author| the field |shortauthor| will be considered in which you can write the more common name of the ancient author.
+Ancient works will be printed without the year in parentheses.
 
-
-Werden allerdings mit |\citeauthor|, bzw. |\citetitle|  antike Autoren und ihre Werktitel aufgerufen (dafür muss im Bibliographieeintrag |options=antik| geschrieben werden), dann wird für den Autorenname das Feld |shortauthor| ausgelesen, in dem der deutsche Rufnamen des Autors steht. 
-
-Um Fehler zu vermeiden ist es absolut wichtig, dass dieses Feld wie die anderen Namensfelder behandelt wird. Möchte man »Plinius, d. Ä.« als deutschen Rufnamen ausgeben, dann muss man schreiben: |shortauthor = {Plinius, {d.\,Ä.}}|.
-
-Bei antiken Werktitel wird keine Jahreszahl dazugeschrieben.
-Somit wird aus dem Bibliographieeintrag
 \begin{lstlisting}
 @Book{Quint_inst,
   author       = {Fabius Quintilianus, Marcus},
@@ -799,15 +786,14 @@ Somit wird aus dem Bibliographieeintrag
 }
 \end{lstlisting}
 
-
-wie folgt  Autor und  Buchttitel ausgelesen:
+And the concrete example:
 \begin{refsection}
 \begin{lstlisting}
-*@ \ldots\ Auch @* \citeauthor{Quint_inst} *@ nennt in @* \citetitle{Quint_inst} 
-*@ die notwendigen physischen Qualitäten eines Redners.@* \end{lstlisting}
+*@ \ldots\ and @* \citeauthor{Quint_inst} *@ names in @* \citetitle{Quint_inst} 
+*@ the  necessary  physical qualities of an orator, too.@* \end{lstlisting}
  
 \begin{bsp}
-Auch \citeauthor{Quint_inst} nennt in \citetitle{Quint_inst} die notwendigen physischen Qualitäten eines Redners.\par
+\ldots\ and \citeauthor{Quint_inst} names in \citetitle{Quint_inst} the  necessary  physical qualities of an orator, too.
 \end{bsp}
 \end{refsection}
 
@@ -816,71 +802,35 @@ Auch \citeauthor{Quint_inst} nennt in \citetitle{Quint_inst} die notwendigen phy
 
 \subsubsection{yearinparens}\label{yearinparens}
 \DescribeMacro{yearinparens}%
-Setzt die Jahreszahlen aller Einträge in der Fußnote und in der Bibliographie in runde Klammern.
-Anstatt wie standardmäßig aus  |\cite[475]{Ball_2013}|
+The year of the publication (|year| or year from |date|) of the cited entries will be put in parentheses,
+in the footnote and in the bibliography, too. 
+The ›Klammerregel‹ (correct order of different brackets) will be respected.
+
+Instead of e.g. |\cite[475]{Ball_2013}|
 \begin{bsp} Ball – Dobbins 2013, 475 \end{bsp}
- wird, wird mit der Option: 
+ it will turn with |yearinparens| into
 \begin{bsp}
 Ball – Dobbins {\color{red}(}2013{\color{red})}, 475
 \end{bsp}
-
-%und in der Bibliographie:
-%
-%\begin{bsp}
-%\begin{refsection}
-%\nocite{Ball_2013}
-%\printbibliography[title={Forschungsliteratur}]
-%\end{refsection}
-%\end{bsp}
 
 
 
 
 \subsubsection{scshape}\label{scshape}
 \DescribeMacro{scshape}
-Die Option ändert die Formatierung der Zitation, sodass die Namen in den Anmerkungen/Fußnoten und in der Bibliographie in Kapitälchen gesetzt werden. Ausgenommen sind hierbei die Einträge, die über ein |label| (\cref{unbekannt}) ausgegeben werden, da es sich dabei nicht um einen Nachnamen, sondern eine selbst gewählte Bezeichnung handelt. 
-Ebenso sind antike Autoren (|options=antik|, bzw. |options={frgantik}|) von dieser Option ausgenommen.
-Anstatt wie standardmäßig aus  |\cite[475]{Ball_2013}|
+You can also change the look of your citations. With |scshape| the authors names will be set to small capitals -- in the footnote and in the bibliography.
+
+Entries with no author or editor but with a |label| (\cref{unbekannt}) are excluded from this option
+because it is not an author name but a  self-defined expression.
+Further excluded are ancient authors (|options={ancient}|, or. |options={frgancient}|).
+
+By default we have again with |\cite[475]{Ball_2013}|
 \begin{bsp} \cite[475]{Ball_2013} \end{bsp}
- wird, wird mit der Option: 
+ But with |schape| it will turn into:
 \begin{bsp}
 {\scshape {\color{red}Ball – Dobbins}} 2013, 475
 \end{bsp}
-
-Entsprechend in der Bibliographie:
-\begin{bsp}
-{\scshape {\color{red}Ball – Dobbins}} 2013\\
-\hspace*{3em}L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
-
-\end{bsp}
-
-
-
-\subsubsection{bibfullname}\label{bibfullname}
-\DescribeMacro{bibfullname}
-Ausgabe des vollen Namens (soweit Vor- und Zuname ausgeschrieben wurden) in der Bibliographie.
-
-\printbib[8em]{Ball_2013}
-%\begin{bsp}
-%\begin{refsection}
-%\nocite{Ball_2013}
-%\printbibliography[title={Forschungsliteratur}]
-%\end{refsection}
-%\end{bsp}
-
-Mit aktivierter Option wird dies zu:
-
-\begin{bsp}
-Ball – Dobbins 2013\hspace{2em} {\color{red}Larry F. Ball – John J. Dobbins}, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
-%\fullcite{Ball_2013}
-
-\end{bsp}
-
-
-\subsubsection{noabbrv}\label{noabbrevs}
-\DescribeMacro{noabbrv}
-Die DAI-Vorgabe sieht vor, Zeitschriften nur abgekürzt wiederzugeben, dafür wird das Feld |shortjournal| vom Bibliographieeintrag ausgelesen. Gibt es keine Abkürzung, also wurde das Feld |shortjournal| leer gelesen, wird automatisch das Feld |journal| ausgelesen.
-Möchte man hingegen den vollen Zeitschriftennamen in der Bibliographie haben, dann muss man die Option |noabbrv| aktivieren.
+And since the entry looks like this
 \begin{lstlisting}
 @Article{Ball_2013,
   author       = {Larry F. Ball and John J. Dobbins},
@@ -896,14 +846,75 @@ Möchte man hingegen den vollen Zeitschriftennamen in der Bibliographie haben, d
 }
 \end{lstlisting}
 
-Mit der aktivierten angesprochenen Funktion |noabbrevs| wird daraus:
+The output in the bibliography will be:
 \begin{bsp}
-Ball – Dobbins 2013\hspace{2em}  L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum,  {\color{red}American Journal of Archaeology} 117/3, 2013, 461–492\end{bsp}
+{\scshape {\color{red}Ball – Dobbins}} 2013\hspace{3em} L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
+\end{bsp}
+
+
+
+\subsubsection{bibfullname}\label{bibfullname}
+\DescribeMacro{bibfullname}
+This will show the full name of an author and/or editor in the bibliography.
+
+Without any options this entry
+\begin{lstlisting}
+@Article{Osland_2016,
+  author       = {Osland, Daniel},
+  title        = {Abuse or Reuse?},
+  subtitle     = {Public Space in Late Antique Emerita},
+  journaltitle = AJA-long,
+  shortjournal = AJA-short,
+  volume       = {120},
+  pages        = {67--97},
+  year         = {2016},
+  eprint       = {10.3764/aja.120.1.0067},
+  eprinttype   = {jstor},
+  number       = {1},
+}
+\end{lstlisting}
+looks like this
+\printbib[5em]{Osland_2016}
+
+and with |bibfullname| will change to:
+
+\begin{bsp}
+Osland 2016\hspace{3em} {\color{red}Daniel} Osland, Abuse or Reuse? Public Space in Late Antique Emerita, AJA 120/ 1, 2016, 67–97,\\
+JSTOR: 10.3764/aja.120.1.0067
+\end{bsp}
+
+
+\subsubsection{noabbrv}\label{noabbrevs}
+\DescribeMacro{noabbrv}
+According to the guidelines of the German Archaeological Institute the journaltitles and series have to be abbreviated.
+Therefore the fields |shortjournal| or |shortseries| will be considered. 
+If there is no abbreviation (in the list cf. \cref{listen}) the fields |shortjournal| or |shortseries| remain empty -- unless you want to insert a shortname.  
+If you like to have the full names of journals and series you can switch on the option |noabbrv|.
+
+\begin{lstlisting}
+@Article{Koyunlu1990,
+  author       = {Koyunlu, A.},
+  title        = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
+  journaltitle = AyasofyaMuezYil-long,
+  shortjournal = AyasofyaMuezYil-short,
+  volume       = {11},
+  pages        = {147--156},
+  year         = {1990},
+}
+\end{lstlisting}
+\printbib[6em]{Koyunlu1990}
+
+\begin{bsp}
+Koyunlu 1990 \hspace{3em}A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
+%\fullcite{Koyunlu_1990}
+\end{bsp}
+
 
 \subsubsection{publisher}\label{publisher}
 \DescribeMacro{publisher} 
-Angabe aller Erscheinungsorte und Verlagsort. Damit geht auch eine Änderung der Auflagezahl einher, die dann direkt vor das Erscheinungsjahr gesetzt wird.
-Erstauflage wird in eckiger Klammer nach dem Erscheinungsjahr gesetzt.
+Once activated all locations and the publisher will be printed. This will lead to a different output of the edition which will be right in front of the year.
+In case of a reprint or a second edition the first edition |origyear| will be put in square brackets after the year.
+
 \begin{lstlisting}
 @Book{Emme_2013,
   author    = {Burkhard Emme},
@@ -918,17 +929,35 @@ Erstauflage wird in eckiger Klammer nach dem Erscheinungsjahr gesetzt.
 \end{lstlisting}
 
 \begin{refsection}\end{refsection}%sicherheitshalber
- Ohne eine Option wird in der Bibliographie daraus:
+Without any option:
 \printbib[5em]{Emme_2013}
 
  
- mit der aktivierten Option |publisher| verändert sich die Reihenfolge:
+With the option |publisher| the order has changed:
  \begin{bsp}
 Emme 2013\hspace{3em} B. Emme, Peristyl und Polis. Entwicklung und Funktionen öffentlicher griechischer Hofanlagen, Urban Spaces 1 (Berlin {\color{red} – New York: Walter de Gruyter} 2013)
  \end{bsp}
  
- 
- 
+ And here a more detailed example with |origlocation|, |origyear| and |origpublisher|:
+ \begin{lstlisting}
+ @Book{Neufert_2002,
+  author       = {Neufert, Ernst},
+  editor       = {Neufert, Peter and Neufert, Cornelius and Neff, Ludwig and Franken, Corinna},
+  title        = {Bauentwurfslehre},
+  subtitle     = {Grundlagen, Normen, Vorschriften ...},
+  publisher    = {Vieweg},
+  origpublisher = {Mann},
+  location     = {Wiesbaden},
+  year         = {2002},
+  edition      = {37},
+  origlocation = {Berlin},
+  origyear     = {1936},
+}
+ \end{lstlisting}
+ \printbib[5em]{Neufert_2002}
+  \begin{bsp}
+Neufert  2002\hspace{3em} E. Neufert, Bauentwurfslehre. Grundlagen, Normen, Vorschriften ... Ed. by P.~Neufert – C. Neufert – L. Neff  – C. Franken {\color{red}  (Wiesbaden: Vieweg \textsuperscript{37}2002 [Berlin: Mann 1936])}
+ \end{bsp}
  
 \subsubsection{edby}\label{edby}
 \DescribeMacro{edby}
