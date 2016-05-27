@@ -1134,18 +1134,19 @@ When you cite this entry  e.g. with |\cite[3]{Fest}|, so the field  |shorteditor
  \begin{bsp}
  Fest. 3 L
  \end{bsp}
-In the bibliography the reference  differenciates slightly from  |options = {ancient}|:
+In the bibliography the reference  differentiates slightly from  |options = {ancient}|:
 \printbib{Fest}
 
 
 
 \subsubsection{corpus}\label{corpus}
 \DescribeMacro{corpus}
-Für bestimmte Corpora (Inschriften, Münzen, etc.) wird für gewöhnlich mit einer gängigen Abkürzung zitiert.
-Diese Abkürzung des Corpus wird im Bibliographieeintrag unter |shorthand| eingetragen.
-Nun kann man sehr einfach das gewünschte Corpus in der Fußnote zitieren, mit  |prenote| und |postnote|-Feldern. Bei anderen Autoren-Einträge, die mittels |shorthand| zitiert werden, wird ein Komma zwischen Nachname und |postnote| gesetzt. Dank |options=corpus| fällt dieses Komma weg.
+There are some corpora (e.g. inscriptions, minted coins, vases, etc.) which are usually cited with a common abbreviation. 
+Those abbreviations are typed in in the field |shorthand|.
+To cite such a corpus with its abbreviation you have to write as well |options={corpus}| in the bibliographical entry.
+Now you can cite it as usually with and \oarg{prenote} or \oarg{postnote} you like to have.
 
-Das Beispiel zeigt die Option für die lateinischen Inschriften:
+This example shows the behaviour with a corpus that is common for Latin epigraphy:
 \begin{lstlisting}
 @Book{CIL,
   title     = CIL-lang,
@@ -1156,22 +1157,19 @@ Das Beispiel zeigt die Option für die lateinischen Inschriften:
   options   = {corpus},
 }
 \end{lstlisting}
-
-
-Zitiert wird, wie gewöhnlich, mit 
+It will be cited with:
 \begin{lstlisting}
 \cite[06, 01234]{CIL}.\end{lstlisting}
- Daraus wird:
-
-
+And the result is:
 \begin{bsp}
 CIL 06, 01234
 %Cic. Att. 1, 3,3
 \end{bsp}
-Dieses Feld |shorthand| wird für das Literaturverzeichnis verwendet, wo es als ›Schlüssel‹ auftaucht.: 
-\printbib{CIL}
 
-Aufgrund der Setzung von |keywords=Sigel| können diese Art von Corpora in einer separaten Bibliographie aufgeführt werden. Siehe dazu \cref{bibliographie}
+The field |shorthand| will be used for the bibliography,
+where it is listed as label.
+\printbib{CIL}
+If you also set something like  |keywords={corpus}| then you can make a separate bibliography with all the copora cf. \cref{bibliographie}.
 
 \changes{v1.1}{2015/06/15}{Modifikation der Option |corpus|.}
 
