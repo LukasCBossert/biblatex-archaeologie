@@ -328,7 +328,10 @@ Writes only the first and family names of the authors or editors when they are c
 Names in referenced citations are shown with small capital letters cf. \cref{scshape}.
 Bibliography entries with |option={ancient}| or |option={frgancient}| (\cref{ancient,frgancient}) are not touched by this option.
 
-
+ \DescribeMacro{initials}
+ First names are abbreviated  keeping digraphs and trigraphs cf. \cref{initials}.
+ 
+ 
  \DescribeMacro{width}
 The value of |width={value}| defines in the bibliography the width between the label and the reference cf. \cref{width}.
 
@@ -953,7 +956,7 @@ Emme 2013\hspace{3em} B. Emme, Peristyl und Polis. Entwicklung und Funktionen o�
   origlocation = {Berlin},
   origyear     = {1936},
 }
- \end{lstlisting}
+\end{lstlisting}
  \printbib[5em]{Neufert_2002}
   \begin{bsp}
 Neufert  2002\hspace{3em} E. Neufert, Bauentwurfslehre. Grundlagen, Normen, Vorschriften ... Ed. by P.~Neufert – C. Neufert – L. Neff  – C. Franken {\color{red}  (Wiesbaden: Vieweg \textsuperscript{37}2002 [Berlin: Mann 1936])}
@@ -961,7 +964,7 @@ Neufert  2002\hspace{3em} E. Neufert, Bauentwurfslehre. Grundlagen, Normen, Vors
  
 \subsubsection{edby}\label{edby}
 \DescribeMacro{edby}
-Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit einem |(Hrsg.)| gekennzeichnet, sondern nach dem Titel des Sammelbandes mit dem Zusatz |hrsg. v.|
+This option gives you a different output of the editors: Instead of ›(ed.)‹/›(Hrsg.)‹ right after the names of the editors  the option |edby| will first print the editors name and then the addition ›ed. by‹/›hrsg. v.‹.
 
 \begin{lstlisting}
 @Inproceedings{Wulf-Rheidt_2013,
@@ -983,13 +986,11 @@ Herausgeber werden nicht mehr zu Beginn des Sammelbandes aufgelistet und mit ein
   shortseries  = MKT-short,
 }
 \end{lstlisting}
-
- Ohne eine Option wird in der Bibliographie daraus:
+Without the option this inproceedings will look like:
  
  \printbib[7em]{Wulf-Rheidt_2013}
 
- 
- mit der aktivierten Option |edby| verändert sich die Reihenfolge:
+ But with the activated option  |edby| it changes to:
  \begin{bsp}
 Wulf-Rheidt 2013\hspace{3em} U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?, in:  {\color{red}Politische Räume in vormodernen Gesellschaften. Gestaltung – Wahrnehmung – Funktion, ed. by O. Dally – F. Fless – R. Haensch – F. Pirson – S. Sievers}. Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI Berlin November 18–22, 2009, MKT 6 (Rahden/Westf. 2013) 277–289
  \end{bsp}
@@ -997,59 +998,54 @@ Wulf-Rheidt 2013\hspace{3em} U. Wulf-Rheidt, Der Palast auf dem Palatin – Zent
  
 \subsubsection{width}\label{width}
 \DescribeMacro{width}
-In der Bibliographie ist der Abstand zwischen dem Label (Autor und Jahr)  und der vollständigen bibliographischen Angabe mit dem Wert |4em| angegeben.
-Wünscht man einen anderen Abstand, dann kann dieser selbst gewählt werden:
+In the bibliography the width between label (which consists usually of |author| and |year|) and the reference is  by default defined as the length of |4em|. 
+If you wish to have a bigger or smaller length you can change it to every length you would like to have:
 
-|width = XY|
+|width = xy|
 
-Dafür kann XY für jede Länge stehen (bspw. |3em|, |7pt| oder |4cm|), auch |-1em| ist möglich, womit der Einzug aufgehoben wird.
+|xy|  stands for the length you want  (e.g. |3em|, |7pt| or |4cm|), you can even do |-1em|; 
+then there is no indent at all.
 
 \subsubsection{counter}\label{counter}
  \DescribeMacro{counter} 
- Möchte man die Anzahl an Zitationen eines Werks im Text erfahren, 
- dann reicht es wenn man in der Präambel die Option |counter| aktiviert (|counter=true|).\footnote{Idee basiert auf \href{http://tex.stackexchange.com/a/14159/98739}{http://tex.stackexchange.com/a/14159/98739} und wurde entsprechend angepasst.}
- Dadurch wird am Ende eines jeden Literatureintrages die Anzahl der zitierten Einträge geschrieben. 
- Die Ausgabe erfolgt bei eingestellter Sprache |ngerman|(im Paket |babel| oder in der |documentclass|)  entsprechend auf Deutsch,
- ansonsten auf Englisch.
+ If you like to know how many times you cited an author or work then use this option called |counter|.\footnote{The idea is based on \href{http://tex.stackexchange.com/a/14159/98739}{tex.stackexchange.com/a/14159/98739} and has been modified.}
+Depending on the language you chose in the preamble of your document the so far the information will be given in German (|ngerman|) and in English (if not |ngerman|).
 \begin{bsp}
-Böhm – Eickstedt 2001\\
-\indent S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde 1-mal zitiert.}
+Böhm – Eickstedt 2001 \hspace{3em} S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde 1-mal zitiert.}
 \end{bsp} 
-
-Ist ein Eintrag ohne Zitation in die Bibliographie geraten, wird dies entsprechend angezeigt:
+If there has been no citation in the text (but maybe a |\citeauthor| or |\citetitle|):
 \begin{bsp}
 Böhm – Eickstedt 2001\\
 \indent S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde {\color{red}{keinmal}} zitiert.}
 \end{bsp} 
 
-
-
-Für alle Sprachen außer Deutsch:
+For all languages besides German:
  \begin{bsp}
-Böhm – Eickstedt 2001\\
- \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited {{\color{red}{not once}}}.}
+Böhm – Eickstedt 2001 \hspace{3em}  S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited {{\color{red}{not once}}}.}
  \end{bsp}
   
+ If there has been only one citation:
  \begin{bsp}
-Böhm – Eickstedt 2001\\
- \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 1 time.}
+Böhm – Eickstedt 2001\hspace{3em}S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 1 time.}
  \end{bsp}
 
-Bei mehrmaligeb Zitationen ändert sich die Ausgabe entsprechend:
+ If there has been more than one citations:
   \begin{bsp}
- Böhm – Eickstedt 2001\\
- \indent S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}
+ Böhm – Eickstedt 2001\hspace{3em} S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}
 \end{bsp}
  
  \subsubsection{initials}\label{initials}
-\footnote{\url{http://tex.stackexchange.com/a/295486/98739}}
+ \DescribeMacro{counter} 
+ First names are abbreviated  keeping digraphs and trigraphs.\footnote{Option was included from \href{http://tex.stackexchange.com/a/295486/98739}{tex.stackexchange.com/a/295486/98739}}
 
 
-\subsection{Optionen der Literatureinträge}\label{optionen-literatur}
+\subsection{Options in the bibliographical entries}\label{optionen-literatur}
 \subsubsection{ancient}\label{ancient}
- \DescribeMacro{ancient} \emph{Die Formatierungen von |ancient| und |frgancient| sind vom Bibliographiestil |geschichtsfrkl| v.1.1 (Jonathan Zachhuber) inspiriert und modifiziert worden.}
+ \DescribeMacro{ancient}
+This option was found in an other excellent |bib|\LaTeX-style called  |geschichtsfrkl| (v.1.1 by Jonathan Zachhuber), so after some modifications we adopted and included it into |archaeologie|.
  
-Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option |antik| zu versehen. Wir betrachten wieder ein Beispiel:
+ If you have an ancient author we strongly recommend to you this option  |antik|.
+Let us have a look at an example:
 \begin{lstlisting}
 @Book{Cic_Att,
   author       = {Tullius Cicero, Marcus},
@@ -1067,27 +1063,26 @@ Bei dem Zitieren antiker Autoren empfiehlt es sich diese Werke mit der Option |a
   shorthand    = {Cic. Att.},
   shortauthor  = {Cicero},
   keywords     = {ancient},
-  options      = {ancient},
+  options      = {ancient}, %!!
 }
 \end{lstlisting}
- Beim Zitieren wird  nur das Feld |shorthand| berücksichtigt: 
+Instead of using  |author| and |year| as label with the option |ancient| the field |shorthand| will be used then.
+You write in your text
  \begin{lstlisting}
  \cite[1, 3,3]{Cic_Att}\end{lstlisting} 
- liefert
+and it will be printed as
  \begin{refsection}
 \begin{bsp}
 \cite[1, 3,3]{Cic_Att}
 %Cic. Att. 1, 3,3
 \end{bsp}\end{refsection}
-Dieses Feld |shorthand| wird für das Literaturverzeichnis verwendet, wo es als ›Schlüssel‹ auftaucht.: 
+The field |shorthand| will be also used for the bibliography where it is used as label:
 \printbib{Cic_Att}
 
 
-
-
-Es gibt auch antike Texte, die in einem Sammelband (|@incollection|) herausgegeben sind. 
-Dieser Fall stellt jedoch kein Problem dar und wird analog zu |@book| geplottet.
-Ein Beispiel verschafft Klarheit:
+This works not only with |@Book| but also with those ancient texts which are part of an |@Incollection|.
+It works similar to the entries defined as |@Book|.
+Another example:
 \begin{lstlisting}
 @Inbook{Cic_Sest,
   author       = {Tullius Cicero, Marcus},
@@ -1100,7 +1095,7 @@ Ein Beispiel verschafft Klarheit:
   pages        = {110--185},
   origlanguage = {latin},
   series       = {Sammlung Tusculum},
-  location     = Munich,%bibstring: @String{Munich = {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco}{\iflanguage{french}{Munich}{München}}}}}
+  location     = Munich,			%bibstring
   intranslator = {Fuhrmann, Manfred},
   keywords     = {ancient},
   options      = {ancient},
@@ -1114,9 +1109,10 @@ Ein Beispiel verschafft Klarheit:
 \printbiball{Cic_Sest}
 
 
-\subsubsection{frgantik}\label{frgantik}
- \DescribeMacro{frgantik}
- Mit der Option |frgantik| werden die Bibliographieeinträge versehen, die antike Fragmente beinhalten, da die Herausgeber dieser Fragmente relevant sind. Dies wird in der Zitierweise berücksichtigt. 
+\subsubsection{frgancient}\label{frgancient}
+ \DescribeMacro{frgancient}
+ If you have a collection of fragments use |frgancient| for |options={frgancient}|.
+ Then the editor (|shorteditor| or |editor|) will be put in after the \marg{postnote}.
 \begin{lstlisting}
 @Book{Fest,
   author      = {Pompeius Festus, {Sex}tus},
@@ -1134,11 +1130,11 @@ Ein Beispiel verschafft Klarheit:
   shorteditor = {L},
 }
 \end{lstlisting}
- Zitiert man diesen Eintrag durch |\cite[3]{Fest}|, so wird der oder die Herausgeber genannt; ist das Feld |Shorteditor| ausgefüllt, dann wird dieses angegeben, ansonsten die Nachnamen aus |Editor|.
+When you cite this entry  e.g. with |\cite[3]{Fest}|, so the field  |shorteditor| will be shown in this case.
  \begin{bsp}
  Fest. 3 L
  \end{bsp}
- In der Bibliographie  unterscheidet sich der Eintrag gegenüber |antik|  geringfügig:
+In the bibliography the reference  differenciates slightly from  |options = {ancient}|:
 \printbib{Fest}
 
 
