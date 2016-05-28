@@ -363,7 +363,7 @@ This gives the sum of the citations in the text cf. \cref{counter}.
 
  \subsection{cite-comands}\label{cite-commands}
  \DescribeMacro{\cite}%
-As always citing is done with  |\cite|:
+As always citing is done with  \cs{cite}:
 \begin{lstlisting}
 \cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
@@ -376,7 +376,7 @@ If only one optional argument is used then it is the \oarg{postnote}.
 The \meta{bibtex-key} is the key from the bibliography-file.
 
  \DescribeMacro{\cites}
-If one wants to cite several authors or works a very convenient way is the following using the |\cites|-command:
+If one wants to cite several authors or works a very convenient way is the following using the \cs{cites}-command:
 \begin{lstlisting}
 \cites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
@@ -387,7 +387,7 @@ If one wants to cite several authors or works a very convenient way is the follo
 \begin{center} * * * \end{center}
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parens. 
-Therefore we implemented the command |\parencite|:
+Therefore we implemented the command \cs{parencite}:
 \begin{lstlisting}
 \parencite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
@@ -397,7 +397,7 @@ The example shown in \cref{inreference} makes it clear.
 
 \DescribeMacro{\parencites}
 Of course there is also the possibility to cite several authors/works in parentheses.
-This is done with |\parencites|:
+This is done with \cs{parencites}:
  \begin{lstlisting}
 \parencites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
@@ -407,14 +407,14 @@ This is done with |\parencites|:
  \begin{center} * * * \end{center}
  
  \DescribeMacro{\textcite}
-Additionally to the listed |\cite|-commands above there is a third way of citing:
-This is needed if one wants to |\textcite|  the author in the text, then the year and pages will be put in parentheses. 
+Additionally to the listed \cs{cite}-commands above there is a third way of citing:
+This is needed if one wants to \cs{textcite}  the author in the text, then the year and pages will be put in parentheses. 
 \begin{lstlisting}
 \textcite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 
 \DescribeMacro{\textcites}
-And again there is also a  |\textcites| in case of several authos: 
+And again there is also a  \cs{textcites} in case of several authors: 
   \begin{lstlisting}
 \textcites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
@@ -423,7 +423,7 @@ And again there is also a  |\textcites| in case of several authos:
 
 \begin{center} * * * \end{center}
  \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}\label{citeauthor}
-Furthermore and additionally to the ›normal‹ |\cite|-commands one can also cite the authors and the work in the text and in the footnotes. 
+Furthermore and additionally to the ›normal‹ \cs{cite}-commands one can also cite the authors and the work in the text and in the footnotes. 
 This shows how it is done:
 \begin{lstlisting}
 \citeauthor*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
@@ -442,11 +442,11 @@ The citation rule of the German Archaeological Institute says that the journals 
 
  \DescribeMacro{@string} The style  |archaeologie| respects the guidelines of the German Archaeological Institute and is compatible with the given 
  abbreviations of journals and series.
- To minimize 	the susceptibility to errors and to omit unnecessary typing of sometimes very long journaltitles |archaeologie| works with socalled |@strings|.
+ To minimize 	the susceptibility to errors and to omit unnecessary typing of sometimes very long journal titles |archaeologie| works with so-called |@strings|.
  The advantage is that with  |@string| several bibliography entries can be defined by one central given value. 
  The  |@string| is loaded at the begin of the  |bib|-file, therefore all the |@strings| have to be before all other bibliography entries.
  
- To use this offer of simplification the fields for the title of the journal (|journaltitle|) and its shortform (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
+ To use this offer of simplification the fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
 In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with the endings |-short|, resp. |-long|) are listed in the left column.  
 This  |@string| has to be written \textsc{without} any curly brackets in the fiels (e.g. |journaltitle| or |shortseries|).\footnote{If you use the program \emph{JabRef} in its non-coding window, then you have to write  \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window.}
 
@@ -524,7 +524,8 @@ The bold entry on the right is the |shorthand| which will be printed in your pap
 Let me make it clear with an example:
 \begin{refsection}
 With the loaded option |ancient| you write  
-|\cite[3,2,5--7]{Apul:met}|  and will get in return after compiling: \cite[3,2,5--7]{Apul:met}.
+|\cite[3,2,5--7]{Apul:met}|  % oder \cs{cite}\oarg{3,2,5--7}\marg{Apul:met}  
+and will get in return after compiling: \cite[3,2,5--7]{Apul:met}.
 \end{refsection}
 The bibliography-entry looks like this
  \begin{lstlisting}
@@ -561,17 +562,23 @@ If you cite a work for the first time it will be cited fully in the footnote.
 All following citations will be as a short cite and refer to the footnote with the full citation.
 Bibliography-entries with |options={ancient}| are excluded form this speciality and be cited as always.
 
-You can use the cite-commands |\cite(s)|, |\parencite(s}| but |\textcite(s)| will be like |\cite(s)| ausgegeben.
+You can use the cite-commands \cs{cite(s)}, \cs{parencite(s)} but   \cs{textcite(s)} will be the same like \cs{cite(s)}, because anything else wouldn’t make any sense.
 
 % \footnote{\cite{Ball_2013}}
 % \footnote{\cite{Ball_2013}}
-First citation of |\footnote{\cite{Ball_2013}}|:
+First citation of 
+\begin{lstlisting}
+\footnote{\cite{Ball_2013}}
+\end{lstlisting}
+
  \begin{bsp}
 L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current  thinking on the Pompeii Forum, 117/3, 2013, 461–492
  \end{bsp}
 
-Second citation of |\footnote{\cite[470]{Ball_2013}}|:
-
+Second citation of
+\begin{lstlisting}
+\footnote{\cite[470]{Ball_2013}}
+\end{lstlisting}
  \begin{bsp}
 Ball – Dobbins loc. cit. (see n. [number of the footnote with full citation]) 470
  \end{bsp}
@@ -652,7 +659,7 @@ Another example makes it clear:
 }
 \end{lstlisting}
   \begin{refsection}
-  Die Ausgabe von |\cite{Nieddu_1995}| ist nun auf zwei Arten möglich:
+There are two ways of the display of |\cite{Nieddu_1995}|:
    \begin{bsp}
 
  \begin{enumerate}
@@ -676,7 +683,7 @@ then it will change the position for the \oarg{postnote}:
 With the activated option  (|inreferences|) the cited entries which are defined as a|@inreference| will be automatically omitted in the (final) bibliography,
 because the entries are fully cited before in the footnotes.
 
-If the option is not used (|=flase|) the entry will look like this in the bibliography:
+If the option is not used (|=false|) the entry will look like this in the bibliography:
   \end{refsection}
 
 \printbib[6em]{Nieddu_1995} 
@@ -718,7 +725,7 @@ Mundt 2015 \hspace{3em} F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorisc
 \subsubsection{fullnames / lastnames}\label{fullnames}\label{lastnames}
 \DescribeMacro{fullnames}
 \DescribeMacro{lastnames}
-In your text you can cite authors directly with their names (|\citeauthor|\marg{bibtex-key}) or their works  (|\citetitle|\marg{bibtex-key}) and they will be linked to your bibliography (cf. \cref{citeauthor})
+In your text you can cite authors directly with their names (\cs{citeauthor}\marg{bibtex-key}) or their works  (\cs{citetitle}\marg{bibtex-key}) and they will be linked to your bibliography (cf. \cref{citeauthor})
 
 By default the author’s names will be the abbreviated first name\footnote{Usually only the first letter, but if you have the option |initials| set to true, it might change (cf. \cref{initials}).} and the last name.
 If you prefer to have the full name printed (not in the bibliography!) switch on the option |fullnames|.
@@ -768,12 +775,12 @@ Oder mit den Optionen |fullnames| (\cref{name:a}) und |lastnames| (\cref{name:b}
 \end{refsection}
 \printbib[9em]{Boehmer_1985}
 
-There is a slightly different behaviour if you use  |\citeauthor|, or |\citetitle|  with ancient authors and ancient works |options=antik|;
+There is a slightly different behaviour if you use  \cs{citeauthor} or \cs{citetitle}  with ancient authors and ancient works |options={ancient}|;
 Instead of the full name of the field |author| the field |shortauthor| will be considered in which you can write the more common name of the ancient author.
 Ancient works will be printed without the year in parentheses.
 
 \begin{lstlisting}
-@Book{Quint_inst,
+@Book{Quint:inst,
   author       = {Fabius Quintilianus, Marcus},
   title        = {Ausbildung des Redners},
   subtitle     = {Institutio oratoria},
@@ -792,15 +799,15 @@ Ancient works will be printed without the year in parentheses.
 And the concrete example:
 \begin{refsection}
 \begin{lstlisting}
-*@ \ldots\ and @* \citeauthor{Quint_inst} *@ names in @* \citetitle{Quint_inst} 
+*@ \ldots\ and @* \citeauthor{Quint:inst} *@ names in @* \citetitle{Quint:inst} 
 *@ the  necessary  physical qualities of an orator, too.@* \end{lstlisting}
  
 \begin{bsp}
-\ldots\ and \citeauthor{Quint_inst} names in \citetitle{Quint_inst} the  necessary  physical qualities of an orator, too.
+\ldots\ and \citeauthor{Quint:inst} names in \citetitle{Quint:inst} the  necessary  physical qualities of an orator, too.
 \end{bsp}
 \end{refsection}
 
-\printbib[5em]{Quint_inst}
+\printbib[5em]{Quint:inst}
 
 
 \subsubsection{yearinparens}\label{yearinparens}
@@ -889,9 +896,9 @@ JSTOR: 10.3764/aja.120.1.0067
 
 \subsubsection{noabbrv}\label{noabbrevs}
 \DescribeMacro{noabbrv}
-According to the guidelines of the German Archaeological Institute the journaltitles and series have to be abbreviated.
+According to the guidelines of the German Archaeological Institute the journal titles and series have to be abbreviated.
 Therefore the fields |shortjournal| or |shortseries| will be considered. 
-If there is no abbreviation (in the list cf. \cref{listen}) the fields |shortjournal| or |shortseries| remain empty -- unless you want to insert a shortname.  
+If there is no abbreviation (in the list cf. \cref{listen}) the fields |shortjournal| or |shortseries| remain empty -- unless you want to insert a short name.  
 If you like to have the full names of journals and series you can switch on the option |noabbrv|.
 
 \begin{lstlisting}
@@ -1013,7 +1020,7 @@ Depending on the language you chose in the preamble of your document the so far 
 \begin{bsp}
 Böhm – Eickstedt 2001 \hspace{3em} S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde 1-mal zitiert.}
 \end{bsp} 
-If there has been no citation in the text (but maybe a |\citeauthor| or |\citetitle|):
+If there has been no citation in the text (but maybe a \cs{citeauthor} or \cs{citetitle}):
 \begin{bsp}
 Böhm – Eickstedt 2001\\
 \indent S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde {\color{red}{keinmal}} zitiert.}
@@ -1044,10 +1051,10 @@ Böhm – Eickstedt 2001\hspace{3em}S. Böhm – K.-V. v. Eickstedt (ed.), Ith
  \DescribeMacro{ancient}
 This option was found in an other excellent |bib|\LaTeX-style called  |geschichtsfrkl| (v.1.1 by Jonathan Zachhuber), so after some modifications we adopted and included it into |archaeologie|.
  
- If you have an ancient author we strongly recommend to you this option  |antik|.
+ If you have an ancient author we strongly recommend to you this option  |ancient|.
 Let us have a look at an example:
 \begin{lstlisting}
-@Book{Cic_Att,
+@Book{Cic:Att,
   author       = {Tullius Cicero, Marcus},
   editor       = {Kasten, Helmut},
   title        = {Atticus-Briefe},
@@ -1069,22 +1076,22 @@ Let us have a look at an example:
 Instead of using  |author| and |year| as label with the option |ancient| the field |shorthand| will be used then.
 You write in your text
  \begin{lstlisting}
- \cite[1, 3,3]{Cic_Att}\end{lstlisting} 
+ \cite[1, 3,3]{Cic:Att}\end{lstlisting} 
 and it will be printed as
  \begin{refsection}
 \begin{bsp}
-\cite[1, 3,3]{Cic_Att}
+\cite[1, 3,3]{Cic:Att}
 %Cic. Att. 1, 3,3
 \end{bsp}\end{refsection}
 The field |shorthand| will be also used for the bibliography where it is used as label:
-\printbib{Cic_Att}
+\printbib{Cic:Att}
 
 
 This works not only with |@Book| but also with those ancient texts which are part of an |@Incollection|.
 It works similar to the entries defined as |@Book|.
 Another example:
 \begin{lstlisting}
-@Inbook{Cic_Sest,
+@Inbook{Cic:Sest,
   author       = {Tullius Cicero, Marcus},
   title        = {Rede für P.\ Sestius},
   booktitle    = {Die politischen Reden},
@@ -1106,7 +1113,7 @@ Another example:
 \end{lstlisting}
 
 
-\printbiball{Cic_Sest}
+\printbiball{Cic:Sest}
 
 
 \subsubsection{frgancient}\label{frgancient}
@@ -1174,18 +1181,34 @@ If you also set something like  |keywords={corpus}| then you can make a separate
 \changes{v1.1}{2015/06/15}{Modifikation der Option |corpus|.}
 
 
- \section{Beschreibung der Eintragtypen (Beispiele)} \label{beispiele}
+ \section{Description of  entry-types (examples)} \label{beispiele}
+ The style |archaeologie| defines several so-called bibliographical drivers,
+which allow to cite different kind of works.
+Below we describe how they are working and which fields you should fill out.
+For the examples we don’t use any further options which are described above.
 
 
- Der |archaeologie|-Zitierstil definiert unterschiedliche bibliography driver, die es erlauben verschiedene Arten Werke zu zitieren. 
- Diese werden im Folgenden zusammen mit den für sie relevanten Optionen beschrieben.
-
-
-
- \subsection{Typ \texttt{@book}}\label{book}
- \DescribeMacro{@book}
- \DescribeMacro{@collection}\footnote{Der Typ |@collection| entspricht hier dem Typ |@book|.}
- Fangen wir ganz einfach an: Zu einem einfachen Buch sieht der Eintrag in der |bib|-Datei ungefähr folgendermaßen aus:
+ \subsection{Typ \texttt{@Book}}\label{book}
+ \DescribeMacro{@Book}
+ \DescribeMacro{@Collection}%\footnote{Der Typ |@collection| entspricht hier dem Typ |@Book|.}
+Let’s start with an easy example: A book or a collection (both are treated equally).
+You can use the following fields:
+ \begin{description}
+\item[mandatory:] 
+|author|/|editor|, 
+|title|, |subtitle|, |titleaddon|,
+|location|, |year|,
+\item[optional:]
+|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
+|publisher|, |series|, |number|, |edition|, 
+|origyear|, |origlocation|, |origpublisher|, 
+|translator|, |origlanguage|,
+|related|, |relatedtype|,
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+ \end{description}
+ 
+ 
+An entry of a book might look as this in your |bib|-file:
 \begin{lstlisting}
 @Book{Mann_2011,
   author    = {Mann, Christian},
@@ -1198,15 +1221,17 @@ If you also set something like  |keywords={corpus}| then you can make a separate
   number    = {14},
 }
 \end{lstlisting}
-Zitiert man daraus mit 
+A citation in a footnote is done like this
 \begin{lstlisting}
 \footnote{\cite[Vgl.][142--144]{Mann_2011}.}
-\end{lstlisting} dann erscheint in der Fußnote\footnote{Vgl. Mann 2011, 142--144.}.
-In der Bibliographie wird der Eintrag wiedergegeben mit:
+\end{lstlisting} 
+and it looks like this in the footnote\footnote{Vgl. Mann 2011, 142--144.}
+and like this in the bibliography.
 \printbib[5em]{Mann_2011}
 
-\subsubsection{Festschriften, Gedenkschriften u.\,ä.}
-Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprechend zu zitieren, gehört der Zusatz ins Feld |titleaddon|, bzw. wenn es sich um ein |@inbook| oder |@inproceedings| handelt, entsprechend ins Feld |Booktitleaddon| (\cref{inbook}).
+\subsubsection{›Festschrift‹, commemorative volume, catalogue, etc.}
+To make it clear that the book or collection is a so-called ›Festschrift‹m a commemorative volume, or a exhibition or auction catalogue you need an additional note to make it clear.
+We suggest to use the field |titleaddon|, or if it a |@Incollection| or |@Inproceedings| you can use the field |booktitleaddon| (\cref{inbook}).
 \begin{lstlisting}
 @Book{Boehm_2001,
   editor     = {Böhm, Stephanie and Eickstedt, Klaus-Valtin von},
@@ -1220,12 +1245,12 @@ Um Festschriften/Gedenkschriften/Ausstellungskataloge/Auktionskataloge entsprech
 
 \printbib[9em]{Boehm_2001}
  
- \subsubsection{Übersetzungen u.ä.}
-Liegt ein Werk in Übersetzung vor, gibt es die Möglichkeit den Übersetzer/in, Ausgangssprache und ursprünglichen Titel automatisch anzeigen zu lassen.
-Dies funktioniert mit den Literatureinträgen |related| und |relatedtype|  (\cref{review}).
+ \subsubsection{Translated book}
+If you cite a translated book you can link it to the original book and let display the translator as well as the original language. 
+The works with the fields |related| and |relatedtype| (for further information see \cref{review}).
 
-Im Beispiel wird die Verwendung klar:
-Das Ausgangswerk ist |Zanker_2014|.
+It will be more clear with this example:
+The original book is from \citeauthor*{Zanker_2014} and has been published in \citeyear{Zanker_2014}.
 \begin{lstlisting}
 @Book{Zanker_2014,
   author    = {Zanker, Paul},
@@ -1237,7 +1262,7 @@ Das Ausgangswerk ist |Zanker_2014|.
   language  = {german},
 }
 \end{lstlisting}
-Die Übersetzung davon ist |Zanker_2013|:
+But before it got translated in \citeyear{Zanker_2013}:
 \begin{lstlisting}
 @Book{Zanker_2013,
   author      = {Zanker, Paul},
@@ -1253,7 +1278,10 @@ Die Übersetzung davon ist |Zanker_2013|:
 }
 \end{lstlisting}
 
+The translated book |Zanker_2013| is connected with the book |Zanker_2014| via the field |related = |\marg{bibtex-key} and the relation got specified with the field |relatedtype|, in this case it is a translation so |={translationof}|.
 
+You don’t have to cite |Zanker_2014| to have the information visible in the bibliography. 
+It will be included automatically. For the following bibliography we only use |\cite{Zanker_2013}|:
 \printbib[5em]{Zanker_2013}
 
 
