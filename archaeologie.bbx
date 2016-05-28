@@ -60,7 +60,7 @@
 	\setlength{\labwidthsameline}{4em}
 %-----------------------
 \DeclareBibliographyOption{lstabbrv}[true]{%
-		\csuse{bool#1}{bib:lstabbrv}
+		\csuse{bool#1}{bib:lstabbrv}%
 		\addbibresource{archaeologie-abbrv.bib}
 }
 \DeclareBibliographyOption{corpora}[true]{%
@@ -239,15 +239,27 @@
           {}%
 }
 %-----------------------
+%\AtEveryBibitem{%
+%  	\ifboolexpr{bool {bbx:translation}%
+%  					 or bool {cbx:ancient}%
+%  					 or bool {cbx:frgancient}}%
+%    	{}%
+%    	{\clearname{translator}%
+%    			\clearfield{origtitle}%
+%				}%
+%}
 \AtEveryBibitem{%
   	\ifboolexpr{bool {bbx:translation}%
   					 or bool {cbx:ancient}%
   					 or bool {cbx:frgancient}}%
     	{}%
-    	{\clearname{translator}%
-    		 \clearfield{origtitle}%
-		}%
+    	{\iffieldequals{relatedtype}{translationof}% Abfrage (kann die in die \ifboolexpr integriert werden?)
+              {\clearname{translator}%
+    			\clearfield{origtitle}%
+		       }%
 }
+}
+
 %-----------------------
 \AtBeginDocument{%
 	\ifbool{bbx:initials}{%http://tex.stackexchange.com/a/295486/98739     
@@ -522,23 +534,38 @@
 		\usebibmacro*{related:default}{#1}%
 }
 %-----------------------
+\renewbibmacro{bytranslator+others}{%
+  \ifnameundef{translator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{translator}%
+     \iffieldequals{relatedtype}{translationof}%
+                    {}{\clearname{translator}}%
+     \newunit}%
+ % \usebibmacro{with others}
+  }
+
+
 \newbibmacro*{related:translationof}[1]{%
-  	\entrydata*{#1}{%
-    	\renewbibmacro*{name:hook}[1]{%
-      		\ifnumequal{\value{listcount}}{1}%
-        		{\begingroup%
-         			\mkrelatedstring%
-         			\lbx@initnamehook{#1}%
-         			\endgroup%
-         		}%
-        		{}%
-       		}%
-		\printnames{savedtranslator}%
-    	\printtext[emph]{\usebibmacro{title}}%
-    		\setunit*{\addspace}%
-		\usebibmacro{location+edition+year}%
-	}%
-}
+  \entrydata*{#1}{%
+    \renewbibmacro*{name:hook}[1]{%
+      \ifnumequal{\value{listcount}}{1}
+        {\begingroup
+         \mkrelatedstring%
+         \lbx@initnamehook{#1}%
+         \endgroup}
+        {}}%
+	\setunit*{\addspace\bibstring{origpubas}\space}% nicht verwendet?!
+    \printtext[emph]{\usebibmacro{title}}%
+    \setunit{\addspace}%
+    \bibstring{bytranslator}%keine Sprache ausgegeben?!
+    \setunit{\addspace}%
+    \printnames{savedtranslator}%
+\usebibmacro{location+edition+year}%
+}}
+
+
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
