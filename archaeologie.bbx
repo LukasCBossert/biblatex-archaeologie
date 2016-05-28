@@ -251,10 +251,10 @@
 \AtEveryBibitem{%
   	\ifboolexpr{bool {bbx:translation}%
   					 or bool {cbx:ancient}%
-  					 or bool {cbx:frgancient}}%
+  					 or bool {cbx:frgancient}
+test {\iffieldequalstr{relatedtype}{translationof}}%
     	{}%
-    	{\iffieldequals{relatedtype}{translationof}% Abfrage (kann die in die \ifboolexpr integriert werden?)
-              {\clearname{translator}%
+    	{\clearname{translator}%
     			\clearfield{origtitle}%
 		       }%
 }
