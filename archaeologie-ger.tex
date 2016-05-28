@@ -383,7 +383,7 @@ Dies wird über folgenden Befehl ausgeführt:
  
   \subsection{@book/@collection}
   Für Monographien und Sammelbände.
- \begin{itemize}
+ \begin{description}
 \item[Notwendig:] |author|/|editor|, |title|, |subtitle|, |titleaddon|,
  |location|, |year|,
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|,
@@ -391,14 +391,14 @@ Dies wird über folgenden Befehl ausgeführt:
 |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|,
 |volume|,
  |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
- \end{itemize}
+ \end{description}
  
   Beispiel:
  \printbib[7em]{Mann_2011}
  
  \subsection{@inbook/@incollection}
  Für Beiträge innerhalb eines Sammelbandes.
-  \begin{itemize}
+  \begin{description}
 \item[Notwendig:] |author|, |editor|, |title|, |subtitle|, |titleaddon|,
  |location|, |year|, |pages|, 
  |booktitle|, |booksubtitle|, |booktitleaddon|,
@@ -407,12 +407,12 @@ Dies wird über folgenden Befehl ausgeführt:
 |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|,
 |volume|,
  |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
- \end{itemize}
+ \end{description}
 \printbib[5em]{Mundt_2015}
  
  \subsection{@proceedings}
 Für Konferenz-/Kolloquiumssammelbände, bei denen ein Datum angegeben ist. 
-  \begin{itemize}
+  \begin{description}
 \item[Notwendig:] |author|/|editor|, |title|, |subtitle|, |titleaddon|,
  |location|, |year|,
  |eventdate|, |eventtitle|, |venue|
@@ -421,7 +421,7 @@ Für Konferenz-/Kolloquiumssammelbände, bei denen ein Datum angegeben ist.
 |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|,
 |volume|,
  |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
- \end{itemize}
+ \end{description}
  
  
 \printbib[7em]{Kurapkat_2014}
@@ -429,7 +429,7 @@ Für Konferenz-/Kolloquiumssammelbände, bei denen ein Datum angegeben ist.
  
   \subsection{@inproceedings}
 Für Beiträge innerhalb eines   Konferenz-/Kolloquiumssammelbandes, bei denen ein Datum angegeben ist. 
-\begin{itemize}
+\begin{description}
 \item[Notwendig:] |author|, |editor|, |title|, |subtitle|, |titleaddon|,
  |location|, |year|, |pages|, 
  |booktitle|, |booksubtitle|, |booktitleaddon|,
@@ -439,39 +439,39 @@ Für Beiträge innerhalb eines   Konferenz-/Kolloquiumssammelbandes, bei denen e
 |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|,
 |volume|,
  |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
-\end{itemize}
+\end{description}
  
  \printbib[7em]{Wulf-Rheidt_2013}
  
 \subsection{@talk}
   Für (mündliche) Vorträge (Kolloquium, Konferenz) 
-\begin{itemize}
+\begin{description}
 \item[Notwendig:]  |author|, |title|, |subtitle|, |titleaddon|, |date|, |venue|,
 |institution|, |eventtitle|, |eventdate|
 \item[Optional:] 
  |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum| 
-\end{itemize}
+\end{description}
 
 \printbib[6em]{Bergmann_2015}
 
 
   \subsection{@reference}
 Für Lexika als Gesamtwerk.
-\begin{itemize}
+\begin{description}
 \item[Notwendig:] |editor|, |title|, |subtitle|, |titleaddon|,
  |location|, |year|
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|,
 |related|, |relatedtype|,
 |publisher|, |series|, |number|, |edition|, |volume|,
  |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
-\end{itemize}
+\end{description}
 
 
 \printbib{ThesCRA}
 
    \subsection{@inreference}
 Für  Beiträge innerhalb eines Lexikon.
-\begin{itemize}
+\begin{description}
 \item[Notwendig:] |author|, |title|, |subtitle|, |titleaddon|,
  |location|, |year|, |pages|, |volume|, 
  |booktitle|, |booksubtitle|, |booktitleaddon|
@@ -479,20 +479,20 @@ Für  Beiträge innerhalb eines Lexikon.
 |related|, |relatedtype|,
 |publisher|, |series|, |number|, |edition|, |origyear|, 
  |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
-\end{itemize}
+\end{description}
 
 \printbib[5em]{Nieddu_1995}
 
 
    \subsection{@thesis}
 Für (unpublizierte) eingereichte Dissertationen oder Master/Magisterarbeiten.
-\begin{itemize}
+\begin{description}
 \item[Notwendig:] |author|, |title|, |subtitle|, |titleaddon|,
  |location|, |year|, |institution|,  |type|, 
 \item[Optional:] 
 |publisher|, |series|, |number|, |edition|, |origyear|, 
  |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|, 
-\end{itemize}
+\end{description}
 
 Für eine Dissertation:  |type = {phdthesis}|, \\ für eine Magister/Masterarbeit: |type={mathesis}|.
 \printbib[5em]{Arnolds_2005}
@@ -528,7 +528,7 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 
 
 \begin{refsection}
-\nocite{Cic_Att,Fest,%
+\nocite{Cic:Att,Fest,%
 Ball_2013,Taylor_2008,Mann_2011,Mundt_2015,Kurapkat_2014,%
 Wulf-Rheidt_2013,Bergmann_2015,ThesCRA,Nieddu_1995,Arnolds_2005}
 
