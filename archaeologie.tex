@@ -1720,14 +1720,29 @@ You just need to make sure that  |booktitle| of the |@Inreference| and the |shor
 
 
  
- \subsection{Type \texttt{@review}}\label{review}
-\DescribeMacro{@review}
-Rezensionen, die in Zeitschriften erschienen sind, werden als |@review| verarbeitet.
-Oft zitiert man die Rezension und das rezensierte Werk in seiner Arbeit.
-Das folgende Beispiel geht auf diesen Fall ein und erläutert die relevanten Punkte und Besonderheiten.
+ \subsection{Type \texttt{@Review}}\label{review}
+\DescribeMacro{@Review}
+Reviews in journals are best cited when they are edited as a |@Review|.
+For a full citation of a review you have to name the reviewed work in detail.
+The following example will show an easy way to combine the review with the reviewed work.
 
-Dafür sind zwei Bibliographieeinträge notwendig.
-Zuerst das rezensierte Werk:
+\begin{description}
+\item[mandatory:] 
+|author|, |title|, |subtitle|, |titleaddon|,
+|journaltitle|, |shortjournal|, |volume|, |number|, |issue|
+|year|, |pages|, 
+|related|, |relatedtype|,
+\item[optional:]
+%|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
+%|publisher|, |series|, |number|, |edition|, 
+%|origyear|, |origlocation|, |origpublisher|, 
+|translator|, |origlanguage|,
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+ \end{description}
+
+What you need are two separate entries: one as a |@Review| the other is a |@Book|, |@Collection|, |@Proceeding| or something else.
+
+First we have the reviewed work:
 \begin{lstlisting}
 @Book{Welch_2007,
   author    = {Welch, Katherine E.},
@@ -1738,7 +1753,7 @@ Zuerst das rezensierte Werk:
   year      = {2007},
 }
 \end{lstlisting}
-und schließlich die dazugehörige Rezension:
+then the review itself:
 \begin{lstlisting}
 @Review{Bell_2011,
   author       = {Bell, Sinclair},
@@ -1753,21 +1768,23 @@ und schließlich die dazugehörige Rezension:
   publisher    = {Archaeological Institute of America},
 }
 \end{lstlisting}
+You maybe noticed that the reveiw (|Bell_2011|) is with the field |related| in line 8 connected to the entry |Welch_2007|.
+In addition we not only need a connected work but also to qualify the relation:
+This is done in line 9 with |relatedtype = {reviewof}|.
+This so-called |bibstring| is especially for reviews and contains the language based correct abbreviation for \emph{Review of} or e.g. \emph{Rez. zu}.
+You don’t have to type in all relevant information of the reviewed work in the entry of the review, 
+since they will be inserted automatically and dynamically with the  |related|-function.
+\printbib{Bell_2011}
 
-Im Bibliographieeintrag der Rezension (|Bell_2011|) wird im Feld |Related| mittels Eintrag |{Welch_2007}| Bezug auf das rezensierte Werk (|Welch_2007|) genommen.
-Das Feld |Relatedtype| enthält die Information in welcher Beziehung das Werk (|Bell_2011|) zu |Welch_2007| steht. Die Angabe |reviewof| ist der |bibstring| für Rezensionen und enthält sprachabhängig (Deutsch und Englisch) die Bezeichnung |Rez. zu| bzw. |Review of|.
-Dies ist für die Bibliographie relevant: Es ist nun nicht mehr notwendig das rezensierte Werk mit allen dazugehörigen Angaben einzutippen, da  dies automatisch über die |Related|-Funktion erfolgt.
+%% 
+%%Der Vorteil mit |Related| und |Relatedtype| zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
+%%Zudem wird das rezensierte Werk bei der Erwähung in der Rezension nicht automatisch in die Bibliographie als eigener Eintrag aufgenommen, sondern erst dann, wenn es selbst explizit zitiert wird.
 
+\subsubsection{Reviews with an individual title}
+Some reviews are more detailed then others and  have their own title which should be displayed in the bibliography.
+In these cases you can use the field |title| the other things stay the same.
 
-\printbiball{Bell_2011}
-
- 
-Der Vorteil mit |Related| und |Relatedtype| zu arbeiten liegt in der Dynamik: Ändert sich eine Angabe im rezensierten Werk, wird dies bei der Rezension automatisch geändert.
-Zudem wird das rezensierte Werk bei der Erwähung in der Rezension nicht automatisch in die Bibliographie als eigener Eintrag aufgenommen, sondern erst dann, wenn es selbst explizit zitiert wird.
-
-\subsubsection{Rezensionen mit eigenem Titel}
-Manche Rezensionen sind ausführlicher und haben daher einen eigenen Titel, der angegeben werden soll.
-In diesem Fall wird das Feld |Title| ausgefüllt, ansonsten bleibt alles gleich: 
+The following entry is an example reviews the book by \citeauthor*{Welch_2007}, too but with an individual title:
 \begin{lstlisting}
 @Review{Hufschmid_2010,
   author       = {Hufschmid, Thomas},
@@ -1781,36 +1798,22 @@ In diesem Fall wird das Feld |Title| ausgefüllt, ansonsten bleibt alles gleich:
   year         = {2010},
 }
 \end{lstlisting}
-In der Bibliographie wird dann zuerst der eigene Titel der Rezension ausgegeben, dann die Angaben zum rezensierten Werk.
-
+In the bibliography there will be first the individual title followed by the information of the reviewed work.
 
 \printbib[7em]{Hufschmid_2010}
 
 
-\subsubsection{Sammelrezensionen}
-Es kann vorkommen, dass Rezensionen nicht nur ein Werk unter die Lupe nehmen, sondern zwei oder noch mehr.
-Dies ist jedoch kein Problem, da das Vorgehen fast analog zu den oben genannten Beispielen ist.
-\begin{lstlisting}
-\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch
- \citetitle{Welch_2007} von \citeauthor{Welch_2007} rezensiert, 
- sondern es zugleich mit \citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.
-\end{lstlisting}
+\subsubsection{multiple reviewed works in one review}
+Some reviews analyse several works in the same article. 
+This makes no big difference for the citing or editing process.
 
-\begin{bsp}\citeauthor{Taylor_2008} hat nicht nur das bereits erwähnte Buch \citetitle{Welch_2007} 
-von \citeauthor{Welch_2007} rezensiert, sondern es zugleich mit 
-\citeauthor{Sear_2006}s \citetitle{Sear_2006} verglichen.\end{bsp}
-\begin{lstlisting}
-@re@Review{Taylor_2008,
-  author       = {Taylor, Rabun},
-  number       = {3},
-  pages        = {443--445},
-  volume       = {67},
-  journaltitle = {Journal of the Society of Architectural Historians},
-  related      = {Sear_2006,Welch_2007},
-  relatedtype  = {reviewof},
-  year         = {2008},
-}
-\end{lstlisting}
+In his review
+\citeauthor{Taylor_2008} not only describes the book called
+ \citetitle{Welch_2007} by \citeauthor{Welch_2007}, 
+ but at the same time compares it with \citeauthor{Sear_2006}s \citetitle{Sear_2006}.
+
+The entry of the first analysed book \citetitle{Welch_2007} has been described in \cref{review}.
+The entry of the second reviewed book is this:
 \begin{lstlisting}
 @Book{Sear_2006,
   author    = {Sear, Frank},
@@ -1823,15 +1826,44 @@ von \citeauthor{Welch_2007} rezensiert, sondern es zugleich mit
 }
 \end{lstlisting}
 
+The entry of the review looks like this:
+\begin{lstlisting}
+@Review{Taylor_2008,
+  author       = {Taylor, Rabun},
+  number       = {3},
+  pages        = {443--445},
+  volume       = {67},
+  journaltitle = {Journal of the Society of Architectural Historians},
+  related      = {Sear_2006,Welch_2007},
+  relatedtype  = {reviewof},
+  year         = {2008},
+}
+\end{lstlisting}
+In the field |related| you can have several |bibtex-keys| which has to be separated by a comma (see line 7).
+
+And in the bibliography all information is gathered:
 
 \printbib[5em]{Taylor_2008}
 
 
- \subsection{Type \texttt{@thesis}}\label{thesis}
-Master- und (unpublizierte) Doktorarbeiten sind als |@thesis| aufzunehmen.
-Wichtige Felder sind |type=|\marg{|phdthesis|} bzw. \marg{|mathesis|}  und |institution=|\marg{Universität}.
+ \subsection{Type \texttt{@Thesis}}\label{thesis}
+For MA and PhD thesis, which are not published a monograph or such, can be cited when they are edited as |@Thesis|.
+It is important to differentiate whether it is a MA or a PhD thesis,
+this can be done by |type=|\marg{|phdthesis|} or
+ \marg{|mathesis|}; you also have to define the  |institution=|\marg{university}.
+ 
+\begin{description}
+\item[mandatory:] 
+|author|,
+|title|, |subtitle|, |titleaddon|,
+|type|, |institution|,
+|year|,
+\item[optional:]
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+ \end{description}
+ 
 
-Beispiel:
+Here is an example:
 \begin{lstlisting}
 @Thesis{Arnolds_2005,
   author      = {Markus Arnolds},
@@ -1842,31 +1874,33 @@ Beispiel:
   eprinttype  = {urn},
   date        = {2005-05-31},
 }
-\end{lstlisting}
-In der Bibiographie wird das zu:
+\end{lstlisting}\label{urn}
+
+Here is the entry in the bibliography:
 
 \printbib[5em]{Arnolds_2005}
 
  
  \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
 
- \subsection{Type \texttt{@talk}}\label{talk}
- Mit dem neu definierten Eintragstyp |@talk| können Vorträge von Einzelkolloquien oder von Konferenzen zitiert werden.
- Folgende Felder können benutzt werden: 
- | author|,
-| title|,
-| subtitle|,
-| titleaddon|,
-| date|,
-| venue|,
-| institution|,
-| eventtitle|,
-| eventdate|,
-| url|,
-| urldate|,
-| note|.
+ \subsection{Type \texttt{@Talk}}\label{talk}
+For (oral) given papers e.g. at a colloquium or a proceeding we created a new entry type calld ›@Talk‹.
+
+\begin{description}
+\item[mandatory:] 
+|author|,
+|title|, |subtitle|, |titleaddon|,
+|date|,
+|venue|,
+|institution|,
+|eventtitle|,
+|eventdate|,
+\item[optional:]
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+ \end{description}
  
- \begin{lstlisting}
+Here is an example for a  paper  given in Berlin in 2015:
+\begin{lstlisting}
 @Talk{Bergmann_2015,
   author      = {Bergmann, Birgit},
   title       = {\enquote{An exciting find}},
@@ -1880,17 +1914,18 @@ In der Bibiographie wird das zu:
   venue       = {Berlin},
 }
 \end{lstlisting}
- Für die Bibliographie wird dies zu: 
+The bibliography will show the entry as:
 
 		\printbib[6em]{Bergmann_2015}
 	
  \changes{v1.5}{2016/05/31}{Rückverweis}
 
-\section{Verschiedenes}
-\subsection{Anonymes Werk}\label{unbekannt}
-
- Für manche Artikel oder Bücher lässt sich kein Autor oder Herausgeber ermitteln. 
- Diese Werke werden dann als anonym gekennzeichnet und nicht nach dem (anonymen) Autor/Herausgeber zitiert, sondern nach einem gewählten |label|. 
+\section{Various}
+\subsection{Unknown work}\label{unbekannt}
+Sometimes it is impossible to get hold of the author or editor but you still want to cite them.
+If you come along such a paper you can define a |label| which will be used for citing and sorting.
+This is not connected to an entry type -- it can be used with any work.
+In the following example we use an enty type |@Article|:
 \begin{lstlisting}
 @Article{Cosa_1949,
   title        = {Cosa},
@@ -1904,19 +1939,16 @@ In der Bibiographie wird das zu:
   number       = {1},
 }
 \end{lstlisting}
- 
- Das |Label| wurde in diesem Fall analog zum Titel gewählt (Cosa).
- Zitiert man dieses Werk in einer Fußnote, dann wird
+ The |label| (line 9) can be defined as one wishes in this case we chose it analogous to the title: |label = {Cosa}|.
+When you cite such an anonymous work it will be done like all the others:
 \begin{lstlisting}
  \cite[vgl.][145--146]{Cosa_1949}
 \end{lstlisting}
- zu
-
+ It will look like this:
  \begin{bsp} 
  vgl. Cosa 1949, 145--146
  \end{bsp}
- 
-Und für die Bibliographie:
+and be printed in the bibliography like this:
 \printbib{Cosa_1949}
 
 
