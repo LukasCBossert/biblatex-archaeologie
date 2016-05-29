@@ -252,13 +252,14 @@
   	\ifboolexpr{bool {bbx:translation}%
   					 or bool {cbx:ancient}%
   					 or bool {cbx:frgancient}
-test {\iffieldequalstr{relatedtype}{translationof}}%
+  					 %test {\iffieldequalstr{relatedtype}{translationof}}%
+  					 }%
     	{}%
     	{\clearname{translator}%
     			\clearfield{origtitle}%
 		       }%
 }
-}
+
 
 %-----------------------
 \AtBeginDocument{%
@@ -540,7 +541,7 @@ test {\iffieldequalstr{relatedtype}{translationof}}%
     {\usebibmacro{bytranslator+othersstrg}%
      \setunit{\addspace}%
      \printnames[bytranslator]{translator}%
-     \iffieldequals{relatedtype}{translationof}%
+     \iffieldequalstr{relatedtype}{translationof}%
                     {}{\clearname{translator}}%
      \newunit}%
  % \usebibmacro{with others}
@@ -558,14 +559,13 @@ test {\iffieldequalstr{relatedtype}{translationof}}%
         {}}%
 	\setunit*{\addspace\bibstring{origpubas}\space}% nicht verwendet?!
     \printtext[emph]{\usebibmacro{title}}%
-    \setunit{\addspace}%
-    \bibstring{bytranslator}%keine Sprache ausgegeben?!
-    \setunit{\addspace}%
+    %\setunit{\addspace}%
+    %\bibstring{bytranslator}%keine Sprache ausgegeben?!
+    %\setunit{\addspace}%
+   % \usebibmacro{bytranslator+others}%
     \printnames{savedtranslator}%
 \usebibmacro{location+edition+year}%
 }}
-
-
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
