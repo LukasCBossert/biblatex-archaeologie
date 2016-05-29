@@ -251,6 +251,7 @@
 \AtEveryBibitem{%
   \iffieldequalstr{relatedtype}{translationof}
     {\savename{translator}{\savedrelatedtranslator}%
+    \savelist{language}{\savedrelatedlanguage}%
      \clearname{translator}}
     {}
   \ifboolexpr{bool {bbx:translation}%
@@ -538,13 +539,14 @@
 \newbibmacro*{related:translationof}[1]{%
   \entrydata*{#1}{%
     \restorename{savedtranslator}{\savedrelatedtranslator}%
-    \printnames{savedtranslator}%
-    \newunit\newblock
-    \printtext[emph]{\usebibmacro{title}}%
-    %\setunit{\addspace}%
-    %\bibstring{bytranslator}%keine Sprache ausgegeben?!
-    %\setunit{\addspace}%
-   % \usebibmacro{bytranslator+others}%
+    \restorelist{savedlanguage}{\savedrelatedlanguage}%
+     \printtext[emph]{\usebibmacro{title}}%
+    \setunit{\addspace}%
+    \printlist{savedlanguage}%
+    \newunit
+    \bibstring{bytranslator}%keine Sprache ausgegeben?    
+    \setunit{\addspace}%
+    \printnames{savedtranslator}
   \usebibmacro{location+edition+year}}}
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 
