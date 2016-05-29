@@ -1285,10 +1285,11 @@ It will be included automatically. For the following bibliography we only use |\
 \printbib[5em]{Zanker_2013}
 
 
- \subsubsection{Mehrbändige Monographien mit Untertitel}
-Es kommt vor, dass man einen Band einer mehrbändigen Monographie zitiert, der einen eigenen Untertitel hat.
-Damit die jeweilige Zahl des Bandes an korrekter Stelle ausgegen wird, 
-muss ein Bibliographieeintrag wie folgt aussehen:
+ \subsubsection{Multiple volumes of a monograph}
+There is the case that you have to cite a book which consists of several volumes, 
+usually there is a volume with text and one volume with plates.
+To cite particularly e.g. the second volume you can do the following.
+Let’s assume this is the bibliography entry:
 \begin{lstlisting}
 @Book{MacDonald_1986,
   author    = {MacDonald, William L.},
@@ -1302,11 +1303,7 @@ muss ein Bibliographieeintrag wie folgt aussehen:
   number    = {35},
 }
 \end{lstlisting}
-
-
-Damit werden Haupttitel der Monographie (|Maintitle|) und Titel des Bandes (|Titel|) getrennt voneinander eingegeben, sodass die Bandzahl (|volume|) vor den Titel gesetzt werden kann.
-
-
+In the bibliography the main title of the monograph  (|maintitle|) and the title of the book (|title|) are shown separately  so the volume  (|volume|) appears before the title of the book
 \printbib[7em]{MacDonald_1986}
 
 
