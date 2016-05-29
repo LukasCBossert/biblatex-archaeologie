@@ -1,7 +1,5 @@
-%@String{Munich = {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco}{\iflanguage{french}{Munich}{\iflanguage{spanish}{Munich}{München}}}}}}%
-@String{Munich = {Munich}}
 % Encoding: UTF-8
-@Inreference{Weinbrenner_1914,
+@String{Munich = {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco}{\iflanguage{french}{Munich}{\iflanguage{spanish}{Munich}{München}}}}}}@Inreference{Weinbrenner_1914,
   Title                    = {Rennbahn},
   Author                   = {Weinbrenner},
   Number                   = {2},
@@ -529,28 +527,6 @@ journaltitle = AyasofyaMuezYil-long,
 shortjournal = AyasofyaMuezYil-short
 }
 
-@Book{Zanker_2013,
-  Title                    = {La città romana},
-  Author                   = {Zanker, Paul},
-  Location                 = {Roma-Bari},
-  Publisher                = {GLF},
-  Series                   = {Storia della città},
-  Year                     = {2013},
-  language = {Italian},
-    Relatedtype              = {translationof},
-  Related                  = {Zanker_2014},
-  Translator               = {Senatore, Anna Maria}
-}
-@Book{Zanker_2014,
-  Title                    = {Die römische Stadt},
-  Author                   = {Zanker, Paul},
-  Location                 = Munich,
-    Publisher                = {CHB},
-  Subtitle                 = {Eine kurze Geschichte},
-  Year                     = {2014},
-  language = {German},
-}
-
 @Talk{Bergmann_2015,
   author      = {Bergmann, Birgit},
   title       = {\enquote{An exciting find}},
@@ -563,3 +539,33 @@ shortjournal = AyasofyaMuezYil-short
   urldate     = {2016-05-14},
   venue       = {Berlin},
 }
+
+@Book{Zanker_1988,
+  author      = {Zanker, Paul},
+  title       = {The Power of Images in the Age of Augustus},
+  publisher   = {The University of Michigan Press},
+  location    = {Ann Arbor},
+  year        = {1988},
+  series      = {Jerome Lectures},
+  number      = {16},
+  translator  = {Shapiro, Alan H.},
+  language    = {english},
+  related     = {Zanker_2009},
+  relatedtype = {translationof},
+}
+
+@Book{Zanker_2009,
+  author        = {Zanker, Paul},
+  title         = {Augustus und die Macht der Bilder},
+  publisher     = {CHB},
+  location      = Munich,
+  year          = {2009},
+  edition       = {5},
+  origlocation  = {Leipzig},
+  origyear      = {1987},
+  language      = {german},
+  origpublisher = {Koehler \& Amelang},
+}
+
+
+@Comment{jabref-entrytype: Review: req[author;number;title;subtitle;pages;volume;journaltitle;shortjournal;related;relatedtype;year] opt[]}

@@ -393,7 +393,7 @@ Therefore we implemented the command \cs{parencite}:
 \end{lstlisting} 
 This cite-command takes care of the correct corresponding parentheses and brackets.
 Especially if one cites an inreference the parentheses are changing to (square) brackets.
-The example shown in \cref{inreference} makes it clear.
+The example shown in \cref{faq:inreference} makes it clear.
 
 \DescribeMacro{\parencites}
 Of course there is also the possibility to cite several authors/works in parentheses.
@@ -437,7 +437,7 @@ For further information cf. \cref{fullnames}.
 
    
 
-\subsection{Entries with @string}
+\subsection{Entries with @string}\label{string}
 The citation rule of the German Archaeological Institute says that the journals and series have to be abbreviated according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
 
  \DescribeMacro{@string} The style  |archaeologie| respects the guidelines of the German Archaeological Institute and is compatible with the given 
@@ -882,7 +882,7 @@ Without any options this entry
   eprinttype   = {jstor},
   number       = {1},
 }
-\end{lstlisting}
+\end{lstlisting}\label{eprint:jstor}
 looks like this
 \printbib[5em]{Osland_2016}
 
@@ -1188,12 +1188,12 @@ Below we describe how they are working and which fields you should fill out.
 For the examples we don’t use any further options which are described above.
 
 
- \subsection{Typ \texttt{@Book}}\label{book}
+ \subsection{Type \texttt{@Book}}\label{book}
  \DescribeMacro{@Book}
  \DescribeMacro{@Collection}%\footnote{Der Typ |@collection| entspricht hier dem Typ |@Book|.}
 Let’s start with an easy example: A book or a collection (both are treated equally).
 You can use the following fields:
- \begin{description}
+\begin{description}
 \item[mandatory:] 
 |author|/|editor|, 
 |title|, |subtitle|, |titleaddon|,
@@ -1250,39 +1250,45 @@ If you cite a translated book you can link it to the original book and let displ
 The works with the fields |related| and |relatedtype| (for further information see \cref{review}).
 
 It will be more clear with this example:
-The original book is from \citeauthor*{Zanker_2014} and has been published in \citeyear{Zanker_2014}.
+The first edition of \citetitle*{Zanker_2009}  by \citeauthor*{Zanker_2009}  has been published in 1987:
 \begin{lstlisting}
-@Book{Zanker_2014,
-  author    = {Zanker, Paul},
-  title     = {Die römische Stadt},
-  subtitle  = {Eine kurze Geschichte},
-  publisher = {CHB},
-  location  = Munich,
-  year      = {2014},
-  language  = {german},
+@Book{Zanker_2009,
+  author        = {Zanker, Paul},
+  title         = {Augustus und die Macht der Bilder},
+  publisher     = {CHB},
+  location      = Munich,
+  year          = {2009},
+  edition       = {5},
+  origlocation  = {Leipzig},
+  origyear      = {1987},
+  language      = {german},
+  origpublisher = {Koehler \& Amelang},
 }
 \end{lstlisting}
-But before it got translated in \citeyear{Zanker_2013}:
+In \citeyear{Zanker_1988}, one year later  it was translated by A. H. Shapiro:
 \begin{lstlisting}
-@Book{Zanker_2013,
+@Book{Zanker_1988,
   author      = {Zanker, Paul},
-  title       = {La città romana},
-  publisher   = {GLF},
-  location    = {Roma-Bari},
-  year        = {2013},
-  series      = {Storia della città},
-  translator  = {Senatore, Anna Maria},
-  language    = {italian},
-  related     = {Zanker_2014},
+  title       = {The Power of Images in the Age of Augustus},
+  publisher   = {The University of Michigan Press},
+  location    = {Ann Arbor},
+  year        = {1988},
+  series      = {Jerome Lectures},
+  number      = {16},
+  translator  = {Shapiro, Alan H.},
+  language    = {english},
+  related     = {Zanker_2009},
   relatedtype = {translationof},
 }
 \end{lstlisting}
 
-The translated book |Zanker_2013| is connected with the book |Zanker_2014| via the field |related = |\marg{bibtex-key} and the relation got specified with the field |relatedtype|, in this case it is a translation so |={translationof}|.
+The translated book |Zanker_1988| is connected with the book |Zanker_2009| via the field |related = |\marg{bibtex-key} and the relation got specified with the field |relatedtype|, in this case it is a translation so |={translationof}|.
 
-You don’t have to cite |Zanker_2014| to have the information visible in the bibliography. 
-It will be included automatically. For the following bibliography we only use |\cite{Zanker_2013}|:
-\printbib[5em]{Zanker_2013}
+You don’t have to cite |Zanker_2009| to have the information visible in the bibliography. 
+It will be included automatically. For the following bibliography we only use |\cite{Zanker_1988}|:
+\printbib[5em]{Zanker_1988}
+
+\printbiball[5em]{Zanker_1988}
 
 
  \subsubsection{Multiple volumes of a monograph}
@@ -1307,12 +1313,28 @@ In the bibliography the main title of the monograph  (|maintitle|) and the title
 \printbib[7em]{MacDonald_1986}
 
 
- \subsection{Typ \texttt{@inbook / @incollection}}\label{inbook}
+ \subsection{Type \texttt{@Inbook / @Incollection}}\label{inbook}
+ \DescribeMacro{@Incollection}
+Single entries/chapters of a collection are cited best when they are set up as  |@Incollection|. 
 
- \DescribeMacro{@incollection}
- Kapitel aus Sammelbändern macht man am Besten mit dem Typ |@incollection|. 
- Am besten sieht man das wieder an Hand eines Beispiels:
+
+\begin{description}
+\item[mandatory:] 
+|author|, |title|, |subtitle|, |titleaddon|,
+|editor|,  |booktitle|, |booksubtitle|, |booktitleaddon|,
+|location|, |year|, |pages|, 
+\item[optional:]
+|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
+|publisher|, |series|, |number|, |edition|, 
+|origyear|, |origlocation|, |origpublisher|, 
+|translator|, |origlanguage|,
+|related|, |relatedtype|,
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+ \end{description}
  
+ 
+ 
+This following example should make it clear:
  \begin{lstlisting}
 @Incollection{Carter_2014,
   author    = {Carter, Michael J. and Edmondson, Jonathan},
@@ -1326,10 +1348,10 @@ In the bibliography the main title of the monograph  (|maintitle|) and the title
 }
 \end{lstlisting}
 
-\printbib[12em]{Carter_2014}
+\printbib[11em]{Carter_2014}
 
- 
-Zitiert man einen Beitrag aus einer Festschrift, o.ä., dann kann das folgendermaßen aussehen:
+You can also have contributions to a ›Festschrift‹ etc set up as |@Incollection|,
+but then notice the additional information in |booktitleaddon|.
 \begin{lstlisting}
 @Incollection{Hoelscher_2001,
   author         = {Hölscher, Tonio},
@@ -1343,14 +1365,13 @@ Zitiert man einen Beitrag aus einer Festschrift, o.ä., dann kann das folgenderm
   booktitleaddon = {Festschrift Jörg Schäfer},
 }
 \end{lstlisting}
-
-In der Bibliographie ist die Darstellung:
-
-
+In the bibliography it will look like:
 \printbib[6em]{Hoelscher_2001}
- \subsubsection{Kleinere Kurzreihen}
-Es kommt auch vor, dass man einen Band einer kleinen Reihe (nicht Serie) zitieren muss.
-Zum Beispiel dieses Buch:
+
+ \subsubsection{Short  series}
+Some books or collections are part of a small series (not an ongoing series).
+This book is part of the series called abbreviated \emph{MemAmAc}.
+Have a look:
 \begin{lstlisting}
 @Incollection{Fentress_2003,
   author       = {Fentress, Elizabeth and John Bodel and Adam Rabinowitz and Rabun Taylor},
@@ -1369,19 +1390,17 @@ Zum Beispiel dieses Buch:
   shortseries  = MemAmAc-short,
 }
 \end{lstlisting}
+As we can see it is the fifth volume (|volume|) of the series with the main title \emph{Cosa} (|maintitle|) but has an individual title (|title|) which is \emph{Cosa in the Republic and Early Empire}, furthermore it is the second book (|number|) of the series  \emph{MemAmAc} (|series|).
 
-Es handelt sich also um den fünften Band (|volume|) mit dem Titel (|title|) \emph{Cosa in the Republic and Early Empire} der Reihe \emph{Cosa} (|maintitle|) darstellt, was wiederum den zweiten Band (Number) der Serie \emph{MemAmAc} ist.
-
-
+Notice the different language-based behaviour of ›et. al.‹ for more than two authors/editors.
 \printbiball[7em]{Fentress_2003}
 
  
  
- \subsubsection{Bestandskatalog}
- Die Angabe von Bestandskatalogen weicht in einer Kleinigkeit von Sammelbänden o.ä. ab:
- Es wird kein Titel genannt. Damit fällt auch das Komma nach dem Autor weg.
-Zwei Beispiele verdeutlichen dies.
-
+ \subsubsection{Inventory catalogue}
+The output of an inventory catalogue changes slightly compared to collections or sth. similar. 
+The title is omitted and therefore there is no comma after the author’s name.
+We provide two examples so you see the difference.
 \begin{lstlisting}
 @Inbook{Kohlmeyer_1983,
   author       = {K. Kohlmeyer},
@@ -1393,7 +1412,7 @@ Zwei Beispiele verdeutlichen dies.
   location     = {Mainz},
 }
 \end{lstlisting}
-und
+and the second example
 
 \begin{lstlisting}
 @Inbook{Parlasca_1969,
@@ -1405,7 +1424,7 @@ und
   pages     = {98\psq\ Nr. 2176},%! \psq = following page
   location  = {Tübingen},
 }
-\end{lstlisting}
+\end{lstlisting}\label{psq}
 
 
 \printbib[6em]{Kohlmeyer_1983}
@@ -1415,8 +1434,25 @@ und
  Der Typ |@inbook| entspricht hier dem Typ |@incollection|.
 
 
- \subsection{Typ \texttt{@article}}\label{article}
-\DescribeMacro{@article}
+\subsection{Type \texttt{@Article}}\label{article}
+\DescribeMacro{@Article} This is probably the most common type because you find detailed information about specific topics in articles.
+
+
+\begin{description}
+\item[mandatory:] 
+|author|, |title|, |subtitle|, |titleaddon|,
+|journaltitle|, |shortjournal|, |volume|, |number|, |issue|
+|year|, |pages|, 
+\item[optional:]
+%|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
+%|publisher|, |series|, |number|, |edition|, 
+%|origyear|, |origlocation|, |origpublisher|, 
+|translator|, |origlanguage|,
+|related|, |relatedtype|,
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+ \end{description}
+
+Here we have an example which will explain the (required)  fields:
 \begin{lstlisting}
 @Article{Evangelidis_2014,
   author       = {Evangelidis, Vasilis},
@@ -1429,25 +1465,47 @@ und
   year         = {2014},
   doi          = {10.1017/s006824541400015x},
 }
-\end{lstlisting}
+\end{lstlisting}\label{doi}
+In line 5 and 6 you can also write the full or abbrivated journal title in the fields |journaltitle| or |shorttitle| (e.g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@string| (cf. \cref{ancient-list,string}) again.
 \printbib[7em]{Evangelidis_2014}
-\begin{refsection}\end{refsection}
+%\begin{refsection}\end{refsection}
 
-Es gibt die Möglichkeit allen Einträgenl den Publikationszustand anzugeben.
-Die beliebige Eingabe erfolgt im Feld |pubstate| und wird ans Ende des bibliographischen Eintrages gesetzt.
-
-Es empfiehlt sich allerdings sich auf ein paar Standarts zu beschränken, da diese sprachabhängig ausgegeben werden:
+Sometimes you know the author of an article and he sends you the proof of his paper beforehand.
+You can also cite this version of the paper and provide information about the publication status in the field |pubstate|.
+There are some predefined publication status which are recommended to use since they are translated into the used language:
 \begin{description}
-\item[inpreparation] Typoskript wird für die Publikation vorbereitet. \\(|pubstate = {inpreparation}|)
-\item[submitted] Typoskript wurde bei der Zeitschrift eingereicht.\\(|pubstate = {submitted}|)
-\item[forthcoming] Typoskript wurde von der Zeitschrift akzeptiert.\\(|pubstate = {forthcoming}|)
-\item[inpress] Typoskript liegt bereits als fertig gesetzter Artikel vor.\\(|pubstate = {inpress}|)
-\item[prepublished] Artikel liegt in einer (online) Vorabversion vor. \\(|pubstate = {prepublished}|)
-\end{description}
-
-Ein Beispiel zeigt die Anwendung für |pubstate = {forthcoming}|
+\item[inpreparation] Typoscript is prepared for your publication. 
 \begin{lstlisting}
-@Article{Bossert,
+pubstate = {inpreparation}
+\end{lstlisting}
+\item[submitted] Typoscript has been submitted.
+
+\begin{lstlisting}
+pubstate = {submitted}
+\end{lstlisting}
+
+\item[forthcoming] Typoscript has been accepted by the journal.
+
+\begin{lstlisting}
+pubstate = {forthcoming}
+\end{lstlisting}
+
+\item[inpress] Typoscript has been edited and you have a proof version of it.
+
+\begin{lstlisting}
+pubstate = {inpress}
+\end{lstlisting}
+
+\item[prepublished] Article has been published in an (online) preversion.
+
+\begin{lstlisting}
+pubstate = {prepublished}
+\end{lstlisting}
+
+\end{description}
+This following example is about an article which was accepted by the journal and so we use |pubstate = {forthcoming}|:
+\begin{lstlisting}
+@Article{Bossert_forthcoming,
   author       = {Lukas C. Bossert},
   title        = {\ldots\ \textsc{in formam anitqvam restitvto}?},
   subtitle     = {Überlegungen zur Inschrift der ›Porticus Deorum Consentium‹ (CIL\,VI 102) und ihren Ergänzungen im 19.{\,}Jh.},
@@ -1458,13 +1516,33 @@ Ein Beispiel zeigt die Anwendung für |pubstate = {forthcoming}|
 }
 \end{lstlisting}
 
-\printbib[8em]{Bossert}
+\printbib[8em]{Bossert_forthcoming}
 
 
 
-\subsection{Typ \texttt{@proceedings}}\label{proceedings}
+\subsection{Type \texttt{@Proceedings}}\label{proceedings}
+\DescribeMacro{@Proceedings}
+Similar to a collection but still different in the bibliographical output is proceedings.
+Therefore we recommend to use the type |@Proceedings|.
+The difference lies in the additional mandatory fields |venue|, |eventdate| and |eventtitle|. Everything else is like the type |@Book|.
 
- Für Beiträge innerhalb eines Konferenzbandes müssen die Felder |venue|, |eventdate| und |eventtitle| ausgefüllt werden. Ansonsten alle anderen Felder entsprechend wie bei |@book|:
+\begin{description}
+\item[mandatory:] 
+%|author|/
+|editor|, 
+|title|, |subtitle|, |titleaddon|,
+|venue|, |eventdate|, |eventtitle|,
+|location|, |year|
+\item[optional:]
+|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
+|publisher|, |series|, |number|, |edition|, 
+|origyear|, |origlocation|, |origpublisher|, 
+|translator|, |origlanguage|,
+|related|, |relatedtype|,
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+ \end{description}
+ 
+An example:
  \begin{lstlisting}
 @Proceedings{Kurapkat_2014,
   title        = {Die Architektur des Weges},
@@ -1482,48 +1560,103 @@ Ein Beispiel zeigt die Anwendung für |pubstate = {forthcoming}|
   venue        = {Berlin},
 }
 \end{lstlisting}
+With |venue| we specify the place where the proceeding took place (e.g. \emph{Berlin} -- |location| is where the book was printed and is connected to the |publisher| e.g. \emph{Regensburg}),
+|eventtitle| is used for a special title of the proceeding (e.g. \emph{Kolloquium Architekturreferat des DAI}),
+|eventtitle| gives the date(range) when the proceeding was hold and has to be typed in in the format YYYY-MM-DD, a range has to be separated with a |/| (e.g.  \emph{2012-02-08/2012-02-11}).
 
-So wird daraus: 
- 
+In the bibliography the information of these additional fields will be used (of course) as this, notice how the output of the date changes according to the chosen language.
 \printbiball[7em]{Kurapkat_2014}
 
-\subsection{Typ \texttt{@inproceedings}}\label{inproceedings}
+\subsection{Type \texttt{@Inproceedings}}\label{inproceedings}
+\DescribeMacro{@Inproceedings}
+This entry type works similar to |@Procecedings| and |@Incollection| and therefore the needed fields are straightforward to use:
 
-Wie bei |@proceedings| so auch hier:
+\begin{description}
+\item[mandatory:] 
+|author|, |title|, |subtitle|, |titleaddon|,
+|editor|,  |booktitle|, |booksubtitle|, |booktitleaddon|,
+|venue|, |eventdate|, |eventtitle|,
+|location|, |year|, |pages|, 
+\item[optional:]
+|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
+|publisher|, |series|, |number|, |edition|, 
+|origyear|, |origlocation|, |origpublisher|, 
+|translator|, |origlanguage|,
+|related|, |relatedtype|,
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+\end{description}
+ 
+ 
+ 
  \begin{lstlisting}
 @Inproceedings{Torelli_1991,
-  author       = {Torelli, Mario},
-  title        = {Il \enquote{diribitorium} di Alba Fucens e il \enquote{campus} eroico di Herdonia},
-  pages        = {39--63},
-  editor       = {Mertens, Josef},
-  booktitle    = {Comunitá indigene e problemi della romanizzazione nell’Italia centro\--meri\-dionale (IV--III sec. a.C.)},
-  booksubtitle = {Actes du Colloque International Organisé à l'Occasion du 50. Anniversaire de l'Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie},
-  location     = {Bruxelles},
-  publisher    = {Institut Historique Belge de Rome},
-  year         = {1991},
-  venue        = {Roma, Academia Belgica},
-  eventdate    = {1990-02-01/1990-02-03},
-  hyphenate    = {italian},
-  language     = {italian},
-  number       = {29},
-  series       = {Études de philologie, d'archéologie et d'histoire anciennes},
-  shorttitle   = {Il \enquote{diribitorium}},
+  author     = {Torelli, Mario},
+  title      = {Il \enquote{diribitorium} di Alba Fucens e il \enquote{campus} eroico di Herdonia},
+  pages      = {39--63},
+  editor     = {Mertens, Josef},
+  booktitle  = {Comunitá indigene e problemi della romanizzazione nell’Italia centro\--meri\-dionale (IV--III sec. a.C.)},
+  location   = {Bruxelles},
+  publisher  = {Institut Historique Belge de Rome},
+  year       = {1991},
+  venue      = {Roma, Academia Belgica},
+  eventdate  = {1990-02-01/1990-02-03},
+  eventtitle = {Actes du Colloque International Organisé à l'Occasion du 50. Anniversaire de l'Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie},
+  hyphenate  = {italian},
+  language   = {italian},
+  number     = {29},
+  series     = {Études de philologie, d'archéologie et d'histoire anciennes},
+  shorttitle = {Il \enquote{diribitorium}},
 }
 \end{lstlisting}
-
-So wird daraus: 
+It will be printed as:
  
 \printbiball[4em]{Torelli_1991}
 
- \subsection{Typ \texttt{@inreference}}\label{inreference}
- \DescribeMacro{@inreference}
- Mit dem Typ |@inreference| können  Lexikonartikel zitiert werden.
- Dabei gibt es generall zwei Möglichkeiten wie der Eintrag dargestellt wird:
- Entweder gleich wie alle anderen Einträge mit ›Autor Jahr‹-Angabe, oder speziell nach den Vorgaben des Deutschen Archäologischen Instituts, sodass der Eintrag in der Fußnote vollzitiert und -referenziert ist:
-›Lexikon Band (Jahr) Seitenzahlen s.\,v. Titel des Artikels (Autor)‹.
-Für die erste Variante bedarf es keine Änderung, präferiert man die zweite Variante, so muss in der Präambel die Option |inreferences=true| gesetzt werden. \DescribeMacro{inreferences=true}
+ \subsection{Type \texttt{@Reference}}\label{reference}
+ \DescribeMacro{@Reference}
+ This entry type can be used especially for references if you want to cite it as whole or if you need to relate to it. 
+We provide an example below -- cf. \cref{inreference}
 
-An einem Beispiel wird die Anwendung deutlich.
+You don’t need to fill out many fields to have a working entry:
+\begin{description}
+\item[mandatory:] |title|, |shorthand|,
+\item[optional:] 
+ |editor|, |subtitle|, |titleaddon|,
+ |location|, |year|
+|maintitle|, |mainsubtitle|, |maintitleaddon|,
+|related|, |relatedtype|,
+|publisher|, |series|, |number|, |edition|, |volume|,
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+\end{description}
+
+And so a complete entry is quite small:
+\begin{lstlisting}
+@Reference{LIMC,
+  title     = LIMC-long,
+  keywords  = {corpus},
+  options   = {corpus},
+  shorthand = {LIMC},
+}
+\end{lstlisting}
+ 
+But you can also have it  more detailed  like this one:
+\begin{lstlisting}
+@Reference{Lexikon-der-Technik,
+  title     = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},
+  year      = {1904--1920},
+  edition   = {2},
+  editor    = {Otto Lueger},
+  keywords  = {corpus},
+  location  = {Stuttgart},
+  shorthand = {Lexikon d. T.},
+}
+\end{lstlisting}
+
+ \subsection{Type \texttt{@Inreference}}\label{inreference}
+ \DescribeMacro{@Inreference}
+Besides a whole reference you can also -- and which is more likely -- cite only an entry of it via the type  |@inreference|.
+
+It will be more clear with an example:
   \begin{lstlisting}
 @Inreference{Neils_1994,
   author    = {Neils, Jenifer},
@@ -1535,78 +1668,32 @@ An einem Beispiel wird die Anwendung deutlich.
   keywords  = {lexikon},
 }
 \end{lstlisting}
+You can cite this entry with any of the provided \cs{cite}-commands above -- cf. \cref{cite-commands,faq:inreference}.
 
-Zusätzlich lohnt es sich den Eintrag über |related| mit dem Hauptwerk (in diesem Falle ›LIMC‹) zu verküpfen:
-  \begin{lstlisting}
-@Reference{LIMC,
-  Title                    = LIMC-long,
-  Keywords                 = {corpus},
-  Options                  = {corpus},
-  Shorthand                = LIMC-short
-}
- \end{lstlisting}
- Dies hat den Vorteil, dass man die Abkürzung ›LIMC‹ in der Teilbibliographie ›Lexika und Corpora‹ (\cref{bib:corpus}) danke des |keywords = {corpus}| automatisiert auflösen kann. Dafür muss der Bibliographieeintrag |@reference{LIMC}| nicht manuell zitiert werden, da dies über den Eintrag |related| bei |@inreference{Neils_1994}| dynamischt erfolgt.
- 
- 
+But for the final display of the entry  you have two possibilities:
+ \begin{enumerate}
+\item\label{inreference:a} 
 
- Verwendet man den normalen |\cite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}-Befehl, dann wird bei eingetragener Option (|lexikon|) die \oarg{postnote} nicht nachgestellt, sondern nach der Jahresangabe des Lexikons gesetzt.
- Ist die \oarg{postnote} leer, dann werden die Seiten aus dem Bibliographieeintrag ausgelesen und an diese Stelle gesetzt:
-  
- \begin{bsp}
-	\ldots\ (|\cite[vgl.][930 Nr. 283]{Neils_1994}|).
-	
-	...\ (vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)). \textcolor{red}{WRONG!}
-	% \ldots (\fullcite[vgl.][930 Nr. 283]{Neils_1994}).
- \end{bsp}
- 
-\DescribeMacro{\parencite} 
-Dieses Beispiel zeigt, dass keine Klammerregelung angewendet wurde, was nicht gewünscht ist. 
-Es ist zu beachten, dass bei gewählter Option  |inreferences=true| (in der Präambel) und bei einer gewünschten  Zitation in Klammern (), der Befehl |\parencite|\marg{Schlüssel} verwendet wird (\ref{cite-befehle}), damit die Klammerregelung automatisch angewendet wird.
-Dies funktioniert so: 
- 
- \begin{bsp}
-	\ldots\ |\parencite[vgl.][930 Nr. 283]{Neils_1994}.|
- 
- 	...\ (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green}{CORRECT!}
-
-	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
- \end{bsp}
-
-\DescribeMacro{\parencites}
-Gleiches gilt auch für das Zitieren von mehreren Einträgen in Klammern: Dafür wird analog der Befehl |\parencites|\marg{Schlüssel} verwendet:
- \begin{bsp}
-	\ldots\ |\parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}.|
- 
- 	...\ (vgl. Neils 1994, 930 Nr. 283; Nieddu 1995, 9).
- 	 \end{bsp}
-
- 	bzw. mit der Präambel-Option |inreferences=true|:
- 	 \begin{bsp}
-
- 	\ldots (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]; LTUR 2 [1995] 9 s. v. Dei Consentes [G. Nieddu])
-
-	%\ldots\ \parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}
-	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
- \end{bsp}
-
-
-Da der Bibliographieeintrag ein Lexikonartikel ist (|@inreference|), werden bei gewählter Präambel-Option |inreferences=true| alle Lexikoneinträge von der Bibliographie ausgeschlossen, da sie ja in der Fußnote vollzitiert werden.
-
-Ansonsten  (Präambel-Option |inreferences=false| = default)  sieht der Eintrag in der Bibliographie so aus:
-
-
+Either you want it in the default style ›author-year‹, so it will have a label and is referenced to your final bibliography, then you don’t have to do anything.
+In the bibliography it will look like
 \printbib{Neils_1994}
-\printbib{Nieddu_1995}
 
+\item\label{inreference:b} 
+The German Archaeological Institute has a special rule for inreferences in the footnote.
+Then the output will be like:\\
+|reference volume (year) pages s.v. title (author)| \\
+and there will be no reference to the bibliography since the entry is fully described in the footnote.
+\DescribeMacro{inreferences} If you prefer this method you have to use the preamble option called  |inreferences| -- cf. \cref{inreferences}
+Then it will look like this in the footnote:
+\begin{bsp}
+LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils)
+\end{bsp}
+\end{enumerate}
+
+As mentioned above it is of advantage when you relate entries like  an |@Inreference| with its |@Reference|. 
+And since not all references have a ›canonical‹ abbreviation (e.g. RE, LIMC, DNP, LTUR, LÄ, etc.) it might be necessary to define a |shorthand|.
+This is shown in the example below.
  
-
-
-
- Diese Handhabe gilt nicht nur für ›kanonische Lexika‹ der Altertumswissenschaften (RE, LIMC, DNP, LTUR, LÄ, etc.) sondern kann auf alle Lexika angewendet werden.
- 
- Da es nicht für alle Lexika eine Abkürzungskonvention  des  Titels gibt, können und sollten diese selbst abkürzt werden.\footnote{Dies ist sehr emphehlenswert, da in der Bibliographie der Abstand zwischen der Autor-Jahr-Abkürzung und dem Vollzitat sich nach der längsten ›Shorthand‹ richtet.}
- 
- Ein weiteres Beispiel:
 \begin{lstlisting}
 @Inreference{Weinbrenner_1914,
   author    = {Weinbrenner},
@@ -1619,32 +1706,21 @@ Ansonsten  (Präambel-Option |inreferences=false| = default)  sieht der Eintrag 
   number    = {2},
 }
 \end{lstlisting}
-Der Lexikoneintrag ist über |related| verknüpft mit:
-\begin{lstlisting}
-@Reference{Lexikon-der-Technik,
-  title     = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},
-  year      = {1904--1920},
-  edition   = {2},
-  editor    = {Otto Lueger},
-  keywords  = {corpus},
-  location  = {Stuttgart},
-  shorthand = {Lexikon d. T.},
-}
-\end{lstlisting}
-Wichtig ist, dass |booktitle| des |@inreference| und |shorthand| des |@reference| gleich sind, damit der Titel des Lexikons entsprechend aufgelöst werden kann.
+As you see this entry is related to |Lexikon-der-Technik| which is described above and has a |shorthand = {Lexikon d. T.}|
+You just need to make sure that  |booktitle| of the |@Inreference| and the |shorthand| of the  |@Reference| are equal so the title can be referenced properly in the bibliography.
 
 
 \begin{refsection}
 \begin{bsp}
 \nocite{Lexikon-der-Technik,Weinbrenner_1914}
  \printbibliography[keyword=Sigel,title={Abkürzungen und Sigel}]
-\printbibliography[title={Forschungsliteratur},notkeyword=Sigel]
+\printbibliography[notkeyword=Sigel]
 \end{bsp}
  \end{refsection}
 
 
  
- \subsection{Typ \texttt{@review}}\label{review}
+ \subsection{Type \texttt{@review}}\label{review}
 \DescribeMacro{@review}
 Rezensionen, die in Zeitschriften erschienen sind, werden als |@review| verarbeitet.
 Oft zitiert man die Rezension und das rezensierte Werk in seiner Arbeit.
@@ -1751,7 +1827,7 @@ von \citeauthor{Welch_2007} rezensiert, sondern es zugleich mit
 \printbib[5em]{Taylor_2008}
 
 
- \subsection{Typ \texttt{@thesis}}\label{thesis}
+ \subsection{Type \texttt{@thesis}}\label{thesis}
 Master- und (unpublizierte) Doktorarbeiten sind als |@thesis| aufzunehmen.
 Wichtige Felder sind |type=|\marg{|phdthesis|} bzw. \marg{|mathesis|}  und |institution=|\marg{Universität}.
 
@@ -1774,7 +1850,7 @@ In der Bibiographie wird das zu:
  
  \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
 
- \subsection{Typ \texttt{@talk}}\label{talk}
+ \subsection{Type \texttt{@talk}}\label{talk}
  Mit dem neu definierten Eintragstyp |@talk| können Vorträge von Einzelkolloquien oder von Konferenzen zitiert werden.
  Folgende Felder können benutzt werden: 
  | author|,
@@ -1954,6 +2030,64 @@ bzw. für die Reihen:
 \printbiblist[heading=subbibnumbered,title={Reihenabkürzungen}]{shortseries}\end{bsp}
 
 \end{refsection}
+
+\section{FAQ: For  Ancient (scholars of high) Quality}
+\subsection{Following pages}
+\DescribeMacro{\psq} If you have to cite two following pages there is the macro \cs{psq} which is best to you since it is also controlled by the set up language.
+Just write the first page in the \oarg{postnote} and then the \cs{psq} -- cf. \cref{psq}
+\subsection{Online referencing}
+\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it.
+\begin{description}
+\item[JSTOR] If you can refer to the online plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{eprint:jstor}:
+\begin{lstlisting}
+eprint = *@\marg{jstor-number}@*
+eprinttype = {jstor} 
+\end{lstlisting}			
+
+\end{description}
+
+\subsection{Brackets (with @Inreference)}\label{faq:inreference}
+ Verwendet man den normalen |\cite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}-Befehl, dann wird bei eingetragener Option (|lexikon|) die \oarg{postnote} nicht nachgestellt, sondern nach der Jahresangabe des Lexikons gesetzt.
+ Ist die \oarg{postnote} leer, dann werden die Seiten aus dem Bibliographieeintrag ausgelesen und an diese Stelle gesetzt:
+  
+ \begin{bsp}
+	\ldots\ (|\cite[vgl.][930 Nr. 283]{Neils_1994}|).
+	
+	...\ (vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)). \textcolor{red}{WRONG!}
+	% \ldots (\fullcite[vgl.][930 Nr. 283]{Neils_1994}).
+ \end{bsp}
+ 
+\DescribeMacro{\parencite} 
+Dieses Beispiel zeigt, dass keine Klammerregelung angewendet wurde, was nicht gewünscht ist. 
+Es ist zu beachten, dass bei gewählter Option  |inreferences=true| (in der Präambel) und bei einer gewünschten  Zitation in Klammern (), der Befehl |\parencite|\marg{Schlüssel} verwendet wird (\ref{cite-befehle}), damit die Klammerregelung automatisch angewendet wird.
+Dies funktioniert so: 
+ 
+ \begin{bsp}
+	\ldots\ |\parencite[vgl.][930 Nr. 283]{Neils_1994}.|
+ 
+ 	...\ (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green}{CORRECT!}
+
+	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
+ \end{bsp}
+
+\DescribeMacro{\parencites}
+Gleiches gilt auch für das Zitieren von mehreren Einträgen in Klammern: Dafür wird analog der Befehl |\parencites|\marg{Schlüssel} verwendet:
+ \begin{bsp}
+	\ldots\ |\parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}.|
+ 
+ 	...\ (vgl. Neils 1994, 930 Nr. 283; Nieddu 1995, 9).
+ 	 \end{bsp}
+
+ 	bzw. mit der Präambel-Option |inreferences=true|:
+ 	 \begin{bsp}
+
+ 	\ldots (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]; LTUR 2 [1995] 9 s. v. Dei Consentes [G. Nieddu])
+
+	%\ldots\ \parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}
+	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
+ \end{bsp}
+
+
 \clearpage
 \section{Antike Autoren und Werke}\label{ancient-list}
 Bibliography |archaeologie-ancient.bib| with a list of ancient authors and texts and their abbrevviation according to  Der Neue Pauly.

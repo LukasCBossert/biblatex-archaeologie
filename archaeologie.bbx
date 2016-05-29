@@ -535,18 +535,26 @@
 		\usebibmacro*{related:default}{#1}%
 }
 %-----------------------
+\renewcommand*{\lbx@lfromlang}{%
+      \iflistundef{language}
+        {\unspace}
+        {\biblstring{from\thelist{language}}}}
+    \renewcommand*{\lbx@sfromlang}{%
+      \iflistundef{language}
+        {\unspace}
+        {\bibsstring{from\thelist{language}}}}
+  
 \newbibmacro*{related:translationof}[1]{%
   \entrydata*{#1}{%
     \restorename{savedtranslator}{\savedrelatedtranslator}%
      \printtext[emph]{\usebibmacro{title}}%
-    \setunit{\addspace}%
-    %\printlist{savedlanguage}%%
-        \printlist{language}%
-    \newunit
+     \usebibmacro{location+edition+year}%
+     \newunit
     \bibstring{bytranslator}%keine Sprache ausgegeben?    
     \setunit{\addspace}%
     \printnames{savedtranslator}
-  \usebibmacro{location+edition+year}}}
+    \printlist{language}
+  }}
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
