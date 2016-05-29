@@ -249,16 +249,16 @@
 %				}%
 %}
 \AtEveryBibitem{%
-  	\ifboolexpr{bool {bbx:translation}%
-  					 or bool {cbx:ancient}%
-  					 or bool {cbx:frgancient}
-  					 %test {\iffieldequalstr{relatedtype}{translationof}}%
-  					 }%
-    	{}%
-    	{\clearname{translator}%
-    			\clearfield{origtitle}%
-		       }%
-}
+  \iffieldequalstr{relatedtype}{translationof}
+    {\savename{translator}{\savedrelatedtranslator}%
+     \clearname{translator}}
+    {}
+  \ifboolexpr{bool {bbx:translation}%
+              or bool {cbx:ancient}%
+              or bool {cbx:frgancient}}%
+    {}%
+    {\clearname{translator}%
+     \clearfield{origtitle}}}
 
 
 %-----------------------
@@ -535,37 +535,17 @@
 		\usebibmacro*{related:default}{#1}%
 }
 %-----------------------
-\renewbibmacro{bytranslator+others}{%
-  \ifnameundef{translator}
-    {}
-    {\usebibmacro{bytranslator+othersstrg}%
-     \setunit{\addspace}%
-     \printnames[bytranslator]{translator}%
-     \iffieldequalstr{relatedtype}{translationof}%
-                    {}{\clearname{translator}}%
-     \newunit}%
- % \usebibmacro{with others}
-  }
-
-
 \newbibmacro*{related:translationof}[1]{%
   \entrydata*{#1}{%
-    \renewbibmacro*{name:hook}[1]{%
-      \ifnumequal{\value{listcount}}{1}
-        {\begingroup
-         \mkrelatedstring%
-         \lbx@initnamehook{#1}%
-         \endgroup}
-        {}}%
-	\setunit*{\addspace\bibstring{origpubas}\space}% nicht verwendet?!
+    \restorename{savedtranslator}{\savedrelatedtranslator}%
+    \printnames{savedtranslator}%
+    \newunit\newblock
     \printtext[emph]{\usebibmacro{title}}%
     %\setunit{\addspace}%
     %\bibstring{bytranslator}%keine Sprache ausgegeben?!
     %\setunit{\addspace}%
    % \usebibmacro{bytranslator+others}%
-    \printnames{savedtranslator}%
-\usebibmacro{location+edition+year}%
-}}
+  \usebibmacro{location+edition+year}}}
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
