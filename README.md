@@ -5,6 +5,7 @@ _2016/05/31 v2.0_
 
 archaeologie: bibLaTeX for archaeologists, 
 historians and philologists.
+-----------
 
 
 Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
@@ -56,5 +57,5 @@ version 2005/12/01 or later.
 ---
 This work has the LPPL maintenance status 'maintained'.
 
-The Current Maintainer of this work is [https://github.com/LukasCBossert](Lukas C. Bossert).
+The Current Maintainer of this work is [Lukas C. Bossert](https://github.com/LukasCBossert).
 
