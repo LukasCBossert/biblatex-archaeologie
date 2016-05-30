@@ -3,8 +3,7 @@ bibLaTeX-__archaeologie__
 _2016/05/31 v2.0_
 
 
-archaeologie: bibLaTeX for archaeologists, 
-historians and philologists.
+archaeologie: bibLaTeX for archaeologists, historians and philologists.
 -----------
 
 
