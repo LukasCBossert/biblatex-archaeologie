@@ -246,12 +246,12 @@ Here is some additional information from the UK \TeX\ FAQ:
 %%introduction from biblatex-dw copied and applied. might to be rewritten.
 
 \section{Usage}
- \DescribeMacro{archaeologie}  The name of the biblatex-style is  |archaeologie| has to be activated in the preamble. 
+ \DescribeMacro{archaeologie}  The name of the bib\LaTeX-style is  |archaeologie| has to be activated in the preamble. 
 
 \begin{lstlisting}
 \usepackage[style=archaeologie,%
 					*@\meta{further options}@*]{biblatex}
-\bibliography*@\marg{|bib|-Datei}@*
+\bibliography*@\marg{|bib|-file}@*
 \end{lstlisting}
 
 Without any further options the style covers now the rules of the German Archaeological Institute. No additional settings are needed.
@@ -259,13 +259,13 @@ But you can change the outcome by using some options which are explained below.\
 
 At the end of your document you can write the command |\printbibliography| to print 
 the bibliography. 
-Since |archaeologie| supports different citations of various texts like from ancient authors and from modern scholars we suggest to have them listed in separted bibliographies. 
+Since |archaeologie| supports different citations of various texts like from ancient authors and from modern scholars we suggest to have them listed in separated bibliographies. 
 Further information are found below   (\cref{bibliographie}).
 
 \section{Overview}
 Following there is a quick overview of the possible options of the style |archaeologie|.
-Furthermore one can -- at your own risk -- also use the conventional  |biblatex|-options which are related of indent, etc. 
-For that please see the excellent documentation of  |biblatex|.
+Furthermore one can -- at your own risk -- also use the conventional  |bib|\LaTeX-options which are related of indent, etc. 
+For that please see the excellent documentation of  |bib|\LaTeX.
 
  \subsection{Options in the preamble}\label{preamble_options}
  \DescribeMacro{seenote}
@@ -313,14 +313,14 @@ All the locations and the publisher is shown. This changes the format of the edi
 In the bibliography the full names of the authors and/or editors are shown cf. \cref{bibfullname}.
 
  \DescribeMacro{inreferences}
-Each bibliography entry which is a  |@inreference| is fully referenced according to the rules of the German Archaeological Institute cf. \cref{inreferences}.
+Each bibliography entry which is a  |@Inreference| is fully referenced according to the rules of the German Archaeological Institute cf. \cref{inreferences}.
 
  \DescribeMacro{lastnames}
-Writes only the family names of the authors or editors when theyare cited with  |citeauthor|\-\marg{bibtex-key}.
+Writes only the family names of the authors or editors when they are cited with  \cs{citeauthor}\marg{bibtex-key}.
 In footnotes this is default cf.  \cref{lastnames}.
 
  \DescribeMacro{fullnames}
-Writes only the first and family names of the authors or editors when they are cited with  |citeauthor|\-\marg{bibtex-key} cf.  \cref{fullnames}.
+Writes only the first and family names of the authors or editors when they are cited with  \cs{citeauthor}\marg{bibtex-key} cf.  \cref{fullnames}.
 
 
  \DescribeMacro{scshape}
@@ -385,13 +385,13 @@ If one wants to cite several authors or works a very convenient way is the follo
 
 \begin{center} * * * \end{center}
 \DescribeMacro{\parencite}
-Sometimes a citation has to be put in parens. 
+Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
 \begin{lstlisting}
 \parencite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 This cite-command takes care of the correct corresponding parentheses and brackets.
-Especially if one cites an inreference the parentheses are changing to (square) brackets.
+Especially if one cites an |@Inreference| the parentheses are changing to (square) brackets.
 The example shown in \cref{faq:inreference} makes it clear.
 
 \DescribeMacro{\parencites}
@@ -488,7 +488,7 @@ Changes made by the options are {\color{red}coloured}.
 %In {\color{blue}blau} sind bibliographische Einträge, die mit dem nächsten Literaturverzeichnis verknüpft sind.
 
  \subsection{Options set in the preamble}\label{options-preamble}
-The optional preferences   In the preamble are loaeded within the package  |biblatex|:
+The optional preferences   In the preamble are loaded within the package  |bib|\LaTeX:
  \begin{lstlisting}
 \usepackage[%				
 		backend=biber,	% activates biber which is done by default anyway 
@@ -498,7 +498,7 @@ The optional preferences   In the preamble are loaeded within the package  |bibl
 		lstabbrv,							%option *@|lstabbrv|@* is loaded as well
 		]{biblatex}
 \end{lstlisting}
-In this example the style |archaeologie| is loaded with the option |inreferences|.
+\DescribeMacro{inreferences}In this example the style |archaeologie| is loaded with the option |inreferences|.
 It doesn't matter if you write |inreferences,| or |inreferences=true|.
 
 
@@ -511,7 +511,7 @@ In this bibliography all abbreviations listed in \cref{listen} are stored.
 
 \subsubsection{ancient}\label{ancient}
  \DescribeMacro{ancient}
-In the case you cite ancient authors and their works you can do it with the common  |\cite|-command.
+In the case you cite ancient authors and their works you can do it with the common  \cs{cite}-command.
 This is recommended and will  guarantee a high level of consistency and  minimize  error-proneness.
 For this case especially we included a modification that respects the different citation of  ancient authors and works.
 With the option |ancient| you load an additional bibliography called |bibliography-ancient.bib| in which we inserted almost 600 ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
@@ -540,9 +540,9 @@ The bibliography-entry looks like this
 All entries in the mentioned additional bibliography contain the line |keywords = {ancient}|.
 With that you can print all ancient authors in a separated bibliography.
 The needed command is:
-
-|\printbibliography[keyword = ancient]|
-
+\begin{lstlisting}
+\printbibliography[keyword = ancient]
+\end{lstlisting}
 \printbib{Apul:met}
 
 \begin{refsection}
@@ -679,7 +679,7 @@ then it will change the position for the \oarg{postnote}:
   LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
   \end{enumerate}
 \end{bsp}
-With the activated option  (|inreferences|) the cited entries which are defined as a|@inreference| will be automatically omitted in the (final) bibliography,
+With the activated option   (|inreferences|) the cited entries which are defined as a|@inreference| will be automatically omitted in the (final) bibliography,
 because the entries are fully cited before in the footnotes.
 
 If the option is not used (|=false|) the entry will look like this in the bibliography:
@@ -992,7 +992,7 @@ This option gives you a different output of the editors: Instead of ›(ed.)‹/
   shortseries  = MKT-short,
 }
 \end{lstlisting}
-Without the option this inproceedings will look like:
+Without the option this |@Inproceedings| will look like:
  
  \printbib[7em]{Wulf-Rheidt_2013}
 
@@ -1229,7 +1229,7 @@ and like this in the bibliography.
 \printbib[5em]{Mann_2011}
 
 \subsubsection{›Festschrift‹, commemorative volume, catalogue, etc.}
-To make it clear that the book or collection is a so-called ›Festschrift‹m a commemorative volume, or a exhibition or auction catalogue you need an additional note to make it clear.
+To show that the book or collection is a so-called ›Festschrift‹/ commemorative volume, or a exhibition or auction catalogue you need an additional note to make it clear.
 We suggest to use the field |titleaddon|, or if it a |@Incollection| or |@Inproceedings| you can use the field |booktitleaddon| (\cref{inbook}).
 \begin{lstlisting}
 @Book{Boehm_2001,
@@ -1349,7 +1349,7 @@ This following example should make it clear:
 
 \printbib[11em]{Carter_2014}
 
-You can also have contributions to a ›Festschrift‹ etc set up as |@Incollection|,
+You can also have contributions to a ›Festschrift‹ etc. set up as |@Incollection|,
 but then notice the additional information in |booktitleaddon|.
 \begin{lstlisting}
 @Incollection{Hoelscher_2001,
@@ -1650,7 +1650,7 @@ But you can also have it  more detailed  like this one:
 
  \subsection{Type \texttt{@Inreference}}\label{inreference}
  \DescribeMacro{@Inreference}
-Besides a whole reference you can also -- and which is more likely -- cite only an entry of it via the type  |@inreference|.
+Besides a whole reference you can also -- and which is more likely -- cite only an entry of it via the type  |@Inreference|.
 
 It will be more clear with an example:
   \begin{lstlisting}
@@ -1718,8 +1718,8 @@ You just need to make sure that  |booktitle| of the |@Inreference| and the |shor
 \begin{refsection}
 \begin{bsp}
 \nocite{Lexikon-der-Technik,Weinbrenner_1914}
- \printbibliography[keyword=Sigel,title={Abkürzungen und Sigel}]
-\printbibliography[notkeyword=Sigel]
+ \printbibliography[keyword=corpus,title={Corpora}]
+\printbibliography[notkeyword=corpus]
 \end{bsp}
  \end{refsection}
 
@@ -1745,7 +1745,7 @@ The following example will show an easy way to combine the review with the revie
 |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
  \end{description}
 
-What you need are two separate entries: one as a |@Review| the other is a |@Book|, |@Collection|, |@Proceeding| or something else.
+What you need are two separate entries: one as a |@Review| the other is a |@Book|, |@Collection|, |@Proceedings| or something else.
 
 First we have the reviewed work:
 \begin{lstlisting}
@@ -1889,7 +1889,7 @@ Here is the entry in the bibliography:
  \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
 
  \subsection{Type \texttt{@Talk}}\label{talk}
-For (oral) given papers e.g. at a colloquium or a proceeding we created a new entry type calld ›@Talk‹.
+For (oral) given papers e.g. at a colloquium or a proceeding we created a new entry type called ›@Talk‹.
 
 \begin{description}
 \item[mandatory:] 
@@ -1929,7 +1929,7 @@ The bibliography will show the entry as:
 \newpage
  \section{Bibliography}\label{bibliographie}
  \DescribeMacro{\printbibliography}
-As long as you don’t use the option |seenote| -- for which a final bibliography is not needed -- you will need to print you cited entries in a bibliography at a certain place in your document.
+As long as you don’t use the option\DescribeMacro{seenote} |seenote| -- for which a final bibliography is not needed -- you will need to print you cited entries in a bibliography at a certain place in your document.
 It can be useful to differentiate your bibliography and divide it e.g. into a bibliography with ancient authors  and one with modern scholars.
 Additionally you can have a bibliography with the |shorthands|, or all abbreviated journal titles, etc.
 
@@ -1996,7 +1996,7 @@ Now have a look how it looks like with all the entries we explained above.
 \end{bsp}
 
 You can create as many bibliographies as you wish each with an other keyword if you like.
-Or you can make a bibliography with all the shorthands used in your text -- for that we use |keyword= {corpus}| (line 2):
+Or you can make a bibliography with all the |shorthands| used in your text -- for that we use |keyword= {corpus}| (line 2):
 \begin{lstlisting}
 \printbibliography[%
 					keyword=corpus,%
@@ -2053,9 +2053,9 @@ For series it is done like this:
 \DescribeMacro{\psq} If you have to cite two following pages there is the macro \cs{psq} which is best to you since it is also controlled by the set up language.
 Just write the first page in the \oarg{postnote} and then the \cs{psq} -- cf. \cref{psq}.
 \subsection{Online referencing}
-\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it --  see also the biblatex-documentation 3.11.7.
+\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it --  see also the \href{http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf}{|bib|\LaTeX-documentation 3.11.7}.
 \begin{description}
-\item[JSTOR] If you can refer to the online plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{eprint:jstor}:
+\item[JSTOR] If you can refer to the on-line plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{eprint:jstor}:
 \begin{lstlisting}
 eprint = *@\marg{jstor-number}@*
 eprinttype = {jstor} 
@@ -2096,7 +2096,7 @@ Especially when you activated the preamble option  |inreferences=true| \Describe
 Sometimes it is impossible to get hold of the author or editor but you still want to cite them.
 If you come along such a paper you can define a |label| which will be used for citing and sorting.
 This is not connected to an entry type -- it can be used with any work.
-In the following example we use an enty type |@Article|:
+In the following example we use an entry type |@Article|:
 \begin{lstlisting}
 @Article{Cosa_1949,
   title        = {Cosa},
@@ -2126,7 +2126,7 @@ and be printed in the bibliography like this:
 \clearpage
 \section{Ancient authors and works}\label{ancient-list}
 The bibliography |archaeologie-ancient.bib| is filled with ancient authors, works and their abbreviation according to  The New Pauly.
-The bold entry on the left is the |bibtexkey|.
+The bold entry on the left is the |bibtex-key|.
 All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
 
 \begin{multicols}{2}
@@ -2138,7 +2138,7 @@ All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
 \section{Corpora}\label{corpora}
 List of corpora in ancient studies |archaeologie-corpora.bib|.
 This activates the other additional bibliography |archaeologie-abbrv.bib| automatically.
-The bold entry on the left is the |bibtexkey|.
+The bold entry on the left is the |bibtex-key|.
 All the entries have |keywords={corpus}|, |options={corpus}|.
 \begin{multicols}{2}
 	\input{archaeologie-corpora.tex}
@@ -2148,28 +2148,23 @@ All the entries have |keywords={corpus}|, |options={corpus}|.
 
 
 
-\section{Abkürzungen nach DAI-Richtlinie}\label{listen}
-Da die Schreibweise von manchen Kürzeln der Zeitschriften oder Reihen nicht als |@string| übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
-Generell gilt, dass Akzente weggelassen wurden, Umlaute ausgeschrieben (ä--> ae), ähnliche Buchstaben mit Äquivalenten ersetzt wurden (ı --> i).
-Nachfolgend werden zwei Listen angeführt, die die Auflistung nach @string (links) und Ausgabe (rechts) zeigen.
-Die erste Liste enthält die Abkürzungen (\cref{liste-kurz}), die zweite Liste die ausgeschriebenen Namen (\cref{liste-lang}).
-Es empfiehlt sich, in diesen Listen die |@string|-Angaben nachzuschauen und dann für |journaltitle| und |shortjournal|, bzw. |series| und |shortseries| einzutragen.
+\section{List of abbreviation according to the German Archaeological Institute-guidelines}\label{listen}
+We modified the lists with abbreviations of journals, corpora, etc. to make them usable with |bib|\LaTeX.
+Below there are two lists with\DescribeMacro{@string} |@string| (in \textbf{bold} letters on the left), 
+one with the abbreviations (\cref{liste-kurz}), the other with the long forms  (\cref{liste-lang}).
 
-Die Unterscheidung, ob in der Bibliographie die Abkürzung (Standard) oder der voller Titel genannt werden soll, erfolgt automatisch über die Option |noabbrevs| (Siehe \cref{noabbrevs}). Ist diese Option nicht aktiviert, dann werden standardmäßig die Abkürzungen angegeben.
-
-%%Beim Kompilieren wird eine Bibliographiedatei (|dai-abkuerzungen.bib|) erstellt, in der die Angaben der |@abbrv| gespeichert sind.
-%%Diese Bibliographiedatei wird zusätzlich zur eigenen Bibliographie geladen.
-%%Ist |dai-abkuerzungen.bib| bereits vorhanden, dann wird sie nicht neu generiert.
+We recommend to look up the journal names in the list and insert the |@string| in the fields  |journaltitle| and |shortjournal|, or |series| and |shortseries|.
 
 
-\subsection{Kurzformen\label{liste-kurz}}
+\subsection{Short form} \label{liste-kurz}
 \begin{multicols}{2}
 \input{archaeologie-lstabbrv-short.tex}
 \end{multicols}
 
 
-\subsection{Langformen\label{liste-lang}}
-\DescribeMacro{noabbrv}Die Ausgabe erfolgt über die Option |noabbrv|.
+\subsection{Long forms}\label{liste-lang}
+\DescribeMacro{noabbrv}
+To see the long forms of journal titles or series you have to switch on the option  |noabbrv|.
 %\begin{multicols}{1}
 \input{archaeologie-lstabbrv.tex}
 %\end{multicols}
