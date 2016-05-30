@@ -255,8 +255,7 @@ Here is some additional information from the UK \TeX\ FAQ:
 \end{lstlisting}
 
 Without any further options the style covers now the rules of the German Archaeological Institute. No additional settings are needed.
-But you can change the outcome by using some options which are explained below.
-
+But you can change the outcome by using some options which are explained below.\footnote{For an easy and unproblematic compiling we suggest to use\hologo{XeLaTeX} or  \hologo{LuaTeX}.}
 
 At the end of your document you can write the command |\printbibliography| to print 
 the bibliography. 
@@ -1314,8 +1313,8 @@ In the bibliography the main title of the monograph  (|maintitle|) and the title
 
 
  \subsection{Type \texttt{@Inbook / @Incollection}}\label{inbook}
- \DescribeMacro{@Incollection}
-Single entries/chapters of a collection are cited best when they are set up as  |@Incollection|. 
+ \DescribeMacro{@Incollection}\DescribeMacro{@Inbook}
+Single entries/chapters of a collection are cited best when they are set up as  |@Incollection| or |@Inbook|.
 
 
 \begin{description}
@@ -1430,9 +1429,6 @@ and the second example
 \printbib[6em]{Kohlmeyer_1983}
 \begin{refsection}\end{refsection}
 \printbiball[6em]{Parlasca_1969}
-
- Der Typ |@inbook| entspricht hier dem Typ |@incollection|.
-
 
 \subsection{Type \texttt{@Article}}\label{article}
 \DescribeMacro{@Article} This is probably the most common type because you find detailed information about specific topics in articles.
@@ -1688,6 +1684,15 @@ Then it will look like this in the footnote:
 \begin{bsp}
 LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils)
 \end{bsp}
+When you have the \oarg{postnote} filled out in a citation which belongs to an |@Inreference| then it won’t be printed in the end of the citation.
+\begin{lstlisting}
+\cite[vgl.][930 Nr. 283]{Neils_1994}.
+\end{lstlisting}
+The |postnote| (\emph{930 Nr. 283}) will be printed instead of the |pages|:
+ \begin{bsp}
+vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils).
+ \end{bsp}
+ 
 \end{enumerate}
 
 As mentioned above it is of advantage when you relate entries like  an |@Inreference| with its |@Reference|. 
@@ -1922,30 +1927,41 @@ The bibliography will show the entry as:
 
 
 \newpage
- \section{Bibliographie}\label{bibliographie}
+ \section{Bibliography}\label{bibliographie}
  \DescribeMacro{\printbibliography}
-Wie bei jedem Dokument mit im Text zitierten Werken bedarf es einer Stelle, an der diese auch aufgeschlüsselt werden: die Bibliographie. 
-Für Altertumswissenschaftler (und auch andere) ist es manchmal hilfreich verschiedene Bibliographien im Dokument zu haben, die unterschiedliche Arten von Werke beinhalten, bspw. ein Quellenverzeichnis, Abkürzungen und Forschungsliteratur. 
-Nachfolgend wird gezeigt, wie dies berwerkstelligt werden kann. 
-Zunächst sollten alle Quellen in der |bib|-Datei mit dem Feld
- |keyword={ancient},|
- versehen werden. 
-Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die über die Option  |heading=bibnumbered|, bzw. |heading=subbibnumbered| geladen werden.
+As long as you don’t use the option |seenote| -- for which a final bibliography is not needed -- you will need to print you cited entries in a bibliography at a certain place in your document.
+It can be useful to differentiate your bibliography and divide it e.g. into a bibliography with ancient authors  and one with modern scholars.
+Additionally you can have a bibliography with the |shorthands|, or all abbreviated journal titles, etc.
 
+How the different bibliographies can be set up is explained now:
+Let’s assume you want to have a bibliography with the ancient authors and one with modern scholars.
+Since the entries of the ancient authors have the field  |keyword={ancient}| (or should have it) this is done quite easy.
+
+But first we define the heading of the whole  bibliography:
 \begin{lstlisting}
 \printbibheading[%
 							%heading=bibnumbered,%
 									% commented for this documentation
 									% uncomment if you want it numbered		
 							title={Bibliography}] %heading for bibliography
+\end{lstlisting}
+You can give any title you would like to give (|title = |\marg{any title}).
 
+The next step is to set up the bibliography for the ancient authors.
+
+\begin{lstlisting}
 \printbibliography[%
 							keyword=ancient,%
 							%heading=subbibnumbered,%
 									% commented for this documentation
 									% uncomment if you want it numbered
 							title={Ancient authors and works}]
+\end{lstlisting}
+We tell the bibliography just to contain the entries which have have |ancient| in the field |keywords| (line 2).
 
+
+Finally the bibliography for modern scholars:
+\begin{lstlisting}
 \printbibliography[%
 							notkeyword=ancient,%
 							notkeyword=corpus,%
@@ -1954,14 +1970,13 @@ Es bietet sich  an, mit (nummerierten) Unterbibliographien zu arbeiten, die übe
 									% uncomment if you want it numbered
 							title={Secondary literature}]
 \end{lstlisting}
-
+This time we exclude all entries which have |ancient| or |corpus| in the field |keywords|.
+That’s it.
 
 
 \begin{refsection}
 \nocite{*}
-
-Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturverzeichnis getrennt voneinander ausgegeben. 
-
+Now have a look how it looks like with all the entries we explained above.
 \begin{bsp}
 \renewcommand\bibfont{\normalfont\footnotesize}
 \printbibheading[%
@@ -1980,9 +1995,8 @@ Damit wird zuerst die Quellen und danach das \enquote{gewöhnliche} Literaturver
 							title={Secondary literature}]
 \end{bsp}
 
-
-Es können mehrere Bibliographien über |\printbibliography| erstellt werden, die jeweils unterschiedliche Einträge haben können.
-Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln (Lexika, Handbücher, Inschriftencorpora, etc) aufgeführt werden, sodass diese dann aus der |Forschungsliteratur| herausfliegen (dort  |notkeyword=Sigel| ergänzen). Dafür wird das Feld |keyword| auf den Inhalt |Sigel| ausgelesen:
+You can create as many bibliographies as you wish each with an other keyword if you like.
+Or you can make a bibliography with all the shorthands used in your text -- for that we use |keyword= {corpus}| (line 2):
 \begin{lstlisting}
 \printbibliography[%
 					keyword=corpus,%
@@ -1991,7 +2005,7 @@ Beispielsweise kann man eine Unterbibliographie erstellen, in der nur die Sigeln
 							% uncomment if you want it numbered
             		title={Abbreviation and corpora}]
 \end{lstlisting}
-Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {corpus}| stehen haben:
+Now the bibliography only lists the used entries which have |corpus| in the field |keywords|:
 \begin{bsp}
 \printbibliography[%
 						keyword={corpus},
@@ -2001,14 +2015,14 @@ Die Teilbibliographie umfasst dann nur Einträge, die unter |keywords = {corpus}
             			title={Abbreviation of corpora}]\label{bib:corpus}
 \end{bsp}
 
-Ebenso hilfreich kann es sein, dass die verwendeten Abkürzungen der Zeitschriften und Reihen aufgelöst werden.
-Dies geschieht  für die Zeitschriften mit:
+Furthermore you can have a bibliography for all the abbreviated journal titles and series to have the abbreviation and its long form.
+For journals it works like this:
 \begin{lstlisting}
 \printbiblist[%
 					%heading=subbibnumbered,%
 						% commented for this documentation
 						% uncomment if you want it numbered
-					title={Zeitschriftenabkürzungenl}]{shortjournal}
+					title={Abbreviation of journals}]{shortjournal}
 \end{lstlisting}
 
 \begin{bsp}
@@ -2016,28 +2030,30 @@ Dies geschieht  für die Zeitschriften mit:
 					%heading=subbibnumbered,%
 						% commented for this documentation
 						% uncomment if you want it numbered
-					title={Zeitschriftenabkürzungenl}]{shortjournal}
+					title={Abbreviation of journals}]{shortjournal}
 \end{bsp}
 
-bzw. für die Reihen:
+For series it is done like this:
 \begin{lstlisting}
 \printbiblist[%
-							heading=subbibnumbered,%
-							title={Reihenabkürzungen}]{shortseries}
+					%heading=subbibnumbered,%
+						% commented for this documentation
+						% uncomment if you want it numbered
+					title={Abbreviation of series}]{shortseries}
 \end{lstlisting}
 
 
 \begin{bsp}
-\printbiblist[heading=subbibnumbered,title={Reihenabkürzungen}]{shortseries}\end{bsp}
+\printbiblist[title={Abbreviation of series}]{shortseries}\end{bsp}
 
 \end{refsection}
 
 \section{FAQ: For  Ancient (scholars of high) Quality}
 \subsection{Following pages}
 \DescribeMacro{\psq} If you have to cite two following pages there is the macro \cs{psq} which is best to you since it is also controlled by the set up language.
-Just write the first page in the \oarg{postnote} and then the \cs{psq} -- cf. \cref{psq}
+Just write the first page in the \oarg{postnote} and then the \cs{psq} -- cf. \cref{psq}.
 \subsection{Online referencing}
-\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it.
+\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it --  see also the biblatex-documentation 3.11.7.
 \begin{description}
 \item[JSTOR] If you can refer to the online plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{eprint:jstor}:
 \begin{lstlisting}
@@ -2045,48 +2061,36 @@ eprint = *@\marg{jstor-number}@*
 eprinttype = {jstor} 
 \end{lstlisting}			
 
+\item[urn] 
+For all papers referable via an ›urn‹ (\emph{Uniform Resource Name}), which have been registered at the German National Library -- cf. \cref{urn}
+\begin{lstlisting}
+eprint = *@\marg{urn:xxx}@*
+eprinttype = {urn} 
+\end{lstlisting}			
 \end{description}
 
 \subsection{Brackets (with @Inreference)}\label{faq:inreference}
- Verwendet man den normalen |\cite|\oarg{prenote}\oarg{postnote}\marg{Schlüssel}-Befehl, dann wird bei eingetragener Option (|lexikon|) die \oarg{postnote} nicht nachgestellt, sondern nach der Jahresangabe des Lexikons gesetzt.
- Ist die \oarg{postnote} leer, dann werden die Seiten aus dem Bibliographieeintrag ausgelesen und an diese Stelle gesetzt:
-  
+Be aware to stick to the correct order of parentheses and brackets.
+The rule says that within a pair of parentheses you have to use square brackets.
+Citing |@Inreferences| can lead easily to a false behaviour when you put it in parentheses.
+This is an example how it should not be done:
+\begin{lstlisting}
+\cite[vgl.][930 Nr. 283]{Neils_1994}.
+\end{lstlisting}
  \begin{bsp}
-	\ldots\ (|\cite[vgl.][930 Nr. 283]{Neils_1994}|).
-	
-	...\ (vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)). \textcolor{red}{WRONG!}
-	% \ldots (\fullcite[vgl.][930 Nr. 283]{Neils_1994}).
- \end{bsp}
+(vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)). \textcolor{red}{WRONG!}
+\end{bsp}
  
-\DescribeMacro{\parencite} 
-Dieses Beispiel zeigt, dass keine Klammerregelung angewendet wurde, was nicht gewünscht ist. 
-Es ist zu beachten, dass bei gewählter Option  |inreferences=true| (in der Präambel) und bei einer gewünschten  Zitation in Klammern (), der Befehl |\parencite|\marg{Schlüssel} verwendet wird (\ref{cite-befehle}), damit die Klammerregelung automatisch angewendet wird.
-Dies funktioniert so: 
- 
- \begin{bsp}
-	\ldots\ |\parencite[vgl.][930 Nr. 283]{Neils_1994}.|
- 
- 	...\ (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green}{CORRECT!}
+\DescribeMacro{\parencite} \DescribeMacro{\parencites}
+This example shows that the correct order of parentheses has not been followed.
+Especially when you activated the preamble option  |inreferences=true| \DescribeMacro{inreferences} you should use \cs{parencite}\marg{bibtex-key} instead (\cref{cite-commands}), then the correct order of parentheses and square brackets is given:
+\begin{lstlisting}
+\parencite[vgl.][930 Nr. 283]{Neils_1994}.
+\end{lstlisting}
 
-	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
- \end{bsp}
-
-\DescribeMacro{\parencites}
-Gleiches gilt auch für das Zitieren von mehreren Einträgen in Klammern: Dafür wird analog der Befehl |\parencites|\marg{Schlüssel} verwendet:
- \begin{bsp}
-	\ldots\ |\parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}.|
- 
- 	...\ (vgl. Neils 1994, 930 Nr. 283; Nieddu 1995, 9).
- 	 \end{bsp}
-
- 	bzw. mit der Präambel-Option |inreferences=true|:
- 	 \begin{bsp}
-
- 	\ldots (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]; LTUR 2 [1995] 9 s. v. Dei Consentes [G. Nieddu])
-
-	%\ldots\ \parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}
-	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
- \end{bsp}
+\begin{bsp} 
+(vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green}{CORRECT!}
+\end{bsp}
 
 \subsection{Unknown work}\label{unbekannt}
 Sometimes it is impossible to get hold of the author or editor but you still want to cite them.
@@ -2120,10 +2124,11 @@ and be printed in the bibliography like this:
 
 
 \clearpage
-\section{Antike Autoren und Werke}\label{ancient-list}
-Bibliography |archaeologie-ancient.bib| with a list of ancient authors and texts and their abbrevviation according to  Der Neue Pauly.
-The bold entry in the second line is the |bibtexkey|.
-All the entries have |keywords={ancient}|, |options={ancient}|.
+\section{Ancient authors and works}\label{ancient-list}
+The bibliography |archaeologie-ancient.bib| is filled with ancient authors, works and their abbreviation according to  The New Pauly.
+The bold entry on the left is the |bibtexkey|.
+All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
+
 \begin{multicols}{2}
 	\input{archaeologie-ancient.tex}
 \end{multicols}
@@ -2133,7 +2138,7 @@ All the entries have |keywords={ancient}|, |options={ancient}|.
 \section{Corpora}\label{corpora}
 List of corpora in ancient studies |archaeologie-corpora.bib|.
 This activates the other additional bibliography |archaeologie-abbrv.bib| automatically.
-You can cite them directly using the left entry as \marg{bibtex-key}.
+The bold entry on the left is the |bibtexkey|.
 All the entries have |keywords={corpus}|, |options={corpus}|.
 \begin{multicols}{2}
 	\input{archaeologie-corpora.tex}
@@ -2145,7 +2150,7 @@ All the entries have |keywords={corpus}|, |options={corpus}|.
 
 \section{Abkürzungen nach DAI-Richtlinie}\label{listen}
 Da die Schreibweise von manchen Kürzeln der Zeitschriften oder Reihen nicht als |@string| übernommen werden konnten, musste die Liste an die \TeX-verarbeitende Lesart angepasst werden.
-Generell gilt, dass Akzente weggelassen wurden, Umlaute ausgeschrieben (ä--> ae), ähnliche Buchstaben mit Äquivalenten ersetzt wurden (ı --> i).\footnote{Für problemloses Kompilieren und Verarbeiten der nichtlateinischen Buchstaben wird \hologo{XeLaTeX} oder  \hologo{LuaTeX} empfohlen.}
+Generell gilt, dass Akzente weggelassen wurden, Umlaute ausgeschrieben (ä--> ae), ähnliche Buchstaben mit Äquivalenten ersetzt wurden (ı --> i).
 Nachfolgend werden zwei Listen angeführt, die die Auflistung nach @string (links) und Ausgabe (rechts) zeigen.
 Die erste Liste enthält die Abkürzungen (\cref{liste-kurz}), die zweite Liste die ausgeschriebenen Namen (\cref{liste-lang}).
 Es empfiehlt sich, in diesen Listen die |@string|-Angaben nachzuschauen und dann für |journaltitle| und |shortjournal|, bzw. |series| und |shortseries| einzutragen.
@@ -2159,14 +2164,14 @@ Die Unterscheidung, ob in der Bibliographie die Abkürzung (Standard) oder der v
 
 \subsection{Kurzformen\label{liste-kurz}}
 \begin{multicols}{2}
-\input{archaeologie-abbrv-short.tex}
+\input{archaeologie-lstabbrv-short.tex}
 \end{multicols}
 
 
 \subsection{Langformen\label{liste-lang}}
-Die Ausgabe erfolgt über die Option |noabbrevs|.
+\DescribeMacro{noabbrv}Die Ausgabe erfolgt über die Option |noabbrv|.
 %\begin{multicols}{1}
-\input{archaeologie-abbrv-long.tex}
+\input{archaeologie-lstabbrv.tex}
 %\end{multicols}
 
 
