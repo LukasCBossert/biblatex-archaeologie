@@ -64,7 +64,7 @@
              	 or bool {cbx:frgancient}%
 			   	or bool {cbx:corpus}%
               }%
-    {\setunit{\addspace}}%
+    {\addspace}%
     {\newunitpunct}%
 }
 %-----------------------
@@ -214,11 +214,6 @@
        \printfield{extrayear}}}}
 %-----------------------
 \newbibmacro*{textcite:postnote}{%
-  \ifboolexpr{bool {cbx:ancient}%
-             	 or bool {cbx:frgancient}%
-			   	or bool {cbx:corpus}}%
-              {\setunit{\addspace}}%
-	{}%
   \iffieldundef{postnote}%
     {\ifbool{cbx:yearinparens}%
        {\bibcloseparen}%
@@ -228,7 +223,7 @@
        {\setunit{\extpostnotedelim\bibopenparen}}%
      \printfield{postnote}%
       \ifbool{cbx:frgancient}%
-       {\setunit{\addspace}%
+       {\setunit{\addthinspace}%
   \usebibmacro{cite:frgname}%
   \bibcloseparen}%
   \bibcloseparen}}

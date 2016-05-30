@@ -60,7 +60,7 @@
 	\setlength{\labwidthsameline}{4em}
 %-----------------------
 \DeclareBibliographyOption{lstabbrv}[true]{%
-		\csuse{bool#1}{bib:lstabbrv}
+		\csuse{bool#1}{bib:lstabbrv}%
 		\addbibresource{archaeologie-abbrv.bib}
 }
 \DeclareBibliographyOption{corpora}[true]{%
@@ -239,15 +239,28 @@
           {}%
 }
 %-----------------------
+%\AtEveryBibitem{%
+%  	\ifboolexpr{bool {bbx:translation}%
+%  					 or bool {cbx:ancient}%
+%  					 or bool {cbx:frgancient}}%
+%    	{}%
+%    	{\clearname{translator}%
+%    			\clearfield{origtitle}%
+%				}%
+%}
 \AtEveryBibitem{%
-  	\ifboolexpr{bool {bbx:translation}%
-  					 or bool {cbx:ancient}%
-  					 or bool {cbx:frgancient}}%
-    	{}%
-    	{\clearname{translator}%
-    		 \clearfield{origtitle}%
-		}%
-}
+  \iffieldequalstr{relatedtype}{translationof}
+    {\savename{translator}{\savedrelatedtranslator}%
+     \clearname{translator}}
+    {}
+  \ifboolexpr{bool {bbx:translation}%
+              or bool {cbx:ancient}%
+              or bool {cbx:frgancient}}%
+    {}%
+    {\clearname{translator}%
+     \clearfield{origtitle}}}
+
+
 %-----------------------
 \AtBeginDocument{%
 	\ifbool{bbx:initials}{%http://tex.stackexchange.com/a/295486/98739     
@@ -522,23 +535,26 @@
 		\usebibmacro*{related:default}{#1}%
 }
 %-----------------------
+\renewcommand*{\lbx@lfromlang}{%
+      \iflistundef{language}
+        {\unspace}
+        {\biblstring{from\thelist{language}}}}
+    \renewcommand*{\lbx@sfromlang}{%
+      \iflistundef{language}
+        {\unspace}
+        {\bibsstring{from\thelist{language}}}}
+  
 \newbibmacro*{related:translationof}[1]{%
-  	\entrydata*{#1}{%
-    	\renewbibmacro*{name:hook}[1]{%
-      		\ifnumequal{\value{listcount}}{1}%
-        		{\begingroup%
-         			\mkrelatedstring%
-         			\lbx@initnamehook{#1}%
-         			\endgroup%
-         		}%
-        		{}%
-       		}%
-		\printnames{savedtranslator}%
-    	\printtext[emph]{\usebibmacro{title}}%
-    		\setunit*{\addspace}%
-		\usebibmacro{location+edition+year}%
-	}%
-}
+  \entrydata*{#1}{%
+    \restorename{savedtranslator}{\savedrelatedtranslator}%
+     \printtext[emph]{\usebibmacro{title}}%
+     \usebibmacro{location+edition+year}%
+     \newunit
+    \bibstring{bytranslator}%keine Sprache ausgegeben?    
+    \setunit{\addspace}%
+    \printnames{savedtranslator}
+    %\printlist{language}
+  }}
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
@@ -649,9 +665,9 @@
 %-----------------------
 \newbibmacro*{location+edition+year}{%
 	\ifboolexpr{%
-			test {\iflistundef{location}}%
- 			and test {\iffieldundef{publisher}}%
-  			and test {\iffieldundef{year}}}%
+			test 			{\iflistundef{location}}%
+ 			and test 	{\iflistundef{publisher}}%
+  			and test 	{\iffieldundef{year}}}%
   		{}%
   		{\ifbool{bbx:publisher}%
     		{\printtext[parens]{%
@@ -666,10 +682,22 @@
         				{\printfield{pubstate}}%
         				{\printfield{year}}%
         			\setunit*{\addspace}%
-        		\iffieldundef{origyear}%
-        				{}%
-        				{\printtext[parens]{\usebibmacro{Erstauflage}%
-          				\printfield{origyear}}}%
+        		\ifboolexpr{%
+							test 			{\iflistundef{origlocation}}%
+ 							and test 	{\iflistundef{origpublisher}}%
+  							and test 	{\iffieldundef{origyear}}}%
+  							{}%
+        					{\printtext[parens]{%\usebibmacro{Erstauflage}%
+        													\printlist{origlocation}%
+        													\iflistundef{origpublisher}%
+        															{}%
+        															{\setunit*{\addcolon\addspace}%
+        																 \printlist{origpublisher}%
+        															}%
+        												\setunit{\addspace}%
+          												\printfield{origyear}%
+          											}%	
+          					}%
           		}%
           }%
     	{\usebibmacro{edition}%
