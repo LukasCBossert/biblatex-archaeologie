@@ -22,6 +22,7 @@ Der Stil setzt die Zitations- und Bibliographievorgaben
 des Deutschen Archäologischen Instituts (DAI) (Stand 2014) um. 
 Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild 
 jedoch auch zu verändern, um eigenen Vorlieben anzupassen.
+
 ---
 
 
@@ -55,5 +56,5 @@ version 2005/12/01 or later.
 ---
 This work has the LPPL maintenance status 'maintained'.
 
-The Current Maintainer of this work is [https://github.com/LukasCBossert][Lukas C. Bossert].
+The Current Maintainer of this work is [https://github.com/LukasCBossert](Lukas C. Bossert).
 
