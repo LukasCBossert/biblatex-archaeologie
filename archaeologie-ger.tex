@@ -213,7 +213,7 @@ Um schnell und einfach im DAI-Stil zu zitieren, bedarf es also keiner weiteren E
 
 Um den Stil den eigenen Bedürfnissen anzupassen können darüber hinaus verschiedene -- weiter unten beschriebene -- Optionen von |archaeologie| oder \enquote{konventionelle} |biblatex|-Optionen geladen werden.
 
-Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der \cs{cite|-Befehle eingebunden, der \cs{printbibliography}-Befehl am Ende des Dokuments oder an gewünschter Stelle gibt eine Liste der verwendeten Bibliographie aus. Da |archaeologie| jedoch unterschiedliche Zitierweisen je Textsorte wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographie dementsprechend aufzuteilen (z.\,B. Antike Quellen, Abkürzungen etc.). 
+Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der \cs{cite}-Befehle eingebunden, der \cs{printbibliography}-Befehl am Ende des Dokuments oder an gewünschter Stelle gibt eine Liste der verwendeten Bibliographie aus. Da |archaeologie| jedoch unterschiedliche Zitierweisen je Textsorte wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographie dementsprechend aufzuteilen (z.\,B. Antike Quellen, Abkürzungen etc.). 
 Einige Möglichkeiten zur Gestaltung der Bibliographie geben wir in \cref{bibliographie}.
 
 Um die externen Bibliographien, die |archaeologie| optional bereitstellt, korrekt einzubinden, ist ein Schrift-Encoding von Nöten, das auch griechische Schriftzeichen enthält. Für \LaTeX{} ist ein Unicode-Encoding z.\,B. über \cs{inputenc{utf8}} eine mögliche Lösung. \XeLaTeX{} unterstützt Unicode von Hause aus.
@@ -281,17 +281,6 @@ Zusätzlich kann ein einzelner Bibliographieeintrag durch folgende Werte in sein
 \DescribeMacro{corpus}  Auch hier wird das |shorthand|-Feld ohne abschließendes Komma ausgegeben. 
 Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). 
 
-\begin{lstlisting}[label=bibentry_apulmet]
-@Book{Apul:met,
-  author      = {Apuleius Madaurensis, Lucius},
-  title       = {metamorphoses},
-  shorthand   = {Apul. met.},
-  shortauthor = {Apuleius},
-  keywords    = {ancient},
-  options     = {ancient},
-}
-\end{lstlisting}
-
 \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
 
 
@@ -307,7 +296,7 @@ Wird nur ein optionales Argument gegeben, so ist das die Seitenzahl:
 \cite<@\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting}
 
-\meta{bibtex-key} ist der Schlüssel des Bibliographieeintrags aus der |bib|-Datei (\emph{entrykey}). In unserem obigen Beispiel des Eintrags eines antiken Textes ist dies etwa |Apul:met| in Zeile 1 (\cref{bibentry_apulmet}).
+\meta{bibtex-key} ist der Schlüssel des Bibliographieeintrags aus der |bib|-Datei (\emph{entrykey}).
 
 \DescribeMacro{\cites}  Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der \cs{cites}-Befehl:
 \begin{lstlisting}
@@ -319,11 +308,11 @@ Wird nur ein optionales Argument gegeben, so ist das die Seitenzahl:
 \DescribeMacro{\parencite}  \DescribeMacro{\parencites}  Soll die Literaturangabe (bspw. in den Fußnoten) in Klammern erscheinen, dann empfiehlt sich dies mittels \cs{parencite} zu tun.
 Der Vorteil dieses Befehls gegenüber der händischen Eingabe von Klammern ist, dass der Befehl automatisch Klammerverschachtelungen erkennt und entsprechende Klammerregeln befolgt: demnach werden runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben.
 Dies ist vor allem bei Lexikaeinträgen der wichtig: (LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]).
-\cs{parencite} und \cs{parencites} verhalten sich analog zu \cs{cite} und \cs{cites}.
+\cs{parencite} und \cs{parencites} verhalten sich in der Bedienung analog zu \cs{cite} und \cs{cites}.
  
 \DescribeMacro{\textcite}  \DescribeMacro{\textcites}  Zu den bisher aufgeführten \cs{cite}-Befehlen gibt es zusätzlich die Möglichkeit, einen Eintrag \enquote{fließtextgerecht} mit \cs{textcite} zu zitieren. 
 Der Unterschied zu \cs{cite} besteht darin, dass der Literaturverweis durch Klammern vom Autor getrennt wird: z.\,B. Emme (2013, 5).
-\cs{textcite} und \cs{textcites} verhalten sich analog zu \cs{cite} und \cs{cites}.
+\cs{textcite} und \cs{textcites} verhalten sich in der Bedienung analog zu \cs{cite} und \cs{cites}.
 
 \DescribeMacro{\citeauthor}  \DescribeMacro{\citetitle}  Diese Befehle ermöglich, nur einzelne Elemente einer Publikation zu zitieren. Je nach Verwendung wird entweder nur der Titel oder der Autor eines Bibliographieeintrages ausgegeben. Ein Vorteil gegenüber des händischen Eintippens eines solchen Elementes ist, dass der Eintrag indiziert und referenziert wird. Dies kann z.\,B. für einen (Autoren-)Index, der auf die Textstelle verweisen soll, relevant sein.
    
