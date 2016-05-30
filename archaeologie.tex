@@ -1920,37 +1920,6 @@ The bibliography will show the entry as:
 	
  \changes{v1.5}{2016/05/31}{Rückverweis}
 
-\section{Various}
-\subsection{Unknown work}\label{unbekannt}
-Sometimes it is impossible to get hold of the author or editor but you still want to cite them.
-If you come along such a paper you can define a |label| which will be used for citing and sorting.
-This is not connected to an entry type -- it can be used with any work.
-In the following example we use an enty type |@Article|:
-\begin{lstlisting}
-@Article{Cosa_1949,
-  title        = {Cosa},
-  subtitle     = {Republican Colony in Etruria},
-  journaltitle = ClJ-long,
-  shortjournal = ClJ-short,
-  volume       = {45},
-  pages        = {141--149},
-  year         = {1949},
-  label        = {Cosa},
-  number       = {1},
-}
-\end{lstlisting}
- The |label| (line 9) can be defined as one wishes in this case we chose it analogous to the title: |label = {Cosa}|.
-When you cite such an anonymous work it will be done like all the others:
-\begin{lstlisting}
- \cite[vgl.][145--146]{Cosa_1949}
-\end{lstlisting}
- It will look like this:
- \begin{bsp} 
- vgl. Cosa 1949, 145--146
- \end{bsp}
-and be printed in the bibliography like this:
-\printbib{Cosa_1949}
-
 
 \newpage
  \section{Bibliographie}\label{bibliographie}
@@ -2118,6 +2087,36 @@ Gleiches gilt auch für das Zitieren von mehreren Einträgen in Klammern: Dafür
 	%\ldots\ \parencites[vgl.][930 Nr. 283]{Neils_1994}[9]{Nieddu_1995}
 	%\ldots \parencite{\fullcite[vgl.][930 Nr. 283]{Neils_1994}}.
  \end{bsp}
+
+\subsection{Unknown work}\label{unbekannt}
+Sometimes it is impossible to get hold of the author or editor but you still want to cite them.
+If you come along such a paper you can define a |label| which will be used for citing and sorting.
+This is not connected to an entry type -- it can be used with any work.
+In the following example we use an enty type |@Article|:
+\begin{lstlisting}
+@Article{Cosa_1949,
+  title        = {Cosa},
+  subtitle     = {Republican Colony in Etruria},
+  journaltitle = ClJ-long,
+  shortjournal = ClJ-short,
+  volume       = {45},
+  pages        = {141--149},
+  year         = {1949},
+  label        = {Cosa},
+  number       = {1},
+}
+\end{lstlisting}
+ The |label| (line 9) can be defined as one wishes in this case we chose it analogous to the title: |label = {Cosa}|.
+When you cite such an anonymous work it will be done like all the others:
+\begin{lstlisting}
+ \cite[vgl.][145--146]{Cosa_1949}
+\end{lstlisting}
+ It will look like this:
+ \begin{bsp} 
+ vgl. Cosa 1949, 145--146
+ \end{bsp}
+and be printed in the bibliography like this:
+\printbib{Cosa_1949}
 
 
 \clearpage

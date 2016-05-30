@@ -535,15 +535,15 @@
 		\usebibmacro*{related:default}{#1}%
 }
 %-----------------------
-\renewcommand*{\lbx@lfromlang}{%
-      \iflistundef{language}
-        {\unspace}
-        {\biblstring{from\thelist{language}}}}
-    \renewcommand*{\lbx@sfromlang}{%
-      \iflistundef{language}
-        {\unspace}
-        {\bibsstring{from\thelist{language}}}}
-  
+%\renewcommand*{\lbx@lfromlang}{%
+%      \iflistundef{language}%
+%        {\unspace}%
+%        {\biblstring{from\thelist{language}}}}
+%    \renewcommand*{\lbx@sfromlang}{%
+%      \iflistundef{language}%
+%        {\unspace}%
+%        {\bibsstring{from\thelist{language}}}}
+%  
 \newbibmacro*{related:translationof}[1]{%
   \entrydata*{#1}{%
     \restorename{savedtranslator}{\savedrelatedtranslator}%
