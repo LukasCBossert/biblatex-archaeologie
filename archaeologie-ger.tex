@@ -213,10 +213,10 @@ Um schnell und einfach im DAI-Stil zu zitieren, bedarf es also keiner weiteren E
 
 Um den Stil den eigenen Bedürfnissen anzupassen können darüber hinaus verschiedene -- weiter unten beschriebene -- Optionen von |archaeologie| oder \enquote{konventionelle} |biblatex|-Optionen geladen werden.
 
-Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der |\cite|-Befehle eingebunden, der |\printbibliography|-Befehl am Ende des Dokuments oder an gewünschter Stelle gibt eine Liste der verwendeten Bibliographie aus. Da |archaeologie| jedoch unterschiedliche Zitierweisen je Textsorte wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographie dementsprechend aufzuteilen (z.\,B. Antike Quellen, Abkürzungen etc.). 
+Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der \cs{cite|-Befehle eingebunden, der \cs{printbibliography}-Befehl am Ende des Dokuments oder an gewünschter Stelle gibt eine Liste der verwendeten Bibliographie aus. Da |archaeologie| jedoch unterschiedliche Zitierweisen je Textsorte wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographie dementsprechend aufzuteilen (z.\,B. Antike Quellen, Abkürzungen etc.). 
 Einige Möglichkeiten zur Gestaltung der Bibliographie geben wir in \cref{bibliographie}.
 
-Um die externen Bibliographien, die |archaeologie| optional bereitstellt, korrekt einzubinden, ist ein Schrift-Encoding von Nöten, das auch griechische Schriftzeichen enthält. Für \LaTeX{} ist ein Unicode-Encoding z.\,B. über |\inputenc{utf8}| eine mögliche Lösung. \XeLaTeX{} unterstützt Unicode von Hause aus.
+Um die externen Bibliographien, die |archaeologie| optional bereitstellt, korrekt einzubinden, ist ein Schrift-Encoding von Nöten, das auch griechische Schriftzeichen enthält. Für \LaTeX{} ist ein Unicode-Encoding z.\,B. über \cs{inputenc{utf8}} eine mögliche Lösung. \XeLaTeX{} unterstützt Unicode von Hause aus.
 
 \section{Übersicht}
 Im Folgenden stellen wir etwas knapp die Optionen und Einstellungen vor, mit denen der Stil |archaeologie| aufgerufen werden kann. Wer mehr wissen will, sei auf die englische Hauptdokumentation verwiesen. Die Optionen sind nicht Teil der oben angeführten Standardaktivierung von |archaeologie|, sondern können im Bedarfsfall ausgewählt werden.
@@ -261,9 +261,9 @@ Dort wird dies standardmäßig angegeben.
 \DescribeMacro{inreferences}  Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. 
 Dies verwirft die vom DAI angegebene, spezielle Lexika-Zitation (LIMC, DNP etc.), die  nicht in der Bibliographie aufgeführt werden. 
 
-\DescribeMacro{lastnames}  Schreibt die Autoren/Herausgeber, die über  |\citeauthor|\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (dies entspricht der Autoren-Darstellungweise in Fußnoten).  
+\DescribeMacro{lastnames}  Schreibt die Autoren/Herausgeber, die über  \cs{citeauthor}\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (dies entspricht der Autoren-Darstellungweise in Fußnoten).  
 
-\DescribeMacro{fullnames}  Schreibt die Autoren/Herausgeber, die über |\citeauthor|\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  
+\DescribeMacro{fullnames}  Schreibt die Autoren/Herausgeber, die über \cs{citeauthor}\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  
 
 \DescribeMacro{scshape}  Die Namen im Fließtext und in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft und Werke antiker Autoren.
 
@@ -296,7 +296,7 @@ Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.).
 
 
 \subsection{Zitierbefehle}\label{cite_commands}
-\DescribeMacro{\cite}  Die einfachste Art zu zitieren ist der Befehl |\cite|:
+\DescribeMacro{\cite}  Die einfachste Art zu zitieren ist der Befehl \cs{cite}:
 \begin{lstlisting}
 \cite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
 \end{lstlisting}
@@ -309,21 +309,21 @@ Wird nur ein optionales Argument gegeben, so ist das die Seitenzahl:
 
 \meta{bibtex-key} ist der Schlüssel des Bibliographieeintrags aus der |bib|-Datei (\emph{entrykey}). In unserem obigen Beispiel des Eintrags eines antiken Textes ist dies etwa |Apul:met| in Zeile 1 (\cref{bibentry_apulmet}).
 
-\DescribeMacro{\cites}  Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der |\cites|-Befehl:
+\DescribeMacro{\cites}  Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der \cs{cites}-Befehl:
 \begin{lstlisting}
 \cites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
  																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
 \end{lstlisting}
  
-\DescribeMacro{\parencite}  \DescribeMacro{\parencites}  Soll die Literaturangabe (bspw. in den Fußnoten) in Klammern erscheinen, dann empfiehlt sich dies mittels |\parencite| zu tun.
+\DescribeMacro{\parencite}  \DescribeMacro{\parencites}  Soll die Literaturangabe (bspw. in den Fußnoten) in Klammern erscheinen, dann empfiehlt sich dies mittels \cs{parencite} zu tun.
 Der Vorteil dieses Befehls gegenüber der händischen Eingabe von Klammern ist, dass der Befehl automatisch Klammerverschachtelungen erkennt und entsprechende Klammerregeln befolgt: demnach werden runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben.
 Dies ist vor allem bei Lexikaeinträgen der wichtig: (LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]).
-|\parencite| und |\parencites| verhalten sich analog zu |\cite| und |\cites|.
+\cs{parencite} und \cs{parencites} verhalten sich analog zu \cs{cite} und \cs{cites}.
  
-\DescribeMacro{\textcite}  \DescribeMacro{\textcites}  Zu den bisher aufgeführten |\cite|-Befehlen gibt es zusätzlich die Möglichkeit, einen Eintrag \enquote{fließtextgerecht} mit |\textcite| zu zitieren. 
-Der Unterschied zu |\cite| besteht darin, dass der Literaturverweis durch Klammern vom Autor getrennt wird: z.\,B. Emme (2013, 5).
-|\textcite| und |\textcites| verhalten sich analog zu |\cite| und |\cites|.
+\DescribeMacro{\textcite}  \DescribeMacro{\textcites}  Zu den bisher aufgeführten \cs{cite}-Befehlen gibt es zusätzlich die Möglichkeit, einen Eintrag \enquote{fließtextgerecht} mit \cs{textcite} zu zitieren. 
+Der Unterschied zu \cs{cite} besteht darin, dass der Literaturverweis durch Klammern vom Autor getrennt wird: z.\,B. Emme (2013, 5).
+\cs{textcite} und \cs{textcites} verhalten sich analog zu \cs{cite} und \cs{cites}.
 
 \DescribeMacro{\citeauthor}  \DescribeMacro{\citetitle}  Diese Befehle ermöglich, nur einzelne Elemente einer Publikation zu zitieren. Je nach Verwendung wird entweder nur der Titel oder der Autor eines Bibliographieeintrages ausgegeben. Ein Vorteil gegenüber des händischen Eintippens eines solchen Elementes ist, dass der Eintrag indiziert und referenziert wird. Dies kann z.\,B. für einen (Autoren-)Index, der auf die Textstelle verweisen soll, relevant sein.
    
@@ -430,7 +430,7 @@ Für eine Dissertation:  |type = {phdthesis}|, \\ für eine Magister/Masterarbei
 Wie bei jedem Text mit zitierten Werken bedarf es einer Stelle, an der diese auch aufgeschlüsselt werden: die Bibliographie. 
 Für Altertumswissenschaftler (und auch andere) ist es manchmal hilfreich, verschiedene Bibliographien im Dokument zu haben, die unterschiedliche Arten von Werken beinhalten, bspw. ein Quellenverzeichnis, Abkürzungen und Forschungsliteratur. 
 
-Nachfolgend wird gezeigt, wie einem eine solche Bibliographieaufteilung mit |archaeologie| leicht gelingt. Dafür nutzen wir das |keyword|-Feld eines Bibliographieeintrages. Für jeden Bibliographietyp wählen wir eine Kategorie. Zunächst versehen wir in der |bib|-Datei  alle antiken Texte, die bereits |options={ancient}| oder |options={frgancient}| enthalten sollten, mit dem Feld |keyword={ancient}|. Das gleiche machen wir für alle Publikationen, die spezielle Abkürzungen haben: Corpora, Lexika und Handbücher. Diese erhalten |keyword={corpus}|. Anschließend können wir antike Primärliteratur und abgekürzte Sigel/Corpora von sekundärer Forschungliteratur getrennt bibliographieren. Bib\LaTeX{} bietet hierfür eine einfache Filtermöglichkeit mit den Optionen |keywort=…| und |notkeyword=…| im |\printbibliography|-Befehl:
+Nachfolgend wird gezeigt, wie einem eine solche Bibliographieaufteilung mit |archaeologie| leicht gelingt. Dafür nutzen wir das |keyword|-Feld eines Bibliographieeintrages. Für jeden Bibliographietyp wählen wir eine Kategorie. Zunächst versehen wir in der |bib|-Datei  alle antiken Texte, die bereits |options={ancient}| oder |options={frgancient}| enthalten sollten, mit dem Feld |keyword={ancient}|. Das gleiche machen wir für alle Publikationen, die spezielle Abkürzungen haben: Corpora, Lexika und Handbücher. Diese erhalten |keyword={corpus}|. Anschließend können wir antike Primärliteratur und abgekürzte Sigel/Corpora von sekundärer Forschungliteratur getrennt bibliographieren. Bib\LaTeX{} bietet hierfür eine einfache Filtermöglichkeit mit den Optionen |keywort=…| und |notkeyword=…| im \cs{printbibliography}-Befehl:
 
 \begin{lstlisting}
 \printbibheading[%
@@ -454,7 +454,7 @@ Nachfolgend wird gezeigt, wie einem eine solche Bibliographieaufteilung mit |arc
 							title={Forschungsliteratur}]
 \end{lstlisting}
 
-Mithilfe des |keyword|-Filters haben wir in den ersten beiden |\printbibliography|-Befehlen die entsprechende Literatur ausgewählt, im letzten |\printbibliography|-Befehl, der die \enquote{Restliteratur} auslesen soll, müssen dann alle zuvor verwendeten Filterbegriffe mithilfe eines Ausschlussverfahrens über |notkeyword| eingetragen werden: Die Forschungsliteratur beinhaltet also alle Publikationen, die nicht |ancient| und nicht |corpus| sind.
+Mithilfe des |keyword|-Filters haben wir in den ersten beiden \cs{printbibliography}-Befehlen die entsprechende Literatur ausgewählt, im letzten \cs{printbibliography}-Befehl, der die \enquote{Restliteratur} auslesen soll, müssen dann alle zuvor verwendeten Filterbegriffe mithilfe eines Ausschlussverfahrens über |notkeyword| eingetragen werden: Die Forschungsliteratur beinhaltet also alle Publikationen, die nicht |ancient| und nicht |corpus| sind.
 
 Die Optionen |heading=bibnumbered| und |heading=subbibnumbered| entscheiden über die Gliederung der einzelnen Verzeichnisse. Mit der hier gewählten Einstellung erhalten wir demnach (nummerierte) Unterbibliographien. Das Ergebnis der Zeilen könnte etwa so aussehen:
 
@@ -487,7 +487,7 @@ Wulf-Rheidt_2013,Bergmann_2015,ThesCRA,Nieddu_1995,Arnolds_2005}
 							title={Forschungsliteratur}]
 \end{bsp}
 
-Mit dem eben beschriebenen Verfahren können mit beliebigen |keyword|-Begriffen beliebige Bibliographien über |\printbibliography| erstellt werden, die jeweils unterschiedliche Einträge haben können.
+Mit dem eben beschriebenen Verfahren können mit beliebigen |keyword|-Begriffen beliebige Bibliographien über \cs{printbibliography} erstellt werden, die jeweils unterschiedliche Einträge haben können.
 
 Ebenso hilfreich kann es sein, Abkürzungen von Zeitschriften und Reihen aufzulösen. Bib\LaTeX{} liest hierfür die im Feld |shortjournal| bzw. |shortseries| hinterlegten Abkürzungen aller Bibliographieeinträge aus und löst sie durch die Inhalte der Felder |journaltitle| bzw. |series| auf. Hierzu müssen die Felder jedoch beide befüllt sein: ein |shortjournal|-Eintrag ohne |journaltitle|-Entsprechung wird nicht indiziert und folglich in der Liste fehlen.
 
