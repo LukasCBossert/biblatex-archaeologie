@@ -987,11 +987,13 @@ This option gives you a different output of the editors: Instead of ›(ed.)‹/
   venue        = {Berlin},
   eventdate    = {2009-11-18/2009-11-22},
   eventtitle   = {Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI},
+  eprint       = {001371402},
+  eprinttype   = {zenon},
   number       = {6},
   series       = MKT-long,
   shortseries  = MKT-short,
 }
-\end{lstlisting}
+\end{lstlisting}\label{zenon}
 Without the option this |@Inproceedings| will look like:
  
  \printbib[7em]{Wulf-Rheidt_2013}
@@ -2053,9 +2055,10 @@ For series it is done like this:
 \DescribeMacro{\psq} If you have to cite two following pages there is the macro \cs{psq} which is best to you since it is also controlled by the set up language.
 Just write the first page in the \oarg{postnote} and then the \cs{psq} -- cf. \cref{psq}.
 \subsection{Online referencing}
-\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it --  see also the \href{http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf}{|bib|\LaTeX-documentation 3.11.7}.
+\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it --  see also the \href{http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf}{|bib|\LaTeX-documentation 3.11.7}.\footnote{You can also use as an |eprinttype|: |arXiv|, |pubmed|, |hdl|, |googlebooks|.
+}
 \begin{description}
-\item[JSTOR] If you can refer to the on-line plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{eprint:jstor}:
+\item[jstor] If you can refer to the on-line plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{eprint:jstor}:
 \begin{lstlisting}
 eprint = *@\marg{jstor-number}@*
 eprinttype = {jstor} 
@@ -2071,13 +2074,15 @@ eprinttype = {urn}
 \item[zenon] 
 This is eprint-form is especially designed for the OPAC of the German Archaeological Institute.
 All bibliographical entries in this OPAC can be referred to via thhis link.
-You only need to insert the individual Zenon-number of the entry, e.g. \emph{http://zenon.dainst.org/Record/001326833} where \emph{001326833} is the individual number.
+You only need to insert the individual Zenon-number of the entry, e.g. \emph{http://zenon.dainst.org/Record/001371402} where \emph{001371402} is the individual number -- cf. \cref{zenon}.
 \begin{lstlisting}
 eprint = *@\marg{Zenon-number}@*
 eprinttype = {zenon} 
 \end{lstlisting}			
 
 \end{description}
+
+
 
 \subsection{Brackets (with @Inreference)}\label{faq:inreference}
 Be aware to stick to the correct order of parentheses and brackets.
