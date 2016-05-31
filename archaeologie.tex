@@ -50,6 +50,21 @@ english
 \usepackage{multicol}
 \setlength{\columnsep}{1.5cm}
 \setlength{\columnseprule}{0.2pt}
+
+\usepackage[ 
+%	headsepline, 
+%	footsepline,
+%	plainfootsepline, 
+%markcase=upper, 
+automark, 
+draft=false,
+]{scrlayer-scrpage} 
+\pagestyle{scrheadings}
+\clearscrheadfoot
+	\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie 2.0} (c) by Lukas C. Bossert | Johannes Friedl}%
+\rofoot{\large\footnotesize  \textbf{\sffamily \thepage}}
+
+
 \usepackage{framed}
 \usepackage{enumitem}
 \setlength{\parindent}{0pt}
@@ -205,17 +220,7 @@ The style is compatible with the English, Italian, Spanish and French languages,
 For a short introduction in German see \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie/archaeologie-ger.pdf}
  \end{abstract}
 
-\section{Last Changes}
-Changes since Version 1.42
-\begin{itemize}
-\item Documentation now in English; short introduction in German
-\item Adding  bibliography entry  |@talk| (\cref{talk})
-\item Adding additional bibliography for ancient authors and works (\cref{ancient-list,ancient})
-\end{itemize}
 
-%\changes{v2.0}{2015/11/10}{Ergänzung: Feld |number| bei |@inreference| wird jetzt ausgelesen.}
-
-\newpage
 \begin{multicols}{2}
 {\parskip=0mm \tableofcontents}
 \end{multicols}
@@ -230,7 +235,7 @@ Download the folder |archaeologie| with all relevant files from the CTAN-server\
  your system.\footnote{If you don't know what that is, have a look at
 \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tds} or 
 \url{http://mirror.ctan.org/tds/tds.html}.} 
-Refresh your filename database. 
+Refresh your filename database.\footnote{ 
 Here is some additional information from the UK \TeX\ FAQ:
 \begin{itemize}
 	\item \href{%
@@ -243,6 +248,7 @@ Here is some additional information from the UK \TeX\ FAQ:
 	  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=privinst}{%
 	  \enquote{Private} installations of files}
 \end{itemize}
+}
 %%introduction from biblatex-dw copied and applied. might to be rewritten.
 
 \section{Usage}
@@ -842,22 +848,28 @@ By default we have again with |\cite[475]{Ball_2013}|
 And since the entry looks like this
 \begin{lstlisting}
 @Article{Ball_2013,
-  author       = {Larry F. Ball and John J. Dobbins},
-  title        = {Pompeii Forum Project},
-  subtitle     = {Current Thinking on the Pompeii Forum},
-  journaltitle = AJA-long,
-  shortjournal = AJA-short,
-  volume       = {117},
-  pages        = {461--492},
-  year         = {2013},
-  month        = {July},
-  number       = {3},
+author       = {Larry F. Ball and John J. Dobbins},
+title        = {Pompeii Forum Project},
+subtitle     = {Current Thinking on the Pompeii Forum},
+journaltitle = AJA,
+shortjournal = AJA-short,
+volume       = {117},
+pages        = {461--492},
+year         = {2013},
+doi          = {10.3764/aja.117.3.0461},
+eprint       = {10.3764/aja.117.3.0461},
+eprinttype   = {jstor},
+month        = {July},
+number       = {3},
 }
-\end{lstlisting}
+\end{lstlisting}\label{jstor}\label{doi2}
 
-The output in the bibliography will be:
+
+The output in the bibliography will be without the option |scshape|:
+\printbib[8em]{Ball_2013}
 \begin{bsp}
-{\scshape {\color{red}Ball – Dobbins}} 2013\hspace{3em} L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492
+{\scshape {\color{red}Ball – Dobbins}} 2013\hspace{3em} L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492\\
+...
 \end{bsp}
 
 
@@ -881,7 +893,7 @@ Without any options this entry
   eprinttype   = {jstor},
   number       = {1},
 }
-\end{lstlisting}\label{eprint:jstor}
+\end{lstlisting}\label{jstor1}
 looks like this
 \printbib[5em]{Osland_2016}
 
@@ -889,7 +901,7 @@ and with |bibfullname| will change to:
 
 \begin{bsp}
 Osland 2016\hspace{3em} {\color{red}Daniel} Osland, Abuse or Reuse? Public Space in Late Antique Emerita, AJA 120/ 1, 2016, 67–97,\\
-JSTOR: 10.3764/aja.120.1.0067
+...
 \end{bsp}
 
 
@@ -2055,10 +2067,10 @@ For series it is done like this:
 \DescribeMacro{\psq} If you have to cite two following pages there is the macro \cs{psq} which is best to you since it is also controlled by the set up language.
 Just write the first page in the \oarg{postnote} and then the \cs{psq} -- cf. \cref{psq}.
 \subsection{Online referencing}
-\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it --  see also the \href{http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf}{|bib|\LaTeX-documentation 3.11.7}.\footnote{You can also use as an |eprinttype|: |arXiv|, |pubmed|, |hdl|, |googlebooks|.
+\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it --  see also the \href{http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf}{|bib|\LaTeX-documentation chapter 3.11.7}.\footnote{You can also use as an |eprinttype|: |arXiv|, |pubmed|, |hdl|, |googlebooks|.
 }
 \begin{description}
-\item[jstor] If you can refer to the on-line plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{eprint:jstor}:
+\item[jstor] If you can refer to the on-line plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{jstor,jstor1}:
 \begin{lstlisting}
 eprint = *@\marg{jstor-number}@*
 eprinttype = {jstor} 
@@ -2082,7 +2094,10 @@ eprinttype = {zenon}
 
 \end{description}
 
-
+\DescribeMacro{doi} In addition you can also refer to a document via its |doi|-number -- cf. \cref{doi,doi2} 
+\begin{lstlisting}
+doi = *@\marg{doi-number}@*
+\end{lstlisting}	
 
 \subsection{Brackets (with @Inreference)}\label{faq:inreference}
 Be aware to stick to the correct order of parentheses and brackets.
@@ -2188,66 +2203,66 @@ To see the long forms of journal titles or series you have to switch on the opti
  \changes{v1.1}{2015/07/06}{Erstellung der Liste mit Abkürzungen}
 
 
-\clearpage
-\section{Umsetzung}
-\label{driver}
-|archaeologie| consists of various files:
-There is one file that takes care of the bibliography (|bbx|) 
-another looks after the citation-style  (|cbx|)
-and several files which are necessary for the individual languages (|lbx|),
-furthermore there is a |dbx|-file.
-
-%http://tex.stackexchange.com/questions/95036/continue-line-numbers-in-listings-package
-\subsection{archaeologie.bbx}
-|archaeologie| baut auf dem |standard|-Stil von |biblatex| auf, der entsprechend geladen werden muss.
- \DescribeMacro{bbx}
- \StartLineAt{13}
-\begin{lstlisting}[style=code]
-\ProvidesFile{archaeologie.bbx}%
-               [2016/05/31 v2.0  archaeologie -- %
-                biblatex for archaeologists, 
-                historians and philologists, bbx-file]
-\RequireBibliographyStyle{standard}
-\end{lstlisting}
-
-It continues with all required settings
-\ContinueLineNumber
-\begin{lstlisting}[style=code]
-\AtBeginDocument{%
-		\urlstyle{sf}%
-		\typeout{* * * archaeologie * * *  
-				biblatex for archaeologists, 
-               historians and philologists}
-}
-\ExecuteBibliographyOptions{%
-pagetracker=true,%
-citecounter=true,%
-giveninits=true,%
-sortlocale=auto,%
-language=auto,%
-autolang=other,%
-bibencoding=utf8,%
-dateabbrev=false, %
-sorting=nyt,%
-maxnames=2,% 
-minnames=1,%
-maxitems=1,%
-maxbibnames=999,%
-}
-\end{lstlisting}
- \StartLineAt{426}
-\begin{lstlisting}[style=code]
-\renewbibmacro*{journal}{%
-  \ifboolexpr{test {\iffieldundef{shortjournal}} %
-  					or bool {bbx:noabbrevs}}%
-    {\printtext[journaltitle]{%
-       \printfield[titlecase]{journaltitle}%
-       \setunit{\subtitlepunct}%
-       \printfield[titlecase]{journalsubtitle}}}%
-    {\printfield{shortjournal}}%
-    }
-\end{lstlisting}
-    
+%%\clearpage
+%%\section{Umsetzung}
+%%\label{driver}
+%%|archaeologie| consists of various files:
+%%There is one file that takes care of the bibliography (|bbx|) 
+%%another looks after the citation-style  (|cbx|)
+%%and several files which are necessary for the individual languages (|lbx|),
+%%furthermore there is a |dbx|-file.
+%%
+%%%http://tex.stackexchange.com/questions/95036/continue-line-numbers-in-listings-package
+%%\subsection{archaeologie.bbx}
+%%|archaeologie| baut auf dem |standard|-Stil von |biblatex| auf, der entsprechend geladen werden muss.
+%% \DescribeMacro{bbx}
+%% \StartLineAt{13}
+%%\begin{lstlisting}[style=code]
+%%\ProvidesFile{archaeologie.bbx}%
+%%               [2016/05/31 v2.0  archaeologie -- %
+%%                biblatex for archaeologists, 
+%%                historians and philologists, bbx-file]
+%%\RequireBibliographyStyle{standard}
+%%\end{lstlisting}
+%%
+%%It continues with all required settings
+%%\ContinueLineNumber
+%%\begin{lstlisting}[style=code]
+%%\AtBeginDocument{%
+%%		\urlstyle{sf}%
+%%		\typeout{* * * archaeologie * * *  
+%%				biblatex for archaeologists, 
+%%               historians and philologists}
+%%}
+%%\ExecuteBibliographyOptions{%
+%%pagetracker=true,%
+%%citecounter=true,%
+%%giveninits=true,%
+%%sortlocale=auto,%
+%%language=auto,%
+%%autolang=other,%
+%%bibencoding=utf8,%
+%%dateabbrev=false, %
+%%sorting=nyt,%
+%%maxnames=2,% 
+%%minnames=1,%
+%%maxitems=1,%
+%%maxbibnames=999,%
+%%}
+%%\end{lstlisting}
+%% \StartLineAt{426}
+%%\begin{lstlisting}[style=code]
+%%\renewbibmacro*{journal}{%
+%%  \ifboolexpr{test {\iffieldundef{shortjournal}} %
+%%  					or bool {bbx:noabbrevs}}%
+%%    {\printtext[journaltitle]{%
+%%       \printfield[titlecase]{journaltitle}%
+%%       \setunit{\subtitlepunct}%
+%%       \printfield[titlecase]{journalsubtitle}}}%
+%%    {\printfield{shortjournal}}%
+%%    }
+%%\end{lstlisting}
+%%    
 
 %\subsection{archaeologie.cbx}
 
