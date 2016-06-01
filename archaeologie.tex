@@ -452,7 +452,7 @@ The citation rule of the German Archaeological Institute says that the journals 
  The  |@string| is loaded at the begin of the  |bib|-file, therefore all the |@strings| have to be before all other bibliography entries.
  
  To use this offer of simplification the fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
-In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with the endings |-short|, resp. |-long|) are listed in the left column.  
+In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with the endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
 This  |@string| has to be written \textsc{without} any curly brackets in the fiels (e.g. |journaltitle| or |shortseries|).\footnote{If you use the program \emph{JabRef} in its non-coding window, then you have to write  \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window.}
 
 An example shows how to use it:
@@ -460,7 +460,7 @@ An example shows how to use it:
 @Article{Koyunlu1990,
   author       = {Koyunlu, A.},
   title        = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
-  journaltitle = AyasofyaMuezYil-long,
+  journaltitle = AyasofyaMuezYil,
   shortjournal = AyasofyaMuezYil-short,
   volume       = {11},
   pages        = {147--156},
@@ -484,7 +484,7 @@ A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red
 The advantage lies in the possibility to create a separate bibliography with all the abbreviations of used journaltitles and series (see  \cref{bibliographie}).
 
 If a journal or a series is  {\color{red}not} not included in the list (\cref{listen}) 
-then this journal/series will {\color{red}not}  be abbreviated and with its full name written in  |{}| in the field e.g. |journaltitle=|\marg{Zeitschriftentitel}.
+then this journal/series will {\color{red}not}  be abbreviated and with its full name written in  |{}| in the field e.g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}.
 For the following examples we use |@string| whenever it is clever and possible.
 
 \section{Optional preferences}
@@ -712,7 +712,7 @@ An example with an |@Incollection| will demonstrate the effect of the option:
   publisher    = {de Gruyter},
   location     = {Berlin and Boston},
   year         = {2015},
-  series       = Philologus-long #{ Supplement},
+  series       = Philologus #{ Supplement},
   number       = {3},
   shortseries  = Philologus-short #{ Suppl.},
 }
@@ -742,7 +742,7 @@ Let us make it clear with an example of the following bibliographical entry:
 @Article{Boehmer_1985,
   author       = {Boehmer, Rainer Michael and Wrede, Nadja},
   title        = {Astragalspiele in und um Warka},
-  journaltitle = BaM-long,
+  journaltitle = BaM,
   shortjournal = BaM-short,
   volume       = {16},
   pages        = {399--404},
@@ -884,7 +884,7 @@ Without any options this entry
   author       = {Osland, Daniel},
   title        = {Abuse or Reuse?},
   subtitle     = {Public Space in Late Antique Emerita},
-  journaltitle = AJA-long,
+  journaltitle = AJA,
   shortjournal = AJA-short,
   volume       = {120},
   pages        = {67--97},
@@ -916,7 +916,7 @@ If you like to have the full names of journals and series you can switch on the 
 @Article{Koyunlu1990,
   author       = {Koyunlu, A.},
   title        = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
-  journaltitle = AyasofyaMuezYil-long,
+  journaltitle = AyasofyaMuezYil,
   shortjournal = AyasofyaMuezYil-short,
   volume       = {11},
   pages        = {147--156},
@@ -1002,7 +1002,7 @@ This option gives you a different output of the editors: Instead of ›(ed.)‹/
   eprint       = {001371402},
   eprinttype   = {zenon},
   number       = {6},
-  series       = MKT-long,
+  series       = MKT,
   shortseries  = MKT-short,
 }
 \end{lstlisting}\label{zenon}
@@ -1397,7 +1397,7 @@ Have a look:
   location     = {Ann Arbor, Mich.},
   year         = {2003},
   volume       = {V},
-  series       = MemAmAc-long,
+  series       = MemAmAc,
   number       = {2},
   maintitle    = {Cosa},
   shortseries  = MemAmAc-short,
@@ -1468,7 +1468,7 @@ Here we have an example which will explain the (required)  fields:
   author       = {Evangelidis, Vasilis},
   title        = {Agoras {and} Fora},
   subtitle     = {Developments in the Central Public Space of the Cities of Greece during the {Roman} Period},
-  journaltitle = BSA-long,
+  journaltitle = BSA,
   shortjournal = BSA-short,
   volume       = {109},
   pages        = {335--356},
@@ -1559,7 +1559,7 @@ An example:
   year         = {2014},
   editor       = {Kurapkat, Dietmar and Schneider, Peter I. and Wulf-Rheidt, Ulrike},
   number       = {11},
-  series       = DiskAB-long,
+  series       = DiskAB,
   publisher    = {Schnell + Steiner},
   organization = {Architekturreferat des DAI},
   eventdate    = {2012-02-08/2012-02-11},
@@ -1642,7 +1642,7 @@ You don’t need to fill out many fields to have a working entry:
 And so a complete entry is quite small:
 \begin{lstlisting}
 @Reference{LIMC,
-  title     = LIMC-long,
+  title     = LIMC,
   keywords  = {corpus},
   options   = {corpus},
   shorthand = {LIMC},
@@ -1779,7 +1779,7 @@ then the review itself:
   number       = {1},
   pages        = {1--4},
   volume       = {115},
-  journaltitle = AJA-long,
+  journaltitle = AJA,
   shortjournal = AJA-short,
   related      = {Welch_2007},
   relatedtype  = {reviewof},
@@ -1810,7 +1810,7 @@ The following entry is an example reviews the book by \citeauthor*{Welch_2007}, 
   title        = {Von Caesars \emph{theatron kynegetikon} zum \emph{amphitheatrum novum} Vespasians},
   pages        = {487--504},
   volume       = {23},
-  journaltitle = JRA-long,
+  journaltitle = JRA,
   shortjournal = JRA-short,
   related      = {Welch_2007},
   relatedtype  = {reviewof},
@@ -2131,7 +2131,7 @@ In the following example we use an entry type |@Article|:
 @Article{Cosa_1949,
   title        = {Cosa},
   subtitle     = {Republican Colony in Etruria},
-  journaltitle = ClJ-long,
+  journaltitle = ClJ,
   shortjournal = ClJ-short,
   volume       = {45},
   pages        = {141--149},
