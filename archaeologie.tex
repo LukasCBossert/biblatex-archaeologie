@@ -20,11 +20,10 @@ italian, %ngerman,
 ngerman,
 english
 ]{ltxdoc}
-\CodelineNumbered
-\AtBeginDocument{\RecordChanges}
-\AtEndDocument{\PrintChanges}
-  \usepackage[T1,LGR]{fontenc}		% font types and character verification
-%  \renewcommand*\ttdefault{lcmtt}
+%\CodelineNumbered
+%\AtBeginDocument{\RecordChanges}
+%\AtEndDocument{\PrintChanges}
+%  \usepackage[T1,LGR]{fontenc}		% font types and character verification
 \usepackage{libertine}
 \renewcommand*\ttdefault{lmvtt}
 
@@ -45,8 +44,8 @@ english
 \usepackage{babel}
 \usepackage{coolthms}
 \usepackage[					% advanced quotes
-	strict=true,					% 	- warning are errors now
-	style=ngerman,					% 	- german quotes
+%	strict=true,					% 	- warning are errors now
+%	style=ngerman,					% 	- german quotes
 ]{csquotes}
 \usepackage{multicol}
 \setlength{\columnsep}{1.5cm}
@@ -112,23 +111,24 @@ draft=false,
 }
 
 \listfiles
-\EnableCrossrefs
-\CodelineIndex
-\RecordChanges
+%\EnableCrossrefs
+%\CodelineIndex
+%\RecordChanges
 % \usepackage[disable]{todonotes} % notes not showed
 \addbibresource{archaeologie.bib}
 %\addbibresource{archaeologie-ancient.bib}
 %\addbibresource{antike-corpora.bib} %Version 2.0
+\usepackage{caption}
+
 \usepackage{listings}
 \usepackage{xcolor}
 \definecolor{codeblue}{RGB}{0,65,137}
 \definecolor{codegreen}{RGB}{147,193,26}
-
-%\definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- 
+ \DeclareCaptionFormat{listing}{#1#2#3}
+ \captionsetup[lstlisting]{format=listing,singlelinecheck=false, margin=0pt, font={sf},size=footnotesize}
 \lstdefinestyle{mystyle}{%
 	language=[LaTeX]TeX,
     backgroundcolor=\color{backcolour},   
@@ -144,9 +144,13 @@ draft=false,
     						},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
-    breaklines=true,                 
+    breaklines=true,   
+    numberbychapter=false,   
     captionpos=b,                    
-    keepspaces=true,                 
+    keepspaces=true,               
+	%framexleftmargin=5mm, 
+	frame=shadowbox,
+	rulesepcolor=\color{codeblue},
     numbers=left,                    
     numbersep=5pt,            
     showspaces=false,                
@@ -159,6 +163,9 @@ draft=false,
             {[}{{{\color{codegreen}{[}}}}{1}
             {]}{{{\color{codegreen}{]}}}}{1},
 }
+\renewcommand{\lstlistingname}{Example}%rename caption
+\renewcommand{\lstlistlistingname}{List of examples}%rename caption
+
  \lstdefinestyle{code}{%
 	language=[LaTeX]TeX,
     backgroundcolor=\color{white},   
@@ -262,7 +269,7 @@ Here is some additional information from the UK \TeX\ FAQ:
 \end{lstlisting}
 
 Without any further options the style covers now the rules of the German Archaeological Institute. No additional settings are needed.
-But you can change the outcome by using some options which are explained below.\footnote{For an easy and unproblematic compiling we suggest to use\hologo{XeLaTeX} or  \hologo{LuaTeX}.}
+But you can change the outcome by using some options which are explained below.\footnote{For an easy and unproblematic compiling we suggest to use \hologo{XeLaTeX} or  \hologo{LuaTeX}.}
 
 At the end of your document you can write the command |\printbibliography| to print 
 the bibliography. 
@@ -460,7 +467,7 @@ In \cref{listen} there is a list with all the abbreviations given by the DAI, in
 This  |@string| has to be written \textsc{without} any curly brackets in the fiels (e.g. |journaltitle| or |shortseries|).\footnote{If you use the program \emph{JabRef} in its non-coding window, then you have to write  \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window.}
 
 An example shows how to use it:
-\begin{lstlisting}
+\begin{lstlisting}[label=Koyunlu1990,caption={{@}Article\{Koyunlu1990,…\} }]
 @Article{Koyunlu1990,
   author       = {Koyunlu, A.},
   title        = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
@@ -545,7 +552,7 @@ With the loaded option |ancient| you write
 and will get in return after compiling: \cite[3,2,5--7]{Apul:met}.
 \end{refsection}
 The bibliography-entry looks like this
- \begin{lstlisting}
+ \begin{lstlisting}[label=Apul:met,caption={{@}Book\{Apul:met,…\} }]
 @Book{Apul:met,
   author      = {Apuleius Madaurensis, Lucius},
   title       = {metamorphoses},
@@ -610,7 +617,7 @@ By default this option is turned off (|=false|).
 
 An example will  clarify the possibility.
 This bibliographical entry |Lefebvre_2011| contains following fields:
- \begin{lstlisting}
+ \begin{lstlisting}[label=Lefebvre2011,caption={{@}Book\{Lefebvre2011,…\} }]
 @Book{Lefebvre_2011,
   author       = {Lefebvre,Henri},
   title        = {The Production of Space},
@@ -636,8 +643,8 @@ H. Lefebvre,  The Production of Space, {\color{red} La production de l’espace,
 \end{bsp}
  
 It will work not only with entries like |@Book| but also with e.g. |@Article|:
-\begin{lstlisting}
-@Article{Lefebvre_1977,
+\begin{lstlisting}[label=Lefebvre1977,caption={{@}Article\{Lefebvre1977,…\} }]
+@Article{Lefebvre1977,
   author       = {Lefebvre, Henri},
   title        = {Die Produktion des städtischen Raums},
   journaltitle = {ARCH+},
@@ -665,7 +672,7 @@ There is the possibility to cite inreferences in the footnote as a full citation
 It is only required that the bibliography-entry is an |@Inreference|  (cf. \cref{inreference}).
  
 Another example makes it clear: 
-\begin{lstlisting}
+\begin{lstlisting}[label=Nieddu1995,caption={{@}Inreference\{Nieddu1995,…\} }]
 @Inreference{Nieddu_1995,
   author    = {Nieddu, Giuseppe},
   title     = {Dei Consentes},
@@ -2063,6 +2070,7 @@ For series it is done like this:
 
 \end{refsection}
 
+\lstlistoflistings
 \section{FAQ: For  Ancient (scholars of high) Quality}
 \subsection{Following pages}
 \DescribeMacro{\psq} If you have to cite two following pages there is the macro \cs{psq} which is best to you since it is also controlled by the set up language.
