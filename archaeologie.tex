@@ -10,7 +10,7 @@
 %   http://www.latex-project.org/lppl.txt
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
-
+%!TEX program = xelatex
 \documentclass[a4paper,
 10pt,
 greek,
@@ -35,6 +35,7 @@ english
 	%seenote,
 	%translation,
 	%publisher,
+	lstlocations,
 	lstabbrv,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
@@ -283,6 +284,9 @@ With this option you can change it to a different outcome (but still according t
  This activates the additional bibliography file  |archaeologie-lstabbrv.bib|.
  With this bibliography one can cite journals and series according to the abbreviations of the German Archaeological Institute cf. \cref{abbrv}. 
 
+\DescribeMacro{lstlocations}
+This loads an additional bibliography with |@strings| which can be used for locations to print out their correct exonym in the selected language cf. \cref{lstlocations}.
+
 
  \DescribeMacro{ancient}
 A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{ancient}.
@@ -514,6 +518,14 @@ It doesn't matter if you write |inreferences,| or |inreferences=true|.
 Once activated the additional bibliography  |archaeologie-lstabbrv.bib| is loaded. 
 In this bibliography all abbreviations listed in \cref{listen} are stored.
 
+\subsubsection{lstlocations}\label{lstlocations}
+\DescribeMacro{lstlocations}
+This loads an additional bibliography with |@strings| which can be used for locations to print out their correct exonym in the selected language.
+For the list cf. \cref{list-locations}
+\subsubsection{corpora}\label{corpora}
+\DescribeMacro{corpora}
+This loads an additional bibliography which contains the most important corpora for ancient studies, so you can cite them right away in your document.
+For the corpora in this bibliography cf. \cref{list-corpora}
 
 \subsubsection{ancient}\label{ancient}
  \DescribeMacro{ancient}
@@ -521,7 +533,7 @@ In the case you cite ancient authors and their works you can do it with the comm
 This is recommended and will  guarantee a high level of consistency and  minimize  error-proneness.
 For this case especially we included a modification that respects the different citation of  ancient authors and works.
 With the option |ancient| you load an additional bibliography called |bibliography-ancient.bib| in which we inserted almost 600 ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
-For the complete list of those see  \cref{ancient-list}.
+For the complete list of those see  \cref{list-ancient}.
 
 You can cite the authors or works with their |bibtex-key| which is on the left. 
 Authors and works are separated by a colon.
@@ -710,9 +722,9 @@ An example with an |@Incollection| will demonstrate the effect of the option:
   booktitle    = {Cityscaping},
   booksubtitle = {Constructing and Modelling Images of the City},
   publisher    = {de Gruyter},
-  location     = {Berlin and Boston},
+  location     = Berlin #{ and Boston}, %@string partly used
   year         = {2015},
-  series       = Philologus #{ Supplement},
+  series       = Philologus-long #{ Supplement},
   number       = {3},
   shortseries  = Philologus-short #{ Suppl.},
 }
@@ -942,7 +954,7 @@ In case of a reprint or a second edition the first edition |origyear| will be pu
   title     = {Peristyl und Polis},
   subtitle  = {Entwicklung und Funktionen öffentlicher griechischer Hofanlagen},
   publisher = {Walter de Gruyter},
-  location  = {Berlin and New York},
+  location  = Berlin #{ and New York}, %@string partly used
   year      = {2013},
   series    = {Urban Spaces},
   number    = {1},
@@ -1114,7 +1126,7 @@ Another example:
   pages        = {110--185},
   origlanguage = {latin},
   series       = {Sammlung Tusculum},
-  location     = Munich,			%bibstring
+  location     = Munich,			%@string used
   intranslator = {Fuhrmann, Manfred},
   keywords     = {ancient},
   options      = {ancient},
@@ -1122,7 +1134,7 @@ Another example:
   shortauthor  = {Cicero},
   shorthand    = {Cic. Sest.},
 }
-\end{lstlisting}
+\end{lstlisting}\label{lstlocations-munich}
 
 
 \printbiball{Cic:Sest}
@@ -1138,7 +1150,7 @@ Another example:
   editor      = {Lindsay, Wallace Martin},
   title       = {De verborum significatu quae supersunt cum Pauli epitome},
   publisher   = {Teubner},
-  location    = {Leipzig},
+  location    = Leipzig, %@string used
   year        = {1965},
   series      = {Bibliotheca scriptorum et Grecorum et Romanorum Teubnerina},
   origyear    = {1913},
@@ -1148,7 +1160,7 @@ Another example:
   options     = {frgancient},
   shorteditor = {L},
 }
-\end{lstlisting}
+\end{lstlisting}\label{lstlocations-leipzig2}
 When you cite this entry  e.g. with |\cite[3]{Fest}|, so the field  |shorteditor| will be shown in this case.
  \begin{bsp}
  Fest. 3 L
@@ -1227,12 +1239,12 @@ An entry of a book might look as this in your |bib|-file:
   title     = {\enquote{Um keinen Kranz, um das Leben kämpfen wir!}},
   subtitle  = {Gladiatoren im Osten des Römischen Reiches und die Frage der Romanisierung},
   publisher = {Verlag Antike},
-  location  = {Berlin},
+  location  = Berlin, %@string used
   year      = {2011},
   series    = {Studien zur Alten Geschichte},
   number    = {14},
 }
-\end{lstlisting}
+\end{lstlisting}\label{lstlocations-berlin}
 A citation in a footnote is done like this
 \begin{lstlisting}
 \footnote{\cite[Vgl.][142--144]{Mann_2011}.}
@@ -1268,17 +1280,17 @@ The first edition of \citetitle*{Zanker_2009}  by \citeauthor*{Zanker_2009}  has
   author        = {Zanker, Paul},
   title         = {Augustus und die Macht der Bilder},
   publisher     = {CHB},
-  location      = Munich,
+  location      = Munich,%@string used
   year          = {2009},
   edition       = {5},
-  origlocation  = {Leipzig},
+  origlocation  = Leipzig, %@string used
   origyear      = {1987},
   eprint        = {000250713},
   eprinttype    = {zenon},
   language      = {german},
   origpublisher = {Koehler \& Amelang},
 }
-\end{lstlisting}\label{zenon}
+\end{lstlisting}\label{zenon}\label{lstlocations-munich}\label{lstlocations-leipzig}
 In \citeyear{Zanker_1988}, one year later  it was translated by A. H. Shapiro:
 \begin{lstlisting}
 @Book{Zanker_1988,
@@ -1300,7 +1312,6 @@ The translated book |Zanker_1988| is connected with the book |Zanker_2009| via t
 
 You don’t have to cite |Zanker_2009| to have the information visible in the bibliography. 
 It will be included automatically. For the following bibliography we only use |\cite{Zanker_1988}|:
-\printbib[5em]{Zanker_1988}
 
 \printbiball[5em]{Zanker_1988}
 
@@ -1423,9 +1434,9 @@ We provide two examples so you see the difference.
   editor       = {U. Gehrig},
   booksubtitle = {Antiken der Sammlung Mildenberg},
   pages        = {20 Nr. 9},
-  location     = {Mainz},
+  location     = Mainz, %@string used
 }
-\end{lstlisting}
+\end{lstlisting}\label{lstlocations-mainz}
 and the second example
 
 \begin{lstlisting}
@@ -1435,10 +1446,10 @@ and the second example
   year      = {1969},
   volume    = {III},
   edition   = {4},
-  pages     = {98\psq\ Nr. 2176},%! \psq = following page
-  location  = {Tübingen},
+  pages     = {98\psq\ Nr. 2176},
+  location  = Tuebingen, %@string used
 }
-\end{lstlisting}\label{psq}
+\end{lstlisting}\label{psq}\label{lstlocations-tubingen}
 
 
 \printbib[6em]{Kohlmeyer_1983}
@@ -1477,7 +1488,7 @@ Here we have an example which will explain the (required)  fields:
   doi          = {10.1017/s006824541400015x},
 }
 \end{lstlisting}\label{doi}
-In line 5 and 6 you can also write the full or abbrivated journal title in the fields |journaltitle| or |shorttitle| (e.g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@string| (cf. \cref{ancient-list,string}) again.
+In line 5 and 6 you can also write the full or abbrivated journal title in the fields |journaltitle| or |shorttitle| (e.g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@string| (cf. \cref{list-ancient,string}) again.
 \printbib[7em]{Evangelidis_2014}
 %\begin{refsection}\end{refsection}
 
@@ -1559,16 +1570,16 @@ An example:
   title        = {Die Architektur des Weges},
   year         = {2014},
   editor       = {Kurapkat, Dietmar and Schneider, Peter I. and Wulf-Rheidt, Ulrike},
-  number       = {11},
-  series       = DiskAB,
-  publisher    = {Schnell + Steiner},
-  organization = {Architekturreferat des DAI},
-  eventdate    = {2012-02-08/2012-02-11},
-  eventtitle   = {Kolloquium Architekturreferat des DAI},
-  location     = {Regensburg},
-  shortseries  = DiskAB-short,
   subtitle     = {Gestaltete Bewegung im gebauten Raum},
+  eventtitle   = {Kolloquium Architekturreferat des DAI},
+  eventdate    = {2012-02-08/2012-02-11},
   venue        = {Berlin},
+  series       = DiskAB,
+  number       = {11},
+  organization = {Architekturreferat des DAI},
+  publisher    = {Schnell + Steiner},
+  location     = Regensburg,
+  shortseries  = DiskAB-short,
 }
 \end{lstlisting}
 With |venue| we specify the place where the proceeding took place (e.g. \emph{Berlin} -- |location| is where the book was printed and is connected to the |publisher| e.g. \emph{Regensburg}),
@@ -1653,12 +1664,12 @@ And so a complete entry is quite small:
 But you can also have it  more detailed  like this one:
 \begin{lstlisting}
 @Reference{Lexikon-der-Technik,
+  editor    = {Otto Lueger},
   title     = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},
   year      = {1904--1920},
   edition   = {2},
-  editor    = {Otto Lueger},
+  location  = Stuttgart, %@string used
   keywords  = {corpus},
-  location  = {Stuttgart},
   shorthand = {Lexikon d. T.},
 }
 \end{lstlisting}
@@ -2157,7 +2168,7 @@ and be printed in the bibliography like this:
 
 
 \clearpage
-\section{Ancient authors and works}\label{ancient-list}
+\section{Ancient authors and works}\label{list-ancient}
 The bibliography |archaeologie-ancient.bib| is filled with ancient authors, works and their abbreviation according to  The New Pauly.
 The bold entry on the left is the |bibtex-key|.
 All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
@@ -2168,7 +2179,7 @@ All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
 
-\section{Corpora}\label{corpora}
+\section{Corpora}\label{list-corpora}
 List of corpora in ancient studies |archaeologie-corpora.bib|.
 This activates the other additional bibliography |archaeologie-lstabbrv.bib| automatically.
 The bold entry on the left is the |bibtex-key|.
@@ -2178,9 +2189,43 @@ All the entries have |keywords={corpus}|, |options={corpus}|.
 \end{multicols}
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
+\section{List of locations}\label{list-locations}
+\DescribeMacro{lstlocations}If you use the option |lstlocations| it will load an additional bibliography called |archaeologie-lstlocations.bib|. Below you find a list with the available locations in five (at maximum) different languages.
+The bold entry on the left is to use for |location=|\meta{location} -- do not put \meta{location} into |{}|, e.g. \cref{lstlocations-munich,lstlocations-leipzig,lstlocations-leipzig2,lstlocations-tubingen,lstlocations-mainz}
+\begin{multicols}{2}
+\begin{description}
+\item[Aix-la-Chapelle] <-- English\newline German: Aachen\newline Italian: \newline Spanish: Aquisgrán\newline French: Aix-la-Chapelle
+\item[Athens] <-- English\newline German: Athen\newline Italian: Atene\newline Spanish: Atenas\newline French: Athènes
+\item[Augsburg] <-- English\newline German: Augsburg\newline Italian: Augusta\newline Spanish: Ausburgo\newline French: Augsbourg
+\item[Basle] <-- English\newline German: Basel\newline Italian: Basilea\newline Spanish: Basilea\newline French: Basel
+\item[Berlin] <-- English\newline German: Berlin\newline Italian: Berlino\newline Spanish: Berlín\newline French: Berlin
+\item[Brussels] <-- English\newline German: Brüssel\newline Italian: Bruxelles\newline Spanish: Bruselas\newline French: Bruxelles
+\item[Cologne] <-- English\newline German: Köln\newline Italian: Colonia\newline Spanish: Colonia\newline French: Cologne
+\item[Copenhagen] <-- English\newline German: Kopenhagen\newline Italian: Copenaghen\newline Spanish: Copenhague\newline French: Copenhague
+\item[Dresden] <-- English\newline German: Dresden\newline Italian: Desda\newline Spanish: Dresde\newline French: Dresde
+\item[Florence] <-- English\newline German: Florenz\newline Italian: Firenze\newline Spanish: Firenze\newline French: Florence
+\item[Frankfort-on-the-Main] <-- English\newline German: Frankfurt am Main\newline Italian: Francoforte sul Meno\newline Spanish: Francfort del Meno\newline French: Francfort-sur-le-Main
+\item[Freiburg] <-- English\newline German: Freiburg (i. Breisgau)\newline Italian: Friburgo in Brisgovia\newline Spanish: Friburgo de Brisgovia\newline French: Fribourg-en-Brisgau
+\item[Göttingen] <-- English\newline German: Göttingen\newline Italian: Gottinga\newline Spanish: Gotinga\newline French: Gœttingue
+\item[Hamburg] <-- English\newline German: Hamburg\newline Italian: Amburgo\newline Spanish: Hamburgo\newline French: Hambourg
+\item[Leipzig] <-- English\newline German: Leipzig\newline Italian: Lipsia\newline Spanish: Leipzig\newline French: Leipzig
+\item[London] <-- English\newline German: London\newline Italian: Londra\newline Spanish: Londres\newline French: Londres
+\item[Louvain] <-- English\newline German: Löwen\newline Italian: Lovanio\newline Spanish: Lovaina\newline French: Louvain
+\item[Mainz] <-- English\newline German: Mainz am Rhein\newline Italian: Magonza\newline Spanish: Maguncia\newline French: Mayence
+\item[Milano] <-- English\newline German: Mailand\newline Italian: Milano\newline Spanish: Milán\newline French: Milan
+\item[Munich] <-- English\newline German: München\newline Italian: Monaco (di Bavaria)\newline Spanish: Múnich\newline French: Munich
+\item[Naples] <-- English\newline German: Neapel\newline Italian: Napoli\newline Spanish: Napoli\newline French: Naples
+\item[Paris] <-- English\newline German: Paris\newline Italian: Parigi\newline Spanish: París\newline French: Paris
+\item[Regensburg] <-- English\newline German: Regensburg\newline Italian: Ratisbona\newline Spanish: Ratisbona\newline French: Ratisbonne
+\item[Rome] <-- English\newline German: Rom\newline Italian: Roma\newline Spanish: Roma\newline French: Rome
+\item[Saarbrucken] <-- English\newline German: Saarbrücken\newline Italian: \newline Spanish: Saarbruck\newline French: Saarbruck
+\item[Stuttgart] <-- English\newline German: Stuttgart\newline Italian: Stoccardo\newline Spanish: Estútgart\newline French: Stuttgart
+\item[Trier] <-- English\newline German: Trier\newline Italian: Treviri\newline Spanish: Trèveris\newline French: Trèves
+\item[Tuebingen] <-- English\newline German: Tübingen\newline Italian: Tubinga\newline Spanish: Tubinga\newline French: Tubingue
+\item[Vienna] <-- English\newline German: Wien\newline Italian: Vienna\newline Spanish: Viena\newline French: Vienne
 
-
-
+\end{description}
+\end{multicols}
 \section{List of abbreviation according to the German Archaeological Institute-guidelines}\label{listen}
 We modified the lists with abbreviations of journals, corpora, etc. to make them usable with |bib|\LaTeX.
 Below there are two lists with\DescribeMacro{@string} |@string| (in \textbf{bold} letters on the left), 

@@ -55,6 +55,7 @@
 \newbool{bib:lstabbrv}
 \newbool{bib:corpora}
 \newbool{bib:ancient}
+\newbool{bib:lstlocations}
 \newsavebox\arch@labelbox
 \newlength{\labwidthsameline}
 	\setlength{\labwidthsameline}{4em}
@@ -71,6 +72,9 @@
 }
 \DeclareBibliographyOption{ancient}[true]{%
 		\addbibresource{archaeologie-ancient.bib}%
+}
+\DeclareBibliographyOption{lstlocations}[true]{%
+		\addbibresource{archaeologie-lstlocations.bib}%
 }
 %-----------------------
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
@@ -569,26 +573,17 @@
 		\usebibmacro*{related:default}{#1}%
 }
 %-----------------------
-%\renewcommand*{\lbx@lfromlang}{%
-%      \iflistundef{language}%
-%        {\unspace}%
-%        {\biblstring{from\thelist{language}}}}
-%    \renewcommand*{\lbx@sfromlang}{%
-%      \iflistundef{language}%
-%        {\unspace}%
-%        {\bibsstring{from\thelist{language}}}}
-%  
 \newbibmacro*{related:translationof}[1]{%
-  \entrydata*{#1}{%
-    \restorename{savedtranslator}{\savedrelatedtranslator}%
-     \printtext[emph]{\usebibmacro{title}}%
-     \usebibmacro{location+edition+year}%
-     \newunit
+	\entrydata*{#1}{%
+   	\restorename{savedtranslator}{\savedrelatedtranslator}%
+    \printtext[emph]{\usebibmacro{title}}%
+    \usebibmacro{location+edition+year}%
+    	\newunit
     \bibstring{bytranslator}%keine Sprache ausgegeben?    
-    \setunit{\addspace}%
+    	\setunit{\addspace}%
     \printnames{savedtranslator}
-    %\printlist{language}
-  }}
+  	}
+}
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
