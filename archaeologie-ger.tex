@@ -1,5 +1,3 @@
-%!TEX program = xetex
-%
 % archaeologie --%
 %            biblatex for archaeologists, 
 %				historians and philologists
@@ -12,19 +10,12 @@
 %   http://www.latex-project.org/lppl.txt
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
-
-\documentclass[a4paper,
-10pt,ngerman
-]{ltxdoc}
+%!TEX program = xelatex
+\documentclass[a4paper,10pt,ngerman]{ltxdoc}
 \CodelineNumbered
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
-%\usepackage[T1]{fontenc}		% font types and character verification
-%  \renewcommand*\ttdefault{lcmtt}
 \usepackage{libertine}
-%\renewcommand*\ttdefault{cmvtt}
-%\renewcommand*\ttdefault{txtt}
-%\usepackage{inconsolata}
 \renewcommand*\ttdefault{lmvtt}
 
 \usepackage[					% use  for bibliography
@@ -53,10 +44,9 @@ lstabbrv,
 \renewcommand\bibfont{\normalfont
 \footnotesize}
 
-
-	\usepackage{metalogo}
-	\usepackage{hologo}
- \usepackage{babel}
+\usepackage{metalogo}
+\usepackage{hologo}
+\usepackage{babel}
 \usepackage{coolthms}
 \usepackage[					% advanced quotes
 	strict=true,					% 	- warning are errors now
@@ -109,27 +99,19 @@ lstabbrv,
 \endgroup
 }
 
-
 \listfiles
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
 
-
- \usepackage[disable]{todonotes} % notes not showed
- 
- 
-
-
+\usepackage[disable]{todonotes} % notes not showed
 
 \addbibresource{archaeologie.bib}
 %\addbibresource{archaeologie-ancient.bib}
 %\addbibresource{antike-corpora.bib} %Version 2.0
 
-
-
 \usepackage{listings}
- \definecolor{myblue}{RGB}{0,65,137}
+\definecolor{myblue}{RGB}{0,65,137}
 \definecolor{codegreen}{RGB}{147,193,26}
 
 %\definecolor{codegreen}{rgb}{0,0.6,0}
@@ -218,16 +200,19 @@ Um den Stil den eigenen Bedürfnissen anzupassen können darüber hinaus verschi
 Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der \cs{cite}-Befehle eingebunden, der \cs{printbibliography}-Befehl am Ende des Dokuments oder an gewünschter Stelle gibt eine Liste der verwendeten Bibliographie aus. Da |archaeologie| jedoch unterschiedliche Zitierweisen je Textsorte wie antiker Primärliteratur oder wissenschaftlicher Sekundärliteratur unterstützt, empfiehlt es sich, die Bibliographie dementsprechend aufzuteilen (z.\,B. Antike Quellen, Abkürzungen etc.). 
 Einige Möglichkeiten zur Gestaltung der Bibliographie geben wir in \cref{bibliographie}.
 
-Um die externen Bibliographien, die |archaeologie| optional bereitstellt, korrekt einzubinden, ist ein Schrift-Encoding von Nöten, das auch griechische Schriftzeichen enthält. Für \LaTeX{} ist ein Unicode-Encoding z.\,B. über \cs{inputenc{utf8}} eine mögliche Lösung. \XeLaTeX{} unterstützt Unicode von Hause aus.
+Um die externen Bibliographien, die |archaeologie| optional bereitstellt, korrekt einzubinden, ist ein Input-Encoding von Nöten, das unter anderem auch griechische Schriftzeichen enthält. 
+Für \LaTeX{} ist ein entsprechendes Encoding z.\,B. über \cs{usepackage[utf8]\{inputenc\}} zu erreichen. \XeLaTeX{} unterstützt Unicode von Hause aus.
 
 \section{Übersicht}
-Im Folgenden stellen wir etwas knapp die Optionen und Einstellungen vor, mit denen der Stil |archaeologie| aufgerufen werden kann. Wer mehr wissen will, sei auf die englische Hauptdokumentation verwiesen. Die Optionen sind nicht Teil der oben angeführten Standardaktivierung von |archaeologie|, sondern können im Bedarfsfall ausgewählt werden.
-
-Neben den |archaeologie|-Optionen kann man -- quasi auf eigene Gefahr -- noch die konventionellen |biblatex|-Optionen (insbesondere zur Formatierung der Abstände etc. des Literaturverzeichnisses) verwenden. Näheres zu diesen findet man in der Dokumentation von |biblatex|.
+Im Folgenden stellen wir etwas knapp die Optionen und Einstellungen vor, mit denen der Stil |archaeologie| aufgerufen werden kann. Wer mehr wissen will, sei auf die englische Hauptdokumentation verwiesen. 
 
 \DescribeMacro{shorthand}  Wegen seiner Wichtigkeit soll das Bibliographiefeld (\emph{Data Field}) |shorthand| gleich zu Beginn Erwähnung finden. Denn das Feld |shorthand|, das universal zu bib\LaTeX{} gehört, eignet sich gerade für spezielle Zitationen jenseits der Standardzitierweise: nach DAI-Richtlinien betrifft das besonders Sigel, Corpora, Nachschlagewerke, Abkürzungen antiker Texte etc. Für einige dieser Zitate muss das Komma zwischen Publikations- und Seitennachweis, das DAI-Zitate standardmäßig enthalten (etwa Hölscher 2001, 143), entfernt werden: z.\,B. RIC V 53 anstelle RIC V, 53. Hierfür stellt |archaeologie| verschiedene Optionen bereit, die in \cref{bib_options} erläutert werden.
 
 \subsection{Paketoptionen (Präambel)}\label{preamble_options}
+
+Die Optionen sind nicht Teil der oben angeführten Standardaktivierung von |archaeologie|, sondern können im Bedarfsfall ausgewählt werden.
+
+Neben den |archaeologie|-Optionen kann man -- quasi auf eigene Gefahr -- noch die konventionellen |biblatex|-Optionen (insbesondere zur Formatierung der Abstände etc. des Literaturverzeichnisses) verwenden. Näheres zu diesen findet man in der Dokumentation von |biblatex|.
 
 \DescribeMacro{seenote}  Gibt bei erster Verwendung zunächst das Vollzitat, im Anschluss dann den Rückverweis auf die Erstnennung aus. Löst damit das Autor-Jahr-System ab.
 
@@ -452,7 +437,7 @@ Die Optionen |heading=bibnumbered| und |heading=subbibnumbered| entscheiden übe
 \begin{refsection}
 \nocite{Cic:Att,Fest,%
 Ball_2013,Taylor_2008,Mann_2011,Mundt_2015,Kurapkat_2014,%
-Wulf-Rheidt_2013,Bergmann_2015,ThesCRA,Nieddu_1995,Arnolds_2005}
+Wulf-Rheidt_2013,Bergmann_2015,ThesCRA,Nieddu_1995,Arnolds_2005,Boehmer_1985}
 
 \setcounter{section}{0}
 \begin{bsp}
