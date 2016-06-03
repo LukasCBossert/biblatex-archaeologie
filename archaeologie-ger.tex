@@ -121,60 +121,103 @@ lstabbrv,
 \addbibresource{archaeologie.bib}
 %\addbibresource{archaeologie-ancient.bib}
 %\addbibresource{antike-corpora.bib} %Version 2.0
+\usepackage{caption}
 
 \usepackage{listings}
-\definecolor{myblue}{RGB}{0,65,137}
+\usepackage{xcolor}
+\definecolor{codeblue}{RGB}{0,65,137}
 \definecolor{codegreen}{RGB}{147,193,26}
-
-%\definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- 
-\lstdefinestyle{mystyle}{
+ \DeclareCaptionFormat{listing}{#1#2#3}
+ \captionsetup[lstlisting]{format=listing,
+ singlelinecheck=false, margin=0pt, font={sf},size=footnotesize}
+%\lstdefinestyle{bibentry}{%
+%	language=[LaTeX]TeX,
+%    backgroundcolor=\color{backcolour},   
+%    commentstyle=\color{codegreen},
+%    keywordstyle=\color{codeblue},
+%    numberstyle=\tiny\color{codegray},
+%    stringstyle=\color{codepurple},
+%	escapeinside={<@}{@>},
+%    texcsstyle=*\color{codeblue},
+%    morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
+%    						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
+%    						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
+%    						},
+%    basicstyle=\ttfamily\footnotesize,
+%    breakatwhitespace=false,         
+%    breaklines=true,   
+%    numberbychapter=false,   
+%    captionpos=b,                    
+%    keepspaces=true,               
+%	%framexleftmargin=5mm, 
+%	frame=shadowbox,
+%	rulesepcolor=\color{codeblue},
+%    numbers=left,                    
+%    numbersep=5pt,            
+%    showspaces=false,                
+%    showstringspaces=false,
+%    showtabs=false,                  
+%    tabsize=2,
+%    literate=
+%            *{\{}{{{\color{codegreen}{\{}}}}{1}
+%            {\}}{{{\color{codegreen}{\}}}}}{1}
+%            {[}{{{\color{codegreen}{[}}}}{1}
+%            {]}{{{\color{codegreen}{]}}}}{1},
+%}
+\renewcommand{\lstlistingname}{Example}%rename caption
+\renewcommand{\lstlistlistingname}{List of examples}%rename caption
+
+ \lstdefinestyle{code}{%
 	language=[LaTeX]TeX,
-    backgroundcolor=\color{backcolour},   
+    backgroundcolor=\color{white},   
     commentstyle=\color{codegreen},
-    keywordstyle=\color{myblue},
-    numberstyle=\tiny\color{codegray},
+    keywordstyle=\color{codeblue},
+    numberstyle=\small\color{codegray},
     stringstyle=\color{codepurple},
-    escapeinside={<@}{@>},
-    texcsstyle=*\color{myblue},
-    morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
-    						@article, @book,@inproceedings@,@proceedings,@talk,@reference,@inreference,@incollection,
-    						},
+	escapeinside={<@}{@>},
+    texcsstyle=*\color{codeblue},
+    morekeywords={},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
-    breaklines=true,   
-    inputencoding=utf8/latin1,              
+    breaklines=true,                 
     captionpos=b,                    
     keepspaces=true,                 
-    numbers=left,                    
+    %numbers=left,                    
+    stepnumber=1,
     numbersep=5pt,            
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
     tabsize=2,
+      morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
+    						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
+    						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
+    						},
     literate=
-            *{\{}{{{\color{codegreen}{\{}}}}{1}
-            {\}}{{{\color{codegreen}{\}}}}}{1}
-            {[}{{{\color{codegreen}{[}}}}{1}
-            {]}{{{\color{codegreen}{]}}}}{1},
+            *{\{}{{{\color{codeblue}{\{}}}}{1}
+            {\}}{{{\color{codeblue}{\}}}}}{1}
+            {[}{{{\color{codeblue}{[}}}}{1}
+            {]}{{{\color{codeblue}{]}}}}{1},
 }
- 
-\lstset{style=mystyle}
-\lstMakeShortInline[style=mystyle]{|}
+%%% Always I forget this so I created some aliases
+\def\ContinueLineNumber{\lstset{firstnumber=last}}
+\def\StartLineAt#1{\lstset{firstnumber=#1}}
+\let\numberLineAt\StartLineAt
+
+\lstset{style=code}
+\lstMakeShortInline[style=code]{|}
 
 \hypersetup{  colorlinks   = true, %Colours links instead of ugly boxes
   urlcolor     =  blue, %Colour for external hyperlinks
   linkcolor    = black, %Colour of internal links
   citecolor   = blue, %Colour of citations
   }	
-
-
-%\MakeShortVerb{\|}
- \newenvironment{syntax}{\begin{small}\medskip\hspace*{2em}}{\par\medskip\end{small}}
- %\def\verbatimchar{;}
+ \crefformat{lstlisting}{#2example\ #1#3}
+\crefmultiformat{lstlisting}{#2examples #1#3}{; #2#1#3}{; #2#1#3}{; #2#1#3}
+\crefrangeformat{lstlisting}{#3examples #1#4--#5Taf. #2#6}
 
 \begin{document}
  \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} für Archäologen\footnote{Ebenso geeignet für (Alt-)Philologen und (Alt-)Historiker.
@@ -228,7 +271,10 @@ Neben den |archaeologie|-Optionen kann man -- quasi auf eigene Gefahr -- noch di
 
 \DescribeMacro{seenote}  Gibt bei erster Verwendung zunächst das Vollzitat, im Anschluss dann den Rückverweis auf die Erstnennung aus. Löst damit das Autor-Jahr-System ab.
 
-\DescribeMacro{lstabbrv}  Aktiviert die separate Bibliographiedatei |archaeologie-abbrv.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch Zeitschriften oder Reihen nach den DAI-Abkürzungsrichtlinien zitieren kann. 
+\DescribeMacro{lstabbrv}  Aktiviert die separate Bibliographiedatei |archaeologie-lstabbrv.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch Zeitschriften oder Reihen nach den DAI-Abkürzungsrichtlinien zitieren kann. 
+
+\DescribeMacro{lstlocations}  Aktiviert die separate Bibliographiedatei |archaeologie-lstlocations.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch  Städtennamen entsprechend der eingestellten Sprache exonym ausgegeben lassen kann.
+
 
 \DescribeMacro{ancient}  Lädt eine separate Bibliographie,
 in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. 
@@ -237,7 +283,7 @@ Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getre
  
 \DescribeMacro{corpora}  Lädt eine separate Bibliographie,
 in der über 40 Corpora fertig zitierfähig gespeichert sind.
-Die Option lädt zusätzlich die Bibliographie |archaeologie-abbrv.bib|, deren separate Einbindung durch die Option |lstabbrv| (s. oben) erfolgt.
+Die Option lädt zusätzlich die Bibliographie |archaeologie-lstabbrv.bib|, deren separate Einbindung durch die Option |lstabbrv| (s. oben) erfolgt.
 Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. 
 Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bib_options} und \ref{bibliographie}).
 
@@ -325,7 +371,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[8em]{Ball_2013}
+\printbib[8em]{Ball2013}
 
 
 \DescribeMacro{@book}  \DescribeMacro{@collection}  Für Monographien und Sammelbände.
@@ -334,7 +380,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|, |related|, |relatedtype|, |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[7em]{Fentress_2003}
+\printbib[7em]{Fentress2003}
 
  
 \DescribeMacro{@inbook}  \DescribeMacro{@incollection}  Für Beiträge innerhalb eines Sammelbandes.
@@ -343,7 +389,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|, |related|, |relatedtype|, |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[5em]{Mundt_2015}
+\printbib[5em]{Mundt2015}
 
  
 \DescribeMacro{@proceedings}  Für Konferenz-/Kolloquiumssammelbände, bei denen ein Datum angegeben ist. 
@@ -352,7 +398,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|, |related|, |relatedtype|, |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[7em]{Kurapkat_2014}
+\printbib[7em]{Kurapkat2014}
 
 
 \DescribeMacro{@inproceedings}  Für Beiträge innerhalb eines Konferenz-/Kolloquiumssammelbandes, bei denen ein Datum angegeben ist. 
@@ -361,7 +407,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|, |related|, |relatedtype|, |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[7em]{Wulf-Rheidt_2013}
+\printbib[7em]{Wulf-Rheidt2013}
 
  
 \DescribeMacro{@talk}  Für (mündliche) Vorträge (Kolloquium, Konferenz) 
@@ -370,7 +416,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum| 
 \end{description}
 
-\printbib[6em]{Bergmann_2015}
+\printbib[6em]{Bergmann2015}
 
 
 \DescribeMacro{@review} Für Rezensionen.
@@ -379,7 +425,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[5em]{Taylor_2008}
+\printbib[5em]{Taylor2008}
 
 
 \DescribeMacro{@reference}  Für Lexika als Gesamtwerk.
@@ -399,7 +445,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 |publisher|, |series|, |number|, |edition|, |origyear|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[5em]{Nieddu_1995}
+\printbib[5em]{Nieddu1995}
 
 
 \DescribeMacro{@thesis}  Für (unpublizierte) eingereichte Dissertationen oder Master/Magisterarbeiten.
@@ -410,7 +456,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 
 Für eine Dissertation:  |type = {phdthesis}|, \\ für eine Magister/Masterarbeit: |type={mathesis}|.
 
-\printbib[5em]{Arnolds_2005}
+\printbib[5em]{Arnolds2005}
 
 
 \section{Bibliographie}\label{bibliographie}
@@ -422,17 +468,21 @@ Nachfolgend wird gezeigt, wie einem eine solche Bibliographieaufteilung mit |arc
 
 \begin{lstlisting}
 \printbibheading[%
+							heading=bibliography,
 							title={Bibliographie}]% Überschrift für Bibliographie
 
 \printbibliography[%
+							heading=subbibliography,
 							keyword=ancient,%
 							title={Antike Quellen}]
 
 \printbibliography[%
-              keyword=corpus,%
-              title={Abkürzungen und Sigel}]
+							heading=subbibliography,
+              				keyword=corpus,%
+              				title={Abkürzungen und Sigel}]
 
 \printbibliography[%
+							heading=subbibliography,
 							notkeyword=ancient,%
 							notkeyword=corpus,%
 							title={Forschungsliteratur}]
@@ -444,30 +494,30 @@ Die Optionen |heading=bibnumbered| und |heading=subbibnumbered| entscheiden übe
 
 \begin{refsection}
 \nocite{Cic:Att,Fest,%
-Ball_2013,Taylor_2008,Mann_2011,Mundt_2015,Kurapkat_2014,%
-Wulf-Rheidt_2013,Bergmann_2015,LTUR,Nieddu_1995,Arnolds_2005}
+Ball2013,Taylor2008,Mann2011,Mundt2015,Kurapkat2014,%
+Wulf-Rheidt2013,Bergmann2015,LTUR,Nieddu1995,Arnolds2005}
 
 \setcounter{section}{0}
 \begin{bsp}
 \renewcommand\bibfont{\normalfont\footnotesize}
 \printbibheading[%
-%							heading=bibnumbered,%
-							title={Bibliographie}] %Überschrift für Bibliographieumgebung}
+							heading=bibliography,
+							title={Bibliographie}]% Überschrift für Bibliographie
 
 \printbibliography[%
+							heading=subbibliography,
 							keyword=ancient,%
-%							heading=subbibnumbered,%
 							title={Antike Quellen}]
 
 \printbibliography[%
-            keyword=corpus,%
-%            heading=subbibnumbered,%
-            title={Abkürzungen und Sigel}]
+							heading=subbibliography,
+              				keyword=corpus,%
+              				title={Abkürzungen und Sigel}]
 
 \printbibliography[%
-							notkeyword=corpus,%
+							heading=subbibliography,
 							notkeyword=ancient,%
-%							heading=subbibnumbered,%
+							notkeyword=corpus,%
 							title={Forschungsliteratur}]
 \end{bsp}
 
@@ -475,27 +525,30 @@ Mit dem eben beschriebenen Verfahren können mit beliebigen |keyword|-Begriffen 
 
 Ebenso hilfreich kann es sein, Abkürzungen von Zeitschriften und Reihen aufzulösen. Bib\LaTeX{} liest hierfür die im Feld |shortjournal| bzw. |shortseries| hinterlegten Abkürzungen aller Bibliographieeinträge aus und löst sie durch die Inhalte der Felder |journaltitle| bzw. |series| auf. Hierzu müssen die Felder jedoch beide befüllt sein: ein |shortjournal|-Eintrag ohne |journaltitle|-Entsprechung wird nicht indiziert und folglich in der Liste fehlen.
 
-Die Abküzrungsliste erhält man für Zeitschriften mit:
+Die Abkürzungsliste erhält man für Zeitschriften mit:
 \begin{lstlisting}
 \printbiblist[%
+					heading=subbibliography,
 					title={Zeitschriftenabkürzungen}%
 					]{shortjournal}
 \end{lstlisting}
 
 \begin{bsp}
-\printbiblist[%heading=subbibnumbered,
+\printbiblist[	heading=subbibliography,
 title={Zeitschriftenabkürzungen}]{shortjournal}
 \end{bsp}
 
 und für Reihen mit:
 \begin{lstlisting}
 \printbiblist[%
+					heading=subbibliography,
 					title={Reihenabkürzungen}%
 					]{shortseries}
 \end{lstlisting}
 
 \begin{bsp}
-\printbiblist[title={Reihenabkürzungen}]{shortseries}
+\printbiblist[	heading=subbibliography,
+title={Reihenabkürzungen}]{shortseries}
 \end{bsp}
 \end{refsection}
 \end{document}
