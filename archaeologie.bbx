@@ -61,13 +61,13 @@
 %-----------------------
 \DeclareBibliographyOption{lstabbrv}[true]{%
 		\csuse{bool#1}{bib:lstabbrv}%
-		\addbibresource{archaeologie-abbrv.bib}
+		\addbibresource{archaeologie-lstabbrv.bib}
 }
 \DeclareBibliographyOption{corpora}[true]{%
 		\addbibresource{archaeologie-corpora.bib}%
 		\ifbool{bib:lstabbrv}%
 				{}%
-				{\addbibresource{archaeologie-abbrv.bib}}
+				{\addbibresource{archaeologie-lstabbrv.bib}}
 }
 \DeclareBibliographyOption{ancient}[true]{%
 		\addbibresource{archaeologie-ancient.bib}%
@@ -134,8 +134,22 @@
   	\textsc{urn}%
   		\addcolon\space%
   	\ifhyperref%
-    		{\href{http://www.nbn-resolving.org/#1}{\nolinkurl{#1}}}
+    		{\href{http://www.nbn-resolving.org/#1}{\nolinkurl{#1}}}%
     		{\nolinkurl{#1}}%
+}
+\DeclareFieldFormat{eprint:zenon}{%
+  	\textsc{zenon (opac)}%
+  	\addcolon\space%
+  	\ifhyperref%
+    		{\href{http://zenon.dainst.org/Record/#1}{\nolinkurl{#1}}}%
+    		{\nolinkurl{#1}}%
+}
+\DeclareFieldFormat{eprint:jstor}{%
+	\textsc{jstor}%
+	\addcolon\space%
+	\ifhyperref%
+			{\href{www.jstor.org/stable/#1}{\nolinkurl{#1}}}%
+			{\nolinkurl{#1}}%
 }
 %-----------------------
 \DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}

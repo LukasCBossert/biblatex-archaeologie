@@ -17,6 +17,18 @@
 \AtEndDocument{\PrintChanges}
 \usepackage{libertine}
 \renewcommand*\ttdefault{lmvtt}
+\usepackage[ 
+%	headsepline, 
+%	footsepline,
+%	plainfootsepline, 
+%markcase=upper, 
+automark, 
+draft=false,
+]{scrlayer-scrpage} 
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-Stil \texttt{archaeologie 2.0} (c) von Lukas C. Bossert | Johannes Friedl}%
+\rofoot{\large\footnotesize  \textbf{\sffamily \thepage}}
 
 \usepackage[					% use  for bibliography
 	backend=biber,
@@ -165,8 +177,6 @@ lstabbrv,
  %\def\verbatimchar{;}
 
 \begin{document}
-%  \DocInput{archaeologie.dtx}
-
  \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} für Archäologen\footnote{Ebenso geeignet für (Alt-)Philologen und (Alt-)Historiker.
  Die Entwicklung des Codes findet statt auf \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
  Anmerkungen und Kritik sind willkommen.
@@ -182,7 +192,9 @@ lstabbrv,
 
  \end{abstract}
 
-
+%\begin{multicols}{1}
+	{\parskip=0mm \tableofcontents}
+%\end{multicols}
 \section{Verwendung}
  \DescribeMacro{archaeologie}  Der Name des Stils ist |archaeologie| und wird an entsprechender Stelle geladen.
 
@@ -377,7 +389,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 |publisher|, |series|, |number|, |edition|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib{ThesCRA}
+\printbib{LTUR}
 
 
 \DescribeMacro{@inreference}  Für Beiträge innerhalb eines Lexikon.
@@ -410,23 +422,19 @@ Nachfolgend wird gezeigt, wie einem eine solche Bibliographieaufteilung mit |arc
 
 \begin{lstlisting}
 \printbibheading[%
-							heading=bibnumbered,%
 							title={Bibliographie}]% Überschrift für Bibliographie
 
 \printbibliography[%
 							keyword=ancient,%
-							heading=subbibnumbered,%
 							title={Antike Quellen}]
 
 \printbibliography[%
               keyword=corpus,%
-              heading=subbibnumbered,%
               title={Abkürzungen und Sigel}]
 
 \printbibliography[%
 							notkeyword=ancient,%
 							notkeyword=corpus,%
-							heading=subbibnumbered,%
 							title={Forschungsliteratur}]
 \end{lstlisting}
 
@@ -437,29 +445,29 @@ Die Optionen |heading=bibnumbered| und |heading=subbibnumbered| entscheiden übe
 \begin{refsection}
 \nocite{Cic:Att,Fest,%
 Ball_2013,Taylor_2008,Mann_2011,Mundt_2015,Kurapkat_2014,%
-Wulf-Rheidt_2013,Bergmann_2015,ThesCRA,Nieddu_1995,Arnolds_2005,Boehmer_1985}
+Wulf-Rheidt_2013,Bergmann_2015,LTUR,Nieddu_1995,Arnolds_2005}
 
 \setcounter{section}{0}
 \begin{bsp}
 \renewcommand\bibfont{\normalfont\footnotesize}
 \printbibheading[%
-							heading=bibnumbered,%
+%							heading=bibnumbered,%
 							title={Bibliographie}] %Überschrift für Bibliographieumgebung}
 
 \printbibliography[%
 							keyword=ancient,%
-							heading=subbibnumbered,%
+%							heading=subbibnumbered,%
 							title={Antike Quellen}]
 
 \printbibliography[%
             keyword=corpus,%
-            heading=subbibnumbered,%
+%            heading=subbibnumbered,%
             title={Abkürzungen und Sigel}]
 
 \printbibliography[%
 							notkeyword=corpus,%
 							notkeyword=ancient,%
-							heading=subbibnumbered,%
+%							heading=subbibnumbered,%
 							title={Forschungsliteratur}]
 \end{bsp}
 
@@ -470,24 +478,24 @@ Ebenso hilfreich kann es sein, Abkürzungen von Zeitschriften und Reihen aufzul�
 Die Abküzrungsliste erhält man für Zeitschriften mit:
 \begin{lstlisting}
 \printbiblist[%
-					heading=subbibnumbered,%
-					title={Zeitschriftenabkürzungen}]{shortjournal}
+					title={Zeitschriftenabkürzungen}%
+					]{shortjournal}
 \end{lstlisting}
 
 \begin{bsp}
-\printbiblist[heading=subbibnumbered,
+\printbiblist[%heading=subbibnumbered,
 title={Zeitschriftenabkürzungen}]{shortjournal}
 \end{bsp}
 
 und für Reihen mit:
 \begin{lstlisting}
 \printbiblist[%
-					heading=subbibnumbered,%
-					title={Reihenabkürzungen}]{shortseries}
+					title={Reihenabkürzungen}%
+					]{shortseries}
 \end{lstlisting}
 
 \begin{bsp}
-\printbiblist[heading=subbibnumbered,title={Reihenabkürzungen}]{shortseries}
+\printbiblist[title={Reihenabkürzungen}]{shortseries}
 \end{bsp}
 \end{refsection}
 \end{document}
