@@ -21,20 +21,11 @@
 \DeclareDatamodelFields[type=list,datatype=name]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
 \DeclareDatamodelEntryfields[inbook,incollection,inproceedings,inreference]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
 \DeclareDatamodelEntrytypes{talk}
-\DeclareDatamodelEntryfields[talk]{
-author,
-title,
-subtitle,
-titleaddon,
-date,
-venue,
-institution,
-eventtitle,
-eventdate,
-url,
-urldate,
-note,
-}
-
-
+\DeclareDatamodelEntryfields[talk]{author,title,subtitle,titleaddon,date,venue,institution,eventtitle,eventdate,url,urldate,note,}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{zenon}
+\DeclareDatamodelEntryfields{zenon}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{urn}
+\DeclareDatamodelEntryfields{urn}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{jstor}
+\DeclareDatamodelEntryfields{jstor}
 \endinput

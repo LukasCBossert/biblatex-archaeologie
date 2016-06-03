@@ -389,7 +389,7 @@ If one wants to cite several authors or works a very convenient way is the follo
 \end{lstlisting}
  
 
-\begin{center} * * * \end{center}
+%\begin{center} * * * \end{center}
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
@@ -409,7 +409,7 @@ This is done with \cs{parencites}:
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
 
- \begin{center} * * * \end{center}
+% \begin{center} * * * \end{center}
  
  \DescribeMacro{\textcite}
 Additionally to the listed \cs{cite}-commands above there is a third way of citing:
@@ -426,8 +426,8 @@ And again there is also a  \cs{textcites} in case of several authors:
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
 
-\begin{center} * * * \end{center}
- \DescribeMacro{\citeauthor}   \DescribeMacro{\citetitle}\label{citeauthor}
+%\begin{center} * * * \end{center}
+\DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
 Furthermore and additionally to the ›normal‹ \cs{cite}-commands one can also cite the authors and the work in the text and in the footnotes. 
 This shows how it is done:
 \begin{lstlisting}
@@ -889,11 +889,11 @@ Without any options this entry
   volume       = {120},
   pages        = {67--97},
   year         = {2016},
-  eprint       = {10.3764/aja.120.1.0067},
-  eprinttype   = {jstor},
+  jstor        = {10.3764/aja.120.1.0067},
   number       = {1},
+  zenon        = {001454110},
 }
-\end{lstlisting}\label{jstor1}
+\end{lstlisting}\label{jstor1}\label{zenon2}
 looks like this
 \printbib[5em]{Osland_2016}
 
@@ -999,13 +999,12 @@ This option gives you a different output of the editors: Instead of ›(ed.)‹/
   venue        = {Berlin},
   eventdate    = {2009-11-18/2009-11-22},
   eventtitle   = {Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI},
-  eprint       = {001371402},
-  eprinttype   = {zenon},
+  zenon       = {001371402},
   number       = {6},
   series       = MKT,
   shortseries  = MKT-short,
 }
-\end{lstlisting}\label{zenon}
+\end{lstlisting}\label{zenon1}
 Without the option this |@Inproceedings| will look like:
  
  \printbib[7em]{Wulf-Rheidt_2013}
@@ -1274,10 +1273,12 @@ The first edition of \citetitle*{Zanker_2009}  by \citeauthor*{Zanker_2009}  has
   edition       = {5},
   origlocation  = {Leipzig},
   origyear      = {1987},
+  eprint        = {000250713},
+  eprinttype    = {zenon},
   language      = {german},
   origpublisher = {Koehler \& Amelang},
 }
-\end{lstlisting}
+\end{lstlisting}\label{zenon}
 In \citeyear{Zanker_1988}, one year later  it was translated by A. H. Shapiro:
 \begin{lstlisting}
 @Book{Zanker_1988,
@@ -1835,13 +1836,13 @@ The entry of the first analysed book \citetitle{Welch_2007} has been described i
 The entry of the second reviewed book is this:
 \begin{lstlisting}
 @Book{Sear_2006,
-  author    = {Sear, Frank},
-  title     = {Roman Theatres},
-  subtitle  = {An Architectural Study},
-  publisher = OUP,
-  location  = {Oxford},
-  year      = {2006},
-  series    = {Oxford Monographs on Classical Archeology},
+  author     = {Sear, Frank},
+  title      = {Roman Theatres},
+  subtitle   = {An Architectural Study},
+  publisher  = OUP,
+  location   = {Oxford},
+  year       = {2006},
+  series     = {Oxford Monographs on Classical Archaeology},
 }
 \end{lstlisting}
 
@@ -1954,9 +1955,8 @@ Since the entries of the ancient authors have the field  |keyword={ancient}| (or
 But first we define the heading of the whole  bibliography:
 \begin{lstlisting}
 \printbibheading[%
-							%heading=bibnumbered,%
-									% commented for this documentation
-									% uncomment if you want it numbered		
+							heading=bibliography,%
+							%heading=bibnumbered,% if you want it numbered
 							title={Bibliography}] %heading for bibliography
 \end{lstlisting}
 You can give any title you would like to give (|title = |\marg{any title}).
@@ -1966,9 +1966,8 @@ The next step is to set up the bibliography for the ancient authors.
 \begin{lstlisting}
 \printbibliography[%
 							keyword=ancient,%
-							%heading=subbibnumbered,%
-									% commented for this documentation
-									% uncomment if you want it numbered
+							heading=subbibliography,
+							%heading=subbibnumbered,% if you want it numbered
 							title={Ancient authors and works}]
 \end{lstlisting}
 We tell the bibliography just to contain the entries which have have |ancient| in the field |keywords| (line 2).
@@ -1979,9 +1978,8 @@ Finally the bibliography for modern scholars:
 \printbibliography[%
 							notkeyword=ancient,%
 							notkeyword=corpus,%
-							%heading=subbibnumbered,%
-									% commented for this documentation
-									% uncomment if you want it numbered
+							heading=subbibliography,
+							%heading=subbibnumbered,% if you want it numbered
 							title={Secondary literature}]
 \end{lstlisting}
 This time we exclude all entries which have |ancient| or |corpus| in the field |keywords|.
@@ -1994,18 +1992,18 @@ Now have a look how it looks like with all the entries we explained above.
 \begin{bsp}
 \renewcommand\bibfont{\normalfont\footnotesize}
 \printbibheading[%
-							%heading=bibnumbered,%
+							heading=bibliography,%
 							title={Bibliography}] %heading for bibliography
 
 \printbibliography[%
 							keyword=ancient,%
-							%heading=subbibnumbered,%
+							heading=subbibliography,
 							title={Ancient authors and works}]
 
 \printbibliography[%
 							notkeyword=ancient,%
 							notkeyword=corpus,%
-							%heading=subbibnumbered,%
+							heading=subbibliography,
 							title={Secondary literature}]
 \end{bsp}
 
@@ -2013,19 +2011,15 @@ You can create as many bibliographies as you wish each with an other keyword if 
 Or you can make a bibliography with all the |shorthands| used in your text -- for that we use |keyword= {corpus}| (line 2):
 \begin{lstlisting}
 \printbibliography[%
-					keyword=corpus,%
-            		%heading=subbibnumbered,%
-							% commented for this documentation
-							% uncomment if you want it numbered
-            		title={Abbreviation and corpora}]
+						keyword=corpus,%
+						heading=subbibliography,
+					 	title={Abbreviation and corpora}]
 \end{lstlisting}
 Now the bibliography only lists the used entries which have |corpus| in the field |keywords|:
 \begin{bsp}
 \printbibliography[%
 						keyword={corpus},
-          				%heading=subbibnumbered,%
-							% commented for this documentation
-							% uncomment if you want it numbered
+          				heading=subbibliography,
             			title={Abbreviation of corpora}]\label{bib:corpus}
 \end{bsp}
 
@@ -2033,17 +2027,13 @@ Furthermore you can have a bibliography for all the abbreviated journal titles a
 For journals it works like this:
 \begin{lstlisting}
 \printbiblist[%
-					%heading=subbibnumbered,%
-						% commented for this documentation
-						% uncomment if you want it numbered
+					heading=subbibliography,
 					title={Abbreviation of journals}]{shortjournal}
 \end{lstlisting}
 
 \begin{bsp}
 \printbiblist[%
-					%heading=subbibnumbered,%
-						% commented for this documentation
-						% uncomment if you want it numbered
+					heading=subbibliography,
 					title={Abbreviation of journals}]{shortjournal}
 \end{bsp}
 
@@ -2069,30 +2059,43 @@ Just write the first page in the \oarg{postnote} and then the \cs{psq} -- cf. \c
 \subsection{Online referencing}
 \DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available in the internet via a permanent link there a different possibilities referring to it --  see also the \href{http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf}{|bib|\LaTeX-documentation chapter 3.11.7}.\footnote{You can also use as an |eprinttype|: |arXiv|, |pubmed|, |hdl|, |googlebooks|.
 }
-\begin{description}
-\item[jstor] If you can refer to the on-line plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{jstor,jstor1}:
+
+\DescribeMacro{jstor}
+ If you can refer to the on-line plattform \href{www.jstor.org}{jstor} then you need the individual number for the article -- cf. \cref{jstor}:
 \begin{lstlisting}
 eprint = *@\marg{jstor-number}@*
 eprinttype = {jstor} 
 \end{lstlisting}			
+OR -- cf. \cref{jstor1}
+\begin{lstlisting}
+jstor = *@\marg{jstor-number}@*
+\end{lstlisting}	
 
-\item[urn] 
+\DescribeMacro{urn}
 For all papers referable via an ›urn‹ (\emph{Uniform Resource Name}), which have been registered at the German National Library -- cf. \cref{urn}
 \begin{lstlisting}
 eprint = *@\marg{urn:xxx}@*
 eprinttype = {urn} 
 \end{lstlisting}			
 
-\item[zenon] 
+OR
+\begin{lstlisting}
+urn = *@\marg{urn:xxx}@*
+\end{lstlisting}	
+
+\DescribeMacro{zenon}
 This is eprint-form is especially designed for the OPAC of the German Archaeological Institute.
-All bibliographical entries in this OPAC can be referred to via thhis link.
+All bibliographical entries in this OPAC can be referred to via this link.
 You only need to insert the individual Zenon-number of the entry, e.g. \emph{http://zenon.dainst.org/Record/001371402} where \emph{001371402} is the individual number -- cf. \cref{zenon}.
 \begin{lstlisting}
 eprint = *@\marg{Zenon-number}@*
 eprinttype = {zenon} 
 \end{lstlisting}			
+OR  cf. \cref{zenon1,zenon2}.
+\begin{lstlisting}
+zenon = *@\marg{Zenon-number}@*
+\end{lstlisting}			
 
-\end{description}
 
 \DescribeMacro{doi} In addition you can also refer to a document via its |doi|-number -- cf. \cref{doi,doi2} 
 \begin{lstlisting}

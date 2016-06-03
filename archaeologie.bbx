@@ -148,9 +148,14 @@
 	\textsc{jstor}%
 	\addcolon\space%
 	\ifhyperref%
-			{\href{www.jstor.org/stable/#1}{\nolinkurl{#1}}}%
+			{\href{http://www.jstor.org/stable/#1}{\nolinkurl{#1}}}%
 			{\nolinkurl{#1}}%
 }
+%-----------------------
+\DeclareFieldAlias{zenon}{eprint:zenon}
+\DeclareFieldAlias{jstor}{eprint:jstor}
+\DeclareFieldAlias{urn}{eprint:urn}
+
 %-----------------------
 \DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
 \DeclareRedundantLanguages{english,american}{english,american,british,%
@@ -253,15 +258,6 @@
           {}%
 }
 %-----------------------
-%\AtEveryBibitem{%
-%  	\ifboolexpr{bool {bbx:translation}%
-%  					 or bool {cbx:ancient}%
-%  					 or bool {cbx:frgancient}}%
-%    	{}%
-%    	{\clearname{translator}%
-%    			\clearfield{origtitle}%
-%				}%
-%}
 \AtEveryBibitem{%
   \iffieldequalstr{relatedtype}{translationof}
     {\savename{translator}{\savedrelatedtranslator}%
@@ -437,6 +433,27 @@
     		{\printfield{eprint}}%
     		{\printfield[eprint:\strfield{eprinttype}]{eprint}}%
 }
+%-----------------------   
+\newbibmacro*{zenon}{%
+  	\usebibmacro{bbx:parunit}%
+  	\iffieldundef{zenon}%
+    		{}%
+    		{\printfield{zenon}}%
+}
+%-----------------------   
+\newbibmacro*{jstor}{%
+  	\usebibmacro{bbx:parunit}%
+  	\iffieldundef{jstor}%
+    		{}%
+    		{\printfield{jstor}}%
+}
+%-----------------------   
+\newbibmacro*{urn}{%
+  	\usebibmacro{bbx:parunit}%
+  	\iffieldundef{urn}%
+    		{}%
+    		{\printfield{urn}}%
+}
 %-----------------------
 \renewbibmacro*{url+urldate}{%
   	\usebibmacro{bbx:parunit}%
@@ -456,6 +473,9 @@
   	\iftoggle{bbx:eprint}%
     		{\usebibmacro{eprint}}%
     		{}%
+    \usebibmacro{jstor}%
+	\usebibmacro{urn}%
+  	\usebibmacro{zenon}%
   	\iftoggle{bbx:url}%
     		{\usebibmacro{url+urldate}}%
     		{}%
