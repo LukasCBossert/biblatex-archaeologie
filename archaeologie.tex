@@ -453,17 +453,17 @@ Furthermore and additionally to the ›normal‹ \cs{cite}-commands one can also
 For further information cf. \cref{fullnames}.
 
 \subsection{Entries with @string}\label{string}
-The citation rule of the German Archaeological Institute says that the journals and series have to be abbreviated according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
+The citation rules of the German Archaeological Institute instruct to abbreviate journals and series according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
+For this purpose we provide a list with bibliography macros which refer to these abbreviations.
 
- \DescribeMacro{@string} The style  |archaeologie| respects the guidelines of the German Archaeological Institute and is compatible with the given 
- abbreviations of journals and series.
- To minimize 	the susceptibility to errors and to omit unnecessary typing of sometimes very long journal titles |archaeologie| works with so-called |@strings|.
- The advantage is that with  |@string| several bibliography entries can be defined by one central given value. 
- The  |@string| is loaded at the begin of the  |bib|-file, therefore all the |@strings| have to be before all other bibliography entries.
+\DescribeMacro{@string} The style |archaeologie| respects the guidelines of the German Archaeological Institute and is therefore compatible with the given abbreviations of journals and series.
+To minimize the susceptibility to errors and to omit unnecessary typing of sometimes very long journal titles |archaeologie| works with so-called |@strings|.
+The advantage of these |@strings| is that several bibliography entries can be defined by one globally given value. 
+The |@string| is loaded at begin of the |bib|-file, therefore all |@strings| have to be previous to all other bibliography entries.
  
- To use this offer of simplification the fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
-In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with the endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
-This  |@string| has to be written \textsc{without} any curly brackets in the fiels (e.g. |journaltitle| or |shortseries|).\footnote{If you use the program \emph{JabRef} in its non-coding window, then you have to write  \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window.}
+To use this offer of simplification the bibliography fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
+In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
+A |@string| has to be written \emph{without} any curly brackets .\footnote{If you use \emph{JabRef} in its non-coding window, then you have to write \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window. \emph{BibDesk} provides such conversion as well by pressing cmd-R which enables direct BibTeX typing without enclosing curly brackets.}
 
 An example shows how to use it:
 \begin{lstlisting}[style=bibentry,label=Koyunlu1990,caption={{@}Article\{Koyunlu1990,…\} }]
@@ -477,24 +477,24 @@ An example shows how to use it:
   year         = {1990},
 }
 \end{lstlisting}
+
 That article appeared within a rather unusual journal, 
 which should be abbreviated with ›AyasofyaMüzYıl‹.
-To save the time to look for the special character and insert  ›ı‹ manually 
-it is written in the  |@string| with an  ›i‹  (for further information see \cref{listen}) 
-but will be replaced after compiling with the correct character:
+To save the time to look for the special character and insert ›ı‹ manually 
+it is written in the |@string| with an ›i‹ (for further information see \cref{listen}) but will be replaced after compiling with the correct character:
 
 \printbib[6em]{Koyunlu1990}
 
-The default behaviour of abbreviations can be switched off, of course.
-In case you use the option |noabbrevs| (see \cref{noabbrevs}), then the output changes as well:
+The default embedding of such abbreviations can be switched off, of course.
+In case you use the package option |noabbrevs| in the preamble (see \cref{noabbrevs}), then the output changes as follows:
 \begin{bsp}
 A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
 %\fullcite{Koyunlu_1990}
 \end{bsp}
-The advantage lies in the possibility to create a separate bibliography with all the abbreviations of used journaltitles and series (see  \cref{bibliographie}).
+Nevertheless the advantage of this list lies in the possibility to create a separate bibliography with all the abbreviations of used journaltitles and series (see \cref{bibliographie}) without being prone to citation differences and typing errors.
 
-If a journal or a series is  {\color{red}not} not included in the list (\cref{listen}) 
-then this journal/series will {\color{red}not}  be abbreviated and with its full name written in  |{}| in the field e.g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}.
+However, if a journal or a series is \emph{not} included in the list (\cref{listen}) 
+then this journal/series will \emph{not} be abbreviated and converted to full title in curly brackets in the respective field e.g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}. Therefore the field content will not be printed. At least BibTeX gives a warning in its log which can be checked.\footnote{For example something like \enquote{\enquote{journaltitle} in entry \enquote{<entrykey>} cannot be null, deleting it}.}
 For the following examples we use |@string| whenever it is clever and possible.
 
 \section{Optional preferences}
