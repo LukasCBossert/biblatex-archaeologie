@@ -268,13 +268,7 @@ Die Optionen sind nicht Teil der oben angeführten Standardaktivierung von |arch
 
 Neben den |archaeologie|-Optionen kann man -- quasi auf eigene Gefahr -- noch die konventionellen |biblatex|-Optionen (insbesondere zur Formatierung der Abstände etc. des Literaturverzeichnisses) verwenden. Näheres zu diesen findet man in der Dokumentation von |biblatex|.
 
-\DescribeMacro{seenote}  Gibt bei erster Verwendung zunächst das Vollzitat, im Anschluss dann den Rückverweis auf die Erstnennung aus. Löst damit das Autor-Jahr-System ab.
-
-\DescribeMacro{lstabbrv}  Aktiviert die separate Bibliographiedatei |archaeologie-lstabbrv.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch Zeitschriften oder Reihen nach den DAI-Abkürzungsrichtlinien zitieren kann. 
-
-\DescribeMacro{lstlocations}  Aktiviert die separate Bibliographiedatei |archaeologie-lstlocations.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch  Städtennamen entsprechend der eingestellten Sprache exonym ausgegeben lassen kann.
-
-\DescribeMacro{lstpublishers}  Aktiviert die separate Bibliographiedatei |archaeologie-lstpublishers.bib|, mit der man über ein kurzes Makro automatisch gängige Verlage für die Altertumswissenschaften in den Bibliograhpieeintrag einbinden kann.
+\subsubsection{Zusatzbibliographien und Makrolisten}
 
 \DescribeMacro{ancient}  Lädt eine separate Bibliographie,
 in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. 
@@ -287,33 +281,47 @@ Die Option lädt zusätzlich die Bibliographie |archaeologie-lstabbrv.bib|, dere
 Alle Corpora-Einträge enthalten |keywords={corpus}|, |options={corpus}|. 
 Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bib_options} und \ref{bibliographie}).
 
-\DescribeMacro{edby}  Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}. 
+\DescribeMacro{lstabbrv}  Aktiviert die separate Bibliographiedatei |archaeologie-lstabbrv.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch Zeitschriften oder Reihen nach den DAI-Abkürzungsrichtlinien zitieren kann. 
 
-\DescribeMacro{yearseries}  Die Reihe wird erst nach der Jahreszahl ausgegeben.
- 
-\DescribeMacro{yearinparens}  Die Jahreszahl wird in Klammern gesetzt.
+\DescribeMacro{lstlocations}  Aktiviert die separate Bibliographiedatei |archaeologie-lstlocations.bib|, mit der man über ein Makro in der eigenen Bibliographie automatisch  Städtennamen entsprechend der eingestellten Sprache exonym ausgegeben lassen kann.
+
+\DescribeMacro{lstpublishers}  Aktiviert die separate Bibliographiedatei |archaeologie-lstpublishers.bib|, mit der man über ein kurzes Makro automatisch gängige Verlage für die Altertumswissenschaften in den Bibliograhpieeintrag einbinden kann.
+
+\subsubsection{Schreibweise der Autorennamen}
+
+\DescribeMacro{bibfullname}  Schreibt die Autoren/Herausgeber mit vollem Namen in die Bibliographie. Standard ist sonst die Abkürzung der Vornamen. 
+
+\DescribeMacro{fullnames}  Schreibt die Autoren/Herausgeber, die über \cs{citeauthor}\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.
+
+\DescribeMacro{lastnames}  Schreibt die Autoren/Herausgeber, die über  \cs{citeauthor}\-\marg{bibtex-key} im Fließtext aufgerufen werden, nur mit Nachnamen (dies entspricht der Autoren-Darstellungweise in Fußnoten).
+
+\DescribeMacro{scshape}  Die Namen im Fließtext und in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft und Werke antiker Autoren.
+
+\subsubsection{Zitierweise}
+
+\DescribeMacro{edby}  Bei Sammelbänden steht anstatt \enquote{Hrsg.} nun \enquote{hrsg. v.}.
+
+\DescribeMacro{inreferences}  Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. 
+Dies verwirft die vom DAI angegebene, spezielle Lexika-Zitation (LIMC, DNP etc.), die  nicht in der Bibliographie aufgeführt werden. 
+
+\DescribeMacro{noabbrv}  Es werden keine Abkürzungen von Zeitschriften und Serien verwendet. Dazu werden die Felder |shortjournal| und |shortseries| ignoriert. Ihre Pendants |journaltitle| und |series| werden ausgelesen.
+
+\DescribeMacro{publisher}  Angabe aller Verlagsorte und des Verlags selbst. Ändert die Formatierung von Auflage (|edition|) und Erstausgabe (|origyear|).
+
+\DescribeMacro{seenote}  Gibt bei erster Verwendung zunächst das Vollzitat, im Anschluss dann den Rückverweis auf die Erstnennung aus. Löst damit das Autor-Jahr-System ab. 
 
 \DescribeMacro{translation}  Anzeige der Angaben des Originaltitels, Übersetzers und der Sprache, aus der übersetzt wurde. 
 Keinen Einfluss hat die Wahl auf Bibliographie-Einträge, die |options=ancient| haben. 
 Dort wird dies standardmäßig angegeben.
 
-\DescribeMacro{noabbrv}  Es werden keine Abkürzungen von Zeitschriften und Serien verwendet. Dazu werden die Felder |shortjournal| und |shortseries| ignoriert. Ihre Pendants |journaltitle| und |series| werden ausgelesen. 
+\DescribeMacro{yearseries}  Die Reihe wird erst nach der Jahreszahl ausgegeben.
+ 
+\DescribeMacro{yearinparens}  Die Jahreszahl wird in Klammern gesetzt.
 
-\DescribeMacro{publisher}  Angabe aller Verlagsorte und des Verlags selbst. Ändert die Formatierung von Auflage (|edition|) und Erstausgabe (|origyear|).
-
-\DescribeMacro{bibfullname}  Schreibt die Autoren/Herausgeber mit vollem Namen in die Bibliographie. Standard ist sonst die Abkürzung der Vornamen. 
-
-\DescribeMacro{inreferences}  Bibliographieeinträge mit |@inreference| werden bei aktivierter Funktion vollreferenziert geschrieben. 
-Dies verwirft die vom DAI angegebene, spezielle Lexika-Zitation (LIMC, DNP etc.), die  nicht in der Bibliographie aufgeführt werden. 
-
-\DescribeMacro{lastnames}  Schreibt die Autoren/Herausgeber, die über  \cs{citeauthor}\-\marg{bibtex-key}  im Fließtext aufgerufen werden, nur mit Nachnamen (dies entspricht der Autoren-Darstellungweise in Fußnoten).  
-
-\DescribeMacro{fullnames}  Schreibt die Autoren/Herausgeber, die über \cs{citeauthor}\-\marg{bibtex-key} im Fließtext aufgerufen werden,  mit vollem Vor- und Nachnamen -- sofern diese im Bibliographieeintrag vorhanden sind.  
-
-\DescribeMacro{scshape}  Die Namen im Fließtext und in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft und Werke antiker Autoren.
+\subsubsection{Formale Bibliographieeinstellungen}
 
 \DescribeMacro{width}  Mit dieser Option wird in der Bibliographie der Abstand zwischen dem Label (Kurzzitat) und dem Vollzitat nach Belieben gesteuert.
-
+ 
 \DescribeMacro{counter}  In der Bibliographie wird hinter jedem Eintrag die Anzahl an Zitationen im Fließtext vermerkt. 
 
 \subsection{Literaturoptionen (Bibliographieeintrag)}\label{bib_options}
