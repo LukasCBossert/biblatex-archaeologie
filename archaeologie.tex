@@ -301,8 +301,11 @@ With this option you can change it to a different outcome (but still according t
  With this bibliography one can cite journals and series according to the abbreviations of the German Archaeological Institute cf. \cref{abbrv}. 
 
 \DescribeMacro{lstlocations}
-This loads an additional bibliography with |@strings| which can be used for locations to print out their correct exonym in the selected language cf. \cref{lstlocations}.
+ This activates the additional bibliography file  |archaeologie-lstlocations.bib|
+ with |@strings| which can be used for locations to print out their correct exonym in the selected language cf. \cref{lstlocations}.
 
+\DescribeMacro{lstpublishers}
+This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@strings| which can be used for publishers to print out their correct name cf. \cref{lstpublishers}.
 
  \DescribeMacro{ancient}
 A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{ancient}.
@@ -538,6 +541,12 @@ In this bibliography all abbreviations listed in \cref{listen} are stored.
 \DescribeMacro{lstlocations}
 This loads an additional bibliography with |@strings| which can be used for locations to print out their correct exonym in the selected language.
 For the list cf. \cref{list-locations}
+
+\subsubsection{lstpublishers}\label{lstpublishers}
+\DescribeMacro{lstpublishers}
+This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@strings| which can be used for publishers to print out their correct name.
+For the list cf. \cref{list-publishers}
+
 \subsubsection{corpora}\label{corpora}
 \DescribeMacro{corpora}
 This loads an additional bibliography which contains the most important corpora for ancient studies, so you can cite them right away in your document.
@@ -2249,6 +2258,8 @@ Lexikon-der-Technik,Bergmann2015}
 
 \end{description}
 \end{multicols}
+\section{List of publishers}\label{list-publishers}
+
 \section{List of abbreviation according to the German Archaeological Institute-guidelines}\label{listen}
 We modified the lists with abbreviations of journals, corpora, etc. to make them usable with |bib|\LaTeX.
 Below there are two lists with\DescribeMacro{@string} |@string| (in \textbf{bold} letters on the left), 
