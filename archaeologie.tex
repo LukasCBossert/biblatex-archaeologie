@@ -370,7 +370,7 @@ Reveals at the end of each reference a summary of citations in the text cf. \cre
 \subsection{Entry Options}
 A single bibliography entry can contain a value in its |options|-field.
 Depending on the option it changes the behaviour how that entry is cited cf. \cref{optionen-literatur,beispiele}. 
-All of these options have in common that the separating comma between citation and page record is missing. 
+Beside their distinct properties all of these options have in common that the separating comma between citation and page record is missing. 
 Actually this concerns citation of ancient texts and corpora where usually the |shorthand|-field is printed in citations.
 
 \DescribeMacro{ancient}
@@ -383,28 +383,23 @@ The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
 Only the |shorthand|-field is printed.
 This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.) cf. \cref{corpus}.
 
+\changes{v1.1}{2015/06/04}{New options added in summary.}
 
- \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
-
-
- 
-
-
- \subsection{cite-comands}\label{cite-commands}
- \DescribeMacro{\cite}%
-As always citing is done with  \cs{cite}:
+\subsection{Cite commands}\label{cite-commands}
+\DescribeMacro{\cite}%
+As always citing is done with \cs{cite}:
 \begin{lstlisting}
 \cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
 
-With \meta{prenote} one can make a short preliminary note  (e.\,g. \enquote{Vgl.}) and  \meta{postnote} is usually used for page numbers.
-If only one optional argument is used then it is the \oarg{postnote}.
+\meta{prenote} sets a short preliminary note (e.\,g. \enquote{Vgl.}) and \meta{postnote} is usually used for page numbers.
+If only one optional argument is used then it is \oarg{postnote}.
 \begin{lstlisting}
 \cite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
-The \meta{bibtex-key} is the key from the bibliography-file.
+The \meta{bibtex-key} corresponds to the key from the bibliography file.
 
- \DescribeMacro{\cites}
+\DescribeMacro{\cites}
 If one wants to cite several authors or works a very convenient way is the following using the \cs{cites}-command:
 \begin{lstlisting}
 \cites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
@@ -412,48 +407,42 @@ If one wants to cite several authors or works a very convenient way is the follo
  																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
  
-
-%\begin{center} * * * \end{center}
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
 \begin{lstlisting}
 \parencite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
-This cite-command takes care of the correct corresponding parentheses and brackets.
-Especially if one cites an |@Inreference| the parentheses are changing to (square) brackets.
+This cite command takes care of the correct corresponding parentheses and brackets.
+Especially in |@Inreference| citations the parentheses are changing to (square) brackets.
 The example shown in \cref{faq:inreference} makes it clear.
 
 \DescribeMacro{\parencites}
 Of course there is also the possibility to cite several authors/works in parentheses.
 This is done with \cs{parencites}:
- \begin{lstlisting}
+\begin{lstlisting}
 \parencites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
-
-% \begin{center} * * * \end{center}
  
- \DescribeMacro{\textcite}
-Additionally to the listed \cs{cite}-commands above there is a third way of citing:
-This is needed if one wants to \cs{textcite}  the author in the text, then the year and pages will be put in parentheses. 
+\DescribeMacro{\textcite}
+Beside the listed \cs{cite} commands above there is a third way of citing:
+\cs{textcite} is useful if the author should be mentioned in the text and the remaining components like year and page will immediately follow in parentheses. 
 \begin{lstlisting}
 \textcite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 
 \DescribeMacro{\textcites}
-And again there is also a  \cs{textcites} in case of several authors: 
+And again there is also a \cs{textcites} in case of several authors: 
   \begin{lstlisting}
 \textcites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
 
-%\begin{center} * * * \end{center}
 \DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
-Furthermore and additionally to the ›normal‹ \cs{cite}-commands one can also cite the authors and the work in the text and in the footnotes. 
-This shows how it is done:
+Furthermore and additionally to the ›normal‹ \cs{cite}-commands one can also cite only the author or the work title in the text and in the footnotes.
 \begin{lstlisting}
 \citeauthor*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
@@ -462,9 +451,6 @@ This shows how it is done:
 \citetitle*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 For further information cf. \cref{fullnames}.
-   
-
-   
 
 \subsection{Entries with @string}\label{string}
 The citation rule of the German Archaeological Institute says that the journals and series have to be abbreviated according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
