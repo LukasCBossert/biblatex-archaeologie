@@ -365,22 +365,23 @@ Switches the order of series and year cf. \cref{yearseries}.
 |width={value}| defines the bibliography width between label and reference cf. \cref{width}.
 
 \DescribeMacro{counter}
-Reveals at the end of each reference a summmary of citations in the text cf. \cref{counter}.
+Reveals at the end of each reference a summary of citations in the text cf. \cref{counter}.
 
- \subsection{Options in the entries}
- Additionally a single bibliography entry can contain a value in the |options|-field.
- This changes the behaviour of the entry when it is cited cf. \cref{optionen-literatur,beispiele}. 
+\subsection{Entry Options}
+A single bibliography entry can contain a value in its |options|-field.
+Depending on the option it changes the behaviour how that entry is cited cf. \cref{optionen-literatur,beispiele}. 
+All of these options have in common that the separating comma between citation and page record is missing. 
+Actually this concerns citation of ancient texts and corpora where usually the |shorthand|-field is printed in citations.
 
+\DescribeMacro{ancient}
+The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{ancient}.
 
- \DescribeMacro{ancient}
- The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{ancient}.
+\DescribeMacro{frgancient}
+The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
 
- \DescribeMacro{frgancient}
- The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
-
- \DescribeMacro{corpus} 
- Only the  |shorthand|-field is printed.
- This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.) cf. \cref{corpus}.
+\DescribeMacro{corpus} 
+Only the |shorthand|-field is printed.
+This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.) cf. \cref{corpus}.
 
 
  \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
