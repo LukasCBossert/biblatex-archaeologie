@@ -52,6 +52,7 @@ draft=false,
 %counter,
 %ancient,
 lstabbrv,
+lstpublishers
 ]{biblatex}
 \renewcommand\bibfont{\normalfont
 \footnotesize}
@@ -278,7 +279,7 @@ Neben den |archaeologie|-Optionen kann man -- quasi auf eigene Gefahr -- noch di
 \DescribeMacro{ancient}  Lädt eine separate Bibliographie,
 in der knapp 600 antike Autoren und Werke gespeichert sind, die direkt im Text zitiert werden können. 
 Alle Einträge enthalten |keywords={ancient}|, |options={ancient}|. 
-Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bibliographie}).
+Diese steuern die Zitationsform und ermöglichen nach Textsorten getrennte Bibliographien zu erstellen (s. \cref{bibliographie}).
  
 \DescribeMacro{corpora}  Lädt eine separate Bibliographie,
 in der über 40 Corpora fertig zitierfähig gespeichert sind.
@@ -477,8 +478,8 @@ Nachfolgend wird gezeigt, wie einem eine solche Bibliographieaufteilung mit |arc
 
 \printbibliography[%
 							heading=subbibliography,
-              				keyword=corpus,%
-              				title={Abkürzungen und Sigel}]
+              keyword=corpus,%
+              title={Abkürzungen und Sigel}]
 
 \printbibliography[%
 							heading=subbibliography,
@@ -489,7 +490,7 @@ Nachfolgend wird gezeigt, wie einem eine solche Bibliographieaufteilung mit |arc
 
 Mithilfe des |keyword|-Filters haben wir in den ersten beiden \cs{printbibliography}-Befehlen die entsprechende Literatur ausgewählt, im letzten \cs{printbibliography}-Befehl, der die \enquote{Restliteratur} auslesen soll, müssen dann alle zuvor verwendeten Filterbegriffe mithilfe eines Ausschlussverfahrens über |notkeyword| eingetragen werden: Die Forschungsliteratur beinhaltet also alle Publikationen, die nicht |ancient| und nicht |corpus| sind.
 
-Die Optionen |heading=bibnumbered| und |heading=subbibnumbered| entscheiden über die Gliederung der einzelnen Verzeichnisse. Mit der hier gewählten Einstellung erhalten wir demnach (nummerierte) Unterbibliographien. Das Ergebnis der Zeilen könnte etwa so aussehen:
+Die Optionen |heading=bibliography| und |heading=subbibliography| entscheiden über die Gliederung der Bibliographien untereinander. Mit der hier gewählten Einstellung erhalten wir demnach unnummerierte Unterbibliographien. Das Ergebnis der Zeilen könnte etwa so aussehen:
 
 \begin{refsection}
 \nocite{Cic:Att,Fest,%
