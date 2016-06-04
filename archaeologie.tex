@@ -305,11 +305,11 @@ With this option you can change it to a different outcome (but still according t
 \DescribeMacro{lstpublishers}
 This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@strings| which can be used for publishers to print out their correct name cf. \cref{lstpublishers}.
 
- \DescribeMacro{ancient}
-A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{ancient}.
+ \DescribeMacro{bibancient}
+A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{bibancient}.
 
- \DescribeMacro{corpora}
-A separate bibliography-file is loaded, in which the common corpora for ancient studies are stored cf. \cref{corpora}.
+ \DescribeMacro{bibcorpora}
+A separate bibliography-file is loaded, in which the common corpora for ancient studies are stored cf. \cref{bibcorpora}.
 This activates the other additional bibliography |archaeologie-lstabbrv.bib| automatically.
 
  \DescribeMacro{edby}
@@ -545,25 +545,25 @@ For the list cf. \cref{list-locations}
 This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@strings| which can be used for publishers to print out their correct name.
 For the list cf. \cref{list-publishers}
 
-\subsubsection{corpora}\label{corpora}
-\DescribeMacro{corpora}
+\subsubsection{bibcorpora}\label{bibcorpora}
+\DescribeMacro{bibcorpora}
 This loads an additional bibliography which contains the most important corpora for ancient studies, so you can cite them right away in your document.
-For the corpora in this bibliography cf. \cref{list-corpora}
+For the corpora in this bibliography cf. \cref{list-bibcorpora}
 
-\subsubsection{ancient}\label{ancient}
- \DescribeMacro{ancient}
+\subsubsection{bibancient}\label{bibancient}
+ \DescribeMacro{bibancient}
 In the case you cite ancient authors and their works you can do it with the common  \cs{cite}-command.
 This is recommended and will  guarantee a high level of consistency and  minimize  error-proneness.
 For this case especially we included a modification that respects the different citation of  ancient authors and works.
-With the option |ancient| you load an additional bibliography called |bibliography-ancient.bib| in which we inserted almost 600 ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
-For the complete list of those see  \cref{list-ancient}.
+With the option |bibancient| you load an additional bibliography called |bibliography-ancient.bib| in which we inserted almost 600 ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
+For the complete list of those see  \cref{list-bibancient}.
 
 You can cite the authors or works with their |bibtex-key| which is on the left. 
 Authors and works are separated by a colon.
 The bold entry on the right is the |shorthand| which will be printed in your paper.
 Let me make it clear with an example:
 \begin{refsection}
-With the loaded option |ancient| you write  
+With the loaded option |bibancient| you write  
 |\cite[3,2,5--7]{Apul:met}|  % oder \cs{cite}\oarg{3,2,5--7}\marg{Apul:met}  
 and will get in return after compiling: \cite[3,2,5--7]{Apul:met}.
 \end{refsection}
@@ -1509,7 +1509,7 @@ Here we have an example which will explain the (required)  fields:
   doi          = {10.1017/s006824541400015x},
 }
 \end{lstlisting}
-In line 5 and 6 you can also write the full or abbreviated journal title in the fields |journaltitle| or |shorttitle| (e.g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@string| (cf. \cref{list-ancient,string}) again.
+In line 5 and 6 you can also write the full or abbreviated journal title in the fields |journaltitle| or |shorttitle| (e.g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@string| (cf. \cref{list-bibancient,string}) again.
 \printbib[7em]{Evangelidis2014}
 %\begin{refsection}\end{refsection}
 
@@ -2194,7 +2194,7 @@ This following example is about an article which was accepted by the journal and
 \begin{multicols}{2}\footnotesize
 \lstlistoflistings
 \end{multicols}
-\section{Ancient authors and works}\label{list-ancient}
+\section{Ancient authors and works}\label{list-bibancient}
 The bibliography |archaeologie-ancient.bib| is filled with ancient authors, works and their abbreviation according to  The New Pauly.
 The bold entry on the left is the |bibtex-key|.
 All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
@@ -2205,7 +2205,7 @@ All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
 
-\section{Corpora}\label{list-corpora}
+\section{bibcorpora}\label{list-bibcorpora}
 List of corpora in ancient studies |archaeologie-corpora.bib|.
 This activates the other additional bibliography |archaeologie-lstabbrv.bib| automatically.
 The bold entry on the left is the |bibtex-key|.

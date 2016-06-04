@@ -53,8 +53,8 @@
 \newbool{cbx:lastnames}	
 \newbool{cbx:fullnames}
 \newbool{bib:lstabbrv}
-\newbool{bib:corpora}
-\newbool{bib:ancient}
+\newbool{bib:bibcorpora}
+\newbool{bib:bibancient}
 \newbool{bib:lstlocations}
 \newbool{bib:lstpublishers}
 \newsavebox\arch@labelbox
@@ -65,13 +65,13 @@
 		\csuse{bool#1}{bib:lstabbrv}%
 		\addbibresource{archaeologie-lstabbrv.bib}
 }
-\DeclareBibliographyOption{corpora}[true]{%
+\DeclareBibliographyOption{bibcorpora}[true]{%
 		\addbibresource{archaeologie-corpora.bib}%
 		\ifbool{bib:lstabbrv}%
 				{}%
 				{\addbibresource{archaeologie-lstabbrv.bib}}
 }
-\DeclareBibliographyOption{ancient}[true]{%
+\DeclareBibliographyOption{bibancient}[true]{%
 		\addbibresource{archaeologie-ancient.bib}%
 }
 \DeclareBibliographyOption{lstlocations}[true]{%
