@@ -73,7 +73,7 @@ Download the folder |archaeologie| with all relevant files from the CTAN-server\
 \url{http://mirror.ctan.org/tds/tds.html}.} 
 Refresh your filename database.\footnote{ 
 Here is some additional information from the UK \TeX\ FAQ:
-\begin{itemize}
+\begin{itemize}[nosep,after=\vspace{-\baselineskip} ]
 	\item \href{%
     http://www.tex.ac.uk/cgi-bin/texfaq2html?label=install-where}{%
     Where to install packages}
@@ -109,120 +109,115 @@ Following there is a quick overview of the possible options of the style |archae
 Furthermore one can -- at your own risk -- also use the conventional  |bib|\LaTeX-options which are related of indent, etc. 
 For that please see the excellent documentation of  |bib|\LaTeX.
 
- \subsection{Options in the preamble}\label{preamble_options}
- \DescribeMacro{seenote}
-By default the style |archaeologie| follows the author-year-system. 
-With this option you can change it to a different outcome (but still according to the rules of the German Archaeological Institute) so the first citation will be a full citation and all the following citations will refer to the first full citation cf. \cref{seenote}
-
-
- \DescribeMacro{lstabbrv}
- This activates the additional bibliography file  |archaeologie-lstabbrv.bib|.
- With this bibliography one can cite journals and series according to the abbreviations of the German Archaeological Institute cf. \cref{abbrv}. 
-
-\DescribeMacro{lstlocations}
- This activates the additional bibliography file  |archaeologie-lstlocations.bib|
- with |@Strings| which can be used for locations to print out their correct exonym in the selected language cf. \cref{lstlocations}.
-
-\DescribeMacro{lstpublishers}
-This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@Strings| which can be used for publishers to print out their correct name cf. \cref{lstpublishers}.
-
- \DescribeMacro{bibancient}
+\subsection{Preamble options}\label{preamble_options}
+\subsubsection{Additional bibliographies and macro lists}
 A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{bibancient}.
 
- \DescribeMacro{bibcorpora}
+\DescribeMacro{bibcorpora}
 A separate bibliography-file is loaded, in which the common corpora for ancient studies are stored cf. \cref{bibcorpora}.
-This activates the other additional bibliography |archaeologie-lstabbrv.bib| automatically.
+Additionally this activates the bibliography |archaeologie-lstabbrv.bib|.
 
- \DescribeMacro{edby}
-This activates a switch to have instead of  \enquote{ed.}/\enquote{Hrsg.} now  \enquote{ed. by}/\enquote{hrsg. v.} cf. \cref{edby}.
+\DescribeMacro{lstabbrv}
+Activates the additional bibliography file |archaeologie-lstabbrv.bib|.
+It provides a list of journals and series according to the abbreviations of the German Archaeological Institute which can be used as |@string| macros in bibliography entries cf. \cref{abbrv}. 
 
- \DescribeMacro{initials}
-This option takes care of an automatically abreviation of first names keeping digraphs and trigraphs cf. \cref{initials}
+\DescribeMacro{lstlocations}
+Activates the additional bibliography file |archaeologie-lstlocations.bib|
+with |@string| macros of locations which can be used to automatically print out their correct exonym in the selected language cf. \cref{lstlocations}.
 
+\DescribeMacro{lstpublishers}
+Activates the additional bibliography file |archaeologie-lstpublishers.bib| with |@string| macros of several publishers which can be used to easily print out their names cf. \cref{lstpublishers}.
 
- \DescribeMacro{yearseries}
-This changes the order of series and year  cf. \cref{yearseries}.
- 
- \DescribeMacro{yearinparens}
- The year is shown in parens cf. \cref{yearinparens}.
+\subsubsection{Notation of names}
 
- \DescribeMacro{translation}
-This shows in the bibliography the original title, the translator and the original language.
-If the bibliography entry is set with  |option={ancient}| this behaviour is default cf. \cref{translation}. 
+\DescribeMacro{bibfullname}
+In the bibliography full names of authors and/or editors are shown cf. \cref{bibfullname}.
 
- \DescribeMacro{noabbrv}
-By default the short titles of journals and series (|shortjournal| and |shortseries|) are shown  in the bibliography.
-With this option full name is shown instead (|journaltitle| and |series|) cf.  \cref{noabbrevs}.
+\DescribeMacro{fullnames}
+Writes only first and family names of authors or editors when they are cited with \cs{citeauthor}\marg{bibtex-key} cf. \cref{fullnames}.
 
- \DescribeMacro{publisher}
-All the locations and the publisher is shown. This changes the format of the edition and the first print cf.  \cref{publisher}.
+\DescribeMacro{initials}
+First names are abbreviated keeping digraphs and trigraphs cf. \cref{initials}.
 
- \DescribeMacro{bibfullname}
-In the bibliography the full names of the authors and/or editors are shown cf. \cref{bibfullname}.
-
- \DescribeMacro{inreferences}
-Each bibliography entry which is a  |@Inreference| is fully referenced according to the rules of the German Archaeological Institute cf. \cref{inreferences}.
-
- \DescribeMacro{lastnames}
-Writes only the family names of the authors or editors when they are cited with  \cs{citeauthor}\marg{bibtex-key}.
+\DescribeMacro{lastnames}
+Writes only family names of authors or editors when they are cited with \cs{citeauthor}\marg{bibtex-key}.
 In footnotes this is default cf.  \cref{lastnames}.
 
- \DescribeMacro{fullnames}
-Writes only the first and family names of the authors or editors when they are cited with  \cs{citeauthor}\marg{bibtex-key} cf.  \cref{fullnames}.
-
-
- \DescribeMacro{scshape}
-Names in referenced citations are shown with small capital letters cf. \cref{scshape}.
+\DescribeMacro{scshape}
+Cited names are shown with small capital letters cf. \cref{scshape}.
 Bibliography entries with |option={ancient}| or |option={frgancient}| (\cref{ancient,frgancient}) are not touched by this option.
 
- \DescribeMacro{initials}
- First names are abbreviated  keeping digraphs and trigraphs cf. \cref{initials}.
+\subsubsection{Manner of citing}
+
+\DescribeMacro{edby}
+Switches \enquote{ed.}/\enquote{Hrsg.} to \enquote{ed. by}/\enquote{hrsg. v.} cf. \cref{edby}.
+
+\DescribeMacro{inreferences}
+Each bibliography entry which is a |@Inreference| is fully referenced according to the special rules of the German Archaeological Institute for manuals and encyclopaedias cf. \cref{inreferences}.
+
+\DescribeMacro{noabbrv}
+By default the short titles of journals and series (|shortjournal| and |shortseries|) are shown in the bibliography.
+With this option full titles are printed instead (|journaltitle| and |series|) cf. \cref{noabbrevs}.
+
+\DescribeMacro{publisher}
+All locations and the publisher is shown. It also changes the format of the edition and the first print cf. \cref{publisher}.
+
+\DescribeMacro{seenote}
+By default |archaeologie| prints author-year-system. 
+With this option you can change it to a different outcome (but still according to the rules of the German Archaeological Institute). 
+So the first citation will be a full citation and all the following citations will refer to the first full citation cf. \cref{seenote}
+
+\DescribeMacro{translation}
+Original title, translator and original language are shown in the bibliography. 
+Setting a bibliography entry to |option={ancient}| this behaviour is default cf. \cref{translation}. 
+
+\DescribeMacro{yearinparens}
+The year is shown in parens cf. \cref{yearinparens}.
+
+\DescribeMacro{yearseries}
+Switches the order of series and year cf. \cref{yearseries}.
  
- 
- \DescribeMacro{width}
-The value of |width={value}| defines in the bibliography the width between the label and the reference cf. \cref{width}.
+\subsubsection{Global bibliography settings}
 
- \DescribeMacro{counter}
-This gives the sum of the citations in the text cf. \cref{counter}.
+\DescribeMacro{width}
+|width={value}| defines the bibliography width between label and reference cf. \cref{width}.
 
+\DescribeMacro{counter}
+Reveals at the end of each reference a summary of citations in the text cf. \cref{counter}.
 
- \subsection{Options in the entries}
- Additionally a single bibliography entry can contain a value in the |options|-field.
- This changes the behaviour of the entry when it is cited cf. \cref{optionen-literatur,beispiele}. 
+\subsection{Entry Options}
+A single bibliography entry can contain a value in its |options|-field.
+Depending on the option it changes the behaviour how that entry is cited cf. \cref{optionen-literatur,beispiele}. 
+Beside their distinct properties all of these options have in common that the separating comma between citation and page record is missing. 
+Actually this concerns citation of ancient texts and corpora where usually the |shorthand|-field is printed in citations.
 
+\DescribeMacro{ancient}
+The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{ancient}.
 
- \DescribeMacro{ancient}
- The entry is an ancient source (e.\,g. Cicero, Plutarch, etc) cf. \cref{ancient}.
+\DescribeMacro{frgancient}
+The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
 
- \DescribeMacro{frgancient}
- The entry is a fragmented ancient source (e.\,g. Festus) cf. \cref{frgancient}.
+\DescribeMacro{corpus} 
+Only the |shorthand|-field is printed.
+This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.) cf. \cref{corpus}.
 
- \DescribeMacro{corpus} 
- Only the  |shorthand|-field is printed.
- This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.) cf. \cref{corpus}.
+\changes{v1.1}{2015/06/04}{New options added in summary.}
 
-
- \changes{v1.1}{2015/06/04}{Neue Optionen in Zusammenfassung ergänzt.}
-
-
- 
-
-
- \subsection{cite-comands}\label{cite-commands}
- \DescribeMacro{\cite}%
-As always citing is done with  \cs{cite}:
+\subsection{Cite commands}\label{cite-commands}
+\DescribeMacro{\cite}%
+As always citing is done with \cs{cite}:
 \begin{lstlisting}
 \cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
 
-With \meta{prenote} one can make a short preliminary note  (e.\,g. \enquote{Vgl.}) and  \meta{postnote} is usually used for page numbers.
-If only one optional argument is used then it is the \oarg{postnote}.
+\meta{prenote} sets a short preliminary note (e.\,g. \enquote{Vgl.}) and \meta{postnote} is usually used for page numbers.
+If only one optional argument is used then it is \oarg{postnote}.
 \begin{lstlisting}
 \cite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
-The \meta{bibtex-key} is the key from the bibliography-file.
+The \meta{bibtex-key} corresponds to the key from the bibliography file.
 
- \DescribeMacro{\cites}
+\DescribeMacro{\cites}
 If one wants to cite several authors or works a very convenient way is the following using the \cs{cites}-command:
 \begin{lstlisting}
 \cites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
@@ -230,48 +225,42 @@ If one wants to cite several authors or works a very convenient way is the follo
  																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
  
-
-%\begin{center} * * * \end{center}
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
 \begin{lstlisting}
 \parencite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
-This cite-command takes care of the correct corresponding parentheses and brackets.
-Especially if one cites an |@Inreference| the parentheses are changing to (square) brackets.
+This cite command takes care of the correct corresponding parentheses and brackets.
+Especially in |@Inreference| citations the parentheses are changing to (square) brackets.
 The example shown in \cref{faq:inreference} makes it clear.
 
 \DescribeMacro{\parencites}
 Of course there is also the possibility to cite several authors/works in parentheses.
 This is done with \cs{parencites}:
- \begin{lstlisting}
+\begin{lstlisting}
 \parencites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
-
-% \begin{center} * * * \end{center}
  
- \DescribeMacro{\textcite}
-Additionally to the listed \cs{cite}-commands above there is a third way of citing:
-This is needed if one wants to \cs{textcite}  the author in the text, then the year and pages will be put in parentheses. 
+\DescribeMacro{\textcite}
+Beside the listed \cs{cite} commands above there is a third way of citing:
+\cs{textcite} is useful if the author should be mentioned in the text and the remaining components like year and page will immediately follow in parentheses. 
 \begin{lstlisting}
 \textcite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 
 \DescribeMacro{\textcites}
-And again there is also a  \cs{textcites} in case of several authors: 
+And again there is also a \cs{textcites} in case of several authors: 
   \begin{lstlisting}
 \textcites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
  																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
 
-%\begin{center} * * * \end{center}
 \DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
-Furthermore and additionally to the ›normal‹ \cs{cite}-commands one can also cite the authors and the work in the text and in the footnotes. 
-This shows how it is done:
+Furthermore and additionally to the ›normal‹ \cs{cite}-commands one can also cite only the author or the work title in the text and in the footnotes.
 \begin{lstlisting}
 \citeauthor*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
@@ -280,22 +269,21 @@ This shows how it is done:
 \citetitle*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
 For further information cf. \cref{fullnames}.
-   
 
-   
 
-\subsection{Entries with @String}\label{string}
-The citation rule of the German Archaeological Institute says that the journals and series have to be abbreviated according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
+\subsection{Entries with @string}\label{string}
+The citation rules of the German Archaeological Institute instruct to abbreviate journals and series according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
+For this purpose we provide a list with bibliography macros which refer to these abbreviations.
 
- \DescribeMacro{@String} The style  |archaeologie| respects the guidelines of the German Archaeological Institute and is compatible with the given 
- abbreviations of journals and series.
- To minimize 	the susceptibility to errors and to omit unnecessary typing of sometimes very long journal titles |archaeologie| works with so-called |@Strings|.
- The advantage is that with  |@String| several bibliography entries can be defined by one central given value. 
- The  |@String| is loaded at the begin of the  |bib|-file, therefore all the |@Strings| have to be before all other bibliography entries.
+\DescribeMacro{@string} The style |archaeologie| respects the guidelines of the German Archaeological Institute and is therefore compatible with the given abbreviations of journals and series.
+To minimize the susceptibility to errors and to omit unnecessary typing of sometimes very long journal titles |archaeologie| works with so-called |@strings|.
+The advantage of these |@strings| is that several bibliography entries can be defined by one globally given value. 
+The |@string| is loaded at begin of the |bib|-file, therefore all |@strings| have to be previous to all other bibliography entries.
  
- To use this offer of simplification the fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@String|.
-In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@String| (with the endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
-This  |@String| has to be written \textsc{without} any curly brackets in the fiels (e.g. |journaltitle| or |shortseries|).\footnote{If you use the program \emph{JabRef} in its non-coding window, then you have to write  \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@String| and omits the \# in the coding window.}
+To use this offer of simplification the bibliography fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
+In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
+A |@string| has to be written \emph{without} any curly brackets .\footnote{If you use \emph{JabRef} in its non-coding window, then you have to write \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window. \emph{BibDesk} provides such conversion as well by pressing cmd-R which enables direct BibTeX typing without enclosing curly brackets.}
+
 
 An example shows how to use it:
 \begin{lstlisting}[style=bibentry,label=Koyunlu1990,caption={{@}Article\{Koyunlu1990,…\} }]
@@ -309,34 +297,27 @@ An example shows how to use it:
   year         = {1990},
 }
 \end{lstlisting}
+
 That article appeared within a rather unusual journal, 
 which should be abbreviated with ›AyasofyaMüzYıl‹.
-To save the time to look for the special character and insert  ›ı‹ manually 
-it is written in the  |@String| with an  ›i‹  (for further information see \cref{listen}) 
-but will be replaced after compiling with the correct character:
+
+To save the time to look for the special character and insert ›ı‹ manually 
+it is written in the |@string| with an ›i‹ (for further information see \cref{listen}) but will be replaced after compiling with the correct character:
 
 \printbib[6em]{Koyunlu1990}
 
-The default behaviour of abbreviations can be switched off, of course.
-In case you use the option |noabbrevs| (see \cref{noabbrevs}), then the output changes as well:
-
-
-\begin{bibbsp}{Koyunlu1990}
-Koyunlu 1990 \hspace{3em} A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
+The default embedding of such abbreviations can be switched off, of course.
+In case you use the package option |noabbrevs| in the preamble (see \cref{noabbrevs}), then the output changes as follows:
+\begin{bsp}
+A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
 %\fullcite{Koyunlu_1990}
-\end{bibbsp}
-The advantage lies in the possibility to create a separate bibliography with all the abbreviations of used journal titles and series (see  \cref{bibliographie}).
+\end{bsp}
+Nevertheless the advantage of this list lies in the possibility to create a separate bibliography with all the abbreviations of used journaltitles and series (see \cref{bibliographie}) without being prone to citation differences and typing errors.
 
-If a journal or a series is  {\color{red}not} not included in the list (\cref{listen}) 
-then this journal/series will {\color{red}not}  be abbreviated and with its full name written in  |{}| in the field e.g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}.
+However, if a journal or a series is \emph{not} included in the list (\cref{listen}) 
+then this journal/series will \emph{not} be abbreviated and converted to full title in curly brackets in the respective field e.g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}. Therefore the field content will not be printed. At least BibTeX gives a warning in its log which can be checked.\footnote{For example something like \enquote{\enquote{journaltitle} in entry \enquote{<entrykey>} cannot be null, deleting it}.}
+For the following examples we use |@string| whenever it is clever and possible.
 
-Such a |@String| can be used in your entire bibliography. 
-You only need to add the |@String| information in the beginning of your |bib|-file.
-\begin{lstlisting}
-@String { *@\meta{abbreviation}@* = { *@\meta{long form}@* } }
-\end{lstlisting}
-Now you can add everywhere the \meta{abbreviation} and in the end it will use the \meta{long form}.
-For the following examples we use |@String| whenever it is clever and possible.
 
 \section{Optional preferences}
 Following we give a more detailed insight into the various options of |archaeologie| 
