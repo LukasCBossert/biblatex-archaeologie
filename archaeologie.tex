@@ -25,10 +25,10 @@ english
   {\par\medskip\noindent\footnotesize
   \begin{tikzpicture}
     \node[inner sep=0pt] (box) {\parbox[t]{\textwidth}{%
-      \begin{minipage}{.15\textwidth}
-      \hspace{.5em}\scriptsize \textbf{\cref{#1}}\hfill
+      \begin{minipage}{.1\textwidth}
+      \hspace{.5em}\scriptsize \textbf{\Cref{#1}}\hfill
       \end{minipage}%
-      \begin{minipage}{.83\textwidth}
+      \begin{minipage}{.87\textwidth}
       \BODY
       \end{minipage}\hfill}%
     };
@@ -51,7 +51,7 @@ We thank  ›moewew‹ and Herbert Voß for their big help on the code.%
  \begin{abstract}
 \noindent This citation-style covers the citation and bibliography rules of the German Archaeological Institute. 
 Various options are available to change and adjust the outcome according to one's own preferences. 
-The style is compatible with the English, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.
+The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.
 
 For a short introduction in German see \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie/archaeologie-ger.pdf}
  \end{abstract}
@@ -309,7 +309,7 @@ it is written in the |@String| with an ›i‹ (for further information see \cre
 The default embedding of such abbreviations can be switched off, of course.
 In case you use the package option |noabbrevs| in the preamble (see \cref{noabbrevs}), then the output changes as follows:
 \begin{bibbsp}{Koyunlu1990}
-A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
+Koyunlu 1990\hspace{3em}A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
 %\fullcite{Koyunlu_1990}
 \end{bibbsp}
 Nevertheless the advantage of this list lies in the possibility to create a separate bibliography with all the abbreviations of used journal titles and series (see \cref{bibliographie}) without being prone to citation differences and typing errors.
@@ -565,7 +565,7 @@ Without any option activated it will look like this:
 
  
 With the activated option  |yearseries| it will change to:
- \begin{bibbsp}
+ \begin{bibbsp}{Mundt2015}
 Mundt 2015 \hspace{3em} F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer – F. Mundt – J. Stenger (ed.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206
 \end{bibbsp}
 
