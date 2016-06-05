@@ -20,205 +20,26 @@ italian,
 ngerman,
 english
 ]{ltxdoc}
-%\CodelineNumbered
-%\AtBeginDocument{\RecordChanges}
-%\AtEndDocument{\PrintChanges}
-\usepackage{libertine}
-\renewcommand*\ttdefault{lmvtt}
-
-\usepackage[					% use  for bibliography
-	backend=biber,
-	style=archaeologie,
-	%corpora,
-	%seenote,
-	%translation,
-	%publisher,
-	lstlocations,
-	lstabbrv,
-]{biblatex}
-\renewcommand\bibfont{\normalfont
-\footnotesize}
-\usepackage{metalogo}
-\usepackage{hologo}
-\usepackage{babel}
-\usepackage{coolthms}
-\usepackage[					% advanced quotes
-%	strict=true,					% 	- warning are errors now
-autostyle=true,%
-]{csquotes}
-\usepackage{multicol}
-\setlength{\columnsep}{1.5cm}
-\setlength{\columnseprule}{0.2pt}
-
-\usepackage[ 
-%	headsepline, 
-%	footsepline,
-%	plainfootsepline, 
-%markcase=upper, 
-automark, 
-draft=false,
-]{scrlayer-scrpage} 
-\pagestyle{scrheadings}
-\clearscrheadfoot
-	\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie 2.0} (c) by Lukas C. Bossert | Johannes Friedl}%
-\rofoot{\large\footnotesize  \textbf{\sffamily \thepage}}
-
-
-\usepackage{framed}
-\usepackage{enumitem}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 2pt}
-\setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
-\usepackage{changepage}
-\makeindex
-   
-\newenvironment{bsp}{\begin{framed}\begin{footnotesize}
-\begin{adjustwidth}{.3cm}{.3cm}}{\end{adjustwidth}
-\end{footnotesize}\end{framed}}
-\defbibheading{empty}{}
-
-\newcommand{\printbib}[2][4em]{%
-\begingroup
-\begin{bsp}
-\footnotesize
-\begin{refsection}
-\setlength{\labwidthsameline}{#1} 
-\nocite{#2}
-\printbibliography[heading=none]
-\end{refsection}
-\end{bsp}
-\endgroup
+\input{archaeologie-preamble.tex}
+\NewEnviron{bibbsp}[1]
+  {\par\medskip\noindent\footnotesize
+  \begin{tikzpicture}
+    \node[inner sep=0pt] (box) {\parbox[t]{\textwidth}{%
+      \begin{minipage}{.15\textwidth}
+      \hspace{.5em}\scriptsize \textbf{\cref{#1}}\hfill
+      \end{minipage}%
+      \begin{minipage}{.83\textwidth}
+      \BODY
+      \end{minipage}\hfill}%
+    };
+    \draw[codeblue,line width=2pt] 
+      ( $ (box.north east) + (-5pt,3pt) $ ) -- ( $ (box.north east) + (0,3pt) $ ) -- ( $ (box.south east) + (0,-3pt) $ ) -- + (-5pt,0);
+    \draw[codeblue,line width=2pt] 
+      ( $ (box.north west) + (5pt,3pt) $ ) -- ( $ (box.north west) + (0,3pt) $ ) -- ( $ (box.south west) + (0,-3pt) $ ) -- + (5pt,0);
+  \end{tikzpicture}\par\medskip%
 }
-
-\newcommand{\printbiball}[2][4em]{%
-\begingroup
-\setlength{\labwidthsameline}{#1} 
-\begin{bsp}
-\footnotesize%
-\begin{itemize}%[\bfseries]
-\begin{refsection}%
-\nocite{#2}%
-\item[English:]{\printbibliography[heading=none]}
-\item[German:]\foreignlanguage{ngerman}{\printbibliography[heading=none]}
-\item[Italian:]\foreignlanguage{italian}{\printbibliography[heading=none]}
-\item[French:]\foreignlanguage{french}{\printbibliography[heading=none]}
-\item[Spanish:]\foreignlanguage{spanish}{\printbibliography[heading=none]}
-\end{refsection}
-\end{itemize}%
-\end{bsp}
-\endgroup
-}
-
-\listfiles
-%\EnableCrossrefs
-%\CodelineIndex
-%\RecordChanges
-\addbibresource{archaeologie.bib}
-%\addbibresource{archaeologie-ancient.bib}
-%\addbibresource{antike-corpora.bib} %Version 2.0
-\usepackage{caption}
-
-\usepackage{listings}
-\usepackage{xcolor}
-\definecolor{codeblue}{RGB}{0,65,137}
-\definecolor{codegreen}{RGB}{147,193,26}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- \DeclareCaptionFormat{listing}{#1#2#3}
- \captionsetup[lstlisting]{format=listing,
- singlelinecheck=false, margin=0pt, font={sf},size=footnotesize}
-\lstdefinestyle{bibentry}{%
-	language=[LaTeX]TeX,
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{codeblue},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    escapeinside={*@}{@*},          % if you want to add LaTeX within your code
-    texcsstyle=*\color{codeblue},
-    morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
-    						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
-    						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
-    						},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,   
-    numberbychapter=false,   
-    captionpos=b,                    
-    keepspaces=true,               
-	%framexleftmargin=5mm, 
-	frame=shadowbox,
-	rulesepcolor=\color{codeblue},
-    numbers=left,                    
-    numbersep=5pt,            
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-    literate=
-            *{\{}{{{\color{codegreen}{\{}}}}{1}
-            {\}}{{{\color{codegreen}{\}}}}}{1}
-            {[}{{{\color{codegreen}{[}}}}{1}
-            {]}{{{\color{codegreen}{]}}}}{1},
-}
-\renewcommand{\lstlistingname}{Example}%rename caption
-\renewcommand{\lstlistlistingname}{List of examples}%rename caption
-
- \lstdefinestyle{code}{%
-	language=[LaTeX]TeX,
-    backgroundcolor=\color{white},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{codeblue},
-    numberstyle=\small\color{codegray},
-    stringstyle=\color{codepurple},
-	escapeinside={*@}{@*},
-    texcsstyle=*\color{codeblue},
-    morekeywords={},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    %numbers=left,                    
-    stepnumber=1,
-    numbersep=5pt,            
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-      morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
-    						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
-    						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
-    						},
-    literate=
-            *{\{}{{{\color{codeblue}{\{}}}}{1}
-            {\}}{{{\color{codeblue}{\}}}}}{1}
-            {[}{{{\color{codeblue}{[}}}}{1}
-            {]}{{{\color{codeblue}{]}}}}{1},
-}
-%%% Always I forget this so I created some aliases
-\def\ContinueLineNumber{\lstset{firstnumber=last}}
-\def\StartLineAt#1{\lstset{firstnumber=#1}}
-\let\numberLineAt\StartLineAt
-
-\lstset{style=code}
-\lstMakeShortInline[style=code]{|}
-
-\hypersetup{  colorlinks   = true, %Colours links instead of ugly boxes
-  urlcolor     =  blue, %Colour for external hyperlinks
-  linkcolor    = black, %Colour of internal links
-  citecolor   = blue, %Colour of citations
-  }	
- \crefformat{lstlisting}{#2example\ #1#3}
-\crefmultiformat{lstlisting}{#2examples #1#3}{; #2#1#3}{; #2#1#3}{; #2#1#3}
-\crefrangeformat{lstlisting}{#3examples #1#4--#5Taf. #2#6}
 
 \begin{document}
-%\MakeShortVerb{\|}
-% \newenvironment{syntax}{\begin{small}\medskip\hspace*{2em}}{\par\medskip\end{small}}
- %\def\verbatimchar{;}
-
 \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
 The development of the code is done at \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
 Comments and critics are welcome.
@@ -300,10 +121,10 @@ With this option you can change it to a different outcome (but still according t
 
 \DescribeMacro{lstlocations}
  This activates the additional bibliography file  |archaeologie-lstlocations.bib|
- with |@strings| which can be used for locations to print out their correct exonym in the selected language cf. \cref{lstlocations}.
+ with |@Strings| which can be used for locations to print out their correct exonym in the selected language cf. \cref{lstlocations}.
 
 \DescribeMacro{lstpublishers}
-This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@strings| which can be used for publishers to print out their correct name cf. \cref{lstpublishers}.
+This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@Strings| which can be used for publishers to print out their correct name cf. \cref{lstpublishers}.
 
  \DescribeMacro{bibancient}
 A separate bibliography-file is loaded, in which round about 600 ancient authors and works are listed and can be cited right away cf. \cref{bibancient}.
@@ -463,26 +284,26 @@ For further information cf. \cref{fullnames}.
 
    
 
-\subsection{Entries with @string}\label{string}
+\subsection{Entries with @String}\label{string}
 The citation rule of the German Archaeological Institute says that the journals and series have to be abbreviated according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
 
- \DescribeMacro{@string} The style  |archaeologie| respects the guidelines of the German Archaeological Institute and is compatible with the given 
+ \DescribeMacro{@String} The style  |archaeologie| respects the guidelines of the German Archaeological Institute and is compatible with the given 
  abbreviations of journals and series.
- To minimize 	the susceptibility to errors and to omit unnecessary typing of sometimes very long journal titles |archaeologie| works with so-called |@strings|.
- The advantage is that with  |@string| several bibliography entries can be defined by one central given value. 
- The  |@string| is loaded at the begin of the  |bib|-file, therefore all the |@strings| have to be before all other bibliography entries.
+ To minimize 	the susceptibility to errors and to omit unnecessary typing of sometimes very long journal titles |archaeologie| works with so-called |@Strings|.
+ The advantage is that with  |@String| several bibliography entries can be defined by one central given value. 
+ The  |@String| is loaded at the begin of the  |bib|-file, therefore all the |@Strings| have to be before all other bibliography entries.
  
- To use this offer of simplification the fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
-In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with the endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
-This  |@string| has to be written \textsc{without} any curly brackets in the fiels (e.g. |journaltitle| or |shortseries|).\footnote{If you use the program \emph{JabRef} in its non-coding window, then you have to write  \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window.}
+ To use this offer of simplification the fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@String|.
+In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@String| (with the endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
+This  |@String| has to be written \textsc{without} any curly brackets in the fiels (e.g. |journaltitle| or |shortseries|).\footnote{If you use the program \emph{JabRef} in its non-coding window, then you have to write  \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@String| and omits the \# in the coding window.}
 
 An example shows how to use it:
 \begin{lstlisting}[style=bibentry,label=Koyunlu1990,caption={{@}Article\{Koyunlu1990,…\} }]
 @Article{Koyunlu1990,
   author       = {Koyunlu, A.},
   title        = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
-  journaltitle = AyasofyaMuezYil,
-  shortjournal = AyasofyaMuezYil-short,
+  journaltitle = AyasofyaMuezYil,		%@String used
+  shortjournal = AyasofyaMuezYil-short,		%@String used
   volume       = {11},
   pages        = {147--156},
   year         = {1990},
@@ -491,22 +312,31 @@ An example shows how to use it:
 That article appeared within a rather unusual journal, 
 which should be abbreviated with ›AyasofyaMüzYıl‹.
 To save the time to look for the special character and insert  ›ı‹ manually 
-it is written in the  |@string| with an  ›i‹  (for further information see \cref{listen}) 
+it is written in the  |@String| with an  ›i‹  (for further information see \cref{listen}) 
 but will be replaced after compiling with the correct character:
 
 \printbib[6em]{Koyunlu1990}
 
 The default behaviour of abbreviations can be switched off, of course.
 In case you use the option |noabbrevs| (see \cref{noabbrevs}), then the output changes as well:
-\begin{bsp}
-A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
+
+
+\begin{bibbsp}{Koyunlu1990}
+Koyunlu 1990 \hspace{3em} A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
 %\fullcite{Koyunlu_1990}
-\end{bsp}
-The advantage lies in the possibility to create a separate bibliography with all the abbreviations of used journaltitles and series (see  \cref{bibliographie}).
+\end{bibbsp}
+The advantage lies in the possibility to create a separate bibliography with all the abbreviations of used journal titles and series (see  \cref{bibliographie}).
 
 If a journal or a series is  {\color{red}not} not included in the list (\cref{listen}) 
 then this journal/series will {\color{red}not}  be abbreviated and with its full name written in  |{}| in the field e.g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}.
-For the following examples we use |@string| whenever it is clever and possible.
+
+Such a |@String| can be used in your entire bibliography. 
+You only need to add the |@String| information in the beginning of your |bib|-file.
+\begin{lstlisting}
+@String { *@\meta{abbreviation}@* = { *@\meta{long form}@* } }
+\end{lstlisting}
+Now you can add everywhere the \meta{abbreviation} and in the end it will use the \meta{long form}.
+For the following examples we use |@String| whenever it is clever and possible.
 
 \section{Optional preferences}
 Following we give a more detailed insight into the various options of |archaeologie| 
@@ -531,18 +361,18 @@ It doesn't matter if you write |inreferences,| or |inreferences=true|.
 
 \subsubsection{lstabbrv}\label{abbrv}
  \DescribeMacro{lstabbrv}
- If you want to use the above mentioned method with |@string| you have to activate the option called  |lstabbrv| (list of abbreviations) in the preamble.
+ If you want to use the above mentioned method with |@String| you have to activate the option called  |lstabbrv| (list of abbreviations) in the preamble.
 Once activated the additional bibliography  |archaeologie-lstabbrv.bib| is loaded. 
 In this bibliography all abbreviations listed in \cref{listen} are stored.
 
 \subsubsection{lstlocations}\label{lstlocations}
 \DescribeMacro{lstlocations}
-This loads an additional bibliography with |@strings| which can be used for locations to print out their correct exonym in the selected language.
+This loads an additional bibliography with |@Strings| which can be used for locations to print out their correct exonym in the selected language.
 For the list cf. \cref{list-locations}
 
 \subsubsection{lstpublishers}\label{lstpublishers}
 \DescribeMacro{lstpublishers}
-This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@strings| which can be used for publishers to print out their correct name.
+This activates the additional bibliography file  |archaeologie-lstpublishers.bib| with |@Strings| which can be used for publishers to print out their correct name.
 For the list cf. \cref{list-publishers}
 
 \subsubsection{bibcorpora}\label{bibcorpora}
@@ -611,9 +441,9 @@ First citation of
 \footnote{\cite{Ball2013}}
 \end{lstlisting}
 
- \begin{bsp}
-L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current  thinking on the Pompeii Forum, 117/3, 2013, 461–492
- \end{bsp}
+ \begin{bibbsp}{Ball2013}
+L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current thinking on the Pompeii Forum, 117/3, 2013, 461–492
+ \end{bibbsp}
 
 Second citation of
 \begin{lstlisting}
@@ -652,10 +482,10 @@ In the bibliography it will be shown as:
 \printbib[6em]{Lefebvre2011}
 
 With the activated option |translation| it will change to:
-\begin{bsp}%
+\begin{bibbsp}{Lefebvre2011}%
  Lefebvre 2011\hspace{2em} 
 H. Lefebvre,  The Production of Space, {\color{red} La production de l’espace, trans. from French by D. Nicholson-Smith} \textsuperscript{30}(Oxford 1991; repr. Maien, MA 2011)
-\end{bsp}
+\end{bibbsp}
  
 It will work not only with entries like |@Book| but also with e.g. |@Article|:
 \begin{lstlisting}[style=bibentry,label=Lefebvre1977,caption={{@}Article\{Lefebvre1977,…\} }]
@@ -675,9 +505,9 @@ It will work not only with entries like |@Book| but also with e.g. |@Article|:
 
 Once again the entry in the bibliography with switched on option:
 
-\begin{bsp}%
+\begin{bibbsp}{Lefebvre1977}%
  Lefebvre 1977\hspace{2em} H. Lefebvre, Die Produktion des städtischen Raums, \emph{Introduction à l’espace urbain}, {\color{red} trans. from French by F. Hiss – H.-U. Wegener}, ARCH+ 34/9, 1977, 52–57
-\end{bsp}
+\end{bibbsp}
 
 
 \subsubsection{inreferences}\label{inreferences}
@@ -698,8 +528,6 @@ Another example makes it clear:
 \end{lstlisting}
   \begin{refsection}
 There are two ways of the display of |\cite{Nieddu1995}|:
-   \begin{bsp}
-
  \begin{enumerate}
  \item by default it will give:  %Nieddu 1995
  \cite{Nieddu1995}
@@ -707,17 +535,17 @@ There are two ways of the display of |\cite{Nieddu1995}|:
  LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
  % \cite{Nieddu_1995}
   \end{enumerate}
-   \end{bsp}
+
 If the \oarg{postnote} is defined with the columns/page number, (e.g. |\cite[9]{Nieddu1995}|), 
 then it will change the position for the \oarg{postnote}:
- \begin{bsp}
+% \begin{bsp}
 \begin{enumerate} 
  \item by default it will give:  %Nieddu 1995
  \cite[9]{Nieddu1995}
  \item with the option |inreferences| it will change to:
   LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
   \end{enumerate}
-\end{bsp}
+%\end{bsp}
 With the activated option   (|inreferences|) the cited entries which are defined as a|@inreference| will be automatically omitted in the (final) bibliography,
 because the entries are fully cited before in the footnotes.
 
@@ -742,8 +570,8 @@ An example with an |@Incollection| will demonstrate the effect of the option:
   editor       = {Therese Fuhrer and Felix Mundt and Jan Stenger},
   booktitle    = {Cityscaping},
   booksubtitle = {Constructing and Modelling Images of the City},
-  publisher    = {de Gruyter},
-  location     = Berlin #{ and Boston}, %@string partly used
+  publisher    = WdG,
+  location     = Berlin #{ and Boston}, %@String partly used
   year         = {2015},
   series       = Philologus-long #{ Supplement},
   number       = {3},
@@ -756,9 +584,9 @@ Without any option activated it will look like this:
 
  
 With the activated option  |yearseries| it will change to:
- \begin{bsp}
+ \begin{bibbsp}
 Mundt 2015 \hspace{3em} F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer – F. Mundt – J. Stenger (ed.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206
-\end{bsp}
+\end{bibbsp}
 
 \subsubsection{fullnames / lastnames}\label{fullnames}\label{lastnames}
 \DescribeMacro{fullnames}
@@ -790,10 +618,10 @@ Let’s assume that is your text and you write:
 *@ in their latest article @*\citetitle{Boehmer1985}*@.@* \end{lstlisting}
 
 After compiling and without any activated option it will look like this:\footnote{If you cite an author in a footnote only the last names of the authors or editors will always printed,
-it doesn’t matter if you activated |fullnames| (\cref{name:a}) or |lastnames| (\cref{name:b}): 
-\begin{bsp}
-\ldots , this is also shown by  \citeauthor{Boehmer1985} in their latest article \citetitle{Boehmer1985}.
-\end{bsp}
+it doesn’t matter if you activated |fullnames| (\cref{name:a}) or |lastnames| (\cref{name:b}).
+%\begin{bsp}
+%\ldots , this is also shown by  \citeauthor{Boehmer1985} in their latest article \citetitle{Boehmer1985}.
+%\end{bsp}
 }
 
 \begin{bsp} 
@@ -822,6 +650,7 @@ Ancient works will be printed without the year in parentheses.
   author       = {Fabius Quintilianus, Marcus},
   title        = {Ausbildung des Redners},
   subtitle     = {Institutio oratoria},
+  publisher    = WBG,
   location     = {Darmstadt},
   year         = {2015},
   edition      = {6},
@@ -900,10 +729,10 @@ number       = {3},
 
 The output in the bibliography will be without the option |scshape|:
 \printbib[8em]{Ball2013}
-\begin{bsp}
+\begin{bibbsp}{Ball2013}
 {\scshape {\color{red}Ball – Dobbins}} 2013\hspace{3em} L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492\\
 ...
-\end{bsp}
+\end{bibbsp}
 
 
 
@@ -932,10 +761,10 @@ looks like this
 
 and with |bibfullname| will change to:
 
-\begin{bsp}
+\begin{bibbsp}{Osland2016}
 Osland 2016\hspace{3em} {\color{red}Daniel} Osland, Abuse or Reuse? Public Space in Late Antique Emerita, AJA 120/ 1, 2016, 67–97,\\
 ...
-\end{bsp}
+\end{bibbsp}
 
 
 \subsubsection{noabbrv}\label{noabbrevs}
@@ -945,25 +774,6 @@ Therefore the fields |shortjournal| or |shortseries| will be considered.
 If there is no abbreviation (in the list cf. \cref{listen}) the fields |shortjournal| or |shortseries| remain empty -- unless you want to insert a short name.  
 If you like to have the full names of journals and series you can switch on the option |noabbrv|.
 For an example see \cref{string,Koyunlu1990}.
-
-%%\begin{lstlisting}[style=bibentry,label=Koyunlu1990-2,caption={{@}Article\{Koyunlu1990,…\} }]
-%%@Article{Koyunlu1990,
-%%  author       = {Koyunlu, A.},
-%%  title        = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
-%%  journaltitle = AyasofyaMuezYil,
-%%  shortjournal = AyasofyaMuezYil-short,
-%%  volume       = {11},
-%%  pages        = {147--156},
-%%  year         = {1990},
-%%}
-%%\end{lstlisting}
-%%\printbib[6em]{Koyunlu1990}
-%%
-%%\begin{bsp}
-%%Koyunlu 1990 \hspace{3em}A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
-%%%\fullcite{Koyunlu1990}
-%%\end{bsp}
-
 
 \subsubsection{publisher}\label{publisher}
 \DescribeMacro{publisher} 
@@ -975,8 +785,8 @@ In case of a reprint or a second edition the first edition |origyear| will be pu
   author    = {Burkhard Emme},
   title     = {Peristyl und Polis},
   subtitle  = {Entwicklung und Funktionen öffentlicher griechischer Hofanlagen},
-  publisher = {Walter de Gruyter},
-  location  = Berlin #{ and New York}, %@string partly used
+  publisher = WdG,
+  location  = Berlin #{ and New York}, %@String partly used
   year      = {2013},
   series    = {Urban Spaces},
   number    = {1},
@@ -989,9 +799,9 @@ Without any option:
 
  
 With the option |publisher| the order has changed:
- \begin{bsp}
+ \begin{bibbsp}{Emme2013}
 Emme 2013\hspace{3em} B. Emme, Peristyl und Polis. Entwicklung und Funktionen öffentlicher griechischer Hofanlagen, Urban Spaces 1 (Berlin {\color{red} – New York: Walter de Gruyter} 2013)
- \end{bsp}
+ \end{bibbsp}
  
  And here a more detailed example with |origlocation|, |origyear| and |origpublisher|:
  \begin{lstlisting}[style=bibentry,label=Neufert2002,caption={{@}Book\{Neufert2002,…\} }]
@@ -1000,19 +810,19 @@ Emme 2013\hspace{3em} B. Emme, Peristyl und Polis. Entwicklung und Funktionen o�
   editor       = {Neufert, Peter and Neufert, Cornelius and Neff, Ludwig and Franken, Corinna},
   title        = {Bauentwurfslehre},
   subtitle     = {Grundlagen, Normen, Vorschriften ...},
-  publisher    = {Vieweg},
+  publisher    = VT, %@String used
   origpublisher = {Mann},
   location     = {Wiesbaden},
   year         = {2002},
   edition      = {37},
-  origlocation = Berlin, %@string used
+  origlocation = Berlin, %@String used
   origyear     = {1936},
 }
 \end{lstlisting}
  \printbib[5em]{Neufert2002}
-  \begin{bsp}
+  \begin{bibbsp}{Neufert2002}
 Neufert  2002\hspace{3em} E. Neufert, Bauentwurfslehre. Grundlagen, Normen, Vorschriften ... Ed. by P.~Neufert – C. Neufert – L. Neff  – C. Franken {\color{red}  (Wiesbaden: Vieweg \textsuperscript{37}2002 [Berlin: Mann 1936])}
- \end{bsp}
+ \end{bibbsp}
  
 \subsubsection{edby}\label{edby}
 \DescribeMacro{edby}
@@ -1028,15 +838,15 @@ This option gives you a different output of the editors: Instead of ›(ed.)‹/
   booktitle    = {Politische Räume in vormodernen Gesellschaften},
   booksubtitle = {Gestaltung – Wahrnehmung – Funktion},
   location     = {Rahden/Westf\adddot},
-  publisher    = {Verlag Marie Leidorf},
+  publisher    = VML,		%@String used
   year         = {2013},
-  venue        = Berlin, %@string used
+  venue        = Berlin, 	%@String used
   eventdate    = {2009-11-18/2009-11-22},
   eventtitle   = {Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI},
   zenon       = {001371402},
   number       = {6},
-  series       = MKT,
-  shortseries  = MKT-short,
+  series       = MKT,		%@String used
+  shortseries  = MKT-short,	%@String used
 }
 \end{lstlisting}
 Without the option this |@Inproceedings| will look like:
@@ -1044,9 +854,9 @@ Without the option this |@Inproceedings| will look like:
  \printbib[7em]{Wulf-Rheidt2013}
 
  But with the activated option  |edby| it changes to:
- \begin{bsp}
+ \begin{bibbsp}{Wulf-Rheidt2013}
 Wulf-Rheidt 2013\hspace{3em} U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?, in:  {\color{red}Politische Räume in vormodernen Gesellschaften. Gestaltung – Wahrnehmung – Funktion, ed. by O. Dally – F. Fless – R. Haensch – F. Pirson – S. Sievers}. Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI Berlin November 18–22, 2009, MKT 6 (Rahden/Westf. 2013) 277–289
- \end{bsp}
+ \end{bibbsp}
  
  
 \subsubsection{width}\label{width}
@@ -1063,29 +873,28 @@ then there is no indent at all.
  \DescribeMacro{counter} 
  If you like to know how many times you cited an author or work then use this option called |counter|.\footnote{The idea is based on \href{http://tex.stackexchange.com/a/14159/98739}{tex.stackexchange.com/a/14159/98739} and has been modified.}
 Depending on the language you chose in the preamble of your document the so far the information will be given in German (|ngerman|) and in English (if not |ngerman|).
-\begin{bsp}
+\begin{bibbsp}{Boehm2001}
 Böhm – Eickstedt 2001 \hspace{3em} S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde 1-mal zitiert.}
-\end{bsp} 
+\end{bibbsp}
 If there has been no citation in the text (but maybe a \cs{citeauthor} or \cs{citetitle}):
-\begin{bsp}
-Böhm – Eickstedt 2001\\
-\indent S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde {\color{red}{keinmal}} zitiert.}
-\end{bsp} 
+\begin{bibbsp}{Boehm2001}
+Böhm – Eickstedt 2001\hspace{3em} S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde {\color{red}{keinmal}} zitiert.}
+\end{bibbsp} 
 
 For all languages besides German:
- \begin{bsp}
+\begin{bibbsp}{Boehm2001}
 Böhm – Eickstedt 2001 \hspace{3em}  S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited {{\color{red}{not once}}}.}
- \end{bsp}
+ \end{bibbsp}
   
  If there has been only one citation:
- \begin{bsp}
+\begin{bibbsp}{Boehm2001}
 Böhm – Eickstedt 2001\hspace{3em}S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 1 time.}
- \end{bsp}
+ \end{bibbsp}
 
  If there has been more than one citations:
-  \begin{bsp}
- Böhm – Eickstedt 2001\hspace{3em} S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}
-\end{bsp}
+\begin{bibbsp}{Boehm2001}
+Böhm – Eickstedt 2001\hspace{3em} S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}
+\end{bibbsp}
  
  \subsubsection{initials}\label{initials}
  \DescribeMacro{counter} 
@@ -1104,7 +913,7 @@ Let us have a look at an example:
   author       = {Tullius Cicero, Marcus},
   editor       = {Kasten, Helmut},
   title        = {Atticus-Briefe},
-  publisher    = {Artemis {\&} Winkler},
+  publisher    = AW, 	%@String used
   location     = {Düsseldorf and Zürich},
   year         = {1980},
   series       = {Tusculum Bücherei},
@@ -1144,11 +953,11 @@ Another example:
   year         = {1993},
   editor       = {Fuhrmann, Manfred},
   volume       = {II},
-  publisher    = {Artemis \& Winkler},
+  publisher    = AW,		%@String used
   pages        = {110--185},
   origlanguage = {latin},
   series       = {Sammlung Tusculum},
-  location     = Munich,			%@string used
+  location     = Munich,			%@String used
   intranslator = {Fuhrmann, Manfred},
   keywords     = {ancient},
   options      = {ancient},
@@ -1168,11 +977,11 @@ Another example:
  Then the editor (|shorteditor| or |editor|) will be put in after the \marg{postnote}.
 \begin{lstlisting}[style=bibentry,label=Fest,caption={{@}Book\{Fest,…\} }]
 @Book{Fest,
-  author      = {Pompeius Festus, {Sex}tus},
+  author      = {Pompeius Festus, {\relax Sex}tus},
   editor      = {Lindsay, Wallace Martin},
   title       = {De verborum significatu quae supersunt cum Pauli epitome},
   publisher   = {Teubner},
-  location    = Leipzig, %@string used
+  location    = Leipzig, 		%@String used
   year        = {1965},
   series      = {Bibliotheca scriptorum et Grecorum et Romanorum Teubnerina},
   origyear    = {1913},
@@ -1188,7 +997,7 @@ When you cite this entry  e.g. with |\cite[3]{Fest}|, so the field  |shorteditor
  Fest. 3 L
  \end{bsp}
 In the bibliography the reference  differentiates slightly from  |options = {ancient}|:
-\printbib{Fest}
+\printbib[2em]{Fest}
 
 
 
@@ -1202,10 +1011,10 @@ Now you can cite it as usually with and \oarg{prenote} or \oarg{postnote} you li
 This example shows the behaviour with a corpus that is common for Latin epigraphy:
 \begin{lstlisting}[style=bibentry,label=CIL,caption={{@}Book\{CIL,…\} }]
 @Book{CIL,
-  title     = CIL, %@string used
-  location  = Berlin, %@string used
+  title     = CIL, %@String used
+  location  = Berlin, %@String used
   year      = {1863--},
-  shorthand = CIL-short,
+  shorthand = CIL-short,	%@String used
   keywords  = {corpus}, %!
   options   = {corpus},
 }
@@ -1261,7 +1070,7 @@ An entry of a book might look as this in your |bib|-file:
   title     = {\enquote{Um keinen Kranz, um das Leben kämpfen wir!}},
   subtitle  = {Gladiatoren im Osten des Römischen Reiches und die Frage der Romanisierung},
   publisher = {Verlag Antike},
-  location  = Berlin, %@string used
+  location  = Berlin, 	%@String used
   year      = {2011},
   series    = {Studien zur Alten Geschichte},
   number    = {14},
@@ -1301,11 +1110,11 @@ The first edition of \citetitle*{Zanker2009}  by \citeauthor*{Zanker2009}  has b
 @Book{Zanker2009,
   author        = {Zanker, Paul},
   title         = {Augustus und die Macht der Bilder},
-  publisher     = {CHB},
-  location      = Munich,%@string used
+  publisher     = CHB, 	%@String used
+  location      = Munich,	%@String used
   year          = {2009},
   edition       = {5},
-  origlocation  = Leipzig, %@string used
+  origlocation  = Leipzig, %@String used
   origyear      = {1987},
   eprint        = {000250713},
   eprinttype    = {zenon},
@@ -1318,7 +1127,7 @@ In \citeyear{Zanker1988}, one year later  it was translated by A. H. Shapiro:
 @Book{Zanker1988,
   author      = {Zanker, Paul},
   title       = {The Power of Images in the Age of Augustus},
-  publisher   = {The University of Michigan Press},
+  publisher   = UMP,		%@String used
   location    = {Ann Arbor},
   year        = {1988},
   series      = {Jerome Lectures},
@@ -1347,12 +1156,12 @@ Let’s assume this is the bibliography entry:
 @Book{MacDonald1986,
   author    = {MacDonald, William L.},
   title     = {An urban Appraisal},
-  publisher = {YUP},
-  location  = {New Haven and }# London, %@string used
+  publisher = YUP,		%@String used
+  location  = {New Haven and }# London, %@String used
   year      = {1986},
   maintitle = {The Architecture of the Roman Empire},
   volume    = {II},
-  series    = {Yale Publictions in the History of Art},
+  series    = {Yale Publications in the History of Art},
   number    = {35},
 }
 \end{lstlisting}
@@ -1388,7 +1197,7 @@ This following example should make it clear:
   pages     = {537--558},
   editor    = {Bruun, Christer and Edmondson, Jonathan},
   booktitle = {The Oxford Handbook of Roman Epigraphy},
-  publisher = {Oxford University Press},
+  publisher = OUP,		%@String used
   location  = {Oxford},
   year      = {2014},
 }
@@ -1426,14 +1235,14 @@ Have a look:
   editor       = {Fentress, Elizabeth},
   booktitle    = {An Intermittent Town},
   booksubtitle = {Excavations 1991--1997},
-  publisher    = UMP,
+  publisher    = UMP,		%@String used
   location     = {Ann Arbor, Mich.},
   year         = {2003},
   volume       = {V},
-  series       = MemAmAc,
+  series       = MemAmAc,		%@String used
   number       = {2},
   maintitle    = {Cosa},
-  shortseries  = MemAmAc-short,
+  shortseries  = MemAmAc-short,		%@String used
 }
 \end{lstlisting}
 As we can see it is the fifth volume (|volume|) of the series with the main title \emph{Cosa} (|maintitle|) but has an individual title (|title|) which is \emph{Cosa in the Republic and Early Empire}, furthermore it is the second book (|number|) of the series  \emph{MemAmAc} (|series|).
@@ -1455,7 +1264,7 @@ We provide two examples so you see the difference.
   editor       = {U. Gehrig},
   booksubtitle = {Antiken der Sammlung Mildenberg},
   pages        = {20 Nr. 9},
-  location     = Mainz, %@string used
+  location     = Mainz, %@String used
 }
 \end{lstlisting}
 and the second example
@@ -1468,7 +1277,7 @@ and the second example
   volume    = {III},
   edition   = {4},
   pages     = {98\psq\ Nr. 2176},
-  location  = Tuebingen, %@string used
+  location  = Tuebingen, %@String used
 }
 \end{lstlisting}
 
@@ -1501,15 +1310,15 @@ Here we have an example which will explain the (required)  fields:
   author       = {Evangelidis, Vasilis},
   title        = {Agoras {and} Fora},
   subtitle     = {Developments in the Central Public Space of the Cities of Greece during the {Roman} Period},
-  journaltitle = BSA,
-  shortjournal = BSA-short,
+  journaltitle = BSA,		%@String used
+  shortjournal = BSA-short,		%@String used
   volume       = {109},
   pages        = {335--356},
   year         = {2014},
   doi          = {10.1017/s006824541400015x},
 }
 \end{lstlisting}
-In line 5 and 6 you can also write the full or abbreviated journal title in the fields |journaltitle| or |shorttitle| (e.g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@string| (cf. \cref{list-bibancient,string}) again.
+In line 5 and 6 you can also write the full or abbreviated journal title in the fields |journaltitle| or |shorttitle| (e.g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@String| (cf. \cref{list-bibancient,string}) again.
 \printbib[7em]{Evangelidis2014}
 %\begin{refsection}\end{refsection}
 
@@ -1547,13 +1356,13 @@ An example:
   subtitle     = {Gestaltete Bewegung im gebauten Raum},
   eventtitle   = {Kolloquium Architekturreferat des DAI},
   eventdate    = {2012-02-08/2012-02-11},
-  venue        = Berlin, %@string used
-  series       = DiskAB,
+  venue        = Berlin, 		%@String used
+  series       = DiskAB,		%@String used
   number       = {11},
   organization = {Architekturreferat des DAI},
   publisher    = {Schnell + Steiner},
-  location     = Regensburg, %@string used
-  shortseries  = DiskAB-short,
+  location     = Regensburg, 		%@String used
+  shortseries  = DiskAB-short,		%@String used
 }
 \end{lstlisting}
 With |venue| we specify the place where the proceeding took place (e.g. \emph{Berlin} -- |location| is where the book was printed and is connected to the |publisher| e.g. \emph{Regensburg}),
@@ -1591,10 +1400,10 @@ This entry type works similar to |@Procecedings| and |@Incollection| and therefo
   pages      = {39--63},
   editor     = {Mertens, Josef},
   booktitle  = {Comunitá indigene e problemi della romanizzazione nell’Italia centro\--meri\-dionale (IV--III sec. a.C.)},
-  location   = Brussels, %@string used
+  location   = Brussels, 		%@String used
   publisher  = {Institut Historique Belge de Rome},
   year       = {1991},
-  venue      = Rome #{, Academia Belgica},
+  venue      = Rome #{, Academia Belgica},		%@String used
   eventdate  = {1990-02-01/1990-02-03},
   eventtitle = {Actes du Colloque International Organisé à l'Occasion du 50. Anniversaire de l'Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie},
   hyphenate  = {italian},
@@ -1642,7 +1451,7 @@ But you can also have it  more detailed  like this one:
   title     = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},
   year      = {1904--1920},
   edition   = {2},
-  location  = Stuttgart, %@string used
+  location  = Stuttgart, 	%@String used
   keywords  = {corpus},
   shorthand = {Lexikon d. T.},
 }
@@ -1657,7 +1466,7 @@ It will be more clear with an example:
 @Inreference{Neils1994,
   author    = {Neils, Jenifer},
   title     = {Theseus},
-  booktitle = LIMC-short,
+  booktitle = LIMC-short,		%@String used
   pages     = {922--951},
   year      = {1994},
   volume    = {7.1},
@@ -1716,11 +1525,11 @@ You just need to make sure that  |booktitle| of the |@Inreference| and the |shor
 
 
 \begin{refsection}
-\begin{bsp}
+\begin{bibbsp}{Lexikon-der-Technik,Weinbrenner1914}
 \nocite{Lexikon-der-Technik,Weinbrenner1914}
  \printbibliography[keyword=corpus,title={Corpora}]
 \printbibliography[notkeyword=corpus]
-\end{bsp}
+\end{bibbsp}
  \end{refsection}
 
 
@@ -1753,7 +1562,7 @@ First we have the reviewed work:
   author    = {Welch, Katherine E.},
   title     = {The {Roman} Amphitheatre},
   subtitle  = {From its Origins to the Colosseum},
-  publisher = {CUP},
+  publisher = CUP,		%@String used
   location  = {Cambridge and New York},
   year      = {2007},
 }
@@ -1765,8 +1574,8 @@ then the review itself:
   number       = {1},
   pages        = {1--4},
   volume       = {115},
-  journaltitle = AJA,
-  shortjournal = AJA-short,
+  journaltitle = AJA,		%@String used
+  shortjournal = AJA-short,		%@String used
   related      = {Welch2007},
   relatedtype  = {reviewof},
   year         = {2011},
@@ -1796,8 +1605,8 @@ The following entry is an example reviews the book by \citeauthor*{Welch2007}, t
   title        = {Von Caesars \emph{theatron kynegetikon} zum \emph{amphitheatrum novum} Vespasians},
   pages        = {487--504},
   volume       = {23},
-  journaltitle = JRA,
-  shortjournal = JRA-short,
+  journaltitle = JRA,		%@String used
+  shortjournal = JRA-short,		%@String used
   related      = {Welch2007},
   relatedtype  = {reviewof},
   year         = {2010},
@@ -1824,7 +1633,7 @@ The entry of the second reviewed book is this:
   author     = {Sear, Frank},
   title      = {Roman Theatres},
   subtitle   = {An Architectural Study},
-  publisher  = {OUP},
+  publisher  = OUP,		%@String used
   location   = {Oxford},
   year       = {2006},
   series     = {Oxford Monographs on Classical Archaeology},
@@ -2194,9 +2003,9 @@ This following example is about an article which was accepted by the journal and
 \begin{multicols}{2}\footnotesize
 \lstlistoflistings
 \end{multicols}
-\section{Ancient authors and works}\label{list-bibancient}
+\section{Additional bibliography with ancient authors and works}\label{list-bibancient}
 The bibliography |archaeologie-bibancient.bib| is filled with ancient authors, works and their abbreviation according to  The New Pauly.
-The bold entry on the left is the |bibtex-key|.
+The bold entry on the left is the |bibtex-key|.\footnote{If you think the list should be enlarged, let us know the entries.}
 All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
 
 \begin{multicols}{2}
@@ -2205,10 +2014,10 @@ All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
 
-\section{bibcorpora}\label{list-bibcorpora}
-List of corpora in ancient studies |archaeologie-corpora.bib|.
+\section{Additional bibliography with corpora}\label{list-bibcorpora}
+List of corpora in ancient studies |archaeologie-bibcorpora.bib|.
 This activates the other additional bibliography |archaeologie-lstabbrv.bib| automatically.
-The bold entry on the left is the |bibtex-key|.
+The bold entry on the left is the |bibtex-key|.\footnote{If you think the list should be enlarged, let us know the entries.}
 All the entries have |keywords={corpus}|, |options={corpus}|.
 \begin{multicols}{2}
 	\input{archaeologie-corpora.tex}
@@ -2216,12 +2025,15 @@ All the entries have |keywords={corpus}|, |options={corpus}|.
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
 \section{List of locations}\label{list-locations}
-\DescribeMacro{lstlocations}If you use the option |lstlocations| it will load an additional bibliography called |archaeologie-lstlocations.bib|. Below you find a list with the available locations in five (at maximum) different languages.
+\DescribeMacro{lstlocations}If you use the option |lstlocations| it will load an additional bibliography called |archaeologie-lstlocations.bib|.\footnote{If you think the list should be enlarged, let us know the entries.} 
+Below you find a list with the available locations in five (at maximum) different languages.
 The bold entry on the left is to use for |location=|\meta{location} -- do not put \meta{location} into |{}|.
-In these examples we used such |@strings|:
+In these examples we used such |@Strings|:
 \cref{Mundt2015,Emme2013,Neufert2002,Wulf-Rheidt2013,Cic:Sest,Fest,CIL,Mann2011,Zanker2009,%
 MacDonald1986,Kohlmeyer1983,Parlasca1969,Kurapkat2014,Torelli1991,%
 Lexikon-der-Technik,Bergmann2015}
+
+
 \begin{multicols}{3}
 \begin{description}\footnotesize
 \item[Aix-la-Chapelle] <-- English\newline German: Aachen\newline Italian: \newline Spanish: Aquisgrán\newline French: Aix-la-Chapelle
@@ -2257,13 +2069,50 @@ Lexikon-der-Technik,Bergmann2015}
 \end{description}
 \end{multicols}
 \section{List of publishers}\label{list-publishers}
+Below there is a list with\DescribeMacro{@String} |@String| (in \textbf{bold} letters on the left), which you can use for the field |publisher|.\footnote{If you think the list should be enlarged, let us know the entries.}
+In these examples we used such |@String|:
+\cref{Mundt2015,Quint:inst,Emme2013,Neufert2002,Wulf-Rheidt2013,Cic:Att,Cic:Sest,Zanker2009,Zanker1988,MacDonald1986,Carter2014,%
+Fentress2003,Welch2007,Sear2006}
 
+\begin{multicols}{2}
+\begin{description}\footnotesize
+\item[AW] Artemis \& Winkler
+\item[CHB] C.\ H.~Beck
+\item[COUP] Cornell University Press
+\item[CUP] Cambridge University Press
+\item[EdB] L'erma di Bretschneider
+\item[EQ] Edizioni Quasar
+\item[FZ] Franz Steiner
+\item[GLF] Gius. Laterza \& Figli Spa
+\item[HUP] Harvard University Press
+\item[JHUP] Johns Hopkins University Press
+\item[JPGM] J. Paul Getty Museum
+\item[MI] Michael Imhof
+\item[MIT] MIT Press
+\item[OUP] Oxford University Press
+\item[PUP] Princeton University Press
+\item[PvZ] Philip von Zabern
+\item[stw] suhrkamp taschenbuch wissenschaft
+\item[Topoi] Topoi. Berliner Studien der Alten Welt
+\item[UCP] University of California Press
+\item[UMP] University of Michigan Press
+\item[UTP] University of Texas Press
+\item[UWP] University of Wisconsin Press
+\item[VML] Verlag Marie Leidorf
+\item[VR] Vandenhoeck \& Ruprecht
+\item[VS] Verlag für Sozialwissenschaften
+\item[VT] Vieweg+Teubner
+\item[WBG] Wissenschaftliche Buchgesellschaft
+\item[WdG] Walter de Gruyter
+\item[YUP] Yale University Press
+\end{description}
+\end{multicols}
 \section{List of abbreviation according to the German Archaeological Institute-guidelines}\label{listen}
 We modified the lists with abbreviations of journals, corpora, etc. to make them usable with |bib|\LaTeX.
-Below there are two lists with\DescribeMacro{@string} |@string| (in \textbf{bold} letters on the left), 
+Below there are two lists with\DescribeMacro{@String} |@String| (in \textbf{bold} letters on the left), 
 one with the abbreviations (\cref{liste-kurz}), the other with the long forms  (\cref{liste-lang}).
 
-We recommend to look up the journal names in the list and insert the |@string| in the fields  |journaltitle| and |shortjournal|, or |series| and |shortseries|.
+We recommend to look up the journal names in the list and insert the |@String| in the fields  |journaltitle| and |shortjournal|, or |series| and |shortseries|.
 
 
 \subsection{Short form} \label{liste-kurz}
