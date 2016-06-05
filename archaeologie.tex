@@ -463,7 +463,7 @@ The |@string| is loaded at begin of the |bib|-file, therefore all |@strings| hav
  
 To use this offer of simplification the bibliography fields for the title of the journal (|journaltitle|) and its short form (|shortjournal|), as well as the name of the series (|series|) and its shortform  (|shortseries|) have to be written with a |@string|.
 In \cref{listen} there is a list with all the abbreviations given by the DAI, in which the |@string| (with endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
-A |@string| has to be written \emph{without} any curly brackets .\footnote{If you use \emph{JabRef} in its non-coding window, then you have to write \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window. \emph{BibDesk} provides such conversion as well by pressing cmd-R which enables direct BibTeX typing without enclosing curly brackets.}
+A |@string| has to be written \emph{without} any curly brackets .\footnote{If you use \emph{JabRef} in its non-coding window, then you have to write \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@string| and omits the \# in the coding window. \emph{BibDesk} provides such conversion as well by pressing cmd-R which enables direct Bib\TeX{} typing without enclosing curly brackets.}
 
 An example shows how to use it:
 \begin{lstlisting}[style=bibentry,label=Koyunlu1990,caption={{@}Article\{Koyunlu1990,…\} }]
@@ -491,7 +491,7 @@ In case you use the package option |noabbrevs| in the preamble (see \cref{noabbr
 A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
 %\fullcite{Koyunlu_1990}
 \end{bsp}
-Nevertheless the advantage of this list lies in the possibility to create a separate bibliography with all the abbreviations of used journaltitles and series (see \cref{bibliographie}) without being prone to citation differences and typing errors.
+Nevertheless the advantage of this list lies in the possibility to create a separate bibliography with all the abbreviations of used journaltitles and series (see \cref{bibliographie}) without being prone to and typing differences and errors.
 
 However, if a journal or a series is \emph{not} included in the list (\cref{listen}) 
 then this journal/series will \emph{not} be abbreviated and converted to full title in curly brackets in the respective field e.g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}. Therefore the field content will not be printed. At least BibTeX gives a warning in its log which can be checked.\footnote{For example something like \enquote{\enquote{journaltitle} in entry \enquote{<entrykey>} cannot be null, deleting it}.}
