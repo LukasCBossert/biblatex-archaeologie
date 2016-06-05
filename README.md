@@ -48,13 +48,13 @@ language files:
 - archaeologie-italian.lbx
 - archaeologie-spanish.lbx
 
-additional bibliographies:
+additional lists and bibliographies:
 
 - archaeologie-lstabbrv.bib
 - archaeologie-lstpublishers.bib
 - archaeologie-lstlocations.bib
-- archaeologie-corpora.bib
-- archaeologie-ancient.bib
+- archaeologie-bibcorpora.bib
+- archaeologie-bibancient.bib
 
 
 This work may be distributed and/or modified under the

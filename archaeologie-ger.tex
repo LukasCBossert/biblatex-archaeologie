@@ -12,212 +12,22 @@
 % version 2005/12/01 or later.
 %!TEX program = xelatex
 \documentclass[a4paper,10pt,ngerman]{ltxdoc}
-\CodelineNumbered
-\AtBeginDocument{\RecordChanges}
-\AtEndDocument{\PrintChanges}
-\usepackage{libertine}
-\renewcommand*\ttdefault{lmvtt}
-\usepackage[ 
-%	headsepline, 
-%	footsepline,
-%	plainfootsepline, 
-%markcase=upper, 
-automark, 
-draft=false,
-]{scrlayer-scrpage} 
-\pagestyle{scrheadings}
-\clearscrheadfoot
-\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-Stil \texttt{archaeologie 2.0} (c) von Lukas C. Bossert | Johannes Friedl}%
-\rofoot{\large\footnotesize  \textbf{\sffamily \thepage}}
-
-\usepackage[					% use  for bibliography
-	backend=biber,
-	style=archaeologie,
-%	eprint=false,
-%	doi=false,
-%	url=false,
-%inreferences,
-%seenote,
-	%translation,
-	%bibfullname,
-	%noabbrevs,
-	%publisher,
-	%edby,
-	%yearseries,
-%yearinparens,
-	%lastnames,
-	%fullnames,
-%	scshape,
-%	width=6em,
-%counter,
-%ancient,
-lstabbrv,
-lstpublishers
-]{biblatex}
-\renewcommand\bibfont{\normalfont
-\footnotesize}
-
-\usepackage{metalogo}
-\usepackage{hologo}
-\usepackage{babel}
-\usepackage{coolthms}
-\usepackage[					% advanced quotes
-	strict=true,					% 	- warning are errors now
-	style=ngerman,					% 	- german quotes
-]{csquotes}
-\usepackage{multicol}
-\setlength{\columnsep}{1.5cm}
-\setlength{\columnseprule}{0.2pt}
-\usepackage{framed}
-\usepackage{enumitem}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 2pt}
-\setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
-\usepackage{changepage}
-\makeindex
-    
-\newenvironment{bsp}{\begin{framed}\begin{footnotesize}
-\begin{adjustwidth}{0cm}{0cm}}{\end{adjustwidth}
-\end{footnotesize}\end{framed}}
-\defbibheading{empty}{}
-
-\newcommand{\printbib}[2][4em]{
-\begingroup
-\begin{bsp}
-\footnotesize
-\begin{refsection}
-\setlength{\labwidthsameline}{#1} 
-\nocite{#2}
-\printbibliography[heading=none]
-\end{refsection}
-\end{bsp}
-\endgroup
+\input{archaeologie-preamble.tex}
+\NewEnviron{bibbsp}[1]
+  {\par\medskip\noindent\footnotesize
+  \begin{tikzpicture}
+    \node[inner sep=0pt] (box) {\parbox[t]{1.05\textwidth}{%
+    \hspace{.05\textwidth}\begin{minipage}{.95\textwidth}
+      \BODY 
+      \end{minipage}
+      }%
+    };
+    \draw[codeblue,line width=2pt] 
+      ( $ (box.north east) + (-5pt,3pt) $ ) -- ( $ (box.north east) + (0,3pt) $ ) -- ( $ (box.south east) + (0,-3pt) $ ) -- + (-5pt,0);
+    \draw[codeblue,line width=2pt] 
+      ( $ (box.north west) + (5pt,3pt) $ ) -- ( $ (box.north west) + (0,3pt) $ ) -- ( $ (box.south west) + (0,-3pt) $ ) -- + (5pt,0);
+  \end{tikzpicture}\par\medskip%
 }
-
-\newcommand{\printbiball}[2][4em]{
-\begingroup
-\setlength{\labwidthsameline}{#1} 
-\begin{bsp}
-\footnotesize%
-\begin{itemize}%[\bfseries]
-\begin{refsection}%
-\nocite{#2}%
-\item[English:]{\printbibliography[heading=none]}
-\item[German:]\foreignlanguage{ngerman}{\printbibliography[heading=none]}
-\item[Italian:]\foreignlanguage{italian}{\printbibliography[heading=none]}
-\item[French:]\foreignlanguage{french}{\printbibliography[heading=none]}
-\end{refsection}
-\end{itemize}%
-\end{bsp}
-\endgroup
-}
-
-\listfiles
-\EnableCrossrefs
-\CodelineIndex
-\RecordChanges
-
-\addbibresource{archaeologie.bib}
-%\addbibresource{archaeologie-ancient.bib}
-%\addbibresource{antike-corpora.bib} %Version 2.0
-\usepackage{caption}
-
-\usepackage{listings}
-\usepackage{xcolor}
-\definecolor{codeblue}{RGB}{0,65,137}
-\definecolor{codegreen}{RGB}{147,193,26}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- \DeclareCaptionFormat{listing}{#1#2#3}
- \captionsetup[lstlisting]{format=listing,
- singlelinecheck=false, margin=0pt, font={sf},size=footnotesize}
-%\lstdefinestyle{bibentry}{%
-%	language=[LaTeX]TeX,
-%    backgroundcolor=\color{backcolour},   
-%    commentstyle=\color{codegreen},
-%    keywordstyle=\color{codeblue},
-%    numberstyle=\tiny\color{codegray},
-%    stringstyle=\color{codepurple},
-%	escapeinside={<@}{@>},
-%    texcsstyle=*\color{codeblue},
-%    morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
-%    						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
-%    						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
-%    						},
-%    basicstyle=\ttfamily\footnotesize,
-%    breakatwhitespace=false,         
-%    breaklines=true,   
-%    numberbychapter=false,   
-%    captionpos=b,                    
-%    keepspaces=true,               
-%	%framexleftmargin=5mm, 
-%	frame=shadowbox,
-%	rulesepcolor=\color{codeblue},
-%    numbers=left,                    
-%    numbersep=5pt,            
-%    showspaces=false,                
-%    showstringspaces=false,
-%    showtabs=false,                  
-%    tabsize=2,
-%    literate=
-%            *{\{}{{{\color{codegreen}{\{}}}}{1}
-%            {\}}{{{\color{codegreen}{\}}}}}{1}
-%            {[}{{{\color{codegreen}{[}}}}{1}
-%            {]}{{{\color{codegreen}{]}}}}{1},
-%}
-\renewcommand{\lstlistingname}{Example}%rename caption
-\renewcommand{\lstlistlistingname}{List of examples}%rename caption
-
- \lstdefinestyle{code}{%
-	language=[LaTeX]TeX,
-    backgroundcolor=\color{white},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{codeblue},
-    numberstyle=\small\color{codegray},
-    stringstyle=\color{codepurple},
-	escapeinside={<@}{@>},
-    texcsstyle=*\color{codeblue},
-    morekeywords={},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    %numbers=left,                    
-    stepnumber=1,
-    numbersep=5pt,            
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-      morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
-    						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
-    						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
-    						},
-    literate=
-            *{\{}{{{\color{codeblue}{\{}}}}{1}
-            {\}}{{{\color{codeblue}{\}}}}}{1}
-            {[}{{{\color{codeblue}{[}}}}{1}
-            {]}{{{\color{codeblue}{]}}}}{1},
-}
-%%% Always I forget this so I created some aliases
-\def\ContinueLineNumber{\lstset{firstnumber=last}}
-\def\StartLineAt#1{\lstset{firstnumber=#1}}
-\let\numberLineAt\StartLineAt
-
-\lstset{style=code}
-\lstMakeShortInline[style=code]{|}
-
-\hypersetup{  colorlinks   = true, %Colours links instead of ugly boxes
-  urlcolor     =  blue, %Colour for external hyperlinks
-  linkcolor    = black, %Colour of internal links
-  citecolor   = blue, %Colour of citations
-  }	
- \crefformat{lstlisting}{#2example\ #1#3}
-\crefmultiformat{lstlisting}{#2examples #1#3}{; #2#1#3}{; #2#1#3}{; #2#1#3}
-\crefrangeformat{lstlisting}{#3examples #1#4--#5Taf. #2#6}
-
 \begin{document}
  \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} für Archäologen\footnote{Ebenso geeignet für (Alt-)Philologen und (Alt-)Historiker.
  Die Entwicklung des Codes findet statt auf \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
@@ -225,7 +35,7 @@ lstpublishers
  Dank an   ›moewew‹ und Herbert Voß für ihre Hilfe.
 }\\ --- {\scshape kurzanleitung} --\footnote{Für eine vollständige Anleitung siehe die englische Stilbeschreibung unter \url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie/archaeologie.pdf}} }
 \author{Lukas C. Bossert\thanks{\url{lukas@digitales-altertum.de}} \and Johannes Friedl}
-\date{Version: 2.0 (2016-05-31)}
+\date{Version: 2.0 (2016-06-06)}
  
  
  \maketitle
