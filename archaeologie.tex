@@ -272,7 +272,7 @@ For further information cf. \cref{fullnames}.
 
 
 \subsection{Entries with @String}\label{string}
-The citation rules of the German Archaeological Institute instruct to abbreviate journals and series according to a given list.\footnote{\url{www.dainst.org/documents/10180/70593/02_Liste-Abkürzungen_quer.pdf}  (\today)}
+The citation rules of the German Archaeological Institute instruct to abbreviate journals and series according to a given list.\footnote{\url{http://www.dainst.org/documents/10180/70593/03_Liste+abzukürzender+Zeitschriften_quer.pdf/2646d351-8e5d-4e8b-8acd-54f3c272d3ff} <2016-06-06>}
 For this purpose we provide a list with bibliography macros which refer to these abbreviations. These abbreviations can be included by loading package option |lstabbrv| (cf. \cref{abbrv}). Besides there are two further lists with |@string| macros cf. \cref{lstpublishers,lstlocations}.
 
 \DescribeMacro{@String} The style |archaeologie| respects the guidelines of the German Archaeological Institute and is therefore compatible with the given abbreviations of journals and series.
@@ -309,9 +309,7 @@ Whether using the provided abbreviation list with |lstabbrv| or filling the |jou
 The default embedding of such abbreviations can be switched off, of course.
 In case you use the package option |noabbrevs| in the preamble (see \cref{noabbrevs}), then the output changes as follows:
 \begin{bibbsp}{Koyunlu1990}
-Koyunlu 1990\hspace{3em}A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156
-%\fullcite{Koyunlu_1990}
-
+\parbox[t]{2cm}{Koyunlu 1990} \parbox[t]{9cm}{A. Koyunlu, Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156}
 \end{bibbsp}
 Nevertheless the advantage of our abbreviation list lies in the possibility to create a separate bibliography with all the abbreviations of used journal titles and series (see \cref{bibliographie}) without being prone to citation differences and typing errors.
 
@@ -651,7 +649,7 @@ Without any option activated it will look like this:
  
 By activating |yearseries| it will change to:
 \begin{bibbsp}{Mundt2015}
-Mundt 2015 \hspace{3em} F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer -- F. Mundt -- J. Stenger (ed.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206
+\parbox[t]{1.7cm}{Mundt 2015} \parbox[t]{9cm}{F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer -- F. Mundt -- J. Stenger (ed.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206}
 \end{bibbsp}
 
 \subsubsection{fullnames / lastnames}\label{fullnames}\label{lastnames}
@@ -809,8 +807,8 @@ the output in the bibliography changes from:
 to 
 
 \begin{bibbsp}{Ball2013}
-{\scshape {\color{red}Ball – Dobbins}} 2013\hspace{3em} L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492\\
-...
+\parbox[t]{3cm}{{\scshape {\color{red}Ball – Dobbins}} 2013} \parbox[t]{8cm}{L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492\\
+...}
 \end{bibbsp}
 
 \subsubsection{bibfullname}\label{bibfullname}
@@ -842,8 +840,8 @@ looks like
 and with |bibfullname| it will change to:
 
 \begin{bibbsp}{Osland2016}
-Osland 2016\hspace{3em} {\color{red}Daniel} Osland, Abuse or Reuse? Public Space in Late Antique Emerita, AJA 120/ 1, 2016, 67–97,\\
-...
+\parbox[t]{1.7cm}{Osland 2016} \parbox[t]{9cm}{{\color{red}Daniel} Osland, Abuse or Reuse? Public Space in Late Antique Emerita, AJA 120/ 1, 2016, 67–97,\\
+...}
 \end{bibbsp}
 
 \subsubsection{noabbrv}\label{noabbrevs}
@@ -2159,7 +2157,7 @@ Lexikon-der-Technik,Bergmann2015}
 \item[London] <-- English\newline German: London\newline Italian: Londra\newline Spanish: Londres\newline French: Londres
 \item[Louvain] <-- English\newline German: Löwen\newline Italian: Lovanio\newline Spanish: Lovaina\newline French: Louvain
 \item[Mainz] <-- English\newline German: Mainz am Rhein\newline Italian: Magonza\newline Spanish: Maguncia\newline French: Mayence
-\item[Milano] <-- English\newline German: Mailand\newline Italian: Milano\newline Spanish: Milán\newline French: Milan
+\item[Milan] <-- English\newline German: Mailand\newline Italian: Milano\newline Spanish: Milán\newline French: Milan
 \item[Munich] <-- English\newline German: München\newline Italian: Monaco (di Bavaria)\newline Spanish: Múnich\newline French: Munich
 \item[Naples] <-- English\newline German: Neapel\newline Italian: Napoli\newline Spanish: Napoli\newline French: Naples
 \item[Paris] <-- English\newline German: Paris\newline Italian: Parigi\newline Spanish: París\newline French: Paris
@@ -2181,7 +2179,7 @@ Fentress2003,Welch2007,Sear2006}
 
 \begin{multicols}{2}
 \begin{description}\footnotesize
-\item[AW] Artemis \& Winkler
+\item[AWi] Artemis \& Winkler
 \item[CHB] C.\ H.~Beck
 \item[COUP] Cornell University Press
 \item[CUP] Cambridge University Press
@@ -2198,7 +2196,7 @@ Fentress2003,Welch2007,Sear2006}
 \item[PUP] Princeton University Press
 \item[PvZ] Philip von Zabern
 \item[stw] suhrkamp taschenbuch wissenschaft
-\item[Topoi] Topoi. Berliner Studien der Alten Welt
+\item[TopoiB] Topoi. Berliner Studien der Alten Welt
 \item[UCP] University of California Press
 \item[UMP] University of Michigan Press
 \item[UTP] University of Texas Press

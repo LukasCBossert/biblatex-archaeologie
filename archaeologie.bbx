@@ -580,10 +580,13 @@
    	\restorename{savedtranslator}{\savedrelatedtranslator}%
     \printtext[emph]{\usebibmacro{title}}%
     \usebibmacro{location+edition+year}%
-    	\newunit
-    \bibstring{bytranslator}%keine Sprache ausgegeben?    
-    	\setunit{\addspace}%
-    \printnames{savedtranslator}
+    	\ifnameundef{savedtranslator}%
+    			{}%
+    			{\newunit
+   	 				\bibstring{bytranslator}%keine Sprache ausgegeben?    
+    				\setunit{\addspace}%
+    				\printnames{savedtranslator}%
+    			}
   	}
 }
 %-----------------------    
