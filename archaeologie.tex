@@ -1021,7 +1021,7 @@ If there has been only one citation:
 S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 1 time.}}
 \end{bibbsp}
 
-If there has been more than one citations:
+If there has been more than one citation:
 \begin{bibbsp}{Boehm2001}
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
 S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}}
@@ -1042,7 +1042,7 @@ so after some modifications we adopted and included it into |archaeologie|.
  
 If you intend to cite ancient authors we strongly recommend this option to you 
 because it enables you to cite ancient texts in the style archaeologists and 
-historians are used to \emph{plus} to get entirely supported bibliography referencing.
+historians are used to \emph{plus} you get entirely supported bibliography referencing.
 
 Let us have a look at an example:
 \begin{lstlisting}[style=bibentry,label=Cic:Att,caption={{@}Book\{Cic:Att,…\} }]
@@ -1066,7 +1066,7 @@ Let us have a look at an example:
 }
 \end{lstlisting}
 
-Instead of applying |author| and |year| as label the option |ancient| takes the field |shorthand| into account.
+Instead of applying |author| and |year| as labels the option |ancient| takes the field |shorthand| into account.
 
 So you write in your text
 \begin{lstlisting}
@@ -1079,7 +1079,7 @@ and it will be printed as
 \cite[1, 3,3]{Cic:Att}
 \end{bsp}\end{refsection}
 
-Equally the field |shorthand| is used as label in the bibliography instead of an author-year label:
+Equally the field |shorthand| is used as a label in the bibliography instead of an author-year label:
 \printbib{Cic:Att}
 
 Take notice how |options={ancient}| treats editor and translator in this example. 
@@ -1116,7 +1116,7 @@ Even support for several languages is taken into account as this bibliography en
 
 \subsubsection{frgancient}\label{frgancient}
 \DescribeMacro{frgancient}
-When dealing with fragments of ancient texts often the edition respective the editor is important to cite. 
+When dealing with fragments of ancient texts often it is important to cite the edition respective to the editor.
 If you want to cite such a collection of fragments use |options={frgancient}|.
 In this case the editor (|shorteditor| or |editor|) will be put in after the \marg{postnote}. 
 
@@ -1152,7 +1152,7 @@ so the editors name is printed in the first place:
 There are some corpora (e.\,g. inscriptions, minted coins, vases, etc.) which are usually cited with a common abbreviation. 
 Those abbreviations are typed in in the field |shorthand|.
 To cite such a corpus with its abbreviation you have to write an additional |options={corpus}| in the bibliographical entry.
-Now you can cite it as usual with \oarg{prenote} or \oarg{postnote} you like to have.
+Now you can cite it as usual with the \oarg{prenote} or \oarg{postnote} you like to have.
 
 This example shows the behaviour with a corpus that is common for Latin epigraphy:
 \begin{lstlisting}[style=bibentry,label=CIL,caption={{@}Book\{CIL,…\} }]
@@ -1180,14 +1180,14 @@ The field |shorthand| will be used for bibliography reference,
 where it is listed as label.
 \printbib{CIL}
 
-If you also set something like |keywords={corpus}| then you can make a separate bibliography with all the copora cf. \cref{bibliographie}.
+If you also set something like |keywords={corpus}| then you can make a separate bibliography with all the corpora cf. \cref{bibliographie}.
 
 \changes{v1.1}{2015/06/15}{Modifikation der Option |corpus|.}
 
 
 \section{Examples of entry types}\label{beispiele}
 The style |archaeologie| defines several so-called bibliographical drivers,
-which allow to cite different kind of works.
+which allow you to cite different kind of works.
 Below we describe how they are working and which fields you should fill out.
 For the examples we don't use any further options which are described above.
 
@@ -1238,7 +1238,7 @@ and like this in the bibliography.
 \subsubsection{›Festschrift‹, commemorative volume, catalogue, etc.}
 To mark that the book or collection is a so-called ›Festschrift‹/ commemorative volume, 
 or an exhibition or auction catalogue you need an additional note to make it clear.
-We suggest to use the field |titleaddon| or if it is a |@Incollection| or |@Inproceedings| you can use the field |booktitleaddon| (for papers in collections see \cref{inbook}).
+We suggest using  the field |titleaddon| or if it is a |@Incollection| or |@Inproceedings| you can use the field |booktitleaddon| (for papers in collections see \cref{inbook}).
 \begin{lstlisting}[style=bibentry,label=Boehm2001,caption={{@}Book\{Boehm2001,…\} }]
 @Book{Boehm2001,
   editor     = {Böhm, Stephanie and Eickstedt, Klaus-Valtin von},
@@ -1254,9 +1254,9 @@ We suggest to use the field |titleaddon| or if it is a |@Incollection| or |@Inpr
  
 \subsubsection{Translated book}
 If you cite a translated book you can link it to the original book and let display the translator as well as the original language. 
-To obtain this fill the fields |related| and |relatedtype| (for further information see the informations about reviews in \cref{review}).
+To obtain this fill the fields |related| and |relatedtype| (for further guidance see the information about reviews in \cref{review}).
 
-It will be more clear with this example:
+This example will clarify matters:
 The first edition of \citetitle*{Zanker2009} by \citeauthor*{Zanker2009} has been published in 1987 (|origyear|), but by now it has been released in its 5th edition.
 
 \begin{lstlisting}[style=bibentry,label=Zanker2009,caption={{@}Book\{Zanker2009,…\} }]
@@ -1276,7 +1276,7 @@ The first edition of \citetitle*{Zanker2009} by \citeauthor*{Zanker2009} has bee
 }
 \end{lstlisting}
 
-In \citeyear{Zanker1988}, one year later after the first edition (|origyear|) the book has been translated by A. H. Shapiro:
+In \citeyear{Zanker1988}, one year later after the first edition (|origyear|) the book was translated by A. H. Shapiro:
 \begin{lstlisting}[style=bibentry,label=Zanker1988,caption={{@}Book\{Zanker1988,…\} }]
 @Book{Zanker1988,
   author      = {Zanker, Paul},
@@ -1303,9 +1303,9 @@ It will be included automatically. For the following bibliography we only use |\
 
 
 \subsubsection{Multiple volumes of a monograph}
-There is the case that you have to cite a book which consists of several volumes, 
+It may be the case that you have to cite a book which consists of several volumes:
 usually there is a volume with text and one volume with plates.
-To cite particularly e.\,g. the second volume you can do the following.
+To cite  e.\,g. the second volume in particular you can do the following.
 Let’s assume this is the bibliography entry:
 \begin{lstlisting}[style=bibentry,label=MacDonald1986,caption={{@}Book\{MacDonald1986,…\} }]
 @Book{MacDonald1986,
@@ -1346,7 +1346,7 @@ Single entries/chapters of a collection are cited best when they are set up as  
  
  
  
-This following example should make it clear:
+This following example clarify matters:
  \begin{lstlisting}[style=bibentry,label=Carter2014,caption={{@}Incollection\{Carter2014,…\} }]
 @Incollection{Carter2014,
   author    = {Carter, Michael J. and Edmondson, Jonathan},
@@ -1412,7 +1412,7 @@ Notice the different language-based behaviour of ›et. al.‹ for more than two
 
  
 \subsubsection{Inventory catalogue}
-The output of an inventory catalogue changes slightly compared to collections or sth. similar. 
+The output of an inventory catalogue changes slightly compared to collections or something similar. 
 The title is omitted and therefore there is no comma after the author’s name.
 We provide two examples so you see the difference.
 \begin{lstlisting}[style=bibentry,label=Kohlmeyer1983,caption={{@}Inbook\{Kohlmeyer1983,…\} }]
@@ -1481,8 +1481,8 @@ In line 5 and 6 you can also write the full or abbreviated journal title in the 
 
 \subsection{Type \texttt{@Proceedings}}\label{proceedings}
 \DescribeMacro{@Proceedings}
-Similar to a collection but still different in the bibliographical output is proceedings.
-Therefore we recommend to use the type |@Proceedings|.
+Similar to a collection but still different in the bibliographical output are proceedings.
+Therefore we recommend  using the type |@Proceedings|.
 The difference lies in the additional mandatory fields |venue|, |eventdate| and |eventtitle|. 
 Everything else is like the type |@Book|.
 
@@ -1577,7 +1577,7 @@ It will be printed as:
 
  \subsection{Type \texttt{@Reference}}\label{reference}
  \DescribeMacro{@Reference}
- This entry type can be used especially for references if you want to cite it as whole or if you need to relate to it. 
+ This entry type can be used especially for references if you want to cite it as whole or if you need to relate to a reference. 
 We provide an example below---cf. \cref{inreference}
 
 You don’t need to fill out many fields to have a working entry:
@@ -1619,8 +1619,8 @@ But you can also have it  more detailed  like this one:
  \DescribeMacro{@Inreference}
 Besides a whole reference you can also -- and which is more likely -- cite only an entry of it via the type  |@Inreference|.
 
-It will be more clear with an example:
-  \begin{lstlisting}[style=bibentry,label=Neils1994,caption={{@}Inreference\{Neils1994,…\} }]
+Let’s clarify matters with an example:
+\begin{lstlisting}[style=bibentry,label=Neils1994,caption={{@}Inreference\{Neils1994,…\} }]
 @Inreference{Neils1994,
   author    = {Neils, Jenifer},
   title     = {Theseus},
@@ -1637,7 +1637,7 @@ But for the final display of the entry  you have two possibilities:
  \begin{enumerate}
 \item\label{inreference:a} 
 
-Either you want it in the default style ›author-year‹, so it will have a label and is referenced 
+If you want it in the default style ›author-year‹, so it will have a label and is referenced 
 to your final bibliography, then you don’t have to do anything.
 In the bibliography it will look like
 \printbib{Neils1994}
@@ -1663,7 +1663,7 @@ vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils).
  
 \end{enumerate}
 
-As mentioned above it is of advantage when you relate entries like  an |@Inreference| with its |@Reference|. 
+As mentioned above it is  advantageous to relate entries such as  an |@Inreference| with its |@Reference|. 
 And since not all references have a ›canonical‹ abbreviation (e.\,g. RE, LIMC, DNP, LTUR, LÄ, etc.) it might be necessary to define a |shorthand|.
 This is shown in the example below.
  
@@ -1744,7 +1744,7 @@ then the review itself:
   publisher    = {Archaeological Institute of America},
 }
 \end{lstlisting}
-You maybe noticed that the reveiw (|Bell2011|) is with the field |related| in line 8 connected to the entry |Welch2007|.
+You maybe noticed that the review (|Bell2011|) is connected to the entry |Welch2007| with the field |related| in line 8.
 In addition we not only need a connected work but also to qualify the relation:
 This is done in line 9 with |relatedtype = {reviewof}|.
 This so-called |bibstring| is especially for reviews and contains the language based correct abbreviation for \emph{Review of} or e.\,g. \emph{Rez. zu}.
@@ -1759,7 +1759,7 @@ Furthermore, even if the review is cited, the reviewed work won't be listed in t
 Some reviews are more detailed then others and  have their own title which should be displayed in the bibliography.
 In these cases you can use the field |title| the other things stay the same.
 
-The following entry is an example reviews the book by \citeauthor*{Welch2007}, too but with an individual title:
+The following entry is an example which also reviews the book by \citeauthor*{Welch2007},  but with an individual title:
 \begin{lstlisting}[style=bibentry,label=Hufschmid2010,caption={{@}Review\{Hufschmid2010,…\} }]
 @Review{Hufschmid2010,
   author       = {Hufschmid, Thomas},
@@ -1814,18 +1814,18 @@ The entry of the review looks like this:
   year         = {2008},
 }
 \end{lstlisting}
-In the field |related| you can have several \meta{bibtex-keys} which has to be separated by a comma (see line 7).
+In the field |related| you can have several \meta{bibtex-keys} which have to be separated by a comma (see line 7).
 
-And in the bibliography all information is gathered:
-
+Subsequently, all information is gathered in the bibliography:
 \printbib[5em]{Taylor2008}
 
 
  \subsection{Type \texttt{@Thesis}}\label{thesis}
-For MA and PhD thesis, which are not published a monograph or such, can be cited when they are edited as |@Thesis|.
-It is important to differentiate whether it is a MA or a PhD thesis,
+MA and PhD theses, which are not published as a monograph or such, can be cited when they are edited as |@Thesis|.
+It is important to differentiate between an entry referring to an MA or a PhD thesis;
 this can be done by |type=|\marg{|phdthesis|} or
- \marg{|mathesis|}; you also have to define the  |institution=|\marg{university}.
+ \marg{|mathesis|}. 
+You also have to define the  |institution=|\marg{university}.
  
 \begin{description}
 \item[mandatory:] 
@@ -1900,7 +1900,7 @@ The bibliography will show the entry as:
  \section{Bibliography}\label{bibliographie}
  \DescribeMacro{\printbibliography}
 As long as you don’t use the option\DescribeMacro{seenote} |seenote|---for 
-which a final bibliography is not needed---you will need to print you cited entries in a bibliography 
+which a final bibliography is not needed---you will need to print your cited entries in a bibliography 
 at a certain place in your document.
 It can be useful to differentiate your bibliography and divide it e.\,g. into a bibliography 
 with ancient authors and one with modern scholars.
@@ -1908,7 +1908,7 @@ Additionally you can have a bibliography with the |shorthand| shortcuts or all a
 
 How the different bibliographies can be set up is explained now:
 Let’s assume you want to have a bibliography with the ancient authors and one with modern scholars.
-Since the entries of the ancient authors have the field |keyword={ancient}| (or should have it) this is done quite easy.
+Since the entries of the ancient authors have the field |keyword={ancient}| (or should have) this is done quite easy.
 
 But first we define the heading of the whole  bibliography:
 \begin{lstlisting}
@@ -1928,7 +1928,7 @@ The next step is to set up the bibliography for the ancient authors.
 							%heading=subbibnumbered,% if you want it numbered
 							title={Ancient authors and works}]
 \end{lstlisting}
-We tell the bibliography just to contain the entries which have have |ancient| in the field |keywords| (line 2).
+We tell the bibliography just to contain the entries which have |ancient| in the field |keywords| (line 2).
 
 
 Finally the bibliography for modern scholars:
@@ -1966,7 +1966,7 @@ Now have a look how it looks like with all the entries we explained above.
 							title={Secondary literature}]
 \end{bsp}
 
-You can create as many bibliographies as you wish each with an other keyword if you like.
+You can create as many bibliographies as you wish each with another keyword if you like.
 Or you can make a bibliography with all the |shorthands| used in your text---for that we use |keyword= {corpus}| (line 2):
 \begin{lstlisting}
 \printbibliography[%
@@ -1982,11 +1982,10 @@ Now the bibliography only lists the used entries which have |corpus| in the fiel
             			title={Abbreviation of corpora}]\label{bib:corpus}
 \end{bsp}
 
-Note: If you want to separate in your bibliography author-year labels from |shorthand| labels
- you should insure yourself that bibliography entries which contain a |shorthand| denomination 
+Note: If you want to separate author-year labels from |shorthand| labels in your bibliography 
+ you should ensure that bibliography entries which contain a |shorthand| denomination 
 are set with a keyword either |ancient|, |corpus| or something else, to guarantee that there is 
 no bibliographical shortcut wrongly sorted in the bibliography.
-
 
 Furthermore you can have a bibliography for all the abbreviated journal titles and series to have the abbreviation and its long form.
 For journals it works like this:
@@ -2023,12 +2022,12 @@ Just write the first page in the \oarg{postnote} and then the \cs{psq}---cf. \cr
 
 \subsection{Online referencing}
 \DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available 
-in the internet via a permanent link there a different possibilities referring to it---see also the
+in the internet via a permanent link there are different possibilities for referring to it---see also the
  \href{http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf}{|bib|\LaTeX-documentation chapter 3.11.7}.\footnote{You can also use as an |eprinttype|: |arXiv|, |pubmed|, |hdl|, |googlebooks|.
 }
 
 \DescribeMacro{jstor}
- If you can refer to the on-line plattform \href{www.jstor.org}{jstor} then you need the individual number for the article---cf. \cref{Ball2013}:
+ If you can refer to the on-line platform \href{www.jstor.org}{jstor} then you need the individual number for the article---cf. \cref{Ball2013}:
 \begin{lstlisting}
 eprint = *@\marg{jstor-number}@*
 eprinttype = {jstor} 
@@ -2070,7 +2069,7 @@ doi = *@\marg{doi-number}@*
 \end{lstlisting}	
 
 \subsection{Brackets (with @Inreference)}\label{faq:inreference}
-Be aware to stick to the correct order of parentheses and brackets.
+Ensure you stick to the correct order of parentheses and brackets.
 The rule says that within a pair of parentheses you have to use square brackets.
 Citing |@Inreferences| can lead easily to a false behaviour when you put it in parentheses.
 This is an example how it should not be done:
@@ -2093,7 +2092,7 @@ Especially when you activated the preamble option  |inreferences=true| \Describe
 \end{bsp}
 
 \subsection{Unknown work}\label{unknown}
-Sometimes it is impossible to get hold of the author or editor but you still want to cite them.
+Sometimes it is impossible to ascertain the author or editor but you still want to cite them.
 If you come along such a paper you can define a |label| which will be used for citing and sorting.
 This is not connected to an entry type -- it can be used with any work.
 In the following example we use an entry type |@Article|:
@@ -2110,7 +2109,7 @@ In the following example we use an entry type |@Article|:
   number       = {1},
 }
 \end{lstlisting}
- The |label| (line 9) can be defined as one wishes in this case we chose it analogous to the title: |label = {Cosa}|.
+ The |label| (line 9) can be defined as one wishes; in this case we chose it analogous to the title: |label = {Cosa}|.
 When you cite such an anonymous work it will be done like all the others:
 \begin{lstlisting}
  \cite[vgl.][145--146]{Cosa1949}
@@ -2126,7 +2125,7 @@ and be printed in the bibliography like this:
 Sometimes you know the author of an article or a book, proceedings etc. and you get a proof of the work beforehand.
 You can also cite this version of the work and provide information about the publication status in the field |pubstate|.
 This field is usable with all entry types provided (except |@Talk|).
-There are some predefined publication status which are recommended to use since they are translated into the used language:
+There are some predefined publication statuses which you are recommended to use since they are translated into the used language:
 \begin{description}
 \item[inpreparation] Typoscript is prepared for your publication. 
 \begin{lstlisting}
@@ -2144,7 +2143,7 @@ pubstate = {submitted}
 pubstate = {forthcoming}
 \end{lstlisting}
 
-\item[inpress] Typoscript has been edited and you have a proof version of it.
+\item[inpress] Typescript has been edited and you have a proof version of it.
 
 \begin{lstlisting}
 pubstate = {inpress}
@@ -2285,7 +2284,7 @@ We modified the lists with abbreviations of journals, corpora, etc. to make them
 Below there are two lists with\DescribeMacro{@String} |@String| (in \textbf{bold} letters on the left), 
 one with the abbreviations (\cref{liste-kurz}), the other with the long forms  (\cref{liste-lang}).
 
-We recommend to look up the journal names in the list and insert the |@String| in the fields  |journaltitle| and |shortjournal|, or |series| and |shortseries|.
+We recommend  looking up the journal names in the list and inserting the |@String| in the fields  |journaltitle| and |shortjournal|, or |series| and |shortseries|.
 
 
 \subsection{Short form} \label{liste-kurz}
