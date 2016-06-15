@@ -14,15 +14,6 @@
                [2016/06/06 v2.0  archaeologie -- 
      					        biblatex for archaeologists, 
 								historians and philologists, cbx-Datei]
-%\ExecuteBibliographyOptions{%
-%  citetracker=true,% 
-%  idemtracker=false,% 
-%  ibidtracker=true,%
-%  opcittracker=true,%
-%  loccittracker=true,%
-%  labeldate=true,%
-%  citeauthorformat=initials,%
-%}
 %-----------------------
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
@@ -38,6 +29,7 @@
   \iftoggle{blx@footnote}
     {\xifinlistcs{#1}{cbx@fseen@names}}
     {\xifinlistcs{#1}{cbx@tseen@names}}}
+  
 \renewcommand*{\multicitedelim}{\addsemicolon\addspace}
 \newcommand*{\labelyeardelim}{\addspace}
 \renewcommand{\textcitedelim}{\multicitedelim}
@@ -367,7 +359,7 @@
      	    	}}}%
     {\multicitedelim}%
     {\usebibmacro{postnote}}%
-    
+%-----------------------    
 \ExecuteBibliographyOptions{%
   citetracker=true,% 
   idemtracker=false,% 
