@@ -21,11 +21,34 @@
   opcittracker=true,%
   loccittracker=true,%
   labeldate=true,%
+  citeauthorformat=initials%
 }
 %-----------------------
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
 \newbool{cbx:seen}
+%-----------------------
+\newcommand*{\cbx@fseen@names}{}
+\newcommand*{\cbx@tseen@names}{}
+\newrobustcmd*{\cbx@nameseen}[1]{%
+  \iftoggle{blx@footnote}
+    {\listcsxadd{cbx@fseen@names}{#1}}
+    {\listcsxadd{cbx@tseen@names}{#1}}}
+\newrobustcmd*{\cbx@ifnameseen}[1]{%
+  \iftoggle{blx@footnote}
+    {\xifinlistcs{#1}{cbx@fseen@names}}
+    {\xifinlistcs{#1}{cbx@tseen@names}}}
+\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
+\newcommand*{\labelyeardelim}{\addspace}
+\renewcommand{\textcitedelim}{\multicitedelim}
+\renewcommand{\postnotedelim}{%
+  \ifboolexpr{bool {cbx:ancient}%
+             	 	or bool {cbx:frgancient}%
+			   		or bool {cbx:corpus}%
+              }%
+    {\addspace}%
+    {\newunitpunct}%
+}
 %-----------------------
 \DeclareBibliographyOption{yearinparens}[true]{%
   \ifstrequal{#1}{true}
@@ -36,6 +59,13 @@
 	{cbx:seenote}%
 	\ExecuteBibliographyOptions{maxnames=999}%
 	}%
+\DeclareBibliographyOption[string]{citeauthorformat}{%
+  	\ifcsdef{cbx@arch@citeauthorformat@#1}
+    	{\csuse{cbx@arch@citeauthorformat@#1}}
+    	{\PackageError{biblatex-archaeologie}
+       {Option 'citeauthorformat=#1' invalid}
+       {The option you have supplied is invalid.\MessageBreak
+        Use one of the values 'initials', 'full', 'family' or 'firstfull'.}}}
 %-----------------------
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareFieldFormat{prenote}{#1\isdot}%
@@ -55,18 +85,57 @@
           {\namepartprefix}
           {\namepartsuffix}}%
       \usebibmacro{name:andothers}}
-%-----------------------
-\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
-\newcommand*{\labelyeardelim}{\addspace}
-\renewcommand{\textcitedelim}{\multicitedelim}
-\renewcommand{\postnotedelim}{%
-  \ifboolexpr{bool {cbx:ancient}%
-             	 or bool {cbx:frgancient}%
-			   	or bool {cbx:corpus}%
-              }%
-    {\addspace}%
-    {\newunitpunct}%
-}
+     
+\def\cbx@arch@citeauthorformat@family{%
+  \DeclareNameFormat{citeauthor}{%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}}}
+
+\def\cbx@arch@citeauthorformat@full{%
+  \DeclareNameFormat{citeauthor}{%
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}}}
+
+\def\cbx@arch@citeauthorformat@initials{%
+  \DeclareNameFormat{citeauthor}{%
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefixi}
+        {\namepartsuffixi}}}}
+
+\def\cbx@arch@citeauthorformat@firstfull{%
+  \DeclareNameFormat{citeauthor}{%
+    \cbx@ifnameseen{\thefield{hash}}
+      {\ifuseprefix
+        {\usebibmacro{name:given-family}
+          {\namepartfamily}
+          {\namepartgiveni}
+          {\namepartprefix}
+          {\namepartsuffixi}}
+        {\usebibmacro{name:given-family}
+          {\namepartfamily}
+          {\namepartgiveni}
+          {\namepartprefixi}
+          {\namepartsuffixi}}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiven}
+        {\namepartprefix}
+        {\namepartsuffix}%
+       \cbx@nameseen{\thefield{hash}}}}}
 %-----------------------
 \renewbibmacro*{postnote}{%
 \iffieldundef{postnote}%
@@ -274,7 +343,7 @@
    \DeclareMultiCiteCommand{\textcites}%
         {\textcite}{\textcitedelim} 
 %----------------------- 
-\DeclareCiteCommand{\citeauthor}%
+\DeclareCiteCommand{\citeauthor}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \renewcommand*{\multinamedelim}{\addcomma\space}%
@@ -282,9 +351,12 @@
      \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
      \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
-  {\usebibmacro{cite:name}}%
-  {\multicitedelim}%
-  {\usebibmacro{postnote}}%
+  {\ifciteindex
+     {\indexnames{labelname}}
+     {}%
+   \printnames[citeauthor]{labelname}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
 %-----------------------
 \DeclareCiteCommand{\citetitle} %
   {\boolfalse{citetracker}%
