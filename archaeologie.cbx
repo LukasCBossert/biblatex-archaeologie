@@ -14,15 +14,15 @@
                [2016/06/06 v2.0  archaeologie -- 
      					        biblatex for archaeologists, 
 								historians and philologists, cbx-Datei]
-\ExecuteBibliographyOptions{%
-  citetracker=true,% 
-  idemtracker=false,% 
-  ibidtracker=true,%
-  opcittracker=true,%
-  loccittracker=true,%
-  labeldate=true,%
-  citeauthorformat=initials%
-}
+%\ExecuteBibliographyOptions{%
+%  citetracker=true,% 
+%  idemtracker=false,% 
+%  ibidtracker=true,%
+%  opcittracker=true,%
+%  loccittracker=true,%
+%  labeldate=true,%
+%  citeauthorformat=initials,%
+%}
 %-----------------------
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
@@ -86,17 +86,18 @@
           {\namepartsuffix}}%
       \usebibmacro{name:andothers}}
      
-\def\cbx@arch@citeauthorformat@family{%
+
+\def\cbx@arch@citeauthorformat@full{%
   \DeclareNameFormat{citeauthor}{%
-    \usebibmacro{name:family}
+    \usebibmacro{name:given-family}
       {\namepartfamily}
       {\namepartgiven}
       {\namepartprefix}
       {\namepartsuffix}}}
 
-\def\cbx@arch@citeauthorformat@full{%
+\def\cbx@arch@citeauthorformat@family{%
   \DeclareNameFormat{citeauthor}{%
-    \usebibmacro{name:given-family}
+    \usebibmacro{name:family}
       {\namepartfamily}
       {\namepartgiven}
       {\namepartprefix}
@@ -165,13 +166,6 @@
 \ref{footref:\thefield{entrykey}}}%
 \renewcommand{\postnotedelim}{\addspace}%
 }%
-%-----------------------
-\newbibmacro*{cite:name}{%   
-% 0: only last names, 1: last name + first name initials, 2: full name
-  \ifbool{cbx:fullnames}{\c@uniquename=2}{\ifbool{cbx:lastnames}{\c@uniquename=0}{\c@uniquename=1}}%
-  \ifciteindex{\indexnames{labelname}}{}%
-  \printtext[bibhyperref]{%
-    \iffootnote{\c@uniquename=0 \printnames{labelname}}{\printnames{labelname}}}}
 %-----------------------
 \newbibmacro*{cite:title}{\printfield{labeltitle}}%  
 %-----------------------
@@ -354,7 +348,8 @@
   {\ifciteindex
      {\indexnames{labelname}}
      {}%
-   \printnames[citeauthor]{labelname}}
+   \printtext[bibhyperref]{%
+   		\printnames[citeauthor]{labelname}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
 %-----------------------
@@ -372,5 +367,15 @@
      	    	}}}%
     {\multicitedelim}%
     {\usebibmacro{postnote}}%
+    
+\ExecuteBibliographyOptions{%
+  citetracker=true,% 
+  idemtracker=false,% 
+  ibidtracker=true,%
+  opcittracker=true,%
+  loccittracker=true,%
+  labeldate=true,%
+  citeauthorformat=initials,%
+}
 \endinput
 %% End of file `archaeologie.cbx'.
