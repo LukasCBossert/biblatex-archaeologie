@@ -52,8 +52,8 @@
 
 \begin{lstlisting}
 \usepackage[style=archaeologie,%
-					<@\meta{weitere Optionen}@>]{biblatex}
-\bibliography<@\marg{|bib|-Datei}@>
+					<@\meta{weitere Optionen}@*]{biblatex}
+\bibliography*@\marg{|bib|-Datei}@*
 \end{lstlisting}
 
 |archaeologie| funktioniert out-of-the-box und lädt hierfür standardmäßig den DAI-Stil im Autor-Jahr-System. 
@@ -150,22 +150,22 @@ Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.).
 \subsection{Zitierbefehle}\label{cite_commands}
 \DescribeMacro{\cite}  Die einfachste Art zu zitieren ist der Befehl \cs{cite}:
 \begin{lstlisting}
-\cite<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@>
+\cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
 
 Dabei ist \meta{prenote} eine einleitende Bemerkung (z.\,B. \enquote{Vgl.}), \meta{postnote} enthält für gewöhnlich die Seitenzahl. 
 Wird nur ein optionales Argument gegeben, so ist das die Seitenzahl:
 \begin{lstlisting}
-\cite<@\oarg{postnote}\marg{bibtex-key}%@>
+\cite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting}
 
 \meta{bibtex-key} ist der Schlüssel des Bibliographieeintrags aus der |bib|-Datei (\emph{entrykey}).
 
 \DescribeMacro{\cites}  Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der \cs{cites}-Befehl:
 \begin{lstlisting}
-\cites(pre-prenote)(post-postnote)<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
- 																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@>%
- 																	<@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@>
+\cites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+ 																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+ 																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
  
 \DescribeMacro{\parencite}  \DescribeMacro{\parencites}  Soll die Literaturangabe (bspw. in den Fußnoten) in Klammern erscheinen, dann empfiehlt sich dies mittels \cs{parencite} zu tun.
