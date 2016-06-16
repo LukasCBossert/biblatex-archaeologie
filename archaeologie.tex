@@ -137,15 +137,15 @@ of several publishers which can be used to easily print out their names; cf. \cr
 \DescribeMacro{bibfullname}
 In the bibliography full names of authors and/or editors are shown; cf. \cref{bibfullname}.
 
-\DescribeMacro{fullnames}
-Writes only first and family names of authors or editors when they are cited with \cs{citeauthor}\marg{bibtex-key}; cf. \cref{fullnames}.
+\DescribeMacro{citeauthorformat}
+You can chose how the name of authors or editors are displayed within your text when they are cited with \cs{citeauthor}\marg{bibtex-key}.
+You can chose between the options \meta{initials}, \meta{full}, \meta{family}, \meta{firstfull}; 
+cf. \cref{citeauthorformat}.
+
+
 
 \DescribeMacro{initials}
 First names are abbreviated keeping digraphs and trigraphs; cf. \cref{initials}.
-
-\DescribeMacro{lastnames}
-Writes only family names of authors or editors when they are cited with \cs{citeauthor}\marg{bibtex-key}.
-In footnotes this is default; cf.  \cref{lastnames}.
 
 \DescribeMacro{scshape}
 Cited names are shown with small capital letters cf. \cref{scshape}.
@@ -275,7 +275,7 @@ Furthermore and in addition to the ›normal‹ \cs{cite}-commands one can also 
 \begin{lstlisting}
 \citetitle*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{lstlisting} 
-For further information cf. \cref{fullnames}.
+For further information cf. \cref{citeauthorformat}.
 
 
 \subsection{Entries with @String}\label{string}
@@ -686,9 +686,12 @@ By activating |yearseries| it will change to:
 \parbox[t]{1.7cm}{Mundt 2015} \parbox[t]{9cm}{F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer -- F. Mundt -- J. Stenger (ed.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206}
 \end{bibbsp}
 
-\subsubsection{fullnames / lastnames}\label{fullnames}\label{lastnames}
-\DescribeMacro{fullnames}
-\DescribeMacro{lastnames}
+\subsubsection{citeauthorformat}\label{citeauthorformat}
+\DescribeMacro{citeauthorformat}
+\DescribeMacro{=initials}
+\DescribeMacro{=full}
+\DescribeMacro{=family}
+\DescribeMacro{=fistfull}
 Every time you mention authors in the running text it is possible to cite them 
 directly with their names (\cs{citeauthor}\marg{bibtex-key}) or their works  (\cs{citetitle}\marg{bibtex-key});
 this has the benefit that they will be linked to your bibliography (cf. \cref{citeauthor}).
@@ -718,17 +721,40 @@ Let's assume you would like to write:
 *@\ldots , this is also shown by @*\citeauthor{Boehmer1985} 
 *@ in their latest article @*\citetitle{Boehmer1985}*@.@* \end{lstlisting}
 
-After compiling it will look by default like this using the 
-etting |fullnames| \ref{name:a} or |lastnames| \ref{name:b}:
+After compiling it will look like this, 
+because the default is set  |citeauthorformat=initials| 
+
+\begin{bsp}
+\ldots , this is also shown by \citeauthor{Boehmer1985} 
+in their latest article \citetitle{Boehmer1985}
+\end{bsp}
+
+Or you can change it using the settings
+\begin{enumerate}
+\item |citeauthorformat=full| \ref{name:full} 
+\item |citeauthorformat=family| \ref{name:family}
+\item  |citeauthorformat=firstfull|  \ref{name:firstfull}
+\end{enumerate}
+
+
 
 \begin{bsp}
 \begin{enumerate}
-\item\label{name:a} 
+\item\label{name:full} 
 \ldots , this is also shown by {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
-\item\label{name:b}
+\item\label{name:family}
 \ldots , this is also shown by {\color{red}Boehmer und  Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
+\item\label{name:firstfull}
+\ldots , this is also shown by {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \end{enumerate}
 \end{bsp}
+
+If you use |citeauthorformat=firstfull| the first citation will look like \ref{name:firstfull}, but after that that all following citations of |\citeauthor{Boehmer1985}| will change to:
+
+\begin{bsp}
+\ldots , this is also shown by R. M. Boehmer und  N. Wrede in their latest article \emph{Astragalspiele in und um Warka} (1985).
+\end{bsp}
+
 \end{refsection}
 
 \printbib[9.5em]{Boehmer1985}
