@@ -78,6 +78,14 @@
           {\namepartsuffix}}%
       \usebibmacro{name:andothers}}
      
+\def\cbx@arch@citeauthorformat@family{%
+  \DeclareNameFormat{citeauthor}{%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+    \usebibmacro{name:andothers}}}
 
 \def\cbx@arch@citeauthorformat@full{%
   \DeclareNameFormat{citeauthor}{%
@@ -85,15 +93,8 @@
       {\namepartfamily}
       {\namepartgiven}
       {\namepartprefix}
-      {\namepartsuffix}}}
-
-\def\cbx@arch@citeauthorformat@family{%
-  \DeclareNameFormat{citeauthor}{%
-    \usebibmacro{name:family}
-      {\namepartfamily}
-      {\namepartgiven}
-      {\namepartprefix}
-      {\namepartsuffix}}}
+      {\namepartsuffix}%
+    \usebibmacro{name:andothers}}}
 
 \def\cbx@arch@citeauthorformat@initials{%
   \DeclareNameFormat{citeauthor}{%
@@ -107,7 +108,8 @@
         {\namepartfamily}
         {\namepartgiveni}
         {\namepartprefixi}
-        {\namepartsuffixi}}}}
+        {\namepartsuffixi}}%
+    \usebibmacro{name:andothers}}}
 
 \def\cbx@arch@citeauthorformat@firstfull{%
   \DeclareNameFormat{citeauthor}{%
@@ -128,7 +130,18 @@
         {\namepartgiven}
         {\namepartprefix}
         {\namepartsuffix}%
-       \cbx@nameseen{\thefield{hash}}}}}
+       \cbx@nameseen{\thefield{hash}}}%
+    \usebibmacro{name:andothers}}}
+%-----------------------    
+\ExecuteBibliographyOptions{%
+  citetracker=true,% 
+  idemtracker=false,% 
+  ibidtracker=true,%
+  opcittracker=true,%
+  loccittracker=true,%
+  labeldate=true,%
+  citeauthorformat=initials,%
+}
 %-----------------------
 \renewbibmacro*{postnote}{%
 \iffieldundef{postnote}%
@@ -359,15 +372,6 @@
      	    	}}}%
     {\multicitedelim}%
     {\usebibmacro{postnote}}%
-%-----------------------    
-\ExecuteBibliographyOptions{%
-  citetracker=true,% 
-  idemtracker=false,% 
-  ibidtracker=true,%
-  opcittracker=true,%
-  loccittracker=true,%
-  labeldate=true,%
-  citeauthorformat=initials,%
-}
+
 \endinput
 %% End of file `archaeologie.cbx'.
