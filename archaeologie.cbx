@@ -85,7 +85,7 @@
         {\namepartprefixi}
         {\namepartsuffixi}}%
   \or
-    \usebibmacro{name:given-family}
+   	\usebibmacro{name:family-given}
       {\namepartfamily}
       {\namepartgiven}
       {\namepartprefix}
@@ -93,7 +93,7 @@
   \fi
   \usebibmacro{name:andothers}}
   
- 
+
   
 \DeclareNameFormat{frg}{%
         \nameparts{#1}%
@@ -186,8 +186,8 @@
   opcittracker=true,%
   loccittracker=true,%
   labeldate=true,%
-  uniquename=init,%
   citeauthorformat=initials,%
+  uniquename=minfull,%
 }
 %-----------------------
 \renewbibmacro*{postnote}{%

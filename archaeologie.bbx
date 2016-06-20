@@ -129,6 +129,7 @@
 \DeclareFieldFormat{edition}{#1}
 \DeclareFieldFormat{volumes}{#1}
 \DeclareFieldFormat{volume}{#1}
+\DeclareFieldFormat[inreference]{number}{\mkbibbrackets{#1}}
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
 \DeclareFieldFormat{brackets}{\mkbibbrackets{#1}}
 \DeclareFieldFormat{quotes}{\mkbibquote{#1}}
@@ -449,30 +450,22 @@
 %-----------------------   
 \newbibmacro*{zenon}{%
   	\usebibmacro{bbx:parunit}%
-  	%\iffieldundef{zenon}%
-    %		{}%
     		{\printfield{zenon}}%
 }
 %-----------------------   
 \newbibmacro*{jstor}{%
   	\usebibmacro{bbx:parunit}%
-  %	\iffieldundef{jstor}%
-    %		{}%
     		{\printfield{jstor}}%
 }
 %-----------------------   
 \newbibmacro*{urn}{%
   	\usebibmacro{bbx:parunit}%
-  	%\iffieldundef{urn}%
-    %		{}%
     		{\printfield{urn}}%
 }
 %-----------------------
 \renewbibmacro*{url+urldate}{%
   	\usebibmacro{bbx:parunit}%
   	\printfield{url}%
-  	%\iffieldundef{urlyear}%
-    %		{}%
  			{\setunit*{\addspace}%
      			\printtext{\printurldate}%
      		}%
@@ -604,7 +597,7 @@
   					\setunit{\addspace}%
   				\printfield{title}%
   					\setunit*{\addspace}%
-				\printfield[brackets]{number}}
+				\printfield{number}}
   		\setunit{\addspace}%
   		\printtext[parens]{\printnames[name:inreference]{labelname}}
 }  	
