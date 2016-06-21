@@ -24,7 +24,7 @@
 \ExecuteBibliographyOptions{%
 	pagetracker=true,%
 	citecounter=true,%
-	giveninits=true,%
+	%%giveninits=true,%
 	sortlocale=auto,%
 	language=auto,%
 	autolang=other,%
@@ -175,12 +175,6 @@
 \DeclareLanguageMapping{italian}{archaeologie-italian}
 \DeclareLanguageMapping{spanish}{archaeologie-spanish}
 %-----------------------
-%%\NewBibliographyString{subvoce}
-%%
-%%\DefineBibliographyStrings{ngerman}{%
-%%   subvoce          = {s\adddot\addnbthinspace v\adddot},
-%%}
-%-----------------------
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}
 \renewcommand*{\intitlepunct}{\addcolon\addspace}
 \renewcommand*{\newunitpunct}{\addcomma\addspace}
@@ -203,7 +197,7 @@
 \renewcommand*\relateddelim{\addnbspace\textendash\addspace}
 \newcommand*{\volnumdelim}{\addslash}
 \newcommand*{\jourvoldelim}{\addnbspace}
-\newcommand*{\subvoce}{\addspace s\adddot\addnbthinspace v\adddot}
+%%\newcommand*{\subvoce}{\addspace s\adddot\addnbthinspace v\adddot}
 %-----------------------
 \DeclareBibliographyAlias{collection}{book}
 \DeclareBibliographyAlias{reference}{book}
@@ -593,7 +587,8 @@
 \newbibmacro*{inreference:title+author}{%
 \iffieldundef{title}%
   			{}%
-  			{\subvoce%
+  			{\setunit{\addspace}
+  				\bibstring{subvoce}%
   					\setunit{\addspace}%
   				\printfield{title}%
   					\setunit*{\addspace}%
