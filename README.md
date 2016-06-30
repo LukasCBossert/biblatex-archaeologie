@@ -12,14 +12,14 @@ Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 Email: [lukas@digitales-altertum.de](mailto:lukas@digitales-altertum.de)
 
 This citation-style covers the citation and bibliography rules of 
-the __German Archaeological Institute__. 
+the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen). 
 Various options are available to change and adjust 
 the outcome according to one’s own preferences.
 (German, English, Italian, French, Spanish)
 
 ---
 *Der Stil setzt die Zitations- und Bibliographievorgaben 
-des __Deutschen Archäologischen Instituts (DAI)__ (Stand 2014) um. 
+des [__Deutschen Archäologischen Instituts (DAI)__ ](http://www.dainst.org/dai/meldungen) (Stand 2014) um. 
 Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild 
 jedoch auch zu verändern, um eigenen Vorlieben anzupassen.*
 
