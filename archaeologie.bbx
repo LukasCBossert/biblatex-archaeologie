@@ -444,25 +444,25 @@
 %-----------------------   
 \newbibmacro*{zenon}{%
   	\usebibmacro{bbx:parunit}%
-    		{\printfield{zenon}}%
+  	\printfield{zenon}%
 }
 %-----------------------   
 \newbibmacro*{jstor}{%
   	\usebibmacro{bbx:parunit}%
-    		{\printfield{jstor}}%
+    \printfield{jstor}%
 }
 %-----------------------   
 \newbibmacro*{urn}{%
   	\usebibmacro{bbx:parunit}%
-    		{\printfield{urn}}%
+    \printfield{urn}%
 }
 %-----------------------
 \renewbibmacro*{url+urldate}{%
   	\usebibmacro{bbx:parunit}%
-  	\printfield{url}%
+  	\iffieldundef{url}{}{\printfield{url}%
  			{\setunit*{\addspace}%
      			\printtext{\printurldate}%
-     		}%
+     		}}%
 }
 %-----------------------             
 \renewbibmacro*{doi+eprint+url}{%
@@ -473,9 +473,9 @@
   	\iftoggle{bbx:eprint}%
     		{\usebibmacro{eprint}}%
     		{}%
-    \usebibmacro{jstor}%
-	\usebibmacro{urn}%
-  	\usebibmacro{zenon}%
+    \iffieldundef{jstor}{}{\usebibmacro{jstor}}%
+	\iffieldundef{urn}{}{\usebibmacro{urn}}%
+  	\iffieldundef{zenon}{}{\usebibmacro{zenon}}%
   	\iftoggle{bbx:url}%
     		{\usebibmacro{url+urldate}}%
     		{}%
