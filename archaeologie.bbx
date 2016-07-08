@@ -24,7 +24,6 @@
 \ExecuteBibliographyOptions{%
 	pagetracker=true,%
 	citecounter=true,%
-	%%giveninits=true,%
 	sortlocale=auto,%
 	language=auto,%
 	autolang=other,%
@@ -60,6 +59,11 @@
 \newsavebox\arch@labelbox
 \newlength{\labwidthsameline}
 	\setlength{\labwidthsameline}{4em}
+
+\newtoggle{bbx:jstor}
+\newtoggle{bbx:zenon}
+\newtoggle{bbx:urn}
+
 %-----------------------
 \DeclareBibliographyOption{lstabbrv}[true]{%
 		\csuse{bool#1}{bib:lstabbrv}%
@@ -79,6 +83,18 @@
 }
 \DeclareBibliographyOption{lstpublishers}[true]{%
 		\addbibresource{archaeologie-lstpublishers.bib}%
+}
+
+\DeclareBibliographyOption[boolean]{jstor}[true]{%
+  \settoggle{bbx:jstor}{#1}}
+\DeclareBibliographyOption[boolean]{zenon}[true]{%
+  \settoggle{bbx:zenon}{#1}}
+\DeclareBibliographyOption[boolean]{urn}[true]{%
+  \settoggle{bbx:urn}{#1}}   
+\ExecuteBibliographyOptions{%
+jstor,
+zenon,
+urn,
 }
 %-----------------------
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
@@ -443,18 +459,27 @@
 }
 %-----------------------   
 \newbibmacro*{zenon}{%
-  	\usebibmacro{bbx:parunit}%
-  	\printfield{zenon}%
+  	\iffieldundef{zenon}
+  		{}
+  		{\usebibmacro{bbx:parunit}%
+  			\printfield{zenon}%
+  		}	
 }
 %-----------------------   
 \newbibmacro*{jstor}{%
-  	\usebibmacro{bbx:parunit}%
-    \printfield{jstor}%
+	\iffieldundef{jstor}
+		{}  	
+  		{\usebibmacro{bbx:parunit}%
+    		\printfield{jstor}%
+    	}
 }
 %-----------------------   
 \newbibmacro*{urn}{%
-  	\usebibmacro{bbx:parunit}%
-    \printfield{urn}%
+  	\iffieldundef{urn}
+		{} 
+		{\usebibmacro{bbx:parunit}%
+    		\printfield{urn}%
+    	}
 }
 %-----------------------
 \renewbibmacro*{url+urldate}{%
@@ -470,15 +495,11 @@
   	\iftoggle{bbx:doi}%
     		{\printfield{doi}}%
     		{}%
-  	\iftoggle{bbx:eprint}%
-    		{\usebibmacro{eprint}}%
-    		{}%
-    \iffieldundef{jstor}{}{\usebibmacro{jstor}}%
-	\iffieldundef{urn}{}{\usebibmacro{urn}}%
-  	\iffieldundef{zenon}{}{\usebibmacro{zenon}}%
-  	\iftoggle{bbx:url}%
-    		{\usebibmacro{url+urldate}}%
-    		{}%
+  	\iftoggle{bbx:eprint}{\usebibmacro{eprint}}{}%
+    \iftoggle{bbx:jstor}{\usebibmacro{jstor}}{}%
+	\iftoggle{bbx:urn}{\usebibmacro{urn}}{}%
+  	\iftoggle{bbx:zenon}{\usebibmacro{zenon}}{}%
+  	\iftoggle{bbx:url}{\usebibmacro{url+urldate}}{}%
 }
 %-----------------------
 \DeclareFieldFormat{editortype}{\mkbibparens{#1}}
