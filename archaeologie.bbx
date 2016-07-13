@@ -614,14 +614,14 @@
 \newbibmacro*{inreference:title+author}{%
 \iffieldundef{title}%
   			{}%
-  			{\setunit{\addspace}
+  			{\setunit{\addspace}%
   				\bibstring{subvoce}%
   					\setunit{\addspace}%
   				\printfield{title}%
   					\setunit*{\addspace}%
-				\printfield{number}}
+				\printfield{number}}%
   		\setunit{\addspace}%
-  		\printtext[parens]{\printnames[name:default]{labelname}}
+  		\printtext[parens]{\printnames[name:default]{labelname}}%
 }  	
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 

@@ -60,9 +60,9 @@
         Use one of the values 'initials', 'full', 'family' or 'firstfull'.}}}
 %-----------------------
 \DeclareFieldFormat{citeyear}{#1}
-\DeclareFieldFormat{prenote}{#1\isdot}%
-\DeclareFieldFormat{postnote}{#1}%
-\DeclareFieldFormat{shorttitle}{#1}%      
+\DeclareFieldFormat{prenote}{#1\isdot}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{shorttitle}{#1}
 \DeclareFieldFormat{pages}{#1}
 
 \DeclareNameFormat{labelname}{%
@@ -164,7 +164,6 @@
         {\namepartsuffix}%
        \cbx@nameseen{\thefield{hash}}}%
     \usebibmacro{name:andothers}}}
-  
 %-----------------------    
 \ExecuteBibliographyOptions{%
   citetracker=true,% 
@@ -223,7 +222,7 @@
   	\iffieldundef{postnote}%
   			{\printfield{pages}}%
   			{\printfield{postnote}}%
-  	 \usebibmacro{inreference:title+author}
+\usebibmacro{inreference:title+author}%
 }
 %-----------------------
 \newbibmacro{cite:seenote}{%
