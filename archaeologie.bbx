@@ -104,8 +104,7 @@ urn,
 			\setlength{\labwidthsameline}{#1}}
 \DeclareBibliographyOption{yearseries}[true]{\csuse{bool#1}{bbx:yearseries}}
 \DeclareBibliographyOption{counter}[true]{\csuse{bool#1}{bbx:counter}}
-\DeclareBibliographyOption{bibfullname}[true]{%
-			\ExecuteBibliographyOptions{giveninits=false}}
+\DeclareBibliographyOption{bibfullname}[true]{\csuse{bool#1}{bbx:bibfullname}}
 \DeclareBibliographyOption{inreferences}[true]{\csuse{bool#1}{bbx:inreferences}
 			\ExecuteBibliographyOptions[inreference]{skipbib=true}}
 \DeclareBibliographyOption{noabbrv}[true]{\csuse{bool#1}{bbx:noabbrv}}
@@ -114,7 +113,7 @@ urn,
 		\ExecuteBibliographyOptions{maxitems=2}}
 \DeclareBibliographyOption{lastnames}[true]{%
 		\csuse{booltrue}{cbx:lastnames}%
-		\csuse{boolfalse}{cbx:fullnames}	}		
+		\csuse{boolfalse}{cbx:fullnames}}		
 \DeclareBibliographyOption{fullnames}[true]{%
 		\csuse{boolfalse}{cbx:lastnames}%
 		\csuse{booltrue}{cbx:fullnames}}
@@ -274,9 +273,10 @@ urn,
         	}%
 }
 %-----------------------
-\DeclareNameAlias{author}{given-family}
-\DeclareNameAlias{editor}{author}
-\DeclareNameAlias{translator}{author}
+	\DeclareNameAlias{author}{name:inreference}
+	%\DeclareNameAlias{author}{\ifbool{bbx:bibfullname}{given-family}{name:inreference}}
+	\DeclareNameAlias{editor}{author}
+	\DeclareNameAlias{translator}{author}
 %-----------------------
 \DeclareListFormat{location}{%
   	#1\ifthenelse{\value{listcount}<\value{liststop}}%
