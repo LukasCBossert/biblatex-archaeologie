@@ -49,8 +49,6 @@
 \newbool{cbx:ancient}
 \newbool{cbx:frgancient}
 \newbool{cbx:corpus}
-\newbool{cbx:lastnames}	
-\newbool{cbx:fullnames}
 \newbool{bib:lstabbrv}
 \newbool{bib:bibcorpora}
 \newbool{bib:bibancient}
@@ -86,15 +84,15 @@
 }
 
 \DeclareBibliographyOption[boolean]{jstor}[true]{%
-  \settoggle{bbx:jstor}{#1}}
+  	\settoggle{bbx:jstor}{#1}}
 \DeclareBibliographyOption[boolean]{zenon}[true]{%
-  \settoggle{bbx:zenon}{#1}}
+  	\settoggle{bbx:zenon}{#1}}
 \DeclareBibliographyOption[boolean]{urn}[true]{%
-  \settoggle{bbx:urn}{#1}}   
+  	\settoggle{bbx:urn}{#1}}   
 \ExecuteBibliographyOptions{%
-jstor,
-zenon,
-urn,
+	jstor,%
+	zenon,%
+	urn,%
 }
 %-----------------------
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
@@ -104,19 +102,14 @@ urn,
 			\setlength{\labwidthsameline}{#1}}
 \DeclareBibliographyOption{yearseries}[true]{\csuse{bool#1}{bbx:yearseries}}
 \DeclareBibliographyOption{counter}[true]{\csuse{bool#1}{bbx:counter}}
-\DeclareBibliographyOption{bibfullname}[true]{\csuse{bool#1}{bbx:bibfullname}}
+\DeclareBibliographyOption{bibfullname}[true]{\csuse{bool#1}{bbx:bibfullname}
+			\DeclareNameAlias{author}{given-family}}
 \DeclareBibliographyOption{inreferences}[true]{\csuse{bool#1}{bbx:inreferences}
 			\ExecuteBibliographyOptions[inreference]{skipbib=true}}
 \DeclareBibliographyOption{noabbrv}[true]{\csuse{bool#1}{bbx:noabbrv}}
 \DeclareBibliographyOption{translation}[true]{\csuse{bool#1}{bbx:translation}}
 \DeclareBibliographyOption{publisher}[true]{\csuse{bool#1}{bbx:publisher}
 		\ExecuteBibliographyOptions{maxitems=2}}
-\DeclareBibliographyOption{lastnames}[true]{%
-		\csuse{booltrue}{cbx:lastnames}%
-		\csuse{boolfalse}{cbx:fullnames}}		
-\DeclareBibliographyOption{fullnames}[true]{%
-		\csuse{boolfalse}{cbx:lastnames}%
-		\csuse{booltrue}{cbx:fullnames}}
 \DeclareBibliographyOption{scshape}[true]{%
   	\ifstrequal{#1}{true}%
     		{\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
@@ -273,10 +266,23 @@ urn,
         	}%
 }
 %-----------------------
-	\DeclareNameAlias{author}{name:inreference}
-	%\DeclareNameAlias{author}{\ifbool{bbx:bibfullname}{given-family}{name:inreference}}
-	\DeclareNameAlias{editor}{author}
-	\DeclareNameAlias{translator}{author}
+\DeclareNameFormat{name:default}{%
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+    	{\namepartgiveni}
+        {\namepartprefixi}
+        {\namepartsuffixi}}%
+    \usebibmacro{name:andothers}}
+    
+\DeclareNameAlias{author}{name:default}
+\DeclareNameAlias{editor}{author}
+\DeclareNameAlias{translator}{author}
 %-----------------------
 \DeclareListFormat{location}{%
   	#1\ifthenelse{\value{listcount}<\value{liststop}}%
@@ -615,7 +621,7 @@ urn,
   					\setunit*{\addspace}%
 				\printfield{number}}
   		\setunit{\addspace}%
-  		\printtext[parens]{\printnames[name:inreference]{labelname}}
+  		\printtext[parens]{\printnames[name:default]{labelname}}
 }  	
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 

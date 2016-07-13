@@ -11,9 +11,9 @@
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
 \ProvidesFile{archaeologie.cbx}%
-               [2016/07/04 v2.02  archaeologie -- 
-     					        biblatex for archaeologists, 
-								historians and philologists, cbx-Datei]
+		[2016/07/04 v2.02  archaeologie -- 
+		biblatex for archaeologists, 
+		historians and philologists, cbx-Datei]
 %-----------------------
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
@@ -164,24 +164,11 @@
         {\namepartsuffix}%
        \cbx@nameseen{\thefield{hash}}}%
     \usebibmacro{name:andothers}}}
-    
-\DeclareNameFormat{name:inreference}{%
-    \ifuseprefix
-      {\usebibmacro{name:given-family}
-        {\namepartfamily}
-        {\namepartgiveni}
-        {\namepartprefix}
-        {\namepartsuffixi}}
-      {\usebibmacro{name:given-family}
-        {\namepartfamily}
-        {\namepartgiveni}
-        {\namepartprefixi}
-        {\namepartsuffixi}}%
-    \usebibmacro{name:andothers}}
+  
 %-----------------------    
 \ExecuteBibliographyOptions{%
   citetracker=true,% 
-  idemtracker=false,% 
+  idemtracker=true,% 
   ibidtracker=true,%
   opcittracker=true,%
   loccittracker=true,%
@@ -395,8 +382,14 @@
   {\ifciteindex
      {\indexnames{labelname}}
      {}%
-   \printtext[bibhyperref]{%
-   		\printnames[citeauthor]{labelname}}}
+\ifboolexpr{%
+		 test {\ifbool{bbx:inreferences}}%
+		 and %
+		 test	{\ifentrytype{inreference}}%
+		 }%
+	{\printtext}%
+	{\printtext[bibhyperref]}
+	{\printnames[citeauthor]{labelname}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
 %-----------------------
@@ -404,7 +397,13 @@
   {\boolfalse{citetracker}%
     \boolfalse{pagetracker}%
     \usebibmacro{prenote}}%
-  {\printtext[bibhyperref]{%
+  {\ifboolexpr{%
+		 test {\ifbool{bbx:inreferences}}%
+		 and %
+		 test	{\ifentrytype{inreference}}%
+		 }%
+		 {\printtext}%
+		{\printtext[bibhyperref]}{%
    \ifbool{cbx:ancient}{\printtext[emph]{\usebibmacro{cite:title}}}%
       {\printtext[emph]{\usebibmacro{cite:title}}% 
       			\setunit{\addspace}%
