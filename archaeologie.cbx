@@ -286,14 +286,16 @@
 	\ifboolexpr{%
 		 test {\ifbool{bbx:inreferences}}%
 		 and %
-		 test	{\ifentrytype{inreference}}%
+		 test {\ifentrytype{inreference}}%
 		 }%
-{\usebibmacro{cite:lexikon}}{%
-\ifbool{cbx:seenote}{\usebibmacro{cite:seenote}}{%
-      {\printtext[bibhyperref]{\iffieldundef{shorthand}%
-        {\ifnameundef{labelname}%
-           {\usebibmacro{cite:label}%
-            \setunit{\labelyeardelim}}%
+	{\usebibmacro{cite:lexikon}}
+	{\ifbool{cbx:seenote}
+		{\usebibmacro{cite:seenote}}
+		{{\printtext[bibhyperref]{\iffieldundef{shorthand}%
+    			{\ifnameundef{labelname}%
+           		{\usebibmacro{cite:label}%
+            			\setunit{\labelyeardelim}%
+			}%
            {\printnames{labelname}%
             \setunit{\nameyeardelim}}%
         \usebibmacro{cite:year}}%
