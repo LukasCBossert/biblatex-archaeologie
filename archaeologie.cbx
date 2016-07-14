@@ -93,7 +93,56 @@
   \fi
   \usebibmacro{name:andothers}}
   
-
+  \DeclareNameFormat{name:family}{%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefixi}
+        {\namepartsuffixi}}%
+  \or
+   	\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}}
+  
+ \DeclareNameFormat{name:initials}{%
+    \ifnum\value{uniquename}=2%
+      \usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiven}
+        {\namepartprefix}
+        {\namepartsuffix}%
+    \else
+      \ifuseprefix
+        {\usebibmacro{name:given-family}
+          {\namepartfamily}
+          {\namepartgiveni}
+          {\namepartprefix}
+          {\namepartsuffixi}}
+        {\usebibmacro{name:given-family}
+          {\namepartfamily}
+          {\namepartgiveni}
+          {\namepartprefixi}
+          {\namepartsuffixi}}%
+    \fi
+    \usebibmacro{name:andothers}}
+    
   
 \DeclareNameFormat{frg}{%
         \nameparts{#1}%
@@ -111,13 +160,7 @@
       \usebibmacro{name:andothers}}
      
 \def\cbx@arch@citeauthorformat@family{%
-  \DeclareNameFormat{citeauthor}{%
-    \usebibmacro{name:family}
-      {\namepartfamily}
-      {\namepartgiven}
-      {\namepartprefix}
-      {\namepartsuffix}%
-    \usebibmacro{name:andothers}}}
+  \DeclareNameAlias{citeauthor}{name:family}}
 
 \def\cbx@arch@citeauthorformat@full{%
   \DeclareNameFormat{citeauthor}{%
@@ -129,24 +172,19 @@
     \usebibmacro{name:andothers}}}
 
 \def\cbx@arch@citeauthorformat@initials{%
-  \DeclareNameFormat{citeauthor}{%
-    \ifuseprefix
-      {\usebibmacro{name:given-family}
-        {\namepartfamily}
-        {\namepartgiveni}
-        {\namepartprefix}
-        {\namepartsuffixi}}
-      {\usebibmacro{name:given-family}
-        {\namepartfamily}
-        {\namepartgiveni}
-        {\namepartprefixi}
-        {\namepartsuffixi}}%
-    \usebibmacro{name:andothers}}}
+   \DeclareNameAlias{citeauthor}{name:initials}}
 
 \def\cbx@arch@citeauthorformat@firstfull{%
   \DeclareNameFormat{citeauthor}{%
     \cbx@ifnameseen{\thefield{hash}}
-      {\ifuseprefix
+      {\ifnum\value{uniquename}=2%
+      \usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiven}
+        {\namepartprefix}
+        {\namepartsuffix}%
+    \else
+    \ifuseprefix
         {\usebibmacro{name:given-family}
           {\namepartfamily}
           {\namepartgiveni}

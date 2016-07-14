@@ -265,22 +265,8 @@
         				{\savefieldcs{journaltitle}{\strfield{journaltitle}}}%
         	}%
 }
-%-----------------------
-\DeclareNameFormat{name:default}{%
-    \ifuseprefix
-      {\usebibmacro{name:given-family}
-        {\namepartfamily}
-        {\namepartgiveni}
-        {\namepartprefix}
-        {\namepartsuffixi}}
-      {\usebibmacro{name:given-family}
-        {\namepartfamily}
-    	{\namepartgiveni}
-        {\namepartprefixi}
-        {\namepartsuffixi}}%
-    \usebibmacro{name:andothers}}
-    
-\DeclareNameAlias{author}{name:default}
+%-----------------------  
+\DeclareNameAlias{author}{name:initials}
 \DeclareNameAlias{editor}{author}
 \DeclareNameAlias{translator}{author}
 %-----------------------
@@ -621,7 +607,7 @@
   					\setunit*{\addspace}%
 				\printfield{number}}%
   		\setunit{\addspace}%
-  		\printtext[parens]{\printnames[name:default]{labelname}}%
+  		\printtext[parens]{\printnames[name:initials]{labelname}}%
 }  	
 %-----------------------    
 \newbibmacro*{maintitle+title+volumes}{% 
