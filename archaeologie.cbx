@@ -93,7 +93,7 @@
   \fi
   \usebibmacro{name:andothers}}
   
-  \DeclareNameFormat{name:family}{%
+ \DeclareNameFormat{name:family}{%
   \ifcase\value{uniquename}%
     \usebibmacro{name:family}
       {\namepartfamily}
@@ -143,33 +143,12 @@
     \fi
     \usebibmacro{name:andothers}}
     
-  
-\DeclareNameFormat{frg}{%
-        \nameparts{#1}%
-        \ifgiveninits%
-          {\usebibmacro{name:family}
-          {\namepartfamily}
-          {\namepartgiveni}
-          {\namepartprefix}
-          {\namepartsuffix}}
-        {\usebibmacro{name:family}
-          {\namepartfamily}
-          {\namepartgiven}
-          {\namepartprefix}
-          {\namepartsuffix}}%
-      \usebibmacro{name:andothers}}
      
 \def\cbx@arch@citeauthorformat@family{%
   \DeclareNameAlias{citeauthor}{name:family}}
 
 \def\cbx@arch@citeauthorformat@full{%
-  \DeclareNameFormat{citeauthor}{%
-    \usebibmacro{name:given-family}
-      {\namepartfamily}
-      {\namepartgiven}
-      {\namepartprefix}
-      {\namepartsuffix}%
-    \usebibmacro{name:andothers}}}
+  \DeclareNameAlias{citeauthor}{given-family}}
 
 \def\cbx@arch@citeauthorformat@initials{%
    \DeclareNameAlias{citeauthor}{name:initials}}
@@ -226,9 +205,15 @@
 %-----------------------
 \newbibmacro*{cite:frgname}{%
       \ifnameundef{shorteditor}%
-           {\printnames[frg]{editor}}%
-           {\printnames[frg]{shorteditor}}%
+           {\printnames[name:family]{editor}}%
+           {\printnames{shorteditor}}%
 }
+%\newbibmacro*{cite:frgname}{%
+ %        \printnames[strwidth=1,strside=left]{editor}%
+%}
+
+
+
 %-----------------------
 \newbibmacro*{seenote}{%
 \ifnameundef{labelname}%
