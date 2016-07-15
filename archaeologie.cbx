@@ -26,8 +26,8 @@
   {\listcsxadd{cbx@fseen@names}{#1}}
   {\listcsxadd{cbx@tseen@names}{#1}}}
 \newrobustcmd*{\cbx@ifnameseen}[1]{%
-  \iftoggle{blx@footnote}
-  {\xifinlistcs{#1}{cbx@fseen@names}}
+  \iftoggle{blx@footnote}%
+  {\xifinlistcs{#1}{cbx@fseen@names}}%
   {\xifinlistcs{#1}{cbx@tseen@names}}}
   
 \renewcommand*{\multicitedelim}{\addsemicolon\addspace}
@@ -43,20 +43,20 @@
 }
 %-----------------------
 \DeclareBibliographyOption{yearinparens}[true]{%
-  \ifstrequal{#1}{true}
-  {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}
-  \csuse{bool#1}{cbx:yearinparens}}
-  {\DeclareFieldFormat{citeyear}{##1}}}  
+  \ifstrequal{#1}{true}%
+  {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}%
+  \csuse{bool#1}{cbx:yearinparens}}%
+  {\DeclareFieldFormat{citeyear}{##1}}}%
 \DeclareBibliographyOption{seenote}[true]{\csuse{bool#1}%
   {cbx:seenote}%
   \ExecuteBibliographyOptions{maxnames=999}%
   }%
 \DeclareBibliographyOption[string]{citeauthorformat}{%
-  \ifcsdef{cbx@arch@citeauthorformat@#1}
-  {\csuse{cbx@arch@citeauthorformat@#1}}
-  {\PackageError{biblatex-archaeologie}
-   {Option 'citeauthorformat=#1' invalid}
-   {The option you have supplied is invalid.\MessageBreak
+  \ifcsdef{cbx@arch@citeauthorformat@#1}%
+  {\csuse{cbx@arch@citeauthorformat@#1}}%
+  {\PackageError{biblatex-archaeologie}%
+   {Option 'citeauthorformat=#1' invalid}%
+   {The option you have supplied is invalid.\MessageBreak%
   Use one of the values 'initials', 'full', 'family' or 'firstfull'.}}}
 %-----------------------
 \DeclareFieldFormat{citeyear}{#1}
@@ -294,7 +294,7 @@
    {\usebibmacro{cite:labelyear+extrayear}}}%
   {\usebibmacro{cite}}}
 %-----------------------
-\newbibmacro*{textcite}{%aus authoryear
+\newbibmacro*{textcite}{%
   \ifnameundef{labelname}%
   {\iffieldundef{shorthand}%
    {\usebibmacro{cite:label}%
@@ -355,7 +355,7 @@
   test{\ifentrytype{inreference}}%
   }{}{\usebibmacro{postnote}}}%
 %-----------------------
-\DeclareCiteCommand{\textcite}%aus authoryear
+\DeclareCiteCommand{\textcite}%
   {\boolfalse{cbx:yearinparens}%
   \usebibmacro{prenote}%
   }%
@@ -384,11 +384,11 @@
   }{}{\usebibmacro{postnote}}}%
 %-----------------------  
 \DeclareMultiCiteCommand{\cites}%
-  {\cite}{\multicitedelim}
+  {\cite}{\multicitedelim}%
 \DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
-  {\parencite}{\multicitedelim}
-   \DeclareMultiCiteCommand{\textcites}%
-  {\textcite}{\textcitedelim} 
+  {\parencite}{\multicitedelim}%
+\DeclareMultiCiteCommand{\textcites}%
+  {\textcite}{\textcitedelim}%
 %----------------------- 
 \DeclareCiteCommand{\citeauthor}
   {\boolfalse{citetracker}%
@@ -398,8 +398,8 @@
    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
    \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
-  {\ifciteindex
-   {\indexnames{labelname}}
+  {\ifciteindex%
+   {\indexnames{labelname}}%
    {}%
 \ifboolexpr{%
    test {\ifbool{bbx:inreferences}}%
@@ -407,9 +407,9 @@
    test  {\ifentrytype{inreference}}%
    }%
   {\printtext}%
-  {\printtext[bibhyperref]}
-  {\printnames[citeauthor]{labelname}}}
-  {\multicitedelim}
+  {\printtext[bibhyperref]}%
+  {\printnames[citeauthor]{labelname}}}%
+  {\multicitedelim}%
   {\usebibmacro{postnote}}
 %-----------------------
 \DeclareCiteCommand{\citetitle} %
