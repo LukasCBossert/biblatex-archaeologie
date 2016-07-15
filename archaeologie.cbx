@@ -208,12 +208,6 @@
            {\printnames[name:family]{editor}}%
            {\printnames{shorteditor}}%
 }
-%\newbibmacro*{cite:frgname}{%
- %        \printnames[strwidth=1,strside=left]{editor}%
-%}
-
-
-
 %-----------------------
 \newbibmacro*{seenote}{%
 \ifnameundef{labelname}%
@@ -279,18 +273,24 @@
 		{{\printtext[bibhyperref]{\iffieldundef{shorthand}%
     			{\ifnameundef{labelname}%
            		{\usebibmacro{cite:label}%
-            			\setunit{\labelyeardelim}%
+           		    \setunit{\labelyeardelim}%
 			}%
            {\printnames{labelname}%
             \setunit{\nameyeardelim}}%
         \usebibmacro{cite:year}}%
-        {\usebibmacro{cite:shorthand}}}}%
+        {\usebibmacro{cite:shorthand}%
+        \ifbool{cbx:frgancient}%
+       {\setunit{\addthinspace}%
+  \usebibmacro{cite:frgname}}{}}}}%
        }%
     }%
   \ifciteseen{\global\booltrue{cbx:seen}}%
                   {\global\boolfalse{cbx:seen}}%
   \usebibmacro{savestuff}%
 }
+\ifbool{cbx:frgancient}%
+       {\setunit{\addthinspace}%
+  \usebibmacro{cite:frgname}}{}
 %-----------------------
 \newbibmacro*{citeyear}{%
   \iffieldundef{shorthand}%
