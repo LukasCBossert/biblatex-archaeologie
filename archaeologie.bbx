@@ -17,12 +17,14 @@
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
 \RequirePackage[normalem]{ulem}
-\RequirePackage{csquotes}
+%\RequirePackage{csquotes}
  \urlstyle{sf}%
  \typeout{* * * archaeologie * * * 
  biblatex for archaeologists,
  historians and philologists}
 }
+\def\archaeologieversion{2.03}
+\def\archaeologiedate{2016-07-15}
 \ExecuteBibliographyOptions{%
  pagetracker=true,%
  citecounter=true,%
@@ -133,12 +135,12 @@
 %----------
 \newcommand{\archaeologieoptions}[1][]{%
 \ifstrempty{#1}{%
-\iflanguage{ngerman}{Zusätzliche Optionen von biblatex-archaeologie geladen oder \xout{deaktiviert}:}%
-{Additional options of biblatex-archaeologie used or \xout{omitted}:}\addspace}%
+\iflanguage{ngerman}{Zusätzliche geladene oder \xout{deaktivierte} Optionen von \textsc{bib}\LaTeX-\textsf{archaeologie} (Version \archaeologieversion~| \archaeologiedate):}%
+{Additional options of \textsc{bib}\LaTeX-\textsf{archaeologie} (version \archaeologieversion~| \archaeologiedate) used or \xout{omitted}:}\addspace}%
 {\ifthenelse{\equal{#1}{plain}}{}{{\PackageError{biblatex-archaeologie}%
    {command 'archaeologieoptions[#1]' invalid.\MessageBreak%
   Use   'archaeologieoptions[plain]' or omit the brackets.}{}}}}%
-\def\seperator{ | }
+\def\seperator{ | }%
 \ifbool{bib:bibancient}{bibancient\seperator}{}%
 \ifbool{bib:bibcorpora}{bibcorpora\seperator}{}%
 \ifbool{bib:lstabbrv}{lstabbrv\seperator}{}%
