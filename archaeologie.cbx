@@ -55,9 +55,10 @@
   \ifcsdef{cbx@arch@citeauthorformat@#1}%
   {\csuse{cbx@arch@citeauthorformat@#1}}%
   {\PackageError{biblatex-archaeologie}%
-   {Option 'citeauthorformat=#1' invalid}%
-   {The option you have supplied is invalid.\MessageBreak%
-  Use one of the values 'initials', 'full', 'family' or 'firstfull'.}}}
+  {Option 'citeauthorformat=#1' invalid.\MessageBreak%
+  Use one of the values 'initials', 'full', 'family' or 'firstfull'.}{}}%
+\def\citeauthorformatVALUE{#1}%
+}
 %-----------------------
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareFieldFormat{prenote}{#1\isdot}

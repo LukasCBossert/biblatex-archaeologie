@@ -2202,6 +2202,22 @@ This following example is about an article which was accepted by the journal and
 
 \printbib[9em]{Bossert:forthcoming}
 
+
+\subsection{Print the used options}
+If you want to print the options  of the |bib|\LaTeX -style |archaeologie| you used in your document you can use the command \cs{archaeologieoptions}.
+It will list all options used:
+\begin{bsp}
+\archaeologieoptions
+\end{bsp}
+
+If you do not want to have the text in the beginning (which is defined in English and in German) you can get rid of them with the optional argument  \cs{archaeologieoptions}\oarg{plain}
+\begin{bsp}
+\archaeologieoptions[plain]
+\end{bsp}
+
+
+
+
 \clearpage
 \begin{multicols}{2}\footnotesize
 \lstlistoflistings
