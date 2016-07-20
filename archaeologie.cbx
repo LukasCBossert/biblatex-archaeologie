@@ -156,32 +156,33 @@
 
 \def\cbx@arch@citeauthorformat@firstfull{%
   \DeclareNameFormat{citeauthor}{%
-  \cbx@ifnameseen{\thefield{hash}}
-  {\ifnum\value{uniquename}=2%
-  \usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiven}
-  {\namepartprefix}
-  {\namepartsuffix}%
-  \else
-  \ifuseprefix
-  {\usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiveni}
-  {\namepartprefix}
-  {\namepartsuffixi}}
-  {\usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiveni}
-  {\namepartprefixi}
-  {\namepartsuffixi}}}
-  {\usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiven}
-  {\namepartprefix}
-  {\namepartsuffix}%
-   \cbx@nameseen{\thefield{hash}}}%
-  \usebibmacro{name:andothers}}}
+    \cbx@ifnameseen{\thefield{hash}}
+      {\ifnum\value{uniquename}=2
+         \usebibmacro{name:given-family}
+           {\namepartfamily}
+           {\namepartgiven}
+           {\namepartprefix}
+           {\namepartsuffix}%
+       \else
+         \ifuseprefix
+           {\usebibmacro{name:given-family}
+              {\namepartfamily}
+              {\namepartgiveni}
+              {\namepartprefix}
+              {\namepartsuffixi}}
+           {\usebibmacro{name:given-family}
+              {\namepartfamily}
+              {\namepartgiveni}
+              {\namepartprefixi}
+              {\namepartsuffixi}}%
+       \fi}
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}%
+       \cbx@nameseen{\thefield{hash}}}%
+    \usebibmacro{name:andothers}}}
 %-----------------------  
 \ExecuteBibliographyOptions{%
   citetracker=true,% 
