@@ -135,7 +135,7 @@
 %----------
 \newcommand{\archaeologieoptions}[1][]{%
 \ifstrempty{#1}{%
-\iflanguage{ngerman}{Zusätzliche geladene oder \xout{deaktivierte} Optionen von \textsc{bib}\LaTeX-\textsf{archaeologie} (Version \archaeologieversion~| \archaeologiedate):}%
+\iflanguage{ngerman}{Zusätzlich geladene oder \xout{deaktivierte} Optionen von \textsc{bib}\LaTeX-\textsf{archaeologie} (Version \archaeologieversion~| \archaeologiedate):}%
 {Additional options of \textsc{bib}\LaTeX-\textsf{archaeologie} (version \archaeologieversion~| \archaeologiedate) used or \xout{omitted}:}\addspace}%
 {\ifthenelse{\equal{#1}{plain}}{}{{\PackageError{biblatex-archaeologie}%
    {command 'archaeologieoptions[#1]' invalid.\MessageBreak%
@@ -459,6 +459,40 @@
 %-----------------------
 \newbibmacro{kicklabel}{% 
   \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
+  \global\togglefalse{blx@insert}%
+  \ifdim.9\wd\arch@labelbox>%
+  \labwidthsameline\leavevmode\newline\fi%
+}
+%-----------------------
+\newbibmacro{labelwidthbibseries}{%
+  \begingroup%
+  \DeclareFieldFormat{bibhyperref}{##1}%
+  \csuse{blx@hook@cite}%
+  \csuse{blx@hook@citekey}%
+  \defcounter{maxnames}{\blx@maxcitenames}%
+  \printfield{shortseries}%
+  \endgroup%
+} 
+%-----------------------
+\newbibmacro{kicklabelseries}{% 
+  \sbox\arch@labelbox{\usebibmacro{labelwidthbibseries}}%
+  \global\togglefalse{blx@insert}%
+  \ifdim.9\wd\arch@labelbox>%
+  \labwidthsameline\leavevmode\newline\fi%
+}
+%-----------------------
+\newbibmacro{labelwidthbibjournal}{%
+  \begingroup%
+  \DeclareFieldFormat{bibhyperref}{##1}%
+  \csuse{blx@hook@cite}%
+  \csuse{blx@hook@citekey}%
+  \defcounter{maxnames}{\blx@maxcitenames}%
+  \printfield{shortseries}%
+  \endgroup%
+} 
+%-----------------------
+\newbibmacro{kicklabeljournal}{% 
+  \sbox\arch@labelbox{\usebibmacro{labelwidthbibjournal}}%
   \global\togglefalse{blx@insert}%
   \ifdim.9\wd\arch@labelbox>%
   \labwidthsameline\leavevmode\newline\fi%
@@ -1213,16 +1247,39 @@
  {\list%
  {\usebibmacro{labelwidthbib}}%
  {\setlength{\labelwidth}{\labwidthsameline}%
+  \setlength{\leftmargin}{\labelwidth}%
+  \setlength{\labelsep}{\biblabelsep}%
+  \addtolength{\leftmargin}{\labelsep}%
+  \setlength{\itemsep}{\bibitemsep}%
+  \setlength{\parsep}{\bibparsep}%
+  \renewcommand*{\makelabel}[1]{##1\hss}}}%
+ {\endlist}%
+ {\item\usebibmacro{kicklabel}}
+ %-----------------------
+\defbibenvironment{shortseries}
+{\list
+{\thefield{shortseries}}{%
+ \setlength{\labelwidth}{\labwidthsameline}%
  \setlength{\leftmargin}{\labelwidth}%
  \setlength{\labelsep}{\biblabelsep}%
  \addtolength{\leftmargin}{\labelsep}%
  \setlength{\itemsep}{\bibitemsep}%
  \setlength{\parsep}{\bibparsep}%
- \renewcommand*{\makelabel}[1]{##1\hss}%
- }%
- }%
- {\endlist}%
- {\item%
- \usebibmacro{kicklabel}%
- }
+ \renewcommand*{\makelabel}[1]{##1\hss}}}
+{\endlist}
+{\item\usebibmacro{kicklabelseries}}
+  %-----------------------
+\defbibenvironment{shortjournal}
+{\list
+{\thefield{shortjournal}}{%
+ \setlength{\labelwidth}{\labwidthsameline}%
+ \setlength{\leftmargin}{\labelwidth}%
+ \setlength{\labelsep}{\biblabelsep}%
+ \addtolength{\leftmargin}{\labelsep}%
+ \setlength{\itemsep}{\bibitemsep}%
+ \setlength{\parsep}{\bibparsep}%
+ \renewcommand*{\makelabel}[1]{##1\hss}}}
+{\endlist}
+{\item\usebibmacro{kicklabeljournal}}
+
 \endinput
