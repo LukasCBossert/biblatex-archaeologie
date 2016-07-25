@@ -2081,6 +2081,8 @@ urn = *@\marg{urn:xxx}@*
 This eprint-form is especially designed for the OPAC (Online Public Access Catalogue) of the German Archaeological Institute.
 All bibliographical entries in this OPAC can be referred to via this link.
 You only need to insert the individual Zenon-number of the entry, e.\,g. \emph{http://zenon.dainst.org/Record/001371402} where \emph{001371402} is the individual number---cf. \cref{Zanker2009}.
+
+This option is set to |false| by default.
 \begin{lstlisting}
 eprint = *@\marg{Zenon-number}@*
 eprinttype = {zenon} 
@@ -2096,9 +2098,9 @@ zenon = *@\marg{Zenon-number}@*
 doi = *@\marg{doi-number}@*
 \end{lstlisting}	
 
-If you don’t want to have the online references printed you can disable the fields with |jstor=false|, 
+If you want or don’t want to have the online references printed you can enable or disable the fields with |jstor=false|, 
 |urn=false|,
-|zenon=false|,
+|zenon=true|,
 |doi=false| etc. as preamble option.
 
 \subsection{Brackets (with @Inreference)}\label{faq:inreference}
@@ -2211,14 +2213,24 @@ It will list all options used:
 \begin{bsp}
 \archaeologieoptions
 \end{bsp}
-
+\foreignlanguage{ngerman}{%
+\begin{bsp}
+\archaeologieoptions
+\end{bsp}
+}
 If you do not want to have the text in the beginning (which is defined in English and in German) you can get rid of them with the optional argument  \cs{archaeologieoptions}\oarg{plain}
 \begin{bsp}
 \archaeologieoptions[plain]
 \end{bsp}
 
-
-
+You can also print the version of this style with |\archaeologieversion| 
+\begin{bsp}
+\archaeologieversion
+\end{bsp}
+or the date of this version with |\archaeologiedate|.
+\begin{bsp}
+\archaeologiedate
+\end{bsp}
 
 \clearpage
 \begin{multicols}{2}\footnotesize
