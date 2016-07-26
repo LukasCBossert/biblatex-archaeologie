@@ -66,6 +66,7 @@
 \newtoggle{bbx:zenon}
 \newtoggle{bbx:urn}
 
+\setlength{\biblabelsep}{0em}
 %-----------------------
 \DeclareBibliographyOption{lstabbrv}[true]{%
  \csuse{bool#1}{bib:lstabbrv}%
@@ -105,8 +106,8 @@
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
 \DeclareBibliographyOption{initials}[true]{\csuse{bool#1}{bbx:initials}}
 \DeclareBibliographyOption{width}[]{%
-  \csuse{booltrue}{bbx:width} 
-  \setlength{\labwidthsameline}{#1}
+  \csuse{booltrue}{bbx:width}% 
+  \setlength{\labwidthsameline}{#1}%
   \def\labwidthsamelineVALUE{#1}}
 \DeclareBibliographyOption{yearseries}[true]{\csuse{bool#1}{bbx:yearseries}}
 \DeclareBibliographyOption{counter}[true]{\csuse{bool#1}{bbx:counter}}
@@ -119,9 +120,9 @@
 \DeclareBibliographyOption{publisher}[true]{\csuse{bool#1}{bbx:publisher}
   \ExecuteBibliographyOptions{maxitems=2}}
 \DeclareBibliographyOption{scshape}[true]{%
- \ifstrequal{#1}{true}%
- {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
- {}%
+  \ifstrequal{#1}{true}%
+  {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
+  {}%
 }
 %-----------------------
 \DeclareEntryOption{ancient}[true]{\csuse{bool#1}{cbx:ancient}}
@@ -460,7 +461,7 @@
 \newbibmacro{kicklabel}{% 
   \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
   \global\togglefalse{blx@insert}%
-  \ifdim.9\wd\arch@labelbox>%
+  \ifdim1.1\wd\arch@labelbox>%
   \labwidthsameline\leavevmode\newline\fi%
 }
 %-----------------------
@@ -921,18 +922,16 @@
 }
 %-----------------------
 \DeclareBibliographyDriver{shortjournal}{%
- \printtext[journaltitle]{%
- \printfield[titlecase]{journaltitle}%
- \setunit{\subtitlepunct}%
- \printfield[titlecase]{journalsubtitle}%
- }%
-}
+  \printtext[journaltitle]{%
+    \printfield[titlecase]{journaltitle}%
+    \setunit{\subtitlepunct}%
+    \printfield[titlecase]{journalsubtitle}}%
+  \blx@initunit}
 %-----------------------
 \DeclareBibliographyDriver{shortseries}{%
- \printtext[seriestitle]{%
- \printfield[titlecase]{series}%
- }%
-}
+  \printtext[seriestitle]{%
+    \printfield[titlecase]{series}}%
+  \blx@initunit}
 %-----------------------
 \DeclareDataInheritance{reference}{inreference}{%
  \inherit{shorthand}{booktitle}%
