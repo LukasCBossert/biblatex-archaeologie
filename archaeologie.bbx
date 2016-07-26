@@ -464,38 +464,21 @@
   \labwidthsameline\leavevmode\newline\fi%
 }
 %-----------------------
-\newbibmacro{labelwidthbibseries}{%
-  \begingroup%
+\newbibmacro{labelwidthfield}[1]{%
+  \begingroup
   \DeclareFieldFormat{bibhyperref}{##1}%
   \csuse{blx@hook@cite}%
   \csuse{blx@hook@citekey}%
   \defcounter{maxnames}{\blx@maxcitenames}%
-  \printfield{shortseries}%
-  \endgroup%
+  \printfield{#1}%
+  \endgroup
 } 
 %-----------------------
-\newbibmacro{kicklabelseries}{% 
-  \sbox\arch@labelbox{\usebibmacro{labelwidthbibseries}}%
+\newbibmacro{kicklabelfield}[1]{% 
+  \sbox\arch@labelbox{\usebibmacro{labelwidthfield}{#1}}%
   \global\togglefalse{blx@insert}%
   \ifdim.9\wd\arch@labelbox>%
-  \labwidthsameline\leavevmode\newline\fi%
-}
-%-----------------------
-\newbibmacro{labelwidthbibjournal}{%
-  \begingroup%
-  \DeclareFieldFormat{bibhyperref}{##1}%
-  \csuse{blx@hook@cite}%
-  \csuse{blx@hook@citekey}%
-  \defcounter{maxnames}{\blx@maxcitenames}%
-  \printfield{shortjournal}%
-  \endgroup%
-} 
-%-----------------------
-\newbibmacro{kicklabeljournal}{% 
-  \sbox\arch@labelbox{\usebibmacro{labelwidthbibjournal}}%
-  \global\togglefalse{blx@insert}%
-  \ifdim.9\wd\arch@labelbox>%
-  \labwidthsameline\leavevmode\newline\fi%
+  \labwidthsameline\leavevmode\newline\fi
 }
 %-----------------------
 \renewbibmacro{in:}{%
@@ -1244,42 +1227,32 @@
 }
 %-----------------------
 \defbibenvironment{bibliography}%
- {\list%
- {\usebibmacro{labelwidthbib}}%
- {\setlength{\labelwidth}{\labwidthsameline}%
-  \setlength{\leftmargin}{\labelwidth}%
-  \setlength{\labelsep}{\biblabelsep}%
-  \addtolength{\leftmargin}{\labelsep}%
-  \setlength{\itemsep}{\bibitemsep}%
-  \setlength{\parsep}{\bibparsep}%
-  \renewcommand*{\makelabel}[1]{##1\hss}}}%
- {\endlist}%
- {\item\usebibmacro{kicklabel}}
+  {\list%
+   {\usebibmacro{labelwidthbib}}%
+   {\setlength{\labelwidth}{\labwidthsameline}%
+     \setlength{\leftmargin}{\labelwidth}%
+     \setlength{\labelsep}{\biblabelsep}%
+     \addtolength{\leftmargin}{\labelsep}%
+     \setlength{\itemsep}{\bibitemsep}%
+     \setlength{\parsep}{\bibparsep}%
+     \renewcommand*{\makelabel}[1]{##1\hss}}}%
+   {\endlist}%
+   {\item\usebibmacro{kicklabel}}
  %-----------------------
-\defbibenvironment{shortseries}
-{\list
-{\thefield{shortseries}}{%
- \setlength{\labelwidth}{\labwidthsameline}%
- \setlength{\leftmargin}{\labelwidth}%
- \setlength{\labelsep}{\biblabelsep}%
- \addtolength{\leftmargin}{\labelsep}%
- \setlength{\itemsep}{\bibitemsep}%
- \setlength{\parsep}{\bibparsep}%
- \renewcommand*{\makelabel}[1]{##1\hss}}}
-{\endlist}
-{\item\usebibmacro{kicklabelseries}}
-  %-----------------------
-\defbibenvironment{shortjournal}
-{\list
-{\thefield{shortjournal}}{%
- \setlength{\labelwidth}{\labwidthsameline}%
- \setlength{\leftmargin}{\labelwidth}%
- \setlength{\labelsep}{\biblabelsep}%
- \addtolength{\leftmargin}{\labelsep}%
- \setlength{\itemsep}{\bibitemsep}%
- \setlength{\parsep}{\bibparsep}%
- \renewcommand*{\makelabel}[1]{##1\hss}}}
-{\endlist}
-{\item\usebibmacro{kicklabeljournal}}
+\def\do#1{%
+  \defbibenvironment{#1}
+    {\list%
+       {\printfield{#1}}%
+       {\setlength{\labelwidth}{\labwidthsameline}%
+        \setlength{\leftmargin}{\labelwidth}%
+        \setlength{\labelsep}{\biblabelsep}%
+        \addtolength{\leftmargin}{\labelsep}%
+        \setlength{\itemsep}{\bibitemsep}%
+        \setlength{\parsep}{\bibparsep}%
+        \renewcommand*{\makelabel}[1]{####1\hss}}}
+    {\endlist}
+    {\item\usebibmacro{kicklabelfield}{#1}}%
+}
+\docsvlist{shortjournal,shortseries}
 
 \endinput
