@@ -20,8 +20,8 @@ italian,
 ngerman,
 english
 ]{ltxdoc}
-\def\archaeologieversion{2.03}
-\def\archaeologiedate{2016-07-15}
+\def\thisarchaeologieversion{2.04}
+\def\thisarchaeologiedate{2016-07-28}
 \input{archaeologie-preamble.tex}
 \NewEnviron{bibbsp}[1]
   {\par\medskip\noindent\footnotesize
@@ -319,7 +319,7 @@ which should be abbreviated with ›AyasofyaMüzYıl‹.
 To save  time  looking for the special character and insert ›ı‹ manually 
 it is written in the |@String| with an ›i‹ (for further information see \cref{abbrv-lists}) but will be replaced after compiling with the correct character:
 
-\printbib[6em]{Koyunlu1990}
+\printbib[8em]{Koyunlu1990}
 
 Whether using the provided abbreviation list with |lstabbrv| or filling the |journaltitle| and |shortjournal| fields manually, 
 |archaeologie| uses by default short titles if defined.
@@ -490,7 +490,7 @@ because the entry is fully cited before in the footnotes (also stated in the Ger
 If the option is not used (|inreferences=false|) the entry will look like this in the bibliography:
 \end{refsection}
 
-\printbib[6em]{Nieddu1995} 
+\printbib[8em]{Nieddu1995} 
 
 \subsubsection{lstabbrv}\label{abbrv}
 \DescribeMacro{lstabbrv}
@@ -578,7 +578,7 @@ The bibliographical entry |Lefebvre2011| contains following fields:
 \end{lstlisting}
 
 The bibliography result is:
-\printbib[6em]{Lefebvre2011}
+\printbib[8em]{Lefebvre2011}
 
 By activating option |translation| it will change to:
 
@@ -654,7 +654,7 @@ because the entries are fully cited before in the footnotes.
 If the option is not used (|=false|) the entry will look like this in the bibliography:
   \end{refsection}
 
-\printbib[6em]{Nieddu1995} 
+\printbib[8em]{Nieddu1995} 
 
 \subsubsection{yearseries}\label{yearseries}
 \DescribeMacro{yearseries}
@@ -681,7 +681,7 @@ An example with an |@Incollection| demonstrates the effect of this option:
 \end{lstlisting}
 
 Without any option activated it will look like this:
-\printbib[5em]{Mundt2015}
+\printbib[7em]{Mundt2015}
  
 By activating |yearseries| it will change to:
 \begin{bibbsp}{Mundt2015}
@@ -759,7 +759,7 @@ If you use |citeauthorformat=firstfull| the first citation will look like \ref{n
 
 \end{refsection}
 
-\printbib[9.5em]{Boehmer1985}
+\printbib[11.5em]{Boehmer1985}
 
 Two things are left to mention: 
 \begin{enumerate}
@@ -802,7 +802,7 @@ we obtain the result:
 \end{bsp}
 \end{refsection}
 
-\printbib[5em]{Quint:inst}
+\printbib[7em]{Quint:inst}
 
 \subsubsection{yearinparens}\label{yearinparens}
 \DescribeMacro{yearinparens}%
@@ -866,7 +866,7 @@ number       = {3},
 
 the output in the bibliography changes from:
 
-\printbib[8em]{Ball2013}
+\printbib[10em]{Ball2013}
 
 to 
 
@@ -901,7 +901,7 @@ Without any options the entry
 
 looks like
 
-\printbib[5em]{Osland2016}
+\printbib[7em]{Osland2016}
 
 and with |bibfullname| it will change to:
 
@@ -938,7 +938,7 @@ In case of reprint or second edition the first edition |origyear| will be put in
 \begin{refsection}\end{refsection}
 
 Default settings produce:
-\printbib[5em]{Emme2013}
+\printbib[7em]{Emme2013}
  
 By activating option |publisher| you obtain:
 
@@ -963,7 +963,7 @@ And here a more detailed example with |origlocation|, |origyear| and |origpublis
 }
 \end{lstlisting}
  
-\printbib[5em]{Neufert2002}
+\printbib[7em]{Neufert2002}
 
 \begin{bibbsp}{Neufert2002}
 \parbox[t]{1.7cm}{Neufert  2002} \parbox[t]{9.4cm}{%
@@ -1001,7 +1001,7 @@ Instead of embedding ›(ed.)‹/›(Hrsg.)‹ right after the editor name
 
 Without option |edby| this |@Inproceedings| would look like:
  
-\printbib[7em]{Wulf-Rheidt2013}
+\printbib[9em]{Wulf-Rheidt2013}
 
 But activating |edby| it changes to:
 
@@ -1173,7 +1173,7 @@ Fest. 3 L
 
 In the bibliography the reference differentiates slightly from |options = {ancient}| because of the missing ancient author of fragment collections, 
 so the editors name is printed in the first place:
-\printbib[3em]{Fest}
+\printbib[5em]{Fest}
 
 \subsubsection{corpus}\label{corpus}
 \DescribeMacro{corpus}
@@ -1261,7 +1261,7 @@ A citation in a footnote is done with
 
 and it looks like this in footnotes\footnote{Vgl. Mann 2011, 142--144.}
 and like this in the bibliography.
-\printbib[5em]{Mann2011}
+\printbib[7em]{Mann2011}
 
 \subsubsection{›Festschrift‹, commemorative volume, catalogue, etc.}
 To mark that the book or collection is a so-called ›Festschrift‹/ commemorative volume, 
@@ -1278,7 +1278,7 @@ We suggest using  the field |titleaddon| or if it is a |@Incollection| or |@Inpr
 }
 \end{lstlisting}
 
-\printbib[9em]{Boehm2001}
+\printbib[11em]{Boehm2001}
  
 \subsubsection{Translated book}
 If you cite a translated book you can link it to the original book and let display the translator as well as the original language. 
@@ -1327,7 +1327,7 @@ and the relation got specified with the field |relatedtype|, in this case it is 
 You don't have to cite |Zanker2009| to have the information visible in the bibliography. 
 It will be included automatically. For the following bibliography we only use |\cite{Zanker1988}|:
 
-\printbiball[5em]{Zanker1988}
+\printbiball[7em]{Zanker1988}
 
 
 \subsubsection{Multiple volumes of a monograph}
@@ -1351,7 +1351,7 @@ Let’s assume this is the bibliography entry:
 In the bibliography the main title of the monograph (|maintitle|)
 and the title of the book (|title|) are shown separately  so the volume  (|volume|) 
 appears before the title of the book
-\printbib[7em]{MacDonald1986}
+\printbib[9em]{MacDonald1986}
 
 
 \subsection{Type \texttt{@Inbook / @Incollection}}\label{inbook}
@@ -1388,7 +1388,7 @@ This following example clarify matters:
 }
 \end{lstlisting}
 
-\printbib[11em]{Carter2014}
+\printbib[13em]{Carter2014}
 
 You can also have contributions to a ›Festschrift‹ etc. set up as |@Incollection|,
 but then notice the additional information in |booktitleaddon|.
@@ -1406,7 +1406,7 @@ but then notice the additional information in |booktitleaddon|.
 }
 \end{lstlisting}
 In the bibliography it will look like:
-\printbib[6em]{Hoelscher2001}
+\printbib[8em]{Hoelscher2001}
 
 \subsubsection{Short series}
 Some books or collections are part of a small series (not an ongoing series).
@@ -1436,7 +1436,7 @@ As we can see it is the fifth volume (|volume|) of the series with the main titl
 of the series  \emph{MemAmAc} (|series|).
 
 Notice the different language-based behaviour of ›et. al.‹ for more than two authors/editors.
-\printbiball[7em]{Fentress2003}
+\printbiball[9em]{Fentress2003}
 
  
 \subsubsection{Inventory catalogue}
@@ -1469,9 +1469,9 @@ and the second example
 \end{lstlisting}
 
 
-\printbib[6em]{Kohlmeyer1983}
+\printbib[8em]{Kohlmeyer1983}
 \begin{refsection}\end{refsection}
-\printbiball[6em]{Parlasca1969}
+\printbiball[8em]{Parlasca1969}
 
 
 \subsection{Type \texttt{@Article}}\label{article}
@@ -1504,7 +1504,7 @@ Here we have an example which will explain the (required)  fields:
 }
 \end{lstlisting}
 In line 5 and 6 you can also write the full or abbreviated journal title in the fields |journaltitle| or |shorttitle| (e.\,g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@String| (cf. \cref{list-bibancient,string}) again.
-\printbib[7em]{Evangelidis2014}
+\printbib[9em]{Evangelidis2014}
 
 
 \subsection{Type \texttt{@Proceedings}}\label{proceedings}
@@ -1556,7 +1556,7 @@ to the |publisher| e.\,g. \emph{Regensburg}),
 a range has to be separated with a |/| (e.\,g.  \emph{2012-02-08/2012-02-11}).
 
 In the bibliography the information of these additional fields will be used (of course) as this, notice how the output of the date changes according to the chosen language.
-\printbiball[7em]{Kurapkat2014}
+\printbiball[9em]{Kurapkat2014}
 
 \subsection{Type \texttt{@Inproceedings}}\label{inproceedings}
 \DescribeMacro{@Inproceedings}
@@ -1601,7 +1601,7 @@ This entry type works similar to |@Procecedings| and |@Incollection| and therefo
 \end{lstlisting}
 It will be printed as:
  
-\printbiball[4em]{Torelli1991}
+\printbiball[6em]{Torelli1991}
 
  \subsection{Type \texttt{@Reference}}\label{reference}
  \DescribeMacro{@Reference}
@@ -1717,7 +1717,8 @@ For the following bibliography result we just typed (assuming that the entries w
 \printbibliography[notkeyword=corpus]
 \end{lstlisting}
 
-\begin{refsection}
+\begin{refsection}\setlength{\labwidthsameline}{7em} 
+
 \begin{bibbsp}{Lexikon-der-Technik,Weinbrenner1914}
 \nocite{Lexikon-der-Technik,Weinbrenner1914}
 \printbibliography[keyword=corpus,title={Corpora}]
@@ -1803,7 +1804,7 @@ The following entry is an example which also reviews the book by \citeauthor*{We
 \end{lstlisting}
 In the bibliography there will be first the individual title followed by the information of the reviewed work.
 
-\printbib[7em]{Hufschmid2010}
+\printbib[9em]{Hufschmid2010}
 
 
 \subsubsection{multiple reviewed works in one review}
@@ -1845,7 +1846,7 @@ The entry of the review looks like this:
 In the field |related| you can have several \meta{bibtex-keys} which have to be separated by a comma (see line 7).
 
 Subsequently, all information is gathered in the bibliography:
-\printbib[5em]{Taylor2008}
+\printbib[7em]{Taylor2008}
 
 
  \subsection{Type \texttt{@Thesis}}\label{thesis}
@@ -1881,7 +1882,7 @@ Here is an example:
 
 Here is the entry in the bibliography:
 
-\printbib[5.5em]{Arnolds2005}
+\printbib[7.5em]{Arnolds2005}
 
  
  \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
@@ -1919,7 +1920,7 @@ Here is an example for a  paper  given in Berlin in 2015:
 \end{lstlisting}
 The bibliography will show the entry as:
 
-		\printbib[6.5em]{Bergmann2015}
+		\printbib[8.5em]{Bergmann2015}
 	
  \changes{v1.5}{2016/05/31}{Rückverweis}
 
@@ -2204,7 +2205,7 @@ This following example is about an article which was accepted by the journal and
 }
 \end{lstlisting}
 
-\printbib[9em]{Bossert:forthcoming}
+\printbib[11em]{Bossert:forthcoming}
 
 
 \subsection{Print the used options}
@@ -2218,7 +2219,7 @@ It will list all options used:
 \archaeologieoptions
 \end{bsp}
 }
-If you do not want to have the text in the beginning (which is defined in English and in German) you can get rid of them with the optional argument  \cs{archaeologieoptions}\oarg{plain}
+If you do not want to have the text in the beginning (which is defined in English and in German) you can get rid of them with the optional argument  \cs{archaeologieoptions}\texttt{[plain]}
 \begin{bsp}
 \archaeologieoptions[plain]
 \end{bsp}

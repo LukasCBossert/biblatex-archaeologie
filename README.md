@@ -5,7 +5,7 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2016/07/15 v2.03_
+_2016/07/28 v2.04_
 
 Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 
