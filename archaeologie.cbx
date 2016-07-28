@@ -154,8 +154,7 @@
 \def\cbx@arch@citeauthorformat@initials{%
    \DeclareNameAlias{citeauthor}{name:initials}}
 
-\def\cbx@arch@citeauthorformat@firstfull{%
-  \DeclareNameFormat{citeauthor}{%
+ \DeclareNameFormat{citeauthor:fancy}{%
     \cbx@ifnameseen{\thefield{hash}}
       {\ifnum\value{uniquename}=2
          \usebibmacro{name:given-family}
@@ -182,7 +181,10 @@
          {\namepartprefix}
          {\namepartsuffix}%
        \cbx@nameseen{\thefield{hash}}}%
-    \usebibmacro{name:andothers}}}
+    \usebibmacro{name:andothers}}
+
+\def\cbx@arch@citeauthorformat@firstfull{%
+   \DeclareNameAlias{citeauthor}{citeauthor:fancy}}
 %-----------------------  
 \ExecuteBibliographyOptions{%
   citetracker=true,% 
