@@ -11,33 +11,33 @@
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
 \ProvidesFile{archaeologie.bbx}%
-   [2016/07/15 v2.03  archaeologie -- 
+  [2016/07/15 v2.03  archaeologie -- 
   biblatex for archaeologists, 
   historians and philologists, bbx-file]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
-\RequirePackage[normalem]{ulem}
-%\RequirePackage{csquotes}
- \urlstyle{sf}%
- \typeout{* * * archaeologie * * * 
- biblatex for archaeologists,
- historians and philologists}
+  \RequirePackage[normalem]{ulem}
+  %\RequirePackage{csquotes}
+  \urlstyle{sf}%
+  \typeout{* * * archaeologie * * * 
+  biblatex for archaeologists,
+  historians and philologists}
 }
 \def\archaeologieversion{2.04}
 \def\archaeologiedate{2016-07-28}
 \ExecuteBibliographyOptions{%
- pagetracker=true,%
- citecounter=true,%
- sortlocale=auto,%
- language=auto,%
- autolang=other,%
- bibencoding=utf8,%
- dateabbrev=false, %
- sorting=nyt,%
- maxnames=2,% 
- minnames=1,%
- maxitems=1,%
- maxbibnames=999,%
+  pagetracker=true,%
+  citecounter=true,%
+  sortlocale=auto,%
+  language=auto,%
+  autolang=other,%
+  bibencoding=utf8,%
+  dateabbrev=false, %
+  sorting=nyt,%
+  maxnames=2,% 
+  minnames=1,%
+  maxitems=1,%
+  maxbibnames=999,%
 }
 %-----------------------
 \newbool{bbx:edby}
@@ -69,39 +69,33 @@
 \setlength{\biblabelsep}{0em}
 %-----------------------
 \DeclareBibliographyOption{lstabbrv}[true]{%
- \csuse{bool#1}{bib:lstabbrv}%
- \addbibresource{archaeologie-lstabbrv.bib}
-}
+  \csuse{bool#1}{bib:lstabbrv}%
+  \addbibresource{archaeologie-lstabbrv.bib}}
 \DeclareBibliographyOption{bibcorpora}[true]{%
- \csuse{bool#1}{bib:bibcorpora}%
- \addbibresource{archaeologie-bibcorpora.bib}%
- \ifbool{bib:lstabbrv}%
- {}%
- {\addbibresource{archaeologie-lstabbrv.bib}}
-}
+  \csuse{bool#1}{bib:bibcorpora}%
+  \addbibresource{archaeologie-bibcorpora.bib}%
+  \ifbool{bib:lstabbrv}%
+    {}%
+    {\addbibresource{archaeologie-lstabbrv.bib}}}
 \DeclareBibliographyOption{bibancient}[true]{%
- \csuse{bool#1}{bib:bibancient}%
- \addbibresource{archaeologie-bibancient.bib}%
-}
+  \csuse{bool#1}{bib:bibancient}%
+  \addbibresource{archaeologie-bibancient.bib}}
 \DeclareBibliographyOption{lstlocations}[true]{%
- \csuse{bool#1}{bib:lstlocations}%
- \addbibresource{archaeologie-lstlocations.bib}%
-}
+  \csuse{bool#1}{bib:lstlocations}%
+  \addbibresource{archaeologie-lstlocations.bib}}
 \DeclareBibliographyOption{lstpublishers}[true]{%
- \csuse{bool#1}{bib:lstpublishers}%
- \addbibresource{archaeologie-lstpublishers.bib}%
-}
-
+  \csuse{bool#1}{bib:lstpublishers}%
+  \addbibresource{archaeologie-lstpublishers.bib}}
 \DeclareBibliographyOption[boolean]{jstor}[true]{%
-\settoggle{bbx:jstor}{#1}}
+  \settoggle{bbx:jstor}{#1}}
 \DeclareBibliographyOption[boolean]{zenon}[true]{%
- \settoggle{bbx:zenon}{#1}}
+  \settoggle{bbx:zenon}{#1}}
 \DeclareBibliographyOption[boolean]{urn}[true]{%
- \settoggle{bbx:urn}{#1}}
+  \settoggle{bbx:urn}{#1}}
 \ExecuteBibliographyOptions{%
- jstor,%
- urn,%
-}
+  jstor,%
+  urn,
+  }
 %-----------------------
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
 \DeclareBibliographyOption{initials}[true]{\csuse{bool#1}{bbx:initials}}
@@ -121,49 +115,53 @@
   \ExecuteBibliographyOptions{maxitems=2}}
 \DeclareBibliographyOption{scshape}[true]{%
   \ifstrequal{#1}{true}%
-  {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
-  {}%
-}
+    {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
+    {}%
+  }
 %-----------------------
 \DeclareEntryOption{ancient}[true]{\csuse{bool#1}{cbx:ancient}}
 \DeclareEntryOption{frgancient}[true]{%
- \ifstrequal{#1}{true}%
- {\togglefalse{blx@useauthor}}%
- {}%
- \csuse{bool#1}{cbx:frgancient}%
-}
+  \ifstrequal{#1}{true}%
+    {\togglefalse{blx@useauthor}}%
+    {}%
+  \csuse{bool#1}{cbx:frgancient}}
 \DeclareEntryOption{corpus}[true]{\csuse{bool#1}{cbx:corpus}}
 %----------
 \newcommand{\archaeologieoptions}[1][]{%
-\ifstrempty{#1}{%
-\iflanguage{ngerman}{Zusätzlich geladene oder \xout{deaktivierte} Optionen von \textsc{bib}\LaTeX-\textsf{archaeologie} (Version \archaeologieversion~| \archaeologiedate):}%
-{Additional options of \textsc{bib}\LaTeX-\textsf{archaeologie} (version \archaeologieversion~| \archaeologiedate) used or \xout{omitted}:}\addspace}%
-{\ifthenelse{\equal{#1}{plain}}{}{{\PackageError{biblatex-archaeologie}%
+  \ifstrempty{#1}{%
+    \iflanguage{ngerman}%
+      {Zusätzlich geladene oder \xout{deaktivierte} Optionen 
+      von \textsc{bib}\LaTeX-\textsf{archaeologie} (Version \archaeologieversion~| \archaeologiedate):}%
+      {Additional options of \textsc{bib}\LaTeX-\textsf{archaeologie} (version \archaeologieversion~| \archaeologiedate) used or \xout{omitted}:}\addspace}%
+   {\ifthenelse{\equal{#1}{plain}}{}{{\PackageError{biblatex-archaeologie}%
    {command 'archaeologieoptions[#1]' invalid.\MessageBreak%
-  Use   'archaeologieoptions[plain]' or omit the brackets.}{}}}}%
-\def\seperator{ | }%
-\ifbool{bib:bibancient}{bibancient\seperator}{}%
-\ifbool{bib:bibcorpora}{bibcorpora\seperator}{}%
-\ifbool{bib:lstabbrv}{lstabbrv\seperator}{}%
-\ifbool{bib:lstlocations}{lstlocations\seperator}{}%
-\ifbool{bib:lstpublishers}{lstpublishers\seperator}{}%
-\ifbool{bbx:bibfullname}{bibfullname\seperator}{}%
-\ifdefstring\citeauthorformatVALUE{initials}{}{citeauthorformat\,= \citeauthorformatVALUE\seperator}%
-\ifbool{bbx:counter}{counter\seperator}{}%
-\ifbool{bbx:edby}{edby\seperator}{}%
-\ifbool{bbx:inreferences}{inreferences\seperator}{}%
-\ifbool{bbx:initials}{initials\seperator}{}%
-\ifbool{bbx:noabbrv}{noabbrv\seperator}{}%
-\ifbool{bbx:publisher}{publisher\seperator}{}%
-\ifbool{cbx:seenote}{seenote\seperator}{}%
-\ifbool{bbx:translation}{translation\seperator}{}%
-\ifbool{bbx:width}{width=\labwidthsamelineVALUE\seperator}{}%
-\ifbool{cbx:yearinparens}{yearinparens\seperator}{}%
-\ifbool{bbx:yearseries}{yearseries\seperator}{}%
-\iftoggle{bbx:zenon}{zenon\seperator}{}%
-\iftoggle{bbx:jstor}{}{\xout{jstor}\seperator}%
-\iftoggle{bbx:urn}{}{\xout{urn}\seperator}%
-\iftoggle{bbx:doi}{}{\xout{doi}\seperator}%
+  Use   'archaeologieoptions[plain]' or omit the brackets.}{}
+  }}}%
+  \def\seperator{ | }%
+  \ifbool{bib:bibancient}{bibancient\seperator}{}%
+  \ifbool{bib:bibcorpora}{bibcorpora\seperator}{}%
+  \ifbool{bib:lstabbrv}{lstabbrv\seperator}{}%
+  \ifbool{bib:lstlocations}{lstlocations\seperator}{}%
+  \ifbool{bib:lstpublishers}{lstpublishers\seperator}{}%
+  \ifbool{bbx:bibfullname}{bibfullname\seperator}{}%
+  \ifdefstring\citeauthorformatVALUE{initials}%
+    {}
+    {citeauthorformat\,= \citeauthorformatVALUE\seperator}%
+  \ifbool{bbx:counter}{counter\seperator}{}%
+  \ifbool{bbx:edby}{edby\seperator}{}%
+  \ifbool{bbx:inreferences}{inreferences\seperator}{}%
+  \ifbool{bbx:initials}{initials\seperator}{}%
+  \ifbool{bbx:noabbrv}{noabbrv\seperator}{}%
+  \ifbool{bbx:publisher}{publisher\seperator}{}%
+  \ifbool{cbx:seenote}{seenote\seperator}{}%
+  \ifbool{bbx:translation}{translation\seperator}{}%
+  \ifbool{bbx:width}{width=\labwidthsamelineVALUE\seperator}{}%
+  \ifbool{cbx:yearinparens}{yearinparens\seperator}{}%
+  \ifbool{bbx:yearseries}{yearseries\seperator}{}%
+  \iftoggle{bbx:zenon}{zenon\seperator}{}%
+  \iftoggle{bbx:jstor}{}{\xout{jstor}\seperator}%
+  \iftoggle{bbx:urn}{}{\xout{urn}\seperator}%
+  \iftoggle{bbx:doi}{}{\xout{doi}\seperator}%
 }
 %-----------------------
 \DeclareFieldFormat*{title}{#1}
@@ -193,23 +191,20 @@
   \textsc{urn}%
   \addcolon\space%
   \ifhyperref%
-  {\href{http://www.nbn-resolving.org/#1}{\nolinkurl{#1}}}%
-  {\nolinkurl{#1}}%
-}
+    {\href{http://www.nbn-resolving.org/#1}{\nolinkurl{#1}}}%
+    {\nolinkurl{#1}}}
 \DeclareFieldFormat{eprint:zenon}{%
   \textsc{zenon (opac)}%
   \addcolon\space%
   \ifhyperref%
-  {\href{http://zenon.dainst.org/Record/#1}{\nolinkurl{#1}}}%
-  {\nolinkurl{#1}}%
-}
+    {\href{http://zenon.dainst.org/Record/#1}{\nolinkurl{#1}}}%
+    {\nolinkurl{#1}}}
 \DeclareFieldFormat{eprint:jstor}{%
   \textsc{jstor}%
   \addcolon\space%
   \ifhyperref%
-  {\href{http://www.jstor.org/stable/#1}{\nolinkurl{#1}}}%
-  {\nolinkurl{#1}}%
-}
+    {\href{http://www.jstor.org/stable/#1}{\nolinkurl{#1}}}%
+    {\nolinkurl{#1}}}
 %-----------------------
 \DeclareFieldAlias{zenon}{eprint:zenon}
 \DeclareFieldAlias{jstor}{eprint:jstor}
@@ -230,17 +225,21 @@
 \newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}
 \renewcommand{\finentrypunct}{%http://tex.stackexchange.com/a/14159/98739
   \ifbool{bbx:counter}%
-  {\addspace$\vert$ \addspace\scshape%
-  \iflanguage{ngerman}%
-  {wurde \ifnumequal{\value{citecounter}}{0}{{\color{red}{keinmal}}}%
-  {\arabic{citecounter}-mal} zitiert.%
-  }
-  {cited \ifnumequal{\value{citecounter}}{0}{{\color{red}{not once}}}%
-  {\arabic{citecounter}~time\ifnumequal{\value{citecounter}}{1}{}{s}}.%
-  }%
-  }%
-  {}%
-}
+    {\addspace$\vert$ \addspace\scshape%
+    \iflanguage{ngerman}%
+      {wurde \ifnumequal{\value{citecounter}}
+        {0}
+        {{\color{red}{keinmal}}}
+        {\arabic{citecounter}-mal} 
+        zitiert.}
+      {cited \ifnumequal{\value{citecounter}}
+        {0}
+        {{\color{red}{not once}}}%
+      {\arabic{citecounter}~time\ifnumequal{\value{citecounter}}{1}
+        {}
+        {s}}.%
+      }}%
+      {}}
 \renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}
 \renewcommand{\finalnamedelim}{\multinamedelim}
 \renewcommand*\relateddelim{\addnbspace\textendash\addspace}
@@ -484,12 +483,15 @@
 %-----------------------
 \renewbibmacro{in:}{%
   \ifthenelse{% 
-  \ifentrytype{article}%
-  \OR%
-  \ifentrytype{review}}%
+    \ifentrytype{article}%
+    \OR%
+    \ifentrytype{review}%
+  }%
   {}%
-  {\printtext{\bibstring{in}\intitlepunct}}%
-}
+  {\printtext{%
+    \bibstring{in}%
+    \intitlepunct}%
+  }}
 %----------------------- 
 \newbibmacro*{bbx:parunit}{%
  \ifbibliography{%

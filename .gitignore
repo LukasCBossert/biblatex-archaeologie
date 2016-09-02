@@ -69,3 +69,5 @@ archaeologie-ger.tex
 *.lol
 
 *.zip
+
+.DS_Store
