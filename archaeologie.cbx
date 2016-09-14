@@ -197,6 +197,14 @@
   uniquename=minfull,%
 }
 %-----------------------
+\newbibmacro*{noancientindex}{%
+  \ifboolexpr{%
+    bool {cbx:ancient}%
+    or bool {cbx:frgancient}}%
+  {}
+  {\usebibmacro{citeindex}}%
+ }
+%-----------------------
 \renewbibmacro*{postnote}{%
 \iffieldundef{postnote}%
   {}%
@@ -350,7 +358,7 @@
 %-----------------------
 \DeclareCiteCommand{\cite}%  
   {\usebibmacro{prenote}}%
-  {\usebibmacro{citeindex}%
+  {\usebibmacro{noancientindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
   {\ifboolexpr{%
@@ -363,7 +371,7 @@
   {\boolfalse{cbx:yearinparens}%
   \usebibmacro{prenote}%
   }%
-  {\usebibmacro{citeindex}%
+  {\usebibmacro{noancientindex}%
    \iffirstcitekey%
    {\setcounter{textcitetotal}{1}}%
    {\stepcounter{textcitetotal}%
@@ -378,7 +386,7 @@
 %----------------------- 
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
-  {\usebibmacro{citeindex}%
+  {\usebibmacro{noancientindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
   {\ifboolexpr{%
@@ -403,7 +411,11 @@
    \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
   {\ifciteindex%
-   {\indexnames{labelname}}%
+   {\ifboolexpr{%
+    bool {cbx:ancient}%
+    or bool {cbx:frgancient}}%
+    {}
+    {\indexnames{labelname}}}%
    {}%
 \ifboolexpr{%
    test {\ifbool{bbx:inreferences}}%
@@ -427,7 +439,10 @@
    }%
    {\printtext}%
   {\printtext[bibhyperref]}{%
-   \ifbool{cbx:ancient}{\printtext[emph]{\usebibmacro{cite:title}}}%
+  \ifboolexpr{%
+    bool {cbx:ancient}%
+    or bool {cbx:frgancient}}%
+  {\printtext[emph]{\usebibmacro{cite:title}}}%
   {\printtext[emph]{\usebibmacro{cite:title}}% 
   \setunit{\addspace}%
   \printtext[parens]{\printfield{year}%
@@ -437,5 +452,11 @@
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 
+%-----------------------http://tex.stackexchange.com/a/305486/98739
+\renewbibmacro*{citeindex}{%
+    \ifciteindex%
+    {\indexnames{labelname}}%
+    {}}
+    
 \endinput
 %% End of file `archaeologie.cbx'.
