@@ -196,14 +196,17 @@
   citeauthorformat=initials,%
   uniquename=minfull,%
 }
-%-----------------------
-\newbibmacro*{noancientindex}{%
-  \ifboolexpr{%
-    bool {cbx:ancient}%
-    or bool {cbx:frgancient}}%
-  {}
-  {\usebibmacro{citeindex}}%
- }
+
+%-----------------------http://tex.stackexchange.com/a/305486/98739
+\renewbibmacro*{citeindex}{%
+  \ifciteindex%
+    {\ifboolexpr{%
+      bool {cbx:ancient}%
+      or bool {cbx:frgancient}}%
+      {}%
+      {\indexnames{labelname}}}%
+  {}%
+}
 %-----------------------
 \renewbibmacro*{postnote}{%
 \iffieldundef{postnote}%
@@ -358,7 +361,7 @@
 %-----------------------
 \DeclareCiteCommand{\cite}%  
   {\usebibmacro{prenote}}%
-  {\usebibmacro{noancientindex}%
+  {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
   {\ifboolexpr{%
@@ -371,7 +374,7 @@
   {\boolfalse{cbx:yearinparens}%
   \usebibmacro{prenote}%
   }%
-  {\usebibmacro{noancientindex}%
+  {\usebibmacro{citeindex}%
    \iffirstcitekey%
    {\setcounter{textcitetotal}{1}}%
    {\stepcounter{textcitetotal}%
@@ -386,7 +389,7 @@
 %----------------------- 
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
-  {\usebibmacro{noancientindex}%
+  {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
   {\ifboolexpr{%
@@ -410,13 +413,7 @@
    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
    \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
-  {\ifciteindex%
-   {\ifboolexpr{%
-    bool {cbx:ancient}%
-    or bool {cbx:frgancient}}%
-    {}
-    {\indexnames{labelname}}}%
-   {}%
+  {\usebibmacro{citeindex}%
 \ifboolexpr{%
    test {\ifbool{bbx:inreferences}}%
    and %
@@ -451,12 +448,6 @@
    }}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
-
-%-----------------------http://tex.stackexchange.com/a/305486/98739
-\renewbibmacro*{citeindex}{%
-    \ifciteindex%
-    {\indexnames{labelname}}%
-    {}}
     
 \endinput
 %% End of file `archaeologie.cbx'.
