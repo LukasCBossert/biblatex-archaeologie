@@ -196,8 +196,7 @@
   citeauthorformat=initials,%
   uniquename=minfull,%
 }
-
-%-----------------------http://tex.stackexchange.com/a/305486/98739
+%-----------------------
 \renewbibmacro*{citeindex}{%
   \ifciteindex%
     {\ifboolexpr{%
@@ -423,6 +422,15 @@
   {\printtext[bibhyperref]}%
   {\printnames[citeauthor]{labelname}}}%
   {\multicitedelim}%
+  {\usebibmacro{postnote}}	
+%----------------------- 	
+\DeclareCiteCommand*{\citeauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \printnames[][1-1]{labelname}}
+  {\multicitedelim}
   {\usebibmacro{postnote}}
 %-----------------------
 \DeclareCiteCommand{\citetitle} %
@@ -436,10 +444,7 @@
    }%
    {\printtext}%
   {\printtext[bibhyperref]}{%
-  \ifboolexpr{%
-    bool {cbx:ancient}%
-    or bool {cbx:frgancient}}%
-  {\printtext[emph]{\usebibmacro{cite:title}}}%
+   \ifbool{cbx:ancient}{\printtext[emph]{\usebibmacro{cite:title}}}%
   {\printtext[emph]{\usebibmacro{cite:title}}% 
   \setunit{\addspace}%
   \printtext[parens]{\printfield{year}%
@@ -448,6 +453,6 @@
    }}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
-    
+
 \endinput
 %% End of file `archaeologie.cbx'.
