@@ -11,7 +11,7 @@
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
 \ProvidesFile{archaeologie.cbx}%
-  [2016/07/15 v2.03  archaeologie -- 
+  [2016/07/15 v2.03beta  archaeologie -- 
   biblatex for archaeologists, 
   historians and philologists, cbx-Datei]
 %-----------------------
@@ -192,8 +192,9 @@
   ibidtracker=true,%
   opcittracker=true,%
   loccittracker=true,%
- % labeldate=year,%default
- alldates=edtf,
+alldates=comp,%
+dateuncertain=true,
+datecirca=true,
   citeauthorformat=initials,%
   uniquename=minfull,%
 }
@@ -242,9 +243,8 @@
 \newbibmacro*{cite:year}{%  
   \iffieldundef{labelyear}%
   {}%
- % {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}}
-  {{\usebibmacro{cite:labelyear+extrayear}}}}
-
+  {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}}%
+  }
 %-----------------------
 \newbibmacro*{cite:lexikon}{%
   \printfield{booktitle}%
@@ -335,9 +335,9 @@
   {\printtext[bibhyperref]{\printfield{shorthand}}}}
 %-----------------------
 \newbibmacro*{cite:label}{%
-  \iffieldundef{label}
-    {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}
-    {\printtext[bibhyperref]{\printfield{label}}}}
+  \iffieldundef{label}%
+  {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}%
+  {\printtext[bibhyperref]{\printfield{label}}}}
 %-----------------------
 \newbibmacro*{cite:labelyear+extrayear}{%
   \iffieldundef{labelyear}
