@@ -253,32 +253,6 @@
 \DeclareBibliographyAlias{incollection}{inbook}
 \DeclareBibliographyAlias{manual}{book}
 %-----------------------
-\DeclareSortingScheme{nyt}{%
-  \sort{\field{presort}}%
-  \sort[final]{\field{sortkey}}%
-  \sort{%
-    \field{shorthand}%
-    \name{sortname}%
-    \name{author}%
-    \name{editor}%
-    \name{translator}%
-    \field{sorttitle}%
-    \field{title}%
-  }%
-  \sort{%
-    \field{sortyear}%
-    \field{year}%
-  }%
-  \sort{%
-    \field{sorttitle}%
-    \field{title}%
-  }%
- \sort{%
-    \field[padside=left,padwidth=4,padchar=0]{volume}%
-    \literal{0000}%
-  }%
-}
-%----------------------- 
 \DeclareSortingScheme{shortseries}{\sort{\field{shortseries}}}
 \DeclareSortingScheme{shortjournal}{\sort{\field{shortjournal}}}
 %-----------------------
