@@ -630,15 +630,17 @@ labeldateparts=true,
  \printfield{number}%
  }% 
  \newunit%
- \iffieldundef{year}%
- {\printfield{pubstate}}%
-{\printfield{year}}%
+\usebibmacro{pubstate+year}%
 }
 %-----------------------
+\newbibmacro{pubstate+year}{%
+ \iffieldundef{pubstate}%
+ {\usebibmacro{date}}%
+ {\printfield{pubstate}}}
+ %-----------------------
 \newbibmacro*{pages}{%
  \printfield{pages}%
- \isdot%
-}
+ \isdot}
 %-----------------------
 \newbibmacro{translation}{%
  \printfield{origtitle}%
@@ -801,9 +803,7 @@ labeldateparts=true,
          {\setunit{\addspace}}%
          {\newunit}%
       \usebibmacro{edition}% 
-      \iffieldundef{year}%
-        {\printfield{pubstate}}%
-        {\printfield{year}}%
+     \usebibmacro{pubstate+year}%
      \setunit*{\addspace}%
      \ifboolexpr{%
      test {\iflistundef{origlocation}}%
@@ -844,9 +844,7 @@ labeldateparts=true,
   }%
   \printlist{location}%
   \setunit*{\addspace}%
-  \iffieldundef{year}%
-  {\printfield{pubstate}}%
-  {\printfield{year}}% 
+ \usebibmacro{pubstate+year}% 
   }%
   }%
  }%
@@ -856,9 +854,7 @@ labeldateparts=true,
  \printlist{location}%
  \printlist{institution}%
  \setunit*{\space}%
- \iffieldundef{year}%
- {\printfield{pubstate}}%
- {\printfield{year}}%
+\usebibmacro{pubstate+year}%
 }
 %-----------------------
 \newbibmacro{signatur}{%
