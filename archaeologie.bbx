@@ -254,6 +254,37 @@ labeldateparts=true,
 \DeclareBibliographyAlias{incollection}{inbook}
 \DeclareBibliographyAlias{manual}{book}
 %----------------------- 
+
+\DeclareSortingScheme{nyt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort{
+      \field{shorthand}
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{volume}
+    \literal{0}
+  }
+}
+%-----------------------
 \DeclareSortingScheme{shortseries}{\sort{\field{shortseries}}}
 \DeclareSortingScheme{shortjournal}{\sort{\field{shortjournal}}}
 %-----------------------
