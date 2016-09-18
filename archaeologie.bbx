@@ -187,7 +187,7 @@ labeldateparts=true,
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 \DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
 \DeclareFieldFormat{shorthandwidth}{#1}
-\DeclareFieldFormat{origtitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{origtitle}{\iffieldequalstr{origlanguage}{greek}{#1}{\mkbibemph{#1}}}
 \DeclareFieldFormat{eprint:urn}{%
   \textsc{urn}%
   \addcolon\space%
