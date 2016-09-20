@@ -244,7 +244,8 @@
   \iffieldundef{labelyear}%
   {}%
   {\printtext[citeyear]{\usebibmacro{cite:labelyear+extrayear}}}%
-  }
+ %  {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}} 
+}
 %-----------------------
 \newbibmacro*{cite:lexikon}{%
   \printfield{booktitle}%
@@ -347,7 +348,9 @@
        {}
        {\datecircaprint}%
      \dateeraprintpre{labelyear}%
-     \mkyearzeros{\thefield{labelyear}}%
+     \iffieldnums{labelyear}
+       {\mkyearzeros{\thefield{labelyear}}}
+       {\printfield{labelyear}}%
      \printfield{extrayear}%
      \iffieldsequal{labeldateera}{labelenddateera}{}
        {\dateeraprint{labelyear}}%
