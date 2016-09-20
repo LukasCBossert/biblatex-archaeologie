@@ -499,6 +499,16 @@ labeldateparts=true,
     \intitlepunct}%
   }}
 %----------------------- 
+\renewbibmacro*{pageref}{%
+  \iflistundef{pageref}
+    {}
+    { \setunit{\addcomma\newline\nobreak}%
+    \printtext{%
+       \ifnumgreater{\value{pageref}}{1}
+         {\bibstring{backrefpages}\ppspace}
+         {\bibstring{backrefpage}\ppspace}%
+       \printlist[pageref][-\value{listtotal}]{pageref}}}}
+%-----------------------     
 \newbibmacro*{bbx:parunit}{%
  \ifbibliography{%
  \setunit{\bibpagerefpunct}%
