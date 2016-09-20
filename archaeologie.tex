@@ -858,7 +858,6 @@ year         = {2013},
 doi          = {10.3764/aja.117.3.0461},
 eprint       = {10.3764/aja.117.3.0461},
 eprinttype   = {jstor},
-month        = {July},
 number       = {3},
 }
 \end{lstlisting}
@@ -1635,7 +1634,7 @@ But you can also have it  more detailed  like this one:
 @Reference{Lexikon-der-Technik,
   editor    = {Otto Lueger},
   title     = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},
-  year      = {1904--1920},
+  date      = {1904/1920},
   edition   = {2},
   location  = Stuttgart, 	%@String used
   keywords  = {corpus},
@@ -1876,7 +1875,7 @@ Here is an example:
   institution = {Ruprecht-Karls-Universität zu Heidelberg},
   eprint      = {urn:nbn:de:bsz:16-heidok-74406},
   eprinttype  = {urn},
-  date        = {2005-05-31},
+  date        = {2005},
 }
 \end{lstlisting}
 
@@ -2232,6 +2231,74 @@ or the date of this version with |\archaeologiedate|.
 \begin{bsp}
 \archaeologiedate
 \end{bsp}
+
+\subsection{Print the citet authors of secondary literature}
+In case you want to have an index about the authors you cited in your text,
+you can do that quite easily.
+We coded it that way so authors of ancient sources (e.\,g. Cicero) will be omitted in that index (when these entries have |options={ancient}| or |options={frgancient}|).
+
+First you have to activate indexing in the package |biblatex|:
+\begin{lstlisting}
+\usepackage[style=archaeologie,%
+					indexing=cite,
+					*@\meta{further options}@*]{biblatex}
+\end{lstlisting}
+|cite| will enable indexing in citations only, 
+you can also do |bib| which will enable indexing in the bibliography only.
+Or |true| so in citations and in the bibliography (|false| is the default setting).
+
+Then you have to load a package for indexing,
+we suggest using |imakeidx| since you can create multiple indexes with it.
+If you have only one index which will be used for the authors of secondary literature you can pass several options to it.
+ \begin{lstlisting}
+\usepackage{imakeidx}
+\makeindex[%
+  title=Index of  authors,
+  columns=3,
+]
+\end{lstlisting}   
+
+Now you only need to place |\printindex| whre you want to have the index.
+
+\alertinfo{If you have the option |initials| activated your index will have some issues with names that are being shortend automatically.
+We are working on it, see \href{https://github.com/LukasCBossert/biblatex-archaeologie/issues/97}{github issue} for more information.}
+
+\clearpage
+\subsection{Variant ways of entries in year/date-field}
+Sometimes you have a range of years of a publication because it is maybe a sequence of volumes.
+Let us take as example the \citetitle{LTUR}:
+\begin{lstlisting}[style=bibentry,label=LTUR,caption={{@}Reference\{LTUR,…\} }]
+@Reference{LTUR,
+  editor    = {Steinby, Eva Margareta},
+  title     = LTUR,
+  date      = {1993/2000},
+  publisher = {Edizioni Quasar},
+  location  = Rome,
+  keywords  = {corpus},
+  options   = {corpus},
+  shorthand = LTUR-short,
+}
+\end{lstlisting}
+\printbib[4em]{LTUR}
+
+Since this reference-series is completed we define the first and last year by using |date = {1993/2000}|. Be sure \emph{not}  using field |year| but instead |date| since |year| cannot cope with date ranges dependably.
+
+Let us take a look at another example:
+\begin{lstlisting}[style=bibentry,label=DeVisscher1951-1952,caption={{@}@Article\{DeVisscher1951-1952,…\} }]
+@Article{DeVisscher1951-1952,
+  author       = {de Visscher, Fernand and Mertens, Joseph},
+  title        = {Les puits du Forum d'Alba Fucense},
+  journaltitle = BCom,
+  shortjournal = BCom-short,
+  volume       = {74},
+  pages        = {3--13},
+  date         = {1951/1952},
+}
+\end{lstlisting}
+This time the article appeared in an issue which covers two years (\citedate{DeVisscher1951-1952}) and we want them to appear in the label.
+That is why we have to use the field |date| instead of |year|.
+\printbib[4em]{DeVisscher1951-1952}
+By the way, if you want to cite only the year of publication use |\citedate|\marg{bibtex-key} and not |\citeyear|\marg{bibtex-key} since the field |year| will only give you the first year.
 
 \clearpage
 \begin{multicols}{2}\footnotesize
