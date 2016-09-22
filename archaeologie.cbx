@@ -18,6 +18,7 @@
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
 \newbool{cbx:seen}
+\newbool{cbx:uniqueme}
 %-----------------------
 \newcommand*{\cbx@fseen@names}{}
 \newcommand*{\cbx@tseen@names}{}
@@ -59,6 +60,8 @@
   Use one of the values 'initials', 'full', 'family' or 'firstfull'.}{}}%
 \def\citeauthorformatVALUE{#1}%
 }
+%-----------------------
+\DeclareEntryOption{uniqueme}[true]{\csuse{bool#1}{cbx:uniqueme}}
 %-----------------------
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareFieldFormat{prenote}{#1\isdot}
@@ -199,6 +202,20 @@
   uniquename=minfull,%
 }
 %-----------------------
+\newbibmacro*{uniqueshorthand}{%
+\ifbool{cbx:uniqueme}{\addspace%
+    \printtext[brackets]{%
+    	\ifnameundef{translator}
+    	{\ifnameundef{intranslator}%
+        	{\iffieldundef{series}%
+      	{\printnames[name:family]{editor}}%
+     	{\usebibmacro*{series}}}%
+        {\printnames[name:family]{intranslator}}}%
+    	{\printnames[name:family]{translator}}}%
+  }%
+{}%
+}
+%-----------------------
 \renewbibmacro*{citeindex}{%
   \ifciteindex%
     {\ifboolexpr{%
@@ -244,7 +261,6 @@
   \iffieldundef{labelyear}%
   {}%
   {\printtext[citeyear]{\usebibmacro{cite:labelyear+extrayear}}}%
- %  {{\printtext[citeyear]{\printfield{labelyear}\printfield{extrayear}}}} 
 }
 %-----------------------
 \newbibmacro*{cite:lexikon}{%
@@ -333,7 +349,8 @@
 \newbibmacro*{cite:shorthand}{%
   \ifbool{cbx:seenote}%
   {\printtext{\printfield{shorthand}}}%
-  {\printtext[bibhyperref]{\printfield{shorthand}}}}
+  {\printtext[bibhyperref]{\printfield{shorthand}%
+    \usebibmacro*{uniqueshorthand}}}}
 %-----------------------
 \newbibmacro*{cite:label}{%
   \iffieldundef{label}%
