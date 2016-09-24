@@ -20,8 +20,8 @@ italian,
 ngerman,
 english
 ]{ltxdoc}
-\def\thisarchaeologieversion{2.1}
-\def\thisarchaeologiedate{2016-09-20}
+\def\thisarchaeologieversion{2.2}
+\def\thisarchaeologiedate{2016-09-XX}
 \input{archaeologie-preamble.tex}
 \NewEnviron{bibbsp}[1]
   {\par\medskip\noindent\footnotesize
@@ -208,6 +208,9 @@ The entry is a fragmentary ancient source (e.\,g. Festus); cf. \cref{frgancient}
 \DescribeMacro{corpus} 
 Only the |shorthand|-field is printed.
 This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.); cf. \cref{corpus}.
+
+\DescribeMacro{uniqueme} 
+In cases there are different translations of an ancient work you can decide which one is the standard translation and which ones should be made unique by displaying the translator/series/editor; cf. \cref{uniqueme}.
 
 \changes{v1.1}{2015/06/04}{New options added in summary.}
 
@@ -1173,6 +1176,40 @@ Fest. 3 L
 In the bibliography the reference differentiates slightly from |options = {ancient}| because of the missing ancient author of fragment collections, 
 so the editors name is printed in the first place:
 \printbib[5em]{Fest}
+
+\subsubsection{uniqueme}\label{uniqueme}
+\DescribeMacro{uniqueme} 
+Let us stick to ancient works for the option |uniqueme|:
+Sometimes you cite different kinds of translations of one ancient author.
+Despite you have several books the abbreviation of the ancient work is still the same and will be shown without a difference. 
+For these cases we introduced an option with which you can decide which translation should be cited in the common citation and which ones should be enhanced with e.g. the translator, the series, or the editor.
+
+Let us give you an example with the most famous ancient architect \citeauthor{Vitr}:
+Since he is so famous there are variant translations of his text.
+The German translation should be the standard reference translation;
+the bibliographical entry looks like this:
+\begin{lstlisting}[style=bibentry,label=Vitr,caption={{@}Book\{Vitr,…\} }]
+@Book{Vitr,
+  author        = {Vitruvius},
+  title         = {Zehn Bücher über Architektur},
+  publisher     = WBG, %@String used
+  location      = {Darmstadt},
+  year          = {2008},
+  edition       = {6},
+  origyear      = {1964},
+  origtitle     = {De architectura},
+  origlanguage  = {latin},
+  translator    = {Fensterbusch, Curt},
+  shorthand     = {Vitr.},
+  shortauthor   = {Vitruv},
+  keywords      = {ancient},
+  options       = {ancient},
+  sortshorthand = {Vitr.},
+}
+\end{lstlisting}
+
+
+
 
 \subsubsection{corpus}\label{corpus}
 \DescribeMacro{corpus}

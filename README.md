@@ -50,6 +50,7 @@ language files:
 
 additional lists and bibliographies:
 
+- archaeologie-examples.bib
 - archaeologie-lstabbrv.bib
 - archaeologie-lstpublishers.bib
 - archaeologie-lstlocations.bib

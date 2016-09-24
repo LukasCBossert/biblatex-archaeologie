@@ -23,7 +23,7 @@
   biblatex for archaeologists,
   historians and philologists}
 }
-\def\archaeologieversion{2.1}
+\def\archaeologieversion{2.2}
 \def\archaeologiedate{2016-09-20}
 \ExecuteBibliographyOptions{%
   pagetracker=true,%
@@ -34,7 +34,7 @@
   bibencoding=utf8,%
   dateabbrev=false, %
   sorting=nyt,%
-labeldateparts=true,
+  labeldateparts=true,
   maxnames=2,% 
   minnames=1,%
   maxitems=1,%
@@ -95,7 +95,7 @@ labeldateparts=true,
   \settoggle{bbx:urn}{#1}}
 \ExecuteBibliographyOptions{%
   jstor,%
-  urn,
+  urn,%
   }
 %-----------------------
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
@@ -263,8 +263,8 @@ labeldateparts=true,
     \field{sortkey}
   }
   \sort{
-      \field{sortshorthand}
-      \field{shorthand}
+    \field{sortshorthand}
+    \field{shorthand}
     \field{sortname}
     \field{author}
     \field{editor}
@@ -343,24 +343,24 @@ labeldateparts=true,
   \map{%
  % Author field
  \step[fieldsource=author,%
- match={\regexp{\b(Chr|Ch|Th|Ph|[B-DF-HJ-NP-TV-XZ](l|r))(\S*,)}},%
- replace={\regexp{\{$1\}$3}}]% Protect last names (first last)
+ match={\regexp{\b(Chr|Ch|Th|Ph|St)(\S*,)}},%
+ replace={\regexp{\{$1\}$2}}]% Protect last names (first last)
  \step[fieldsource=author,%
- match={\regexp{([^,]\s)\b(Chr|Ch|Th|Ph|[B-DF-HJ-NP-TV-XZ](l|r))}},%
+ match={\regexp{([^,]\s)\b(Chr|Ch|Th|Ph|St)}},%
  replace={\regexp{$1\{$2\}}}]% Protect last names (last, first)
  \step[fieldsource=author,%
- match={\regexp{\b(Chr|Ch|Th|Ph|[B-DF-HJ-NP-TV-XZ](l|r))([^\}])}},%
- replace={\regexp{\{\\relax\{\}$1\}$3}}]% Insert \relax after abbreviating
+ match={\regexp{\b(Chr|Ch|Th|Ph|St)([^\}])}},%
+ replace={\regexp{\{\\relax\{\}$1\}$2}}]% Insert \relax after abbreviating
  % Editor field
  \step[fieldsource=editor,%
- match={\regexp{\b(Chr|Ch|Th|Ph|[B-DF-HJ-NP-TV-XZ](l|r))(\S*,)}},%
- replace={\regexp{\{$1\}$3}}]% Protect last names (first last)
+  match={\regexp{\b(Chr|Ch|Th|Ph|St)(\S*,)}},%
+ replace={\regexp{\{$1\}$2}}]% Protect last names (first last)
  \step[fieldsource=editor,%
- match={\regexp{([^,]\s)\b(Chr|Ch|Th|Ph|[B-DF-HJ-NP-TV-XZ](l|r))}},%
+ match={\regexp{([^,]\s)\b(Chr|Ch|Th|Ph|St)}},%
  replace={\regexp{$1\{$2\}}}]% Protect last names (last, first)
  \step[fieldsource=editor,%
- match={\regexp{\b(Chr|Ch|Th|Ph|[B-DF-HJ-NP-TV-XZ](l|r))([^\}])}},%
- replace={\regexp{\{\\relax\{\}$1\}$3}}]% Insert \relax after abbreviating
+ match={\regexp{\b(Chr|Ch|Th|Ph|St)([^\}])}},%
+ replace={\regexp{\{\\relax\{\}$1\}$2}}]% Insert \relax after abbreviating
  }}}%
  }{}%
 }
