@@ -8,20 +8,19 @@
 	lstpublishers,
 	lstlocations,
 	lstabbrv,
+%	initials=false,
 ]{biblatex}
-\renewcommand\bibfont{\normalfont
-\footnotesize}
+\renewcommand\bibfont{\normalfont\footnotesize}
 \usepackage{metalogo}
 \usepackage{hologo}
 \usepackage{babel}
 \usepackage{coolthms}
-\usepackage[					% advanced quotes
-%	strict=true,					% 	- warning are errors now
-autostyle=true,%
+\usepackage[
+  autostyle=true,%
 ]{csquotes}
 \usepackage{multicol}
-\setlength{\columnsep}{1.5cm}
-\setlength{\columnseprule}{0.2pt}
+  \setlength{\columnsep}{1.5cm}
+  \setlength{\columnseprule}{0.2pt}
 
 \usepackage{alertmessage}
 
@@ -35,7 +34,7 @@ draft=false,
 ]{scrlayer-scrpage} 
 \pagestyle{scrheadings}
 \clearscrheadfoot
-	\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie \archaeologieversion} (c) by Lukas C. Bossert | Johannes Friedl}%
+	\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie \archaeologieversion} \copyright\ by Lukas C. Bossert | Johannes Friedl}%
 \rofoot{\large\footnotesize  \textbf{\sffamily \thepage}}
 
 \usepackage[%
@@ -59,13 +58,28 @@ draft=false,
 
 
 \listfiles
-%\EnableCrossrefs
-%\CodelineIndex
-%\RecordChanges
 \addbibresource{archaeologie-examples.bib}
-%\addbibresource{archaeologie-ancient.bib}
-%\addbibresource{antike-corpora.bib} %Version 2.0
 \usepackage{caption}
+
+\usepackage[skins,listings]{tcolorbox}
+\newtcbox{\mybib}[1]{
+  colback=codegreen!5!white, 
+  colframe=codegreen!75!black,
+  colback=red!5!white,
+  fonttitle=\sffamily\bfseries,
+  title=\Cref{#1},
+  }
+
+\newtcblisting{example}{%
+  colframe=codeblue,
+  colback=white,
+  coltitle=codeblue,
+  bicolor,
+  colbacklower=codeblue!10,
+  fonttitle=\sffamily\bfseries,
+  sidebyside,
+listing and text,
+}
 
 \usepackage{listings}
 \usepackage{chngcntr}
@@ -82,46 +96,29 @@ draft=false,
 \begin{adjustwidth}{.3cm}{.3cm}}{\end{adjustwidth}
 \end{footnotesize}\end{framed}}
 %------
+
 \usepackage{environ}
 \usepackage[tikz]{bclogo}
 \usepackage{tikz}
 \usetikzlibrary{calc}
-%\NewEnviron{bibbsp}[1]
-%  {\par\medskip\noindent\footnotesize
-%  \begin{tikzpicture}
-%    \node[inner sep=0pt] (box) {\parbox[t]{\textwidth}{%
-%      \begin{minipage}{.15\textwidth}
-%      \hspace{.5em}\scriptsize \textbf{\cref{#1}}\hfill
-%      \end{minipage}%
-%      \begin{minipage}{.83\textwidth}
-%      \BODY
-%      \end{minipage}\hfill}%
-%    };
-%    \draw[codeblue,line width=2pt] 
-%      ( $ (box.north east) + (-5pt,3pt) $ ) -- ( $ (box.north east) + (0,3pt) $ ) -- ( $ (box.south east) + (0,-3pt) $ ) -- + (-5pt,0);
-%    \draw[codeblue,line width=2pt] 
-%      ( $ (box.north west) + (5pt,3pt) $ ) -- ( $ (box.north west) + (0,3pt) $ ) -- ( $ (box.south west) + (0,-3pt) $ ) -- + (5pt,0);
-%  \end{tikzpicture}\par\medskip%
-%}
-%-----
 
 \newcommand{\printbib}[2][5em]{%
 \begingroup
-\begin{bibbsp}{#2}
+\begin{bibbox}{#2}
 \footnotesize
 \begin{refsection}
 \setlength{\labwidthsameline}{#1} 
 \nocite{#2}
 \printbibliography[heading=none]
 \end{refsection}
-\end{bibbsp}
+\end{bibbox}
 \endgroup
 }
 
 \newcommand{\printbiball}[2][5em]{%
 \begingroup
 \setlength{\labwidthsameline}{#1} 
-\begin{bibbsp}{#2}
+\begin{bibbox}{#2}
 \footnotesize%
 \begin{itemize}%[\bfseries]
 \begin{refsection}%
@@ -133,7 +130,7 @@ draft=false,
 \item[Spanish:]\foreignlanguage{spanish}{\printbibliography[heading=none]}
 \end{refsection}
 \end{itemize}%
-\end{bibbsp}
+\end{bibbox}
 \endgroup
 }
 
@@ -252,9 +249,11 @@ of this license or (at your option) any later version.},
 	bookmarksopen=true,		%
 	final=true	% = true, nur bei web-Dokument!! (wichtig!!)
 }
- \crefformat{lstlisting}{#2example\ #1#3}
- \Crefformat{lstlisting}{#2 #1#3}
+\usepackage{bookmark}
+
+\crefformat{lstlisting}{#2example\ #1#3}
+\Crefformat{lstlisting}{#2Example #1#3}
 \crefmultiformat{lstlisting}{#2examples #1#3}{; #2#1#3}{; #2#1#3}{; #2#1#3}
-\Crefmultiformat{lstlisting}{#2 #1#3}{; #2#1#3}{; #2#1#3}{; #2#1#3}
-\Crefrangeformat{lstlisting}{#3examples #1#4--#5examples #2#6}
-\crefrangeformat{lstlisting}{#3examples #1#4--#5examples #2#6}
+\Crefmultiformat{lstlisting}{#2Examples #1#3}{; #2#1#3}{; #2#1#3}{; #2#1#3}
+\Crefrangeformat{lstlisting}{#3Examples #1#4--#5#2#6}
+\crefrangeformat{lstlisting}{#3examples #1#4--#5#2#6}

@@ -120,6 +120,8 @@
     {}%
   }
 %-----------------------
+\ExecuteBibliographyOptions{initials=true}
+%-----------------------
 \DeclareEntryOption{ancient}[true]{\csuse{bool#1}{cbx:ancient}}
 \DeclareEntryOption{frgancient}[true]{%
   \ifstrequal{#1}{true}%
@@ -151,7 +153,7 @@
   \ifbool{bbx:counter}{counter\seperator}{}%
   \ifbool{bbx:edby}{edby\seperator}{}%
   \ifbool{bbx:inreferences}{inreferences\seperator}{}%
-  \ifbool{bbx:initials}{initials\seperator}{}%
+  \ifbool{bbx:initials}{}{\xout{initials}\seperator}%
   \ifbool{bbx:noabbrv}{noabbrv\seperator}{}%
   \ifbool{bbx:publisher}{publisher\seperator}{}%
   \ifbool{cbx:seenote}{seenote\seperator}{}%
