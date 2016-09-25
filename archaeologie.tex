@@ -12,7 +12,7 @@
 % version 2005/12/01 or later.
 %!TEX program = xelatex
 \documentclass[a4paper,
-10pt,
+11pt,
 greek,
 french,
 spanish,
@@ -21,7 +21,7 @@ ngerman,
 english
 ]{ltxdoc}
 \def\thisarchaeologieversion{2.2}
-\def\thisarchaeologiedate{2016-09-XX}
+\def\thisarchaeologiedate{2016-09-25}
 \input{archaeologie-preamble.tex}
 \begin{document}
 \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
@@ -232,9 +232,10 @@ The example shown in \cref{faq:inreference} makes it clear.
 Of course there is also the possibility to cite several authors/works in parentheses.
 This is done with \cs{parencites}:
 \begin{lstlisting}
-\parencites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
- 																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
- 																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
+\parencites(pre-prenote)(post-postnote)%
+*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
  
 \DescribeMacro{\textcite}
@@ -248,9 +249,10 @@ the remaining components such as year and page will immediately follow in parent
 \DescribeMacro{\textcites}
 And again there is also a \cs{textcites} in case of several authors: 
   \begin{lstlisting}
-\textcites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
- 																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
- 																			*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
+\textcites(pre-prenote)(post-postnote)%
+*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{lstlisting}
 
 \DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
@@ -463,17 +465,17 @@ will behave like \cs{cite(s)} because |seenote| actually just checks for occurre
 We give an example, first citation will show:
 
 \begin{tcolorbox}[examplebox] 
-\cs{footnote}\{\cs{cite}\{Ball2013\}.\}
+|\footnote{\cite{Ball2013}.}|
 \tcblower
-L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current thinking on the Pompeii Forum, 117/3, 2013, 461–492.
+\footnote{L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current thinking on the Pompeii Forum, 117/3, 2013, 461–492.}
 \end{tcolorbox}
 
 
 Second citation of
 \begin{tcolorbox}[examplebox] 
-\cs{footnote}\{\cs{cite}{[}470{]}\{Ball2013\}.\}
+|\footnote{\cite{Ball2013}.}|
 \tcblower
-Ball – Dobbins loc. cit. (see n. \oarg{number of the footnote with full citation}) 470.
+\footnote{Ball – Dobbins loc. cit. (see n. \oarg{number of the footnote with full citation}) 470.}
 \end{tcolorbox}
 
 \changes{v1.5}{2016/05/31}{Rückverweis}
@@ -554,25 +556,35 @@ Another example makes it clear:
 }
 \end{lstlisting}
 
-There are two ways to display  |\cite{Nieddu1995}|:
+There are two ways to display this entry:
  \begin{enumerate}
- \item by default it will give:  %Nieddu 1995
+ \item by default it will give:  
+ \begin{example}
  \cite{Nieddu1995}
- \item with the option |inreferences| it will change to:
+ \end{example}
+ \item with the option |inreferences| it will change:
+ \begin{tcolorbox}[examplebox]
+ | \cite{Nieddu1995}|
+ \tcblower
  LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
- % \cite{Nieddu_1995}
+ \end{tcolorbox}
   \end{enumerate}
 
 If the \oarg{postnote} is defined with the columns/page number, (e.\,g. |\cite[9]{Nieddu1995}|), 
 then it will change the position for the \oarg{postnote}:
-% \begin{bsp}
 \begin{enumerate} 
- \item by default it will give:  %Nieddu 1995
+ \item by default it will give: 
+ \begin{example}
  \cite[9]{Nieddu1995}
- \item with the option |inreferences| it will change to:
+ \end{example}
+ \item with the option |inreferences| it will change again:
+  \begin{tcolorbox}[examplebox]
+ | \cite[9]{Nieddu1995}|
+ \tcblower
   LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
+ \end{tcolorbox}
   \end{enumerate}
-%\end{bsp}
+
 
 
 \begin{marker}
@@ -656,35 +668,37 @@ because the default is set  |citeauthorformat=initials|
 
 
 
-Or you can change it using the settings
-\begin{enumerate}
-\item |citeauthorformat=full| \ref{name:full} 
-\item |citeauthorformat=family| \ref{name:family}
-\item  |citeauthorformat=firstfull|  \ref{name:firstfull}
-\end{enumerate}
+Or you can change it using the settings in the preamble:
 
-
-\begin{tcolorbox}[examplebox] 
 \begin{enumerate}
 \item\label{name:full} 
+\begin{tcolorbox}[examplebox]
+ |citeauthorformat=full| 
+ \tcblower
 \ldots , this is also shown by {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
-\item |citeauthorformat=full| \ref{name:full} 
+\end{tcolorbox}
 \item\label{name:family}
+\begin{tcolorbox}[examplebox]
+ |citeauthorformat=family| 
+ \tcblower
 \ldots , this is also shown by {\color{red}Boehmer und  Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
+\end{tcolorbox}
 \item\label{name:firstfull}
+\begin{tcolorbox}[examplebox]
+ |citeauthorformat=firstfull| 
+ \tcblower
 \ldots , this is also shown by {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
+\end{tcolorbox}
 \end{enumerate}
-\end{tcolorbox}
 
-If you use |citeauthorformat=firstfull| the first citation will look like \ref{name:firstfull}, but after that that all following citations of |\citeauthor{Boehmer1985}| will change to:
 
-\begin{tcolorbox}[examplebox] 
-... , this is also shown by R. M. Boehmer und  N. Wrede in their latest article \emph{Astragalspiele in und um Warka} (1985).
-\end{tcolorbox}
+If you use |citeauthorformat=firstfull| the first citation will look like \ref{name:firstfull}, but after that that all following citations of |\citeauthor{Boehmer1985}| will change to the default behaviour and show the initials.
 \end{refsection}
 
-
+To complete this example,
+here is the appearence of the entry in a bibliography:
 \printbib[9em]{Boehmer1985}
+
 
 Two things are left to mention: 
 \begin{enumerate}
@@ -720,6 +734,7 @@ and the following statement we obtain the result:
 \end{example}
 \end{refsection}
 
+And again the bibliography for |@Book{Quint:inst}|:
 \printbib[5em]{Quint:inst}
 
 \subsubsection{yearinparens}\label{yearinparens}
@@ -729,14 +744,17 @@ As the options name evokes the publication year of the cited entries
 in footnotes as well as in the bibliography. 
 The ›Klammerregel‹ (correct alternation of different brackets) will be respected.
 
-In the case of |\cite[475]{Ball2013}|, instead of
-\begin{tcolorbox}[examplebox] 
-Ball – Dobbins 2013, 475 
-\end{tcolorbox}
+In the case of a common entry which will be shown like this
+\begin{example}
+\cite[475]{Ball2013}
+\end{example}
+
 
 now we get
 
 \begin{tcolorbox}[examplebox] 
+|\cite[475]{Ball2013}|
+\tcblower
 Ball – Dobbins {\color{red}(}2013{\color{red})}, 475.
 \end{tcolorbox}
 
@@ -751,16 +769,18 @@ Entries without |author| or |editor| setting but with a defined
 because |label| is not an author name but a self-defined expression with varying purposes.
 Further excluded are ancient authors (|options={ancient}| or |options={frgancient}|).
 
-By default---to quote the just established example |\cite[475]{Ball2013}|---we have again
+By default---to quote the just established example |\@Article{Ball2013}|---we have again by default:
 
-\begin{tcolorbox}[examplebox] 
-    \cite[475]{Ball2013} 
-    \end{tcolorbox}
+\begin{example}
+\footnote{\cite[475]{Ball2013}.}
+\end{example}
 
 But with |schape| it will turn into:
 
 \begin{tcolorbox}[examplebox] 
-{\scshape {\color{red}Ball – Dobbins}} 2013, 475
+|\footnote{\cite[475]{Ball2013}.}|
+\tcblower
+\footnote{{\scshape {\color{red}Ball – Dobbins}} 2013, 475.}
 \end{tcolorbox}
 
 And since the entry looks like this
@@ -857,7 +877,7 @@ In case of reprint or second edition the first edition |origyear| will be put in
 \begin{refsection}\end{refsection}
 
 Default settings produce:
-\printbib[6em]{Emme2013}
+\printbib[5em]{Emme2013}
  
 By activating option |publisher| you obtain:
 
@@ -1070,7 +1090,7 @@ Another example:
 \end{lstlisting}
 
 Even support for several languages is taken into account as this bibliography entries show: 
-\printbiball{Cic:Sest}
+\printbiball[4em]{Cic:Sest}
 
 \subsubsection{frgancient}\label{frgancient}
 \DescribeMacro{frgancient}
@@ -1310,7 +1330,7 @@ An entry of a book might look as this in your |bib|-file:
 
 A citation in a footnote is done like this and will be printed as you see:
 \begin{example}
-Just some text.\footnote{\cite[Vgl.][142--144]{Mann2011}.}
+\footnote{\cite[Vgl.][142--144]{Mann2011}.}
 \end{example} 
 \printbib[5em]{Mann2011}
 
@@ -1378,7 +1398,7 @@ and the relation got specified with the field |relatedtype|, in this case it is 
 You don't have to cite |Zanker2009| to have the information visible in the bibliography. 
 It will be included automatically. For the following bibliography we only use |\cite{Zanker1988}|:
 
-\printbiball[6em]{Zanker1988}
+\printbiball[5em]{Zanker1988}
 
 
 \subsubsection{Multiple volumes of a monograph}
@@ -1402,7 +1422,7 @@ Let’s assume this is the bibliography entry:
 In the bibliography the main title of the monograph (|maintitle|)
 and the title of the book (|title|) are shown separately  so the volume  (|volume|) 
 appears before the title of the book
-\printbib[7em]{MacDonald1986}
+\printbib[6em]{MacDonald1986}
 
 
 \subsection{Type \texttt{@Inbook / @Incollection}}\label{inbook}
@@ -1457,7 +1477,7 @@ but then notice the additional information in |booktitleaddon|.
 }
 \end{lstlisting}
 In the bibliography it will look like:
-\printbib[6em]{Hoelscher2001}
+\printbib[5.5em]{Hoelscher2001}
 
 \subsubsection{Short series}
 Some books or collections are part of a small series (not an ongoing series).
@@ -1555,7 +1575,7 @@ Here we have an example which will explain the (required)  fields:
 }
 \end{lstlisting}
 In line 5 and 6 you can also write the full or abbreviated journal title in the fields |journaltitle| or |shorttitle| (e.\,g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@String| (cf. \cref{list-bibancient,string}) again.
-\printbib[7em]{Evangelidis2014}
+\printbib[6.5em]{Evangelidis2014}
 
 
 \subsection{Type \texttt{@Proceedings}}\label{proceedings}
@@ -1729,7 +1749,7 @@ and there will be no reference to the bibliography since the entry is fully desc
 \DescribeMacro{inreferences} If you prefer this method you have to use the preamble option called  |inreferences|---cf. \cref{inreferences}
 Then it will look like this in the footnote:
 \begin{tcolorbox}[examplebox] 
-\cs{cite}\{Neils1994\}.
+|\cite{Neils1994}.|
 \tcblower
 LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils)
 \end{tcolorbox}
@@ -1761,18 +1781,14 @@ You just need to make sure that  |booktitle| of the |@Inreference| and the |shor
 the  |@Reference| are equal so the title can be referenced properly in the bibliography.
 
 For the following bibliography result we just typed (assuming that the entries were already cited in text):
-\begin{lstlisting}
+
+\begin{refsection}
+\nocite{Lexikon-der-Technik,Weinbrenner1914,LTUR,Neils1994}
+\setlength{\labwidthsameline}{5em} 
+\begin{example}
 \printbibliography[keyword=corpus,title={Corpora}]
 \printbibliography[notkeyword=corpus]
-\end{lstlisting}
-
-\begin{refsection}\setlength{\labwidthsameline}{7em} 
-
-\begin{bibbox}{Lexikon-der-Technik,Weinbrenner1914}
-\nocite{Lexikon-der-Technik,Weinbrenner1914}
-\printbibliography[keyword=corpus,title={Corpora}]
-\printbibliography[notkeyword=corpus]
-\end{bibbox}
+\end{example}
 \end{refsection}
 
 
@@ -1830,7 +1846,7 @@ You don’t have to type in all relevant information of the reviewed work in the
 since they will be inserted automatically and dynamically with the  |related|-function. 
 So whenever settings in the reviewed work are changed the print of the review will be automatically adjusted. 
 Furthermore, even if the review is cited, the reviewed work won't be listed in the bibliography until it is explicitly cited in the text.
-\printbib{Bell2011}
+\printbib[4em]{Bell2011}
 
 
 \subsubsection{Reviews with an individual title}
@@ -1853,7 +1869,7 @@ The following entry is an example which also reviews the book by \citeauthor*{We
 \end{lstlisting}
 In the bibliography there will be first the individual title followed by the information of the reviewed work.
 
-\printbib[7em]{Hufschmid2010}
+\printbib[6em]{Hufschmid2010}
 
 
 \subsubsection{multiple reviewed works in one review}
@@ -1969,7 +1985,7 @@ Here is an example for a  paper  given in Berlin in 2015:
 \end{lstlisting}
 The bibliography will show the entry as:
 
-		\printbib[7em]{Bergmann2015}
+\printbib[6em]{Bergmann2015}
 	
  \changes{v1.5}{2016/05/31}{Rückverweis}
 
@@ -1991,7 +2007,7 @@ But first we define the heading of the whole  bibliography:
 
 \begin{refsection}
     \nocite{*}
-    \renewcommand\bibfont{\normalfont\normalsize}
+    \renewcommand\bibfont{\normalfont\footnotesize}
     \setlength{\labwidthsameline}{6em} 
 \begin{example}
 \printbibheading[%
@@ -2003,6 +2019,7 @@ You can give any title you would like to give (|title = |\marg{any title}).
 
 The next step is to set up the bibliography for the ancient authors.
 
+\setlength{\labwidthsameline}{6.5em} 
 \begin{example}
 \printbibliography[%
   keyword=ancient,%
@@ -2018,7 +2035,7 @@ This time we exclude all entries which have |ancient| or |corpus| in the field |
 That’s it.
 (Don't be surprised about the line |notkeyword=corpus| which excludes entries with special |shorthand| labels, a further bibliography part with all the |shorthands| is described below.).
 
-
+\setlength{\labwidthsameline}{7em} 
 \begin{example}
 \printbibliography[%
   notkeyword=ancient,%
@@ -2065,7 +2082,7 @@ For series it is done like this:
 \end{example}
 \end{refsection}
 
-\clearpage
+
 \section{FAQ: For  Ancient (scholars of high) Quality}
 \subsection{Following pages}
 \DescribeMacro{\psq} If you have to cite two following pages there is the macro \cs{psq} which is best to you since it is also controlled by the set up language.
@@ -2132,7 +2149,7 @@ The rule says that within a pair of parentheses you have to use square brackets.
 Citing |@Inreferences| can lead easily to a false behaviour when you put it in parentheses.
 This is an example how it should not be done:
 \begin{tcolorbox}[examplebox]
-\cs{cite}[vgl.][930 Nr. 283]\{Neils1994\}. 
+|\cite[vgl.][930 Nr. 283]{Neils1994}.| 
 \tcblower
 (vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)). \textcolor{red}{\textbf{WRONG!!}}
 \end{tcolorbox}
@@ -2141,7 +2158,7 @@ This is an example how it should not be done:
 This example shows that the correct order of parentheses has not been followed.
 Especially when you activated the preamble option  |inreferences=true| \DescribeMacro{inreferences} you should use \cs{parencite}\marg{bibtex-key} instead (\cref{cite-commands}), then the correct order of parentheses and square brackets is given:
 \begin{tcolorbox}[examplebox]
-\cs{parencite}[vgl.][930 Nr. 283]\{Neils1994\}.
+|\parencite[vgl.][930 Nr. 283]{Neils1994}.| 
 \tcblower
 (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green}{\textbf{CORRECT!}}
 \end{tcolorbox}
@@ -2223,7 +2240,7 @@ This following example is about an article which was accepted by the journal and
 }
 \end{lstlisting}
 
-\printbib[9.5em]{Bossert:forthcoming}
+\printbib[7.5em]{Bossert:forthcoming}
 
 
 \subsection{Print the used options}
@@ -2307,7 +2324,7 @@ Let us take as example the \citetitle{LTUR}:
 Since this reference-series is completed we define the first and last year by using |date = {1993/2000}|. Be sure \emph{not}  using field |year| but instead |date| since |year| cannot cope with date ranges dependably.
 
 Let us take a look at another example:
-\begin{lstlisting}[style=bibentry,label=DeVisscher1951-1952,caption={{@}@Article\{DeVisscher1951-1952,…\} }]
+\begin{lstlisting}[style=bibentry,label=DeVisscher1951-1952,caption={{@}Article\{DeVisscher1951-1952,…\} }]
 @Article{DeVisscher1951-1952,
   author       = {de Visscher, Fernand and Mertens, Joseph},
   title        = {Les puits du Forum d'Alba Fucense},
@@ -2332,7 +2349,7 @@ The bibliography |archaeologie-bibancient.bib| is filled with ancient authors, w
 The bold entry on the left is the |bibtex-key|.\footnote{If you think the list should be enlarged, let us know the entries.}
 All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
 
-\begin{multicols}{2}
+\begin{multicols}{3}
 	\input{archaeologie-ancient.tex}
 \end{multicols}
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}

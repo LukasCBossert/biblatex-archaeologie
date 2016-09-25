@@ -5,7 +5,7 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2016/09/20 v2.1_
+_2016/09/25 v2.2_
 
 Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 
@@ -31,7 +31,7 @@ documentation:
 
 - archaeologie.pdf
 - archaeologie.tex
-- archaeologie-ger.pdf (*shortdocumentation*)
+- archaeologie-ger.pdf (*short documentation*)
 - archaeologie-ger.tex
 
 mandatory:

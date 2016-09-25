@@ -1,7 +1,8 @@
+\listfiles
 \usepackage[oldstyle]{libertine}
 \renewcommand*\ttdefault{lmvtt}
 
-\usepackage[					% use  for bibliography
+\usepackage[
 	backend=biber,
 %	backref,
 	style=archaeologie,
@@ -25,8 +26,8 @@
 
 
 \usepackage[ 
-%	headsepline, 
-%	footsepline,
+	headsepline, 
+	footsepline,
 %	plainfootsepline, 
 %markcase=upper, 
 automark, 
@@ -46,7 +47,7 @@ draft=false,
 			]{footmisc} %Fussnoten
 
 
-\usepackage{framed}
+
 \usepackage{enumitem}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 2pt}
@@ -57,15 +58,17 @@ draft=false,
 \defbibheading{empty}{}
 
 
-\listfiles
+
 \addbibresource{archaeologie-examples.bib}
 \usepackage{caption}
 
 \usepackage[skins,listings]{tcolorbox}
 \tcbuselibrary{breakable}
 
+
 \newtcolorbox{bibbox}[1]{
 enhanced,
+breakable,
 attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
   colback=codegreen!50!white, 
   colbacktitle=backcolour,
@@ -95,8 +98,8 @@ enhanced,
   
 \tcbset{examplebox/.style={%
  colframe=codeblue,
-  colback=white,
-   coltitle=white,%  coltitle=codeblue,
+  colback=backcolour,
+   coltitle=backcolour,%  coltitle=codeblue,
   bicolor,
   colbacklower=codeblue!10,
   fonttitle=\sffamily\bfseries,
@@ -124,15 +127,8 @@ listing and text,
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-\newenvironment{bsp}{\begin{framed}\begin{footnotesize}
-\begin{adjustwidth}{.3cm}{.3cm}}{\end{adjustwidth}
-\end{footnotesize}\end{framed}}
-%------
 
-\usepackage{environ}
-\usepackage[tikz]{bclogo}
-\usepackage{tikz}
-\usetikzlibrary{calc}
+%------
 
 \newcommand{\printbib}[2][5em]{%
 \begingroup
@@ -208,14 +204,13 @@ listing and text,
 
  \lstdefinestyle{code}{%
 	language=[LaTeX]TeX,
-    backgroundcolor=\color{white},   
+   backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
     keywordstyle=\color{codeblue},
     numberstyle=\small\color{codegray},
     stringstyle=\color{codepurple},
 	escapeinside={*@}{@*},
     texcsstyle=*\color{codeblue},
-    morekeywords={},
     basicstyle=\ttfamily\footnotesize,
     breakatwhitespace=false,         
     breaklines=true,                 
@@ -228,7 +223,8 @@ listing and text,
     showstringspaces=false,
     showtabs=false,                  
     tabsize=2,
-      morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,
+      morekeywords={cites, parencites, parencite, textcite, 
+      textcites, citeauthor, citetitle,
     						@String,
     						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
     						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
@@ -245,7 +241,7 @@ listing and text,
 \let\numberLineAt\StartLineAt
 
 \lstset{style=code}
-\lstMakeShortInline[style=code]{|}
+\lstMakeShortInline[style=code]|
 
 
 \usepackage{hyperxmp}
