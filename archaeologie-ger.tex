@@ -13,21 +13,6 @@
 %!TEX program = xelatex
 \documentclass[a4paper,10pt,ngerman]{ltxdoc}
 \input{archaeologie-preamble.tex}
-\NewEnviron{bibbsp}[1]
-  {\par\medskip\noindent\footnotesize
-  \begin{tikzpicture}
-    \node[inner sep=0pt] (box) {\parbox[t]{1.05\textwidth}{%
-    \hspace{.05\textwidth}\begin{minipage}{.95\textwidth}
-      \BODY 
-      \end{minipage}
-      }%
-    };
-    \draw[codeblue,line width=2pt] 
-      ( $ (box.north east) + (-5pt,3pt) $ ) -- ( $ (box.north east) + (0,3pt) $ ) -- ( $ (box.south east) + (0,-3pt) $ ) -- + (-5pt,0);
-    \draw[codeblue,line width=2pt] 
-      ( $ (box.north west) + (5pt,3pt) $ ) -- ( $ (box.north west) + (0,3pt) $ ) -- ( $ (box.south west) + (0,-3pt) $ ) -- + (5pt,0);
-  \end{tikzpicture}\par\medskip%
-}
 \begin{document}
  \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} für Archäologen\footnote{Ebenso geeignet für (Alt-)Philologen und (Alt-)Historiker.
  Die Entwicklung des Codes findet statt auf \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
@@ -101,6 +86,9 @@ Diese Einträge steuern die Zitationsform und ermöglichen nach Textsorten getre
 
 \DescribeMacro{bibfullname}  Schreibt die Autoren/Herausgeber mit vollem Namen in die Bibliographie. Standard ist sonst die Abkürzung der Vornamen. 
 
+\DescribeMacro{initials}  Kürzt die Vornamen der Autoren oder Herausgeber auf die ersten zwei bzw. drei Buchstaben.
+Berücksichtigt werden Vornamen mit Anfangsbuchstaben |Ch., Chr., Ph., Th., St.|
+
 \DescribeMacro{citeauthorformat}
 Mit dieser Textoption kann man entscheiden, 
 wie Autoren/Herausgeber, die über \cs{citeauthor}\-\marg{bibtex-key} im Fließtext aufgerufen werden,
@@ -152,7 +140,9 @@ Zusätzlich kann ein einzelner Bibliographieeintrag durch folgende Werte in sein
 
 \DescribeMacro{frgancient}  Zeichnet den Eintrag als antikes Fragment aus. Entspricht der Option |ancient|, unterscheidet sich nur darin, dass anstelle des Autors der Herausgeber im Zitat angeführt wird. Die Option kann man dann für antike Texte verwenden, wenn z.\,B. die Autorschaft des Textes/der Fragmente unbekannt ist oder es allgemeiner Usus ist, den Herausgeber anstelle des Autors zu zitieren.
 
-\DescribeMacro{uniqueme}  XXX
+\DescribeMacro{uniqueme} Zeichnet den Eintrag (einer antiken Quellen) dahingehend aus,
+dass dieser über den Zusatz des Übersetzers bzw. der Serie bzw. des Herausgebers eindeutig gesetzt wird.
+Dies empfiehlt sich, wenn  neben einer Standardausgabe einer Quelle weitere Übersetzungen zitiert werden.
 
 \DescribeMacro{corpus}  Auch hier wird das |shorthand|-Feld ohne abschließendes Komma ausgegeben. 
 Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.). 
@@ -202,7 +192,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[10em]{Ball2013}
+\printbib[8em]{Ball2013}
 
 
 \DescribeMacro{@book}  \DescribeMacro{@collection}  Für Monographien und Sammelbände.
@@ -211,7 +201,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|, |related|, |relatedtype|, |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[9em]{Fentress2003}
+\printbib[7em]{Fentress2003}
 
  
 \DescribeMacro{@inbook}  \DescribeMacro{@incollection}  Für Beiträge innerhalb eines Sammelbandes.
@@ -220,7 +210,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|, |related|, |relatedtype|, |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[7em]{Mundt2015}
+\printbib[5em]{Mundt2015}
 
  
 \DescribeMacro{@proceedings}  Für Konferenz-/Kolloquiumssammelbände, bei denen ein Datum angegeben ist. 
@@ -229,7 +219,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|, |related|, |relatedtype|, |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[9em]{Kurapkat2014}
+\printbib[7em]{Kurapkat2014}
 
 
 \DescribeMacro{@inproceedings}  Für Beiträge innerhalb eines Konferenz-/Kolloquiumssammelbandes, bei denen ein Datum angegeben ist. 
@@ -238,7 +228,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |maintitle|, |mainsubtitle|, |maintitleaddon|, |related|, |relatedtype|, |publisher|, |series|, |number|, |edition|, |origyear|, |origlanguage|, |origlocation|, |translator|, |volume|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[9em]{Wulf-Rheidt2013}
+\printbib[7em]{Wulf-Rheidt2013}
 
  
 \DescribeMacro{@talk}  Für (mündliche) Vorträge (Kolloquium, Konferenz) 
@@ -247,7 +237,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum| 
 \end{description}
 
-\printbib[8em]{Bergmann2015}
+\printbib[6em]{Bergmann2015}
 
 
 \DescribeMacro{@review} Für Rezensionen.
@@ -256,7 +246,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[7em]{Taylor2008}
+\printbib[5em]{Taylor2008}
 
 
 \DescribeMacro{@reference}  Für Lexika als Gesamtwerk.
@@ -276,7 +266,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 |publisher|, |series|, |number|, |edition|, |origyear|, |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
 
-\printbib[7em]{Nieddu1995}
+\printbib[5em]{Nieddu1995}
 
 
 \DescribeMacro{@thesis}  Für (unpublizierte) eingereichte Dissertationen oder Master/Magisterarbeiten.
@@ -287,7 +277,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 
 Für eine Dissertation:  |type = {phdthesis}|, \\ für eine Magister/Masterarbeit: |type={mathesis}|.
 
-\printbib[7em]{Arnolds2005}
+\printbib[5em]{Arnolds2005}
 
 
 \section{Bibliographie}\label{bibliographie}
@@ -297,27 +287,6 @@ Für Altertumswissenschaftler (und auch andere) ist es manchmal hilfreich, versc
 
 Nachfolgend wird gezeigt, wie einem eine solche Bibliographieaufteilung mit |archaeologie| leicht gelingt. Dafür nutzen wir das |keyword|-Feld eines Bibliographieeintrages. Für jeden Bibliographietyp wählen wir eine Kategorie. Zunächst versehen wir in der |bib|-Datei  alle antiken Texte, die bereits |options={ancient}| oder |options={frgancient}| enthalten sollten, mit dem Feld |keyword={ancient}|. Das gleiche machen wir für alle Publikationen, die spezielle Abkürzungen haben: Corpora, Lexika und Handbücher. Diese erhalten |keyword={corpus}|. Anschließend können wir antike Primärliteratur und abgekürzte Sigel/Corpora von sekundärer Forschungliteratur getrennt bibliographieren. Bib\LaTeX{} bietet hierfür eine einfache Filtermöglichkeit mit den Optionen |keywort=…| und |notkeyword=…| im \cs{printbibliography}-Befehl:
 
-\begin{lstlisting}
-\printbibheading[%
-							heading=bibliography,
-							title={Bibliographie}]% Überschrift für Bibliographie
-
-\printbibliography[%
-							heading=subbibliography,
-							keyword=ancient,%
-							title={Antike Quellen}]
-
-\printbibliography[%
-							heading=subbibliography,
-              keyword=corpus,%
-              title={Abkürzungen und Sigel}]
-
-\printbibliography[%
-							heading=subbibliography,
-							notkeyword=ancient,%
-							notkeyword=corpus,%
-							title={Forschungsliteratur}]
-\end{lstlisting}
 
 Mithilfe des |keyword|-Filters haben wir in den ersten beiden \cs{printbibliography}-Befehlen die entsprechende Literatur ausgewählt, im letzten \cs{printbibliography}-Befehl, der die \enquote{Restliteratur} auslesen soll, müssen dann alle zuvor verwendeten Filterbegriffe mithilfe eines Ausschlussverfahrens über |notkeyword| eingetragen werden: Die Forschungsliteratur beinhaltet also alle Publikationen, die nicht |ancient| und nicht |corpus| sind.
 
@@ -329,57 +298,55 @@ Ball2013,Taylor2008,Mann2011,Mundt2015,Kurapkat2014,%
 Wulf-Rheidt2013,Bergmann2015,LTUR,Nieddu1995,Arnolds2005}
 
 \setcounter{section}{0}
-\begin{bsp}
-\renewcommand\bibfont{\normalfont\footnotesize}
+    \renewcommand\bibfont{\normalfont\normalsize}
+    \setlength{\labwidthsameline}{5.5em} 
+\begin{example}
 \printbibheading[%
-							heading=bibliography,
-							title={Bibliographie}]% Überschrift für Bibliographie
+  heading=bibliography,
+  title={Bibliographie}]% Überschrift für Bibliographie
+\end{example}
+
+
+\begin{example}
+\printbibliography[%
+  heading=subbibliography,
+  keyword=ancient,%
+  title={Antike Quellen}]
+\end{example}
+
+\begin{example}
+\printbibliography[%
+  heading=subbibliography,
+  keyword=corpus,%
+  title={Abkürzungen und Sigel}]
 
 \printbibliography[%
-							heading=subbibliography,
-							keyword=ancient,%
-							title={Antike Quellen}]
+  heading=subbibliography,
+  notkeyword=ancient,%
+  notkeyword=corpus,%
+  title={Forschungsliteratur}]
+\end{example}
 
-\printbibliography[%
-							heading=subbibliography,
-              				keyword=corpus,%
-              				title={Abkürzungen und Sigel}]
-
-\printbibliography[%
-							heading=subbibliography,
-							notkeyword=ancient,%
-							notkeyword=corpus,%
-							title={Forschungsliteratur}]
-\end{bsp}
 
 Mit dem eben beschriebenen Verfahren können mit beliebigen |keyword|-Begriffen beliebige Bibliographien über \cs{printbibliography} erstellt werden, die jeweils unterschiedliche Einträge haben können.
 
 Ebenso hilfreich kann es sein, Abkürzungen von Zeitschriften und Reihen aufzulösen. Bib\LaTeX{} liest hierfür die im Feld |shortjournal| bzw. |shortseries| hinterlegten Abkürzungen aller Bibliographieeinträge aus und löst sie durch die Inhalte der Felder |journaltitle| bzw. |series| auf. Hierzu müssen die Felder jedoch beide befüllt sein: ein |shortjournal|-Eintrag ohne |journaltitle|-Entsprechung wird nicht indiziert und folglich in der Liste fehlen.
 
 Die Abkürzungsliste erhält man für Zeitschriften mit:
-\begin{lstlisting}
+\begin{example}
 \printbiblist[%
-					heading=subbibliography,
-					title={Zeitschriftenabkürzungen}%
-					]{shortjournal}
-\end{lstlisting}
-
-\begin{bsp}
-\printbiblist[	heading=subbibliography,
-title={Zeitschriftenabkürzungen}]{shortjournal}
-\end{bsp}
+  heading=subbibliography,
+  title={Zeitschriftenabkürzungen}%
+]{shortjournal}
+\end{example}
 
 und für Reihen mit:
-\begin{lstlisting}
+\begin{example}
 \printbiblist[%
-					heading=subbibliography,
-					title={Reihenabkürzungen}%
-					]{shortseries}
-\end{lstlisting}
+  heading=subbibliography,
+  title={Reihenabkürzungen}%
+]{shortseries}
+\end{example}
 
-\begin{bsp}
-\printbiblist[	heading=subbibliography,
-title={Reihenabkürzungen}]{shortseries}
-\end{bsp}
 \end{refsection}
 \end{document}
