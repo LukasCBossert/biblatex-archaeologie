@@ -22,7 +22,7 @@
   \setlength{\columnsep}{1.5cm}
   \setlength{\columnseprule}{0.2pt}
 
-\usepackage{alertmessage}
+
 
 \usepackage[ 
 %	headsepline, 
@@ -62,24 +62,56 @@ draft=false,
 \usepackage{caption}
 
 \usepackage[skins,listings]{tcolorbox}
-\newtcbox{\mybib}[1]{
-  colback=codegreen!5!white, 
-  colframe=codegreen!75!black,
-  colback=red!5!white,
-  fonttitle=\sffamily\bfseries,
-  title=\Cref{#1},
-  }
+\tcbuselibrary{breakable}
 
-\newtcblisting{example}{%
+\newtcolorbox{bibbox}[1]{
+enhanced,
+attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+  colback=codegreen!50!white, 
+  colbacktitle=backcolour,
   colframe=codeblue,
   colback=white,
-  coltitle=codeblue,
+  coltitle=white,
+  center title,
+  fonttitle=\sffamily\bfseries,
+  title=\Cref{#1},
+}
+
+
+\newtcolorbox{marker}[1][]{
+enhanced,
+  before skip=2mm,after skip=3mm,
+  boxrule=0.4pt,left=5mm,right=2mm,top=1mm,bottom=1mm,
+  colback=yellow!50,
+  colframe=yellow!20!black,
+  sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
+  underlay={%
+    \path[fill=tcbcol@back!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[draw=tcbcol@frame,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[fill=yellow!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
+    },
+  drop fuzzy shadow,#1
+  }
+  
+\tcbset{examplebox/.style={%
+ colframe=codeblue,
+  colback=white,
+   coltitle=white,%  coltitle=codeblue,
   bicolor,
   colbacklower=codeblue!10,
   fonttitle=\sffamily\bfseries,
-  sidebyside,
+  }}
+
+\newtcblisting{example}{%
+    before skip=\baselineskip,
+examplebox,
+breakable,
+%  sidebyside,
+%%%%text and listing,
 listing and text,
 }
+
+
 
 \usepackage{listings}
 \usepackage{chngcntr}
@@ -105,7 +137,6 @@ listing and text,
 \newcommand{\printbib}[2][5em]{%
 \begingroup
 \begin{bibbox}{#2}
-\footnotesize
 \begin{refsection}
 \setlength{\labwidthsameline}{#1} 
 \nocite{#2}
@@ -119,15 +150,16 @@ listing and text,
 \begingroup
 \setlength{\labwidthsameline}{#1} 
 \begin{bibbox}{#2}
-\footnotesize%
-\begin{itemize}%[\bfseries]
-\begin{refsection}%
+\begin{itemize}
+\begin{refsection}
+\begin{footnotesize}
 \nocite{#2}%
 \item[English:]{\printbibliography[heading=none]}
 \item[German:]\foreignlanguage{ngerman}{\printbibliography[heading=none]}
 \item[Italian:]\foreignlanguage{italian}{\printbibliography[heading=none]}
 \item[French:]\foreignlanguage{french}{\printbibliography[heading=none]}
 \item[Spanish:]\foreignlanguage{spanish}{\printbibliography[heading=none]}
+\end{footnotesize}
 \end{refsection}
 \end{itemize}%
 \end{bibbox}

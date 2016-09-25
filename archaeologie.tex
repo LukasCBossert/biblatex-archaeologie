@@ -23,25 +23,7 @@ english
 \def\thisarchaeologieversion{2.2}
 \def\thisarchaeologiedate{2016-09-XX}
 \input{archaeologie-preamble.tex}
-\NewEnviron{bibbsp}[1]
-  {\par\medskip\noindent
-  \begin{tikzpicture}
-    \node[inner sep=0pt,label={[label distance=.5em,xshift=-4.5cm]above:\normalsize\textbf{\Cref{#1}}}] (box) {\parbox[t]{\textwidth}{%
-    \hspace{.025\textwidth}\begin{minipage}{.95\textwidth}
-     \footnotesize \BODY 
-      \end{minipage}\hspace{.025\textwidth}}
-    };
-    \draw[codegreen,line width=2pt] 
-      ( $ (box.north east) + (-5pt,3pt) $ ) -- ( $ (box.north east) + (0,3pt) $ ) -- ( $ (box.south east) + (0,-3pt) $ ) -- + (-5pt,0);
-    \draw[codegreen,line width=2pt] 
-      ( $ (box.north west) + (5pt,3pt) $ ) -- ( $ (box.north west) + (0,3pt) $ ) -- ( $ (box.south west) + (0,-3pt) $ ) -- + (5pt,0);
-  \end{tikzpicture}\par\medskip%
-}
-
 \begin{document}
-\printbib[7em]{Mundt2015}
-
-\iffalse
 \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
 The development of the code is done at \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
 Comments and criticisms are welcome.
@@ -322,16 +304,16 @@ which should be abbreviated with ›AyasofyaMüzYıl‹.
 To save  time  looking for the special character and insert ›ı‹ manually 
 it is written in the |@String| with an ›i‹ (for further information see \cref{abbrv-lists}) but will be replaced after compiling with the correct character:
 
-\printbib[8em]{Koyunlu1990}
+\printbib[6em]{Koyunlu1990}
 
 Whether using the provided abbreviation list with |lstabbrv| or filling the |journaltitle| and |shortjournal| fields manually, 
 |archaeologie| uses by default short titles if defined.
 The default embedding of such abbreviations can be switched off, of course.
 In case you use the package option |noabbrv| in the preamble (see \cref{noabbrevs}), then the output changes as follows:
-\begin{bibbsp}{Koyunlu1990}
+\begin{bibbox}{Koyunlu1990}\footnotesize
 \parbox[t]{2cm}{Koyunlu 1990} \parbox[t]{9cm}{A. Koyunlu, 
 Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156}
-\end{bibbsp}
+\end{bibbox}
 Nevertheless the advantage of our abbreviation list lies in the possibility of creating a separate bibliography 
 with all the abbreviations of used journal titles and series (see \cref{bibliographie}) without being prone to citation differences and typing errors.
 
@@ -391,14 +373,14 @@ Authors and works are separated in the |bibtex-key| by a colon.
 The entry on the right marks the |shorthand| which will be printed in your paper.
 
 Let us make it clear with an example:
-\begin{refsection}
+
 With the loaded option |bibancient| you can cite like this:  
 
-%lefthand width=5cm
+
 \begin{example}
 \cite[3,2,5--7]{Apul:met} 
 \end{example}
-\end{refsection}
+
 
 The corresponding bibliography-entry looks like this
 \begin{lstlisting}[style=bibentry,label=Apul:met,caption={{@}Book\{Apul:met,…\} }]
@@ -478,27 +460,22 @@ Bibliography entries with |options={ancient}| are excluded from this speciality 
 You can use the cite-commands \cs{cite(s)} and \cs{parencite(s)} but \cs{textcite(s)} 
 will behave like \cs{cite(s)} because |seenote| actually just checks for occurrences in footnotes and does not refer to cites in running text.
 
-We give an example, first citation of 
-\begin{lstlisting}
-\footnote{\cite{Ball2013}}
-\end{lstlisting}
+We give an example, first citation will show:
 
-displays
-
-\begin{bsp}
+\begin{tcolorbox}[examplebox] 
+\cs{footnote}\{\cs{cite}\{Ball2013\}.\}
+\tcblower
 L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current thinking on the Pompeii Forum, 117/3, 2013, 461–492.
-\end{bsp}
+\end{tcolorbox}
+
 
 Second citation of
-\begin{lstlisting}
-\footnote{\cite[470]{Ball2013}}
-\end{lstlisting}
+\begin{tcolorbox}[examplebox] 
+\cs{footnote}\{\cs{cite}{[}470{]}\{Ball2013\}.\}
+\tcblower
+Ball – Dobbins loc. cit. (see n. \oarg{number of the footnote with full citation}) 470.
+\end{tcolorbox}
 
-ends up in
-
-\begin{bsp}
-Ball – Dobbins loc. cit. (see n. [number of the footnote with full citation]) 470.
-\end{bsp}
 \changes{v1.5}{2016/05/31}{Rückverweis}
 
 \subsubsection{translation}\label{translation}
@@ -526,14 +503,14 @@ The bibliographical entry |Lefebvre2011| contains following fields:
 \end{lstlisting}
 
 The bibliography result is:
-\printbib[8em]{Lefebvre2011}
+\printbib[6em]{Lefebvre2011}
 
 By activating option |translation| it will change to:
 
-\begin{bibbsp}{Lefebvre2011}%
+\begin{bibbox}{Lefebvre2011}\footnotesize
 \parbox[t]{2cm}{Lefebvre 2011} \parbox[t]{9cm}{H. Lefebvre,  The Production of Space, 
 {\color{red} La production de l’espace, trans. from French by D. Nicholson-Smith} \textsuperscript{30}(Oxford 1991; repr. Maien, MA 2011)}
-\end{bibbsp}
+\end{bibbox}
  
 However, it works not only with entries like |@Book| but also with e.\,g. |@Article|:
 
@@ -554,11 +531,11 @@ However, it works not only with entries like |@Book| but also with e.\,g. |@Arti
 
 Once again the bibliography entry alters:
 
-\begin{bibbsp}{Lefebvre1977}%
+\begin{bibbox}{Lefebvre1977}\footnotesize
 \parbox[t]{2cm}{Lefebvre 1977} \parbox[t]{9cm}{H. Lefebvre, 
 Die Produktion des stätischen Raums, \emph{Introduction à l’espace urbain}, 
 {\color{red} trans. from French by F. Hiss -- H.-U. Wegener}, ARCH+ 34/9, 1977, 52–57}
-\end{bibbsp}
+\end{bibbox}
 
 \subsubsection{inreferences}\label{inreferences}
 \DescribeMacro{inreferences}  
@@ -598,12 +575,14 @@ then it will change the position for the \oarg{postnote}:
 %\end{bsp}
 
 
-\alertinfo{Activating |inreferences=true| causes the cited |@Inreference| entry to be automatically \emph{omitted} in the (final) bibliography,
-because the entry is fully cited before in the footnotes (also stated in the German Archaeological Institute rules).}
+\begin{marker}
+    Activating |inreferences=true| causes the cited |@Inreference| entry to be automatically \emph{omitted} in the (final) bibliography,
+because the entry is fully cited before in the footnotes (also stated in the German Archaeological Institute rules).
+\end{marker}
 
 If the option is not used (|inreferences=false|) the entry will look like this in the bibliography:
 
-\printbib[8em]{Nieddu1995} 
+\printbib[6em]{Nieddu1995} 
 
 \subsubsection{yearseries}\label{yearseries}
 \DescribeMacro{yearseries}
@@ -630,12 +609,12 @@ An example with an |@Incollection| demonstrates the effect of this option:
 \end{lstlisting}
 
 Without any option activated it will look like this:
-\printbib[7em]{Mundt2015}
+\printbib[5em]{Mundt2015}
  
 By activating |yearseries| it will change to:
-\begin{bibbsp}{Mundt2015}
+\begin{bibbox}{Mundt2015}\footnotesize
 \parbox[t]{1.7cm}{Mundt 2015} \parbox[t]{9cm}{F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer -- F. Mundt -- J. Stenger (ed.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206}
-\end{bibbsp}
+\end{bibbox}
 
 \subsubsection{citeauthorformat}\label{citeauthorformat}
 \DescribeMacro{citeauthorformat}
@@ -665,20 +644,17 @@ The following example illustrates it:
 }
 \end{lstlisting}
 
-Let's assume you would like to write:
-
-\begin{refsection}
-\begin{lstlisting}
-*@\ldots , this is also shown by @*\citeauthor{Boehmer1985} 
-*@ in their latest article @*\citetitle{Boehmer1985}*@.@* \end{lstlisting}
-
-After compiling it will look like this, 
+Let's assume you would like to write something like that and
+after compiling it will look like this, 
 because the default is set  |citeauthorformat=initials| 
 
-\begin{bsp}
-\ldots , this is also shown by \citeauthor{Boehmer1985} 
-in their latest article \citetitle{Boehmer1985}
-\end{bsp}
+\begin{refsection}
+\begin{example}
+... , this is also shown by \citeauthor{Boehmer1985} 
+ in their latest article \citetitle{Boehmer1985}.
+ \end{example}
+
+
 
 Or you can change it using the settings
 \begin{enumerate}
@@ -688,27 +664,27 @@ Or you can change it using the settings
 \end{enumerate}
 
 
-
-\begin{bsp}
+\begin{tcolorbox}[examplebox] 
 \begin{enumerate}
 \item\label{name:full} 
 \ldots , this is also shown by {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
+\item |citeauthorformat=full| \ref{name:full} 
 \item\label{name:family}
 \ldots , this is also shown by {\color{red}Boehmer und  Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \item\label{name:firstfull}
 \ldots , this is also shown by {\color{red}Rainer Michael Boehmer  und Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \end{enumerate}
-\end{bsp}
+\end{tcolorbox}
 
 If you use |citeauthorformat=firstfull| the first citation will look like \ref{name:firstfull}, but after that that all following citations of |\citeauthor{Boehmer1985}| will change to:
 
-\begin{bsp}
-\ldots , this is also shown by R. M. Boehmer und  N. Wrede in their latest article \emph{Astragalspiele in und um Warka} (1985).
-\end{bsp}
-
+\begin{tcolorbox}[examplebox] 
+... , this is also shown by R. M. Boehmer und  N. Wrede in their latest article \emph{Astragalspiele in und um Warka} (1985).
+\end{tcolorbox}
 \end{refsection}
 
-\printbib[11.5em]{Boehmer1985}
+
+\printbib[9em]{Boehmer1985}
 
 Two things are left to mention: 
 \begin{enumerate}
@@ -736,22 +712,15 @@ Both are demonstrated in the following example: Based on the bibliography entry
 }
 \end{lstlisting}
 
-and the following statement
+and the following statement we obtain the result:
 
 \begin{refsection}
-\begin{lstlisting}
-*@\ldots\ and @*\citeauthor{Quint:inst}*@ names in @*\citetitle{Quint:inst} 
-*@ the necessary physical qualities of an orator, too.@*
-\end{lstlisting}
- 
-we obtain the result:
-
-\begin{bsp}
-\ldots\ and \citeauthor{Quint:inst} names in \citetitle{Quint:inst} the  necessary physical qualities of an orator, too.
-\end{bsp}
+\begin{example}
+... and \citeauthor{Quint:inst} names in \citetitle{Quint:inst} the  necessary physical qualities of an orator, too.
+\end{example}
 \end{refsection}
 
-\printbib[6em]{Quint:inst}
+\printbib[5em]{Quint:inst}
 
 \subsubsection{yearinparens}\label{yearinparens}
 \DescribeMacro{yearinparens}%
@@ -761,15 +730,15 @@ in footnotes as well as in the bibliography.
 The ›Klammerregel‹ (correct alternation of different brackets) will be respected.
 
 In the case of |\cite[475]{Ball2013}|, instead of
-\begin{bsp} 
+\begin{tcolorbox}[examplebox] 
 Ball – Dobbins 2013, 475 
-\end{bsp}
+\end{tcolorbox}
 
 now we get
 
-\begin{bsp}
+\begin{tcolorbox}[examplebox] 
 Ball – Dobbins {\color{red}(}2013{\color{red})}, 475.
-\end{bsp}
+\end{tcolorbox}
 
 
 \subsubsection{scshape}\label{scshape}
@@ -784,13 +753,15 @@ Further excluded are ancient authors (|options={ancient}| or |options={frgancien
 
 By default---to quote the just established example |\cite[475]{Ball2013}|---we have again
 
-\begin{bsp} \cite[475]{Ball2013} \end{bsp}
+\begin{tcolorbox}[examplebox] 
+    \cite[475]{Ball2013} 
+    \end{tcolorbox}
 
 But with |schape| it will turn into:
 
-\begin{bsp}
+\begin{tcolorbox}[examplebox] 
 {\scshape {\color{red}Ball – Dobbins}} 2013, 475
-\end{bsp}
+\end{tcolorbox}
 
 And since the entry looks like this
 
@@ -814,15 +785,15 @@ number       = {3},
 
 the output in the bibliography changes from:
 
-\printbib[10em]{Ball2013}
+\printbib[8em]{Ball2013}
 
 to 
 
-\begin{bibbsp}{Ball2013}
+\begin{bibbox}{Ball2013}\footnotesize
 \parbox[t]{2.9cm}{{\scshape \color{red}Ball – Dobbins} 2013}\parbox[t]{8cm}{%
 L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492\newline
 ...}
-\end{bibbsp}
+\end{bibbox}
 
 \subsubsection{bibfullname}\label{bibfullname}
 \DescribeMacro{bibfullname}
@@ -849,14 +820,14 @@ Without any options the entry
 
 looks like
 
-\printbib[7em]{Osland2016}
+\printbib[6em]{Osland2016}
 
 and with |bibfullname| it will change to:
 
-\begin{bibbsp}{Osland2016}
+\begin{bibbox}{Osland2016}\footnotesize
 \parbox[t]{1.7cm}{Osland 2016} \parbox[t]{9.4cm}{{\color{red}Daniel} Osland, Abuse or Reuse? Public Space in Late Antique Emerita, AJA 120/ 1, 2016, 67–97,\\
 ...}
-\end{bibbsp}
+\end{bibbox}
 
 \subsubsection{noabbrv}\label{noabbrevs}
 \DescribeMacro{noabbrv}
@@ -886,13 +857,13 @@ In case of reprint or second edition the first edition |origyear| will be put in
 \begin{refsection}\end{refsection}
 
 Default settings produce:
-\printbib[7em]{Emme2013}
+\printbib[6em]{Emme2013}
  
 By activating option |publisher| you obtain:
 
-\begin{bibbsp}{Emme2013}
+\begin{bibbox}{Emme2013}\footnotesize
 \parbox[t]{1.7cm}{Emme 2013} \parbox[t]{9.4cm}{B. Emme, Peristyl und Polis. Entwicklung und Funktionen öffentlicher griechischer Hofanlagen, Urban Spaces 1 (Berlin {\color{red} – New York: Walter de Gruyter} 2013)}
-\end{bibbsp}
+\end{bibbox}
  
 And here a more detailed example with |origlocation|, |origyear| and |origpublisher|:
 \begin{lstlisting}[style=bibentry,label=Neufert2002,caption={{@}Book\{Neufert2002,…\} }]
@@ -911,12 +882,12 @@ And here a more detailed example with |origlocation|, |origyear| and |origpublis
 }
 \end{lstlisting}
  
-\printbib[7em]{Neufert2002}
+\printbib[5.5em]{Neufert2002}
 
-\begin{bibbsp}{Neufert2002}
+\begin{bibbox}{Neufert2002}\footnotesize
 \parbox[t]{1.7cm}{Neufert  2002} \parbox[t]{9.4cm}{%
 E. Neufert, Bauentwurfslehre. Grundlagen, Normen, Vorschriften ... Ed. by Peter Neufert – Cornelius Neufert – Ludwig Neff  – Corinna Franken {\color{red} (Wiesbaden: Vieweg \textsuperscript{3}2002 [Berlin: Mann 1936])}}
-\end{bibbsp}
+\end{bibbox}
  
 \subsubsection{edby}\label{edby}
 \DescribeMacro{edby}
@@ -949,14 +920,14 @@ Instead of embedding ›(ed.)‹/›(Hrsg.)‹ right after the editor name
 
 Without option |edby| this |@Inproceedings| would look like:
  
-\printbib[9em]{Wulf-Rheidt2013}
+\printbib[7em]{Wulf-Rheidt2013}
 
 But activating |edby| it changes to:
 
-\begin{bibbsp}{Wulf-Rheidt2013}
-\parbox[t]{2.3cm}{Wulf-Rheidt 2013} \parbox[t]{9.5cm}{%
+\begin{bibbox}{Wulf-Rheidt2013}\footnotesize
+\parbox[t]{2.3cm}{Wulf-Rheidt 2013} \parbox[t]{9cm}{%
 U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?, in:  {\color{red}Politische Räume in vormodernen Gesellschaften. Gestaltung – Wahrnehmung – Funktion, ed. by O. Dally – F. Fless – R. Haensch – F. Pirson – S. Sievers}. Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI Berlin November 18–22, 2009, MKT 6 (Rahden/Westf. 2013) 277–289}
-\end{bibbsp}
+\end{bibbox}
  
  
 \subsubsection{width}\label{width}
@@ -974,34 +945,34 @@ then there is no indent at all.
 If you like to know how many times you cited an author or work then use this option called |counter|.\footnote{The idea is based on \href{http://tex.stackexchange.com/a/14159/98739}{tex.stackexchange.com/a/14159/98739} and has been modified.} 
 Depending on the language you chose in the preamble of your document the information will be given in German (|ngerman|) or in English (if not |ngerman|).
 
-\begin{bibbsp}{Boehm2001}
+\begin{bibbox}{Boehm2001}\footnotesize
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
 S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde 1-mal zitiert.}}
-\end{bibbsp}
+\end{bibbox}
 
 If there has been no citation in the text (but maybe a \cs{citeauthor} or \cs{citetitle}):
-\begin{bibbsp}{Boehm2001}
+\begin{bibbox}{Boehm2001}\footnotesize
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
 S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde {\color{red}{keinmal}} zitiert.}}
-\end{bibbsp} 
+\end{bibbox} 
 
 For all languages besides German:
-\begin{bibbsp}{Boehm2001}
+\begin{bibbox}{Boehm2001}\footnotesize
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
 S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited {{\color{red}{not once}}}.}}
-\end{bibbsp}
+\end{bibbox}
   
 If there has been only one citation:
-\begin{bibbsp}{Boehm2001}
+\begin{bibbox}{Boehm2001}\footnotesize
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
 S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 1 time.}}
-\end{bibbsp}
+\end{bibbox}
 
 If there has been more than one citation:
-\begin{bibbsp}{Boehm2001}
+\begin{bibbox}{Boehm2001}\footnotesize
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
 S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}}
-\end{bibbsp}
+\end{bibbox}
 
 Note that |biblatex| provides a related option |backref| which lists per reference every page 
 that contains the cited reference. But having a different goal that option doesn't support counts. 
@@ -1015,8 +986,8 @@ First names starting with |Ph..., Chr..., Ch..., Th..., St...| are abbreviated t
 
 Citing these two authors will show their digraphs and trigraphs:
 
-\begin{example}[lefthand width=5cm]{}
-\citeauthor{Mann2011,Hufschmid2010}
+\begin{example}
+\citeauthor{Mann2011} and \citeauthor{Hufschmid2010}
 \end{example}
 
 
@@ -1029,7 +1000,7 @@ This option is set to default, but you can --- of course --- deactivate it with 
 \subsection{Bibliography entry options}\label{options-bibentry}
 \subsubsection{ancient}\label{ancient}
 \DescribeMacro{ancient}
-This option was found in an excellent |bib|\LaTeX-style called  |geschichtsfrkl| (v.1.1 by Jonathan Zachhuber), 
+This option was found in an excellent |bib|\LaTeX-style called  |geschichtsfrkl| ( by Jonathan Zachhuber),\footnote{\href{https://www.ctan.org/pkg/geschichtsfrkl}{www.ctan.org/pkg/geschichtsfrkl}} 
 so after some modifications we adopted and included it into |archaeologie|.
  
 If you intend to cite ancient authors we strongly recommend this option to you 
@@ -1060,16 +1031,11 @@ Let us have a look at an example:
 
 Instead of applying |author| and |year| as labels the option |ancient| takes the field |shorthand| into account.
 
-So you write in your text
-\begin{lstlisting}
-\cite[1, 3,3]{Cic:Att}\end{lstlisting} 
+So you write in your text and it will be printed as
 
-and it will be printed as
-
-
-\begin{bsp}
+\begin{example}
 \cite[1, 3,3]{Cic:Att}
-\end{bsp}
+\end{example} 
 
 Equally the field |shorthand| is used as a label in the bibliography instead of an author-year label:
 \printbib{Cic:Att}
@@ -1130,14 +1096,14 @@ In this case the editor (|shorteditor| or |editor|) will be put in after the \ma
 }
 \end{lstlisting}
 
-When you cite this entry in this example with |\cite[3]{Fest}| the field  |shorteditor| will be shown.
-\begin{bsp}
-Fest. 3 L
-\end{bsp}
+When you cite this entry in this example the field  |shorteditor| will be shown.
+\begin{example}
+\cite[3]{Fest}
+\end{example}
 
 In the bibliography the reference differentiates slightly from |options = {ancient}| because of the missing ancient author of fragment collections, 
 so the editors name is printed in the first place:
-\printbib[5em]{Fest}
+\printbib[3em]{Fest}
 
 \subsubsection{uniqueme}\label{uniqueme}
 \DescribeMacro{uniqueme} 
@@ -1170,14 +1136,10 @@ the bibliographical entry looks like this:
 }
 \end{lstlisting}
 
-When we cite \citeauthor{Vitr} by typing 
-\begin{lstlisting}
+When we cite \citeauthor{Vitr} we get the following result:
+\begin{example}
 \cite[1,1,2]{Vitr}.
-\end{lstlisting}
-we get this result:
-\begin{bsp}
-\cite[1,1,2]{Vitr}.
-\end{bsp}
+\end{example}
 Now let us assume we want to compare that with other, different translations / text editions. 
 First the english standard translation (\cref{Vitr:Loeb}):
 \begin{lstlisting}[style=bibentry,label=Vitr:Loeb,caption={{@}Book\{Vitr:Loeb,…\} }]
@@ -1259,24 +1221,17 @@ And last there is a translation published in a section of a book (\cref{Vitr:Fis
 }
 \end{lstlisting}
 
-If you cite these works you do as usual:
-\begin{lstlisting}
-\cite[1,1,2]{Vitr}; see as well \cite{Vitr:Loeb};
-with changed translation in \cite{Vitr:Krohn} 
-and in \cite{Vitr:Saliou}; 
-in \cite{Vitr:Fischer} it is kept untranslated.
-\end{lstlisting}
-we get this result:
-\begin{bsp}
-\cite[1,1,2]{Vitr}; see as well \cite{Vitr:Loeb};
-with changed translation in \cite{Vitr:Krohn} 
-and in \cite{Vitr:Saliou}; 
-in \cite{Vitr:Fischer} it is kept untranslated.
-\end{bsp}
+If you cite these works you do as usual, you will get:
+\begin{example}
+\cite[1,1,2]{Vitr}; see as well \cite{Vitr:Loeb}; with changed translation in \cite{Vitr:Krohn} and in \cite{Vitr:Saliou}; in \cite{Vitr:Fischer} it is kept untranslated. 
+\end{example}
 
-\alertinfo{Notice that the field |sortshorthand| should be filled with the sorting order you would like to have in the bibliography for the varient works by \citeauthor{Vitr}, see below.}
 
-\printbib[6.5em]{Vitr,Vitr:Fischer,Vitr:Krohn,Vitr:Loeb,Vitr:Saliou}
+\begin{marker}
+Notice that the field |sortshorthand| should be filled with the sorting order you would like to have in the bibliography for the varient works by \citeauthor{Vitr}, see below.
+\end{marker}
+
+\printbib[6em]{Vitr,Vitr:Fischer,Vitr:Krohn,Vitr:Loeb,Vitr:Saliou}
 
 
 \subsubsection{corpus}\label{corpus}
@@ -1298,15 +1253,10 @@ This example shows the behaviour with a corpus that is common for Latin epigraph
 }
 \end{lstlisting}
 
-It will be cited with:
-\begin{lstlisting}
+It will be cited with and you see the result right away:
+\begin{example}
 \cite[06, 01234]{CIL}.
-\end{lstlisting}
-
-And the result is:
-\begin{bsp}
-CIL 06, 01234
-\end{bsp}
+\end{example}
 
 The field |shorthand| will be used for bibliography reference,
 where it is listed as label.
@@ -1358,14 +1308,11 @@ An entry of a book might look as this in your |bib|-file:
 }
 \end{lstlisting}
 
-A citation in a footnote is done with
-\begin{lstlisting}
-\footnote{\cite[Vgl.][142--144]{Mann2011}.}
-\end{lstlisting} 
-
-and it looks like this in footnotes\footnote{Vgl. Mann 2011, 142--144.}
-and like this in the bibliography.
-\printbib[6em]{Mann2011}
+A citation in a footnote is done like this and will be printed as you see:
+\begin{example}
+Just some text.\footnote{\cite[Vgl.][142--144]{Mann2011}.}
+\end{example} 
+\printbib[5em]{Mann2011}
 
 \subsubsection{›Festschrift‹, commemorative volume, catalogue etc.}
 To mark that the book or collection is a so-called ›Festschrift‹/ commemorative volume, 
@@ -1382,7 +1329,7 @@ We suggest using  the field |titleaddon| or if it is a |@Incollection| or |@Inpr
 }
 \end{lstlisting}
 
-\printbib[11em]{Boehm2001}
+\printbib[9em]{Boehm2001}
  
 \subsubsection{Translated book}
 If you cite a translated book you can link it to the original book and let display the translator as well as the original language. 
@@ -1455,7 +1402,7 @@ Let’s assume this is the bibliography entry:
 In the bibliography the main title of the monograph (|maintitle|)
 and the title of the book (|title|) are shown separately  so the volume  (|volume|) 
 appears before the title of the book
-\printbib[9em]{MacDonald1986}
+\printbib[7em]{MacDonald1986}
 
 
 \subsection{Type \texttt{@Inbook / @Incollection}}\label{inbook}
@@ -1492,7 +1439,7 @@ This following example clarify matters:
 }
 \end{lstlisting}
 
-\printbib[12em]{Carter2014}
+\printbib[10em]{Carter2014}
 
 You can also have contributions to a ›Festschrift‹ etc. set up as |@Incollection|,
 but then notice the additional information in |booktitleaddon|.
@@ -1510,7 +1457,7 @@ but then notice the additional information in |booktitleaddon|.
 }
 \end{lstlisting}
 In the bibliography it will look like:
-\printbib[8em]{Hoelscher2001}
+\printbib[6em]{Hoelscher2001}
 
 \subsubsection{Short series}
 Some books or collections are part of a small series (not an ongoing series).
@@ -1573,8 +1520,8 @@ and the second example
 \end{lstlisting}
 
 
-\printbib[8em]{Kohlmeyer1983}
-\begin{refsection}\end{refsection}
+\printbib[6em]{Kohlmeyer1983}
+
 \printbiball[6em]{Parlasca1969}
 
 
@@ -1608,7 +1555,7 @@ Here we have an example which will explain the (required)  fields:
 }
 \end{lstlisting}
 In line 5 and 6 you can also write the full or abbreviated journal title in the fields |journaltitle| or |shorttitle| (e.\,g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@String| (cf. \cref{list-bibancient,string}) again.
-\printbib[9em]{Evangelidis2014}
+\printbib[7em]{Evangelidis2014}
 
 
 \subsection{Type \texttt{@Proceedings}}\label{proceedings}
@@ -1781,18 +1728,16 @@ Then the output will be like:\\
 and there will be no reference to the bibliography since the entry is fully described in the footnote.
 \DescribeMacro{inreferences} If you prefer this method you have to use the preamble option called  |inreferences|---cf. \cref{inreferences}
 Then it will look like this in the footnote:
-\begin{bsp}
+\begin{tcolorbox}[examplebox] 
+\cs{cite}\{Neils1994\}.
+\tcblower
 LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils)
-\end{bsp}
+\end{tcolorbox}
 When you have the \oarg{postnote} filled out in a citation which belongs to an |@Inreference| then it won’t be printed in the end of the citation.
-\begin{lstlisting}
-\cite[vgl.][930 Nr. 283]{Neils1994}.
-\end{lstlisting}
 The |postnote| \oarg{930 Nr. 283} will be printed instead of the |pages|:
- \begin{bsp}
-vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils).
- \end{bsp}
- 
+\begin{example}
+\cite[vgl.][930 Nr. 283]{Neils1994}.
+\end{example} 
 \end{enumerate}
 
 As mentioned above it is  advantageous to relate entries such as  an |@Inreference| with its |@Reference|. 
@@ -1823,11 +1768,11 @@ For the following bibliography result we just typed (assuming that the entries w
 
 \begin{refsection}\setlength{\labwidthsameline}{7em} 
 
-\begin{bibbsp}{Lexikon-der-Technik,Weinbrenner1914}
+\begin{bibbox}{Lexikon-der-Technik,Weinbrenner1914}
 \nocite{Lexikon-der-Technik,Weinbrenner1914}
 \printbibliography[keyword=corpus,title={Corpora}]
 \printbibliography[notkeyword=corpus]
-\end{bibbsp}
+\end{bibbox}
 \end{refsection}
 
 
@@ -1908,7 +1853,7 @@ The following entry is an example which also reviews the book by \citeauthor*{We
 \end{lstlisting}
 In the bibliography there will be first the individual title followed by the information of the reviewed work.
 
-\printbib[9em]{Hufschmid2010}
+\printbib[7em]{Hufschmid2010}
 
 
 \subsubsection{multiple reviewed works in one review}
@@ -1950,7 +1895,7 @@ The entry of the review looks like this:
 In the field |related| you can have several \meta{bibtex-keys} which have to be separated by a comma (see line 7).
 
 Subsequently, all information is gathered in the bibliography:
-\printbib[7em]{Taylor2008}
+\printbib[5em]{Taylor2008}
 
 
  \subsection{Type \texttt{@Thesis}}\label{thesis}
@@ -1986,7 +1931,7 @@ Here is an example:
 
 Here is the entry in the bibliography:
 
-\printbib[7.5em]{Arnolds2005}
+\printbib[5.5em]{Arnolds2005}
 
  
  \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
@@ -2043,108 +1988,81 @@ Let’s assume you want to have a bibliography with the ancient authors and one 
 Since the entries of the ancient authors have the field |keyword={ancient}| (or should have) this is done quite easy.
 
 But first we define the heading of the whole  bibliography:
-\begin{lstlisting}
+
+\begin{refsection}
+    \nocite{*}
+    \renewcommand\bibfont{\normalfont\normalsize}
+    \setlength{\labwidthsameline}{6em} 
+\begin{example}
 \printbibheading[%
-							heading=bibliography,%
-							%heading=bibnumbered,% if you want it numbered
-							title={Bibliography}] %heading for bibliography
-\end{lstlisting}
+  heading=bibliography,%
+  %heading=bibnumbered,% if you want it numbered
+  title={Bibliography}] %heading for bibliography
+\end{example}
 You can give any title you would like to give (|title = |\marg{any title}).
 
 The next step is to set up the bibliography for the ancient authors.
 
-\begin{lstlisting}
+\begin{example}
 \printbibliography[%
-							keyword=ancient,%
-							heading=subbibliography,
-							%heading=subbibnumbered,% if you want it numbered
-							title={Ancient authors and works}]
-\end{lstlisting}
+  keyword=ancient,%
+  heading=subbibliography,
+  %heading=subbibnumbered,% if you want it numbered
+  title={Ancient authors and works}]
+\end{example}
 We tell the bibliography just to contain the entries which have |ancient| in the field |keywords| (line 2).
 
 
-Finally the bibliography for modern scholars:
-\begin{lstlisting}
-\printbibliography[%
-							notkeyword=ancient,%
-							notkeyword=corpus,%
-							heading=subbibliography,
-							%heading=subbibnumbered,% if you want it numbered
-							title={Secondary literature}]
-\end{lstlisting}
+Finally the bibliography for modern scholars.
 This time we exclude all entries which have |ancient| or |corpus| in the field |keywords|. 
 That’s it.
 (Don't be surprised about the line |notkeyword=corpus| which excludes entries with special |shorthand| labels, a further bibliography part with all the |shorthands| is described below.).
 
 
-\begin{refsection}
-\nocite{*}
-Now have a look how it looks like with all the entries we explained above.
-\begin{bsp}
-\renewcommand\bibfont{\normalfont\footnotesize}
-\printbibheading[%
-							heading=bibliography,%
-							title={Bibliography}] %heading for bibliography
-
+\begin{example}
 \printbibliography[%
-							keyword=ancient,%
-							heading=subbibliography,
-							title={Ancient authors and works}]
+  notkeyword=ancient,%
+  notkeyword=corpus,%
+  heading=subbibliography,
+  %heading=subbibnumbered,% if you want it numbered
+  title={Secondary literature}]
+\end{example}
 
-\printbibliography[%
-							notkeyword=ancient,%
-							notkeyword=corpus,%
-							heading=subbibliography,
-							title={Secondary literature}]
-\end{bsp}
+
 
 You can create as many bibliographies as you wish each with another keyword if you like.
 Or you can make a bibliography with all the |shorthands| used in your text---for that we use |keyword= {corpus}| (line 2):
-\begin{lstlisting}
-\printbibliography[%
-						keyword=corpus,%
-						heading=subbibliography,
-					 	title={Abbreviation and corpora}]
-\end{lstlisting}
 Now the bibliography only lists the used entries which have |corpus| in the field |keywords|:
-\begin{bsp}
+\begin{example}
 \printbibliography[%
-						keyword={corpus},
-          				heading=subbibliography,
-            			title={Abbreviation of corpora}]\label{bib:corpus}
-\end{bsp}
+keyword={corpus},
+heading=subbibliography,
+title={Abbreviation of corpora}]
+\label{bib:corpus}
+\end{example}
 
-\alertinfo{If you want to separate author-year labels from |shorthand| labels in your bibliography,  
+\begin{marker}
+ If you want to separate author-year labels from |shorthand| labels in your bibliography,  
  you should ensure that bibliography entries which contain a |shorthand| denomination 
 are set with a keyword either |ancient|, |corpus| or something else, to guarantee that there is 
-no bibliographical shortcut wrongly sorted in the bibliography.}
+no bibliographical shortcut wrongly sorted in the bibliography.
+\end{marker}
 
-\clearpage
+
 Furthermore you can have a bibliography for all the abbreviated journal titles and series to have the abbreviation and its long form.
 For journals it works like this:
-\begin{lstlisting}
+\begin{example}
 \printbiblist[%
-					heading=subbibliography,
-					title={Abbreviation of journals}]{shortjournal}
-\end{lstlisting}
-
-\begin{bsp}
-\printbiblist[%
-					heading=subbibliography,
-					title={Abbreviation of journals}]{shortjournal}
-\end{bsp}
+  heading=subbibliography,
+  title={Abbreviation of journals}]{shortjournal}
+\end{example}
 
 For series it is done like this:
-\begin{lstlisting}
+\begin{example}
 \printbiblist[%
-					heading=subbibliography,
-					title={Abbreviation of series}]{shortseries}
-\end{lstlisting}
-
-
-\begin{bsp}
-\printbiblist[heading=subbibliography,title={Abbreviation of series}]{shortseries}\end{bsp}
-
+  heading=subbibliography,
+  title={Abbreviation of series}]{shortseries}
+\end{example}
 \end{refsection}
 
 \clearpage
@@ -2213,23 +2131,20 @@ Ensure you stick to the correct order of parentheses and brackets.
 The rule says that within a pair of parentheses you have to use square brackets.
 Citing |@Inreferences| can lead easily to a false behaviour when you put it in parentheses.
 This is an example how it should not be done:
-\begin{lstlisting}
-\cite[vgl.][930 Nr. 283]{Neils1994}.
-\end{lstlisting}
- \begin{bsp}
-(vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)). \textcolor{red}{\textbf{WRONG!}}
-\end{bsp}
+\begin{tcolorbox}[examplebox]
+\cs{cite}[vgl.][930 Nr. 283]\{Neils1994\}. 
+\tcblower
+(vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)). \textcolor{red}{\textbf{WRONG!!}}
+\end{tcolorbox}
  
 \DescribeMacro{\parencite} \DescribeMacro{\parencites}
 This example shows that the correct order of parentheses has not been followed.
 Especially when you activated the preamble option  |inreferences=true| \DescribeMacro{inreferences} you should use \cs{parencite}\marg{bibtex-key} instead (\cref{cite-commands}), then the correct order of parentheses and square brackets is given:
-\begin{lstlisting}
-\parencite[vgl.][930 Nr. 283]{Neils1994}.
-\end{lstlisting}
-
-\begin{bsp} 
+\begin{tcolorbox}[examplebox]
+\cs{parencite}[vgl.][930 Nr. 283]\{Neils1994\}.
+\tcblower
 (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green}{\textbf{CORRECT!}}
-\end{bsp}
+\end{tcolorbox}
 
 \subsection{Unknown work}\label{unknown}
 Sometimes it is impossible to ascertain the author or editor but you still want to cite them.
@@ -2250,14 +2165,11 @@ In the following example we use an entry type |@Article|:
 }
 \end{lstlisting}
  The |label| (line 9) can be defined as one wishes; in this case we chose it analogous to the title: |label = {Cosa}|.
-When you cite such an anonymous work it will be done like all the others:
-\begin{lstlisting}
- \cite[vgl.][145--146]{Cosa1949}
-\end{lstlisting}
+When you cite such an anonymous work it will be done like all the others,
  It will look like this:
- \begin{bsp} 
- vgl. Cosa 1949, 145--146
- \end{bsp}
+\begin{example}
+ \cite[vgl.][145--146]{Cosa1949}
+\end{example}
 and be printed in the bibliography like this:
 \printbib{Cosa1949}
 
@@ -2317,28 +2229,25 @@ This following example is about an article which was accepted by the journal and
 \subsection{Print the used options}
 If you want to print the options  of the |bib|\LaTeX -style |archaeologie| you used in your document you can use the command \cs{archaeologieoptions}.
 It will list all options used:
-\begin{bsp}
+\begin{otherlanguage}{ngerman}
+\begin{example}
 \archaeologieoptions
-\end{bsp}
-\foreignlanguage{ngerman}{%
-\begin{bsp}
-\archaeologieoptions
-\end{bsp}
-}
+\end{example}
+\end{otherlanguage}
 If you do not want to have the text in the beginning (which is defined in English and in German) you can get rid of them with the optional argument  \cs{archaeologieoptions}\texttt{[plain]}
-\begin{bsp}
+\begin{example}
 \archaeologieoptions[plain]
-\end{bsp}
+\end{example}
 
-You can also print the version of this style with |\archaeologieversion| 
-\begin{bsp}
+You can print the version of this style with |\archaeologieversion| 
+\begin{example}
 \archaeologieversion
-\end{bsp}
+\end{example}
 or the date of this version with |\archaeologiedate|.
-\begin{bsp}
+\begin{example}
 \archaeologiedate
-\end{bsp}
-\clearpage
+\end{example}
+
 \subsection{Print the citet authors of secondary literature}
 In case you want to have an index about the authors you cited in your text,
 you can do that quite easily.
@@ -2366,19 +2275,18 @@ If you have only one index which will be used for the authors of secondary liter
 \end{lstlisting}   
 
 Now you only need to place \cs{printindex} whre you want to have the index.
-\alertwarning{If you have the option \texttt{initials} activated your index will have some issues with names that are being shortend automatically.\label{initials:index}
-We are working on it, see the issue on \href{https://github.com/LukasCBossert/biblatex-archaeologie/issues/97}{GitHub} and on \href{http://tex.stackexchange.com/q/330971/98739}{\TeX.sx} for more information.\footnotemark}
-\footnotetext{So far we can only offer a work-around:
+\begin{marker}
+If you have the option \texttt{initials} activated your index will have some issues with names that are being shortend automatically.\label{initials:index}
+We are working on it, see the issue on \href{https://github.com/LukasCBossert/biblatex-archaeologie/issues/97}{GitHub} and on \href{http://tex.stackexchange.com/q/330971/98739}{\TeX.sx} for more information.\footnote{So far we can only offer a work-around:
 Go into your \texttt{.bbl}-file (same folder as your \texttt{.tex}-file,
 search for |family=\{\{|.
 Delete the  |\{..\}| which are embracing the first two or three characters of the family name.
 Then compile your document one more time. You will have the initials in the text, 
 and the index looks fine. 
 Be aware that after running \texttt{biber} you have to repeat this step.}
+\end{marker}
 
 
-
-\clearpage
 \subsection{Variant ways of entries in year/date-field}
 Sometimes you have a range of years of a publication because it is maybe a sequence of volumes.
 Let us take as example the \citetitle{LTUR}:
@@ -2412,10 +2320,10 @@ Let us take a look at another example:
 \end{lstlisting}
 This time the article appeared in an issue which covers two years (\citedate{DeVisscher1951-1952}) and we want them to appear in the label.
 That is why we have to use the field |date| instead of |year|.
-\printbib[4em]{DeVisscher1951-1952}
+\printbib[11em]{DeVisscher1951-1952}
 By the way, if you want to cite only the year of publication use |\citedate|\marg{bibtex-key} and not |\citeyear|\marg{bibtex-key} since the field |year| will only give you the first year.
 
-\clearpage
+
 \begin{multicols}{2}\footnotesize
 \lstlistoflistings
 \end{multicols}
@@ -2615,5 +2523,5 @@ To see the long forms of journal titles or series you have to switch on the opti
  \changes{v1}{2015/09/15}{First public version}
 %\PrintChanges
 %\PrintIndex
-\fi
+
 \end{document}
