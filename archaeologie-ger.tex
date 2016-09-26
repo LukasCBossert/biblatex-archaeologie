@@ -13,6 +13,7 @@
 %!TEX program = xelatex
 \documentclass[a4paper,10pt,ngerman]{ltxdoc}
 \input{archaeologie-preamble.tex}
+\externaldocument{archaeologie}[archaeologie.pdf]% <- full or relative path
 \begin{document}
  \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} für Archäologen\footnote{Ebenso geeignet für (Alt-)Philologen und (Alt-)Historiker.
  Die Entwicklung des Codes findet statt auf \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
@@ -36,11 +37,11 @@ Dieses Dokument ist die deutsche Kurzfassung der englischen Hauptdokumentation: 
 \section{Verwendung}
  \DescribeMacro{archaeologie}  Der Name des Stils ist |archaeologie| und wird an entsprechender Stelle geladen.
 
-\begin{lstlisting}
+\begin{code}
 \usepackage[style=archaeologie,%
-					*@\meta{weitere Optionen}@*]{biblatex}
-\bibliography*@\marg{|bib|-Datei}@*
-\end{lstlisting}
+  *@\meta{weitere Optionen}@*]{biblatex}
+  \bibliography*@\marg{|bib|-Datei}@*
+\end{code}
 
 |archaeologie| funktioniert out-of-the-box und lädt hierfür standardmäßig den DAI-Stil im Autor-Jahr-System. 
 Um schnell und einfach im DAI-Stil zu zitieren, bedarf es also keiner weiteren Einstellungen und Optionen. 
@@ -153,28 +154,29 @@ Wichtig für beispielsweise Inschriften- oder Münzcorpora (CIL, AE, RIC, etc.).
 
 \subsection{Zitierbefehle}\label{cite_commands}
 \DescribeMacro{\cite}  Die einfachste Art zu zitieren ist der Befehl \cs{cite}:
-\begin{lstlisting}
+\begin{code}
 \cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
-\end{lstlisting}
+\end{code}
 
 Dabei ist \meta{prenote} eine einleitende Bemerkung (z.\,B. \enquote{Vgl.}), \meta{postnote} enthält für gewöhnlich die Seitenzahl. 
 Wird nur ein optionales Argument gegeben, so ist das die Seitenzahl:
-\begin{lstlisting}
+\begin{code}
 \cite*@\oarg{postnote}\marg{bibtex-key}%@*
-\end{lstlisting}
+\end{code}
 
 \meta{bibtex-key} ist der Schlüssel des Bibliographieeintrags aus der |bib|-Datei (\emph{entrykey}).
 
 \DescribeMacro{\cites}  Möchte man mehrere Autoren/Werke zugleich zitieren, eignet sich am besten der \cs{cites}-Befehl:
-\begin{lstlisting}
-\cites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
- 																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
- 																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
-\end{lstlisting}
+\begin{code}
+\cites(pre-prenote)(post-postnote)
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
+\end{code}
  
 \DescribeMacro{\parencite}  \DescribeMacro{\parencites}  Soll die Literaturangabe (bspw. in den Fußnoten) in Klammern erscheinen, dann empfiehlt sich dies mittels \cs{parencite} zu tun.
 Der Vorteil dieses Befehls gegenüber der händischen Eingabe von Klammern ist, dass der Befehl automatisch Klammerverschachtelungen erkennt und entsprechende Klammerregeln befolgt: demnach werden runde Klammern innerhalb einer Klammerumgebung als eckigen Klammern geschrieben.
-Dies ist vor allem bei Lexikaeinträgen der wichtig: (LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]).
+Dies ist vor allem bei Lexikaeinträgen wichtig: (LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]).
 \cs{parencite} und \cs{parencites} verhalten sich in der Bedienung analog zu \cs{cite} und \cs{cites}.
  
 \DescribeMacro{\textcite}  \DescribeMacro{\textcites}  Zu den bisher aufgeführten \cs{cite}-Befehlen gibt es zusätzlich die Möglichkeit, einen Eintrag \enquote{fließtextgerecht} mit \cs{textcite} zu zitieren. 
@@ -192,7 +194,6 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Notwendig:] |author|, |title|, |subtitle|,  |titleaddon|, |pages|, |journaltitle|, |shortjournal|, |volume|, |number|, |year|
 \item[Optional:] |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum|, |pubstate|
 \end{description}
-
 \printbib[8em]{Ball2013}
 
 
