@@ -1,3 +1,5 @@
+ \AtBeginDocument{\RecordChanges}
+ \AtEndDocument{\PrintChanges}
 \listfiles
 \usepackage[oldstyle]{libertine}
 \renewcommand*\ttdefault{lmvtt}
@@ -188,6 +190,9 @@ enhanced,
   }
   
 \tcbset{examplebox/.style={%
+              boxrule=0pt,
+              bottomrule=2pt,
+              toprule=2pt,
  colframe=codeblue,
   colback=codegreen!10,
    coltitle=codegreen!10,%  coltitle=codeblue,
