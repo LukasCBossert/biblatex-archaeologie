@@ -71,3 +71,7 @@ archaeologie-ger.tex
 *.zip
 
 .DS_Store
+
+*.ilg
+
+*.ind

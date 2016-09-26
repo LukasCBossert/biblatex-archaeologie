@@ -1,3 +1,5 @@
+ \AtBeginDocument{\RecordChanges}
+ \AtEndDocument{\PrintChanges}
 \listfiles
 \usepackage[oldstyle]{libertine}
 \renewcommand*\ttdefault{lmvtt}
@@ -16,6 +18,10 @@
 \usepackage{hologo}
 \usepackage{babel}
 \usepackage{coolthms}
+
+\usepackage{listings}
+\usepackage{chngcntr}
+
 \usepackage[
   autostyle=true,%
 ]{csquotes}
@@ -23,6 +29,12 @@
   \setlength{\columnsep}{1.5cm}
   \setlength{\columnseprule}{0.2pt}
 
+\usepackage{xcolor}
+\definecolor{codeblue}{RGB}{0,65,137}
+\definecolor{codegreen}{RGB}{147,193,26}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 
 \usepackage[ 
@@ -39,12 +51,12 @@ draft=false,
 \rofoot{\large\footnotesize  \textbf{\sffamily \thepage}}
 
 \usepackage[%
-			%flushmargin, %
-%			marginal,
-			ragged,%
-			hang, %
-			bottom%
-			]{footmisc} %Fussnoten
+%  flushmargin, %
+%  marginal,
+  ragged,%
+  hang, %
+  bottom%
+]{footmisc} %Fussnoten
 
 
 
@@ -56,28 +68,109 @@ draft=false,
 \makeindex
 
 \defbibheading{empty}{}
-
-
-
 \addbibresource{archaeologie-examples.bib}
-\usepackage{caption}
+%\usepackage{caption}
 
-\usepackage[skins,listings]{tcolorbox}
-\tcbuselibrary{breakable}
+\usepackage[
+  skins,
+  listings,
+  breakable
+]{tcolorbox}
+\lstMakeShortInline{|}
 
+\newtcblisting[
+  auto counter,
+  list inside=bibexample,
+%  number within=subsection,
+  crefname={Example}{Examples}
+]{bibexample}[2][]{%
+  listing only,
+  breakable,
+  top=0.5pt,
+  bottom=0.5pt,
+  colback=codegreen!10,
+  colframe=codegreen,
+    left=5pt,
+    right=5pt,
+    sharp corners,
+  boxrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  enhanced jigsaw,
+  listing options={%style=tcblatex,
+    numbers=left,
+    numberstyle=\small\color{codeblue},
+    moredelim={[is][keywordstyle]{@@}{@@}},
+    basicstyle=\footnotesize\ttfamily,
+    breaklines=true,
+    breakautoindent=false,
+    breakindent=0pt,
+    escapeinside={{*@}{@*}},
+  },%
+  lefttitle=0pt,
+  coltitle=black,
+  colbacktitle=codegreen!20,
+  fonttitle=\bfseries\footnotesize,
+  title={Example \thetcbcounter:  #2}, 
+  #1,%  
+  borderline north={1pt}{14.4pt}{codegreen,dashed},
+}
+
+\newtcblisting[
+auto counter,
+%crefname={Example}{Examples}
+]{code}{%
+    listing only,
+    breakable,
+    top=0.2pt,
+    bottom=0.2pt,
+    colback=codegreen!10,
+    colframe=codegreen,
+    left=5pt,
+    right=5pt,
+      sharp corners,
+    boxrule=0pt,
+    bottomrule=0pt,
+    toprule=0pt,
+    enhanced jigsaw,
+    listing options={%style=tcblatex,
+%        numbers=left,
+        numberstyle=\tiny\color{codeblue},
+        moredelim={[is][keywordstyle]{@@}{@@}},
+        basicstyle=\footnotesize\ttfamily,
+        breaklines=true,
+        breakautoindent=false,
+        breakindent=0pt,
+        escapeinside={{*@}{@*}},
+    },%
+    lefttitle=0pt,
+    coltitle=codeblue,
+    colbacktitle=codegreen!10,
+%    fonttitle=\bfseries\footnotesize,
+%    title={Example \thetcbcounter:  #2}, 
+%   #1,%  
+%    borderline north={1pt}{14.4pt}{codegreen,dashed},
+}
 
 \newtcolorbox{bibbox}[1]{
-enhanced,
-breakable,
-attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
-  colback=codegreen!50!white, 
-  colbacktitle=backcolour,
-  colframe=codeblue,
-colback=codeblue!10,
-%  coltitle=white,
-  center title,
-  fonttitle=\sffamily\bfseries,
-  title=\Cref{#1},
+      breakable,
+      top=5pt,
+      bottom=5pt,
+      colback=codeblue!10,
+      colframe=codeblue,
+      left=5pt,
+      right=5pt,
+        sharp corners,
+      boxrule=0pt,
+      bottomrule=2pt,
+      toprule=2pt,
+      enhanced jigsaw,
+        lefttitle=0pt,
+        coltitle=black,
+        colbacktitle=codeblue!20,
+        fonttitle=\bfseries\footnotesize,
+  title={\Cref{#1}},
+        borderline north={1pt}{14.4pt}{codeblue,dashed},
 }
 
 
@@ -97,13 +190,19 @@ enhanced,
   }
   
 \tcbset{examplebox/.style={%
+              boxrule=0pt,
+              bottomrule=2pt,
+              toprule=2pt,
  colframe=codeblue,
-  colback=backcolour,
-   coltitle=backcolour,%  coltitle=codeblue,
+  colback=codegreen!10,
+   coltitle=codegreen!10,%  coltitle=codeblue,
   bicolor,
+      sharp corners,
   colbacklower=codeblue!10,
   fonttitle=\sffamily\bfseries,
   }}
+
+
 
 \newtcblisting{example}{%
     before skip=\baselineskip,
@@ -113,22 +212,6 @@ breakable,
 %%%%text and listing,
 listing and text,
 }
-
-
-
-\usepackage{listings}
-\usepackage{chngcntr}
-\AtBeginDocument{\counterwithin{lstlisting}{section}}
-
-\usepackage{xcolor}
-\definecolor{codeblue}{RGB}{0,65,137}
-\definecolor{codegreen}{RGB}{147,193,26}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-
-%------
 
 \newcommand{\printbib}[2][5em]{%
 \begingroup
@@ -162,86 +245,9 @@ listing and text,
 \endgroup
 }
 
- \DeclareCaptionFormat{listing}{#1#2#3}
- \captionsetup[lstlisting]{format=listing,
- singlelinecheck=false, margin=0pt, font={sf},size=footnotesize}
-\lstdefinestyle{bibentry}{%
-	language=[LaTeX]TeX,
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{codeblue},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    escapeinside={*@}{@*},          % if you want to add LaTeX within your code
-    texcsstyle=*\color{codeblue},
-    morekeywords={cites, parencites, parencite, textcite, textcites, citeauthor, citetitle,@String,
-    						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
-    						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
-    						},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,   
-    numberbychapter=false,   
-    captionpos=b,                    
-    keepspaces=true,               
-	%framexleftmargin=5mm, 
-	frame=shadowbox,
-	rulesepcolor=\color{codeblue},
-    numbers=left,                    
-    numbersep=5pt,            
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-    literate=
-            *{\{}{{{\color{codegreen}{\{}}}}{1}
-            {\}}{{{\color{codegreen}{\}}}}}{1}
-            {[}{{{\color{codegreen}{[}}}}{1}
-            {]}{{{\color{codegreen}{]}}}}{1},
-}
-\renewcommand{\lstlistingname}{Example}%rename caption
-\renewcommand{\lstlistlistingname}{List of examples}%rename caption
 
- \lstdefinestyle{code}{%
-	language=[LaTeX]TeX,
-   backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{codeblue},
-    numberstyle=\small\color{codegray},
-    stringstyle=\color{codepurple},
-	escapeinside={*@}{@*},
-    texcsstyle=*\color{codeblue},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    %numbers=left,                    
-    stepnumber=1,
-    numbersep=5pt,            
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-      morekeywords={cites, parencites, parencite, textcite, 
-      textcites, citeauthor, citetitle,
-    						@String,
-    						@Article, @Book,@Collection,@Proceedings,@Reference,@Thesis,
-    						@Inproceedings,@Talk,@Review,@Inreference,@Incollection,
-    						},
-    literate=
-            *{\{}{{{\color{codeblue}{\{}}}}{1}
-            {\}}{{{\color{codeblue}{\}}}}}{1}
-            {[}{{{\color{codeblue}{[}}}}{1}
-            {]}{{{\color{codeblue}{]}}}}{1},
-}
-%%% Always I forget this so I created some aliases
-\def\ContinueLineNumber{\lstset{firstnumber=last}}
-\def\StartLineAt#1{\lstset{firstnumber=#1}}
-\let\numberLineAt\StartLineAt
 
-\lstset{style=code}
-\lstMakeShortInline[style=code]|
+
 
 
 \usepackage{hyperxmp}

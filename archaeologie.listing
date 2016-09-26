@@ -1,1 +1,9 @@
-\archaeologiedate
+@Article{DeVisscher1951-1952,
+  author       = {de Visscher, Fernand and Mertens, Joseph},
+  title        = {Les puits du Forum d'Alba Fucense},
+  journaltitle = BCom, %@String used
+  shortjournal = BCom-short, %@String used
+  volume       = {74},
+  pages        = {3--13},
+  date         = {1951/1952},
+}
