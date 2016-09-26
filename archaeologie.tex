@@ -2295,9 +2295,8 @@ Now you only need to place \cs{printindex} whre you want to have the index.
 \begin{marker}
 If you have the option \texttt{initials} activated your index will have some issues with names that are being shortend automatically.\label{initials:index}
 We are working on it, see the issue on \href{https://github.com/LukasCBossert/biblatex-archaeologie/issues/97}{GitHub} and on \href{http://tex.stackexchange.com/q/330971/98739}{\TeX.sx} for more information.\footnote{So far we can only offer a work-around:
-Go into your \texttt{.bbl}-file (same folder as your \texttt{.tex}-file,
-search for |family=\{\{|.
-Delete the  |\{..\}| which are embracing the first two or three characters of the family name.
+Go into your \texttt{.bbl}-file which is in the same folder as your \texttt{.tex}-file.
+Replace |family=\{\{|\meta{Ch / Chr / Ph / St / Th}|\}| with |family=\{|\meta{Ch / Chr / Ph / St / Th}.
 Then compile your document one more time. You will have the initials in the text, 
 and the index looks fine. 
 Be aware that after running \texttt{biber} you have to repeat this step.}
