@@ -12,7 +12,7 @@
 % version 2005/12/01 or later.
 %!TEX program = xelatex
 \documentclass[a4paper,
-11pt,
+10pt,
 greek,
 french,
 spanish,
@@ -366,7 +366,7 @@ Despite to the overview section (\cref{overview}) the following list is arranged
 \DescribeMacro{bibancient}
 In case of citing ancient authors and their works you can do it with common \cs{cite}-commands.
 Exclusively for this case we included a modification that respects the different citation of ancient authors and works.
-With the option |bibancient| you load an additional bibliography called |bibliography-bibancient.bib| in which we inserted almost 600 ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
+With the option |bibancient| you load an additional bibliography called |archaeologie-bibancient.bib| in which we inserted almost 600 ancient authors and works with their abbreviation according to The New Pauly/Thesaurus Linguae Latinae.
 For the complete list of those see \cref{list-bibancient}.
 Using these pre-sets is recommended because it will guarantee a high level of consistency and minimize error-proneness.
 
@@ -380,7 +380,7 @@ With the loaded option |bibancient| you can cite like this:
 
 
 \begin{example}
-\cite[3,2,5--7]{Apul:met} 
+\footnote{\cite[3,2,5--7]{Apul:met}.}
 \end{example}
 
 
@@ -475,7 +475,7 @@ Second citation of
 \begin{tcolorbox}[examplebox] 
 |\footnote{\cite{Ball2013}.}|
 \tcblower
-\footnote{Ball – Dobbins loc. cit. (see n. \oarg{number of the footnote with full citation}) 470.}
+\footnote[2]{Ball – Dobbins loc. cit. (see n. \oarg{number of the footnote with full citation}) 470.}
 \end{tcolorbox}
 
 \changes{v1.5}{2016/05/31}{Rückverweis}
@@ -560,13 +560,13 @@ There are two ways to display this entry:
  \begin{enumerate}
  \item by default it will give:  
  \begin{example}
- \cite{Nieddu1995}
+\footnote{\cite{Nieddu1995}.}
  \end{example}
  \item with the option |inreferences| it will change:
  \begin{tcolorbox}[examplebox]
- | \cite{Nieddu1995}|
+ |\footnote{\cite{Nieddu1995}.}|
  \tcblower
- LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu)
+\footnote{LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu).}
  \end{tcolorbox}
   \end{enumerate}
 
@@ -575,13 +575,13 @@ then it will change the position for the \oarg{postnote}:
 \begin{enumerate} 
  \item by default it will give: 
  \begin{example}
- \cite[9]{Nieddu1995}
+\footnote{\cite[9]{Nieddu1995}.}
  \end{example}
  \item with the option |inreferences| it will change again:
   \begin{tcolorbox}[examplebox]
- | \cite[9]{Nieddu1995}|
+|\footnote{\cite[9]{Nieddu1995}.}|
  \tcblower
-  LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu)
+\footnote{LTUR 2 (1995) 9 s. v. Dei Consentes (G. Nieddu).}
  \end{tcolorbox}
   \end{enumerate}
 
