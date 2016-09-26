@@ -746,16 +746,16 @@ The ›Klammerregel‹ (correct alternation of different brackets) will be respe
 
 In the case of a common entry which will be shown like this
 \begin{example}
-\cite[475]{Ball2013}
+\footnote{\cite[475]{Ball2013}.}
 \end{example}
 
 
 now we get
 
 \begin{tcolorbox}[examplebox] 
-|\cite[475]{Ball2013}|
+|\footnote{\cite[475]{Ball2013}.}|
 \tcblower
-Ball – Dobbins {\color{red}(}2013{\color{red})}, 475.
+\footnote{Ball – Dobbins {\color{red}(}2013{\color{red})}, 475.}
 \end{tcolorbox}
 
 
@@ -1054,7 +1054,7 @@ Instead of applying |author| and |year| as labels the option |ancient| takes the
 So you write in your text and it will be printed as
 
 \begin{example}
-\cite[1, 3,3]{Cic:Att}
+\footnote{\cite[1, 3,3]{Cic:Att}.}
 \end{example} 
 
 Equally the field |shorthand| is used as a label in the bibliography instead of an author-year label:
@@ -1118,7 +1118,7 @@ In this case the editor (|shorteditor| or |editor|) will be put in after the \ma
 
 When you cite this entry in this example the field  |shorteditor| will be shown.
 \begin{example}
-\cite[3]{Fest}
+\footnote{\cite[3]{Fest}.}
 \end{example}
 
 In the bibliography the reference differentiates slightly from |options = {ancient}| because of the missing ancient author of fragment collections, 
@@ -1158,7 +1158,7 @@ the bibliographical entry looks like this:
 
 When we cite \citeauthor{Vitr} we get the following result:
 \begin{example}
-\cite[1,1,2]{Vitr}.
+\footnote{\cite[1,1,2]{Vitr}.}
 \end{example}
 Now let us assume we want to compare that with other, different translations / text editions. 
 First the english standard translation (\cref{Vitr:Loeb}):
@@ -1243,7 +1243,7 @@ And last there is a translation published in a section of a book (\cref{Vitr:Fis
 
 If you cite these works you do as usual, you will get:
 \begin{example}
-\cite[1,1,2]{Vitr}; see as well \cite{Vitr:Loeb}; with changed translation in \cite{Vitr:Krohn} and in \cite{Vitr:Saliou}; in \cite{Vitr:Fischer} it is kept untranslated. 
+\footnote{\cite[1,1,2]{Vitr}; see as well \cite{Vitr:Loeb}; with changed translation in \cite{Vitr:Krohn} and in \cite{Vitr:Saliou}; in \cite{Vitr:Fischer} it is kept untranslated.}
 \end{example}
 
 
@@ -1275,7 +1275,7 @@ This example shows the behaviour with a corpus that is common for Latin epigraph
 
 It will be cited with and you see the result right away:
 \begin{example}
-\cite[06, 01234]{CIL}.
+\footnote{\cite[06, 01234]{CIL}.}
 \end{example}
 
 The field |shorthand| will be used for bibliography reference,
@@ -1422,7 +1422,7 @@ Let’s assume this is the bibliography entry:
 In the bibliography the main title of the monograph (|maintitle|)
 and the title of the book (|title|) are shown separately  so the volume  (|volume|) 
 appears before the title of the book
-\printbib[6em]{MacDonald1986}
+\printbib[6.5em]{MacDonald1986}
 
 
 \subsection{Type \texttt{@Inbook / @Incollection}}\label{inbook}
@@ -1749,14 +1749,14 @@ and there will be no reference to the bibliography since the entry is fully desc
 \DescribeMacro{inreferences} If you prefer this method you have to use the preamble option called  |inreferences|---cf. \cref{inreferences}
 Then it will look like this in the footnote:
 \begin{tcolorbox}[examplebox] 
-|\cite{Neils1994}.|
+|\footnote{\cite{Neils1994}.}|
 \tcblower
-LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils)
+\footnote{LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils).}
 \end{tcolorbox}
 When you have the \oarg{postnote} filled out in a citation which belongs to an |@Inreference| then it won’t be printed in the end of the citation.
 The |postnote| \oarg{930 Nr. 283} will be printed instead of the |pages|:
 \begin{example}
-\cite[vgl.][930 Nr. 283]{Neils1994}.
+\footnote{\cite[vgl.][930 Nr. 283]{Neils1994}.}
 \end{example} 
 \end{enumerate}
 
@@ -2185,7 +2185,7 @@ In the following example we use an entry type |@Article|:
 When you cite such an anonymous work it will be done like all the others,
  It will look like this:
 \begin{example}
- \cite[vgl.][145--146]{Cosa1949}
+\footnote{\cite[Vgl.][145--146]{Cosa1949}.}
 \end{example}
 and be printed in the bibliography like this:
 \printbib{Cosa1949}
@@ -2240,7 +2240,7 @@ This following example is about an article which was accepted by the journal and
 }
 \end{lstlisting}
 
-\printbib[7.5em]{Bossert:forthcoming}
+\printbib[8em]{Bossert:forthcoming}
 
 
 \subsection{Print the used options}
