@@ -1,6 +1,6 @@
 % archaeologie --%
 %            biblatex for archaeologists, 
-%				historians and philologists
+%        historians and philologists
 % Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
@@ -58,15 +58,15 @@ Download the folder |archaeologie| with all relevant files from the CTAN-server\
 Refresh your filename database.\footnote{ 
 Here is some additional information from the UK \TeX\ FAQ:
 \begin{itemize}[nosep,after=\vspace{-\baselineskip} ]
-	\item \href{%
+  \item \href{%
     http://www.tex.ac.uk/cgi-bin/texfaq2html?label=install-where}{%
     Where to install packages}
-	\item \href{%
-	  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=inst-wlcf}{%
-	  Installing files \enquote{where \LaTeX /TeX\ can find them}}
-	\item \href{%
-	  http://www.tex.ac.uk/cgi-bin/texfaq2html?label=privinst}{%
-	  \enquote{Private} installations of files}
+  \item \href{%
+    http://www.tex.ac.uk/cgi-bin/texfaq2html?label=inst-wlcf}{%
+    Installing files \enquote{where \LaTeX /TeX\ can find them}}
+  \item \href{%
+    http://www.tex.ac.uk/cgi-bin/texfaq2html?label=privinst}{%
+    \enquote{Private} installations of files}
 \end{itemize}
 }
 %%introduction from biblatex-dw copied and applied. might to be rewritten.
@@ -74,11 +74,11 @@ Here is some additional information from the UK \TeX\ FAQ:
 \section{Usage}
  \DescribeMacro{archaeologie}  The name of the bib\LaTeX-style is  |archaeologie| which has to be activated in the preamble. 
 
-\begin{lstlisting}
+\begin{code}
 \usepackage[style=archaeologie,%
-					*@\meta{further options}@*]{biblatex}
+          *@\meta{further options}@*]{biblatex}
 \bibliography*@\marg{|bib|-file}@*
-\end{lstlisting}
+\end{code}
 
 Without any further options the style follows the rules of the German Archaeological Institute. 
 No additional settings are needed,
@@ -199,31 +199,32 @@ In cases there are different translations of an ancient work you can decide whic
 \subsection{Cite commands}\label{cite-commands}
 \DescribeMacro{\cite}%
 As always citing is done with \cs{cite}:
-\begin{lstlisting}
+\begin{code}
 \cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
-\end{lstlisting}
+\end{code}
 
 \meta{prenote} sets a short preliminary note (e.\,g. \enquote{Vgl.}) and \meta{postnote} is usually used for page numbers.
 If only one optional argument is used then it is \oarg{postnote}.
-\begin{lstlisting}
+\begin{code}
 \cite*@\oarg{postnote}\marg{bibtex-key}%@*
-\end{lstlisting}
+\end{code}
 The \meta{bibtex-key} corresponds to the key from the bibliography file.
 
 \DescribeMacro{\cites}
 If one wants to cite several authors or works a very convenient way is the following using the \cs{cites}-command:
-\begin{lstlisting}
-\cites(pre-prenote)(post-postnote)*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
- 																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
- 																	*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
-\end{lstlisting}
+\begin{code}
+\cites(pre-prenote)(post-postnote)
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
+\end{code}
  
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
-\begin{lstlisting}
+\begin{code}
 \parencite*@\oarg{postnote}\marg{bibtex-key}%@*
-\end{lstlisting} 
+\end{code} 
 This cite command takes care of the correct corresponding parentheses and brackets.
 Especially in |@Inreference| citations the parentheses  change to (square) brackets.
 The example shown in \cref{faq:inreference} makes it clear.
@@ -231,39 +232,39 @@ The example shown in \cref{faq:inreference} makes it clear.
 \DescribeMacro{\parencites}
 Of course there is also the possibility to cite several authors/works in parentheses.
 This is done with \cs{parencites}:
-\begin{lstlisting}
+\begin{code}
 \parencites(pre-prenote)(post-postnote)%
 *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
 *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
 *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
-\end{lstlisting}
+\end{code}
  
 \DescribeMacro{\textcite}
 Beside the listed \cs{cite} commands above there is a third way of citing:
 \cs{textcite} is useful if the author should be mentioned in the text and
 the remaining components such as year and page will immediately follow in parentheses. 
-\begin{lstlisting}
+\begin{code}
 \textcite*@\oarg{postnote}\marg{bibtex-key}%@*
-\end{lstlisting} 
+\end{code} 
 
 \DescribeMacro{\textcites}
 And again there is also a \cs{textcites} in case of several authors: 
-  \begin{lstlisting}
+\begin{code}
 \textcites(pre-prenote)(post-postnote)%
-*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
-*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
-*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
-\end{lstlisting}
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
+\end{code}
 
 \DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
 Furthermore and in addition to the ›normal‹ \cs{cite}-commands one can also cite only the author or the work title in the text and in the footnotes.
-\begin{lstlisting}
+\begin{code}
 \citeauthor*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
-\end{lstlisting} 
+\end{code} 
   and for the works 
-\begin{lstlisting}
+\begin{code}
 \citetitle*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
-\end{lstlisting} 
+\end{code} 
 For further information cf. \cref{citeauthorformat}.
 
 
@@ -287,18 +288,21 @@ An |@String| has to be written \emph{without} any curly brackets.\footnote{If yo
 then you have to write \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@String| and omits the \# in the coding window. 
 \emph{BibDesk} provides such conversion as well by pressing |cmd-R| which enables direct BibTeX typing without enclosing curly brackets.}
 
+
 An example shows how to use it:
-\begin{lstlisting}[style=bibentry,label=Koyunlu1990,caption={{@}Article\{Koyunlu1990,…\} }]
+
+\begin{bibexample}[label=Koyunlu1990]{{@}Article\{Koyunlu1990,…\}}
 @Article{Koyunlu1990,
   author       = {Koyunlu, A.},
   title        = {Die Bodenbelage und der Errichtungsort der Hagia Sophia},
-  journaltitle = AyasofyaMuezYil,		%@String used
-  shortjournal = AyasofyaMuezYil-short,		%@String used
+  journaltitle = AyasofyaMuezYil,  %@String used
+  shortjournal = AyasofyaMuezYil-short,  %@String used
   volume       = {11},
   pages        = {147--156},
   year         = {1990},
 }
-\end{lstlisting}
+\end{bibexample}
+
 
 That article appeared within a rather unusual journal, 
 which should be abbreviated with ›AyasofyaMüzYıl‹.
@@ -307,6 +311,7 @@ To save  time  looking for the special character and insert ›ı‹ manually
 it is written in the |@String| with an ›i‹ (for further information see \cref{abbrv-lists}) but will be replaced after compiling with the correct character:
 
 \printbib[6em]{Koyunlu1990}
+
 
 Whether using the provided abbreviation list with |lstabbrv| or filling the |journaltitle| and |shortjournal| fields manually, 
 |archaeologie| uses by default short titles if defined.
@@ -327,13 +332,13 @@ For the following examples we use |@String| whenever it is appropriate and possi
 
 Lastly we want to point out that |@Strings| can also be used partly as following shows:
 
-\begin{lstlisting}
+\begin{code}
 @Incollection{Mundt2015,
   ...
   location     = Berlin #{ and Boston}, %@String partly used
   ...
 }
-\end{lstlisting}
+\end{code}
 
 Each time you want to leave the |@String| environment and enter the curly bracket environment (and reverse) make use of a hash \# to concatenate elements.  
 
@@ -344,15 +349,15 @@ Changes made by these options are {\color{red}coloured in red}.
 
 \subsection{Preamble options}\label{options-preamble}
 Optional preferences in the preamble are loaded within the package |bib|\LaTeX:
-\begin{lstlisting}
-\usepackage[%				
-		backend=biber,	% activates biber which is done by default anyway 
-										%	(but will give an error if not done here)
-		style=archaeologie, 	% loads the style *@|archaeologie|@*
-		inreferences=true,		% option *@|inreferences|@* is loaded
-		lstabbrv							% option *@|lstabbrv|@* is loaded as well
-		]{biblatex}
-\end{lstlisting}
+\begin{code}
+\usepackage[%        
+    backend=biber,  % activates biber which is done by default anyway 
+                    %  (but will give an error if not done here)
+    style=archaeologie,   % loads the style *@|archaeologie|@*
+    inreferences=true,    % option *@|inreferences|@* is loaded
+    lstabbrv              % option *@|lstabbrv|@* is loaded as well
+    ]{biblatex}
+\end{code}
 In this example the style |archaeologie| is loaded with options |inreferences| and |lstabbrv|. 
 Now, manual entries don't appear in author-year-style anymore and journal/series |@string|-macros are enabled.
 By the way, it doesn't matter if you write |inreferences| or |inreferences=true|.
@@ -385,7 +390,7 @@ With the loaded option |bibancient| you can cite like this:
 
 
 The corresponding bibliography-entry looks like this
-\begin{lstlisting}[style=bibentry,label=Apul:met,caption={{@}Book\{Apul:met,…\} }]
+\begin{bibexample}[label=Apul:met]{{@}Book\{Apul:met,…\}}
 @Book{Apul:met,
   author      = {Apuleius Madaurensis, Lucius},
   title       = {metamorphoses},
@@ -394,12 +399,12 @@ The corresponding bibliography-entry looks like this
   keywords    = {ancient},
   options     = {ancient},
 }
-\end{lstlisting}
+\end{bibexample}
 All entries in the mentioned additional bibliography contain the line |keywords = {ancient}|.
 With that you can print all ancient authors in a separated bibliography by typing:
-\begin{lstlisting}
+\begin{code}
 \printbibliography[keyword=ancient]
-\end{lstlisting}
+\end{code}
 \printbib{Apul:met}
 
 \begin{refsection}
@@ -488,7 +493,7 @@ so they will always be printed with original title, language and translator.
 
 An example will clarify matters:
 The bibliographical entry |Lefebvre2011| contains following fields:
-\begin{lstlisting}[style=bibentry,label=Lefebvre2011,caption={{@}Book\{Lefebvre2011,…\}}]
+\begin{bibexample}[label=Lefebvre2011]{{@}Book\{Lefebvre2011,…\}}
 @Book{Lefebvre2011,
   author       = {Lefebvre,Henri},
   title        = {The Production of Space},
@@ -502,7 +507,7 @@ The bibliographical entry |Lefebvre2011| contains following fields:
   origlanguage = {french},
   translator   = {Donald Nicholson-Smith},
 }
-\end{lstlisting}
+\end{bibexample}
 
 The bibliography result is:
 \printbib[6em]{Lefebvre2011}
@@ -516,7 +521,7 @@ By activating option |translation| it will change to:
  
 However, it works not only with entries like |@Book| but also with e.\,g. |@Article|:
 
-\begin{lstlisting}[style=bibentry,label=Lefebvre1977,caption={{@}Article\{Lefebvre1977,…\} }]
+\begin{bibexample}[label=Lefebvre1977]{{@}Article\{Lefebvre1977,…\}}
 @Article{Lefebvre1977,
   author       = {Lefebvre, Henri},
   title        = {Die Produktion des städtischen Raums},
@@ -529,7 +534,7 @@ However, it works not only with entries like |@Book| but also with e.\,g. |@Arti
   number       = {9},
   origtitle    = {Introduction à l'espace urbain},
 }
-\end{lstlisting}
+\end{bibexample}
 
 Once again the bibliography entry alters:
 
@@ -545,7 +550,7 @@ There is the possibility to cite inreferences in the footnote as a full citation
 It is only required that the bibliography-entry is an |@Inreference|  (cf. \cref{inreference}).
  
 Another example makes it clear: 
-\begin{lstlisting}[style=bibentry,label=Nieddu1995,caption={{@}Inreference\{Nieddu1995,…\} }]
+\begin{bibexample}[label=Nieddu1995]{{@}Inreference\{Nieddu1995,…\}}
 @Inreference{Nieddu1995,
   author    = {Nieddu, Giuseppe},
   title     = {Dei Consentes},
@@ -554,7 +559,7 @@ Another example makes it clear:
   year      = {1995},
   volume    = {2},
 }
-\end{lstlisting}
+\end{bibexample}
 
 There are two ways to display this entry:
  \begin{enumerate}
@@ -602,7 +607,7 @@ The option |yearseries| leads to a different position of the fields |series| and
 The |series| of a |@Book| or |@Collection| is now printed \emph{after} the year.
 An example with an |@Incollection| demonstrates the effect of this option:
  
-\begin{lstlisting}[style=bibentry,label=Mundt2015,caption={{@}Incollection\{Mundt2015,…\}}]
+\begin{bibexample}[label=Mundt2015]{{@}Incollection\{Mundt2015,…\}}
 @Incollection{Mundt2015,
   author       = {Mundt, Felix},
   title        = {Der Mensch, das Licht und die Stadt},
@@ -618,7 +623,7 @@ An example with an |@Incollection| demonstrates the effect of this option:
   number       = {3},
   shortseries  = Philologus-short #{ Suppl.},
 }
-\end{lstlisting}
+\end{bibexample}
 
 Without any option activated it will look like this:
 \printbib[5em]{Mundt2015}
@@ -644,7 +649,7 @@ If you want in contrast the authors to be shorten to their last names use |citea
 
 The following example illustrates it:
 
-\begin{lstlisting}[style=bibentry,label=Boehmer1985,caption={{@}Article\{Boehmer1985,…\} }]
+\begin{bibexample}[label=Boehmer1985]{{@}Article\{Boehmer1985,…\}}
 @Article{Boehmer1985,
   author       = {Boehmer, Rainer Michael and Wrede, Nadja},
   title        = {Astragalspiele in und um Warka},
@@ -654,7 +659,7 @@ The following example illustrates it:
   pages        = {399--404},
   year         = {1985},
 }
-\end{lstlisting}
+\end{bibexample}
 
 Let's assume you would like to write something like that and
 after compiling it will look like this, 
@@ -708,7 +713,7 @@ Instead of printing the field |author| which contains usually the full ancient n
 Ancient work titles will be printed without the year in parentheses. 
 Both are demonstrated in the following example: Based on the bibliography entry
 \end{enumerate}
-\begin{lstlisting}[style=bibentry,label=Quint:inst,caption={{@}Book\{Quint:inst,…\} }]
+\begin{bibexample}[label=Quint:inst]{{@}Book\{Quint:inst,…\}}
 @Book{Quint:inst,
   author       = {Fabius Quintilianus, Marcus},
   title        = {Ausbildung des Redners},
@@ -724,7 +729,7 @@ Both are demonstrated in the following example: Based on the bibliography entry
   keywords     = {ancient},
   options      = {ancient},
 }
-\end{lstlisting}
+\end{bibexample}
 
 and the following statement we obtain the result:
 
@@ -785,7 +790,7 @@ But with |schape| it will turn into:
 
 And since the entry looks like this
 
-\begin{lstlisting}[style=bibentry,label=Ball2013,caption={{@}Article\{Ball2013,…\} }]
+\begin{bibexample}[label=Ball2013]{{@}Article\{Ball2013,…\}}
 @Article{Ball2013,
 author       = {Larry F. Ball and John J. Dobbins},
 title        = {Pompeii Forum Project},
@@ -800,7 +805,7 @@ eprint       = {10.3764/aja.117.3.0461},
 eprinttype   = {jstor},
 number       = {3},
 }
-\end{lstlisting}
+\end{bibexample}
 
 
 the output in the bibliography changes from:
@@ -810,7 +815,7 @@ the output in the bibliography changes from:
 to 
 
 \begin{bibbox}{Ball2013}\footnotesize
-\parbox[t]{2.9cm}{{\scshape \color{red}Ball – Dobbins} 2013}\parbox[t]{8cm}{%
+\parbox[t]{3cm}{{\scshape \color{red}Ball – Dobbins} 2013}\parbox[t]{8.5cm}{%
 L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pompeii Forum, AJA 117/3, 2013, 461–492\newline
 ...}
 \end{bibbox}
@@ -822,7 +827,7 @@ By default first names are abbreviated.
 
 Without any options the entry
 
-\begin{lstlisting}[style=bibentry,label=Osland2016,caption={{@}Article\{Osland2016,…\} }]
+\begin{bibexample}[label=Osland2016]{{@}Article\{Osland2016,…\}}
 @Article{Osland2016,
   author       = {Osland, Daniel},
   title        = {Abuse or Reuse?},
@@ -836,7 +841,7 @@ Without any options the entry
   number       = {1},
   zenon        = {001454110},
 }
-\end{lstlisting}
+\end{bibexample}
 
 looks like
 
@@ -862,7 +867,7 @@ Once activated all locations and the publisher are printed.
 This will lead to a different output of the edition which will be right in front of the year.
 In case of reprint or second edition the first edition |origyear| will be put in square brackets after the year.
 
-\begin{lstlisting}[style=bibentry,label=Emme2013,caption={{@}Book\{Emme2013,…\} }]
+\begin{bibexample}[label=Emme2013]{{@}Book\{Emme2013,…\}}
 @Book{Emme2013,
   author    = {Burkhard Emme},
   title     = {Peristyl und Polis},
@@ -873,7 +878,7 @@ In case of reprint or second edition the first edition |origyear| will be put in
   series    = {Urban Spaces},
   number    = {1},
 }
-\end{lstlisting}
+\end{bibexample}
 \begin{refsection}\end{refsection}
 
 Default settings produce:
@@ -886,7 +891,7 @@ By activating option |publisher| you obtain:
 \end{bibbox}
  
 And here a more detailed example with |origlocation|, |origyear| and |origpublisher|:
-\begin{lstlisting}[style=bibentry,label=Neufert2002,caption={{@}Book\{Neufert2002,…\} }]
+\begin{bibexample}[label=Neufert2002]{{@}Book\{Neufert2002,…\}}
 @Book{Neufert2002,
   author       = {Neufert, Ernst},
   editor       = {Neufert, Peter and Neufert, Cornelius and Neff, Ludwig and Franken, Corinna},
@@ -900,7 +905,7 @@ And here a more detailed example with |origlocation|, |origyear| and |origpublis
   origlocation = Berlin, %@String used
   origyear     = {1936},
 }
-\end{lstlisting}
+\end{bibexample}
  
 \printbib[5.5em]{Neufert2002}
 
@@ -916,7 +921,7 @@ Instead of embedding ›(ed.)‹/›(Hrsg.)‹ right after the editor name
  it places the adjunct ›ed. by‹/›hrsg. v.‹ behind the editor. 
  Furthermore, in case of |@Incollections| and |@Inproceedings| editor names and book title switch their positions as it is shown below.
 
-\begin{lstlisting}[style=bibentry,label=Wulf-Rheidt2013,caption={{@}Inproceedings\{Wulf-Rheidt2013,…\} }]
+\begin{bibexample}[label=Wulf-Rheidt2013]{{@}Inproceedings\{Wulf-Rheidt2013,…\}}
 @Inproceedings{Wulf-Rheidt2013,
   author       = {Wulf-Rheidt, Ulrike},
   title        = {Der Palast auf dem Palatin -- Zentrum im Zentrum},
@@ -926,17 +931,17 @@ Instead of embedding ›(ed.)‹/›(Hrsg.)‹ right after the editor name
   booktitle    = {Politische Räume in vormodernen Gesellschaften},
   booksubtitle = {Gestaltung – Wahrnehmung – Funktion},
   location     = {Rahden/Westf\adddot},
-  publisher    = VML,		%@String used
+  publisher    = VML,    %@String used
   year         = {2013},
-  venue        = Berlin, 	%@String used
+  venue        = Berlin,   %@String used
   eventdate    = {2009-11-18/2009-11-22},
   eventtitle   = {Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI},
   zenon       = {001371402},
   number       = {6},
-  series       = MKT,		%@String used
-  shortseries  = MKT-short,	%@String used
+  series       = MKT,    %@String used
+  shortseries  = MKT-short,  %@String used
 }
-\end{lstlisting}
+\end{bibexample}
 
 Without option |edby| this |@Inproceedings| would look like:
  
@@ -1028,12 +1033,12 @@ because it enables you to cite ancient texts in the style archaeologists and
 historians are used to \emph{plus} you get entirely supported bibliography referencing.
 
 Let us have a look at an example:
-\begin{lstlisting}[style=bibentry,label=Cic:Att,caption={{@}Book\{Cic:Att,…\} }]
+\begin{bibexample}[label=Cic:Att]{{@}Book\{Cic:Att,…\}}
 @Book{Cic:Att,
   author       = {Tullius Cicero, Marcus},
   editor       = {Kasten, Helmut},
   title        = {Atticus-Briefe},
-  publisher    = AWi, 	%@String used
+  publisher    = AWi,   %@String used
   location     = {Düsseldorf and Zürich},
   year         = {1980},
   series       = {Tusculum Bücherei},
@@ -1047,7 +1052,7 @@ Let us have a look at an example:
   keywords     = {ancient},
   options      = {ancient}, %!!
 }
-\end{lstlisting}
+\end{bibexample}
 
 Instead of applying |author| and |year| as labels the option |ancient| takes the field |shorthand| into account.
 
@@ -1067,7 +1072,7 @@ in this case even united due to fact that editor and translator are identical.
 This works not only with |@Book| but also with those ancient texts which are part of an |@Incollection| employing them similarly to the entries defined as |@Book|.
 
 Another example:
-\begin{lstlisting}[style=bibentry,label=Cic:Sest,caption={{@}Inbook\{Cic:Sest,…\} }]
+\begin{bibexample}[label=Cic:Sest]{{@}Inbook\{Cic:Sest,…\}}
 @Inbook{Cic:Sest,
   author       = {Tullius Cicero, Marcus},
   title        = {Rede für P.\ Sestius},
@@ -1075,11 +1080,11 @@ Another example:
   year         = {1993},
   editor       = {Fuhrmann, Manfred},
   volume       = {II},
-  publisher    = AWi,		%@String used
+  publisher    = AWi,    %@String used
   pages        = {110--185},
   origlanguage = {latin},
   series       = {Sammlung Tusculum},
-  location     = Munich,			%@String used
+  location     = Munich,      %@String used
   intranslator = {Fuhrmann, Manfred},
   keywords     = {ancient},
   options      = {ancient},
@@ -1087,7 +1092,7 @@ Another example:
   shortauthor  = {Cicero},
   shorthand    = {Cic. Sest.},
 }
-\end{lstlisting}
+\end{bibexample}
 
 Even support for several languages is taken into account as this bibliography entries show: 
 \printbiball[4em]{Cic:Sest}
@@ -1098,13 +1103,13 @@ When dealing with fragments of ancient texts often it is important to cite the e
 If you want to cite such a collection of fragments use |options={frgancient}|.
 In this case the editor (|shorteditor| or |editor|) will be put in after the \marg{postnote}. 
 
-\begin{lstlisting}[style=bibentry,label=Fest,caption={{@}Book\{Fest,…\} }]
+\begin{bibexample}[label=Fest]{{@}Book\{Fest,…\}}
 @Book{Fest,
   author      = {Pompeius Festus, {\relax Sex}tus},
   editor      = {Lindsay, Wallace Martin},
   title       = {De verborum significatu quae supersunt cum Pauli epitome},
   publisher   = {Teubner},
-  location    = Leipzig, 		%@String used
+  location    = Leipzig,     %@String used
   year        = {1965},
   series      = {Bibliotheca scriptorum et Grecorum et Romanorum Teubnerina},
   origyear    = {1913},
@@ -1114,7 +1119,7 @@ In this case the editor (|shorteditor| or |editor|) will be put in after the \ma
   options     = {frgancient},
   shorteditor = {L},
 }
-\end{lstlisting}
+\end{bibexample}
 
 When you cite this entry in this example the field  |shorteditor| will be shown.
 \begin{example}
@@ -1136,7 +1141,7 @@ Let us give you an example with the most famous ancient architect \citeauthor{Vi
 Since he is so famous there are variant translations of his text.
 The German translation should be the standard referenced translation;
 the bibliographical entry looks like this:
-\begin{lstlisting}[style=bibentry,label=Vitr,caption={{@}Book\{Vitr,…\} }]
+\begin{bibexample}[label=Vitr]{{@}Book\{Vitr,…\}}
 @Book{Vitr,
   author        = {Vitruvius},
   title         = {Zehn Bücher über Architektur},
@@ -1154,7 +1159,7 @@ the bibliographical entry looks like this:
   options       = {ancient},
   sortshorthand = {Vitr.},
 }
-\end{lstlisting}
+\end{bibexample}
 
 When we cite \citeauthor{Vitr} we get the following result:
 \begin{example}
@@ -1162,7 +1167,7 @@ When we cite \citeauthor{Vitr} we get the following result:
 \end{example}
 Now let us assume we want to compare that with other, different translations / text editions. 
 First the english standard translation (\cref{Vitr:Loeb}):
-\begin{lstlisting}[style=bibentry,label=Vitr:Loeb,caption={{@}Book\{Vitr:Loeb,…\} }]
+\begin{bibexample}[label=Vitr:Loeb]{{@}Book\{Vitr:Loeb,…\}}
 @Book{Vitr:Loeb,
   author        = {Vitruvius},
   title         = {On Architecture},
@@ -1181,9 +1186,9 @@ First the english standard translation (\cref{Vitr:Loeb}):
   shortseries   = {Loeb},
   sortshorthand = {Vitr. Loeb},
 }
-\end{lstlisting}
+\end{bibexample}
 Then there is also the French most common translation (\cref{Vitr:Saliou}):
-\begin{lstlisting}[style=bibentry,label=Vitr:Saliou,caption={{@}Book\{Vitr:Saliou,…\} }]
+\begin{bibexample}[label=Vitr:Saliou]{{@}Book\{Vitr:Saliou,…\}}
 @Book{Vitr:Saliou,
   author        = {Vitruvius},
   title         = {De L'Architecture},
@@ -1201,9 +1206,9 @@ Then there is also the French most common translation (\cref{Vitr:Saliou}):
   date          = {1986/2009},
   sortshorthand = {Vitr. Saliou},
 }
-\end{lstlisting}
+\end{bibexample}
 And an old one (\cref{Vitr:Krohn}):
-\begin{lstlisting}[style=bibentry,label=Vitr:Krohn,caption={{@}Book\{Vitr:Krohn,…\} }]
+\begin{bibexample}[label=Vitr:Krohn]{{@}Book\{Vitr:Krohn,…\}}
 @Book{Vitr:Krohn,
   author        = {Vitruvius},
   editor        = {Krohn, Franz},
@@ -1218,10 +1223,10 @@ And an old one (\cref{Vitr:Krohn}):
   date          = {1912},
   sortshorthand = {Vitr. Krohn},
 }
-\end{lstlisting}
+\end{bibexample}
 
 And last there is a translation published in a section of a book (\cref{Vitr:Fischer}):
-\begin{lstlisting}[style=bibentry,label=Vitr:Fischer,caption={{@}Book\{Vitr:Fischer,…\} }]
+\begin{bibexample}[label=Vitr:Fischer]{{@}Book\{Vitr:Fischer,…\}}
 @Inbook{Vitr:Fischer,
   author       = {Vitruvius},
   booktitle    = {Vitruv NEU oder Was ist Architektur?},
@@ -1239,7 +1244,7 @@ And last there is a translation published in a section of a book (\cref{Vitr:Fis
   shorthand    = {Vitr.},
   sortshorhand = {Vitr. Fischer},
 }
-\end{lstlisting}
+\end{bibexample}
 
 If you cite these works you do as usual, you will get:
 \begin{example}
@@ -1262,16 +1267,16 @@ To cite such a corpus with its abbreviation you have to write an additional |opt
 Now you can cite it as usual with the \oarg{prenote} or \oarg{postnote} you like to have.
 
 This example shows the behaviour with a corpus that is common for Latin epigraphy:
-\begin{lstlisting}[style=bibentry,label=CIL,caption={{@}Book\{CIL,…\} }]
+\begin{bibexample}[label=CIL]{{@}Book\{CIL,…\}}
 @Book{CIL,
   title     = CIL, %@String used
   location  = Berlin, %@String used
   year      = {1863--},
-  shorthand = CIL-short,	%@String used
+  shorthand = CIL-short,  %@String used
   keywords  = {corpus}, %!
   options   = {corpus},
 }
-\end{lstlisting}
+\end{bibexample}
 
 It will be cited with and you see the result right away:
 \begin{example}
@@ -1315,18 +1320,18 @@ You can use the following fields:
  
  
 An entry of a book might look as this in your |bib|-file:
-\begin{lstlisting}[style=bibentry,label=Mann2011,caption={{@}Book\{Mann2011,…\} }]
+\begin{bibexample}[label=Mann2011]{{@}Book\{Mann2011,…\}}
 @Book{Mann2011,
   author    = {Mann, Christian},
   title     = {\enquote{Um keinen Kranz, um das Leben kämpfen wir!}},
   subtitle  = {Gladiatoren im Osten des Römischen Reiches und die Frage der Romanisierung},
   publisher = {Verlag Antike},
-  location  = Berlin, 	%@String used
+  location  = Berlin,   %@String used
   year      = {2011},
   series    = {Studien zur Alten Geschichte},
   number    = {14},
 }
-\end{lstlisting}
+\end{bibexample}
 
 A citation in a footnote is done like this and will be printed as you see:
 \begin{example}
@@ -1338,7 +1343,7 @@ A citation in a footnote is done like this and will be printed as you see:
 To mark that the book or collection is a so-called ›Festschrift‹/ commemorative volume, 
 or an exhibition or auction catalogue you need an additional note to make it clear.
 We suggest using  the field |titleaddon| or if it is a |@Incollection| or |@Inproceedings| you can use the field |booktitleaddon| (for papers in collections see \cref{inbook}).
-\begin{lstlisting}[style=bibentry,label=Boehm2001,caption={{@}Book\{Boehm2001,…\} }]
+\begin{bibexample}[label=Boehm2001]{{@}Book\{Boehm2001,…\}}
 @Book{Boehm2001,
   editor     = {Böhm, Stephanie and Eickstedt, Klaus-Valtin von},
   title      = {Ithake},
@@ -1347,7 +1352,7 @@ We suggest using  the field |titleaddon| or if it is a |@Incollection| or |@Inpr
   year       = {2001},
   titleaddon = {Festschrift Jörg Schäfer},
 }
-\end{lstlisting}
+\end{bibexample}
 
 \printbib[9em]{Boehm2001}
  
@@ -1358,12 +1363,12 @@ To obtain this fill the fields |related| and |relatedtype| (for further guidance
 This example will clarify matters:
 The first edition of \citetitle*{Zanker2009} by \citeauthor*{Zanker2009} has been published in 1987 (|origyear|), but by now it has been released in its 5th edition.
 
-\begin{lstlisting}[style=bibentry,label=Zanker2009,caption={{@}Book\{Zanker2009,…\} }]
+\begin{bibexample}[label=Zanker2009]{{@}Book\{Zanker2009,…\}}
 @Book{Zanker2009,
   author        = {Zanker, Paul},
   title         = {Augustus und die Macht der Bilder},
-  publisher     = CHB, 	%@String used
-  location      = Munich,	%@String used
+  publisher     = CHB,   %@String used
+  location      = Munich,  %@String used
   year          = {2009},
   edition       = {5},
   origlocation  = Leipzig, %@String used
@@ -1373,14 +1378,14 @@ The first edition of \citetitle*{Zanker2009} by \citeauthor*{Zanker2009} has bee
   language      = {german},
   origpublisher = {Koehler \& Amelang},
 }
-\end{lstlisting}
+\end{bibexample}
 
 In \citeyear{Zanker1988}, one year later after the first edition (|origyear|) the book was translated by A. H. Shapiro:
-\begin{lstlisting}[style=bibentry,label=Zanker1988,caption={{@}Book\{Zanker1988,…\} }]
+\begin{bibexample}[label=Zanker1988]{{@}Book\{Zanker1988,…\}}
 @Book{Zanker1988,
   author      = {Zanker, Paul},
   title       = {The Power of Images in the Age of Augustus},
-  publisher   = UMP,		%@String used
+  publisher   = UMP,    %@String used
   location    = {Ann Arbor},
   year        = {1988},
   series      = {Jerome Lectures},
@@ -1390,7 +1395,7 @@ In \citeyear{Zanker1988}, one year later after the first edition (|origyear|) th
   related     = {Zanker2009},
   relatedtype = {translationof},
 }
-\end{lstlisting}
+\end{bibexample}
 
 The translated book |Zanker1988| is connected with the book |Zanker2009| via the field |related = |\marg{bibtex-key} 
 and the relation got specified with the field |relatedtype|, in this case it is a translation so |={translationof}|.
@@ -1406,11 +1411,11 @@ It may be the case that you have to cite a book which consists of several volume
 usually there is a volume with text and one volume with plates.
 To cite  e.\,g. the second volume in particular you can do the following.
 Let’s assume this is the bibliography entry:
-\begin{lstlisting}[style=bibentry,label=MacDonald1986,caption={{@}Book\{MacDonald1986,…\} }]
+\begin{bibexample}[label=MacDonald1986]{{@}Book\{MacDonald1986,…\}}
 @Book{MacDonald1986,
   author    = {MacDonald, William L.},
   title     = {An urban Appraisal},
-  publisher = YUP,		%@String used
+  publisher = YUP,    %@String used
   location  = {New Haven and }# London, %@String used
   year      = {1986},
   maintitle = {The Architecture of the Roman Empire},
@@ -1418,7 +1423,7 @@ Let’s assume this is the bibliography entry:
   series    = {Yale Publications in the History of Art},
   number    = {35},
 }
-\end{lstlisting}
+\end{bibexample}
 In the bibliography the main title of the monograph (|maintitle|)
 and the title of the book (|title|) are shown separately  so the volume  (|volume|) 
 appears before the title of the book
@@ -1446,24 +1451,24 @@ Single entries/chapters of a collection are cited best when they are set up as  
  
  
 This following example clarify matters:
- \begin{lstlisting}[style=bibentry,label=Carter2014,caption={{@}Incollection\{Carter2014,…\} }]
+ \begin{bibexample}[label=Carter2014]{{@}Incollection\{Carter2014,…\}}
 @Incollection{Carter2014,
   author    = {Carter, Michael J. and Edmondson, Jonathan},
   title     = {Spectacle in Rome, Italy, and the Provinces},
   pages     = {537--558},
   editor    = {Bruun, Christer and Edmondson, Jonathan},
   booktitle = {The Oxford Handbook of Roman Epigraphy},
-  publisher = OUP,		%@String used
+  publisher = OUP,    %@String used
   location  = {Oxford},
   year      = {2014},
 }
-\end{lstlisting}
+\end{bibexample}
 
 \printbib[10em]{Carter2014}
 
 You can also have contributions to a ›Festschrift‹ etc. set up as |@Incollection|,
 but then notice the additional information in |booktitleaddon|.
-\begin{lstlisting}[style=bibentry,label=Hoelscher2001,caption={{@}Incollection\{Hoelscher2001,…\} }]
+\begin{bibexample}[label=Hoelscher2001]{{@}Incollection\{Hoelscher2001,…\}}
 @Incollection{Hoelscher2001,
   author         = {Hölscher, Tonio},
   title          = {Schatzhäuser -- Banketthäuser?},
@@ -1475,7 +1480,7 @@ but then notice the additional information in |booktitleaddon|.
   year           = {2001},
   booktitleaddon = {Festschrift Jörg Schäfer},
 }
-\end{lstlisting}
+\end{bibexample}
 In the bibliography it will look like:
 \printbib[5.5em]{Hoelscher2001}
 
@@ -1483,7 +1488,7 @@ In the bibliography it will look like:
 Some books or collections are part of a small series (not an ongoing series).
 This book is part of the series called abbreviated \emph{MemAmAc}.
 Have a look:
-\begin{lstlisting}[style=bibentry,label=Fentress2003,caption={{@}Incollection\{Fentress2003,…\} }]
+\begin{bibexample}[label=Fentress2003]{{@}Incollection\{Fentress2003,…\}}
 @Incollection{Fentress2003,
   author       = {Fentress, Elizabeth and John Bodel and Adam Rabinowitz and Rabun Taylor},
   title        = {Cosa in the Republic and Early Empire},
@@ -1491,16 +1496,16 @@ Have a look:
   editor       = {Fentress, Elizabeth},
   booktitle    = {An Intermittent Town},
   booksubtitle = {Excavations 1991--1997},
-  publisher    = UMP,		%@String used
+  publisher    = UMP,    %@String used
   location     = {Ann Arbor, Mich.},
   year         = {2003},
   volume       = {V},
-  series       = MemAmAc,		%@String used
+  series       = MemAmAc,    %@String used
   number       = {2},
   maintitle    = {Cosa},
-  shortseries  = MemAmAc-short,		%@String used
+  shortseries  = MemAmAc-short,    %@String used
 }
-\end{lstlisting}
+\end{bibexample}
 As we can see it is the fifth volume (|volume|) of the series with the main title 
 \emph{Cosa} (|maintitle|) but has an individual title (|title|) which is
 \emph{Cosa in the Republic and Early Empire}, furthermore it is the second book (|number|) 
@@ -1514,7 +1519,7 @@ Notice the different language-based behaviour of ›et. al.‹ for more than two
 The output of an inventory catalogue changes slightly compared to collections or something similar. 
 The title is omitted and therefore there is no comma after the author’s name.
 We provide two examples so you see the difference.
-\begin{lstlisting}[style=bibentry,label=Kohlmeyer1983,caption={{@}Inbook\{Kohlmeyer1983,…\} }]
+\begin{bibexample}[label=Kohlmeyer1983]{{@}Inbook\{Kohlmeyer1983,…\}}
 @Inbook{Kohlmeyer1983,
   author       = {K. Kohlmeyer},
   booktitle    = {Tierbilder aus vier Jahrtausenden},
@@ -1524,10 +1529,10 @@ We provide two examples so you see the difference.
   pages        = {20 Nr. 9},
   location     = Mainz, %@String used
 }
-\end{lstlisting}
+\end{bibexample}
 and the second example
 
-\begin{lstlisting}[style=bibentry,label=Parlasca1969,caption={{@}Inbook\{Parlasca1969,…\} }]
+\begin{bibexample}[label=Parlasca1969]{{@}Inbook\{Parlasca1969,…\}}
 @Inbook{Parlasca1969,
   author    = {K. Parlasca},
   booktitle = {Helbig},
@@ -1537,11 +1542,11 @@ and the second example
   pages     = {98\psq\ Nr. 2176},
   location  = Tuebingen, %@String used
 }
-\end{lstlisting}
+\end{bibexample}
 
 
 \printbib[6em]{Kohlmeyer1983}
-
+and
 \printbiball[6em]{Parlasca1969}
 
 
@@ -1561,19 +1566,19 @@ because you find detailed information about specific topics in articles.
  \end{description}
 
 Here we have an example which will explain the (required)  fields:
-\begin{lstlisting}[style=bibentry,label=Evangelidis2014,caption={{@}Article\{Evangelidis2014,…\} }]
+\begin{bibexample}[label=Evangelidis2014]{{@}Article\{Evangelidis2014,…\}}
 @Article{Evangelidis2014,
   author       = {Evangelidis, Vasilis},
   title        = {Agoras {and} Fora},
   subtitle     = {Developments in the Central Public Space of the Cities of Greece during the {Roman} Period},
-  journaltitle = BSA,		%@String used
-  shortjournal = BSA-short,		%@String used
+  journaltitle = BSA,    %@String used
+  shortjournal = BSA-short,    %@String used
   volume       = {109},
   pages        = {335--356},
   year         = {2014},
   doi          = {10.1017/s006824541400015x},
 }
-\end{lstlisting}
+\end{bibexample}
 In line 5 and 6 you can also write the full or abbreviated journal title in the fields |journaltitle| or |shorttitle| (e.\,g. |journaltitle = {British School of Athens}|, |shortjournal = {BSA}|), but we chose to use a |@String| (cf. \cref{list-bibancient,string}) again.
 \printbib[6.5em]{Evangelidis2014}
 
@@ -1602,7 +1607,7 @@ Everything else is like the type |@Book|.
  \end{description}
  
 An example:
- \begin{lstlisting}[style=bibentry,label=Kurapkat2014,caption={{@}Proceedings\{Kurapkat2014,…\} }]
+ \begin{bibexample}[label=Kurapkat2014]{{@}Proceedings\{Kurapkat2014,…\}}
 @Proceedings{Kurapkat2014,
   title        = {Die Architektur des Weges},
   year         = {2014},
@@ -1610,15 +1615,15 @@ An example:
   subtitle     = {Gestaltete Bewegung im gebauten Raum},
   eventtitle   = {Kolloquium Architekturreferat des DAI},
   eventdate    = {2012-02-08/2012-02-11},
-  venue        = Berlin, 		%@String used
-  series       = DiskAB,		%@String used
+  venue        = Berlin,     %@String used
+  series       = DiskAB,    %@String used
   number       = {11},
   organization = {Architekturreferat des DAI},
   publisher    = {Schnell + Steiner},
-  location     = Regensburg, 		%@String used
-  shortseries  = DiskAB-short,		%@String used
+  location     = Regensburg,     %@String used
+  shortseries  = DiskAB-short,    %@String used
 }
-\end{lstlisting}
+\end{bibexample}
 With |venue| we specify the place where the proceeding took place 
 (e.\,g. \emph{Berlin} -- |location| is where the book was printed and is connected 
 to the |publisher| e.\,g. \emph{Regensburg}),
@@ -1650,17 +1655,17 @@ This entry type works similar to |@Procecedings| and |@Incollection| and therefo
  
  
  
- \begin{lstlisting}[style=bibentry,label=Torelli1991,caption={{@}Inproceedings\{Torelli1991,…\} }]
+ \begin{bibexample}[label=Torelli1991]{{@}Inproceedings\{Torelli1991,…\}}
 @Inproceedings{Torelli1991,
   author     = {Torelli, Mario},
   title      = {Il \enquote{diribitorium} di Alba Fucens e il \enquote{campus} eroico di Herdonia},
   pages      = {39--63},
   editor     = {Mertens, Josef},
   booktitle  = {Comunitá indigene e problemi della romanizzazione nell’Italia centro\--meri\-dionale (IV--III sec. a.C.)},
-  location   = Brussels, 		%@String used
+  location   = Brussels,     %@String used
   publisher  = {Institut Historique Belge de Rome},
   year       = {1991},
-  venue      = Rome #{, Academia Belgica},		%@String used
+  venue      = Rome #{, Academia Belgica},    %@String used
   eventdate  = {1990-02-01/1990-02-03},
   eventtitle = {Actes du Colloque International Organisé à l'Occasion du 50. Anniversaire de l'Academia Belgica et du 40. Anniversaire des Fouilles Belges en Italie},
   hyphenate  = {italian},
@@ -1669,7 +1674,7 @@ This entry type works similar to |@Procecedings| and |@Incollection| and therefo
   series     = {Études de philologie, d'archéologie et d'histoire anciennes},
   shorttitle = {Il \enquote{diribitorium}},
 }
-\end{lstlisting}
+\end{bibexample}
 It will be printed as:
  
 \printbiball[5em]{Torelli1991}
@@ -1692,44 +1697,44 @@ You don’t need to fill out many fields to have a working entry:
 \end{description}
 
 And so a complete entry is quite small:
-\begin{lstlisting}[style=bibentry,label=LIMC,caption={{@}Reference\{LIMC,…\} }]
+\begin{bibexample}[label=LIMC]{{@}Reference\{LIMC,…\}}
 @Reference{LIMC,
   title     = LIMC,
   keywords  = {corpus},
   options   = {corpus},
   shorthand = LIMC-short,
 }
-\end{lstlisting}
+\end{bibexample}
  
 But you can also have it  more detailed  like this one:
-\begin{lstlisting}[style=bibentry,label=Lexikon-der-Technik,caption={{@}Reference\{Lexikon-der-Technik,…\} }]
+\begin{bibexample}[label=Lexikon-der-Technik]{{@}Reference\{Lexikon-der-Technik,…\}}
 @Reference{Lexikon-der-Technik,
   editor    = {Otto Lueger},
   title     = {Lexikon der gesamten Technik und ihrer Hilfswissenschaften},
   date      = {1904/1920},
   edition   = {2},
-  location  = Stuttgart, 	%@String used
+  location  = Stuttgart,   %@String used
   keywords  = {corpus},
   shorthand = {Lexikon d. T.},
 }
-\end{lstlisting}
+\end{bibexample}
 
  \subsection{Type \texttt{@Inreference}}\label{inreference}
  \DescribeMacro{@Inreference}
 Besides a whole reference you can also -- and which is more likely -- cite only an entry of it via the type  |@Inreference|.
 
 Let’s clarify matters with an example:
-\begin{lstlisting}[style=bibentry,label=Neils1994,caption={{@}Inreference\{Neils1994,…\} }]
+\begin{bibexample}[label=Neils1994]{{@}Inreference\{Neils1994,…\}}
 @Inreference{Neils1994,
   author    = {Neils, Jenifer},
   title     = {Theseus},
-  booktitle = LIMC-short,		%@String used
+  booktitle = LIMC-short,    %@String used
   pages     = {922--951},
   year      = {1994},
   volume    = {7.1},
   keywords  = {lexikon},
 }
-\end{lstlisting}
+\end{bibexample}
 You can cite this entry with any of the provided \cs{cite}-commands above---cf. \cref{cite-commands,faq:inreference}.
 
 But for the final display of the entry  you have two possibilities:
@@ -1764,7 +1769,7 @@ As mentioned above it is  advantageous to relate entries such as  an |@Inreferen
 And since not all references have a ›canonical‹ abbreviation (e.\,g. RE, LIMC, DNP, LTUR, LÄ, etc.) it might be necessary to define a |shorthand|.
 This is shown in the example below.
  
-\begin{lstlisting}[style=bibentry,label=Weinbrenner1914,caption={{@}Inreference\{Weinbrenner1914,…\} }]
+\begin{bibexample}[label=Weinbrenner1914]{{@}Inreference\{Weinbrenner1914,…\}}
 @Inreference{Weinbrenner1914,
   author    = {Weinbrenner},
   title     = {Rennbahn},
@@ -1775,7 +1780,7 @@ This is shown in the example below.
   volume    = {9},
   number    = {2},
 }
-\end{lstlisting}
+\end{bibexample}
 As you see this entry is related to |Lexikon-der-Technik| which is described above and has a |shorthand = {Lexikon d. T.}|
 You just need to make sure that  |booktitle| of the |@Inreference| and the |shorthand| of 
 the  |@Reference| are equal so the title can be referenced properly in the bibliography.
@@ -1813,31 +1818,31 @@ The following example will show an easy way to combine the review with the revie
 What you need are two separate entries: one as a |@Review| the other is a |@Book|, |@Collection|, |@Proceedings| or something else.
 
 First we have the reviewed work:
-\begin{lstlisting}[style=bibentry,label=Welch2007,caption={{@}Book\{Welch2007,…\} }]
+\begin{bibexample}[label=Welch2007]{{@}Book\{Welch2007,…\}}
 @Book{Welch2007,
   author    = {Welch, Katherine E.},
   title     = {The {Roman} Amphitheatre},
   subtitle  = {From its Origins to the Colosseum},
-  publisher = CUP,		%@String used
+  publisher = CUP,    %@String used
   location  = {Cambridge and New York},
   year      = {2007},
 }
-\end{lstlisting}
+\end{bibexample}
 then the review itself:
-\begin{lstlisting}[style=bibentry,label=Bell2011,caption={{@}Review\{Bell2011,…\} }]
+\begin{bibexample}[label=Bell2011]{{@}Review\{Bell2011,…\}}
 @Review{Bell2011,
   author       = {Bell, Sinclair},
   number       = {1},
   pages        = {1--4},
   volume       = {115},
-  journaltitle = AJA,		%@String used
-  shortjournal = AJA-short,		%@String used
+  journaltitle = AJA,    %@String used
+  shortjournal = AJA-short,    %@String used
   related      = {Welch2007},
   relatedtype  = {reviewof},
   year         = {2011},
   publisher    = {Archaeological Institute of America},
 }
-\end{lstlisting}
+\end{bibexample}
 You maybe noticed that the review (|Bell2011|) is connected to the entry |Welch2007| with the field |related| in line 8.
 In addition we not only need a connected work but also to qualify the relation:
 This is done in line 9 with |relatedtype = {reviewof}|.
@@ -1854,19 +1859,19 @@ Some reviews are more detailed then others and  have their own title which shoul
 In these cases you can use the field |title| the other things stay the same.
 
 The following entry is an example which also reviews the book by \citeauthor*{Welch2007},  but with an individual title:
-\begin{lstlisting}[style=bibentry,label=Hufschmid2010,caption={{@}Review\{Hufschmid2010,…\} }]
+\begin{bibexample}[label=Hufschmid2010]{{@}Review\{Hufschmid2010,…\}}
 @Review{Hufschmid2010,
   author       = {Hufschmid, Thomas},
   title        = {Von Caesars \emph{theatron kynegetikon} zum \emph{amphitheatrum novum} Vespasians},
   pages        = {487--504},
   volume       = {23},
-  journaltitle = JRA,		%@String used
-  shortjournal = JRA-short,		%@String used
+  journaltitle = JRA,    %@String used
+  shortjournal = JRA-short,    %@String used
   related      = {Welch2007},
   relatedtype  = {reviewof},
   year         = {2010},
 }
-\end{lstlisting}
+\end{bibexample}
 In the bibliography there will be first the individual title followed by the information of the reviewed work.
 
 \printbib[6em]{Hufschmid2010}
@@ -1883,20 +1888,20 @@ In his review
 
 The entry of the first analysed book \citetitle{Welch2007} has been described in \cref{review}.
 The entry of the second reviewed book is this:
-\begin{lstlisting}[style=bibentry,label=Sear2006,caption={{@}Book\{Sear2006,…\} }]
+\begin{bibexample}[label=Sear2006]{{@}Book\{Sear2006,…\}}
 @Book{Sear2006,
   author     = {Sear, Frank},
   title      = {Roman Theatres},
   subtitle   = {An Architectural Study},
-  publisher  = OUP,		%@String used
+  publisher  = OUP,    %@String used
   location   = {Oxford},
   year       = {2006},
   series     = {Oxford Monographs on Classical Archaeology},
 }
-\end{lstlisting}
+\end{bibexample}
 
 The entry of the review looks like this:
-\begin{lstlisting}[style=bibentry,label=Taylor2008,caption={{@}Review\{Taylor2008,…\} }]
+\begin{bibexample}[label=Taylor2008]{{@}Review\{Taylor2008,…\}}
 @Review{Taylor2008,
   author       = {Taylor, Rabun},
   number       = {3},
@@ -1907,7 +1912,7 @@ The entry of the review looks like this:
   relatedtype  = {reviewof},
   year         = {2008},
 }
-\end{lstlisting}
+\end{bibexample}
 In the field |related| you can have several \meta{bibtex-keys} which have to be separated by a comma (see line 7).
 
 Subsequently, all information is gathered in the bibliography:
@@ -1933,7 +1938,7 @@ You also have to define the  |institution=|\marg{university}.
  
 
 Here is an example:
-\begin{lstlisting}[style=bibentry,label=Arnolds2005,caption={{@}Thesis\{Arnolds2005,…\} }]
+\begin{bibexample}[label=Arnolds2005]{{@}Thesis\{Arnolds2005,…\}}
 @Thesis{Arnolds2005,
   author      = {Markus Arnolds},
   title       = {Funktionen republikanischer und frühkaiserzeitlicher Forumsbasiliken in Italien},
@@ -1943,7 +1948,7 @@ Here is an example:
   eprinttype  = {urn},
   date        = {2005},
 }
-\end{lstlisting}
+\end{bibexample}
 
 Here is the entry in the bibliography:
 
@@ -1969,7 +1974,7 @@ For (oral) given papers e.\,g. at a colloquium or a proceeding we created a new 
  \end{description}
  
 Here is an example for a  paper  given in Berlin in 2015:
-\begin{lstlisting}[style=bibentry,label=Bergmann2015,caption={{@}Talk\{Bergmann2015,…\} }]
+\begin{bibexample}[label=Bergmann2015]{{@}Talk\{Bergmann2015,…\}}
 @Talk{Bergmann2015,
   author      = {Bergmann, Birgit},
   title       = {\enquote{An exciting find}},
@@ -1982,11 +1987,11 @@ Here is an example for a  paper  given in Berlin in 2015:
   institution = {Freie Universität Berlin},
   venue       = Berlin,
 }
-\end{lstlisting}
+\end{bibexample}
 The bibliography will show the entry as:
 
 \printbib[6em]{Bergmann2015}
-	
+  
  \changes{v1.5}{2016/05/31}{Rückverweis}
 
 
@@ -2096,26 +2101,26 @@ in the internet via a permanent link there are different possibilities for refer
 
 \DescribeMacro{jstor}
  If you can refer to the on-line platform \href{www.jstor.org}{jstor} then you need the individual number for the article---cf. \cref{Ball2013}:
-\begin{lstlisting}
+\begin{code}
 eprint = *@\marg{jstor-number}@*
 eprinttype = {jstor} 
-\end{lstlisting}			
+\end{code}      
 OR---cf. \cref{Osland2016}
-\begin{lstlisting}
+\begin{code}
 jstor = *@\marg{jstor-number}@*
-\end{lstlisting}	
+\end{code}  
 
 \DescribeMacro{urn}
 For all papers referable via an ›urn‹ (\emph{Uniform Resource Name}), which have been registered at the German National Library---cf. \cref{Arnolds2005}
-\begin{lstlisting}
+\begin{code}
 eprint = *@\marg{urn:xxx}@*
 eprinttype = {urn} 
-\end{lstlisting}			
+\end{code}      
 
 OR
-\begin{lstlisting}
+\begin{code}
 urn = *@\marg{urn:xxx}@*
-\end{lstlisting}	
+\end{code}  
 
 \DescribeMacro{zenon}
 This eprint-form is especially designed for the OPAC (Online Public Access Catalogue) of the German Archaeological Institute.
@@ -2123,20 +2128,20 @@ All bibliographical entries in this OPAC can be referred to via this link.
 You only need to insert the individual Zenon-number of the entry, e.\,g. \emph{http://zenon.dainst.org/Record/001371402} where \emph{001371402} is the individual number---cf. \cref{Zanker2009}.
 
 This option is set to |false| by default.
-\begin{lstlisting}
+\begin{code}
 eprint = *@\marg{Zenon-number}@*
 eprinttype = {zenon} 
-\end{lstlisting}			
+\end{code}      
 OR  cf. \cref{Osland2016,Wulf-Rheidt2013}.
-\begin{lstlisting}
+\begin{code}
 zenon = *@\marg{Zenon-number}@*
-\end{lstlisting}			
+\end{code}      
 
 
 \DescribeMacro{doi} In addition you can also refer to a document via its |doi|-number---cf. \cref{Ball2013,Evangelidis2014} 
-\begin{lstlisting}
+\begin{code}
 doi = *@\marg{doi-number}@*
-\end{lstlisting}	
+\end{code}  
 
 If you want or don’t want to have the online references printed you can enable or disable the fields with |jstor=false|, 
 |urn=false|,
@@ -2160,7 +2165,7 @@ Especially when you activated the preamble option  |inreferences=true| \Describe
 \begin{tcolorbox}[examplebox]
 |\parencite[vgl.][930 Nr. 283]{Neils1994}.| 
 \tcblower
-(vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green}{\textbf{CORRECT!}}
+(vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green!50!black}{\textbf{CORRECT!}}
 \end{tcolorbox}
 
 \subsection{Unknown work}\label{unknown}
@@ -2168,7 +2173,7 @@ Sometimes it is impossible to ascertain the author or editor but you still want 
 If you come along such a paper you can define a |label| which will be used for citing and sorting.
 This is not connected to an entry type -- it can be used with any work.
 In the following example we use an entry type |@Article|:
-\begin{lstlisting}[style=bibentry,label=Cosa1949,caption={{@}Article\{Cosa1949,…\} }]
+\begin{bibexample}[label=Cosa1949]{{@}Article\{Cosa1949,…\}}
 @Article{Cosa1949,
   title        = {Cosa},
   subtitle     = {Republican Colony in Etruria},
@@ -2180,7 +2185,7 @@ In the following example we use an entry type |@Article|:
   label        = {Cosa},
   number       = {1},
 }
-\end{lstlisting}
+\end{bibexample}
  The |label| (line 9) can be defined as one wishes; in this case we chose it analogous to the title: |label = {Cosa}|.
 When you cite such an anonymous work it will be done like all the others,
  It will look like this:
@@ -2198,37 +2203,37 @@ There are some predefined publication statuses which you are recommended to use 
 
 \DescribeMacro{inpreparation}
 Typoscript is prepared for your publication. 
-\begin{lstlisting}
+\begin{code}
 pubstate = {inpreparation}
-\end{lstlisting}
+\end{code}
 
 \DescribeMacro{submitted}
 Typoscript has been submitted.
-\begin{lstlisting}
+\begin{code}
 pubstate = {submitted}
-\end{lstlisting}
+\end{code}
 
 \DescribeMacro{forthcoming}
 Typoscript has been accepted by the journal.
-\begin{lstlisting}
+\begin{code}
 pubstate = {forthcoming}
-\end{lstlisting}
+\end{code}
 
 \DescribeMacro{inpress}
 Typescript has been edited and you have a proof version of it.
-\begin{lstlisting}
+\begin{code}
 pubstate = {inpress}
-\end{lstlisting}
+\end{code}
 
 \DescribeMacro{prepublished}
 Article has been published in an (online) preversion.
-\begin{lstlisting}
+\begin{code}
 pubstate = {prepublished}
-\end{lstlisting}
+\end{code}
 
 
 This following example is about an article which was accepted by the journal and so we use |pubstate = {forthcoming}|:
-\begin{lstlisting}[style=bibentry,label=Bossert:forthcoming,caption={{@}Article\{Bossert:forthcoming,…\} }]
+\begin{bibexample}[label=Bossert:forthcoming]{{@}Article\{Bossert:forthcoming,…\}}
 @Article{Bossert:forthcoming,
   author       = {Lukas C. Bossert},
   title        = {\ldots\ \textsc{in formam anitqvam restitvto}?},
@@ -2238,7 +2243,7 @@ This following example is about an article which was accepted by the journal and
   volume       = {2},
   pubstate     = {forthcoming},
 }
-\end{lstlisting}
+\end{bibexample}
 
 \printbib[8em]{Bossert:forthcoming}
 
@@ -2271,11 +2276,11 @@ you can do that quite easily.
 We coded it that way so authors of ancient sources (e.\,g. Cicero) will be omitted in that index (when these entries have |options={ancient}| or |options={frgancient}|).
 
 First you have to activate indexing in the package |biblatex|:
-\begin{lstlisting}
+\begin{code}
 \usepackage[style=archaeologie,%
-					indexing=cite,
-					*@\meta{further options}@*]{biblatex}
-\end{lstlisting}
+          indexing=cite,
+          *@\meta{further options}@*]{biblatex}
+\end{code}
 |cite| will enable indexing in citations only, 
 you can also do |bib| which will enable indexing in the bibliography only.
 Or |true| so in citations and in the bibliography (|false| is the default setting).
@@ -2283,13 +2288,13 @@ Or |true| so in citations and in the bibliography (|false| is the default settin
 Then you have to load a package for indexing,
 we suggest using the package |imakeidx| since you can create multiple indexes with it.
 If you have only one index which will be used for the authors of secondary literature you can pass several options to it.
- \begin{lstlisting}
+ \begin{code}
 \usepackage{imakeidx}
 \makeindex[%
   title=Index of  authors,
   columns=3,
 ]
-\end{lstlisting}   
+\end{code}   
 
 Now you only need to place \cs{printindex} whre you want to have the index.
 \begin{marker}
@@ -2306,24 +2311,24 @@ Be aware that after running \texttt{biber} you have to repeat this step.}
 \subsection{Variant ways of entries in year/date-field}
 Sometimes you have a range of years of a publication because it is maybe a sequence of volumes.
 Let us take as example the \citetitle{LTUR}:
-\begin{lstlisting}[style=bibentry,label=LTUR,caption={{@}Reference\{LTUR,…\} }]
+\begin{bibexample}[label=LTUR]{{@}Reference\{LTUR,…\}}
 @Reference{LTUR,
   editor    = {Steinby, Eva Margareta},
   title     = LTUR, %@String used
   date      = {1993/2000},
-  publisher = {Edizioni Quasar},
+  publisher = EQ, %@String used
   location  = Rome, %@String used
   keywords  = {corpus},
   options   = {corpus},
   shorthand = LTUR-short, %@String used
 }
-\end{lstlisting}
+\end{bibexample}
 \printbib[4em]{LTUR}
 
 Since this reference-series is completed we define the first and last year by using |date = {1993/2000}|. Be sure \emph{not}  using field |year| but instead |date| since |year| cannot cope with date ranges dependably.
 
 Let us take a look at another example:
-\begin{lstlisting}[style=bibentry,label=DeVisscher1951-1952,caption={{@}Article\{DeVisscher1951-1952,…\} }]
+\begin{bibexample}[label=DeVisscher1951-1952]{{@}Article\{DeVisscher1951-1952,…\}}
 @Article{DeVisscher1951-1952,
   author       = {de Visscher, Fernand and Mertens, Joseph},
   title        = {Les puits du Forum d'Alba Fucense},
@@ -2333,23 +2338,25 @@ Let us take a look at another example:
   pages        = {3--13},
   date         = {1951/1952},
 }
-\end{lstlisting}
+\end{bibexample}
 This time the article appeared in an issue which covers two years (\citedate{DeVisscher1951-1952}) and we want them to appear in the label.
 That is why we have to use the field |date| instead of |year|.
 \printbib[11em]{DeVisscher1951-1952}
 By the way, if you want to cite only the year of publication use |\citedate|\marg{bibtex-key} and not |\citeyear|\marg{bibtex-key} since the field |year| will only give you the first year.
 
 
-\begin{multicols}{2}\footnotesize
-\lstlistoflistings
-\end{multicols}
+%\begin{multicols}{1}
+{\footnotesize
+%\lstlistoflistings
+\tcblistof[\section]{bibexample}{List of Examples}}
+%\end{multicols}
 \section{Additional bibliography with ancient authors and works}\label{list-bibancient}
 The bibliography |archaeologie-bibancient.bib| is filled with ancient authors, works and their abbreviation according to  The New Pauly.
 The bold entry on the left is the |bibtex-key|.\footnote{If you think the list should be enlarged, let us know the entries.}
 All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
 
 \begin{multicols}{3}
-	\input{archaeologie-ancient.tex}
+  \input{archaeologie-ancient.tex}
 \end{multicols}
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
@@ -2360,7 +2367,7 @@ This activates the other additional bibliography |archaeologie-lstabbrv.bib| aut
 The bold entry on the left is the |bibtex-key|.\footnote{If you think the list should be enlarged, let us know the entries.}
 All the entries have |keywords={corpus}|, |options={corpus}|.
 \begin{multicols}{2}
-	\input{archaeologie-corpora.tex}
+  \input{archaeologie-corpora.tex}
 \end{multicols}
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
@@ -2486,21 +2493,21 @@ To see the long forms of journal titles or series you have to switch on the opti
 %%|archaeologie| baut auf dem |standard|-Stil von |biblatex| auf, der entsprechend geladen werden muss.
 %% \DescribeMacro{bbx}
 %% \StartLineAt{13}
-%%\begin{lstlisting}[style=code]
+%%\begin{code}[style=code]
 %%\ProvidesFile{archaeologie.bbx}%
 %%               [2016/05/31 v2.0  archaeologie -- %
 %%                biblatex for archaeologists, 
 %%                historians and philologists, bbx-file]
 %%\RequireBibliographyStyle{standard}
-%%\end{lstlisting}
+%%\end{code}
 %%
 %%It continues with all required settings
 %%\ContinueLineNumber
-%%\begin{lstlisting}[style=code]
+%%\begin{code}[style=code]
 %%\AtBeginDocument{%
-%%		\urlstyle{sf}%
-%%		\typeout{* * * archaeologie * * *  
-%%				biblatex for archaeologists, 
+%%    \urlstyle{sf}%
+%%    \typeout{* * * archaeologie * * *  
+%%        biblatex for archaeologists, 
 %%               historians and philologists}
 %%}
 %%\ExecuteBibliographyOptions{%
@@ -2518,19 +2525,19 @@ To see the long forms of journal titles or series you have to switch on the opti
 %%maxitems=1,%
 %%maxbibnames=999,%
 %%}
-%%\end{lstlisting}
+%%\end{code}
 %% \StartLineAt{426}
-%%\begin{lstlisting}[style=code]
+%%\begin{code}[style=code]
 %%\renewbibmacro*{journal}{%
 %%  \ifboolexpr{test {\iffieldundef{shortjournal}} %
-%%  					or bool {bbx:noabbrevs}}%
+%%            or bool {bbx:noabbrevs}}%
 %%    {\printtext[journaltitle]{%
 %%       \printfield[titlecase]{journaltitle}%
 %%       \setunit{\subtitlepunct}%
 %%       \printfield[titlecase]{journalsubtitle}}}%
 %%    {\printfield{shortjournal}}%
 %%    }
-%%\end{lstlisting}
+%%\end{code}
 %%    
 
 %\subsection{archaeologie.cbx}
@@ -2539,5 +2546,6 @@ To see the long forms of journal titles or series you have to switch on the opti
  \changes{v1}{2015/09/15}{First public version}
 %\PrintChanges
 %\PrintIndex
+
 
 \end{document}
