@@ -415,6 +415,17 @@
   and%
   test{\ifentrytype{inreference}}%
   }{}{\usebibmacro{postnote}}}%
+ %-----------------------
+  \DeclareCiteCommand{\footcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+  \usebibmacro{cite}}%
+  {\multicitedelim}%
+  {\ifboolexpr{%
+  test{\ifbool{bbx:inreferences}}%
+  and%
+  test{\ifentrytype{inreference}}%
+  }{}{\usebibmacro{postnote}}}%
 %-----------------------
 \DeclareCiteCommand{\textcite}%
   {\boolfalse{cbx:yearinparens}%

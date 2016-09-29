@@ -38,7 +38,7 @@ We thank  ›moewew‹ and Herbert Voß for their big help on the code.%
 Various options are available to change and adjust the outcome according to one's own preferences. 
 The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.
 
-For a short introduction in German see   \href{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie/archaeologie-ger.pdf}{\textbf{online}} or   \href{file:archaeologie-ger.pdf}{\textbf{here}}.
+For a short introduction in German see   \href{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie/archaeologie-ger.pdf}{\textbf{online}} or   \href{file:archaeologie-ger.pdf}{\textbf{local}}.
 
   
  \end{abstract}
@@ -222,6 +222,12 @@ If one wants to cite several authors or works a very convenient way is the follo
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{code}
  
+ \DescribeMacro{\footcite}
+ There is also the possibility to put the citation into a footnote at once:
+ \begin{code}
+\footcite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
+\end{code}
+
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
@@ -415,7 +421,7 @@ By means of the |bibtexkey| (e.g. |Apul:met|) you can also cite only authors or 
 
 
 \begin{example}
-\citeauthor{Apul:met} remarks in \citetitle{Apul:met}...
+\citeauthor{Apul:met} remarks in \citetitle{Apul:met} ...
 \end{example}
 
 \end{refsection}
