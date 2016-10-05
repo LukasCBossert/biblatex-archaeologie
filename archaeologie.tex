@@ -32,16 +32,15 @@ We thank  ›moewew‹ and Herbert Voß for their big help on the code.%
 \author{Lukas C. Bossert\\{\small \href{mailto:info@biblatex-archaeologie.de}{info@biblatex-archaeologie.de}} 
 \and Johannes Friedl}
 \date{Version: \archaeologieversion{} (\archaeologiedate)} 
- \maketitle
- \begin{abstract}
+\maketitle
+
+\begin{abstract}
 \noindent This citation-style covers the citation and bibliography rules of the German Archaeological Institute (\textbf{Deutsches Archäologisches Institut}). 
 Various options are available to change and adjust the outcome according to one's own preferences. 
 The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.
 
 For a short introduction in German see   \href{pdfdeu.biblatex-archaeologie.de}{\textbf{online}} or   \href{file:archaeologie-ger.pdf}{\textbf{local}}.
-
-  
- \end{abstract}
+\end{abstract}
 
 
 \begin{multicols}{2}
@@ -54,7 +53,7 @@ and \TeX Live\footnote{Website: \url{http://www.tug.org/texlive}.}~-- thus, you
 can easily install it using the respective package manager. 
 If you would like to
 install |archaeologie| manually, do the following:
-Download the folder |archaeologie| with all relevant files from the CTAN-server\footnote{\url{ctan.biblatex-archaeologie.de}} and copy the content of the |zip|-file to the \texttt{\$LOCALTEXMF} directory of
+Download the folder |archaeologie| with all relevant files from the CTAN-server\footnote{\url{https://www.ctan.org/pkg/archaeologie}} and copy the content of the |zip|-file to the \texttt{\$LOCALTEXMF} directory of
  your system.\footnote{If you don't know what that is, have a look at
 \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tds} or 
 \url{http://mirror.ctan.org/tds/tds.html}.} 
@@ -325,7 +324,8 @@ To use this offer of simplification the following bibliography fields should be 
 In \cref{abbrv-lists} there is a list with all the abbreviations given by the German Archaeological Institute, 
 in which the |@String| (with endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
 An |@String| has to be written \emph{without} any curly brackets.\footnote{If you use \emph{JabRef} in its non-coding window, 
-then you have to write \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@String| and omits the \# in the coding window. 
+then you have to write \#|AyasofyaMuezYil|\#. 
+JabRef converts this internally to a |@String| and omits the \# in the coding window. 
 \emph{BibDesk} provides such conversion as well by pressing
   %|cmd-R| 
 \LKeyStrg + \LKey{R}
@@ -510,21 +510,18 @@ Bibliography entries with |options={ancient}| are excluded from this speciality 
 You can use the cite-commands \cs{cite(s)} and \cs{parencite(s)} but \cs{textcite(s)} 
 will behave like \cs{cite(s)} because |seenote| actually just checks for occurrences in footnotes and does not refer to cites in running text.
 
-We give an example, first citation will show:
-
+We give an example:
 \begin{tcolorbox}[examplebox] 
-|\footnote{\cite{Ball2013}.}|
+This is the first citation.|\footnote{\cite{Ball2013}.}|
+This is one in between.|\footnote{anything in here.}|
+And this is the third footnote and the second citation.|\footnote{\cite[470]{Ball2013}.}|
 \tcblower
-\footnote{L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current thinking on the Pompeii Forum, 117/3, 2013, 461–492.}
+This is the first footnote.\footnote{L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current thinking on the Pompeii Forum, 117/3, 2013, 461–492.}
+This is one in between.\footnote{anything in here.}
+And this is the third footnote and the second citation.\footnote{Ball – Dobbins loc. cit. (see n. 1) 470.}
 \end{tcolorbox}
 
 
-Second citation of
-\begin{tcolorbox}[examplebox] 
-|\footnote{\cite{Ball2013}.}|
-\tcblower
-\footnote[2]{Ball – Dobbins loc. cit. (see n. \oarg{number of the footnote with full citation}) 470.}
-\end{tcolorbox}
 
 \changes{v1.5}{2016/05/31}{Rückverweis}
 
@@ -598,7 +595,7 @@ Another example makes it clear:
   author    = {Nieddu, Giuseppe},
   title     = {Dei Consentes},
   booktitle = LTUR-short,
-  pages     = {9--10},
+  pages     = {9\psq},
   year      = {1995},
   volume    = {2},
 }
@@ -614,7 +611,7 @@ There are two ways to display this entry:
  \begin{tcolorbox}[examplebox]
  |\footnote{\cite{Nieddu1995}.}|
  \tcblower
-\footnote{LTUR 2 (1995) 9-10 s. v. Dei Consentes (G. Nieddu).}
+\footnote{LTUR 2 (1995) 9f. s. v. Dei Consentes (G. Nieddu).}
  \end{tcolorbox}
   \end{enumerate}
 
@@ -2233,7 +2230,7 @@ In the following example we use an entry type |@Article|:
 When you cite such an anonymous work it will be done like all the others,
  It will look like this:
 \begin{example}
-\footnote{\cite[Vgl.][145--146]{Cosa1949}.}
+\footnote{\cite[Vgl.][145--147]{Cosa1949}.}
 \end{example}
 and be printed in the bibliography like this:
 \printbib{Cosa1949}
