@@ -11,9 +11,7 @@
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
 \ProvidesFile{archaeologie.cbx}%
-  [2016/09/25 v2.2  archaeologie -- 
-  biblatex for archaeologists, 
-  historians and philologists, cbx-Datei]
+  [\arch@cbxid]
 %-----------------------
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
@@ -300,18 +298,16 @@
   {\usebibmacro{cite:lexikon}}
   {\ifbool{cbx:seenote}
   {\usebibmacro{cite:seenote}}
-  {{\printtext[bibhyperref]{\iffieldundef{shorthand}%
-  {\ifnameundef{labelname}%
-   {\usebibmacro{cite:label}%
-   \setunit{\labelyeardelim}%
-  }%
-   {\printnames{labelname}%
-  \setunit{\nameyeardelim}}%
-  \usebibmacro{cite:year}}%
-  {\usebibmacro{cite:shorthand}%
+  {\printtext[bibhyperref]{%
+    \iffieldundef{shorthand}%
+      {\ifnameundef{labelname}%
+       {\usebibmacro{cite:label}%
+       \setunit{\labelyeardelim}}%
+      {\printnames{labelname}%
+      \setunit{\nameyeardelim}}%
+     \usebibmacro{cite:year}}%
+    {\usebibmacro{cite:shorthand}}%
   }}}%
-  }%
-  }%
   \ifciteseen{\global\booltrue{cbx:seen}}%
   {\global\boolfalse{cbx:seen}}%
   \usebibmacro{savestuff}%

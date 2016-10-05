@@ -1,10 +1,11 @@
- \AtBeginDocument{\RecordChanges}
- \AtEndDocument{\PrintChanges}
+\AtBeginDocument{\RecordChanges}
+\AtEndDocument{\PrintChanges}
 \listfiles
 \usepackage[oldstyle]{libertine}
 \renewcommand*\ttdefault{lmvtt}
 
 \usepackage{xr-hyper}
+\usepackage{url}
 
 
 
@@ -51,8 +52,9 @@ draft=false,
 ]{scrlayer-scrpage} 
 \pagestyle{scrheadings}
 \clearscrheadfoot
-	\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie \archaeologieversion} \copyright\ by Lukas C. Bossert | Johannes Friedl}%
-\rofoot{\large\footnotesize  \textbf{\sffamily \thepage}}
+\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie \archaeologieversion} \copyright\ by Lukas C. Bossert | Johannes Friedl}%
+\rofoot{\normalfont\footnotesize  \textbf{\sffamily \thepage}}
+\lofoot{\normalfont\footnotesize  \href{biblatex-archaeologie.de}{biblatex-archaeologie.de}}
 
 \usepackage[%
 %  flushmargin, %

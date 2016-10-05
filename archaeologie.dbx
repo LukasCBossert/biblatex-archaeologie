@@ -11,9 +11,7 @@
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
 \ProvidesFile{archaeologie.dbx}%
-  [2016/09/25 v2.2  archaeologie -- 
-    biblatex for archaeologists, 
-  historians and philologists, dbx-Datei]
+%  [\arch@dbxid]
                 
  % new translator etc.  fields for "inner" work, that is translator of title (not booktitle) in @in...
 \DeclareDatamodelFields[type=list,datatype=name]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}

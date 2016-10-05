@@ -5,11 +5,12 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2016/09/25 v2.2_
+_2016/10/06 v2.2b_
 
 Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 
-Email: [lukas@digitales-altertum.de](mailto:lukas@digitales-altertum.de)
+* Email: [info@biblatex-archaeologie.de](mailto:info@biblatex-archaeologie.de)
+* Website: [www.biblatex-archaeologie.de](www.biblatex-archaeologie.de)
 
 This citation-style covers the citation and bibliography rules of 
 the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen). 

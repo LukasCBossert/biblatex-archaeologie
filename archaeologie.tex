@@ -20,25 +20,24 @@ italian,
 ngerman,
 english
 ]{ltxdoc}
-\def\thisarchaeologieversion{2.2}
-\def\thisarchaeologiedate{2016-09-25}
 \input{archaeologie-preamble.tex}
 \externaldocument{archaeologie-ger}[archaeologie-ger.pdf]% <- full or relative path
 \begin{document}
 \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
-The development of the code is done at \url{https://github.com/LukasCBossert/biblatex-archaeologie}: 
+Further information about the code online visit \href{http://www.biblatex-archaeologie.de}{www.biblatex-archaeologie.de}: 
 Comments and criticisms are welcome.
 We thank  ›moewew‹ and Herbert Voß for their big help on the code.%
 }}
-\author{Lukas C. Bossert\thanks{\href{mailto:lukas@digitales-altertum.de}{lukas@digitales-altertum.de}} \and Johannes Friedl}
+\author{Lukas C. Bossert\\{\small \href{mailto:info@biblatex-archaeologie.de}{info@biblatex-archaeologie.de}} 
+\and Johannes Friedl}
 \date{Version: \archaeologieversion{} (\archaeologiedate)} 
  \maketitle
  \begin{abstract}
-\noindent This citation-style covers the citation and bibliography rules of the German Archaeological Institute. 
+\noindent This citation-style covers the citation and bibliography rules of the German Archaeological Institute (\textbf{Deutsches Archäologisches Institute}). 
 Various options are available to change and adjust the outcome according to one's own preferences. 
 The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.
 
-For a short introduction in German see   \href{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie/archaeologie-ger.pdf}{\textbf{online}} or   \href{file:archaeologie-ger.pdf}{\textbf{local}}.
+For a short introduction in German see   \href{pdfdeu.biblatex-archaeologie.de}{\textbf{online}} or   \href{file:archaeologie-ger.pdf}{\textbf{local}}.
 
   
  \end{abstract}
@@ -54,7 +53,7 @@ and \TeX Live\footnote{Website: \url{http://www.tug.org/texlive}.}~-- thus, you
 can easily install it using the respective package manager. 
 If you would like to
 install |archaeologie| manually, do the following:
-Download the folder |archaeologie| with all relevant files from the CTAN-server\footnote{\url{http://mirrors.ctan.org/macros/latex/contrib/biblatex-contrib/archaeologie.zip}} and copy it to the \texttt{\$LOCALTEXMF} directory of
+Download the folder |archaeologie| with all relevant files from the CTAN-server\footnote{\url{ctan.biblatex-archaeologie.de}} and copy the content of the |zip|-file to the \texttt{\$LOCALTEXMF} directory of
  your system.\footnote{If you don't know what that is, have a look at
 \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tds} or 
 \url{http://mirror.ctan.org/tds/tds.html}.} 
@@ -200,19 +199,22 @@ In cases there are different translations of an ancient work you can decide whic
 \changes{v1.1}{2015/06/04}{New options added in summary.}
 
 \subsection{Cite commands}\label{cite-commands}
-\DescribeMacro{\cite}%
+\DescribeMacro{\cite}
 As always citing is done with \cs{cite}:
 \begin{code}
-\cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
+\cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
 \end{code}
 
 \meta{prenote} sets a short preliminary note (e.\,g. \enquote{Vgl.}) and \meta{postnote} is usually used for page numbers.
 If only one optional argument is used then it is \oarg{postnote}.
 \begin{code}
-\cite*@\oarg{postnote}\marg{bibtex-key}%@*
+\cite*@\oarg{postnote}\marg{bibtex-key}@*
 \end{code}
 The \meta{bibtex-key} corresponds to the key from the bibliography file.
 
+\begin{example}
+Public space is part of a city says \cite{Osland2016}.
+\end{example}
 \DescribeMacro{\cites}
 If one wants to cite several authors or works a very convenient way is the following using the \cs{cites}-command:
 \begin{code}
@@ -221,13 +223,25 @@ If one wants to cite several authors or works a very convenient way is the follo
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{code}
- 
+\begin{example}
+Public space is part of a city say \cites(cf.)(){Osland2016}{Evangelidis2014}.
+\end{example}
+
  \DescribeMacro{\footcite}
- There is also the possibility to put the citation into a footnote at once:
+ There is also the possibility to put the citation into a footnote at once with \cs{footcite}:
  \begin{code}
 \footcite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
 \end{code}
-
+\begin{example}
+Public space is part of a city.\footcite{Osland2016}
+\end{example}
+This is the equivalent to |\footnote{\cite{Osland2016}.}| but it saves you a lot of typing time.
+ \DescribeMacro{\footcites} And as well \cs{footcites}.
+\begin{example}
+Public space is part of a city.\footcites(cf.)(){Osland2016}{Evangelidis2014}
+\end{example}
+ 
+ 
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
@@ -237,6 +251,9 @@ Therefore we implemented the command \cs{parencite}:
 This cite command takes care of the correct corresponding parentheses and brackets.
 Especially in |@Inreference| citations the parentheses  change to (square) brackets.
 The example shown in \cref{faq:inreference} makes it clear.
+\begin{example}
+Public space is part of a city \parencite{Osland2016}.
+\end{example}
 
 \DescribeMacro{\parencites}
 Of course there is also the possibility to cite several authors/works in parentheses.
@@ -247,7 +264,10 @@ This is done with \cs{parencites}:
 *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
 *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{code}
- 
+\begin{example}
+Public space is part of a city \parencites(cf.)(){Osland2016}{Evangelidis2014}.
+\end{example}
+
 \DescribeMacro{\textcite}
 Beside the listed \cs{cite} commands above there is a third way of citing:
 \cs{textcite} is useful if the author should be mentioned in the text and
@@ -255,6 +275,10 @@ the remaining components such as year and page will immediately follow in parent
 \begin{code}
 \textcite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{code} 
+
+\begin{example}
+Public space is part of a city says \textcite{Osland2016}.
+\end{example}
 
 \DescribeMacro{\textcites}
 And again there is also a \cs{textcites} in case of several authors: 
@@ -264,6 +288,9 @@ And again there is also a \cs{textcites} in case of several authors:
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{code}
+\begin{example}
+Public space is part of a city say \textcites{Osland2016}[cf.][]a{Evangelidis2014}.
+\end{example}
 
 \DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
 Furthermore and in addition to the ›normal‹ \cs{cite}-commands one can also cite only the author or the work title in the text and in the footnotes.
@@ -274,8 +301,11 @@ Furthermore and in addition to the ›normal‹ \cs{cite}-commands one can also 
 \begin{code}
 \citetitle*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{code} 
-For further information cf. \cref{citeauthorformat}.
 
+\begin{example}
+Public space is part of a city says \citeauthor{Osland2016} in \citetitle{Osland2016}.
+\end{example}
+For further information cf. \cref{citeauthorformat}.
 
 \subsection{Entries with @String}\label{string}
 The citation rules of the German Archaeological Institute instruct to abbreviate journals and series according to a given list.\footnote{\url{http://www.dainst.org/documents/10180/70593/03_Liste+abzukürzender+Zeitschriften_quer.pdf/2646d351-8e5d-4e8b-8acd-54f3c272d3ff} <2016-06-06>}
@@ -1013,9 +1043,8 @@ that contains the cited reference. But having a different goal that option doesn
  
 \subsubsection{initials}\label{initials}
 \DescribeMacro{initials} 
-First names are abbreviated keeping digraphs and trigraphs instead of simple first letter initials.\footnote{The code for this option was taken from \href{http://tex.stackexchange.com/a/295486/98739}{tex.stackexchange.com/a/295486/98739} and modified.}
+First names are abbreviated keeping digraphs and trigraphs instead of simple first letter initials.\footnote{The code for this option was taken from \href{http://tex.stackexchange.com/a/295486/98739}{tex.stackexchange.com/a/295486/98739} and has been modified.}
 Also see the warning when printing an index; cf. \cref{initials:index}.
-
 First names starting with |Ph..., Chr..., Ch..., Th..., St...| are abbreviated to these digraphs and trigraphs. For example in the bibliography or when you use \cs{citeauthor}\marg{bibtex-key}.
 
 Citing these two authors will show their digraphs and trigraphs:
