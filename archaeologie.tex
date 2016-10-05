@@ -22,6 +22,7 @@ english
 ]{ltxdoc}
 \input{archaeologie-preamble.tex}
 \externaldocument{archaeologie-ger}[archaeologie-ger.pdf]% <- full or relative path
+
 \begin{document}
 \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy as well for (ancient) History or Classics.
 Further information about the code online visit \href{http://www.biblatex-archaeologie.de}{www.biblatex-archaeologie.de}: 
@@ -33,7 +34,7 @@ We thank  ›moewew‹ and Herbert Voß for their big help on the code.%
 \date{Version: \archaeologieversion{} (\archaeologiedate)} 
  \maketitle
  \begin{abstract}
-\noindent This citation-style covers the citation and bibliography rules of the German Archaeological Institute (\textbf{Deutsches Archäologisches Institute}). 
+\noindent This citation-style covers the citation and bibliography rules of the German Archaeological Institute (\textbf{Deutsches Archäologisches Institut}). 
 Various options are available to change and adjust the outcome according to one's own preferences. 
 The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.
 
@@ -202,13 +203,13 @@ In cases there are different translations of an ancient work you can decide whic
 \DescribeMacro{\cite}
 As always citing is done with \cs{cite}:
 \begin{code}
-\cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
+\cite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{code}
 
 \meta{prenote} sets a short preliminary note (e.\,g. \enquote{Vgl.}) and \meta{postnote} is usually used for page numbers.
 If only one optional argument is used then it is \oarg{postnote}.
 \begin{code}
-\cite*@\oarg{postnote}\marg{bibtex-key}@*
+\cite*@\oarg{postnote}\marg{bibtex-key}%@*
 \end{code}
 The \meta{bibtex-key} corresponds to the key from the bibliography file.
 
@@ -235,8 +236,8 @@ Public space is part of a city say \cites(cf.)(){Osland2016}{Evangelidis2014}.
 \begin{example}
 Public space is part of a city.\footcite{Osland2016}
 \end{example}
-This is the equivalent to |\footnote{\cite{Osland2016}.}| but it saves you a lot of typing time.
- \DescribeMacro{\footcites} And as well \cs{footcites}.
+This is the equivalent to |\footnote{\cite{Osland2016}.}| but it saves you a lot of time typing.
+ \DescribeMacro{\footcites} And there is as well \cs{footcites}:
 \begin{example}
 Public space is part of a city.\footcites(cf.)(){Osland2016}{Evangelidis2014}
 \end{example}
@@ -325,7 +326,10 @@ In \cref{abbrv-lists} there is a list with all the abbreviations given by the Ge
 in which the |@String| (with endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
 An |@String| has to be written \emph{without} any curly brackets.\footnote{If you use \emph{JabRef} in its non-coding window, 
 then you have to write \#|AyasofyaMuezYil|\#. JabRef converts this internally to a |@String| and omits the \# in the coding window. 
-\emph{BibDesk} provides such conversion as well by pressing |cmd-R| which enables direct BibTeX typing without enclosing curly brackets.}
+\emph{BibDesk} provides such conversion as well by pressing
+  %|cmd-R| 
+\LKeyStrg + \LKey{R}
+ which enables direct BibTeX typing without enclosing curly brackets.}
 
 
 An example shows how to use it:
@@ -366,7 +370,7 @@ with all the abbreviations of used journal titles and series (see \cref{bibliogr
 However, if a journal or a series is \emph{not} included in the list (\cref{abbrv-lists}) 
 then this journal/series will \emph{not} be abbreviated and converted to full title in curly brackets in the respective field e.\,g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}. 
 Therefore the field content will not be printed. 
-At least Bib\TeX{} gives a warning in its log which can be checked.\footnote{For example something like \enquote{\enquote{journaltitle} in entry \meta{entrykey} cannot be null, deleting it}.}
+At least |biblatex-biber| gives a warning in its log which can be checked.\footnote{For example something like \enquote{\enquote{journaltitle} in entry \meta{entrykey} cannot be null, deleting it}.}
 For the following examples we use |@String| whenever it is appropriate and possible.
 
 Lastly we want to point out that |@Strings| can also be used partly as following shows:
@@ -1662,6 +1666,7 @@ An example:
   shortseries  = DiskAB-short,    %@String used
 }
 \end{bibexample}
+%\iffalse
 With |venue| we specify the place where the proceeding took place 
 (e.\,g. \emph{Berlin} -- |location| is where the book was printed and is connected 
 to the |publisher| e.\,g. \emph{Regensburg}),
@@ -2585,5 +2590,5 @@ To see the long forms of journal titles or series you have to switch on the opti
 %\PrintChanges
 %\PrintIndex
 
-
+%\fi
 \end{document}

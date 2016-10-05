@@ -1,6 +1,7 @@
 \AtBeginDocument{\RecordChanges}
 \AtEndDocument{\PrintChanges}
 \listfiles
+
 \usepackage[oldstyle]{libertine}
 \renewcommand*\ttdefault{lmvtt}
 
@@ -62,7 +63,7 @@ draft=false,
   ragged,%
   hang, %
   bottom%
-]{footmisc} %Fussnoten
+]{footmisc}
 
 
 
@@ -75,12 +76,12 @@ draft=false,
 
 \defbibheading{empty}{}
 \addbibresource{archaeologie-examples.bib}
-%\usepackage{caption}
+\usepackage{caption}
 
-\usepackage[
-  skins,
-  listings,
-  breakable
+\usepackage[%
+  skins,%
+  listings,%
+  breakable,%
 ]{tcolorbox}
 \lstMakeShortInline{|}
 
