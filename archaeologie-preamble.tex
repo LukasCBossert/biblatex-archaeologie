@@ -108,7 +108,7 @@ draft=false,
     numbers=left,
     numberstyle=\small\color{codeblue},
     moredelim={[is][keywordstyle]{@@}{@@}},
-    basicstyle=\footnotesize\ttfamily,
+        basicstyle=\small\ttfamily,
     breaklines=true,
     breakautoindent=false,
     breakindent=0pt,
@@ -117,7 +117,7 @@ draft=false,
   lefttitle=0pt,
   coltitle=black,
   colbacktitle=codegreen!20,
-  fonttitle=\bfseries\footnotesize,
+  fonttitle=\bfseries\sffamily\footnotesize,
   title={Example \thetcbcounter:  #2}, 
   #1,%  
   borderline north={1pt}{14.4pt}{codegreen,dashed},
@@ -125,7 +125,6 @@ draft=false,
 
 \newtcblisting[
 auto counter,
-%crefname={Example}{Examples}
 ]{code}{%
     listing only,
     breakable,
@@ -144,7 +143,7 @@ auto counter,
 %        numbers=left,
         numberstyle=\tiny\color{codeblue},
         moredelim={[is][keywordstyle]{@@}{@@}},
-        basicstyle=\footnotesize\ttfamily,
+        basicstyle=\small\ttfamily,
         breaklines=true,
         breakautoindent=false,
         breakindent=0pt,
@@ -174,6 +173,7 @@ auto counter,
       enhanced jigsaw,
         lefttitle=0pt,
         coltitle=black,
+          fontupper=\small\ttfamily,
         colbacktitle=codeblue!20,
         fonttitle=\bfseries\footnotesize,
   title={\Cref{#1}},
@@ -196,6 +196,10 @@ enhanced,
   drop fuzzy shadow,#1
   }
   
+\newtcolorbox{examplebox}[1][]{
+examplebox,
+}
+
 \tcbset{examplebox/.style={%
               boxrule=0pt,
               bottomrule=2pt,
@@ -205,6 +209,7 @@ enhanced,
    coltitle=codegreen!10,%  coltitle=codeblue,
   bicolor,
       sharp corners,
+ fontupper=\small\ttfamily,
   colbacklower=codeblue!10,
   fonttitle=\sffamily\bfseries,
   }}

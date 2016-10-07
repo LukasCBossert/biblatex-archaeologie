@@ -289,7 +289,7 @@ And again there is also a \cs{textcites} in case of several authors:
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{code}
 \begin{example}
-Public space is part of a city say \textcites{Osland2016}[cf.][]a{Evangelidis2014}.
+Public space is part of a city say \textcites{Osland2016}[cf.][]{Evangelidis2014}.
 \end{example}
 
 \DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
@@ -1058,7 +1058,14 @@ Citing these two authors will show their digraphs and trigraphs:
 
 This option is set to default, but you can --- of course --- deactivate it with |initials=false| in the preamble.
 
+With this default option you don’t have to change anything in your bibliographical-data.
+However  you can switch off the option |initials| and do the abbreviation manually:
 
+\begin{code}
+author = {family=Mann, given=Christian, given-i={Chr}}
+
+author = {family=Hufschmid, given=Thomas, given-i={Th}}
+\end{code}
 
 
 \subsection{Bibliography entry options}\label{options-bibentry}
@@ -1503,7 +1510,7 @@ This following example clarify matters:
 }
 \end{bibexample}
 
-\printbib[10em]{Carter2014}
+\printbib[12em]{Carter2014}
 
 You can also have contributions to a ›Festschrift‹ etc. set up as |@Incollection|,
 but then notice the additional information in |booktitleaddon|.
@@ -1793,11 +1800,11 @@ Then the output will be like:\\
 and there will be no reference to the bibliography since the entry is fully described in the footnote.
 \DescribeMacro{inreferences} If you prefer this method you have to use the preamble option called  |inreferences|---cf. \cref{inreferences}
 Then it will look like this in the footnote:
-\begin{tcolorbox}[examplebox] 
+\begin{examplebox}
 |\footnote{\cite{Neils1994}.}|
 \tcblower
 \footnote{LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils).}
-\end{tcolorbox}
+\end{examplebox}
 When you have the \oarg{postnote} filled out in a citation which belongs to an |@Inreference| then it won’t be printed in the end of the citation.
 The |postnote| \oarg{930 Nr. 283} will be printed instead of the |pages|:
 \begin{example}
