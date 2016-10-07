@@ -10,7 +10,7 @@ _2016/10/06 v2.2b_
 Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
 
 * Email: [info@biblatex-archaeologie.de](mailto:info@biblatex-archaeologie.de)
-* Website: [www.biblatex-archaeologie.de](www.biblatex-archaeologie.de)
+* Website: [www.biblatex-archaeologie.de](http://www.biblatex-archaeologie.de)
 
 This citation-style covers the citation and bibliography rules of 
 the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen). 
