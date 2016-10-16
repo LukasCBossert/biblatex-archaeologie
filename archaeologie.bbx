@@ -331,10 +331,10 @@
 }
 %-----------------------
 \AtEveryBibitem{%
-  \iffieldequalstr{relatedtype}{translationof}
+  \iffieldequalstr{relatedtype}{translationof}%
   {\savename{translator}{\savedrelatedtranslator}%
-  \clearname{translator}}
-  {}
+  \clearname{translator}}%
+  {}%
   \ifboolexpr{bool {bbx:translation}%
   or bool {cbx:ancient}%
   or bool {cbx:frgancient}}%
@@ -523,7 +523,7 @@
  \clearlist{pageref}%
  \setunit{\addcomma\newline\nobreak}%
  }%
- {}%
+ {\newunit}%
 }
  %----------------------- 
 \renewbibmacro*{eprint}{%
@@ -676,9 +676,7 @@
  \bibstring{bytranslator}%keine Sprache ausgegeben? 
  \setunit{\addspace}%
  \printnames{savedtranslator}%
- }%
- }%
-}
+}}}
 %----------------------- 
 \newbibmacro*{inreference:title+author}{%
 \iffieldundef{title}%
@@ -1011,7 +1009,7 @@
  \iftoggle{bbx:related}%
  {\usebibmacro{related:init}%
  \usebibmacro{related}%
- }
+ }%
  {}%
  \usebibmacro{finentry}%
 }
@@ -1069,8 +1067,7 @@
  \newunit\newblock%
  \iftoggle{bbx:related}%
  {\usebibmacro{related:init}%
- \usebibmacro{related}%
- }%
+   \usebibmacro{related}}%
  {}%
  \usebibmacro{finentry}%
 }

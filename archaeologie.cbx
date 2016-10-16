@@ -17,10 +17,9 @@
 \newbool{cbx:seenote}
 \newbool{cbx:uniqueme}
 %-----------------------
-
 \renewcommand*{\multicitedelim}{\addsemicolon\addspace}
 \newcommand*{\labelyeardelim}{\addspace}
-\renewcommand{\textcitedelim}{\multicitedelim}
+\renewcommand{\textcitedelim}{\addcomma\space}
 \renewcommand{\postnotedelim}{%
   \ifboolexpr{bool {cbx:ancient}%
   or bool {cbx:frgancient}%
@@ -186,6 +185,7 @@
   datecirca=true,
   citeauthorformat=initials,%
   uniquename=minfull,%
+  autocite=footnote,
 }
 %-----------------------
 \newbibmacro*{uniqueshorthand}{%
@@ -194,7 +194,7 @@
     	{\ifnameundef{intranslator}%
          {\iffieldundef{series}%
       	    {\printnames[name:family]{editor}}%
-     	    {\usebibmacro*{series}}%
+     	    {\usebibmacro{series}}%
      	   }%
          {\printnames[name:family]{intranslator}}}%
     	  {\printnames[name:family]{translator}}}}
@@ -215,9 +215,9 @@
   {\postnotedelim\printfield{postnote}%
    \ifbool{cbx:frgancient}%
    {\setunit{\addspace}%
-  \usebibmacro{cite:frgname}}%
- }%
-}
+    \usebibmacro{cite:frgname}}%
+    {}%
+ }}
 %-----------------------
 \newbibmacro*{cite:frgname}{%
   \ifnameundef{shorteditor}%
@@ -231,9 +231,10 @@
   \setunit{\labelyeardelim}}%
    {\printnames{labelname}%
   \setunit{\nameyeardelim}}%
+\bibstring{loccit}%
 \setunit{\addspace}%
-\bibstring{loccit}\addspace%
-\printtext[parens]{\bibstring{seenote}\addspace%
+\printtext[parens]{\bibstring{seenote}%
+\addspace%
 \ref{footref:\thefield{entrykey}}}%
 \renewcommand{\postnotedelim}{\addspace}%
 }%
@@ -264,19 +265,14 @@
   or bool{cbx:frgancient}% 
   or bool{cbx:corpus}}%
   {\usebibmacro{cite:shorthand}}%
-  {\ifciteseen{\usebibmacro{seenote}}{%
-  \ifboolexpr{%
-  test {\ifentrytype{book}}%
-  or %
-   test {\ifentrytype{proceedings}}%
-  or %
-  test {\ifentrytype{inreference}}%
-  }{\renewcommand{\postnotedelim}{\addspace}}{}%
-  \bibhypertarget{ref:\thefield{entrykey}}{%
-  \usedriver{}{\thefield{entrytype}}%
-   \iffootnote{\label{footref:\thefield{entrykey}}}%
-}}}%
-}
+  {\ifciteseen%
+    {\usebibmacro{seenote}}%
+    {\bibhypertarget{ref:\thefield{entrykey}}%
+    {\usedriver%
+      {\DeclareNameAlias{sortname}{default}}%
+      {\thefield{entrytype}}%
+        \iffootnote{\label{footref:\thefield{entrykey}}}}%      
+}}}
 %-----------------------
 \newbibmacro{cite}{%
   \ifboolexpr{%
@@ -284,10 +280,10 @@
    and %
    test {\ifentrytype{inreference}}%
    }%
-  {\usebibmacro{cite:lexikon}}
-  {\ifbool{cbx:seenote}
-  {\usebibmacro{cite:seenote}}
-  {\printtext[bibhyperref]{%
+  {\usebibmacro{cite:lexikon}}%
+  {\ifbool{cbx:seenote}%
+    {\usebibmacro{cite:seenote}}%
+    {\printtext[bibhyperref]{%
     \iffieldundef{shorthand}%
       {\ifnameundef{labelname}%
        {\usebibmacro{cite:label}%
@@ -346,28 +342,28 @@
        {}
        {\datecircaprint}%
      \dateeraprintpre{labelyear}%
-     \iffieldnums{labelyear}
-       {\mkyearzeros{\thefield{labelyear}}}
+     \iffieldnums{labelyear}%
+       {\mkyearzeros{\thefield{labelyear}}}%
        {\printfield{labelyear}}%
      \printfield{extrayear}%
-     \iffieldsequal{labeldateera}{labelenddateera}{}
+     \iffieldsequal{labeldateera}{labelenddateera}{}%
        {\dateeraprint{labelyear}}%
      \dateuncertainprint%
-     \ifdefstring\blx@dateformat@labeldate{edtf}
-       {\datecircaprintedtf}
+     \ifdefstring\blx@dateformat@labeldate{edtf}%
+       {\datecircaprintedtf}%
        {}%
-     \iffieldundef{labelendyear}
+     \iffieldundef{labelendyear}%
        {}
-       {\iffieldsequal{labelyear}{labelendyear}{}
-        {\ifdefstring\blx@dateformat@labeldate{edtf}
+       {\iffieldsequal{labelyear}{labelendyear}{}%
+        {\ifdefstring\blx@dateformat@labeldate{edtf}%
           {\slash}% strict EDTF
-          {\bibdaterangesep
+          {\bibdaterangesep%
            \enddatecircaprint}%
          \dateeraprintpre{labelendyear}%
          \mkyearzeros{\thefield{labelendyear}}%
-         \enddateuncertainprint
-         \ifdefstring\blx@dateformat@labeldate{edtf}
-           {\enddatecircaprintedtf}
+         \enddateuncertainprint%
+         \ifdefstring\blx@dateformat@labeldate{edtf}%
+           {\enddatecircaprintedtf}%
            {}%
          \dateeraprint{labelendyear}}}}}}
 %-----------------------
@@ -410,6 +406,10 @@
 %-----------------------
 \DeclareCiteCommand{\textcite}%
   {\boolfalse{cbx:yearinparens}%
+    \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+   \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+   \addspace\bibstring{and}\space}%
   \usebibmacro{prenote}%
   }%
   {\usebibmacro{citeindex}%
@@ -436,12 +436,29 @@
   test{\ifentrytype{inreference}}%
   }{}{\usebibmacro{postnote}}}%
 %-----------------------  
+\DeclareCiteCommand{\smartcite}[\iffootnote\textnormal\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+ {\ifboolexpr{%
+  test{\ifbool{bbx:inreferences}}%
+  and%
+  test{\ifentrytype{inreference}}%
+  }{}{\usebibmacro{postnote}}}%
+%-----------------------      
 \DeclareMultiCiteCommand{\cites}%
   {\cite}{\multicitedelim}%
 \DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
   {\parencite}{\multicitedelim}%
 \DeclareMultiCiteCommand{\textcites}%
-  {\textcite}{\textcitedelim}%
+  {\textcite}{\textcitedelim%
+ \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+   \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+   \addspace\bibstring{and}\space}}
+\DeclareMultiCiteCommand{\smartcites}
+    [\iffootnote\textnormal\mkbibfootnote]{\smartcite}{\multicitedelim}
 %----------------------- 
 \DeclareCiteCommand{\citeauthor}
   {\boolfalse{citetracker}%

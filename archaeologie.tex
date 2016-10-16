@@ -226,21 +226,6 @@ If one wants to cite several authors or works a very convenient way is the follo
 \begin{example}
 Public space is part of a city say \cites(cf.)(){Osland2016}{Evangelidis2014}.
 \end{example}
-
- \DescribeMacro{\footcite}
- There is also the possibility to put the citation into a footnote at once with \cs{footcite}:
- \begin{code}
-\footcite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
-\end{code}
-\begin{example}
-Public space is part of a city.\footcite{Osland2016}
-\end{example}
-This is the equivalent to |\footnote{\cite{Osland2016}.}| but it saves you a lot of time typing.
- \DescribeMacro{\footcites} And there is as well \cs{footcites}:
-\begin{example}
-Public space is part of a city.\footcites(cf.)(){Osland2016}{Evangelidis2014}
-\end{example}
- 
  
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
@@ -291,6 +276,64 @@ And again there is also a \cs{textcites} in case of several authors:
 \begin{example}
 Public space is part of a city say \textcites{Osland2016}[cf.][]{Evangelidis2014}.
 \end{example}
+
+
+ \DescribeMacro{\footcite}
+ Beside the listed \cs{cite} commands above there are more possibilities citing:
+ There is also the possibility to put the citation into a footnote at once with \cs{footcite}:
+ \begin{code}
+\footcite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
+\end{code}
+\begin{example}
+Public space is part of a city.\footcite{Osland2016}
+\end{example}
+This is the equivalent to |\footnote{\cite{Osland2016}.}| but it saves you a lot of time typing.
+ \DescribeMacro{\footcites} And there is as well \cs{footcites}:
+\begin{example}
+Public space is part of a city.\footcites(cf.)(){Osland2016}{Evangelidis2014}
+\end{example}
+ 
+ 
+\DescribeMacro{\smartcite}
+And there is also a clever way citing with \cs{smartcite}.
+\cs{smartcite} depends on its environment it is used in. If it is your normal text it behaves like \cs{footcite} and will print the citation within a footnote.
+If it is already within a footnote it will be handled like \cs{cite}. 
+ is a clever 
+\begin{code}
+\smartcite*@\oarg{postnote}\marg{bibtex-key}%@*
+\end{code} 
+
+\begin{example}
+Public space is part of a city.\smartcite{Osland2016} 
+And sometimes more than that.\footnote{\smartcite[cf.][]{Evangelidis2014}.}
+\end{example}
+
+
+\DescribeMacro{\smartcites}
+And again there is also a \cs{textcites} in case of several authors: 
+\begin{code}
+\smartcites(pre-prenote)(post-postnote)%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
+  *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
+\end{code}
+\begin{example}
+Public space is part of a city.\smartcites{Osland2016}{Evangelidis2014} 
+And sometimes more than that.\footnote{\smartcites{Osland2016}[cf.][]{Evangelidis2014}.}
+\end{example}
+
+\DescribeMacro{\autocite}
+With \cs{autocite} there is a flexible way of citing. 
+We set up \cs{autocite} as \cs{footcite} by default.
+If you want to change it you can also write in the preamble e.\,g. |autocite=inline|.
+\begin{code}
+\autocite*@\oarg{postnote}\marg{bibtex-key}%@*
+\end{code} 
+
+\begin{example}
+Public space is part of a city.\autocite{Osland2016} 
+\end{example}
+
 
 \DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
 Furthermore and in addition to the ›normal‹ \cs{cite}-commands one can also cite only the author or the work title in the text and in the footnotes.
