@@ -588,12 +588,6 @@
  {}%
 }
 %----------------------- 
-\newbibmacro{savestuff}{%
- \savename{editor}{\bbx@lasteditor}%
- \savefield{namehash}{\bbx@lasthash}%
- \savefield{booktitle}{\bbx@lastbooktitle}%
-}
-%----------------------- 
 \DeclareLabeldate{%
   \field{date}
   \field{year}
@@ -1019,7 +1013,6 @@
  \usebibmacro{related}%
  }
  {}%
- \usebibmacro{savestuff}%
  \usebibmacro{finentry}%
 }
 %-----------------------
@@ -1044,7 +1037,6 @@
  \usebibmacro{related}%
  }%
  {}%
- \usebibmacro{savestuff}%
  \usebibmacro{finentry}%
 }
 %-----------------------
@@ -1074,7 +1066,6 @@
  \usebibmacro{doi+eprint+url}%
  \setunit{\addperiod\addspace}%
  \usebibmacro{signatur}%
- \usebibmacro{savestuff}%
  \newunit\newblock%
  \iftoggle{bbx:related}%
  {\usebibmacro{related:init}%
@@ -1122,7 +1113,6 @@
  \usebibmacro{related}%
  }%
  {}%
- \usebibmacro{savestuff}%
  \usebibmacro{finentry}%
 }
 %-----------------------
@@ -1152,7 +1142,6 @@
  \usebibmacro{related}%
  }%
  {}%
- \usebibmacro{savestuff}%
  \usebibmacro{finentry}%
 }
 %-----------------------
@@ -1195,7 +1184,6 @@
  \usebibmacro{related}%
  }%
  {}%
- \usebibmacro{savestuff}%
  \usebibmacro{finentry}%
 }
 %-----------------------
@@ -1215,7 +1203,6 @@
  \setunit{\addperiod\addspace}%
  \usebibmacro{signatur}%
  \newunit\newblock%
- \usebibmacro{savestuff}%
  \usebibmacro{finentry}%
 }
 %-----------------------
@@ -1239,7 +1226,6 @@
  \usebibmacro{doi+eprint+url}%
  \usebibmacro{signatur}%
  \newunit\newblock%
- \usebibmacro{savestuff}%
  \usebibmacro{finentry}%
 }
 %-----------------------

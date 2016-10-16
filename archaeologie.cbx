@@ -15,20 +15,9 @@
 %-----------------------
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
-\newbool{cbx:seen}
 \newbool{cbx:uniqueme}
 %-----------------------
-\newcommand*{\cbx@fseen@names}{}
-\newcommand*{\cbx@tseen@names}{}
-\newrobustcmd*{\cbx@nameseen}[1]{%
-  \iftoggle{blx@footnote}
-  {\listcsxadd{cbx@fseen@names}{#1}}
-  {\listcsxadd{cbx@tseen@names}{#1}}}
-\newrobustcmd*{\cbx@ifnameseen}[1]{%
-  \iftoggle{blx@footnote}%
-  {\xifinlistcs{#1}{cbx@fseen@names}}%
-  {\xifinlistcs{#1}{cbx@tseen@names}}}
-  
+
 \renewcommand*{\multicitedelim}{\addsemicolon\addspace}
 \newcommand*{\labelyeardelim}{\addspace}
 \renewcommand{\textcitedelim}{\multicitedelim}
@@ -46,8 +35,8 @@
   {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}%
   \csuse{bool#1}{cbx:yearinparens}}%
   {\DeclareFieldFormat{citeyear}{##1}}}%
-\DeclareBibliographyOption{seenote}[true]{\csuse{bool#1}%
-  {cbx:seenote}%
+\DeclareBibliographyOption{seenote}[true]{%
+  \csuse{bool#1}{cbx:seenote}%
   \ExecuteBibliographyOptions{maxnames=999}%
   }%
 \DeclareBibliographyOption[string]{citeauthorformat}{%
@@ -187,7 +176,7 @@
    \DeclareNameAlias{citeauthor}{citeauthor:fancy}}
 %-----------------------  
 \ExecuteBibliographyOptions{%
-  citetracker=true,% 
+  citetracker=context,% 
   idemtracker=true,% 
   ibidtracker=true,%
   opcittracker=true,%
@@ -286,7 +275,7 @@
   \bibhypertarget{ref:\thefield{entrykey}}{%
   \usedriver{}{\thefield{entrytype}}%
    \iffootnote{\label{footref:\thefield{entrykey}}}%
-   }}}%
+}}}%
 }
 %-----------------------
 \newbibmacro{cite}{%
@@ -307,11 +296,7 @@
       \setunit{\nameyeardelim}}%
      \usebibmacro{cite:year}}%
     {\usebibmacro{cite:shorthand}}%
-  }}}%
-  \ifciteseen{\global\booltrue{cbx:seen}}%
-  {\global\boolfalse{cbx:seen}}%
-  \usebibmacro{savestuff}%
-}
+  }}}}
 %-----------------------
 \newbibmacro*{citeyear}{%
   \iffieldundef{shorthand}%
@@ -410,7 +395,7 @@
   test{\ifbool{bbx:inreferences}}%
   and%
   test{\ifentrytype{inreference}}%
-  }{}{\usebibmacro{postnote}}}%
+  }{}{\usebibmacro{postnote}}}
  %-----------------------
   \DeclareCiteCommand{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}%
