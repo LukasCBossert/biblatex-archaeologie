@@ -17,14 +17,15 @@
 \newbool{cbx:seenote}
 \newbool{cbx:uniqueme}
 %-----------------------
-\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
+%\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
 \newcommand*{\labelyeardelim}{\addspace}
-\renewcommand{\textcitedelim}{\addcomma\space}
+%\renewcommand{\textcitedelim}{\addcomma\space}
 \renewcommand{\postnotedelim}{%
-  \ifboolexpr{bool {cbx:ancient}%
-  or bool {cbx:frgancient}%
-   or bool {cbx:corpus}%
-  }%
+  \ifboolexpr{%
+    bool {cbx:ancient}%
+    or bool {cbx:frgancient}%
+    or bool {cbx:corpus}%
+    }%
   {\addspace}%
   {\newunitpunct}%
 }
@@ -42,7 +43,7 @@
   \ifcsdef{cbx@arch@citeauthorformat@#1}%
   {\csuse{cbx@arch@citeauthorformat@#1}}%
   {\PackageError{biblatex-archaeologie}%
-  {Option 'citeauthorformat=#1' invalid.\MessageBreak%
+  {Option 'citeauthorformat=#1' invalid.\MessageBreak
   Use one of the values 'initials', 'full', 'family' or 'firstfull'.}{}}%
 \def\citeauthorformatVALUE{#1}%
 }
@@ -175,7 +176,7 @@
    \DeclareNameAlias{citeauthor}{citeauthor:fancy}}
 %-----------------------  
 \ExecuteBibliographyOptions{%
-  citetracker=context,% 
+  citetracker=true,% 
   idemtracker=true,% 
   ibidtracker=true,%
   opcittracker=true,%
@@ -212,10 +213,11 @@
 \renewbibmacro*{postnote}{%
 \iffieldundef{postnote}%
   {}%
-  {\postnotedelim\printfield{postnote}%
+  {\setunit{\postnotedelim}%
+  \printfield{postnote}%
    \ifbool{cbx:frgancient}%
-   {\setunit{\addspace}%
-    \usebibmacro{cite:frgname}}%
+     {\setunit{\addspace}%
+      \usebibmacro{cite:frgname}}%
     {}%
  }}
 %-----------------------
@@ -226,17 +228,16 @@
 }
 %-----------------------
 \newbibmacro*{seenote}{%
-\ifnameundef{labelname}%
-   {\usebibmacro{cite:label}%
-  \setunit{\labelyeardelim}}%
-   {\printnames{labelname}%
-  \setunit{\nameyeardelim}}%
-\bibstring{loccit}%
-\setunit{\addspace}%
-\printtext[parens]{\bibstring{seenote}%
-\addspace%
-\ref{footref:\thefield{entrykey}}}%
-\renewcommand{\postnotedelim}{\addspace}%
+  \ifnameundef{labelname}%
+    {\usebibmacro{cite:label}}%
+    {\printnames{labelname}}%
+  \setunit{\labelyeardelim}%
+  \bibstring{loccit}%
+  \setunit{\addspace}%
+  \printtext[parens]{\bibstring{seenote}%
+  \addspace%
+  \ref{footref:\thefield{entrykey}}}%
+  \renewcommand{\postnotedelim}{\addspace}%
 }%
 %-----------------------
 \newbibmacro*{cite:title}{\printfield{labeltitle}}%  
@@ -389,7 +390,7 @@
   {\multicitedelim}%
   {\ifboolexpr{%
   test{\ifbool{bbx:inreferences}}%
-  and%
+  and 
   test{\ifentrytype{inreference}}%
   }{}{\usebibmacro{postnote}}}
  %-----------------------
@@ -452,11 +453,7 @@
 \DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
   {\parencite}{\multicitedelim}%
 \DeclareMultiCiteCommand{\textcites}%
-  {\textcite}{\textcitedelim%
- \renewcommand*{\multinamedelim}{\addcomma\space}%
-   \renewcommand*{\finalnamedelim}{%
-   \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-   \addspace\bibstring{and}\space}}
+  {\textcite}{\textcitedelim}
 \DeclareMultiCiteCommand{\smartcites}
     [\iffootnote\textnormal\mkbibfootnote]{\smartcite}{\multicitedelim}
 %----------------------- 
