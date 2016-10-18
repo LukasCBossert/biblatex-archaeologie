@@ -377,73 +377,59 @@
 %% that is fields referring to the title work and not the booktitle work in inbook etc. works
 % these macros are essentially the same as the standard macros without the "in"
 \newbibmacro*{byineditor+others}{%
- \ifnameundef{ineditor}%
- {}%
- {\usebibmacro{byeditor+othersstrg}%
- \setunit{\addspace}%
- \printnames[byeditor]{ineditor}%
- \clearname{ineditor}%
- \newunit%
- }%
- \usebibmacro{byintranslator+others}%
-}
+  \ifnameundef{ineditor}
+  {}
+  {\usebibmacro{byeditor+othersstrg}%
+    \setunit{\addspace}%
+    \printnames[byeditor]{ineditor}%
+    \clearname{ineditor}%
+    \newunit}%
+  \usebibmacro{byintranslator+others}}
 %-----------------------
 \newbibmacro*{byintranslator+others}{%
- \ifnameundef{intranslator}%
- {}%
- {\usebibmacro{bytranslator+othersstrg}%
- \setunit{\addspace}%
- \printnames[bytranslator]{intranslator}%
- \clearname{intranslator}%
- \newunit%
- }%
- \usebibmacro{withinothers}%
-}
+  \ifnameundef{intranslator}
+  {}
+  {\usebibmacro{bytranslator+othersstrg}%
+    \setunit{\addspace}%
+    \printnames[bytranslator]{intranslator}%
+    \clearname{intranslator}%
+    \newunit}%
+   \usebibmacro{withinothers}}
 %-----------------------
 \newbibmacro*{withincommentator}{%
- \ifnameundef{incommentator}%
- {}%
- {\bibstring{withcommentator}%
- \setunit{\addspace}%
- \printnames[withcommentator]{incommentator}%
- }%
-}
+  \ifnameundef{incommentator}
+  {}
+  {\bibstring{withcommentator}%
+   \setunit{\addspace}%
+   \printnames[withcommentator]{incommentator}}}
 %-----------------------
 \newbibmacro*{withinannotator}{%
- \ifnameundef{inannotator}%
- {}%
- {\bibstring{withannotator}%
- \setunit{\addspace}%
- \printnames[withannotator]{inannotator}%
- }%
- }
+  \ifnameundef{inannotator}
+  {}
+  {\bibstring{withannotator}%
+    \setunit{\addspace}%
+    \printnames[withannotator]{inannotator}}}
 %-----------------------
 \newbibmacro*{withinintroduction}{%
- \ifnameundef{inintroduction}
- {}%
- {\bibstring{withintroduction}%
- \setunit{\addspace}%
- \printnames[withintroduction]{inintroduction}%
- }%
-}
+  \ifnameundef{inintroduction}
+  {}
+  {\bibstring{withintroduction}%
+    \setunit{\addspace}%
+    \printnames[withintroduction]{inintroduction}}}
 %-----------------------
 \newbibmacro*{withinforeword}{%
- \ifnameundef{inforeword}%
- {}%
- {\bibstring{withforeword}%
- \setunit{\addspace}%
- \printnames[withforeword]{inforeword}%
- }%
-}
+  \ifnameundef{inforeword}
+  {}
+  {\bibstring{withforeword}%
+    \setunit{\addspace}%
+    \printnames[withforeword]{inforeword}}}
 %-----------------------
 \newbibmacro*{withinafterword}{%
- \ifnameundef{inafterword}
- {}
- {\bibstring{withafterword}%
- \setunit{\addspace}%
- \printnames[withafterword]{inafterword}%
- }%
-}
+  \ifnameundef{inafterword}
+  {}
+  {\bibstring{withafterword}%
+    \setunit{\addspace}%
+    \printnames[withafterword]{inafterword}}}
 %-----------------------
 \newbibmacro*{withinothers}{%
  \usebibmacro{withincommentator}%
@@ -534,35 +520,30 @@
 }
 %----------------------- 
 \newbibmacro*{zenon}{%
- \iffieldundef{zenon}%
- {}%
- {\usebibmacro{bbx:parunit}%
- \printfield{zenon}%
- } 
-}
+  \iffieldundef{zenon}
+  {}%
+  {\usebibmacro{bbx:parunit}%
+   \printfield{zenon}}}
 %----------------------- 
 \newbibmacro*{jstor}{%
- \iffieldundef{jstor}%
- {}%
- {\usebibmacro{bbx:parunit}%
- \printfield{jstor}%
- }
-}
+  \iffieldundef{jstor}
+  {}
+  {\usebibmacro{bbx:parunit}%
+    \printfield{jstor}}}
 %----------------------- 
 \newbibmacro*{urn}{%
- \iffieldundef{urn}
- {} 
- {\usebibmacro{bbx:parunit}%
- \printfield{urn}%
- }
-}
+  \iffieldundef{urn}
+  {} 
+  {\usebibmacro{bbx:parunit}%
+    \printfield{urn}}}
 %-----------------------
 \renewbibmacro*{url+urldate}{%
- \usebibmacro{bbx:parunit}%
- \iffieldundef{url}{}{\printfield{url}%
- \setunit*{\addspace}%
- \printtext{\printurldate}%
-}}
+  \usebibmacro{bbx:parunit}%
+  \iffieldundef{url}
+    {}
+    {\printfield{url}%
+  \setunit*{\addspace}%
+  \printtext{\printurldate}}}
 %----------------------- 
 \renewbibmacro*{doi+eprint+url}{%
  \usebibmacro{bbx:parunit}%
@@ -575,18 +556,15 @@
 }
 %-----------------------
 \renewbibmacro*{editor}{%
- \ifboolexpr{%
- test \ifuseeditor %
- and %
- not test {\ifnameundef{editor}}%
- }%
+  \ifboolexpr{%
+    test \ifuseeditor %
+    and %
+    not test {\ifnameundef{editor}}}%
  {\printnames{editor}%
- \setunit{\addspace}%
- \printtext[parens]{\bibstring{editor}}%
- \clearname{editor}%
- }%
- {}%
-}
+   \setunit{\addspace}%
+   \printtext[parens]{\bibstring{editor}}%
+   \clearname{editor}}%
+  {}}
 %----------------------- 
 \DeclareLabeldate{%
   \field{date}
@@ -613,9 +591,7 @@
  \printfield{number}%
  \ifbool{bbx:yearseries}%
  {\newunit}%
- {\setunit{\addspace}}%
- }%
-}
+ {\setunit{\addspace}}}}
 %-----------------------
 \renewbibmacro*{journal}{%
  \ifboolexpr{test {\iffieldundef{shortjournal}}%
@@ -626,8 +602,7 @@
  \printfield[titlecase]{journalsubtitle}%
  }%
  }%
- {\printfield{shortjournal}}%
-}
+ {\printfield{shortjournal}}}
 %-----------------------
 \newbibmacro{journal+number+year}{%
  \usebibmacro{journal}%
@@ -637,8 +612,7 @@
  \printfield{number}%
  }% 
  \newunit%
-\usebibmacro{pubstate+year}%
-}
+\usebibmacro{pubstate+year}}
 %-----------------------
 \newbibmacro{pubstate+year}{%
  \iffieldundef{pubstate}%
@@ -652,18 +626,15 @@
 \newbibmacro{translation}{%
  \printfield{origtitle}%
  \setunit{\addcomma\space}%
- \usebibmacro{byeditor+others}%
-}
+ \usebibmacro{byeditor+others}}
 %----------------------- 
 \newbibmacro{intranslation}{%
  \printfield{origtitle}%
  \setunit{\addcomma\space}%
- \usebibmacro{byineditor+others}%
-} 
+ \usebibmacro{byineditor+others}} 
 %----------------------- 
 \newbibmacro*{related:reviewof}[1]{%
- \usebibmacro*{related:default}{#1}%
-}
+  \usebibmacro*{related:default}{#1}}
 %-----------------------
 \newbibmacro*{related:translationof}[1]{%
  \entrydata*{#1}{%
@@ -675,8 +646,7 @@
  {\newunit
  \bibstring{bytranslator}%keine Sprache ausgegeben? 
  \setunit{\addspace}%
- \printnames{savedtranslator}%
-}}}
+ \printnames{savedtranslator}}}}
 %----------------------- 
 \newbibmacro*{inreference:title+author}{%
 \iffieldundef{title}%
@@ -688,8 +658,7 @@
  \setunit*{\addspace}%
  \printfield{number}}%
  \setunit{\addspace}%
- \printtext[parens]{\printnames[name:initials]{labelname}}%
-} 
+ \printtext[parens]{\printnames[name:initials]{labelname}}} 
 %----------------------- 
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
@@ -702,31 +671,23 @@
  {\usebibmacro{maintitle}%
  \ifbool{cbx:ancient}%
  {\usebibmacro{title}%
- \iffieldundef{volume}%
- {\newunit\newblock}%
- {}%
- }%
+   \iffieldundef{volume}%
+   {\newunit\newblock}%
+   {}}%
  {\iffieldundef{volume}%
  {\iffieldundef{volumes}%
- {}%
- {\printfield{volumes}%
- \setunit*{\addspace}%
- \bibstring{volumes}%
- \setunit{\addspace}%
- }%
- }%
- {\setunit{\addspace}%
- \printfield{volume}%
- \setunit*{\adddot\addspace}%
- }%
- }%
- }%
- }%
- \iffieldundef{volumes}%
- {\usebibmacro{title}}%
- {}%
- \newunit%
-}
+   {}%
+   {\printfield{volumes}%
+     \setunit*{\addspace}%
+     \bibstring{volumes}%
+     \setunit{\addspace}}}%
+  {\setunit{\addspace}%
+    \printfield{volume}%
+    \setunit*{\adddot\addspace}}}}}%
+  \iffieldundef{volumes}%
+   {\usebibmacro{title}}%
+   {}%
+ \newunit}
 %-----------------------
 \renewbibmacro{event+venue+date}{%
  \setunit{\adddot\addspace}% 
