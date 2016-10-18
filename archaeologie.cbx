@@ -27,8 +27,17 @@
     or bool {cbx:corpus}%
     }%
   {\addspace}%
-  {\newunitpunct}%
-}
+  {\newunitpunct}}
+\newcommand*{\cbx@fseen@names}{}
+\newcommand*{\cbx@tseen@names}{}
+\newrobustcmd*{\cbx@nameseen}[1]{%
+  \iftoggle{blx@footnote}
+  {\listcsxadd{cbx@fseen@names}{#1}}
+  {\listcsxadd{cbx@tseen@names}{#1}}}
+\newrobustcmd*{\cbx@ifnameseen}[1]{%
+  \iftoggle{blx@footnote}%
+  {\xifinlistcs{#1}{cbx@fseen@names}}%
+  {\xifinlistcs{#1}{cbx@tseen@names}}}
 %-----------------------
 \DeclareBibliographyOption{yearinparens}[true]{%
   \ifstrequal{#1}{true}%
