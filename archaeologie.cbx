@@ -220,15 +220,19 @@
 }
 %-----------------------
 \renewbibmacro*{postnote}{%
-\iffieldundef{postnote}%
-  {}%
-  {\setunit{\postnotedelim}%
-  \printfield{postnote}%
-   \ifbool{cbx:frgancient}%
-     {\setunit{\addspace}%
-      \usebibmacro{cite:frgname}}%
+  \ifboolexpr{%
+    test{\ifbool{bbx:inreferences}}%
+    and%
+    test{\ifentrytype{inreference}}}
+  {}
+  {\iffieldundef{postnote}%
     {}%
- }}
+    {\setunit{\postnotedelim}%
+      \printfield{postnote}%
+      \ifbool{cbx:frgancient}%
+        {\setunit{\addspace}%
+          \usebibmacro{cite:frgname}}%
+       {}}}}
 %-----------------------
 \newbibmacro*{cite:frgname}{%
   \ifnameundef{shorteditor}%
@@ -397,22 +401,14 @@
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifboolexpr{%
-  test{\ifbool{bbx:inreferences}}%
-  and 
-  test{\ifentrytype{inreference}}%
-  }{}{\usebibmacro{postnote}}}
+  {\usebibmacro{postnote}}
  %-----------------------
   \DeclareCiteCommand{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifboolexpr{%
-  test{\ifbool{bbx:inreferences}}%
-  and%
-  test{\ifentrytype{inreference}}%
-  }{}{\usebibmacro{postnote}}}%
+  {\usebibmacro{postnote}}
 %-----------------------
 \DeclareCiteCommand{\textcite}%
   {\boolfalse{cbx:yearinparens}%
@@ -440,11 +436,7 @@
   {\usebibmacro{citeindex}%
   \usebibmacro{cite}}%
   {\multicitedelim}%
-  {\ifboolexpr{%
-  test{\ifbool{bbx:inreferences}}%
-  and%
-  test{\ifentrytype{inreference}}%
-  }{}{\usebibmacro{postnote}}}%
+  {\usebibmacro{postnote}}
 %-----------------------  
 \DeclareCiteCommand{\smartcite}[\iffootnote\textnormal\mkbibfootnote]
   {\usebibmacro{prenote}}
@@ -456,6 +448,22 @@
   and%
   test{\ifentrytype{inreference}}%
   }{}{\usebibmacro{postnote}}}%
+%-----------------------        
+  \DeclareCiteCommand{\fullcite}
+  {\usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+%-----------------------      
+\DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
 %-----------------------      
 \DeclareMultiCiteCommand{\cites}%
   {\cite}{\multicitedelim}%

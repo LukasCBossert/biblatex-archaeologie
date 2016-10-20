@@ -327,12 +327,25 @@ With \cs{autocite} there is a flexible way of citing.
 We set up \cs{autocite} as \cs{footcite} by default.
 If you want to change it you can also write in the preamble e.\,g. |autocite=inline|.
 \begin{code}
-\autocite*@\oarg{postnote}\marg{bibtex-key}%@*
+\autocite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
 \end{code} 
 
 \begin{example}
 Public space is part of a city.\autocite{Osland2016} 
 \end{example}
+
+\DescribeMacro{\fullcite}\DescribeMacro{\footfullcite}
+With \cs{fullcite} and \cs{footfullcite} you can print the complete entry in your current text.
+\begin{code}
+\fullcite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
+\footfullcite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
+\end{code} 
+
+\begin{example}
+Public space is part of a city.\footfullcite{Osland2016}
+As can be read in \fullcite{Evangelidis2014}
+\end{example}
+
 
 
 \DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
