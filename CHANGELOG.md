@@ -5,9 +5,12 @@ This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
 ## [unreleased]
-* *fixed* <br> empty space deleted after bibliography entries (has only been visible when using option `seenote`)
+#### *fixed*
+* empty space deleted after bibliography entries (has only been visible when using option `seenote`)
+* typo in the German documentation
 
-* *added* <br> more citation commands (`\smartcite`; `\autocite`; `\fullcite`; `\footfullcite`)
+#### *added* 
+* more citation commands (`\smartcite`; `\autocite`; `\fullcite`; `\footfullcite`)
 
 ## v2.2b (2016-10-06) --> [current release]
 * *typo* <br> documentation with new style
