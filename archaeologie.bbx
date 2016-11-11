@@ -14,21 +14,19 @@
 \def\arch@version{2.2b}
 \def\arch@bbxid{\arch@date\space v\arch@version\space biblatex-archaeologie bibliography style (LCB/JF)}
 \def\arch@cbxid{\arch@date\space v\arch@version\space biblatex-archaeologie  citation style (LCB/JF)}
-%\def\arch@dbxid{\arch@date\space v\arch@version\space biblatex-archaeologie  data (LCB/JF)}
 \def\arch@lbxid{\arch@date\space v\arch@version\space biblatex-archaeologie localization (LCB/JF)}
 
 \ProvidesFile{archaeologie.bbx}%
   [\arch@bbxid]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
-  \RequirePackage[normalem]{ulem}
-  %\RequirePackage{csquotes}
   \urlstyle{sf}%
   \typeout{* * * archaeologie * * * 
   biblatex for archaeologists,
   historians and philologists}
 }
-
+\RequirePackage[normalem]{ulem}
+\RequirePackage{csquotes}
 \def\archaeologieversion{\arch@version}
 \def\archaeologiedate{\arch@date}
 \ExecuteBibliographyOptions{%
@@ -219,10 +217,10 @@
 \DeclareFieldAlias{jstor}{eprint:jstor}
 \DeclareFieldAlias{urn}{eprint:urn}
 %-----------------------
-\DeclareRedundantLanguages{ngerman}{german,ngerman,austrian,naustrian}
+\DeclareRedundantLanguages{german}{german,ngerman,austrian,naustrian}
 \DeclareRedundantLanguages{english,american}{english,american,british,%
  canadian,australian,newzealand,USenglish,UKenglish}
-\DeclareLanguageMapping{ngerman}{archaeologie-ngerman}
+\DeclareLanguageMapping{german}{archaeologie-german}
 \DeclareLanguageMapping{english}{archaeologie-english}
 \DeclareLanguageMapping{french}{archaeologie-french}
 \DeclareLanguageMapping{italian}{archaeologie-italian}
