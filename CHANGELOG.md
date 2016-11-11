@@ -11,6 +11,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 #### *added* 
 * more citation commands (`\smartcite`; `\autocite`; `\fullcite`; `\footfullcite`)
+* support for `polyglossia`
 
 ## v2.2b (2016-10-06) --> [current release]
 * *typo* <br> documentation with new style

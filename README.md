@@ -43,7 +43,7 @@ mandatory:
 
 language files:
 
-- archaeologie-ngerman.lbx
+- archaeologie-german.lbx
 - archaeologie-english.lbx
 - archaeologie-french.lbx
 - archaeologie-italian.lbx
