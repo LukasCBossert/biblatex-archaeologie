@@ -3,7 +3,21 @@
 \listfiles
 
 \usepackage[oldstyle]{libertine}
-\renewcommand*\ttdefault{lmvtt}
+\usepackage{Alegreya} %% Option 'black' gives heavier bold face 
+\renewcommand*\oldstylenums[1]{{\AlegreyaOsF #1}}
+\usepackage[]{AlegreyaSans} %% Option 'black' gives heavier bold face
+%% The 'sfdefault' option to make the base font sans serif
+\renewcommand*\oldstylenums[1]{{\AlegreyaSansOsF #1}}
+%\renewcommand*\ttdefault{lmvtt}
+\defaultfontfeatures[AnonymousPro]
+  {
+    Extension      = .ttf                       ,
+    BoldFont       = AnonymousPro-Bold          ,
+    ItalicFont     = AnonymousPro-BoldItalic    ,
+    BoldItalicFont = AnonymousPro-Italic        ,
+    UprightFont    = AnonymousPro-Regular       ,
+  }
+\setmonofont[Scale= MatchLowercase]{AnonymousPro}
 
 \usepackage{xr-hyper}
 \usepackage{url}
@@ -221,7 +235,6 @@ examplebox,
 examplebox,
 breakable,
 %  sidebyside,
-%%%%text and listing,
 listing and text,
 }
 

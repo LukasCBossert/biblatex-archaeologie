@@ -13,7 +13,7 @@
 \def\arch@date{2016-10-06}
 \def\arch@version{2.2b}
 \def\arch@bbxid{\arch@date\space v\arch@version\space biblatex-archaeologie bibliography style (LCB/JF)}
-\def\arch@cbxid{\arch@date\space v\arch@version\space biblatex-archaeologie  citation style (LCB/JF)}
+\def\arch@cbxid{\arch@date\space v\arch@version\space biblatex-archaeologie citation style (LCB/JF)}
 \def\arch@lbxid{\arch@date\space v\arch@version\space biblatex-archaeologie localization (LCB/JF)}
 
 \ProvidesFile{archaeologie.bbx}%
@@ -43,6 +43,7 @@
   minnames=1,%
   maxitems=1,%
   maxbibnames=999,%
+  useprefix=true,%
 }
 %-----------------------
 \newbool{bbx:edby}
@@ -184,6 +185,7 @@
 \DeclareFieldFormat{edition}{#1}
 \DeclareFieldFormat{volumes}{#1}
 \DeclareFieldFormat{volume}{#1}
+\DeclareFieldFormat[article]{date}{\iffieldundef{number}{#1}{#1\setunit{\yearnumdelim}\printfield{number}}}
 \DeclareFieldFormat[inreference]{number}{\mkbibbrackets{#1}}
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
 \DeclareFieldFormat{brackets}{\mkbibbrackets{#1}}
@@ -251,7 +253,8 @@
 \renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}
 \renewcommand{\finalnamedelim}{\multinamedelim}
 \renewcommand*\relateddelim{\addnbspace\textendash\addspace}
-\newcommand*{\volnumdelim}{\addslash}
+\newcommand*{\volnumdelim}{\addcomma}
+\newcommand*{\yearnumdelim}{\addslash}
 \newcommand*{\jourvoldelim}{\addnbspace}
 %-----------------------
 \DeclareBibliographyAlias{collection}{book}
@@ -607,6 +610,8 @@
  \usebibmacro{journal}%
  \setunit{\jourvoldelim}%
  \printfield{volume}%
+ \iffieldundef{number}
+ {}
  {\setunit{\volnumdelim}%
  \printfield{number}%
  }% 

@@ -79,3 +79,13 @@ archaeologie-ger.tex
 *.bibexample
 
 *.bibexample
+
+*.lb
+
+*.fdb_latexmk
+
+*.bibexample
+
+*.fls
+
+*.bibexample
