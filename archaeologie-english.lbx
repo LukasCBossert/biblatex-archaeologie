@@ -1,7 +1,7 @@
 % archaeologie --%
 %            biblatex for archaeologists, 
 %				historians and philologists
-% Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -20,23 +20,25 @@
 \NewBibliographyString{talk}
 \NewBibliographyString{editor}
 \NewBibliographyString{subvoce}
+\NewBibliographyString{owntranslation}
+
 
 \DeclareBibliographyStrings{%
   inherit          = {english},
   subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
-  reference = {{Article}{Art\adddot}},
-  origtitle = {{original title}{orig\adddot title}},
-  firstprint = {{first\addspace edition}{first\addspace edition}},
-  talk = {{talk}{talk}},
-  fromamerican     ={{from\addspace American} {from\addspace American}},
+  reference        = {{Article}{Art\adddot}},
+  origtitle        = {{original title}{orig\adddot title}},
+  firstprint       = {{first\addspace edition}{first\addspace edition}},
+  talk             = {{talk}{talk}},
+  fromamerican     = {{from\addspace American} {from\addspace American}},
   frombrazilian    = {{from\addspace Brazilian}{from\addspace Brazilian}},
   fromcroatian     = {{from\addspace Croatian}{from\addspace Croatian}},
   fromdanish       = {{from\addspace Danish}{from\addspace Danish}},
   fromdutch        = {{from\addspace Dutch}{from\addspace Dutch}},
   fromenglish      = {{from\addspace English}{from\addspace English}},
   fromfinnish      = {{from\addspace Finnish}{from\addspace Finnish}},
-  fromfrench       = { {from\addspace French}{from\addspace French}},
-  fromgerman       ={{from\addspace German} {from\addspace German}},
+  fromfrench       = {{from\addspace French}{from\addspace French}},
+  fromgerman       = {{from\addspace German} {from\addspace German}},
   fromgreek        = {{from\addspace Greek}{from\addspace Greek}},
   fromitalian      = {{from\addspace Italian}{from\addspace Italian}},
   fromlatin        = {{from\addspace Latin}{from\addspace Latin}},
@@ -45,5 +47,6 @@
   fromrussian      = {{from\addspace Russian}{from\addspace Russian}},
   fromspanish      = {{from\addspace Spanish}{from\addspace Spanish}},
   fromswedish      = {{from\addspace Swedish}{from\addspace Swedish}},
+	owntranslation   = {{own\addspace trans\adddot}{own\addspace translation}},
 }
 \endinput

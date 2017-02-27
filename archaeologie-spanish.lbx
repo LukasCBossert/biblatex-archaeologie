@@ -1,7 +1,7 @@
 % archaeologie --%
 %            biblatex for archaeologists, 
 %				historians and philologists
-% Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -21,13 +21,15 @@
 \NewBibliographyString{reference}
 \NewBibliographyString{talk}
 \NewBibliographyString{subvoce}
+\NewBibliographyString{owntranslation}
 
 \DeclareBibliographyStrings{%
   inherit          = {spanish},
   subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
-  reference = {{Artículo}{Art\adddot}},
-  origtitle = {{Título\addspace original}{Título\addspace original}},
-  firstprint = {{Primera\addspace edición}{Primera\addspace edición}},
-  talk = {{Conferencia}{Conferencia}},
+  reference        = {{Artículo}{Art\adddot}},
+  origtitle        = {{Título\addspace original}{Título\addspace original}},
+  firstprint       = {{Primera\addspace edición}{Primera\addspace edición}},
+  talk             = {{Conferencia}{Conferencia}},
+	owntranslation   = {{}{}},% FIX ME!
 }
 \endinput

@@ -1,7 +1,7 @@
 % archaeologie --%
 %            biblatex for archaeologists, 
 %				historians and philologists
-% Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -10,7 +10,7 @@
 %   http://www.latex-project.org/lppl.txt
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
-%!TEX program = xelatex
+% !TEX program = lualatex
 \documentclass[a4paper,10pt,ngerman]{ltxdoc}
 \input{archaeologie-preamble.tex}
 \externaldocument{archaeologie}[archaeologie.pdf]% <- full or relative path
@@ -26,7 +26,7 @@ Weitere Informationen zum Code und zur Weiterentwicklung siehe \url{biblatex-arc
  
  \maketitle
  \begin{abstract}
-\noindent Der Stil setzt die Zitations- und Bibliographievorgaben um, die das \textbf{Deutsche Archäologische Institut (DAI)}  2014 festgelegt hat. 
+\noindent Der Stil setzt die Zitations- und Bibliographievorgaben um, die das \DAI (DAI)  2014 festgelegt hat. 
 Verschiedene zusätzliche Optionen erlauben jedoch, das Erscheinungsbild den eigenen Vorlieben anzupassen. 
 Der Stil ist nicht nur für Dokumente in deutscher Sprache geeignet, sondern unterstützt ebenso die Sprachen Englisch, Italienisch, Spanisch und Französisch. 
 
@@ -185,10 +185,16 @@ Dies ist vor allem bei Lexikaeinträgen wichtig: (LIMC 7.1 [1994] 930 Nr. 283 s.
 \DescribeMacro{\textcite}  \DescribeMacro{\textcites}  Zu den bisher aufgeführten \cs{cite}-Befehlen gibt es zusätzlich die Möglichkeit, einen Eintrag \enquote{fließtextgerecht} mit \cs{textcite} zu zitieren. 
 Der Unterschied zu \cs{cite} besteht darin, dass der Literaturverweis durch Klammern vom Autor getrennt wird: z.\,B. Emme (2013, 5).
 \cs{textcite} und \cs{textcites} verhalten sich in der Bedienung analog zu \cs{cite} und \cs{cites}.
-
+ 
 \DescribeMacro{\citeauthor}  \DescribeMacro{\citetitle}  Diese Befehle ermöglich, nur einzelne Elemente einer Publikation zu zitieren. Je nach Verwendung wird entweder nur der Titel oder der Autor eines Bibliographieeintrages ausgegeben. Ein Vorteil gegenüber des händischen Eintippens eines solchen Elementes ist, dass der Eintrag indiziert und referenziert wird. Dies kann z.\,B. für einen (Autoren-)Index, der auf die Textstelle verweisen soll, relevant sein.
    
+\DescribeMacro{\citetranslator} Zusätzlich gibt es noch die Möglichkeit den Übersetzer eines (insbesondere) antiken Werkes anzugeben. 
+Besonders wenn man einen antiken Text in Übersetzung zitiert, ist es üblich den Urheber der Übersetzung anzugeben.
+Ist kein Übersetzer vorhanden, dann gibt der Befehl einen selbst als Übersetzer an.
 
+ \DescribeMacro{\citetranslator*} Die Sternchen-Variante gibt zusätzlich noch die Sprache an, 
+ aus der übersetzt wurde.
+ 
 \section{Publikationstypen}
 Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry Type}) und ihre von |archaeologie| ausgelesenen Felder (\emph{Data Field}) aufgelistet.
 
