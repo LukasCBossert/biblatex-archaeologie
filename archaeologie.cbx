@@ -494,6 +494,60 @@
   {\multicitedelim}%
   {\usebibmacro{postnote}}	
 %----------------------- 	
+\DeclareCiteCommand{\citetranslator}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+   \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+   \addspace\bibstring{and}\space}%
+   \usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+\ifboolexpr{%
+   test {\ifbool{bbx:inreferences}}%
+   and %
+   test  {\ifentrytype{inreference}}%
+   }%
+  {\printtext}%
+  {\printtext[bibhyperref]}%
+  {\ifthenelse{% 
+    \ifentrytype{incollection}%
+    \OR%
+    \ifentrytype{inbook}%
+  }%
+	  {\printnames[citeauthor]{intranslator}}%
+	  {\printnames[citeauthor]{translator}}}%
+	}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}	
+%----------------------- 	
+\DeclareCiteCommand*{\citetranslator}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \DeclareNameAlias{bytranslator}{citeauthor}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+     \addspace\bibstring{and}\space}%
+   \usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \ifboolexpr{%
+     test {\ifbool{bbx:inreferences}}%
+     and %
+     test  {\ifentrytype{inreference}}%
+   }%
+     {\printtext}%
+     {\printtext[bibhyperref]}%
+   {\ifthenelse{% 
+      \ifentrytype{incollection}%
+      \OR%
+      \ifentrytype{inbook}%
+    }%
+     {\usebibmacro{byintranslator+others}}%
+     {\usebibmacro{bytranslator+others}}}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}
+%----------------------- 	
 \DeclareCiteCommand*{\citeauthor}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%

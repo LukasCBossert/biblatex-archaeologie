@@ -170,6 +170,9 @@
   \iftoggle{bbx:jstor}{}{\xout{jstor}\seperator}%
   \iftoggle{bbx:urn}{}{\xout{urn}\seperator}%
   \iftoggle{bbx:doi}{}{\xout{doi}\seperator}%
+    \iflanguage{ngerman}%
+      {weitere Informationen unter \url{http://biblatex-archaeologie.de}}
+      {further information see \url{http://biblatex-archaeologie.de}}
 }
 %-----------------------
 \DeclareFieldFormat*{title}{#1}

@@ -8,8 +8,10 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 #### *fixed*
 * empty space deleted after bibliography entries (has only been visible when using option `seenote`)
 * typo in the German documentation
+* related example in German documentation corrected
 
 #### *added* 
+* get the translator of an ancient opus with `\citetranslator` or `\citetranslator*`
 * more citation commands (`\smartcite`; `\autocite`; `\fullcite`; `\footfullcite`)
 * support for `polyglossia`
 
