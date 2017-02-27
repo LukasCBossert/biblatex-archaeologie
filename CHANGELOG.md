@@ -5,6 +5,9 @@ This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
 ## [unreleased]
+
+
+## v2.3 (2017-02-27)
 #### *fixed*
 * empty space deleted after bibliography entries (has only been visible when using option `seenote`)
 * typo in the German documentation
