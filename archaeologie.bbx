@@ -655,20 +655,6 @@
  \setunit{\addspace}%
  \printnames{savedtranslator}}}}
 %----------------------- 
-\newbibmacro*{inreference:title+author}{%
-\iffieldundef{title}%
- {}%
- {\setunit{\addspace}%
- \bibstring{subvoce}%
- \setunit{\addspace}%
- \printfield{title}%
- \setunit*{\addspace}%
- \printfield{number}}%
- \setunit{\addspace}%
- \ifnameundef{author}%
- {}
- {\printtext[parens]{\printnames[name:initials]{labelname}}}}
-%----------------------- 
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
   {\clearfield{maintitle}%
@@ -677,11 +663,14 @@
   }%
  {\iffieldundef{maintitle}%
  {}%
- {\usebibmacro{maintitle}%
- \ifbool{cbx:ancient}%
- {\usebibmacro{title}%
+ {\usebibmacro{maintitle}}%
+ \iffieldundef{title}%
+ {}%
+ {\usebibmacro{title}}%
+  \ifbool{cbx:ancient}%
+  {\usebibmacro{title}%
    \iffieldundef{volume}%
-   {\newunit\newblock}%
+   {\newunit}%
    {}}%
  {\iffieldundef{volume}%
    {\iffieldundef{volumes}%
@@ -692,10 +681,7 @@
      \setunit{\addspace}}}%
   {\setunit{\addspace}%
     \printfield{volume}%
-    \setunit*{\adddot\addspace}}}}}%
-  \iffieldundef{volumes}%
-   {\usebibmacro{title}}%
-   {}%
+    \setunit*{\adddot\addspace}}}}%
  \newunit}
 %-----------------------
 \renewbibmacro{event+venue+date}{%
