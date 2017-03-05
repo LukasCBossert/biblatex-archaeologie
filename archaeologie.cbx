@@ -271,7 +271,7 @@
   \iffieldundef{postnote}%
   {\printfield{pages}}%
   {\printfield{postnote}}%
-\usebibmacro{inreference:title+author}%
+  \usebibmacro{inreference:title+author}%
 }
 %-----------------------
 \newbibmacro{cite:seenote}{%
@@ -574,11 +574,15 @@
   {\printtext[bibhyperref]}{%
    \ifbool{cbx:ancient}{\printtext[emph]{\usebibmacro{cite:title}}}%
   {\printtext[emph]{\usebibmacro{cite:title}}% 
-  \setunit{\addspace}%
-  \printtext[parens]{\printfield{year}%
-  \iffieldundef{origyear}{}%
-  {\addspace\printfield[parens]{origyear}}}%
-   }}}%
+  \iffieldundef{year}
+	  {}
+		{\setunit{\addspace}%
+      \printtext[parens]{%
+			\printfield{year}%
+      \iffieldundef{origyear}
+			  {}%
+        {\addspace\printfield[parens]{origyear}}}%
+   }}}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 

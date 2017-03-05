@@ -665,7 +665,9 @@
  \setunit*{\addspace}%
  \printfield{number}}%
  \setunit{\addspace}%
- \printtext[parens]{\printnames[name:initials]{labelname}}} 
+ \ifnameundef{author}%
+ {}
+ {\printtext[parens]{\printnames[name:initials]{labelname}}}}
 %----------------------- 
 \newbibmacro*{maintitle+title+volumes}{% 
   \iffieldsequal{maintitle}{title}%
@@ -682,7 +684,7 @@
    {\newunit\newblock}%
    {}}%
  {\iffieldundef{volume}%
- {\iffieldundef{volumes}%
+   {\iffieldundef{volumes}%
    {}%
    {\printfield{volumes}%
      \setunit*{\addspace}%
