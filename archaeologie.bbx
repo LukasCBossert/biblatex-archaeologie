@@ -188,7 +188,7 @@
 \DeclareFieldFormat{edition}{#1}
 \DeclareFieldFormat{volumes}{#1}
 \DeclareFieldFormat{volume}{#1}
-\DeclareFieldFormat[article]{date}{\iffieldundef{number}{#1}{#1\setunit{\yearnumdelim}\printfield{number}}}
+\DeclareFieldFormat[article]{date}{\iffieldundef{number}{#1}{\iffieldundef{volume}{#1\yearnumdelim\printfield{number}}{#1}}}
 \DeclareFieldFormat[inreference]{number}{\mkbibbrackets{#1}}
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
 \DeclareFieldFormat{brackets}{\mkbibbrackets{#1}}
@@ -325,9 +325,13 @@
     }%
 }
 %----------------------- 
+\DeclareNameAlias{name:initials}{default}
 \DeclareNameAlias{author}{name:initials}
 \DeclareNameAlias{editor}{author}
+\DeclareNameAlias{byeditor}{author}
 \DeclareNameAlias{translator}{author}
+\DeclareNameAlias{bytranslator}{default}
+\DeclareNameAlias{bycommentator}{author}
 %-----------------------
 \DeclareListFormat{location}{%
   #1\ifthenelse{\value{listcount}<\value{liststop}}%
@@ -386,7 +390,7 @@
   {}
   {\usebibmacro{byeditor+othersstrg}%
     \setunit{\addspace}%
-    \printnames[byeditor]{ineditor}%
+    \printnames[author]{ineditor}%
     \clearname{ineditor}%
     \newunit}%
   \usebibmacro{byintranslator+others}}
@@ -396,7 +400,7 @@
   {}
   {\usebibmacro{bytranslator+othersstrg}%
     \setunit{\addspace}%
-    \printnames[bytranslator]{intranslator}%
+    \printnames[author]{intranslator}%
     \clearname{intranslator}%
     \newunit}%
    \usebibmacro{withinothers}}
@@ -406,35 +410,35 @@
   {}
   {\bibstring{withcommentator}%
    \setunit{\addspace}%
-   \printnames[withcommentator]{incommentator}}}
+   \printnames[author]{incommentator}}}
 %-----------------------
 \newbibmacro*{withinannotator}{%
   \ifnameundef{inannotator}
   {}
   {\bibstring{withannotator}%
     \setunit{\addspace}%
-    \printnames[withannotator]{inannotator}}}
+    \printnames[author]{inannotator}}}
 %-----------------------
 \newbibmacro*{withinintroduction}{%
   \ifnameundef{inintroduction}
   {}
   {\bibstring{withintroduction}%
     \setunit{\addspace}%
-    \printnames[withintroduction]{inintroduction}}}
+    \printnames[author]{inintroduction}}}
 %-----------------------
 \newbibmacro*{withinforeword}{%
   \ifnameundef{inforeword}
   {}
   {\bibstring{withforeword}%
     \setunit{\addspace}%
-    \printnames[withforeword]{inforeword}}}
+    \printnames[author]{inforeword}}}
 %-----------------------
 \newbibmacro*{withinafterword}{%
   \ifnameundef{inafterword}
   {}
   {\bibstring{withafterword}%
     \setunit{\addspace}%
-    \printnames[withafterword]{inafterword}}}
+    \printnames[author]{inafterword}}}
 %-----------------------
 \newbibmacro*{withinothers}{%
  \usebibmacro{withincommentator}%
@@ -612,13 +616,14 @@
 \newbibmacro{journal+number+year}{%
  \usebibmacro{journal}%
  \setunit{\jourvoldelim}%
- \printfield{volume}%
- \iffieldundef{number}
+ \iffieldundef{volume}%
  {}
+ {\printfield{volume}%
+ \iffieldundef{number}%
+ {}%
  {\setunit{\volnumdelim}%
- \printfield{number}%
- }% 
- \newunit%
+ \printfield{number}}%
+ \newunit}%
 \usebibmacro{pubstate+year}}
 %-----------------------
 \newbibmacro{pubstate+year}{%
@@ -692,7 +697,7 @@
  \setunit*{\addspace}%
  \printeventdate%
  \newunit%
- }
+}
 %----------------------- 
 \renewbibmacro*{title}{%
  \ifboolexpr{%
@@ -945,10 +950,10 @@
  \newblock%
  \usebibmacro{maintitle+title+volumes}%
  \newunit\newblock% 
- \usebibmacro{translation}%
  \ifbool{bbx:yearseries}%
  {}%
  {\newunit\usebibmacro{series+number}}%
+ \usebibmacro{translation}%
  \setunit{\addspace}%
  \newblock%
  \usebibmacro{location+edition+year}%
