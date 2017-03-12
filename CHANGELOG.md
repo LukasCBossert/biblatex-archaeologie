@@ -6,6 +6,8 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 ## [unreleased]
 
+#### *fixed*
+* number after year in an article if there is no volume.
 
 ## v2.3 (2017-02-27)
 #### *fixed*
