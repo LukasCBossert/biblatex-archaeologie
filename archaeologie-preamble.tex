@@ -1,14 +1,22 @@
-\AtBeginDocument{\RecordChanges}
-\AtEndDocument{\PrintChanges}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\else
+    \ifXeTeX
+    \usepackage{fontspec}
+		\def\compiler{\hologo{XeLaTeX}}
+  \else 
+	  \usepackage{fontspec}
+    \usepackage{luatextra}
+    \usepackage{luaotfload}
+	\def\compiler{\hologo{LuaLaTeX}}
+\fi
+  \defaultfontfeatures{Ligatures=TeX}
+\fi
 \listfiles
-
-\usepackage[oldstyle]{libertine}
-\usepackage{Alegreya} %% Option 'black' gives heavier bold face 
-\renewcommand*\oldstylenums[1]{{\AlegreyaOsF #1}}
-\usepackage[]{AlegreyaSans} %% Option 'black' gives heavier bold face
-%% The 'sfdefault' option to make the base font sans serif
-\renewcommand*\oldstylenums[1]{{\AlegreyaSansOsF #1}}
-%\renewcommand*\ttdefault{lmvtt}
+ \usepackage[oldstyle]{libertine}
 \defaultfontfeatures[AnonymousPro]
   {
     Extension      = .ttf                       ,
@@ -18,6 +26,8 @@
     UprightFont    = AnonymousPro-Regular       ,
   }
 \setmonofont[Scale= MatchUppercase]{AnonymousPro}
+
+
 
 \usepackage{xr-hyper}
 \usepackage{url}
