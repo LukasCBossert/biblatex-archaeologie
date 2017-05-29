@@ -6,8 +6,11 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 ## [unreleased]
 
+## v2.31 (2017-05-29) --> [current release]
+
 #### *fixed*
 * number after year in an article if there is no volume.
+* volume and title for ancient publications
 
 ## v2.3 (2017-02-27)
 #### *fixed*
@@ -20,7 +23,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * more citation commands (`\smartcite`; `\autocite`; `\fullcite`; `\footfullcite`)
 * support for `polyglossia`
 
-## v2.2b (2016-10-06) --> [current release]
+## v2.2b (2016-10-06) 
 * *typo* <br> documentation with new style
 
 ## v2.2 (2016-09-25)
