@@ -10,8 +10,8 @@
 % http://www.latex-project.org/lppl.txt
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
-\def\arch@date{2017-02-27}
-\def\arch@version{2.3}
+\def\arch@date{2017-05-29}
+\def\arch@version{2.31}
 \def\arch@bbxid{\arch@date\space v\arch@version\space biblatex-archaeologie bibliography style (LCB/JF)}
 \def\arch@cbxid{\arch@date\space v\arch@version\space biblatex-archaeologie citation style (LCB/JF)}
 \def\arch@lbxid{\arch@date\space v\arch@version\space biblatex-archaeologie localization (LCB/JF)}
@@ -686,12 +686,7 @@
  \iffieldundef{title}%
  {}%
  {\usebibmacro{title}}%
-  \ifbool{cbx:ancient}%
-  {\usebibmacro{title}%
-   \iffieldundef{volume}%
-   {\newunit}%
-   {}}%
- {\iffieldundef{volume}%
+ \iffieldundef{volume}%
    {\iffieldundef{volumes}%
    {}%
    {\printfield{volumes}%
@@ -700,7 +695,11 @@
      \setunit{\addspace}}}%
   {\setunit{\addspace}%
     \printfield{volume}%
-    \setunit*{\adddot\addspace}}}}%
+    \setunit*{\adddot\addspace}}%
+  \ifbool{cbx:ancient}%
+    {\usebibmacro{translation}}%
+ 	 {}%
+	}%
  \newunit}
 %-----------------------
 \renewbibmacro{event+venue+date}{%
@@ -967,7 +966,9 @@
  \ifbool{bbx:yearseries}%
  {}%
  {\newunit\usebibmacro{series+number}}%
- \usebibmacro{translation}%
+ \ifbool{cbx:ancient}%
+   {}%
+	 {\usebibmacro{translation}}%
  \setunit{\addspace}%
  \newblock%
  \usebibmacro{location+edition+year}%
