@@ -5,6 +5,8 @@ This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
 ## [unreleased]
+#### *fixed*
+* wrong code-example in documentation
 
 ## v2.31 (2017-05-29) --> [current release]
 
