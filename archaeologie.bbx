@@ -114,7 +114,8 @@
 \DeclareBibliographyOption{bibfullname}[true]{\csuse{bool#1}{bbx:bibfullname}
 \DeclareNameAlias{author}{given-family}}
 \DeclareBibliographyOption{inreferences}[true]{\csuse{bool#1}{bbx:inreferences}
-  \ExecuteBibliographyOptions[inreference]{skipbib=true}}
+  \ExecuteBibliographyOptions[inreference]{skipbib=true}%
+  \ExecuteBibliographyOptions[inreference]{skiplab=true}}
 \DeclareBibliographyOption{noabbrv}[true]{\csuse{bool#1}{bbx:noabbrv}}
 \DeclareBibliographyOption{translation}[true]{\csuse{bool#1}{bbx:translation}}
 \DeclareBibliographyOption{publisher}[true]{\csuse{bool#1}{bbx:publisher}
