@@ -15,10 +15,11 @@
 \input{archaeologie-preamble.tex}
 \externaldocument{archaeologie}[archaeologie.pdf]% <- full or relative path
 \begin{document}
+\pdfbookmark[1]{Titelseite}{title-ger}
  \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} für Archäologen\footnote{Ebenso geeignet für (Alt-)Philologen und (Alt-)Historiker.
 Weitere Informationen zum Code und zur Weiterentwicklung siehe \url{biblatex-archaeologie.de}: 
  Anmerkungen und Kritik sind willkommen.
- Dank an   ›moewew‹ und Herbert Voß für ihre Hilfe.
+ Dank an  \href{https://tex.stackexchange.com/users/35864/moewe}{moewe} und \href{https://tex.stackexchange.com/users/2478/herbert}{herbert} für ihre Hilfe.
 }\\ --- {\scshape kurzanleitung} --}
 \author{Lukas C. Bossert\\{\small \href{mailto:info@biblatex-archaeologie.de}{info@biblatex-archaeologie.de}} 
 \and Johannes Friedl}
@@ -43,7 +44,7 @@ Dieses Dokument ist die deutsche Kurzfassung der englischen Hauptdokumentation: 
 \begin{code}
 \usepackage[style=archaeologie,%
   *@\meta{weitere Optionen}@*]{biblatex}
-  \bibliography*@\marg{|bib|-Datei}@*
+  \addbibresource*@\marg{|bib|-Datei}@*
 \end{code}
 
 |archaeologie| funktioniert out-of-the-box und lädt hierfür standardmäßig den DAI-Stil im Autor-Jahr-System. 

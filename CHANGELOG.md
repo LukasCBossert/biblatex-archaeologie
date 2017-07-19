@@ -5,10 +5,13 @@ This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
 ## [unreleased]
+## v2.3.2 (2017-07-19) --> [current release]
+
 #### *fixed*
 * wrong code-example in documentation
+* issue [#111](https://github.com/LukasCBossert/biblatex-archaeologie/issues/111) (regarding option `inreferences`) solved, thanks to [moewe](https://tex.stackexchange.com/users/35864/moewe)
 
-## v2.31 (2017-05-29) --> [current release]
+## v2.31 (2017-05-29) 
 
 #### *fixed*
 * number after year in an article if there is no volume.
