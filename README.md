@@ -7,6 +7,7 @@ bibLaTeX-style for archaeologists, historians and philologists.
 ---
 _2017/08/10 v2.3.3_
 
+
 Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
 
 * Email: [info@biblatex-archaeologie.de](mailto:info@biblatex-archaeologie.de)
