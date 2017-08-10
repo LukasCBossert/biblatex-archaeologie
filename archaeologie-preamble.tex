@@ -90,7 +90,13 @@ draft=false,
   bottom%
 ]{footmisc}
 
-
+\usepackage{marginnote,frame}
+\usepackage{tabto}
+\newcommand\rmarginpar[2][0pt]{\leavevmode%
+  \tabto*{\dimexpr\linewidth+10pt}\smash{\raisebox{%
+  \dimexpr.6\ht\strutbox+#1}{\parbox[t]{2.5cm}{%
+    \small\color{codegray}\raggedright\frame{#2}}}}\tabto*{\TabPrevPos}%
+}
 
 \usepackage{enumitem}
 \setlength{\parindent}{0pt}

@@ -220,9 +220,9 @@
 }
 %-----------------------
 \renewbibmacro*{postnote}{%
-  \ifboolexpr{%
-    test{\ifbool{bbx:inreferences}}%
-    and%
+  \ifboolexpr{
+    bool{bbx:inreferences}
+    and
     test{\ifentrytype{inreference}}}
   {}
   {\iffieldundef{postnote}%
@@ -289,11 +289,10 @@
 }}}
 %-----------------------
 \newbibmacro{cite}{%
-  \ifboolexpr{%
-   test {\ifbool{bbx:inreferences}}%
-   and %
-   test {\ifentrytype{inreference}}%
-   }%
+  \ifboolexpr{
+    bool{bbx:inreferences}
+    and
+    test{\ifentrytype{inreference}}}
   {\usebibmacro{cite:lexikon}}%
   {\ifbool{cbx:seenote}%
     {\usebibmacro{cite:seenote}}%
@@ -443,11 +442,12 @@
   {\usebibmacro{citeindex}%
    \usebibmacro{cite}}
   {\multicitedelim}
- {\ifboolexpr{%
-  test{\ifbool{bbx:inreferences}}%
-  and%
-  test{\ifentrytype{inreference}}%
-  }{}{\usebibmacro{postnote}}}%
+ {\ifboolexpr{
+    bool{bbx:inreferences}
+    and
+    test{\ifentrytype{inreference}}}
+  {}
+	{\usebibmacro{postnote}}}%
 %-----------------------        
   \DeclareCiteCommand{\fullcite}
   {\usebibmacro{prenote}}
@@ -483,11 +483,10 @@
    \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
-\ifboolexpr{%
-   test {\ifbool{bbx:inreferences}}%
-   and %
-   test  {\ifentrytype{inreference}}%
-   }%
+   \ifboolexpr{
+    bool{bbx:inreferences}
+    and
+    test{\ifentrytype{inreference}}}
   {\printtext}%
   {\printtext[bibhyperref]}%
   {\printnames[citeauthor]{labelname}}}%
@@ -499,25 +498,27 @@
    \boolfalse{pagetracker}%
    \renewcommand*{\multinamedelim}{\addcomma\space}%
    \renewcommand*{\finalnamedelim}{%
-   \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-   \addspace\bibstring{and}\space}%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+      \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
-\ifboolexpr{%
-   test {\ifbool{bbx:inreferences}}%
-   and %
-   test  {\ifentrytype{inreference}}%
+   \ifboolexpr{% 
+     test {\ifentrytype{incollection}}
+     or
+     test {\ifentrytype{inbook}}
    }%
-  {\printtext}%
-  {\printtext[bibhyperref]}%
-  {\ifthenelse{% 
-    \ifentrytype{incollection}%
-    \OR%
-    \ifentrytype{inbook}%
-  }%
-	  {\printnames[citeauthor]{intranslator}}%
-	  {\printnames[citeauthor]{translator}}}%
-	}%
+     {\ifnameundef{intranslator}%
+        {\bibstring{owntranslation}}%
+        {\printtext[bibhyperref]{\printnames[citeauthor]{intranslator}}}}%
+     {\ifnameundef{translator}%
+       {\bibstring{owntranslation}}%
+       {\ifboolexpr{
+          bool {bbx:inreferences}
+          and
+          test  {\ifentrytype{inreference}}
+        }%
+          {\printnames[citeauthor]{translator}}
+          {\printtext[bibhyperref]{\printnames[citeauthor]{translator}}}}}}
   {\multicitedelim}%
   {\usebibmacro{postnote}}	
 %----------------------- 	
@@ -531,13 +532,12 @@
      \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
-   \ifboolexpr{%
-     test {\ifbool{bbx:inreferences}}%
-     and %
-     test  {\ifentrytype{inreference}}%
-   }%
-     {\printtext}%
-     {\printtext[bibhyperref]}%
+   \ifboolexpr{
+     bool{bbx:inreferences}
+     and
+     test{\ifentrytype{inreference}}}
+    {\printtext}%
+    {\printtext[bibhyperref]}%
    {\ifthenelse{% 
       \ifentrytype{incollection}%
       \OR%
@@ -565,13 +565,12 @@
   {\boolfalse{citetracker}%
   \boolfalse{pagetracker}%
   \usebibmacro{prenote}}%
-  {\ifboolexpr{%
-   test {\ifbool{bbx:inreferences}}%
-   and %
-   test  {\ifentrytype{inreference}}%
-   }%
+  {\ifboolexpr{
+    bool{bbx:inreferences}
+    and
+    test{\ifentrytype{inreference}}}
    {\printtext}%
-  {\printtext[bibhyperref]}{%
+   {\printtext[bibhyperref]}{%
    \ifbool{cbx:ancient}{\printtext[emph]{\usebibmacro{cite:title}}}%
   {\printtext[emph]{\usebibmacro{cite:title}}% 
   \iffieldundef{year}

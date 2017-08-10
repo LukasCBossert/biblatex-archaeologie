@@ -5,7 +5,7 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2017/05/29 v2.31_
+_2017/08/10 v2.3.3_
 
 Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
 
@@ -65,7 +65,18 @@ All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
-## v2.3.2 (2017-07-19) --> [current release]
+## unreleased (beta status)
+
+
+## v2.3.3 (2017-08-10) --> [current release]
+
+#### *fixed*
+* typo in documentation
+
+#### *added* 
+* if there is no `translator` `\citetranslator` will fall back to the `bibstring` "owntranslation" which can be modified; see [#112](https://github.com/LukasCBossert/biblatex-archaeologie/issues/112) and [tex.stackexchange.com/q/385719/98739](https://tex.stackexchange.com/q/385719/98739) thanks to [moewe](https://tex.stackexchange.com/users/35864/moewe)
+
+## v2.3.2 (2017-07-19)
 
 #### *fixed*
 * wrong code-example in documentation

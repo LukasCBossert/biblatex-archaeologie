@@ -366,24 +366,45 @@ Public space is part of a city says \citeauthor{Osland2016} in \citetitle{Osland
 For further information cf. \cref{citeauthorformat}.
 
 \DescribeMacro{\citetranslator}\label{citetranslator}%
-Addionally there is also a \cs{cite}-command which can be used to print the translator of an (ancient) work.
+\rmarginpar{v.2.3.0} 
+Addionally there is also a \cs{cite}-command which can be used to print the translator of an (ancient) publication.
 \begin{code}
 \citetranslator*@\marg{bibtex-key}%@*
 \end{code}
 This will print the name(s) of the translator according to the chosen |citeauthorformat|.
-If there is no translator it will name you as translator (\enquote{own translation}).
+\begin{code}
+\blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator{Cic:Att})
+\end{code}
+
+\begin{example}
+\blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator{Cic:Att})
+\end{example}
+\rmarginpar{v.2.3.3} 
+If there is no translator given it will name you as translator using a |bibstring| with \enquote{own translation}.
+\begin{example}
+\blockcquote[3,62,1]{Artem}{The Agora means confusion and uproar because of the people that are gathered there.} (\citetranslator{Artem})
+\end{example}
+You can change the |bibstring| \enquote{own translation} and replace it with anything you like, 
+at least it is done in the preamble of your document.
+\begin{code}
+\DefineBibliographyStrings{english}{%
+  owntranslation = {by me},%
+}
+\end{code}
+
+
+
+\DescribeMacro{\citetranslator*}\rmarginpar{v.2.3.0}
 \begin{code}
 \citetranslator* *@\marg{bibtex-key}%@*
 \end{code} 
-\newcommand\latquote[5]{\cite[#1][#2]{#3}: \emph{#4} -- \enquote{#5} \parentext{\citetranslator*{#3}}.}
 
 The starred version prints also the informtion from which language the text has been translated.
-For an efficient way of citing ancient texts we introduce a new command (only a suggestion):
 \begin{code}
-\newcommand\latquote[5]{\cite[#1][#2]{#3}: \emph{#4} -- \enquote{#5} \parentext{\citetranslator*{#3}}.}
+\blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator*{Cic:Att})
 \end{code}
 \begin{example}
-\latquote{cf.}{12,25,1}{Cic:Att}{sed domus est, ut ais, forum}{Aber dein Heim ist das Forum.}
+\blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator*{Cic:Att})
 \end{example}
 
 
@@ -2118,9 +2139,9 @@ Here is an example for a  paper  given in Berlin in 2015:
 \end{bibexample}
 The bibliography will show the entry as:
 
-\printbib[6em]{Bergmann2015}
+\printbib[7em]{Bergmann2015}
   
- \changes{v1.5}{2016/05/31}{Rückverweis}
+\changes{v1.5}{2016/05/31}{Rückverweis}
 
 
  \section{Bibliography}\label{bibliographie}
@@ -2398,7 +2419,7 @@ or the date of this version with |\archaeologiedate|.
 \archaeologiedate
 \end{example}
 
-\subsection{Print the citet authors of secondary literature}
+\subsection{Print the cited authors of secondary literature}
 In case you want to have an index about the authors you cited in your text,
 you can do that quite easily.
 We coded it that way so authors of ancient sources (e.\,g. Cicero) will be omitted in that index (when these entries have |options={ancient}| or |options={frgancient}|).

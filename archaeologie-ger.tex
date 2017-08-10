@@ -56,7 +56,7 @@ Wie bei |bib|\LaTeX{} gewohnt werden Zitate über einen der \cs{cite}-Befehle ei
 Einige Möglichkeiten zur Gestaltung der Bibliographie geben wir in \cref{bibliographie}.
 
 Um die externen Bibliographien, die |archaeologie| optional bereitstellt, korrekt einzubinden, ist ein Input-Encoding von Nöten, das unter anderem auch griechische Schriftzeichen enthält. 
-Für \LaTeX{} ist ein entsprechendes Encoding z.\,B. über \cs{usepackage[utf8]\{inputenc\}} zu erreichen. \XeLaTeX{} unterstützt Unicode von Hause aus.
+Für \LaTeX{} ist ein entsprechendes Encoding z.\,B. über \cs{usepackage[utf8]\{inputenc\}} zu erreichen. \XeLaTeX{} und \LuaLaTeX{} unterstützen Unicode von Hause aus.
 
 \section{Übersicht}
 Im Folgenden stellen wir etwas knapp die Optionen und Einstellungen vor, mit denen der Stil |archaeologie| aufgerufen werden kann. Wer mehr wissen will, sei auf die englische Hauptdokumentation verwiesen. 
@@ -189,11 +189,11 @@ Der Unterschied zu \cs{cite} besteht darin, dass der Literaturverweis durch Klam
  
 \DescribeMacro{\citeauthor}  \DescribeMacro{\citetitle}  Diese Befehle ermöglich, nur einzelne Elemente einer Publikation zu zitieren. Je nach Verwendung wird entweder nur der Titel oder der Autor eines Bibliographieeintrages ausgegeben. Ein Vorteil gegenüber des händischen Eintippens eines solchen Elementes ist, dass der Eintrag indiziert und referenziert wird. Dies kann z.\,B. für einen (Autoren-)Index, der auf die Textstelle verweisen soll, relevant sein.
    
-\DescribeMacro{\citetranslator} Zusätzlich gibt es noch die Möglichkeit den Übersetzer eines (insbesondere) antiken Werkes anzugeben. 
+\DescribeMacro{\citetranslator}\rmarginpar{v.2.3.0}  Zusätzlich gibt es noch die Möglichkeit den Übersetzer eines (insbesondere) antiken Werkes anzugeben. 
 Besonders wenn man einen antiken Text in Übersetzung zitiert, ist es üblich den Urheber der Übersetzung anzugeben.
 Ist kein Übersetzer vorhanden, dann gibt der Befehl einen selbst als Übersetzer an.
 
- \DescribeMacro{\citetranslator*} Die Sternchen-Variante gibt zusätzlich noch die Sprache an, 
+ \DescribeMacro{\citetranslator*} \rmarginpar{v.2.3.0} Die Sternchen-Variante gibt zusätzlich noch die Sprache an, 
  aus der übersetzt wurde.
  
 \section{Publikationstypen}
@@ -249,7 +249,7 @@ Im folgenden werden die zur Verfügung stehenden Publikationstypen (\emph{Entry 
 \item[Optional:] |doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |addendum| 
 \end{description}
 
-\printbib[6em]{Bergmann2015}
+\printbib[7em]{Bergmann2015}
 
 
 \DescribeMacro{@review} Für Rezensionen.
