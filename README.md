@@ -67,7 +67,9 @@ This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
 ## unreleased (beta status)
-
+#### *fixed*
+* Arrangement of multiple authors with `\textcites`; see
+[#115](https://github.com/LukasCBossert/biblatex-archaeologie/issues/115), solved with [https://tex.stackexchange.com/a/387162/98739](https://tex.stackexchange.com/a/387162/98739)
 
 ## v2.3.3 (2017-08-10) --> [current release]
 

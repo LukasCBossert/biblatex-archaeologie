@@ -20,6 +20,10 @@
 %\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
 \newcommand*{\labelyeardelim}{\addspace}
 %\renewcommand{\textcitedelim}{\addcomma\space}
+\renewcommand*{\iffinalcitedelim}{%
+  \iflastcitekey
+    {\@firstoftwo}
+    {\@secondoftwo}}
 \renewcommand{\postnotedelim}{%
   \ifboolexpr{%
     bool {cbx:ancient}%
@@ -465,14 +469,10 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 %-----------------------      
-\DeclareMultiCiteCommand{\cites}%
-  {\cite}{\multicitedelim}%
-\DeclareMultiCiteCommand{\parencites}[\mkbibparens]%
-  {\parencite}{\multicitedelim}%
-\DeclareMultiCiteCommand{\textcites}%
-  {\textcite}{\textcitedelim}
-\DeclareMultiCiteCommand{\smartcites}
-    [\iffootnote\textnormal\mkbibfootnote]{\smartcite}{\multicitedelim}
+\DeclareMultiCiteCommand{\cites}{\cite}{\multicitedelim}
+\DeclareMultiCiteCommand{\parencites}[\mkbibparens]{\parencite}{\multicitedelim}
+\DeclareMultiCiteCommand{\textcites}{\textcite}{}
+\DeclareMultiCiteCommand{\smartcites}[\iffootnote\textnormal\mkbibfootnote]{\smartcite}{\multicitedelim}
 %----------------------- 
 \DeclareCiteCommand{\citeauthor}
   {\boolfalse{citetracker}%
