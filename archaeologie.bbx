@@ -189,6 +189,7 @@
 \DeclareFieldFormat{edition}{#1}
 \DeclareFieldFormat{volumes}{#1}
 \DeclareFieldFormat{volume}{#1}
+\DeclareFieldFormat{part}{#1}
 \DeclareFieldFormat[article]{date}{\iffieldundef{number}{#1}{\iffieldundef{volume}{#1\yearnumdelim\printfield{number}}{#1}}}
 \DeclareFieldFormat[inreference]{number}{\mkbibbrackets{#1}}
 \DeclareFieldFormat{parens}{\mkbibparens{#1}}
@@ -236,7 +237,14 @@
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}
 \renewcommand*{\intitlepunct}{\addcolon\addspace}
 \renewcommand*{\newunitpunct}{\addcomma\addspace}
-\newcommand*{\orttrennzeichen}{\addnbspace\textendash\addspace}
+\newcommand*{\maintitlepunct}{\addperiod\addspace}
+\newcommand*{\locationdelim}{\addnbspace\textendash\addspace}
+\renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}
+\renewcommand{\finalnamedelim}{\multinamedelim}
+%\renewcommand*\relateddelim{\addnbspace\textendash\addspace}%
+\newcommand*{\volnumdelim}{\addcomma}
+\newcommand*{\yearnumdelim}{\addslash}
+\newcommand*{\jourvoldelim}{\addnbspace}
 \renewcommand{\finentrypunct}{%http://tex.stackexchange.com/a/14159/98739
   \ifbool{bbx:counter}%
     {\addspace$\vert$ \addspace\scshape%
@@ -254,12 +262,6 @@
         {s}}.%
       }}%
       {}}
-\renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}
-\renewcommand{\finalnamedelim}{\multinamedelim}
-\renewcommand*\relateddelim{\addnbspace\textendash\addspace}
-\newcommand*{\volnumdelim}{\addcomma}
-\newcommand*{\yearnumdelim}{\addslash}
-\newcommand*{\jourvoldelim}{\addnbspace}
 %-----------------------
 \DeclareBibliographyAlias{collection}{book}
 \DeclareBibliographyAlias{reference}{book}
@@ -336,7 +338,7 @@
 %-----------------------
 \DeclareListFormat{location}{%
   #1\ifthenelse{\value{listcount}<\value{liststop}}%
-  {\orttrennzeichen}%
+  {\locationdelim}%
   {}%
 }
 %-----------------------
@@ -682,25 +684,17 @@
   \clearfield{maintitleaddon}%
   }%
  {\iffieldundef{maintitle}%
- {}%
- {\usebibmacro{maintitle}}%
- \iffieldundef{title}%
+  {}%
+  {\usebibmacro{maintitle}%
+   \usebibmacro{volume}%
+	 }%
+  \iffieldundef{title}%
  {}%
  {\usebibmacro{title}}%
- \iffieldundef{volume}%
-   {\iffieldundef{volumes}%
-   {}%
-   {\printfield{volumes}%
-     \setunit*{\addspace}%
-     \bibstring{volumes}%
-     \setunit{\addspace}}}%
-  {\setunit{\addspace}%
-    \printfield{volume}%
-    \setunit*{\adddot\addspace}}%
   \ifbool{cbx:ancient}%
     {\usebibmacro{translation}}%
- 	 {}%
-	}%
+    {}%
+  }%
  \newunit}
 %-----------------------
 \renewbibmacro{event+venue+date}{%
@@ -723,9 +717,11 @@
  \printfield[titlecase]{title}%
  \setunit{\subtitlepunct}%
  \printfield[titlecase]{subtitle}}%
- \setunit{\subtitlepunct}
  }%
- \printfield{titleaddon}%
+ \iffieldundef{titleaddon}
+   {\newunit}
+   {\setunit*{\subtitlepunct}%
+	   \printfield{titleaddon}}%
 }
 %----------------------- 
 \renewbibmacro*{booktitle}{%
@@ -842,50 +838,51 @@
 } 
 %----------------------- 
 \newbibmacro*{volume}{%
- \iffieldundef{maintitle}%
- {\printfield{volume}%
- \newunit}%
- {}%
+ \iffieldundef{volume}%
+   {\iffieldundef{volumes}%
+   {}%
+   {\printfield{volumes}%
+     \setunit*{\addspace}%
+     \bibstring{volumes}%
+     \setunit{\addspace}}}%
+  {\setunit{\addspace}%
+    \printfield{volume}%
+    \iffieldundef{part}
+		  {}
+			{\setunit{\addspace}%
+		  \printfield{part}}%
+		}
+		\newunit
 }
 %----------------------- 
 \renewbibmacro*{maintitle+booktitle}{%
  \iffieldundef{maintitle}%
  {}%
  {\usebibmacro{maintitle}%
- \iffieldundef{volume}%
- {\setunit{\maintitlepunct}}% 
- {\setunit{\addspace}%
- \printfield{volume}%
- \printfield{part}%
- \setunit{\adddot\space}%
- }%
+ \usebibmacro{volume}%
+ \setunit{\maintitlepunct}
  }%
  \usebibmacro{booktitle}%
  \newunit%
 }
 %----------------------- 
 \newbibmacro*{booktitle+volume+editor}{%
- \ifnameundef{editor}%
- {\usebibmacro{maintitle+booktitle}%
- \setunit{\addspace}%
- \usebibmacro{volume}%
+  \ifnameundef{editor}%
+  {\usebibmacro{maintitle+booktitle}%
+   \newunit%
  }%
  {\ifbool{bbx:edby}%
- {\usebibmacro{booktitle}%
- \setunit{\addspace}%
- \usebibmacro{volume}%
+   {\usebibmacro{maintitle+booktitle}%
  \newunit%
  \bibstring{byeditor}%
  \setunit{\addspace}%
  \printnames{editor}%
- }%
+  }%
  {\printnames{editor}%
  \setunit*{\addspace}%
  \printtext[parens]{\bibstring{editor}}%
  \newunit\newblock%
  \usebibmacro{maintitle+booktitle}%
- \setunit{\addspace}%
- \usebibmacro{volume}%
  \newunit%
  }%
  }%

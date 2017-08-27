@@ -70,6 +70,11 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 #### *fixed*
 * Arrangement of multiple authors with `\textcites`; see
 [#115](https://github.com/LukasCBossert/biblatex-archaeologie/issues/115), solved with [https://tex.stackexchange.com/a/387162/98739](https://tex.stackexchange.com/a/387162/98739)
+* Delimiter of `subtitle` and `titleaddon`, it is now a comma instead of fullstop.
+* remodelled the bibmacro `volume`
+
+
+
 
 ## v2.3.3 (2017-08-10) --> [current release]
 

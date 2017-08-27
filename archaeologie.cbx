@@ -20,10 +20,7 @@
 %\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
 \newcommand*{\labelyeardelim}{\addspace}
 %\renewcommand{\textcitedelim}{\addcomma\space}
-\renewcommand*{\iffinalcitedelim}{%
-  \iflastcitekey
-    {\@firstoftwo}
-    {\@secondoftwo}}
+\renewcommand*{\iffinalcitedelim}{\iflastcitekey}
 \renewcommand{\postnotedelim}{%
   \ifboolexpr{%
     bool {cbx:ancient}%
