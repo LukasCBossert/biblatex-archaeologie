@@ -366,7 +366,7 @@ Public space is part of a city says \citeauthor{Osland2016} in \citetitle{Osland
 For further information cf. \cref{citeauthorformat}.
 
 \DescribeMacro{\citetranslator}\label{citetranslator}%
-\rmarginpar{v.2.3.0} 
+\archversion{v.2.3.0} 
 Addionally there is also a \cs{cite}-command which can be used to print the translator of an (ancient) publication.
 \begin{code}
 \citetranslator*@\marg{bibtex-key}%@*
@@ -379,7 +379,7 @@ This will print the name(s) of the translator according to the chosen |citeautho
 \begin{example}
 \blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator{Cic:Att})
 \end{example}
-\rmarginpar{v.2.3.3} 
+\archversion{v.2.3.3} 
 If there is no translator given it will name you as translator using a |bibstring| with \enquote{own translation}.
 \begin{example}
 \blockcquote[3,62,1]{Artem}{The Agora means confusion and uproar because of the people that are gathered there.} (\citetranslator{Artem})
@@ -394,7 +394,7 @@ at least it is done in the preamble of your document.
 
 
 
-\DescribeMacro{\citetranslator*}\rmarginpar{v.2.3.0}
+\DescribeMacro{\citetranslator*}\archversion{v.2.3.0}
 \begin{code}
 \citetranslator* *@\marg{bibtex-key}%@*
 \end{code} 
@@ -1554,7 +1554,7 @@ It will be included automatically. For the following bibliography we only use |\
 \printbiball[5em]{Zanker1988}
 
 
-\subsubsection{Multiple volumes of a monograph}
+\subsubsection{Multiple volumes of a monograph (cf. \cref{mvbook})}
 It may be the case that you have to cite a book which consists of several volumes:
 usually there is a volume with text and one volume with plates.
 To cite  e.\,g. the second volume in particular you can do the following.
@@ -1696,6 +1696,64 @@ and the second example
 \printbib[6em]{Kohlmeyer1983}
 and
 \printbiball[6em]{Parlasca1969}
+
+\subsection{Type \texttt{@MvBook}}\label{mvbook}
+\DescribeMacro{@MvBook}\archversion{v.2.3.4} If you have a small series consistend of several volumes and you want to have them listed together you should read the following.
+
+Using the entry type |@MvBook| (Multivolume) for the main entry you can have several volumes connected to it (children).
+For example we have \citetitle{EAOR} with seven volumes. 
+The main entry looks like this
+
+\begin{bibexample}[label=EAOR]{{@}MvBook\{EAOR,…\}}
+@Mvbook{EAOR,
+  title       = {Epigrafia anfiteatrale dell'Occidente Romano},
+  date        = {1988/2009},
+  editor      = {Patrizia Sabbatini Tumolesi},
+  keywords    = {corpus},
+  location    = Rome, %@String used
+  options     = {corpus},
+  publisher   = EQ, %@String used
+  related     = {EAOR-01,EAOR-02,EAOR-03,EAOR-04,EAOR-05,EAOR-06,EAOR-07},
+  relatedtype = {multivolume},
+  series      = {Vetera. Richerche di storia, epigrafia e antichità},
+  shorthand   = {EAOR I--VII},
+  volumes     = {7},
+}
+\end{bibexample}
+
+Two children belonging to \cref{EAOR} look like
+
+\begin{bibexample}[label=EAOR-01]{{@}MvBook\{EAOR-01,…\}}
+@Book{EAOR-01,
+  title     = {Roma},
+  year      = {1988},
+  editor    = {Tumolesi, Patrizia Sabbatini},
+  volume    = {1},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  shorthand = {EAOR I},
+  crossref = {EAOR},
+}
+\end{bibexample}
+
+\begin{bibexample}[label=EAOR-02]{{@}MvBook\{EAOR-02,…\}}
+@Book{EAOR-02,
+  title     = {Regiones Italiae VI--XI},
+  year      = {1989},
+  editor    = {Gregori, Gian Luca},
+  volume    = {2},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  shorthand = {EAOR II},
+  crossref = {EAOR},
+}
+\end{bibexample}
+It is important that you have |skipbib| in the field |options|!
+
+The advantage is that you cite either |EAOR| then you will all of the volumes listed in the bibliography 
+or you can only cite individual volumes in your text.
+In this case (e.g. citing |EAOR-01| and |EAOR-02|) it looks like this in the bibliography 
+\printbib[5em]{EAOR-01,EAOR-02}
 
 
 \subsection{Type \texttt{@Article}}\label{article}

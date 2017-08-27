@@ -73,7 +73,8 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * Delimiter of `subtitle` and `titleaddon`, it is now a comma instead of fullstop.
 * remodelled the bibmacro `volume`
 
-
+#### *added*
+* `@MvBook` and its children can be listed in the bibliography together; see [#118](https://github.com/LukasCBossert/biblatex-archaeologie/issues/118)
 
 
 ## v2.3.3 (2017-08-10) --> [current release]

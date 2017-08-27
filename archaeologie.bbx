@@ -44,6 +44,7 @@
   maxitems=1,%
   maxbibnames=999,%
   useprefix=true,%
+  mincrossrefs=1,%
 }
 %-----------------------
 \newbool{bbx:edby}
@@ -241,7 +242,8 @@
 \newcommand*{\locationdelim}{\addnbspace\textendash\addspace}
 \renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}
 \renewcommand{\finalnamedelim}{\multinamedelim}
-%\renewcommand*\relateddelim{\addnbspace\textendash\addspace}%
+\renewcommand*\relateddelim{\addnbspace\textendash\addspace}%
+\newcommand*{\relateddelimmultivolume}{\addcomma\par\nobreak}
 \newcommand*{\volnumdelim}{\addcomma}
 \newcommand*{\yearnumdelim}{\addslash}
 \newcommand*{\jourvoldelim}{\addnbspace}

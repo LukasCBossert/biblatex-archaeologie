@@ -1,5 +1,87 @@
 % Encoding: UTF-8
 
+@Book{EAOR-01,
+  editor    = {Tumolesi, Patrizia Sabbatini},
+  title     = {Roma},
+  year      = {1988},
+  volume    = {1},
+  shorthand = {EAOR I},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  crossref  = {EAOR},
+}
+
+@Book{EAOR-02,
+  editor    = {Gregori, Gian Luca},
+  title     = {Regiones Italiae VI--XI},
+  year      = {1989},
+  volume    = {2},
+  shorthand = {EAOR II},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  crossref  = {EAOR},
+}
+
+@Book{EAOR-03,
+  editor    = {Marco Buonocore},
+  title     = {Regiones Italiae II--V},
+  subtitle  = {Sardinia, Sicilia et Corsica},
+  year      = {1992},
+  volume    = {3},
+  shorthand = {EAOR III},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  crossref  = {EAOR},
+}
+
+@Book{EAOR-04,
+  editor    = {Fora, Maurizio},
+  title     = {Regio Italiae I},
+  subtitle  = {Latium},
+  year      = {1992},
+  maintitle = {Epigrafia anfiteatrale dell'Occidente Romano},
+  volume    = {4},
+  shorthand = {EAOR IV},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  crossref  = {EAOR},
+}
+
+@Book{EAOR-05,
+  editor    = {Vismara, Cinzia and Caldelli, Maria Letizia},
+  title     = {Alpes Maritimae, Gallia Narbonensis, tres Galliae, Germaniae, Britannia},
+  year      = {2001},
+  volume    = {5},
+  shorthand = {EAOR V},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  crossref  = {EAOR},
+}
+
+@Book{EAOR-06,
+  editor    = {Orlandi, Silvia},
+  title     = {Roma},
+  subtitle  = {Anfiteatri e strutture annesse con una nuova edizione e commento delle iscrizioni del Colosseo},
+  year      = {2004},
+  volume    = {6},
+  shorthand = {EAOR VI},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  crossref  = {EAOR},
+}
+
+@Book{EAOR-07,
+  editor    = {Gomez-Pantoja, Joaquín L.},
+  title     = {Baetica, Tarraconensis, Lusitania},
+  subtitle  = {Anfiteatri e strutture annesse con una nuova edizione e commento delle iscrizioni del Colosseo},
+  year      = {2000},
+  volume    = {7},
+  shorthand = {EAOR VII},
+  keywords  = {corpus},
+  options   = {corpus,skipbib},
+  crossref  = {EAOR},
+}
+
 @Inreference{Weinbrenner1914,
   author    = {Weinbrenner},
   title     = {Rennbahn},
@@ -703,6 +785,21 @@
   shorthand    = {Artem.},
   keywords     = {ancient},
   options      = {ancient},
+}
+
+@MvBook{EAOR,
+  title       = {Epigrafia anfiteatrale dell'Occidente Romano},
+  date        = {1988/2009},
+  editor      = {Patrizia Sabbatini Tumolesi},
+  volumes     = {7},
+  series      = {Vetera. Richerche di storia, epigrafia e antichità},
+  publisher   = EQ,
+  location    = Rome,
+  keywords    = {corpus},
+  options     = {corpus},
+  related     = {EAOR-01,EAOR-02,EAOR-03,EAOR-04,EAOR-05,EAOR-06,EAOR-07},
+  relatedtype = {multivolume},
+  shorthand   = {EAOR I--VII},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
