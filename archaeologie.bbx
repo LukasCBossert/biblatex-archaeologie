@@ -689,12 +689,14 @@
   {}%
   {\usebibmacro{maintitle}%
    \usebibmacro{volume}%
+	 \clearfield{volume}%
 	 }%
   \iffieldundef{title}%
  {}%
  {\usebibmacro{title}}%
   \ifbool{cbx:ancient}%
-    {\usebibmacro{translation}}%
+    {\usebibmacro{translation}%
+		\usebibmacro{volume}}%
     {}%
   }%
  \newunit}
@@ -865,6 +867,7 @@
  \setunit{\maintitlepunct}
  }%
  \usebibmacro{booktitle}%
+ \usebibmacro{volume}%
  \newunit%
 }
 %----------------------- 
