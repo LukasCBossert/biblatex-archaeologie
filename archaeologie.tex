@@ -312,7 +312,7 @@ And sometimes more than that.\footnote{\smartcite[cf.][]{Evangelidis2014}.}
 
 
 \DescribeMacro{\smartcites}
-And again there is also a \cs{textcites} in case of several authors: 
+And again there is also a \cs{smartcites} in case of several authors: 
 \begin{code}
 \smartcites(pre-prenote)(post-postnote)%
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
@@ -372,9 +372,6 @@ Addionally there is also a \cs{cite}-command which can be used to print the tran
 \citetranslator*@\marg{bibtex-key}%@*
 \end{code}
 This will print the name(s) of the translator according to the chosen |citeauthorformat|.
-\begin{code}
-\blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator{Cic:Att})
-\end{code}
 
 \begin{example}
 \blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator{Cic:Att})
@@ -400,9 +397,7 @@ at least it is done in the preamble of your document.
 \end{code} 
 
 The starred version prints also the informtion from which language the text has been translated.
-\begin{code}
-\blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator*{Cic:Att})
-\end{code}
+
 \begin{example}
 \blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator*{Cic:Att})
 \end{example}

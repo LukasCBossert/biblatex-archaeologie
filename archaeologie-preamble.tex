@@ -227,32 +227,29 @@ enhanced,
   drop fuzzy shadow,#1
   }
   
-\newtcolorbox{examplebox}[1][]{
-examplebox,
-}
+
 
 \tcbset{examplebox/.style={%
-              boxrule=0pt,
-              bottomrule=2pt,
-              toprule=2pt,
- colframe=codeblue,
+  boxrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colframe=codeblue,
   colback=codegreen!10,
-   coltitle=codegreen!10,%  coltitle=codeblue,
+  coltitle=codegreen!10,%  coltitle=codeblue,
   bicolor,
-      sharp corners,
- fontupper=\small\ttfamily,
+  sharp corners,
+  fontupper=\small\ttfamily,
   colbacklower=codeblue!10,
   fonttitle=\sffamily\bfseries,
-  }}
-
+}}
 
 
 \newtcblisting{example}{%
-    before skip=\baselineskip,
-examplebox,
-breakable,
-%  sidebyside,
-listing and text,
+  before skip=\baselineskip,
+  examplebox,
+  breakable,
+  %  sidebyside,
+  listing and text,
 }
 
 \newcommand{\printbib}[2][5em]{%
@@ -314,7 +311,7 @@ listing and text,
 	pdflang        = {en},
 	pdfcaptionwriter = {Lukas C. Bossert},
 	pdfkeywords    = {biblatex, archaeology, humanities},
-%	pdfproducer={XeLaTeX},
+	pdfproducer={LuaLaTeX},
 	pdflicenseurl  = {http://www.latex-project.org/lppl.txt},
 	plainpages     = false,			% 	- 
   colorlinks     = true, %Colours links instead of ugly boxes

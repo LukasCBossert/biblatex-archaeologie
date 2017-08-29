@@ -761,12 +761,10 @@
 \newbibmacro*{edition}{%
  \iffieldint{edition}%
  {\setunit*{\addspace}%
- \mkbibsuperscript{\printfield{edition}}}%
+  \mkbibsuperscript{\printfield{edition}}\kern -1pt}%
  {\newunit%
- \printfield{edition}%
- \setunit{\addspace}%
- }%
-}
+  \printfield{edition}%
+  \setunit{\addspace}}}
 %-----------------------
 \newbibmacro*{location+edition+year}{%
   \ifboolexpr{%
@@ -782,7 +780,7 @@
        \iffieldint{edition}%
          {\setunit{\addspace}}%
          {\newunit}%
-      \usebibmacro{edition}% 
+     \usebibmacro{edition}% 
      \usebibmacro{pubstate+year}%
      \setunit*{\addspace}%
      \ifboolexpr{%
