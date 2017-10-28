@@ -582,5 +582,20 @@
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 
+\DeclareCiteCommand{\citetitle*} %
+  {\boolfalse{citetracker}%
+  \boolfalse{pagetracker}%
+  \usebibmacro{prenote}}%
+  {\ifboolexpr{
+    bool{bbx:inreferences}
+    and
+    test{\ifentrytype{inreference}}}
+   {\printtext}%
+   {\printtext[bibhyperref]}{%
+   \ifbool{cbx:ancient}{\printtext[emph]{\usebibmacro{cite:title}}}%
+  {\printtext[emph]{\usebibmacro{cite:title}}}}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}%
+  
 \endinput
 %% End of file `archaeologie.cbx'.

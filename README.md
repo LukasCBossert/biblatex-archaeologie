@@ -76,6 +76,8 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 #### *added*
 * `@MvBook` and its children can be listed in the bibliography together; see [#118](https://github.com/LukasCBossert/biblatex-archaeologie/issues/118)
 
+* `\citetitle*` for showing the publication title without year of publication
+
 
 ## v2.3.3 (2017-08-10) --> [current release]
 
