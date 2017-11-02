@@ -337,6 +337,8 @@
 \DeclareNameAlias{translator}{author}
 \DeclareNameAlias{bytranslator}{default}
 \DeclareNameAlias{bycommentator}{author}
+\DeclareNameAlias{bookauthor}{author}
+
 %-----------------------
 \DeclareListFormat{location}{%
   #1\ifthenelse{\value{listcount}<\value{liststop}}%
@@ -580,6 +582,12 @@
    \clearname{editor}}%
   {}}
 %----------------------- 
+\newbibmacro*{bookauthor}{%
+\ifnameundef{bookauthor}
+  {}
+  {\printnames{bookauthor}}%
+  \newunit}
+%-----------------------   
 \DeclareLabeldate{%
   \field{date}
   \field{year}
@@ -871,7 +879,8 @@
 %----------------------- 
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}%
-  {\usebibmacro{maintitle+booktitle}%
+  {\usebibmacro{bookauthor}%
+  \usebibmacro{maintitle+booktitle}%
    \newunit%
  }%
  {\ifbool{bbx:edby}%
