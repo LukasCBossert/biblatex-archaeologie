@@ -201,7 +201,7 @@
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 \DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
 \DeclareFieldFormat{shorthandwidth}{#1}
-\DeclareFieldFormat{origtitle}{\iffieldequalstr{origlanguage}{greek}{#1}{\mkbibemph{#1}}}
+\DeclareFieldFormat{origtitle}{\iflistequalstr{origlanguage}{greek}{#1}{\mkbibemph{#1}}}
 \DeclareFieldFormat{eprint:urn}{%
   \textsc{urn}%
   \addcolon\space%
@@ -273,7 +273,7 @@
 \DeclareBibliographyAlias{manual}{book}
 %----------------------- 
 
-\DeclareSortingScheme{nyt}{
+\DeclareSortingTemplate{nyt}{
   \sort{
     \field{presort}
   }
@@ -304,8 +304,8 @@
   }
 }
 %-----------------------
-\DeclareSortingScheme{shortseries}{\sort{\field{shortseries}}}
-\DeclareSortingScheme{shortjournal}{\sort{\field{shortjournal}}}
+\DeclareSortingTemplate{shortseries}{\sort{\field{shortseries}}}
+\DeclareSortingTemplate{shortjournal}{\sort{\field{shortjournal}}}
 %-----------------------
 \defbibcheck{shortseries}{% 
   \iffieldundef{shortseries}%
