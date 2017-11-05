@@ -1506,7 +1506,7 @@ We suggest using  the field |titleaddon| or if it is a |@Incollection| or |@Inpr
 }
 \end{bibexample}
 
-\printbib[9em]{Boehm2001}
+\printbib[9.5em]{Boehm2001}
  
 \subsubsection{Translated book}
 If you cite a translated book you can link it to the original book and let display the translator as well as the original language. 
@@ -1634,7 +1634,7 @@ but then notice the additional information in |booktitleaddon|.
 }
 \end{bibexample}
 In the bibliography it will look like:
-\printbib[5.5em]{Hoelscher2001}
+\printbib[6em]{Hoelscher2001}
 
 \subsubsection{Short series}
 Some books or collections are part of a small series (not an ongoing series).
@@ -1700,6 +1700,35 @@ and the second example
 \printbib[6em]{Kohlmeyer1983}
 and
 \printbiball[6em]{Parlasca1969}
+
+\subsubsection{Section of Monograph}
+\archversion{v.2.3.4}
+In some cases there are several parts of a monograph which are written by variant people (e.\,g. excavation reports). 
+Then the book is technically not an edited one by an editor but (mainly) written by one (book)author. 
+
+The difference to an edited volume is that in the bibliography   there is no |(ed.)|, cf. \cref{Ganzert1984}.
+
+
+\begin{bibexample}[label=Ganzert1984]{{@}Inbook\{Ganzert1984,…\}}
+@Inbook{Ganzert1984,
+author = {Herz, Peter},
+title = {Gaius Caesar und Artavasdes},
+bookauthor = {Ganzert, Joachim},
+booktitle = {Das Kenotaph für Gaius Caesar in Limyra},
+booksubtitle = {Architektur und Bauornamentik},
+pages = {118--126},
+publisher = {Wasmuth},
+location = Tuebingen,
+year = {1984},
+zenon = {000042874},
+series = IstForsch,
+shortseries = IstForsch-short,
+number = {35}
+}
+\end{bibexample}
+
+\printbib[6em]{Ganzert1984}
+
 
 \subsection{Type \texttt{@MvBook}}\label{mvbook}
 \DescribeMacro{@MvBook}\archversion{v.2.3.4} If you have a small series consistend of several volumes and you want to have them listed together you should read the following.
@@ -1964,11 +1993,11 @@ Then the output will be like:\\
 and there will be no reference to the bibliography since the entry is fully described in the footnote.
 \DescribeMacro{inreferences} If you prefer this method you have to use the preamble option called  |inreferences|---cf. \cref{inreferences}
 Then it will look like this in the footnote:
-\begin{examplebox}
-|\footnote{\cite{Neils1994}.}|
+\begin{manualexample}
+\textbackslash footnote\{\textbackslash cite\{Neils1994\}.\}
 \tcblower
 \footnote{LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils).}
-\end{examplebox}
+\end{manualexample}
 When you have the \oarg{postnote} filled out in a citation which belongs to an |@Inreference| then it won’t be printed in the end of the citation.
 The |postnote| \oarg{930 Nr. 283} will be printed instead of the |pages|:
 \begin{example}

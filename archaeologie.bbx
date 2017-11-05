@@ -583,9 +583,7 @@
   {}}
 %----------------------- 
 \newbibmacro*{bookauthor}{%
-\ifnameundef{bookauthor}
-  {}
-  {\printnames{bookauthor}}%
+  \printnames{bookauthor}%
   \newunit}
 %-----------------------   
 \DeclareLabeldate{%
@@ -825,7 +823,7 @@
    \iffieldundef{origyear}%
    {}%
    {\bibstring{reprint}%
-    \addspace%
+    \setunit*{\addspace}%
    }%
   }%
   \printlist{location}%
@@ -839,7 +837,7 @@
 \renewbibmacro*{institution+location+date}{%
  \printlist{location}%
  \printlist{institution}%
- \setunit*{\space}%
+ \setunit*{\addspace}%
 \usebibmacro{pubstate+year}%
 }
 %-----------------------
@@ -861,8 +859,8 @@
 		  {}
 			{\setunit{\addspace}%
 		  \printfield{part}}%
-		}
-		\newunit
+		}%
+		\newunit%
 }
 %----------------------- 
 \renewbibmacro*{maintitle+booktitle}{%
@@ -880,7 +878,7 @@
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}%
   {\usebibmacro{bookauthor}%
-  \usebibmacro{maintitle+booktitle}%
+   \usebibmacro{maintitle+booktitle}%
    \newunit%
  }%
  {\ifbool{bbx:edby}%
@@ -890,9 +888,7 @@
  \setunit{\addspace}%
  \printnames{editor}%
   }%
- {\printnames{editor}%
- \setunit*{\addspace}%
- \printtext[parens]{\bibstring{editor}}%
+ {\usebibmacro{editor}%
  \newunit\newblock%
  \usebibmacro{maintitle+booktitle}%
  \newunit%

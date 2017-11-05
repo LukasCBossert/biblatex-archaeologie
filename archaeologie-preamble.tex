@@ -241,13 +241,15 @@ enhanced,
   fontupper=\small\ttfamily,
   colbacklower=codeblue!10,
   fonttitle=\sffamily\bfseries,
+  breakable,
+  before skip=\baselineskip,
 }}
 
-
-\newtcblisting{example}{%
-  before skip=\baselineskip,
+\newtcolorbox{manualexample}[1]{
   examplebox,
-  breakable,
+}
+\newtcblisting{example}{%
+  examplebox,
   %  sidebyside,
   listing and text,
 }

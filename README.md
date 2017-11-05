@@ -78,7 +78,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 * `\citetitle*` for showing the publication title without year of publication
 
-* You can use the datafield `bookauthor` now, then no *(ed.)* will be printed.
+* You can use the namefield `bookauthor` now, then no *(ed.)* will be printed.
 
 
 ## v2.3.3 (2017-08-10) --> [current release]
