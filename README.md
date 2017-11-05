@@ -44,11 +44,11 @@ mandatory:
 
 language files:
 
-- archaeologie-german.lbx
-- archaeologie-english.lbx
-- archaeologie-french.lbx
-- archaeologie-italian.lbx
-- archaeologie-spanish.lbx
+- german-archaeologie.lbx
+- english-archaeologie.lbx
+- french-archaeologie.lbx
+- italian-archaeologie.lbx
+- spanish-archaeologie.lbx
 
 additional lists and bibliographies:
 
