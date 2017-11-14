@@ -29,7 +29,7 @@
 \setmainfont[Numbers = {Monospaced, OldStyle}]{Libertinus Serif}
 \setsansfont{Libertinus Sans}
 
-\newcommand\archversion[1]{\rmarginpar{#1}}
+\newcommand\archversion[1]{\rmarginpar{v. #1}}
 \usepackage{xr-hyper}
 \usepackage{url}
 \usepackage{xspace}
@@ -92,10 +92,14 @@ draft=false,
 
 \usepackage{marginnote,frame}
 \usepackage{tabto}
+\usepackage{ifthen}
+
 \newcommand\rmarginpar[2][0pt]{\leavevmode%
   \tabto*{\dimexpr\linewidth+10pt}\smash{\raisebox{%
   \dimexpr.6\ht\strutbox+#1}{\parbox[t]{2.5cm}{%
-    \small\color{codegray}\raggedright\frame{#2}}}}\tabto*{\TabPrevPos}%
+    \small%
+    \raggedright%
+    \frame{#2}}}}\tabto*{\TabPrevPos}%
 }
 
 \usepackage{enumitem}

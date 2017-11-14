@@ -26,7 +26,7 @@
   historians and philologists}
 }
 \RequirePackage[normalem]{ulem}
-%\RequirePackage{csquotes}
+%\RequirePackage{csquotes} % optionclash
 \def\archaeologieversion{\arch@version}
 \def\archaeologiedate{\arch@date}
 \ExecuteBibliographyOptions{%
@@ -201,7 +201,8 @@
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 \DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
 \DeclareFieldFormat{shorthandwidth}{#1}
-\DeclareFieldFormat{origtitle}{\iflistequalstr{origlanguage}{greek}{#1}{\mkbibemph{#1}}}
+\DeclareFieldFormat{origtitle}{#1}
+%\DeclareFieldFormat{origtitle}{\iffieldequalstr{origlanguage}{greek}{#1}{\mkbibemph{#1}}}
 \DeclareFieldFormat{eprint:urn}{%
   \textsc{urn}%
   \addcolon\space%
@@ -705,7 +706,8 @@
  {\usebibmacro{title}}%
   \ifbool{cbx:ancient}%
     {\usebibmacro{translation}%
-		\usebibmacro{volume}}%
+		\usebibmacro{volume}% 
+    }%
     {}%
   }%
  \newunit}
@@ -858,6 +860,7 @@
      \setunit{\addspace}}}%
   {\setunit{\addspace}%
     \printfield{volume}%
+    \clearfield{volume}%
     \iffieldundef{part}
 		  {}
 			{\setunit{\addspace}%
