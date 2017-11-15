@@ -10,7 +10,7 @@
 % http://www.latex-project.org/lppl.txt
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
-\def\arch@date{2017/10/30}
+\def\arch@date{2017/11/15}
 \def\arch@version{2.3.4}
 \def\arch@bbxid{\arch@date\space v\arch@version\space biblatex-archaeologie bibliography style (LCB/JF)}
 \def\arch@cbxid{\arch@date\space v\arch@version\space biblatex-archaeologie citation style (LCB/JF)}
@@ -26,7 +26,7 @@
   historians and philologists}
 }
 \RequirePackage[normalem]{ulem}
-%\RequirePackage{csquotes}
+%\RequirePackage{csquotes} % optionclash
 \def\archaeologieversion{\arch@version}
 \def\archaeologiedate{\arch@date}
 \ExecuteBibliographyOptions{%
@@ -201,7 +201,8 @@
 \DeclareFieldFormat{urldate}{\mkbibparens{#1}}
 \DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
 \DeclareFieldFormat{shorthandwidth}{#1}
-\DeclareFieldFormat{origtitle}{\iffieldequalstr{origlanguage}{greek}{#1}{\mkbibemph{#1}}}
+\DeclareFieldFormat{origtitle}{#1}
+%\DeclareFieldFormat{origtitle}{\iffieldequalstr{origlanguage}{greek}{#1}{\mkbibemph{#1}}}
 \DeclareFieldFormat{eprint:urn}{%
   \textsc{urn}%
   \addcolon\space%
@@ -228,11 +229,12 @@
 \DeclareRedundantLanguages{german}{german,ngerman,austrian,naustrian}
 \DeclareRedundantLanguages{english,american}{english,american,british,%
  canadian,australian,newzealand,USenglish,UKenglish}
-\DeclareLanguageMapping{german}{archaeologie-german}
-\DeclareLanguageMapping{english}{archaeologie-english}
-\DeclareLanguageMapping{french}{archaeologie-french}
-\DeclareLanguageMapping{italian}{archaeologie-italian}
-\DeclareLanguageMapping{spanish}{archaeologie-spanish}
+\DeclareLanguageMapping{german}{german-archaeologie}
+\DeclareLanguageMapping{english}{english-archaeologie}
+\DeclareLanguageMapping{french}{french-archaeologie}
+\DeclareLanguageMapping{italian}{italian-archaeologie}
+\DeclareLanguageMapping{spanish}{spanish-archaeologie}
+%\DeclareLanguageMappingSuffix{-archaeologie}
 %-----------------------
 \renewcommand*{\sqspace}{\addnbthinspace}
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}
@@ -273,7 +275,7 @@
 \DeclareBibliographyAlias{manual}{book}
 %----------------------- 
 
-\DeclareSortingScheme{nyt}{
+\DeclareSortingTemplate{nyt}{
   \sort{
     \field{presort}
   }
@@ -304,8 +306,8 @@
   }
 }
 %-----------------------
-\DeclareSortingScheme{shortseries}{\sort{\field{shortseries}}}
-\DeclareSortingScheme{shortjournal}{\sort{\field{shortjournal}}}
+\DeclareSortingTemplate{shortseries}{\sort{\field{shortseries}}}
+\DeclareSortingTemplate{shortjournal}{\sort{\field{shortjournal}}}
 %-----------------------
 \defbibcheck{shortseries}{% 
   \iffieldundef{shortseries}%
@@ -702,7 +704,8 @@
  {\usebibmacro{title}}%
   \ifbool{cbx:ancient}%
     {\usebibmacro{translation}%
-		\usebibmacro{volume}}%
+		\usebibmacro{volume}% 
+    }%
     {}%
   }%
  \newunit}
@@ -855,6 +858,7 @@
      \setunit{\addspace}}}%
   {\setunit{\addspace}%
     \printfield{volume}%
+    \clearfield{volume}%
     \iffieldundef{part}
 		  {}
 			{\setunit{\addspace}%

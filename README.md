@@ -44,11 +44,11 @@ mandatory:
 
 language files:
 
-- archaeologie-german.lbx
-- archaeologie-english.lbx
-- archaeologie-french.lbx
-- archaeologie-italian.lbx
-- archaeologie-spanish.lbx
+- german-archaeologie.lbx
+- english-archaeologie.lbx
+- french-archaeologie.lbx
+- italian-archaeologie.lbx
+- spanish-archaeologie.lbx
 
 additional lists and bibliographies:
 
@@ -66,12 +66,14 @@ All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
-## unreleased (beta status)
+## v2.3.4 (2017-11-15) --> [current release]
+This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
+
 #### *fixed*
 * Arrangement of multiple authors with `\textcites`; see
 [#115](https://github.com/LukasCBossert/biblatex-archaeologie/issues/115), solved with [https://tex.stackexchange.com/a/387162/98739](https://tex.stackexchange.com/a/387162/98739)
 * Delimiter of `subtitle` and `titleaddon`, it is now a comma instead of fullstop.
-* remodelled the bibmacro `volume`
+* remodelled the bibmacro `volume` and fixed a bug of a duplicate `volume`
 
 #### *added*
 * `@MvBook` and its children can be listed in the bibliography together; see [#118](https://github.com/LukasCBossert/biblatex-archaeologie/issues/118)
@@ -81,7 +83,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * You can use the namefield `bookauthor` now, then no *(ed.)* will be printed.
 
 
-## v2.3.3 (2017-08-10) --> [current release]
+## v2.3.3 (2017-08-10) 
 
 #### *fixed*
 * typo in documentation

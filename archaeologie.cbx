@@ -259,7 +259,7 @@
 \newbibmacro*{cite:year}{%  
   \iffieldundef{labelyear}%
   {}%
-  {\printtext[citeyear]{\usebibmacro{cite:labelyear+extrayear}}}%
+  {\printtext[citeyear]{\usebibmacro{cite:labelyear+extradate}}}%
 }
 %-----------------------
 \newbibmacro*{cite:lexikon}{%
@@ -312,7 +312,7 @@
   \iffieldundef{shorthand}%
   {\iffieldundef{labelyear}%
    {\usebibmacro{cite:label}}%
-   {\usebibmacro{cite:labelyear+extrayear}}}%
+   {\usebibmacro{cite:labelyear+extradate}}}%
   {\usebibmacro{cite}}}
 %-----------------------
 \newbibmacro*{textcite}{%
@@ -325,7 +325,7 @@
   \ifnumequal{\value{citecount}}{1}%
   {\usebibmacro{prenote}}%
   {}%
-  \usebibmacro{cite:labelyear+extrayear}}%
+  \usebibmacro{cite:labelyear+extradate}}%
    {\usebibmacro{cite}}}%
   {\printnames{labelname}%
    \setunit{%
@@ -348,7 +348,7 @@
   {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}%
   {\printtext[bibhyperref]{\printfield{label}}}}
 %-----------------------
-\newbibmacro*{cite:labelyear+extrayear}{%
+\newbibmacro*{cite:labelyear+extradate}{%
   \iffieldundef{labelyear}
     {}
     {\printtext[bibhyperref]{%
@@ -359,7 +359,7 @@
      \iffieldnums{labelyear}%
        {\mkyearzeros{\thefield{labelyear}}}%
        {\printfield{labelyear}}%
-     \printfield{extrayear}%
+     \printfield{extradate}%
      \iffieldsequal{labeldateera}{labelenddateera}{}%
        {\dateeraprint{labelyear}}%
      \dateuncertainprint%
