@@ -5,7 +5,7 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2017/11/19 v2.3.4_
+_201X/XX/XX v2.3.X_
 
 
 Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
@@ -65,6 +65,10 @@ additional lists and bibliographies:
 All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
+
+## v2.3.X (201X-XX-XX) --> [unreleased]
+
+
 
 ## v2.3.4 (2017-11-19) --> [current release]
 This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
