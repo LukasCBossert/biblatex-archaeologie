@@ -1,67 +1,6 @@
 
 *.aux
 
-*.bbl
-
-<<<<<<< HEAD
-*.bak
-
-=======
->>>>>>> dai-footnote
-*.bcf
-
-*.blg
-
-*.glo
-
-*.idx
-
-*.log
-
-*.out
-
-<<<<<<< HEAD
-*.gz
-
-*.xml
-
-=======
-*.xml
-
-*.gz
-
->>>>>>> dai-footnote
-*.thm
-
-*.toc
-
-<<<<<<< HEAD
-*.ods#
-
-*.gz(busy)
-
-*.ods#
-
-.~lock.archaeologie-loeb.ods#
-
-<<<<<<< HEAD
-=======
->>>>>>> dai-footnote
-*.pdf
-
-*.pdf
-
-archaeologie.tex
-
-archaeologie.pdf
-
-README.md
-
-archaeologie-ger.tex
-=======
-*.pdf
->>>>>>> documentation
-
 *.csv
 
 *.ods
@@ -97,3 +36,13 @@ archaeologie-ger.tex
 archaeologie.bibexample
 
 *.sav
+*.bak
+*.xml
+*.gz
+*.thm
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.log
+*.idx
