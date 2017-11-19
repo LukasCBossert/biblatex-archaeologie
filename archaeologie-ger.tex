@@ -187,13 +187,19 @@ Dies ist vor allem bei Lexikaeinträgen wichtig: (LIMC 7.1 [1994] 930 Nr. 283 s.
 Der Unterschied zu \cs{cite} besteht darin, dass der Literaturverweis durch Klammern vom Autor getrennt wird: z.\,B. Emme (2013, 5).
 \cs{textcite} und \cs{textcites} verhalten sich in der Bedienung analog zu \cs{cite} und \cs{cites}.
  
-\DescribeMacro{\citeauthor}  \DescribeMacro{\citetitle}  Diese Befehle ermöglich, nur einzelne Elemente einer Publikation zu zitieren. Je nach Verwendung wird entweder nur der Titel oder der Autor eines Bibliographieeintrages ausgegeben. Ein Vorteil gegenüber des händischen Eintippens eines solchen Elementes ist, dass der Eintrag indiziert und referenziert wird. Dies kann z.\,B. für einen (Autoren-)Index, der auf die Textstelle verweisen soll, relevant sein.
-   
-\DescribeMacro{\citetranslator}\rmarginpar{v.2.3.0}  Zusätzlich gibt es noch die Möglichkeit den Übersetzer eines (insbesondere) antiken Werkes anzugeben. 
+\DescribeMacro{\citeauthor}  \DescribeMacro{\citetitle}  Diese Befehle ermöglich nur einzelne Elemente einer Publikation zu zitieren. 
+Je nach Verwendung wird entweder nur der Titel oder der Autor eines Bibliographieeintrages ausgegeben. 
+Ein Vorteil gegenüber des händischen Eintippens eines solchen Elementes ist, dass der Eintrag indiziert und referenziert wird. Dies kann z.\,B. für einen (Autoren-)\-Index, der auf die Textstelle verweisen soll, relevant sein.
+  
+\DescribeMacro{\citetitle*}
+  \rmarginpar{2.3.4} 
+  Damit wird nur der Titel ohne das Erscheinungsjahr ausgegeben.
+  
+\DescribeMacro{\citetranslator}\rmarginpar{2.3.0}  Zusätzlich gibt es noch die Möglichkeit den Übersetzer eines (insbesondere) antiken Werkes anzugeben. 
 Besonders wenn man einen antiken Text in Übersetzung zitiert, ist es üblich den Urheber der Übersetzung anzugeben.
 Ist kein Übersetzer vorhanden, dann gibt der Befehl einen selbst als Übersetzer an.
 
- \DescribeMacro{\citetranslator*} \rmarginpar{v.2.3.0} Die Sternchen-Variante gibt zusätzlich noch die Sprache an, 
+ \DescribeMacro{\citetranslator*} \rmarginpar{2.3.0} Die Sternchen-Variante gibt zusätzlich noch die Sprache an, 
  aus der übersetzt wurde.
  
 \section{Publikationstypen}

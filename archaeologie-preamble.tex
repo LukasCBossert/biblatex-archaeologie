@@ -29,7 +29,8 @@
 \setmainfont[Numbers = {Monospaced, OldStyle}]{Libertinus Serif}
 \setsansfont{Libertinus Sans}
 
-\newcommand\archversion[1]{\rmarginpar{v. #1}}
+\newcommand\archversion[1]{%
+  \rmarginpar{#1}}
 \usepackage{xr-hyper}
 \usepackage{url}
 \usepackage{xspace}
@@ -92,14 +93,15 @@ draft=false,
 
 \usepackage{marginnote,frame}
 \usepackage{tabto}
-\usepackage{ifthen}
+\usepackage{ifthen,xstring}
 
 \newcommand\rmarginpar[2][0pt]{\leavevmode%
   \tabto*{\dimexpr\linewidth+10pt}\smash{\raisebox{%
-  \dimexpr.6\ht\strutbox+#1}{\parbox[t]{2.5cm}{%
+  \dimexpr.2\ht\strutbox+#1}{\parbox[t]{2.5cm}{%
     \small%
     \raggedright%
-    \frame{#2}}}}\tabto*{\TabPrevPos}%
+     \frame{v.  \IfSubStr{\archaeologieversion}{#2}{     \color{codepurple}\bfseries }{}#2}
+     }}}\tabto*{\TabPrevPos}%
 }
 
 \usepackage{enumitem}
@@ -249,14 +251,24 @@ enhanced,
   before skip=\baselineskip,
 }}
 
+\tcbset{versionboxstyle/.style={
+  sharp corners,
+  boxrule=0pt,
+  toprule=1pt,
+  coltitle=codegreen!10,
+  colback=codeblue!10,
+%  before skip=\baselineskip,
+}}
 
-\newtcblisting{examplemanual}{%
-  before skip=\baselineskip,
-  examplebox,
-  breakable,
-  enhanced jigsaw,
-  %  sidebyside,
+\newtcolorbox{versionbox}{%
+versionboxstyle,
 }
+
+\newtcolorbox{examplemanual}{%
+examplebox,
+  text only,
+}
+
 
 
 \newtcblisting{example}{%

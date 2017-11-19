@@ -1702,7 +1702,7 @@ and
 \printbiball[6em]{Parlasca1969}
 
 \subsubsection{Section of Monograph}
-\archversion{v.2.3.4}
+\archversion{2.3.4}
 In some cases there are several parts of a monograph which are written by variant people (e.\,g. excavation reports). 
 Then the book is technically not an edited one by an editor but (mainly) written by one (book)author. 
 
@@ -1993,17 +1993,9 @@ Then the output will be like:\\
 and there will be no reference to the bibliography since the entry is fully described in the footnote.
 \DescribeMacro{inreferences} If you prefer this method you have to use the preamble option called  |inreferences|---cf. \cref{inreferences}
 Then it will look like this in the footnote:
-<<<<<<< HEAD
-\begin{manualexample}
-\textbackslash footnote\{\textbackslash cite\{Neils1994\}.\}
-\tcblower
-\footnote{LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils).}
-\end{manualexample}
-=======
 \begin{examplemanual}
 \footnote{LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils).}
 \end{examplemanual}
->>>>>>> biblatex3.8
 When you have the \oarg{postnote} filled out in a citation which belongs to an |@Inreference| then it won’t be printed in the end of the citation.
 The |postnote| \oarg{930 Nr. 283} will be printed instead of the |pages|:
 \begin{example}
@@ -2479,19 +2471,19 @@ pubstate = {prepublished}
 
 
 This following example is about an article which was accepted by the journal and so we use |pubstate = {forthcoming}|:
-\begin{bibexample}[label=Bossert:forthcoming]{{@}Article\{Bossert:forthcoming,…\}}
-@Article{Bossert:forthcoming,
-  author       = {Lukas C. Bossert},
-  title        = {\ldots\ \textsc{in formam anitqvam restitvto}?},
-  subtitle     = {Überlegungen zur Inschrift der ›Porticus Deorum Consentium‹ (CIL\,VI 102) und ihren Ergänzungen im 19.{\,}Jh.},
-  journaltitle = {BeStAR. Berliner Studien zum Antiken Rom},
-  shortjournal = {BeStAR},
-  volume       = {2},
+\begin{bibexample}[label=Doe:forthcoming]{{@}Article\{Doe:forthcoming,…\}}
+@Article{Doe:forthcoming,
+  author       = {Doe, John},
+  title        = {My Ideas about Antiquity},
+  subtitle     = {And Some Lines for a Subtitle},
+  journaltitle = {Journal of Ancient Thoughts},
+  shortjournal = {JAT},
+  volume       = {12},
   pubstate     = {forthcoming},
 }
 \end{bibexample}
 
-\printbib[8em]{Bossert:forthcoming}
+\printbib[8em]{Doe:forthcoming}
 
 
 \subsection{Print the used options}
@@ -2601,7 +2593,7 @@ The bibliography |archaeologie-bibancient.bib| is filled with ancient authors, w
 The bold entry on the left is the |bibtex-key|.\footnote{If you think the list should be enlarged, let us know the entries.}
 All the entries have the fields  |keywords={ancient}|, |options={ancient}|.
 
-\begin{multicols}{3}
+\begin{multicols}{2}
   \input{archaeologie-ancient.tex}
 \end{multicols}
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}

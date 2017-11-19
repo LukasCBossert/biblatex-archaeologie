@@ -5,7 +5,7 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2017/08/10 v2.3.3_
+_2017/11/19 v2.3.4_
 
 
 Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
@@ -66,14 +66,16 @@ All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
-## v2.3.4 (2017-11-15) --> [current release]
+## v2.3.4 (2017-11-19) --> [current release]
 This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 
 #### *fixed*
 * Arrangement of multiple authors with `\textcites`; see
 [#115](https://github.com/LukasCBossert/biblatex-archaeologie/issues/115), solved with [https://tex.stackexchange.com/a/387162/98739](https://tex.stackexchange.com/a/387162/98739)
 * Delimiter of `subtitle` and `titleaddon`, it is now a comma instead of fullstop.
-* remodelled the bibmacro `volume` and fixed a bug of a duplicate `volume`
+* Remodelled the bibmacro `volume` and fixed a bug of a duplicate `volume`.
+* `in:` is now always with minor `I` it doesn’t matter if follows a dot.
+
 
 #### *added*
 * `@MvBook` and its children can be listed in the bibliography together; see [#118](https://github.com/LukasCBossert/biblatex-archaeologie/issues/118)
