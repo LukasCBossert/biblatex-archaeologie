@@ -306,16 +306,19 @@
   \printtext[parens]{\bibstring{seenote}%
   \addspace%
   \ref{footref:\thefield{entrykey}}}%
-  \renewcommand{\postnotedelim}{\addspace}%
-}%
+  \renewcommand{\postnotedelim}{\addspace}}
 %-----------------------
-\newbibmacro*{cite:title}{\printfield{labeltitle}}%
+\newbibmacro*{cite:title}{\printfield{labeltitle}}
+%-----------------------
+\newbibmacro*{cite:origtitle}{%
+  \iffieldundef{origtitle}
+    {\usebibmacro{cite:title}}
+    {\printfield{origtitle}}}
 %-----------------------
 \newbibmacro*{cite:year}{%
-  \iffieldundef{labelyear}%
-    {}%
-    {\printtext[citeyear]{\usebibmacro{cite:labelyear+extradate}}}%
-}
+  \iffieldundef{labelyear}
+    {}
+    {\printtext[citeyear]{\usebibmacro{cite:labelyear+extradate}}}}
 %-----------------------
 \newbibmacro*{cite:lexikon}{%
   \printfield{booktitle}%
@@ -625,7 +628,7 @@
      {\printtext}%
      {\printtext[bibhyperref]}{%
         \ifbool{cbx:ancient}
-          {\printtext[emph]{\usebibmacro{cite:title}}}%
+          {\printtext[emph]{\usebibmacro{cite:origtitle}}}%
           {\printtext[emph]{\usebibmacro{cite:title}}%
            \iffieldundef{year}
              {}
@@ -642,15 +645,13 @@
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}%
-  {\ifboolexpr{
+  {\ifboolexpr{%
     bool{bbx:inreferences}
     and
     test{\ifentrytype{inreference}}}
      {\printtext}%
      {\printtext[bibhyperref]}
-       {\ifbool{cbx:ancient}
-          {\printtext[emph]{\usebibmacro{cite:title}}}%
-          {\printtext[emph]{\usebibmacro{cite:title}}}}}%
+          {\printtext[emph]{\usebibmacro{cite:title}}}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 

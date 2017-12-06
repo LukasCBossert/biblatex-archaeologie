@@ -200,7 +200,9 @@ In cases there are different translations of an ancient work you can decide whic
 
 \changes{v1.1}{2015/06/04}{New options added in summary.}
 
-\subsection{Cite commands}\label{cite-commands}
+\subsection{Cite commands}
+\label{cite-commands}
+\subsubsection*{cite and cites}
 \DescribeMacro{\cite}
 As always citing is done with \cs{cite}:
 \begin{code}
@@ -217,6 +219,7 @@ The \meta{bibtex-key} corresponds to the key from the bibliography file.
 \begin{example}
 Public space is part of a city says \cite{Osland2016}.
 \end{example}
+
 \DescribeMacro{\cites}
 If one wants to cite several authors or works a very convenient way is the following using the \cs{cites}-command:
 \begin{code}
@@ -229,6 +232,7 @@ If one wants to cite several authors or works a very convenient way is the follo
 Public space is part of a city say \cites(cf.)(){Osland2016}{Evangelidis2014}.
 \end{example}
  
+ \subsubsection*{parencite and parencites}
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
@@ -255,6 +259,7 @@ This is done with \cs{parencites}:
 Public space is part of a city \parencites(cf.)(){Osland2016}{Evangelidis2014}.
 \end{example}
 
+\subsubsection*{textcite and textcites}
 \DescribeMacro{\textcite}
 Beside the listed \cs{cite} commands above there is a third way of citing:
 \cs{textcite} is useful if the author should be mentioned in the text and
@@ -280,6 +285,7 @@ Public space is part of a city say \textcites{Osland2016}[cf.][]{Evangelidis2014
 \end{example}
 Just be aware that using \oarg{prenote} may be give a odd sounding sentence depending what you use \oarg{prenote} for.
 
+\subsubsection*{footcite}
  \DescribeMacro{\footcite}
  Beside the listed \cs{cite} commands above there are more possibilities citing:
  There is also the possibility to put the citation into a footnote at once with \cs{footcite}:
@@ -295,7 +301,8 @@ This is the equivalent to |\footnote{\cite{Osland2016}.}| but it saves you a lot
 Public space is part of a city.\footcites(cf.)(){Osland2016}{Evangelidis2014}
 \end{example}
  
- 
+ \subsubsection*{smartcite and smartcites}
+
 \DescribeMacro{\smartcite}
 And there is also a clever way citing with \cs{smartcite}.
 \cs{smartcite} depends on its environment it is used in. If it is your normal text it behaves like \cs{footcite} and will print the citation within a footnote.
@@ -324,6 +331,8 @@ Public space is part of a city.\smartcites{Osland2016}{Evangelidis2014}
 And sometimes more than that.\footnote{\smartcites{Osland2016}[cf.][]{Evangelidis2014}.}
 \end{example}
 
+\subsubsection*{autocite}
+
 \DescribeMacro{\autocite}
 With \cs{autocite} there is a flexible way of citing. 
 We set up \cs{autocite} as \cs{footcite} by default.
@@ -336,6 +345,7 @@ If you want to change it you can also write in the preamble e.\,g. |autocite=inl
 Public space is part of a city.\autocite{Osland2016} 
 \end{example}
 
+\subsubsection*{fullcite and footfullcite}
 \DescribeMacro{\fullcite}\DescribeMacro{\footfullcite}
 With \cs{fullcite} and \cs{footfullcite} you can print the complete entry in your current text.
 \begin{code}
@@ -349,8 +359,10 @@ As can be read in \fullcite{Evangelidis2014}
 \end{example}
 
 
+\subsubsection*{citeauthor and citetitle}
 
-\DescribeMacro{\citeauthor}\DescribeMacro{\citetitle}\label{citeauthor}%
+\DescribeMacro{\citeauthor}
+\DescribeMacro{\citetitle}\label{citeauthor}%
 Furthermore and in addition to the ›normal‹ \cs{cite}-commands one can also cite only the author or the work title in the text and in the footnotes.
 \begin{code}
 \citeauthor*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
@@ -365,15 +377,21 @@ Public space is part of a city says \citeauthor{Osland2016} in \citetitle{Osland
 \end{example}
 For further information cf. \cref{citeauthorformat}.
 
+Note that the |\citetitle|-command works differently with ancient works (for all those who have  |option={ancient}|). 
+First the field |origtitle| will be shown if this field is empty it will show its |title| instead. 
+
 \DescribeMacro{\citetitle*}
-Sometimes you don’t need the year of publication but still want the published title. Then |\citetitle*| is what you need:
+Sometimes you don’t need the year of publication but still want the published title. 
+Then |\citetitle*| is what you need:
 \archversion{2.3.4} 
 \begin{example}
 In 2016  \citeauthor{Osland2016} says in \citetitle*{Osland2016} 
 public space is part of a city.
 \end{example}
 
+Note that the |\citetitle*|-command will always show the field |title| without the year of publication it doesn’t matter if there is |option={ancient}|.
 
+\subsubsection*{citetranslator}
 \DescribeMacro{\citetranslator}\label{citetranslator}%
 \archversion{2.3.0} 
 Addionally there is also a \cs{cite}-command which can be used to print the translator of an (ancient) publication.

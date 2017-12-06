@@ -68,7 +68,10 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 ## v2.3.X (201X-XX-XX) --> [unreleased]
 
-
+#### *fixed*
+* `\citereset` for author names (https://github.com/LukasCBossert/biblatex-archaeologie/issues/122)
+* `\citetitle` will give the original title of a work which has the option `ancient`; 
+`\citetitle*` instead will always give title without year.
 
 ## v2.3.4 (2017-11-19) --> [current release]
 This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
@@ -84,7 +87,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 #### *added*
 * `@MvBook` and its children can be listed in the bibliography together; see [#118](https://github.com/LukasCBossert/biblatex-archaeologie/issues/118)
 
-* `\citetitle*` for showing the publication title without year of publication
+* `\citetitle*` for showing the publication title without year of publication.
 
 * You can use the namefield `bookauthor` now, then no *(ed.)* will be printed.
 
