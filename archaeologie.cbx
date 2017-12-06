@@ -29,16 +29,71 @@
     }%
   {\addspace}%
   {\newunitpunct}}
-\newcommand*{\cbx@fseen@names}{}
-\newcommand*{\cbx@tseen@names}{}
-\newrobustcmd*{\cbx@nameseen}[1]{%
+
+\newrobustcmd*{\cbx@nametracker@global}[1]{%
+  \xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}
+    {}
+    {\listcsxadd{cbx@bseen@names@\the\c@refsection}{#1}}}
+
+\newrobustcmd*{\cbx@nametracker@context}[1]{%
   \iftoggle{blx@footnote}
-  {\listcsxadd{cbx@fseen@names}{#1}}
-  {\listcsxadd{cbx@tseen@names}{#1}}}
-\newrobustcmd*{\cbx@ifnameseen}[1]{%
+    {\xifinlistcs{#1}{cbx@fseen@names@\the\c@refsection}
+       {}
+       {\listcsxadd{cbx@fseen@names@\the\c@refsection}{#1}}}
+    {\xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}
+       {}
+       {\listcsxadd{cbx@bseen@names@\the\c@refsection}{#1}}}}
+
+\newrobustcmd*{\cbx@ifnameseen@global}[1]{%
+  \xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}}
+
+\newrobustcmd*{\cbx@ifnameseen@context}[1]{%
   \iftoggle{blx@footnote}%
-  {\xifinlistcs{#1}{cbx@fseen@names}}%
-  {\xifinlistcs{#1}{cbx@tseen@names}}}
+    {\xifinlistcs{#1}{cbx@fseen@names@\the\c@refsection}}%
+    {\xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}}}
+
+\DeclareBibliographyOption[boolean]{nametracker}[true]{%
+  \ifcsdef{blx@opt@nametracker@#1}
+    {\csuse{blx@opt@nametracker@#1}}
+    {\blx@err@invopt{nametracker=#1}{}}}
+
+\def\blx@opt@nametracker@true{%
+  \let\cbx@ifnameseen\cbx@ifnameseen@global
+  \let\cbx@nametracker\cbx@nametracker@global}
+
+\def\blx@opt@nametracker@false{%
+  \protected\long\def\cbx@ifnameseen##1##2##3{##3}%
+  \let\cbx@nametracker\relax}
+
+\def\blx@opt@nametracker@context{%
+  \let\cbx@ifnameseen\cbx@ifnameseen@context
+  \let\cbx@nametracker\cbx@nametracker@context}
+  
+\appto\blx@secinit{
+  \ifcsundef{cbx@bseen@names@\the\c@refsection}
+    {\global\cslet{cbx@bseen@names@\the\c@refsection}\@empty}
+    {}%
+  \ifcsundef{cbx@fseen@names@\the\c@refsection}
+    {\global\cslet{cbx@fseen@names@\the\c@refsection}\@empty}
+    {}}
+
+\InitializeCitationStyle{%
+  \global\cslet{cbx@bseen@names@\the\c@refsection}\@empty
+  \global\cslet{cbx@fseen@names@\the\c@refsection}\@empty}
+
+%\renewrobustcmd*{\citereset}{%
+%  \csuse{blx@hook@cbxinit}%
+%  \@ifstar
+%    {}
+%    {\global\cslet{blx@bsee@\the\c@refsection}\@empty
+%     \global\cslet{blx@fsee@\the\c@refsection}\@empty
+%     \global\cslet{cbx@bseen@names@\the\c@refsection}\@empty
+%     \global\cslet{cbx@fseen@names@\the\c@refsection}\@empty
+%     \blx@ibidreset@force
+%     \blx@idemreset@force
+%     \blx@opcitreset@force
+%     \blx@loccitreset@force}}
+
 %-----------------------
 \DeclareBibliographyOption{yearinparens}[true]{%
   \ifstrequal{#1}{true}%
@@ -179,23 +234,24 @@
          {\namepartgiven}
          {\namepartprefix}
          {\namepartsuffix}%
-       \cbx@nameseen{\thefield{hash}}}%
+       \cbx@nametracker{\thefield{hash}}}%
     \usebibmacro{name:andothers}}
 
 \def\cbx@arch@citeauthorformat@firstfull{%
    \DeclareNameAlias{citeauthor}{citeauthor:fancy}}
 %-----------------------  
 \ExecuteBibliographyOptions{%
-  citetracker=true,% 
-  idemtracker=true,% 
-  ibidtracker=true,%
-  opcittracker=true,%
-  loccittracker=true,%
-  alldates=comp,%
+  citetracker=true,
+  idemtracker=true,
+  ibidtracker=true,
+  opcittracker=true,
+  loccittracker=true,
+  nametracker=context,
+  alldates=comp,
   dateuncertain=true,
   datecirca=true,
-  citeauthorformat=initials,%
-  uniquename=minfull,%
+  citeauthorformat=initials,
+  uniquename=minfull,
   autocite=footnote,
 }
 %-----------------------
