@@ -1,8 +1,8 @@
 % archaeologie --%
-%  biblatex for archaeologists, 
+%  biblatex for archaeologists,
 %  historians and philologists
 % Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
-%  
+%
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
 % of this license or (at your option) any later version.
@@ -26,9 +26,9 @@
     bool {cbx:ancient}%
     or bool {cbx:frgancient}%
     or bool {cbx:corpus}%
-    }%
-  {\addspace}%
-  {\newunitpunct}}
+  }%
+    {\addspace}%
+    {\newunitpunct}}
 
 \newrobustcmd*{\cbx@nametracker@global}[1]{%
   \xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}
@@ -68,7 +68,7 @@
 \def\blx@opt@nametracker@context{%
   \let\cbx@ifnameseen\cbx@ifnameseen@context
   \let\cbx@nametracker\cbx@nametracker@context}
-  
+
 \appto\blx@secinit{
   \ifcsundef{cbx@bseen@names@\the\c@refsection}
     {\global\cslet{cbx@bseen@names@\the\c@refsection}\@empty}
@@ -97,21 +97,19 @@
 %-----------------------
 \DeclareBibliographyOption{yearinparens}[true]{%
   \ifstrequal{#1}{true}%
-  {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}%
-  \csuse{bool#1}{cbx:yearinparens}}%
-  {\DeclareFieldFormat{citeyear}{##1}}}%
+    {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}%
+     \csuse{bool#1}{cbx:yearinparens}}%
+    {\DeclareFieldFormat{citeyear}{##1}}}%
 \DeclareBibliographyOption{seenote}[true]{%
   \csuse{bool#1}{cbx:seenote}%
-  \ExecuteBibliographyOptions{maxnames=999}%
-  }%
+  \ExecuteBibliographyOptions{maxnames=999}}%
 \DeclareBibliographyOption[string]{citeauthorformat}{%
   \ifcsdef{cbx@arch@citeauthorformat@#1}%
-  {\csuse{cbx@arch@citeauthorformat@#1}}%
-  {\PackageError{biblatex-archaeologie}%
-  {Option 'citeauthorformat=#1' invalid.\MessageBreak
-  Use one of the values 'initials', 'full', 'family' or 'firstfull'.}{}}%
-\def\citeauthorformatVALUE{#1}%
-}
+    {\csuse{cbx@arch@citeauthorformat@#1}}%
+    {\PackageError{biblatex-archaeologie}%
+       {Option 'citeauthorformat=#1' invalid.\MessageBreak
+        Use one of the values 'initials', 'full', 'family' or 'firstfull'.}{}}%
+  \def\citeauthorformatVALUE{#1}}
 \DeclareEntryOption{uniqueme}[true]{\csuse{bool#1}{cbx:uniqueme}}
 %-----------------------
 \DeclareFieldFormat{citeyear}{#1}
@@ -122,83 +120,83 @@
 
 \DeclareNameFormat{labelname}{%
   \ifcase\value{uniquename}%
-  \usebibmacro{name:family}
-  {\namepartfamily}
-  {\namepartgiven}
-  {\namepartprefix}
-  {\namepartsuffix}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
   \or
-  \ifuseprefix
-  {\usebibmacro{name:family-given}
-  {\namepartfamily}
-  {\namepartgiveni}
-  {\namepartprefix}
-  {\namepartsuffixi}}
-  {\usebibmacro{name:family-given}
-  {\namepartfamily}
-  {\namepartgiveni}
-  {\namepartprefixi}
-  {\namepartsuffixi}}%
+    \ifuseprefix
+      {\usebibmacro{name:family-given}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffixi}}
+      {\usebibmacro{name:family-given}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefixi}
+         {\namepartsuffixi}}%
   \or
-   \usebibmacro{name:family-given}
-  {\namepartfamily}
-  {\namepartgiven}
-  {\namepartprefix}
-  {\namepartsuffix}%
+    \usebibmacro{name:family-given}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
   \fi
   \usebibmacro{name:andothers}}
-  
+
  \DeclareNameFormat{name:family}{%
   \ifcase\value{uniquename}%
-  \usebibmacro{name:family}
-  {\namepartfamily}
-  {\namepartgiven}
-  {\namepartprefix}
-  {\namepartsuffix}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
   \or
-  \ifuseprefix
-  {\usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiveni}
-  {\namepartprefix}
-  {\namepartsuffixi}}
-  {\usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiveni}
-  {\namepartprefixi}
-  {\namepartsuffixi}}%
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefixi}
+         {\namepartsuffixi}}%
   \or
-   \usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiven}
-  {\namepartprefix}
-  {\namepartsuffix}%
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
   \fi
   \usebibmacro{name:andothers}}
-  
+
  \DeclareNameFormat{name:initials}{%
   \ifnum\value{uniquename}=2%
-  \usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiven}
-  {\namepartprefix}
-  {\namepartsuffix}%
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
   \else
-  \ifuseprefix
-  {\usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiveni}
-  {\namepartprefix}
-  {\namepartsuffixi}}
-  {\usebibmacro{name:given-family}
-  {\namepartfamily}
-  {\namepartgiveni}
-  {\namepartprefixi}
-  {\namepartsuffixi}}%
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefixi}
+         {\namepartsuffixi}}%
   \fi
   \usebibmacro{name:andothers}}
-  
-   
+
+
 \def\cbx@arch@citeauthorformat@family{%
   \DeclareNameAlias{citeauthor}{name:family}}
 
@@ -239,7 +237,7 @@
 
 \def\cbx@arch@citeauthorformat@firstfull{%
    \DeclareNameAlias{citeauthor}{citeauthor:fancy}}
-%-----------------------  
+%-----------------------
 \ExecuteBibliographyOptions{%
   citetracker=true,
   idemtracker=true,
@@ -257,44 +255,45 @@
 %-----------------------
 \newbibmacro*{uniqueshorthand}{%
   \printtext[brackets]{%
-  \ifnameundef{translator}
-    	{\ifnameundef{intranslator}%
+    \ifnameundef{translator}
+      {\ifnameundef{intranslator}%
          {\iffieldundef{series}%
-      	    {\printnames[name:family]{editor}}%
-     	    {\usebibmacro{series}}%
-     	   }%
+            {\printnames[name:family]{editor}}%
+            {\usebibmacro{series}}}%
          {\printnames[name:family]{intranslator}}}%
-    	  {\printnames[name:family]{translator}}}}
+      {\printnames[name:family]{translator}}}}
 %-----------------------
 \renewbibmacro*{citeindex}{%
   \ifciteindex%
     {\ifboolexpr{%
       bool {cbx:ancient}%
-      or bool {cbx:frgancient}}%
-      {}%
-      {\indexnames{labelname}}}%
-  {}%
+      or bool {cbx:frgancient}
+     }%
+       {}%
+       {\indexnames{labelname}}}%
+    {}%
 }
 %-----------------------
 \renewbibmacro*{postnote}{%
   \ifboolexpr{
     bool{bbx:inreferences}
     and
-    test{\ifentrytype{inreference}}}
-  {}
-  {\iffieldundef{postnote}%
-    {}%
-    {\setunit{\postnotedelim}%
-      \printfield{postnote}%
-      \ifbool{cbx:frgancient}%
-        {\setunit{\addspace}%
-          \usebibmacro{cite:frgname}}%
-       {}}}}
+    test{\ifentrytype{inreference}}
+  }
+    {}
+    {\iffieldundef{postnote}%
+       {}%
+       {\setunit{\postnotedelim}%
+        \printfield{postnote}%
+        \ifbool{cbx:frgancient}%
+          {\setunit{\addspace}%
+           \usebibmacro{cite:frgname}}%
+          {}}}}
 %-----------------------
 \newbibmacro*{cite:frgname}{%
   \ifnameundef{shorteditor}%
-   {\printnames[name:family]{editor}}%
-   {\printnames{shorteditor}}%
+    {\printnames[name:family]{editor}}%
+    {\printnames{shorteditor}}%
 }
 %-----------------------
 \newbibmacro*{seenote}{%
@@ -310,12 +309,12 @@
   \renewcommand{\postnotedelim}{\addspace}%
 }%
 %-----------------------
-\newbibmacro*{cite:title}{\printfield{labeltitle}}%  
+\newbibmacro*{cite:title}{\printfield{labeltitle}}%
 %-----------------------
-\newbibmacro*{cite:year}{%  
+\newbibmacro*{cite:year}{%
   \iffieldundef{labelyear}%
-  {}%
-  {\printtext[citeyear]{\usebibmacro{cite:labelyear+extradate}}}%
+    {}%
+    {\printtext[citeyear]{\usebibmacro{cite:labelyear+extradate}}}%
 }
 %-----------------------
 \newbibmacro*{cite:lexikon}{%
@@ -326,83 +325,83 @@
   \printfield[parens]{year}%
   \setunit{\addspace}%
   \iffieldundef{postnote}%
-  {\printfield{pages}}%
-  {\printfield{postnote}}%
+    {\printfield{pages}}%
+    {\printfield{postnote}}%
   \usebibmacro{inreference:title+author}%
 }
 %-----------------------
 \newbibmacro{cite:seenote}{%
-\ifboolexpr{bool{cbx:ancient}%
-  or bool{cbx:frgancient}% 
-  or bool{cbx:corpus}}%
-  {\usebibmacro{cite:shorthand}}%
-  {\ifciteseen%
-    {\usebibmacro{seenote}}%
-    {\bibhypertarget{ref:\thefield{entrykey}}%
-    {\usedriver%
-      {\DeclareNameAlias{sortname}{default}}%
-      {\thefield{entrytype}}%
-        \iffootnote{\label{footref:\thefield{entrykey}}}}%      
-}}}
+  \ifboolexpr{bool{cbx:ancient}%
+    or bool{cbx:frgancient}%
+    or bool{cbx:corpus}
+  }%
+    {\usebibmacro{cite:shorthand}}%
+    {\ifciteseen%
+       {\usebibmacro{seenote}}%
+       {\bibhypertarget{ref:\thefield{entrykey}}%
+          {\usedriver%
+             {\DeclareNameAlias{sortname}{default}}%
+             {\thefield{entrytype}}%
+           \iffootnote{\label{footref:\thefield{entrykey}}}}}}}
 %-----------------------
 \newbibmacro{cite}{%
   \ifboolexpr{
     bool{bbx:inreferences}
     and
-    test{\ifentrytype{inreference}}}
-  {\usebibmacro{cite:lexikon}}%
-  {\ifbool{cbx:seenote}%
-    {\usebibmacro{cite:seenote}}%
-    {\printtext[bibhyperref]{%
-    \iffieldundef{shorthand}%
-      {\ifnameundef{labelname}%
-       {\usebibmacro{cite:label}%
-       \setunit{\labelyeardelim}}%
-      {\printnames{labelname}%
-      \setunit{\nameyeardelim}}%
-     \usebibmacro{cite:year}}%
-    {\usebibmacro{cite:shorthand}}%
-  }}}}
+    test{\ifentrytype{inreference}}
+  }
+    {\usebibmacro{cite:lexikon}}%
+    {\ifbool{cbx:seenote}%
+       {\usebibmacro{cite:seenote}}%
+       {\printtext[bibhyperref]{%
+          \iffieldundef{shorthand}%
+            {\ifnameundef{labelname}%
+               {\usebibmacro{cite:label}%
+                \setunit{\labelyeardelim}}%
+               {\printnames{labelname}%
+                \setunit{\nameyeardelim}}%
+             \usebibmacro{cite:year}}%
+            {\usebibmacro{cite:shorthand}}}}}}
 %-----------------------
 \newbibmacro*{citeyear}{%
   \iffieldundef{shorthand}%
-  {\iffieldundef{labelyear}%
-   {\usebibmacro{cite:label}}%
-   {\usebibmacro{cite:labelyear+extradate}}}%
-  {\usebibmacro{cite}}}
+    {\iffieldundef{labelyear}%
+       {\usebibmacro{cite:label}}%
+       {\usebibmacro{cite:labelyear+extradate}}}%
+    {\usebibmacro{cite}}}
 %-----------------------
 \newbibmacro*{textcite}{%
   \ifnameundef{labelname}%
-  {\iffieldundef{shorthand}%
-   {\usebibmacro{cite:label}%
-  \setunit{%
-  \global\booltrue{cbx:yearinparens}%
-  \nonameyeardelim\bibopenparen}%
-  \ifnumequal{\value{citecount}}{1}%
-  {\usebibmacro{prenote}}%
-  {}%
-  \usebibmacro{cite:labelyear+extradate}}%
-   {\usebibmacro{cite}}}%
-  {\printnames{labelname}%
-   \setunit{%
-   \global\booltrue{cbx:yearinparens}%
-   \nameyeardelim\bibopenparen}%
-   \usebibmacro{citeyear}}}
+    {\iffieldundef{shorthand}%
+       {\usebibmacro{cite:label}%
+        \setunit{%
+          \global\booltrue{cbx:yearinparens}%
+          \nonameyeardelim\bibopenparen}%
+        \ifnumequal{\value{citecount}}{1}%
+          {\usebibmacro{prenote}}%
+          {}%
+        \usebibmacro{cite:labelyear+extradate}}%
+       {\usebibmacro{cite}}}%
+    {\printnames{labelname}%
+     \setunit{%
+       \global\booltrue{cbx:yearinparens}%
+       \nameyeardelim\bibopenparen}%
+     \usebibmacro{citeyear}}}
 %-----------------------
 \newbibmacro*{cite:shorthand}{%
   \ifbool{cbx:seenote}%
-  {\printtext{\printfield{shorthand}}}%
-  {\printtext[bibhyperref]{\printfield{shorthand}%
-  \ifbool{cbx:uniqueme}
-  {\setunit*{\addspace}%
-    \usebibmacro*{uniqueshorthand}}%
-    {}%
-}}}
+    {\printtext{\printfield{shorthand}}}%
+    {\printtext[bibhyperref]{%
+       \printfield{shorthand}%
+       \ifbool{cbx:uniqueme}
+         {\setunit*{\addspace}%
+          \usebibmacro*{uniqueshorthand}}%
+         {}}}}
 %-----------------------
 \newbibmacro*{cite:label}{%
   \iffieldundef{label}%
-  {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}%
-  {\printtext[bibhyperref]{\printfield{label}}}}
+    {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}%
+    {\printtext[bibhyperref]{\printfield{label}}}}
 %-----------------------
 \newbibmacro*{cite:labelyear+extradate}{%
   \iffieldundef{labelyear}
@@ -439,73 +438,74 @@
 %-----------------------
 \newbibmacro*{textcite:postnote}{%
   \iffieldundef{postnote}%
-  {\ifbool{cbx:yearinparens}%
-   {\bibcloseparen}%
-   {}}%
-  {\ifbool{cbx:yearinparens}%
-   {\setunit{\postnotedelim}}%
-   {\setunit{\extpostnotedelim\bibopenparen}}%
-   \printfield{postnote}%
-  \ifbool{cbx:frgancient}%
-   {\setunit{\addthinspace}%
-  \usebibmacro{cite:frgname}%
-  \bibcloseparen}%
-  \bibcloseparen}}
+    {\ifbool{cbx:yearinparens}%
+      {\bibcloseparen}%
+      {}}%
+    {\ifbool{cbx:yearinparens}%
+      {\setunit{\postnotedelim}}%
+      {\setunit{\extpostnotedelim\bibopenparen}}%
+     \printfield{postnote}%
+     \ifbool{cbx:frgancient}%
+       {\setunit{\addthinspace}%
+        \usebibmacro{cite:frgname}%
+        \bibcloseparen}%
+     \bibcloseparen}}
 %-----------------------
-\DeclareCiteCommand{\cite}%  
+\DeclareCiteCommand{\cite}%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
-  \usebibmacro{cite}}%
+   \usebibmacro{cite}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
  %-----------------------
-  \DeclareCiteCommand{\footcite}[\mkbibfootnote]
+\DeclareCiteCommand{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
-  \usebibmacro{cite}}%
+   \usebibmacro{cite}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
 %-----------------------
 \DeclareCiteCommand{\textcite}%
   {\boolfalse{cbx:yearinparens}%
-    \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
    \renewcommand*{\finalnamedelim}{%
    \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-   \addspace\bibstring{and}\space}%
-  }%
+   \addspace\bibstring{and}\space}}%
   {\usebibmacro{citeindex}%
    \iffirstcitekey%
-   {\setcounter{textcitetotal}{1}}%
-   {\stepcounter{textcitetotal}%
-  \textcitedelim%
-	\usebibmacro{prenote}}%
-   \ifbool{cbx:seenote}{\usebibmacro{cite:seenote}}%
-   {\usebibmacro{textcite}}}%
+     {\setcounter{textcitetotal}{1}}%
+     {\stepcounter{textcitetotal}%
+   \textcitedelim%
+   \usebibmacro{prenote}}%
+   \ifbool{cbx:seenote}
+     {\usebibmacro{cite:seenote}}%
+     {\usebibmacro{textcite}}}%
   {\ifbool{cbx:yearinparens}%
-   {\bibcloseparen\global\boolfalse{cbx:yearinparens}}%
-   {}}%
-  {\ifbool{cbx:seenote}{\usebibmacro{postnote}}%
-  {\usebibmacro{textcite:postnote}}}
-%----------------------- 
+     {\bibcloseparen\global\boolfalse{cbx:yearinparens}}%
+     {}}%
+  {\ifbool{cbx:seenote}
+     {\usebibmacro{postnote}}%
+     {\usebibmacro{textcite:postnote}}}
+%-----------------------
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
-  \usebibmacro{cite}}%
+   \usebibmacro{cite}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
-%-----------------------  
+%-----------------------
 \DeclareCiteCommand{\smartcite}[\iffootnote\textnormal\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
    \usebibmacro{cite}}
   {\multicitedelim}
- {\ifboolexpr{
+  {\ifboolexpr{
     bool{bbx:inreferences}
     and
     test{\ifentrytype{inreference}}}
-  {}
-	{\usebibmacro{postnote}}}%
-%-----------------------        
+     {}
+     {\usebibmacro{postnote}}}%
+%-----------------------
   \DeclareCiteCommand{\fullcite}
   {\usebibmacro{prenote}}
   {\usedriver
@@ -513,7 +513,7 @@
      {\thefield{entrytype}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
-%-----------------------      
+%-----------------------
 \DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usedriver
@@ -521,41 +521,41 @@
      {\thefield{entrytype}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
-%-----------------------      
+%-----------------------
 \DeclareMultiCiteCommand{\cites}{\cite}{\multicitedelim}
 \DeclareMultiCiteCommand{\parencites}[\mkbibparens]{\parencite}{\multicitedelim}
 \DeclareMultiCiteCommand{\textcites}{\textcite}{}
 \DeclareMultiCiteCommand{\smartcites}[\iffootnote\textnormal\mkbibfootnote]{\smartcite}{\multicitedelim}
-%----------------------- 
+%-----------------------
 \DeclareCiteCommand{\citeauthor}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \renewcommand*{\multinamedelim}{\addcomma\space}%
    \renewcommand*{\finalnamedelim}{%
-   \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-   \addspace\bibstring{and}\space}%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+     \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
    \ifboolexpr{
     bool{bbx:inreferences}
     and
     test{\ifentrytype{inreference}}}
-  {\printtext}%
-  {\printtext[bibhyperref]}%
-  {\printnames[citeauthor]{labelname}}}%
+     {\printtext}%
+     {\printtext[bibhyperref]}%
+   {\printnames[citeauthor]{labelname}}}%
   {\multicitedelim}%
-  {\usebibmacro{postnote}}	
-%----------------------- 	
+  {\usebibmacro{postnote}}
+%-----------------------
 \DeclareCiteCommand{\citetranslator}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \renewcommand*{\multinamedelim}{\addcomma\space}%
    \renewcommand*{\finalnamedelim}{%
      \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-      \addspace\bibstring{and}\space}%
+     \addspace\bibstring{and}\space}%
    \usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
-   \ifboolexpr{% 
+   \ifboolexpr{%
      test {\ifentrytype{incollection}}
      or
      test {\ifentrytype{inbook}}
@@ -573,8 +573,8 @@
           {\printnames[citeauthor]{translator}}
           {\printtext[bibhyperref]{\printnames[citeauthor]{translator}}}}}}
   {\multicitedelim}%
-  {\usebibmacro{postnote}}	
-%----------------------- 	
+  {\usebibmacro{postnote}}
+%-----------------------
 \DeclareCiteCommand*{\citetranslator}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -591,20 +591,20 @@
      test{\ifentrytype{inreference}}}
     {\printtext}%
     {\printtext[bibhyperref]}%
-   {\ifthenelse{% 
-      \ifentrytype{incollection}%
-      \OR%
-      \ifentrytype{inbook}%
-    }%
-     {\ifnameundef{intranslator}%
-		   {\bibstring{owntranslation}}%
-		   {\usebibmacro{byintranslator+others}}}%
-     {\ifnameundef{translator}%
-		   {\bibstring{owntranslation}}%
-		   {\usebibmacro{bytranslator+others}}}}}%
+      {\ifthenelse{%
+         \ifentrytype{incollection}%
+         \OR%
+         \ifentrytype{inbook}%
+       }%
+         {\ifnameundef{intranslator}%
+            {\bibstring{owntranslation}}%
+            {\usebibmacro{byintranslator+others}}}%
+         {\ifnameundef{translator}%
+           {\bibstring{owntranslation}}%
+           {\usebibmacro{bytranslator+others}}}}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
-%----------------------- 	
+%-----------------------
 \DeclareCiteCommand*{\citeauthor}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -614,7 +614,7 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 %-----------------------
-\DeclareCiteCommand{\citetitle} %
+\DeclareCiteCommand{\citetitle}
   {\boolfalse{citetracker}%
   \boolfalse{pagetracker}%
   \usebibmacro{prenote}}%
@@ -622,36 +622,37 @@
     bool{bbx:inreferences}
     and
     test{\ifentrytype{inreference}}}
-   {\printtext}%
-   {\printtext[bibhyperref]}{%
-   \ifbool{cbx:ancient}{\printtext[emph]{\usebibmacro{cite:title}}}%
-  {\printtext[emph]{\usebibmacro{cite:title}}% 
-  \iffieldundef{year}
-	  {}
-		{\setunit{\addspace}%
-      \printtext[parens]{%
-			\printfield{year}%
-      \iffieldundef{origyear}
-			  {}%
-        {\addspace\printfield[parens]{origyear}}}%
-   }}}}%
+     {\printtext}%
+     {\printtext[bibhyperref]}{%
+        \ifbool{cbx:ancient}
+          {\printtext[emph]{\usebibmacro{cite:title}}}%
+          {\printtext[emph]{\usebibmacro{cite:title}}%
+           \iffieldundef{year}
+             {}
+             {\setunit{\addspace}%
+              \printtext[parens]{%
+                \printfield{year}%
+                \iffieldundef{origyear}
+                  {}%
+                  {\addspace\printfield[parens]{origyear}}}}}}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
 
-\DeclareCiteCommand{\citetitle*} %
+\DeclareCiteCommand*{\citetitle}
   {\boolfalse{citetracker}%
-  \boolfalse{pagetracker}%
-  \usebibmacro{prenote}}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}%
   {\ifboolexpr{
     bool{bbx:inreferences}
     and
     test{\ifentrytype{inreference}}}
-   {\printtext}%
-   {\printtext[bibhyperref]}{%
-   \ifbool{cbx:ancient}{\printtext[emph]{\usebibmacro{cite:title}}}%
-  {\printtext[emph]{\usebibmacro{cite:title}}}}}%
+     {\printtext}%
+     {\printtext[bibhyperref]}
+       {\ifbool{cbx:ancient}
+          {\printtext[emph]{\usebibmacro{cite:title}}}%
+          {\printtext[emph]{\usebibmacro{cite:title}}}}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}%
-  
+
 \endinput
 %% End of file `archaeologie.cbx'.
