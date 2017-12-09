@@ -188,7 +188,7 @@
 \DeclareFieldFormat{pages}{#1}
 \DeclareFieldFormat{edition}{#1}
 \DeclareFieldFormat{volumes}{#1}
-\DeclareFieldFormat{volume}{#1}
+\DeclareFieldFormat[book,proceedings,inproceedings,incollection]{volume}{\RN{#1}}
 \DeclareFieldFormat{part}{#1}
 \DeclareFieldFormat[article]{date}{\iffieldundef{number}{#1}{\iffieldundef{volume}{#1\yearnumdelim\printfield{number}}{#1}}}
 \DeclareFieldFormat[inreference]{number}{\mkbibbrackets{#1}}

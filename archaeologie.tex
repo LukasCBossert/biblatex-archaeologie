@@ -21,7 +21,16 @@ ngerman,
 english
 ]{ltxdoc}
 \input{archaeologie-preamble.tex}
+
 \externaldocument{archaeologie-ger}[archaeologie-ger.pdf]% <- full or relative path
+
+\makeatletter
+\patchcmd{\@mpfootnotetext}%
+  {\color@begingroup}
+  {\color@begingroup\toggletrue{blx@footnote}}
+  {}
+  {}
+\makeatother
 
 \begin{document}
 \pdfbookmark[1]{Titlepage}{title}
@@ -202,7 +211,7 @@ In cases there are different translations of an ancient work you can decide whic
 
 \subsection{Cite commands}
 \label{cite-commands}
-\subsubsection*{cite and cites}
+\subsubsection{cite and cites}
 \DescribeMacro{\cite}
 As always citing is done with \cs{cite}:
 \begin{code}
@@ -232,7 +241,7 @@ If one wants to cite several authors or works a very convenient way is the follo
 Public space is part of a city say \cites(cf.)(){Osland2016}{Evangelidis2014}.
 \end{example}
  
- \subsubsection*{parencite and parencites}
+ \subsubsection{parencite and parencites}
 \DescribeMacro{\parencite}
 Sometimes a citation has to be put in parentheses. 
 Therefore we implemented the command \cs{parencite}:
@@ -259,7 +268,7 @@ This is done with \cs{parencites}:
 Public space is part of a city \parencites(cf.)(){Osland2016}{Evangelidis2014}.
 \end{example}
 
-\subsubsection*{textcite and textcites}
+\subsubsection{textcite and textcites}
 \DescribeMacro{\textcite}
 Beside the listed \cs{cite} commands above there is a third way of citing:
 \cs{textcite} is useful if the author should be mentioned in the text and
@@ -285,7 +294,7 @@ Public space is part of a city say \textcites{Osland2016}[cf.][]{Evangelidis2014
 \end{example}
 Just be aware that using \oarg{prenote} may be give a odd sounding sentence depending what you use \oarg{prenote} for.
 
-\subsubsection*{footcite}
+\subsubsection{footcite}
  \DescribeMacro{\footcite}
  Beside the listed \cs{cite} commands above there are more possibilities citing:
  There is also the possibility to put the citation into a footnote at once with \cs{footcite}:
@@ -301,7 +310,7 @@ This is the equivalent to |\footnote{\cite{Osland2016}.}| but it saves you a lot
 Public space is part of a city.\footcites(cf.)(){Osland2016}{Evangelidis2014}
 \end{example}
  
- \subsubsection*{smartcite and smartcites}
+ \subsubsection{smartcite and smartcites}
 
 \DescribeMacro{\smartcite}
 And there is also a clever way citing with \cs{smartcite}.
@@ -331,7 +340,7 @@ Public space is part of a city.\smartcites{Osland2016}{Evangelidis2014}
 And sometimes more than that.\footnote{\smartcites{Osland2016}[cf.][]{Evangelidis2014}.}
 \end{example}
 
-\subsubsection*{autocite}
+\subsubsection{autocite}
 
 \DescribeMacro{\autocite}
 With \cs{autocite} there is a flexible way of citing. 
@@ -345,7 +354,7 @@ If you want to change it you can also write in the preamble e.\,g. |autocite=inl
 Public space is part of a city.\autocite{Osland2016} 
 \end{example}
 
-\subsubsection*{fullcite and footfullcite}
+\subsubsection{fullcite and footfullcite}
 \DescribeMacro{\fullcite}\DescribeMacro{\footfullcite}
 With \cs{fullcite} and \cs{footfullcite} you can print the complete entry in your current text.
 \begin{code}
@@ -359,7 +368,7 @@ As can be read in \fullcite{Evangelidis2014}
 \end{example}
 
 
-\subsubsection*{citeauthor and citetitle}
+\subsubsection{citeauthor and citetitle}
 
 \DescribeMacro{\citeauthor}
 \DescribeMacro{\citetitle}\label{citeauthor}%
@@ -391,7 +400,7 @@ public space is part of a city.
 
 Note that the |\citetitle*|-command will always show the field |title| without the year of publication it doesn’t matter if there is |option={ancient}|.
 
-\subsubsection*{citetranslator}
+\subsubsection{citetranslator}
 \DescribeMacro{\citetranslator}\label{citetranslator}%
 \archversion{2.3.0} 
 Addionally there is also a \cs{cite}-command which can be used to print the translator of an (ancient) publication.

@@ -72,6 +72,11 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * `\citereset` for author names (https://github.com/LukasCBossert/biblatex-archaeologie/issues/122)
 * `\citetitle` will give the original title of a work which has the option `ancient`; 
 `\citetitle*` instead will always give title without year.
+* no comma before `in:` if title is missing (got wrong in last version)
+
+
+#### *changed*
+* `volume` is now automatically a Roman Numeral for `book`, `inbook`, `proceedings`, `inproceedings`.
 
 ## v2.3.4 (2017-11-19) --> [current release]
 This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
