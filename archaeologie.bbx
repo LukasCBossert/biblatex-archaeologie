@@ -176,7 +176,7 @@
       {for further information see \url{http://biblatex-archaeologie.de}}
 }
 %-----------------------
-\DeclareFieldFormat*{title}{#1}
+\DeclareFieldFormat*{title}{#1\isdot}
 \DeclareFieldFormat{subtitle}{#1}
 \DeclareFieldFormat{booktitle}{#1}
 \DeclareFieldFormat{editortype}{\mkbibparens{#1}}
@@ -499,9 +499,13 @@
   \fi
 }
 %-----------------------
-\renewbibmacro{in:}{%
-  \setunit{\isdot\addcomma\addspace}%
-  \printtext{\bibstring{in}\intitlepunct}}}
+% \renewbibmacro{in:}{%
+%  \setunit{\isdot%
+%    \iffieldundef{title}
+%      {}
+%      {\addcomma}%
+%      \addspace}%
+%      \printtext{\bibstring{in}\intitlepunct}}
 %-----------------------
 \renewbibmacro*{pageref}{%
   \iflistundef{pageref}
@@ -583,10 +587,10 @@
 \DeclareLabeldate{%
   \field{date}
   \field{year}
-  \field{eventdate}
   \field{origdate}
   \field{urldate}
   \field{pubstate}
+  \field{eventdate}
   \literal{nodate}
 }
 %-----------------------
