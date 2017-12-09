@@ -102,7 +102,7 @@
 \ExecuteBibliographyOptions{%
   jstor,%
   urn,%
-  }
+}
 %-----------------------
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
 \DeclareBibliographyOption{initials}[true]{\csuse{bool#1}{bbx:initials}}
@@ -124,8 +124,7 @@
 \DeclareBibliographyOption{scshape}[true]{%
   \ifstrequal{#1}{true}%
     {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
-    {}%
-  }
+    {}}
 %-----------------------
 \ExecuteBibliographyOptions{initials=true}
 %-----------------------
@@ -313,12 +312,11 @@
   \iffieldundef{shortseries}%
     {\skipentry}%
     {}%
- \iffieldundef{series}%
-  {\skipentry}%
-  {\ifcsdef{\strfield{series}}%
+  \iffieldundef{series}%
     {\skipentry}%
-    {\savefieldcs{series}{\strfield{series}}}%
-  }%
+    {\ifcsdef{\strfield{series}}%
+       {\skipentry}%
+       {\savefieldcs{series}{\strfield{series}}}}%
 }
 \defbibcheck{shortjournal}{%
   \iffieldundef{shortjournal}%
@@ -327,9 +325,8 @@
   \iffieldundef{journaltitle}%
     {\skipentry}%
     {\ifcsdef{\strfield{journaltitle}}%
-    {\skipentry}%
-    {\savefieldcs{journaltitle}{\strfield{journaltitle}}}%
-    }%
+       {\skipentry}%
+       {\savefieldcs{journaltitle}{\strfield{journaltitle}}}}%
 }
 %-----------------------
 \DeclareNameAlias{name:initials}{default}
@@ -915,8 +912,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\labelnamepunct}%
-  \newblock
+  \setunit*{\labelnamepunct}\newblock
   \usebibmacro{title}%
   \newunit\newblock
   \usebibmacro{translation}%
@@ -941,8 +937,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}%
-  \newblock
+  \setunit*{\labelnamepunct}\newblock
   \usebibmacro{maintitle+title+volumes}%
   \newunit\newblock
   \ifbool{bbx:yearseries}%
@@ -951,11 +946,9 @@
   \ifbool{cbx:ancient}%
     {}%
     {\usebibmacro{translation}}%
-  \setunit{\addspace}%
-  \newblock
+  \setunit{\addspace}\newblock
   \usebibmacro{location+edition+year}%
-  \setunit*{\addspace}%
-  \newblock
+  \setunit*{\addspace}\newblock
   \ifbool{bbx:yearseries}%
     {\usebibmacro{series+number}}%
     {}%
@@ -975,8 +968,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}%
-  \newblock
+  \setunit*{\labelnamepunct}\newblock
   \usebibmacro{title}%
   \setunit{\addspace}
   \printtext[parens]{\printfield{type}%
@@ -998,8 +990,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}%
-  \newblock
+  \setunit*{\labelnamepunct}\newblock
   \usebibmacro{maintitle+title+volumes}%
   \usebibmacro{event+venue+date}%
   \setunit*{\addspace}%
@@ -1007,11 +998,9 @@
     {}%
     {\newunit
      \usebibmacro{series+number}}%
-  \setunit{\addspace}%
-  \newblock
+  \setunit{\addspace}\newblock
   \usebibmacro{location+edition+year}%
-  \setunit*{\addspace}%
-  \newblock
+  \setunit*{\addspace}\newblock
   \ifbool{bbx:yearseries}%
     {\usebibmacro{series+number}}%
     {}%
@@ -1031,8 +1020,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}%
-  \newblock
+  \setunit*{\labelnamepunct}\newblock
   \usebibmacro{title}%
   \newunit\newblock
   \usebibmacro{intranslation}%
@@ -1045,11 +1033,9 @@
     {}%
     {\newunit
      \usebibmacro{series+number}}%
-  \setunit{\addspace}%
-  \newblock
+  \setunit{\addspace}\newblock
   \usebibmacro{location+edition+year}%
-  \setunit*{\addspace}%
-  \newblock
+  \setunit*{\addspace}\newblock
   \ifbool{bbx:yearseries}%
     {\usebibmacro{series+number}}%
     {}%
@@ -1070,8 +1056,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}%
-  \newblock
+  \setunit*{\labelnamepunct}\newblock
   \usebibmacro{title}%
   \newunit\newblock
   \bibstring{talk}%
@@ -1098,8 +1083,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}%
-  \newblock
+  \setunit*{\labelnamepunct}\newblock
   \usebibmacro{title}%
   \newunit\newblock
   \usebibmacro{intranslation}%
@@ -1113,11 +1097,9 @@
     {}%
     {\newunit
      \usebibmacro{series+number}}%
-  \setunit{\addspace}%
-  \newblock
+  \setunit{\addspace}\newblock
   \usebibmacro{location+edition+year}%
-  \setunit*{\addspace}%
-  \newblock
+  \setunit*{\addspace}\newblock
   \ifbool{bbx:yearseries}%
     {\usebibmacro{series+number}}%
     {}%
@@ -1157,8 +1139,7 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}%
-  \newblock
+  \setunit*{\labelnamepunct}\newblock
   \iffieldundef{title}%
     {}%
     {\usebibmacro{title}}%
