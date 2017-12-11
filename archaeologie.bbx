@@ -234,123 +234,6 @@
 \DeclareLanguageMapping{italian}{italian-archaeologie}
 \DeclareLanguageMapping{spanish}{spanish-archaeologie}
 %\DeclareLanguageMappingSuffix{-archaeologie}
-\protected\gdef\lbx@us@mkdaterangetrunc@long#1#2{%
-  \iffieldundef{#2year}
-    {}
-    {\datecircaprint
-     \printtext[#2date]{%
-       \iffieldundef{#2season}
-         {\iffieldsequal{#2year}{#2endyear}
-           {\csuse{mkbibdate#1}{}{#2month}{#2day}}
-           {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
-            \dateeraprint{#2}}}
-         {\iffieldsequal{#2year}{#2endyear}
-           {\csuse{mkbibseasondate#1}{}{#2season}}
-           {\csuse{mkbibseasondate#1}{#2year}{#2season}}%
-            \dateeraprint{#2}}%
-       \dateuncertainprint
-       \iffieldundef{#2endyear}
-         {}
-         {\iffieldequalstr{#2endyear}{}
-           {\mbox{\bibdaterangesep}}
-           {\bibdaterangesepx{#2}%
-            \enddatecircaprint
-            \iffieldundef{#2season}
-              {\iffieldsequal{#2year}{#2endyear}
-                {\iffieldsequal{#2month}{#2endmonth}
-                  {\csuse{mkbibdate#1}{#2endyear}{}{#2endday}}
-                  {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
-                {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
-              {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
-            \enddateuncertainprint
-            \dateeraprint{#2}}}}}}
-
-\protected\gdef\lbx@us@mkdaterangetrunc@short#1#2{%
-  \iffieldundef{#2year}
-    {}
-    {\datecircaprint
-     \printtext[#2date]{%
-       \iffieldundef{#2season}
-         {\iffieldsequal{#2year}{#2endyear}
-           {\csuse{mkbibdate#1}{}{#2month}{#2day}}
-           {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}
-            \dateeraprint{#2}}}
-         {\iffieldsequal{#2year}{#2endyear}
-           {\csuse{mkbibseasondate#1}{}{#2season}}
-           {\csuse{mkbibseasondate#1}{#2year}{#2season}}%
-            \dateeraprint{#2}}%
-       \dateuncertainprint
-       \iffieldundef{#2endyear}
-         {}
-         {\iffieldequalstr{#2endyear}{}
-            {\mbox{\bibdaterangesep}}
-            {\bibdaterangesepx{#2}%
-             \enddatecircaprint
-             \iffieldundef{#2season}
-               {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}
-               {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
-             \enddateuncertainprint
-             \dateeraprint{#2}}}}}}
-
-\protected\gdef\lbx@us@mkdaterangetruncextra@long#1#2{%
-  \iffieldundef{#2year}
-    {}
-    {\datecircaprint
-     \printtext[#2date]{%
-       \iffieldundef{#2season}
-         {\iffieldsequal{#2year}{#2endyear}
-           {\csuse{mkbibdate#1}{}{#2month}{#2day}}
-           {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}}}
-         {\iffieldsequal{#2year}{#2endyear}
-           {\csuse{mkbibseasondate#1}{}{#2season}}
-           {\csuse{mkbibseasondate#1}{#2year}{#2season}}%
-            \dateeraprint{#2}}%
-       \dateuncertainprint
-       \iffieldundef{#2endyear}
-         {\printfield{extradate}}
-         {\iffieldequalstr{#2endyear}{}
-            {\printfield{extradate}%
-             \mbox{\bibdaterangesep}}
-            {\bibdaterangesepx{#2}%
-             \enddatecircaprint
-             \iffieldundef{#2season}
-               {\iffieldsequal{#2year}{#2endyear}
-                 {\iffieldsequal{#2month}{#2endmonth}
-                    {\csuse{mkbibdate#1}{#2endyear}{}{#2endday}}
-                    {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
-                 {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
-               {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
-             \printfield{extradate}%
-             \enddateuncertainprint
-             \dateeraprint{#2}}}}}}
-
-\protected\gdef\lbx@us@mkdaterangetruncextra@short#1#2{%
-  \iffieldundef{#2year}
-    {}
-    {\datecircaprint
-     \printtext[#2date]{%
-       \iffieldundef{#2season}
-         {\iffieldsequal{#2year}{#2endyear}
-           {\csuse{mkbibdate#1}{}{#2month}{#2day}}
-           {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}}}
-         {\iffieldsequal{#2year}{#2endyear}
-           {\csuse{mkbibseasondate#1}{}{#2season}}
-           {\csuse{mkbibseasondate#1}{#2year}{#2season}}%
-            \dateeraprint{#2}}%
-       \dateuncertainprint
-       \iffieldundef{#2endyear}
-         {\printfield{extradate}}
-         {\iffieldequalstr{#2endyear}{}
-            {\printfield{extradate}%
-          \mbox{\bibdaterangesep}}
-         {\bibdaterangesepx{#2}%
-          \enddatecircaprint
-          \iffieldundef{#2season}
-            {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}
-            {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
-          \printfield{extradate}%
-          \enddateuncertainprint
-          \dateeraprint{#2}}}}}}
 %-----------------------
 \renewcommand*{\sqspace}{\addnbthinspace}
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}
@@ -382,6 +265,7 @@
         {s}}.%
       }}%
       {}}
+
 \newrobustcmd*{\bibdatesubseqesep}{\slash}
 \newrobustcmd*{\bibdaterangesepx}[1]{%
   \ifboolexpr{test {\iffieldint{#1year}} and test {\iffieldint{#1endyear}}} 
