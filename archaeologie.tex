@@ -18,10 +18,10 @@ french,
 spanish,
 italian,
 ngerman,
-english
+english,
 ]{ltxdoc}
 \input{archaeologie-preamble.tex}
-
+\hyphenation{}
 \externaldocument{archaeologie-ger}[archaeologie-ger.pdf]% <- full or relative path
 
 % \makeatletter
@@ -2605,7 +2605,9 @@ Let us take a look at another example:
 }
 \end{bibexample}
 This time the article appeared in an issue which covers two years (\citedate{DeVisscher1951-1952}) and we want them to appear in the label.
-That is why we have to use the field |date| instead of |year|.
+That is why we have to use the field |date| instead of |year|. 
+Note that if the date range consists out of only two sequent years, the delimiter will be a slash |/|.
+If the range is bigger than two years it will be an em-dash |–|.
 \printbib[11em]{DeVisscher1951-1952}
 By the way, if you want to cite only the year of publication use |\citedate|\marg{bibtex-key} and not |\citeyear|\marg{bibtex-key} since the field |year| will only give you the first year.
 

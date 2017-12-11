@@ -74,9 +74,9 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 `\citetitle*` instead will always give title without year.
 * no comma before `in:` if title is missing (got wrong in last version)
 * `volume` now shown for `book` etc.
-
+* `daterange` for a sequence of two years (now delimited by `\`)
 #### *changed*
-* `volume` is now automatically a Roman Numeral for `book`, `inbook`, `proceedings`, `inproceedings`.
+* `volume` is now automatically a Roman Numeral for `book`, `inbook`, `proceedings`, `inproceedings`, you only insert the arabic number.
 
 ## v2.3.4 (2017-11-19) --> [current release]
 This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
