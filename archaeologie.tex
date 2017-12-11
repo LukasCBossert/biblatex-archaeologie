@@ -24,20 +24,20 @@ english
 
 \externaldocument{archaeologie-ger}[archaeologie-ger.pdf]% <- full or relative path
 
-\makeatletter
-\patchcmd{\@mpfootnotetext}%
-  {\color@begingroup}
-  {\color@begingroup\toggletrue{blx@footnote}}
-  {}
-  {}
-\makeatother
-
+% \makeatletter
+% \patchcmd{\@mpfootnotetext}%
+%   {\color@begingroup}
+%   {\color@begingroup\toggletrue{blx@footnote}}
+%   {}
+%   {}
+% \makeatother
+ 
 \begin{document}
 \pdfbookmark[1]{Titlepage}{title}
 \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy for (ancient) History or Classics, too.
 For further information about the code visit \href{http://www.biblatex-archaeologie.de}{biblatex-archaeologie.de}: 
 Comments and criticisms are welcome.
-We thank  \href{https://tex.stackexchange.com/users/35864/moewe}{moewe} and \href{https://tex.stackexchange.com/users/2478/herbert}{herbert} for their big help on the code.%
+We thank especially \href{https://tex.stackexchange.com/users/35864/moewe}{moewe} and \href{https://tex.stackexchange.com/users/2478/herbert}{herbert} for their great help with the code.%
 }}
 \author{Lukas C. Bossert\\{\small \href{mailto:info@biblatex-archaeologie.de}{info@biblatex-archaeologie.de}} 
 \and Johannes Friedl}
@@ -1258,7 +1258,7 @@ Another example:
   booktitle    = {Die politischen Reden},
   year         = {1993},
   editor       = {Fuhrmann, Manfred},
-  volume       = {II},
+  volume       = {2},
   publisher    = AWi,    %@String used
   pages        = {110--185},
   origlanguage = {latin},
@@ -1373,7 +1373,7 @@ Then there is also the French most common translation (\cref{Vitr:Saliou}):
   title         = {De L'Architecture},
   publisher     = {Les belles lettres},
   location      = Paris, %@String used
-  volume        = {I--X},
+  volumes        = {10},
   series        = {Collection des Universités de France},
   origtitle     = {De architectura},
   origlanguage  = {latin},
@@ -1598,7 +1598,7 @@ Let’s assume this is the bibliography entry:
   location  = {New Haven and }# London, %@String used
   year      = {1986},
   maintitle = {The Architecture of the Roman Empire},
-  volume    = {II},
+  volume    = {2},
   series    = {Yale Publications in the History of Art},
   number    = {35},
 }
@@ -1678,7 +1678,7 @@ Have a look:
   publisher    = UMP,    %@String used
   location     = {Ann Arbor, Mich.},
   year         = {2003},
-  volume       = {V},
+  volume       = {5},
   series       = MemAmAc,    %@String used
   number       = {2},
   maintitle    = {Cosa},
@@ -1716,7 +1716,7 @@ and the second example
   author    = {K. Parlasca},
   booktitle = {Helbig},
   year      = {1969},
-  volume    = {III},
+  volume    = {3},
   edition   = {4},
   pages     = {98\psq\ Nr. 2176},
   location  = Tuebingen, %@String used
