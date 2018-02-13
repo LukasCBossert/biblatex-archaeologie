@@ -5,10 +5,10 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_201X/XX/XX v2.3.X_
+_2018/02/13 v2.3.5_
 
 
-Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
+Copyright (c) 2016-2018 Lukas C. Bossert | Johannes Friedl
 
 * Email: [info@biblatex-archaeologie.de](mailto:info@biblatex-archaeologie.de)
 * Website: [www.biblatex-archaeologie.de](http://www.biblatex-archaeologie.de)
@@ -66,19 +66,20 @@ All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
-## v2.3.X (201X-XX-XX) --> [unreleased]
+## v2.3.5 (2018-02-13) --> [current release]
 
 #### *fixed*
 * `\citereset` for author names (https://github.com/LukasCBossert/biblatex-archaeologie/issues/122)
 * `\citetitle` will give the original title of a work which has the option `ancient`; 
 `\citetitle*` instead will always give title without year.
 * no comma before `in:` if title is missing (got wrong in last version)
-* `volume` now shown for `book` etc.
+* `volume`/`volumes` are now shown for `book` etc.
 * `daterange` for a sequence of two years (now delimited by `\`)
+* Short-journal for `Archaeologia` 
 #### *changed*
-* `volume` is now automatically a Roman Numeral for `book`, `inbook`, `proceedings`, `inproceedings`, you only insert the arabic number.
+* `volume` is now automatically a Roman numeral for `book`, `inbook`, `collection`, `incollection`, `proceedings`, `inproceedings`, you only insert the Arabic number.
 
-## v2.3.4 (2017-11-19) --> [current release]
+## v2.3.4 (2017-11-19)
 This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 
 #### *fixed*

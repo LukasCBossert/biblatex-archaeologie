@@ -1,7 +1,7 @@
 % archaeologie --%
 % biblatex for archaeologists,
 % historians and philologists
-% Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2018 Lukas C. Bossert | Johannes Friedl
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -10,8 +10,8 @@
 % http://www.latex-project.org/lppl.txt
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
-\def\arch@date{2017/11/19}
-\def\arch@version{2.3.4}
+\def\arch@date{2018/02/13}
+\def\arch@version{2.3.5}
 \def\arch@bbxid{\arch@date\space v\arch@version\space biblatex-archaeologie bibliography style (LCB/JF)}
 \def\arch@cbxid{\arch@date\space v\arch@version\space biblatex-archaeologie citation style (LCB/JF)}
 \def\arch@lbxid{\arch@date\space v\arch@version\space biblatex-archaeologie localization (LCB/JF)}
@@ -34,7 +34,6 @@
   citecounter=true,%
   sortlocale=auto,%
   language=auto,%
-  autolang=other,%
   bibencoding=utf8,%
   dateabbrev=false, %
   sorting=nyt,%
@@ -126,7 +125,10 @@
     {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
     {}}
 %-----------------------
-\ExecuteBibliographyOptions{initials=true}
+\ExecuteBibliographyOptions{%
+  initials=true,
+  autolang=other,%
+}
 %-----------------------
 \DeclareEntryOption{ancient}[true]{\csuse{bool#1}{cbx:ancient}}
 \DeclareEntryOption{frgancient}[true]{%
@@ -188,7 +190,8 @@
 \DeclareFieldFormat{pages}{#1}
 \DeclareFieldFormat{edition}{#1}
 \DeclareFieldFormat{volumes}{#1}
-\DeclareFieldFormat[book,proceedings,inproceedings,incollection]{volume}{\RN{#1}}
+\DeclareFieldFormat{volume}{#1}
+\DeclareFieldFormat[book,collection,proceedings,inproceedings,inbook,incollection]{volume}{\RN{#1}}
 \DeclareFieldFormat{part}{#1}
 \DeclareFieldFormat[article]{date}{\iffieldundef{number}{#1}{\iffieldundef{volume}{#1\yearnumdelim\printfield{number}}{#1}}}
 \DeclareFieldFormat[inreference]{number}{\mkbibbrackets{#1}}
@@ -201,7 +204,6 @@
 \DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
 \DeclareFieldFormat{shorthandwidth}{#1}
 \DeclareFieldFormat{origtitle}{#1}
-%\DeclareFieldFormat{origtitle}{\iffieldequalstr{origlanguage}{greek}{#1}{\mkbibemph{#1}}}
 \DeclareFieldFormat{eprint:urn}{%
   \textsc{urn}%
   \addcolon\space%
@@ -786,8 +788,8 @@
   \newunit}
 %-----------------------
 \DeclareLabeldate{%
-  \field{date}
   \field{year}
+  \field{date}
   \field{origdate}
   \field{urldate}
   \field{pubstate}
@@ -1001,7 +1003,7 @@
             {\iflistundef{origlocation}%
                {\printlist{location}}%
                {\printlist{origlocation}}%
-             \setunit{\addspace}%
+             \setunit*{\addspace}%
              \printfield{origyear}%
              \setunit*{\addsemicolon\addspace}%
              \iffieldundef{origyear}%
@@ -1010,20 +1012,17 @@
                 \setunit*{\addspace}}}%
           \printlist{location}%
           \setunit*{\addspace}%
-          \usebibmacro{pubstate+year}}}}%
-}
+          \usebibmacro{pubstate+year}}}}}
 %-----------------------
 \renewbibmacro*{institution+location+date}{%
   \printlist{location}%
   \setunit*{\addspace}%
   \printlist{institution}%
   \setunit*{\addspace}%
-  \usebibmacro{pubstate+year}%
-}
+  \usebibmacro{pubstate+year}}
 %-----------------------
 \newbibmacro{signatur}{%
-  \printfield{note}%
-}
+  \printfield{note}}
 %-----------------------
 \newbibmacro*{volume}{%
   \iffieldundef{volume}%
