@@ -65,10 +65,15 @@ additional lists and bibliographies:
 All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
+## v2.3.6 (201X-XX-XX) 
+
+### *Added*
+* `citeauthorformat=firstfullthenfamily` as requested in
+[#138](https://github.com/LukasCBossert/biblatex-archaeologie/issues/138), 
 
 ## v2.3.5 (2018-02-13) --> [current release]
 
-#### *fixed*
+### *Fixed*
 * `\citereset` for author names (https://github.com/LukasCBossert/biblatex-archaeologie/issues/122)
 * `\citetitle` will give the original title of a work which has the option `ancient`; 
 `\citetitle*` instead will always give title without year.
@@ -76,13 +81,13 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * `volume`/`volumes` are now shown for `book` etc.
 * `daterange` for a sequence of two years (now delimited by `\`)
 * Short-journal for `Archaeologia` 
-#### *changed*
+### *Changed*
 * `volume` is now automatically a Roman numeral for `book`, `inbook`, `collection`, `incollection`, `proceedings`, `inproceedings`, you only insert the Arabic number.
 
 ## v2.3.4 (2017-11-19)
 This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 
-#### *fixed*
+### *Fixed*
 * Arrangement of multiple authors with `\textcites`; see
 [#115](https://github.com/LukasCBossert/biblatex-archaeologie/issues/115), solved with [https://tex.stackexchange.com/a/387162/98739](https://tex.stackexchange.com/a/387162/98739)
 * Delimiter of `subtitle` and `titleaddon`, it is now a comma instead of fullstop.

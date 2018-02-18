@@ -235,8 +235,40 @@
        \cbx@nametracker{\thefield{hash}}}%
     \usebibmacro{name:andothers}}
 
+ \DeclareNameFormat{citeauthor:firstfullthenfamily}{%
+    \cbx@ifnameseen{\thefield{hash}}
+      {\ifnum\value{uniquename}=2
+         \usebibmacro{name:family}
+           {\namepartfamily}
+           {\namepartgiven}
+           {\namepartprefix}
+           {\namepartsuffix}%
+       \else
+         \ifuseprefix
+           {\usebibmacro{name:family}
+              {\namepartfamily}
+              {\namepartgiveni}
+              {\namepartprefix}
+              {\namepartsuffixi}}
+           {\usebibmacro{name:family}
+              {\namepartfamily}
+              {\namepartgiveni}
+              {\namepartprefixi}
+              {\namepartsuffixi}}%
+       \fi}
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}%
+       \cbx@nametracker{\thefield{hash}}}%
+    \usebibmacro{name:andothers}}
+    
 \def\cbx@arch@citeauthorformat@firstfull{%
    \DeclareNameAlias{citeauthor}{citeauthor:fancy}}
+
+\def\cbx@arch@citeauthorformat@firstfullthenfamily{%
+   \DeclareNameAlias{citeauthor}{citeauthor:firstfullthenfamily}}
 %-----------------------
 \ExecuteBibliographyOptions{%
   citetracker=true,
