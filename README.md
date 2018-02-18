@@ -71,6 +71,13 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * `citeauthorformat=firstfullthenfamily` as requested in
 [#138](https://github.com/LukasCBossert/biblatex-archaeologie/issues/138), 
 
+### *Changed*
+* `jstor=false` by default, since it is no part of the guidelines
+* `lstabbrv=true` by default
+* `lstlocations=true` by default
+* `lstpublishers=true` by default
+
+
 ## v2.3.5 (2018-02-13) --> [current release]
 
 ### *Fixed*

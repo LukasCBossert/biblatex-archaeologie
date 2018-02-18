@@ -99,8 +99,10 @@
 \DeclareBibliographyOption[boolean]{urn}[true]{%
   \settoggle{bbx:urn}{#1}}
 \ExecuteBibliographyOptions{%
-  jstor,%
   urn,%
+  lstabbrv,%
+  lstlocations,%
+  lstpublishers,%
 }
 %-----------------------
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
