@@ -16,6 +16,7 @@
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
 \newbool{cbx:uniqueme}
+\newbool{cbx:yearinparensoption}
 %-----------------------
 %\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
 \newcommand*{\labelyeardelim}{\addspace}
@@ -81,24 +82,12 @@
   \global\cslet{cbx@bseen@names@\the\c@refsection}\@empty
   \global\cslet{cbx@fseen@names@\the\c@refsection}\@empty}
 
-%\renewrobustcmd*{\citereset}{%
-%  \csuse{blx@hook@cbxinit}%
-%  \@ifstar
-%    {}
-%    {\global\cslet{blx@bsee@\the\c@refsection}\@empty
-%     \global\cslet{blx@fsee@\the\c@refsection}\@empty
-%     \global\cslet{cbx@bseen@names@\the\c@refsection}\@empty
-%     \global\cslet{cbx@fseen@names@\the\c@refsection}\@empty
-%     \blx@ibidreset@force
-%     \blx@idemreset@force
-%     \blx@opcitreset@force
-%     \blx@loccitreset@force}}
-
 %-----------------------
 \DeclareBibliographyOption{yearinparens}[true]{%
   \ifstrequal{#1}{true}%
     {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}%
-     \csuse{bool#1}{cbx:yearinparens}}%
+     \csuse{bool#1}{cbx:yearinparens}
+     \booltrue{cbx:yearinparensoption}}%
     {\DeclareFieldFormat{citeyear}{##1}}}%
 \DeclareBibliographyOption{seenote}[true]{%
   \csuse{bool#1}{cbx:seenote}%
@@ -236,7 +225,7 @@
     \usebibmacro{name:andothers}}
 
 
-\DeclareNameFormat{citeauthor:firstfullthenfamily}{%
+\DeclareNameFormat{citeauthor:firstinitialsthenfamily}{%
   \cbx@ifnameseen{\thefield{hash}}
     {}
     {\ifnumequal{\value{uniquename}}{0}
@@ -269,12 +258,57 @@
       {\namepartsuffix}%
   \fi
   \usebibmacro{name:andothers}}
-    
+
+\DeclareNameFormat{citeauthor:firstfullthenfamily}{%
+  \cbx@ifnameseen{\thefield{hash}}
+    {\ifcase\value{uniquename}%
+       \usebibmacro{name:family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}%
+     \or
+       \ifuseprefix
+         {\usebibmacro{name:given-family}   
+           {\namepartfamily}
+           {\namepartgiveni}
+           {\namepartprefix}
+           {\namepartsuffixi}}
+         {\usebibmacro{name:given-family}
+           {\namepartfamily}
+           {\namepartgiveni}
+           {\namepartprefixi}
+           {\namepartsuffixi}}%
+     \or
+       \usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}%
+     \fi}
+    {\usebibmacro{name:given-family}
+       {\namepartfamily}
+       {\namepartgiven}
+       {\namepartprefix}
+       {\namepartsuffix}
+     \cbx@nametracker{\thefield{hash}}}%
+  \usebibmacro{name:andothers}}
+  
 \def\cbx@arch@citeauthorformat@firstfulltheninitials{%
    \DeclareNameAlias{citeauthor}{citeauthor:firstfulltheninitials}}
 
 \def\cbx@arch@citeauthorformat@firstfullthenfamily{%
    \DeclareNameAlias{citeauthor}{citeauthor:firstfullthenfamily}}
+
+\def\cbx@arch@citeauthorformat@firstinitialsthenfamily{%
+   \DeclareNameAlias{citeauthor}{citeauthor:firstinitialsthenfamily}}
+
+
+\def\cbx@arch@citeauthorformat@firstfull{%
+  \PackageWarningNoLine{biblatex-archaeologie}{%
+    Value 'firstfull' for 'citeauthorformat' is deprecated, use
+     'firstfulltheninitials' instead.}%
+  \cbx@arch@citeauthorformat@firstfulltheninitials}
 %-----------------------
 \ExecuteBibliographyOptions{%
   citetracker=true,

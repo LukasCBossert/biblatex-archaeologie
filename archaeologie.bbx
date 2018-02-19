@@ -10,8 +10,8 @@
 % http://www.latex-project.org/lppl.txt
 % and version 1.3 or later is part of all distributions of LaTeX
 % version 2005/12/01 or later.
-\def\arch@date{2018/02/13}
-\def\arch@version{2.3.5}
+\def\arch@date{2018/02/20}
+\def\arch@version{2.3.6}
 \def\arch@bbxid{\arch@date\space v\arch@version\space biblatex-archaeologie bibliography style (LCB/JF)}
 \def\arch@cbxid{\arch@date\space v\arch@version\space biblatex-archaeologie citation style (LCB/JF)}
 \def\arch@lbxid{\arch@date\space v\arch@version\space biblatex-archaeologie localization (LCB/JF)}
@@ -37,7 +37,8 @@
   bibencoding=utf8,%
   dateabbrev=false, %
   sorting=nyt,%
-  labeldateparts=true,
+  labeldateparts=true,%
+  labeldate=year,%
   maxnames=2,%
   minnames=1,%
   maxitems=1,%
@@ -146,16 +147,19 @@
       {Zusätzlich geladene oder \xout{deaktivierte} Optionen
       von \textsc{bib}\LaTeX-\textsf{archaeologie} (Version \archaeologieversion~| \archaeologiedate):}%
       {Additional options of \textsc{bib}\LaTeX-\textsf{archaeologie} (version \archaeologieversion~| \archaeologiedate) used or \xout{omitted}:}\addspace}%
-   {\ifthenelse{\equal{#1}{plain}}{}{{\PackageError{biblatex-archaeologie}%
-   {command 'archaeologieoptions[#1]' invalid.\MessageBreak%
-  Use   'archaeologieoptions[plain]' or omit the brackets.}{}
+   {\ifthenelse{\equal{#1}{plain}}
+     {}
+     {{\PackageError{biblatex-archaeologie}%
+       {command 'archaeologieoptions[#1]' invalid.\MessageBreak%
+          Use   'archaeologieoptions[plain]' 
+          or omit the brackets.}{}
   }}}%
   \def\seperator{ | }%
   \ifbool{bib:bibancient}{bibancient\seperator}{}%
   \ifbool{bib:bibcorpora}{bibcorpora\seperator}{}%
-  \ifbool{bib:lstabbrv}{lstabbrv\seperator}{}%
-  \ifbool{bib:lstlocations}{lstlocations\seperator}{}%
-  \ifbool{bib:lstpublishers}{lstpublishers\seperator}{}%
+  \ifbool{bib:lstabbrv}{}{\xout{lstabbrv}\seperator}{}%
+  \ifbool{bib:lstlocations}{}{\xout{lstlocations}\seperator}{}%
+  \ifbool{bib:lstpublishers}{}{\xout{lstpublishers}\seperator}{}%
   \ifbool{bbx:bibfullname}{bibfullname\seperator}{}%
   \ifdefstring\citeauthorformatVALUE{initials}%
     {}
@@ -168,16 +172,18 @@
   \ifbool{bbx:publisher}{publisher\seperator}{}%
   \ifbool{cbx:seenote}{seenote\seperator}{}%
   \ifbool{bbx:translation}{translation\seperator}{}%
-  \ifbool{bbx:width}{width=\labwidthsamelineVALUE\seperator}{}%
-  \ifbool{cbx:yearinparens}{yearinparens\seperator}{}%
+  \ifbool{bbx:width}%
+    {width\,=\labwidthsamelineVALUE\seperator}{}%
+  \ifbool{cbx:yearinparensoption}
+    {yearinparens\seperator}{}%
   \ifbool{bbx:yearseries}{yearseries\seperator}{}%
   \iftoggle{bbx:zenon}{zenon\seperator}{}%
-  \iftoggle{bbx:jstor}{}{\xout{jstor}\seperator}%
+  \iftoggle{bbx:jstor}{jstor\seperator}{}%
   \iftoggle{bbx:urn}{}{\xout{urn}\seperator}%
   \iftoggle{bbx:doi}{}{\xout{doi}\seperator}%
     \iflanguage{ngerman}%
-      {weitere Informationen unter \url{http://biblatex-archaeologie.de}}
-      {for further information see \url{http://biblatex-archaeologie.de}}
+      {Weitere Informationen unter \url{http://biblatex-archaeologie.de}}
+      {For further information see \url{http://biblatex-archaeologie.de}}
 }
 %-----------------------
 \DeclareFieldFormat*{title}{#1\isdot}
@@ -790,7 +796,6 @@
   \newunit}
 %-----------------------
 \DeclareLabeldate{%
-  \field{year}
   \field{date}
   \field{origdate}
   \field{urldate}

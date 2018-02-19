@@ -1,9 +1,13 @@
-@Article{DeVisscher1951-1952,
-  author       = {de Visscher, Fernand and Mertens, Joseph},
-  title        = {Les puits du Forum d'Alba Fucense},
-  journaltitle = BCom, %@String used
-  shortjournal = BCom-short, %@String used
-  volume       = {74},
-  pages        = {3--13},
-  date         = {1951/1952},
+@Book{Zanker1988,
+  author      = {Zanker, Paul},
+  title       = {The Power of Images in the Age of Augustus},
+  publisher   = UMP,    %@String used
+  location    = {Ann Arbor},
+  year        = {1988},
+  series      = {Jerome Lectures},
+  number      = {16},
+  translator  = {Shapiro, Alan H.},
+  language    = {english},
+  related     = {Zanker2009},
+  relatedtype = {translationof},
 }

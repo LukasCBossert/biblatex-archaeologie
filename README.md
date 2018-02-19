@@ -68,14 +68,20 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 ## v2.3.6 (201X-XX-XX) 
 
 ### *Added*
-* `citeauthorformat=firstfullthenfamily` as requested in
+* `citeauthorformat=firstinitialsthenfamily` as requested in
 [#138](https://github.com/LukasCBossert/biblatex-archaeologie/issues/138), 
+* `citeauthorformat=firstfullthenfamily` 
 
 ### *Changed*
 * `jstor=false` by default, since it is no part of the guidelines
 * `lstabbrv=true` by default
 * `lstlocations=true` by default
 * `lstpublishers=true` by default
+* `citeauthorformat=firstfull` is now called `citeauthorformat=firstfulltheninitials`
+
+### *Fixed*
+* wrong entry with `\archaeologieoptions` deleted
+* labeldates now work correctly
 
 
 ## v2.3.5 (2018-02-13) --> [current release]
