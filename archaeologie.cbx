@@ -1,7 +1,7 @@
 % archaeologie --%
 %  biblatex for archaeologists,
 %  historians and philologists
-% Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2018 Lukas C. Bossert | Johannes Friedl
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -108,7 +108,7 @@
     {\csuse{cbx@arch@citeauthorformat@#1}}%
     {\PackageError{biblatex-archaeologie}%
        {Option 'citeauthorformat=#1' invalid.\MessageBreak
-        Use one of the values 'initials', 'full', 'family' or 'firstfull'.}{}}%
+        Use one of the values 'initials', 'full', 'family', 'firstfulltheninitials' or 'firstfullthenfamily'.}{}}%
   \def\citeauthorformatVALUE{#1}}
 \DeclareEntryOption{uniqueme}[true]{\csuse{bool#1}{cbx:uniqueme}}
 %-----------------------
@@ -206,7 +206,7 @@
 \def\cbx@arch@citeauthorformat@initials{%
    \DeclareNameAlias{citeauthor}{name:initials}}
 
- \DeclareNameFormat{citeauthor:fancy}{%
+ \DeclareNameFormat{citeauthor:firstfulltheninitials}{%
     \cbx@ifnameseen{\thefield{hash}}
       {\ifnum\value{uniquename}=2
          \usebibmacro{name:given-family}
@@ -235,37 +235,43 @@
        \cbx@nametracker{\thefield{hash}}}%
     \usebibmacro{name:andothers}}
 
- \DeclareNameFormat{citeauthor:firstfullthenfamily}{%
-    \cbx@ifnameseen{\thefield{hash}}
-      {\ifnum\value{uniquename}=2
-         \usebibmacro{name:family}
-           {\namepartfamily}
-           {\namepartgiven}
-           {\namepartprefix}
-           {\namepartsuffix}%
-       \else
-         \ifuseprefix
-           {\usebibmacro{name:family}
-              {\namepartfamily}
-              {\namepartgiveni}
-              {\namepartprefix}
-              {\namepartsuffixi}}
-           {\usebibmacro{name:family}
-              {\namepartfamily}
-              {\namepartgiveni}
-              {\namepartprefixi}
-              {\namepartsuffixi}}%
-       \fi}
+
+\DeclareNameFormat{citeauthor:firstfullthenfamily}{%
+  \cbx@ifnameseen{\thefield{hash}}
+    {}
+    {\ifnumequal{\value{uniquename}}{0}
+       {\stepcounter{uniquename}}
+       {}%
+     \cbx@nametracker{\thefield{hash}}}%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \or
+    \ifuseprefix
       {\usebibmacro{name:given-family}
-         {\namepartfamily}
-         {\namepartgiven}
-         {\namepartprefix}
-         {\namepartsuffix}%
-       \cbx@nametracker{\thefield{hash}}}%
-    \usebibmacro{name:andothers}}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefixi}
+        {\namepartsuffixi}}%
+  \or
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}}
     
-\def\cbx@arch@citeauthorformat@firstfull{%
-   \DeclareNameAlias{citeauthor}{citeauthor:fancy}}
+\def\cbx@arch@citeauthorformat@firstfulltheninitials{%
+   \DeclareNameAlias{citeauthor}{citeauthor:firstfulltheninitials}}
 
 \def\cbx@arch@citeauthorformat@firstfullthenfamily{%
    \DeclareNameAlias{citeauthor}{citeauthor:firstfullthenfamily}}
