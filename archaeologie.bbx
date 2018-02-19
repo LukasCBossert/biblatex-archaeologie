@@ -16,8 +16,7 @@
 \def\arch@cbxid{\arch@date\space v\arch@version\space biblatex-archaeologie citation style (LCB/JF)}
 \def\arch@lbxid{\arch@date\space v\arch@version\space biblatex-archaeologie localization (LCB/JF)}
 
-\ProvidesFile{archaeologie.bbx}%
-  [\arch@bbxid]
+\ProvidesFile{archaeologie.bbx}[\arch@bbxid]
 \RequireBibliographyStyle{standard}
 \AtBeginDocument{%
   \urlstyle{sf}%
@@ -37,6 +36,7 @@
   bibencoding=utf8,%
   dateabbrev=false, %
   sorting=nyt,%
+  alldates=comp,%
   labeldateparts=true,%
   labeldate=year,%
   maxnames=2,%
