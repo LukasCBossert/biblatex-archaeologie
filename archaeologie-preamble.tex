@@ -29,8 +29,7 @@
 \setmainfont[Numbers = {Monospaced, OldStyle}]{Libertinus Serif}
 \setsansfont{Libertinus Sans}
 
-\newcommand\archversion[1]{%
-  \rmarginpar{#1}}
+
 \usepackage{xr-hyper}
 \usepackage{url}
 \usepackage{xspace}
@@ -95,7 +94,7 @@ draft=false,
 \usepackage{tabto}
 \usepackage{ifthen,xstring}
 
-\newcommand\rmarginpar[2][0pt]{\leavevmode%
+\newcommand\archversion[2][0pt]{\leavevmode%
   \tabto*{\dimexpr\linewidth+10pt}\smash{\raisebox{%
   \dimexpr.2\ht\strutbox+#1}{\parbox[t]{2.5cm}{%
     \small%

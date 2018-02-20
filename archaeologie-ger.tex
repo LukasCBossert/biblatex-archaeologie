@@ -106,9 +106,14 @@ Vornameinitial und Nachname, (bspw. L. F. Ball)\\
 voller Vor- und Nachname (bspw. Larry F. Ball),\\
 \DescribeMacro{=family}% \meta{family} 
 nur Nachname (bspw. Ball), \\
-\DescribeMacro{=firstfull}%\meta{firstfull} 
-voller Vor- und Zuname bei Erstnennung (bspw. Larry F. Ball), 
-weitere Erwähnungen werden mit Vornameinitial und Nachname ausgegeben (bspw. L. F. Ball).
+\DescribeMacro{=firstfulltheninitials}%\meta{firstfull} 
+voller Vor- und Zuname bei Erstnennung (bspw. Larry F. Ball) dann abgekürzt,\\
+\DescribeMacro{=firstfullthenfamily}\archversion{2.3.6}%\meta{firstfull} 
+voller Vor- und Zuname bei Erstnennung (bspw. Larry F. Ball) dann nur Nachname,\\
+\DescribeMacro{=firstinitialsthenfamily}\archversion{2.3.6}%\meta{firstfull} 
+abgekürzter Vorname bei Erstnennung (bspw. L. F. Ball),
+dann nur noch Nachname.
+
 
 \DescribeMacro{scshape}  Die Namen im Fließtext und in den Fußnoten werden in Kapitälchen gesetzt, ausgenommen sind Werke unbekannter Herkunft und Werke antiker Autoren.
 
@@ -192,14 +197,14 @@ Je nach Verwendung wird entweder nur der Titel oder der Autor eines Bibliographi
 Ein Vorteil gegenüber des händischen Eintippens eines solchen Elementes ist, dass der Eintrag indiziert und referenziert wird. Dies kann z.\,B. für einen (Autoren-)\-Index, der auf die Textstelle verweisen soll, relevant sein.
   
 \DescribeMacro{\citetitle*}
-  \rmarginpar{2.3.4} 
+  \archversion{2.3.4} 
   Damit wird nur der Titel ohne das Erscheinungsjahr ausgegeben.
   
-\DescribeMacro{\citetranslator}\rmarginpar{2.3.0}  Zusätzlich gibt es noch die Möglichkeit den Übersetzer eines (insbesondere) antiken Werkes anzugeben. 
+\DescribeMacro{\citetranslator}\archversion{2.3.0}  Zusätzlich gibt es noch die Möglichkeit den Übersetzer eines (insbesondere) antiken Werkes anzugeben. 
 Besonders wenn man einen antiken Text in Übersetzung zitiert, ist es üblich den Urheber der Übersetzung anzugeben.
 Ist kein Übersetzer vorhanden, dann gibt der Befehl einen selbst als Übersetzer an.
 
- \DescribeMacro{\citetranslator*} \rmarginpar{2.3.0} Die Sternchen-Variante gibt zusätzlich noch die Sprache an, 
+ \DescribeMacro{\citetranslator*} \archversion{2.3.0} Die Sternchen-Variante gibt zusätzlich noch die Sprache an, 
  aus der übersetzt wurde.
  
 \section{Publikationstypen}

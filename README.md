@@ -5,7 +5,7 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2018/02/13 v2.3.5_
+_2018/02/20 v2.3.6_
 
 
 Copyright (c) 2016-2018 Lukas C. Bossert | Johannes Friedl
@@ -65,7 +65,7 @@ additional lists and bibliographies:
 All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
-## v2.3.6 (201X-XX-XX) 
+## v2.3.6 (2018-02-20) 
 
 ### *Added*
 * `citeauthorformat=firstinitialsthenfamily` as requested in
