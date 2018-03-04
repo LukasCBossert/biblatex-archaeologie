@@ -537,13 +537,13 @@ Optional preferences in the preamble are loaded within the package |bib|\LaTeX:
     backend=biber,  % activates biber (default; 
                     % but will give an error if not done)
     style=archaeologie,   % loads the style *@|archaeologie|@*
-    inreferences=true,    % option *@|inreferences|@* is loaded
+    inreferencesasfullcite=true,    % option *@|inreferencesasfullcite|@* is loaded
     lstabbrv              % option *@|lstabbrv|@* is loaded as well
     ]{biblatex}
 \end{code}
-In this example the style |archaeologie| is loaded with options |inreferences| and |lstabbrv|. 
+In this example the style |archaeologie| is loaded with options |inreferencesasfullcite| and |lstabbrv|. 
 Now, manual entries don't appear in author-year-style anymore and journal/series |@string|-macros are enabled.
-By the way, it doesn't matter if you write |inreferences| or |inreferences=true|.
+By the way, it doesn't matter if you write |inreferencesasfullcite| or |inreferencesasfullcite=true|.
 
 Each of the listed options is disabled by default even if we strongly recommend their use in particular the additional bibliographies and |@String| lists. 
 All remaining options are rather a matter of taste.
@@ -724,8 +724,8 @@ Die Produktion des stätischen Raums, \emph{Introduction à l’espace urbain},
 {\color{red} trans. from French by F. Hiss -- H.-U. Wegener}, ARCH+ 34/9, 1977, 52–57}
 \end{bibbox}
 
-\subsubsection{inreferences}\label{inreferences}
-\DescribeMacro{inreferences}  
+\subsubsection{inreferencesasfullcite}\label{inreferences}
+\DescribeMacro{inreferencesasfullcite}  
 There is the possibility to cite inreferences in the footnote as a full citations.
 It is only required that the bibliography-entry is an |@Inreference|  (cf. \cref{inreference}).
  
@@ -747,7 +747,7 @@ There are two ways to display this entry:
  \begin{example}
 \footnote{\cite{Nieddu1995}.}
  \end{example}
- \item with the option |inreferences| it will change:
+ \item with the option |inreferencesasfullcite| it will change:
  \begin{tcolorbox}[examplebox]
  |\footnote{\cite{Nieddu1995}.}|
  \tcblower
@@ -762,7 +762,7 @@ then it will change the position for the \oarg{postnote}:
  \begin{example}
 \footnote{\cite[9]{Nieddu1995}.}
  \end{example}
- \item with the option |inreferences| it will change again:
+ \item with the option |inreferencesasfullcite| it will change again:
   \begin{tcolorbox}[examplebox]
 |\footnote{\cite[9]{Nieddu1995}.}|
  \tcblower
@@ -773,11 +773,11 @@ then it will change the position for the \oarg{postnote}:
 
 
 \begin{marker}
-    Activating |inreferences=true| causes the cited |@Inreference| entry to be automatically \emph{omitted} in the (final) bibliography,
+    Activating |inreferencesasfullcite=true| causes the cited |@Inreference| entry to be automatically \emph{omitted} in the (final) bibliography,
 because the entry is fully cited before in the footnotes (also stated in the \DAI rules).
 \end{marker}
 
-If the option is not used (|inreferences=false|) the entry will look like this in the bibliography:
+If the option is not used (|inreferencesasfullcite=false|) the entry will look like this in the bibliography:
 
 \printbib[6em]{Nieddu1995} 
 
@@ -1003,8 +1003,7 @@ volume       = {117},
 pages        = {461--492},
 year         = {2013},
 doi          = {10.3764/aja.117.3.0461},
-eprint       = {10.3764/aja.117.3.0461},
-eprinttype   = {jstor},
+jstor       = {10.3764/aja.117.3.0461},
 number       = {3},
 }
 \end{bibexample}
@@ -1581,8 +1580,7 @@ The first edition of \citetitle*{Zanker2009} by \citeauthor*{Zanker2009} has bee
   edition       = {5},
   origlocation  = Leipzig, %@String used
   origyear      = {1987},
-  eprint        = {000250713},
-  eprinttype    = {zenon},
+  zenon        = {000250713},
   language      = {german},
   origpublisher = {Koehler \& Amelang},
 }
@@ -2047,7 +2045,7 @@ The \DAI has a special rule for inreferences in the footnote.
 Then the output will be like:\\
 |reference volume (year) pages s.v. title (author)| \\
 and there will be no reference to the bibliography since the entry is fully described in the footnote.
-\DescribeMacro{inreferences} If you prefer this method you have to use the preamble option called  |inreferences|---cf. \cref{inreferences}
+\DescribeMacro{inreferencesasfullcite} If you prefer this method you have to use the preamble option called  |inreferencesasfullcite|---cf. \cref{inreferences}
 Then it will look like this in the footnote:
 \begin{examplemanual}
 \footnote{LIMC 7.1 (1994) 922--951 s. v. Theseus (J. Neils).}
@@ -2238,8 +2236,7 @@ Here is an example:
   title       = {Funktionen republikanischer und frühkaiserzeitlicher Forumsbasiliken in Italien},
   type        = {phdthesis},
   institution = {Ruprecht-Karls-Universität zu Heidelberg},
-  eprint      = {urn:nbn:de:bsz:16-heidok-74406},
-  eprinttype  = {urn},
+  urn      = {urn:nbn:de:bsz:16-heidok-74406},
   date        = {2005},
 }
 \end{bibexample}
@@ -2394,24 +2391,15 @@ in the internet via a permanent link there are different possibilities for refer
 }
 
 \DescribeMacro{jstor}
- If you can refer to the on-line platform \href{www.jstor.org}{jstor} then you need the individual number for the article---cf. \cref{Ball2013}:
-\begin{code}
-eprint = *@\marg{jstor-number}@*
-eprinttype = {jstor} 
-\end{code}      
-OR---cf. \cref{Osland2016}
+ If you can refer to the on-line platform \href{www.jstor.org}{jstor} then you need the individual number for the article---cf. \cref{Ball2013,Osland2016}:
+
 \begin{code}
 jstor = *@\marg{jstor-number}@*
 \end{code}  
 
 \DescribeMacro{urn}
-For all papers referable via an ›urn‹ (\emph{Uniform Resource Name}), which have been registered at the German National Library---cf. \cref{Arnolds2005}
-\begin{code}
-eprint = *@\marg{urn:xxx}@*
-eprinttype = {urn} 
-\end{code}      
+For all papers referable via an ›urn‹ (\emph{Uniform Resource Name}), which have been registered at the German National Library---cf. \cref{Arnolds2005}.
 
-OR
 \begin{code}
 urn = *@\marg{urn:xxx}@*
 \end{code}  
@@ -2419,17 +2407,23 @@ urn = *@\marg{urn:xxx}@*
 \DescribeMacro{zenon}
 This eprint-form is especially designed for the OPAC (Online Public Access Catalogue) of the \DAI.
 All bibliographical entries in this OPAC can be referred to via this link.
-You only need to insert the individual Zenon-number of the entry, e.\,g. \emph{http://zenon.dainst.org/Record/001371402} where \emph{001371402} is the individual number---cf. \cref{Zanker2009}.
+You only need to insert the individual Zenon-number of the entry, e.\,g. \emph{http://zenon.dainst.org/Record/001371402} where \emph{001371402} is the individual number---cf. \cref{Osland2016,Wulf-Rheidt2013,Ganzert1984.Zanker2009}.
 
 This option is set to |false| by default.
 \begin{code}
-eprint = *@\marg{Zenon-number}@*
-eprinttype = {zenon} 
-\end{code}      
-OR  cf. \cref{Osland2016,Wulf-Rheidt2013}.
-\begin{code}
 zenon = *@\marg{Zenon-number}@*
 \end{code}      
+
+\DescribeMacro{arachne}
+There is the object-database of the \DAI which is called iDAI.objects arachne. 
+You can cite the items with their entity-IDs 
+
+
+This option is set to |false| by default.
+\begin{code}
+arachne = *@\marg{entity-number}@*
+\end{code}      
+
 
 
 \DescribeMacro{doi} In addition you can also refer to a document via its |doi|-number---cf. \cref{Ball2013,Evangelidis2014} 
@@ -2455,7 +2449,7 @@ This is an example how it should not be done:
  
 \DescribeMacro{\parencite} \DescribeMacro{\parencites}
 This example shows that the correct order of parentheses has not been followed.
-Especially when you activated the preamble option  |inreferences=true| \DescribeMacro{inreferences} you should use \cs{parencite}\marg{bibtex-key} instead (\cref{cite-commands}), then the correct order of parentheses and square brackets is given:
+Especially when you activated the preamble option  |inreferencesasfullcite=true| \DescribeMacro{inreferencesasfullcite} you should use \cs{parencite}\marg{bibtex-key} instead (\cref{cite-commands}), then the correct order of parentheses and square brackets is given:
 \begin{tcolorbox}[examplebox]
 |\parencite[vgl.][930 Nr. 283]{Neils1994}.| 
 \tcblower

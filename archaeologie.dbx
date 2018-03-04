@@ -20,6 +20,8 @@
 \DeclareDatamodelEntryfields[talk]{author,title,subtitle,titleaddon,date,labeldate,year,venue,institution,eventtitle,eventdate,url,urldate,note}
 \DeclareDatamodelFields[type=field,datatype=verbatim]{zenon}
 \DeclareDatamodelEntryfields{zenon}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{arachne}
+\DeclareDatamodelEntryfields{arachne}
 \DeclareDatamodelFields[type=field,datatype=verbatim]{urn}
 \DeclareDatamodelEntryfields{urn}
 \DeclareDatamodelFields[type=field,datatype=verbatim]{jstor}

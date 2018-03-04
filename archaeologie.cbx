@@ -308,6 +308,8 @@
     Value 'firstfull' for 'citeauthorformat' is deprecated,\MessageBreak 
     use 'firstfulltheninitials' instead.}%
   \cbx@arch@citeauthorformat@firstfulltheninitials}
+
+
 %-----------------------
 \ExecuteBibliographyOptions{%
   citetracker=true,
@@ -346,7 +348,7 @@
 %-----------------------
 \renewbibmacro*{postnote}{%
   \ifboolexpr{
-    bool{bbx:inreferences}
+    bool{bbx:inreferencesasfullcite}
     and
     test{\ifentrytype{inreference}}
   }
@@ -419,7 +421,7 @@
 %-----------------------
 \newbibmacro{cite}{%
   \ifboolexpr{
-    bool{bbx:inreferences}
+    bool{bbx:inreferencesasfullcite}
     and
     test{\ifentrytype{inreference}}
   }
@@ -545,7 +547,7 @@
    \usebibmacro{cite}}
   {\multicitedelim}
   {\ifboolexpr{
-    bool{bbx:inreferences}
+    bool{bbx:inreferencesasfullcite}
     and
     test{\ifentrytype{inreference}}}
      {}
@@ -582,7 +584,7 @@
    \usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
    \ifboolexpr{
-    bool{bbx:inreferences}
+    bool{bbx:inreferencesasfullcite}
     and
     test{\ifentrytype{inreference}}}
      {\printtext}%
@@ -611,7 +613,7 @@
      {\ifnameundef{translator}%
        {\bibstring{owntranslation}}%
        {\ifboolexpr{
-          bool {bbx:inreferences}
+          bool {bbx:inreferencesasfullcite}
           and
           test  {\ifentrytype{inreference}}
         }%
@@ -631,7 +633,7 @@
    \usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
    \ifboolexpr{
-     bool{bbx:inreferences}
+     bool{bbx:inreferencesasfullcite}
      and
      test{\ifentrytype{inreference}}}
     {\printtext}%
@@ -664,7 +666,7 @@
   \boolfalse{pagetracker}%
   \usebibmacro{prenote}}%
   {\ifboolexpr{
-    bool{bbx:inreferences}
+    bool{bbx:inreferencesasfullcite}
     and
     test{\ifentrytype{inreference}}}
      {\printtext}%
@@ -688,7 +690,7 @@
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}%
   {\ifboolexpr{%
-    bool{bbx:inreferences}
+    bool{bbx:inreferencesasfullcite}
     and
     test{\ifentrytype{inreference}}}
      {\printtext}%
