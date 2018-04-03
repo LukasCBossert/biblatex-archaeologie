@@ -55,7 +55,6 @@
 \newbool{bbx:noabbrv}
 \newbool{bbx:translation}
 \newbool{bbx:publisher}
-\newbool{bbx:initials}
 \newbool{bbx:counter}
 \newbool{cbx:ancient}
 \newbool{cbx:frgancient}
@@ -123,7 +122,9 @@
 \def\archblx@biblabel@parens{\mkbibparens}
 
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
-\DeclareBibliographyOption{initials}[true]{\csuse{bool#1}{bbx:initials}}
+\DeclareBibliographyOption{initials}[true]{\PackageWarningNoLine{biblatex-archaeologie}{%
+    The option 'initials' has been deleted in version 2.3.7,\MessageBreak 
+  due to incompatibility reasons to 'biber'.}}
 \DeclareBibliographyOption{width}[]{%
   \csuse{booltrue}{bbx:width}%
   \setlength{\labwidthsameline}{#1}%
@@ -290,7 +291,7 @@
 \NewBibliographyString{loccit}
 \NewBibliographyString{subvoce}
 \NewBibliographyString{owntranslation}
-
+\NewBibliographyString{magthesis}
 %-----------------------
 \renewcommand*{\sqspace}{\addnbthinspace}
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}
@@ -627,37 +628,6 @@
     {}%
     {\clearname{translator}%
      \clearfield{origtitle}}}
-%-----------------------
-\AtBeginDocument{%
-  \ifbool{bbx:initials}{%http://tex.stackexchange.com/a/295486/98739
-    \DeclareStyleSourcemap{%
-      \maps[datatype=bibtex]{%
-        \map{%
-          % Author field
-          \step[fieldsource=author,%
-            match={\regexp{\b(Chr|Ch|Th|Ph|St)(\S*,)}},%
-            replace={\regexp{\{$1\}$2}}]% Protect last names (first last)
-          \step[fieldsource=author,%
-            match={\regexp{([^,]\s)\b(Chr|Ch|Th|Ph|St)}},%
-            replace={\regexp{$1\{$2\}}}]% Protect last names (last, first)
-          \step[fieldsource=author,%
-            match={\regexp{\b(Chr|Ch|Th|Ph|St)([^\}])}},%
-            replace={\regexp{\{\\relax\{\}$1\}$2}}]% Insert \relax after abbreviating
-          % Editor field
-          \step[fieldsource=editor,%
-            match={\regexp{\b(Chr|Ch|Th|Ph|St)(\S*,)}},%
-            replace={\regexp{\{$1\}$2}}]% Protect last names (first last)
-          \step[fieldsource=editor,%
-            match={\regexp{([^,]\s)\b(Chr|Ch|Th|Ph|St)}},%
-            replace={\regexp{$1\{$2\}}}]% Protect last names (last, first)
-          \step[fieldsource=editor,%
-            match={\regexp{\b(Chr|Ch|Th|Ph|St)([^\}])}},%
-            replace={\regexp{\{\\relax\{\}$1\}$2}}]% Insert \relax after abbreviating
-        }
-      }
-    }%
-  }
-  {}}
 %-----------------------
 %% provide macros to deal with intranslator, withincommentator, withinannotator, withinintroduction, withinforeword, withinafterword
 %% that is fields referring to the title work and not the booktitle work in inbook etc. works

@@ -83,6 +83,10 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * better coding for the year delimiter (thanks to moewe!)
 * 
 
+### *Deleted*
+*  Version `initials` has to be deleted since its incompatibility to `biber`-version `2.11` [https://github.com/plk/biber/issues/215](https://github.com/plk/biber/issues/215)
+
+
 ## v2.3.6 (2018-02-20) 
 
 ### *Added*
