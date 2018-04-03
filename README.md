@@ -69,13 +69,18 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 ### *Added*
 * New data-field `arachne = {}` to reference to the database iDAI.objects arachne
+* Alias `matheseis` for `thesis` (for all Zotero-users) (`\DeclareBibliographyAlias{mathesis}{thesis}`)
+
 
 
 ### *Changed*
 * `inreferences=true` is now called `inreferencesasfullcite=true` due to better understanding of the option. There is a fallback.
+*  `bibstrings` are defined in `archaeologie.bbx` now
+* `editortype` is now used as `parens`
+
 
 ### *Fixed*
-* just some better coding for year delimiter (thanks to moewe!)
+* better coding for the year delimiter (thanks to moewe!)
 * 
 
 ## v2.3.6 (2018-02-20) 
