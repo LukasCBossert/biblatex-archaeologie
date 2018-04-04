@@ -5,7 +5,7 @@ bibLaTeX-__archaeologie__
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2018/03/XX v2.3.7_
+_2018/XX/XX v2.3.7_
 
 
 Copyright (c) 2016-2018 Lukas C. Bossert | Johannes Friedl
@@ -65,12 +65,12 @@ additional lists and bibliographies:
 All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
-## v2.3.7 (2018-03-XX) 
+## v2.3.7 (2018-XX-XX) 
 
 ### *Added*
 * New data-field `arachne = {}` to reference to the database iDAI.objects arachne
 * Alias `matheseis` for `thesis` (for all Zotero-users) (`\DeclareBibliographyAlias{mathesis}{thesis}`)
-
+* field `eventdatelanguage`, you can get the date of the field `eventdate` in the chosen language, enable with `eventdatelanguage=true`
 
 
 ### *Changed*
@@ -81,7 +81,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 ### *Fixed*
 * better coding for the year delimiter (thanks to moewe!)
-* 
+
 
 ### *Deleted*
 *  Version `initials` has to be deleted since its incompatibility to `biber`-version `2.11` [https://github.com/plk/biber/issues/215](https://github.com/plk/biber/issues/215)

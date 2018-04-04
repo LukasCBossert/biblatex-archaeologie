@@ -26,4 +26,6 @@
 \DeclareDatamodelEntryfields{urn}
 \DeclareDatamodelFields[type=field,datatype=verbatim]{jstor}
 \DeclareDatamodelEntryfields{jstor}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{eventdatelanguage}
+\DeclareDatamodelEntryfields[proceedings,inproceedings]{eventdatelanguage}
 \endinput

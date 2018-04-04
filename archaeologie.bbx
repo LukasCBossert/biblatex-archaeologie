@@ -56,6 +56,7 @@
 \newbool{bbx:translation}
 \newbool{bbx:publisher}
 \newbool{bbx:counter}
+\newbool{bbx:eventdatelanguage}
 \newbool{cbx:ancient}
 \newbool{cbx:frgancient}
 \newbool{cbx:corpus}
@@ -122,9 +123,9 @@
 \def\archblx@biblabel@parens{\mkbibparens}
 
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
-\DeclareBibliographyOption{initials}[true]{\PackageWarningNoLine{biblatex-archaeologie}{%
+\DeclareBibliographyOption{initials}[false]{\PackageWarningNoLine{biblatex-archaeologie}{%
     The option 'initials' has been deleted in version 2.3.7,\MessageBreak 
-  due to incompatibility reasons to 'biber'.}}
+  due to incompatibility reasons with 'biber'.}}
 \DeclareBibliographyOption{width}[]{%
   \csuse{booltrue}{bbx:width}%
   \setlength{\labwidthsameline}{#1}%
@@ -141,6 +142,7 @@
 \DeclareBibliographyOption{inreferencesasfullcite}[true]{\csuse{bool#1}{bbx:inreferencesasfullcite}
   \ExecuteBibliographyOptions[inreference]{skipbib=true}%
   \ExecuteBibliographyOptions[inreference]{skiplab=true}}
+\DeclareBibliographyOption{eventdatelanguage}[true]{\csuse{bool#1}{bbx:eventdatelanguage}}
 \DeclareBibliographyOption{noabbrv}[true]{\csuse{bool#1}{bbx:noabbrv}}
 \DeclareBibliographyOption{translation}[true]{\csuse{bool#1}{bbx:translation}}
 \DeclareBibliographyOption{publisher}[true]{\csuse{bool#1}{bbx:publisher}
@@ -736,14 +738,6 @@
     \labwidthsameline\leavevmode\newline
   \fi}
 %-----------------------
-% \renewbibmacro{in:}{%
-%  \setunit{\isdot%
-%    \iffieldundef{title}
-%      {}
-%      {\addcomma}%
-%      \addspace}%
-%      \printtext{\bibstring{in}\intitlepunct}}
-%-----------------------
 \renewbibmacro*{pageref}{%
   \iflistundef{pageref}
     {}
@@ -943,13 +937,25 @@
        {\usebibmacro{volume}}}%
  \newunit}
 %-----------------------
+\newenvironment{fullexpotherlanguage}[1]{%
+  \begingroup
+  \edef\temp{\endgroup\noexpand\otherlanguage{#1}}%
+  \temp
+}{\endotherlanguage}
+%-----------------------
 \renewbibmacro{event+venue+date}{%
   \setunit{\adddot\addspace}%
   \printfield{eventtitle}%
   \setunit*{\addspace}%
   \printfield{venue}%
   \setunit*{\addspace}%
-  \printeventdate%
+\ifbool{bbx:eventdatelanguage}
+  {\begingroup
+  \begin{fullexpotherlanguage}{\thefield{eventdatelanguage}}%
+  \printeventdate
+  \end{fullexpotherlanguage}%
+  \endgroup}
+  {\printeventdate}
   \newunit
 }
 %-----------------------
