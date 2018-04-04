@@ -77,6 +77,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * `inreferences=true` is now called `inreferencesasfullcite=true` due to better understanding of the option. There is a fallback.
 *  `bibstrings` are defined in `archaeologie.bbx` now
 * `editortype` is now used as `parens`
+* `autolang=hyphen` now you can use `langid={}` to manage to language of an entry
 
 
 ### *Fixed*
@@ -84,7 +85,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 
 ### *Deleted*
-*  Version `initials` has to be deleted since its incompatibility to `biber`-version `2.11` [https://github.com/plk/biber/issues/215](https://github.com/plk/biber/issues/215)
+*  Version `initials` has to be deleted since its incompatibility to `biber`-version `2.11` see [https://github.com/plk/biber/issues/215](https://github.com/plk/biber/issues/215)
 
 
 ## v2.3.6 (2018-02-20) 
