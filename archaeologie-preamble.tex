@@ -25,11 +25,20 @@
     BoldItalicFont = AnonymousPro-Italic        ,
     UprightFont    = AnonymousPro-Regular       ,
   }
-\setmonofont[Scale= MatchUppercase]{AnonymousPro}
+\setmonofont[Scale= MatchLowercase]{AnonymousPro}
 \setmainfont[Numbers = {Monospaced, OldStyle}]{Libertinus Serif}
-\setsansfont{Libertinus Sans}
-
-
+%\setsansfont{Libertinus Sans}
+\setmainfont[
+%  Scale       = 0.95,
+%  Numbers  = {OldStyle},
+  Numbers={Proportional,OldStyle},
+% BoldItalicFont = Gentium Book Basic Bold Italic,
+  Ligatures   = TeX,
+  BoldFont={Gentium Basic Bold},
+% BoldFont    = GenBasB,
+%  BoldFont={Gentium Basic Bold},
+]{Gentium Plus}
+ 
 \usepackage{xr-hyper}
 \usepackage{url}
 \usepackage{xspace}

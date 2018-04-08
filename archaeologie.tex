@@ -1,7 +1,7 @@
 % archaeologie --%
 % biblatex for archaeologists, 
 % historians and philologists
-% Copyright (c) 2017 Lukas C. Bossert | Johannes Friedl
+% Copyright (c) 2016-2018 Lukas C. Bossert | Johannes Friedl
 %  
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -146,10 +146,6 @@ You can chose between the options
 \meta{firstfullthenfamily}; 
 cf. \cref{citeauthorformat}.
 
-
-
-\DescribeMacro{initials}
-First names are abbreviated keeping digraphs and trigraphs (this is default); cf. \cref{initials}.
 
 \DescribeMacro{scshape}
 Cited names are shown with small capital letters cf. \cref{scshape}.
@@ -1223,23 +1219,8 @@ Note that |biblatex| provides a related option |backref| which lists per referen
 that contains the cited reference. But having a different goal that option doesn't support counts. 
  
 \subsubsection{initials}\label{initials}
-\DescribeMacro{initials} 
-First names are abbreviated keeping digraphs and trigraphs instead of simple first letter initials.\footnote{The code for this option was taken from \href{http://tex.stackexchange.com/a/295486/98739}{tex.stackexchange.com/a/295486/98739} and has been modified.}
-Also see the warning when printing an index; cf. \cref{initials:index}.
-First names starting with |Ph..., Chr..., Ch..., Th..., St...| are abbreviated to these digraphs and trigraphs. For example in the bibliography or when you use \cs{citeauthor}\marg{bibtex-key}.
-
-Citing these two authors will show their digraphs and trigraphs:
-
-\begin{example}
-\citeauthor{Mann2011} and \citeauthor{Hufschmid2010}
-\end{example}
-
-
-
-This option is set to default, but you can --- of course --- deactivate it with |initials=false| in the preamble.
-
-With this default option you don’t have to change anything in your bibliographical-data.
-However  you can switch off the option |initials| and do the abbreviation manually:
+The former option |initials| was deleted since it got incompatible to |biber| version 2.11.
+However  you can do the abbreviation manually:
 
 \begin{code}
 author = {family=Mann, given=Christian, given-i={Chr}}
@@ -1251,7 +1232,7 @@ author = {family=Hufschmid, given=Thomas, given-i={Th}}
 \subsection{Bibliography entry options}\label{options-bibentry}
 \subsubsection{ancient}\label{ancient}
 \DescribeMacro{ancient}
-This option was found in an excellent |bib|\LaTeX-style called  |geschichtsfrkl| ( by Jonathan Zachhuber),\footnote{\href{https://www.ctan.org/pkg/geschichtsfrkl}{www.ctan.org/pkg/geschichtsfrkl}} 
+This option was found in an excellent |bib|\LaTeX-style called  |geschichtsfrkl| (by Jonathan Zachhuber),\footnote{\href{https://www.ctan.org/pkg/geschichtsfrkl}{www.ctan.org/pkg/geschichtsfrkl}} 
 so after some modifications we adopted and included it into |archaeologie|.
  
 If you intend to cite ancient authors we strongly recommend this option to you 
