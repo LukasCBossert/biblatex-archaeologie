@@ -950,14 +950,16 @@
   \setunit*{\addspace}%
   \printfield{venue}%
   \setunit*{\addspace}%
-\ifbool{bbx:eventdatelanguage}
-  {\begingroup
-  \begin{fullexpotherlanguage}{\thefield{eventdatelanguage}}%
+  \ifboolexpr{
+    bool{bbx:eventdatelanguage}
+    and
+    not test{\iffieldundef{eventdatelanguage}}
+  }
+  {\begin{fullexpotherlanguage}{\thefield{eventdatelanguage}}%
   \printeventdate
-  \end{fullexpotherlanguage}%
-  \endgroup}
+  \end{fullexpotherlanguage}}
   {\printeventdate}
-  \newunit
+  \newunit%
 }
 %-----------------------
 \renewbibmacro*{title}{%
@@ -973,7 +975,7 @@
   \iffieldundef{titleaddon}
     {\newunit}
     {\setunit*{\subtitlepunct}%
-     \printfield{titleaddon}}
+     \printfield{titleaddon}}%
 }
 %-----------------------
 \renewbibmacro*{booktitle}{%
