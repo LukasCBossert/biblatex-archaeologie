@@ -64,9 +64,11 @@ additional lists and bibliographies:
 All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
-## 2.3.8beta (2018-XX-XX)
 
+## v2.3.8 (2018-XX-XXX) 
 
+### *Fixed*
+* there was a bug if the field `eventdatelanguage` wasn’t defined [see #145](https://github.com/LukasCBossert/biblatex-archaeologie/issues/145)
 
 
 ## v2.3.7 (2018-04-08) 
@@ -111,7 +113,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * labeldates now work correctly
 
 
-## v2.3.5 (2018-02-13) --> [current release]
+## v2.3.5 (2018-02-13)
 
 ### *Fixed*
 * `\citereset` for author names (https://github.com/LukasCBossert/biblatex-archaeologie/issues/122)
