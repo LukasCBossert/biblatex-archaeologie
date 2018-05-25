@@ -69,7 +69,11 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 ### *Fixed*
 * there was a bug if the field `eventdatelanguage` wasn’t defined [see #145](https://github.com/LukasCBossert/biblatex-archaeologie/issues/145)
+* if the field `volume` doesn’t have an integer it won’t proceed with it as Roman numeral
+* somehow the field `edition` was missing for `references`, fixed it.
 
+### *Changed*
+* the fields `postnote` and `multipostnote` are formatted with `\mknormrange`, that means you don’t have to type `--` to get an endash for page ranges.
 
 ## v2.3.7 (2018-04-08) 
 

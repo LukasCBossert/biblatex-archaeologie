@@ -102,7 +102,8 @@
 %-----------------------
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareFieldFormat{prenote}{#1\isdot}
-\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{postnote}{\mknormrange{#1}}
+\DeclareFieldFormat{multipostnote}{\mknormrange{#1}}
 \DeclareFieldFormat{shorttitle}{#1}
 \DeclareFieldFormat{pages}{#1}
 
@@ -396,7 +397,7 @@
   \printfield{booktitle}%
   \setunit{\addspace}%
   \printfield{volume}%
-  \setunit{\addspace}%
+  \usebibmacro{edition}%
   \printfield[parens]{year}%
   \setunit{\addspace}%
   \iffieldundef{postnote}%
