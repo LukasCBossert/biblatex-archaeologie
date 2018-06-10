@@ -1439,4 +1439,10 @@
 }
 \docsvlist{shortjournal,shortseries}
 
+% this will not be needed in future versions of biblatex, see
+% https://github.com/plk/biblatex/commit/9a1f550222e294af5490488093a5e33e10493c63
+\providecommand*{\ifdateyearsequal}[2]{%
+  \ifboolexpr{ test {\iffieldsequal{#1year}{#2year}}
+               and test {\iffieldsequal{#1dateera}{#2dateera}}}}
+
 \endinput
