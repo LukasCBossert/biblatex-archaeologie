@@ -1,5 +1,5 @@
 bibLaTeX-__archaeologie__    
-======= 
+=======
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
@@ -12,16 +12,16 @@ Copyright (c) 2016-2018 Lukas C. Bossert | Johannes Friedl
 * Email: [info@biblatex-archaeologie.de](mailto:info@biblatex-archaeologie.de)
 * Website: [www.biblatex-archaeologie.de](http://www.biblatex-archaeologie.de)
 
-This citation-style covers the citation and bibliography rules of 
-the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen). 
-Various options are available to change and adjust 
+This citation-style covers the citation and bibliography rules of
+the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen).
+Various options are available to change and adjust
 the outcome according to one’s own preferences.
 (German, English, Italian, French, Spanish)
 
 ---
-*Der Stil setzt die Zitations- und Bibliographievorgaben 
-des [__Deutschen Archäologischen Instituts (DAI)__ ](http://www.dainst.org/dai/meldungen) (Stand 2014) um. 
-Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild 
+*Der Stil setzt die Zitations- und Bibliographievorgaben
+des [__Deutschen Archäologischen Instituts (DAI)__ ](http://www.dainst.org/dai/meldungen) (Stand 2014) um.
+Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild
 jedoch auch zu verändern, um eigenen Vorlieben anzupassen.*
 
 ---
@@ -65,17 +65,20 @@ All notable changes to this project will be documented in this file.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 
-## v2.3.8 (2018-XX-XXX) 
+## v2.3.8 (2018-XX-XXX)
 
 ### *Fixed*
 * there was a bug if the field `eventdatelanguage` wasn’t defined [see #145](https://github.com/LukasCBossert/biblatex-archaeologie/issues/145)
 * if the field `volume` doesn’t have an integer it won’t proceed with it as Roman numeral
 * somehow the field `edition` was missing for `references`, fixed it.
+* a mysterious space in the name part, got rid of it
+* missing space before `volumes`, added a space
 
 ### *Changed*
 * the fields `postnote` and `multipostnote` are formatted with `\mknormrange`, that means you don’t have to type `--` to get an endash for page ranges.
 
-## v2.3.7 (2018-04-08) 
+
+## v2.3.7 (2018-04-08)
 
 ### *Added*
 * New data-field `arachne = {}` to reference to the database iDAI.objects arachne
@@ -98,12 +101,12 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 *  Version `initials` has to be deleted since its incompatibility to `biber`-version `2.11` see [https://github.com/plk/biber/issues/215](https://github.com/plk/biber/issues/215)
 
 
-## v2.3.6 (2018-02-20) 
+## v2.3.6 (2018-02-20)
 
 ### *Added*
 * `citeauthorformat=firstinitialsthenfamily` as requested in
-[#138](https://github.com/LukasCBossert/biblatex-archaeologie/issues/138), 
-* `citeauthorformat=firstfullthenfamily` 
+[#138](https://github.com/LukasCBossert/biblatex-archaeologie/issues/138),
+* `citeauthorformat=firstfullthenfamily`
 
 ### *Changed*
 * `jstor=false` by default, since it is no part of the guidelines
@@ -121,12 +124,12 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 
 ### *Fixed*
 * `\citereset` for author names (https://github.com/LukasCBossert/biblatex-archaeologie/issues/122)
-* `\citetitle` will give the original title of a work which has the option `ancient`; 
+* `\citetitle` will give the original title of a work which has the option `ancient`;
 `\citetitle*` instead will always give title without year.
 * no comma before `in:` if title is missing (got wrong in last version)
 * `volume`/`volumes` are now shown for `book` etc.
 * `daterange` for a sequence of two years (now delimited by `\`)
-* Short-journal for `Archaeologia` 
+* Short-journal for `Archaeologia`
 ### *Changed*
 * `volume` is now automatically a Roman numeral for `book`, `inbook`, `collection`, `incollection`, `proceedings`, `inproceedings`, you only insert the Arabic number.
 
@@ -149,12 +152,12 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 * You can use the namefield `bookauthor` now, then no *(ed.)* will be printed.
 
 
-## v2.3.3 (2017-08-10) 
+## v2.3.3 (2017-08-10)
 
 #### *fixed*
 * typo in documentation
 
-#### *added* 
+#### *added*
 * if there is no `translator` `\citetranslator` will fall back to the `bibstring` "owntranslation" which can be modified; see [#112](https://github.com/LukasCBossert/biblatex-archaeologie/issues/112) and [tex.stackexchange.com/q/385719/98739](https://tex.stackexchange.com/q/385719/98739) thanks to [moewe](https://tex.stackexchange.com/users/35864/moewe)
 
 ## v2.3.2 (2017-07-19)
@@ -163,7 +166,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 * wrong code-example in documentation
 * issue [#111](https://github.com/LukasCBossert/biblatex-archaeologie/issues/111) (regarding option `inreferences`) solved, thanks to [moewe](https://tex.stackexchange.com/users/35864/moewe)
 
-## v2.31 (2017-05-29) 
+## v2.31 (2017-05-29)
 
 #### *fixed*
 * number after year in an article if there is no volume.
@@ -175,12 +178,12 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 * typo in the German documentation
 * related example in German documentation corrected
 
-#### *added* 
+#### *added*
 * get the translator of an ancient opus with `\citetranslator` or `\citetranslator*`
 * more citation commands (`\smartcite`; `\autocite`; `\fullcite`; `\footfullcite`)
 * support for `polyglossia`
 
-## v2.2b (2016-10-06) 
+## v2.2b (2016-10-06)
 * *typo* <br> documentation with new style
 
 ## v2.2 (2016-09-25)
@@ -203,4 +206,3 @@ version 2005/12/01 or later.
 ---
 This work has the LPPL maintenance status _maintained_.
 The current maintainer of this work is [Lukas C. Bossert](https://github.com/LukasCBossert).
-

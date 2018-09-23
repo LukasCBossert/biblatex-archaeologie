@@ -116,7 +116,7 @@
        {Unknown value '#1' for option 'biblabel'.\MessageBreak
         Possible values are 'plain', 'bold', 'brackets', 'parens'.}%
      \csdef{archblx@biblabel}{\csuse{archblx@biblabel@plain}}}
-    {\csdef{archblx@biblabel}{\csuse{archblx@biblabel@#1}}}}    
+    {\csdef{archblx@biblabel}{\csuse{archblx@biblabel@#1}}}}
 \let\archblx@biblabel@plain\@firstofone
 \def\archblx@biblabel@bold{\mkbibbold}
 \def\archblx@biblabel@brackets{\mkbibbrackets}
@@ -124,7 +124,7 @@
 
 \DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
 \DeclareBibliographyOption{initials}[false]{\PackageWarningNoLine{biblatex-archaeologie}{%
-    The option 'initials' has been deleted in version 2.3.7,\MessageBreak 
+    The option 'initials' has been deleted in version 2.3.7,\MessageBreak
   due to incompatibility reasons with 'biber'.}}
 \DeclareBibliographyOption{width}[]{%
   \csuse{booltrue}{bbx:width}%
@@ -136,9 +136,9 @@
 \DeclareNameAlias{author}{given-family}}
 \DeclareBibliographyOption{inreferences}[true]{%
   \PackageWarningNoLine{biblatex-archaeologie}{%
-    The option 'inreferences' for is deprecated,\MessageBreak 
+    The option 'inreferences' for is deprecated,\MessageBreak
     use 'inreferencesasfullcite' instead.}%
-   \booltrue{bbx:inreferencesasfullcite}}  
+   \booltrue{bbx:inreferencesasfullcite}}
 \DeclareBibliographyOption{inreferencesasfullcite}[true]{\csuse{bool#1}{bbx:inreferencesasfullcite}
   \ExecuteBibliographyOptions[inreference]{skipbib=true}%
   \ExecuteBibliographyOptions[inreference]{skiplab=true}}
@@ -174,7 +174,7 @@
      {}
      {{\PackageError{biblatex-archaeologie}%
        {command 'archaeologieoptions[#1]' invalid.\MessageBreak%
-          Use   'archaeologieoptions[plain]' 
+          Use   'archaeologieoptions[plain]'
           or omit the brackets.}{}
   }}}%
   \def\seperator{ | }%
@@ -334,7 +334,7 @@
 
 \newrobustcmd*{\bibdatesubseqesep}{\slash}
 \newrobustcmd*{\bibdaterangesepx}[1]{%
-  \ifboolexpr{test {\iffieldint{#1year}} and test {\iffieldint{#1endyear}}} 
+  \ifboolexpr{test {\iffieldint{#1year}} and test {\iffieldint{#1endyear}}}
     {\ifnumequal{\thefield{#1endyear}-\thefield{#1year}}{1}
        {\bibdatesubseqesep}
        {\bibdaterangesep}}
@@ -786,7 +786,7 @@
   \iffieldundef{arachne}
     {}
     {\usebibmacro{bbx:parunit}%
-     \printfield{arachne}}}     
+     \printfield{arachne}}}
 %-----------------------
 \newbibmacro*{urn}{%
   \iffieldundef{urn}
@@ -1084,7 +1084,8 @@
   \iffieldundef{volume}%
     {\iffieldundef{volumes}%
        {}%
-       {\printfield{volumes}%
+       {\setunit{\addspace}%
+        \printfield{volumes}%
         \setunit*{\addspace}%
         \bibstring{volumes}%
         \setunit{\addspace}}}%

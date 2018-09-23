@@ -1,8 +1,8 @@
 % archaeologie --%
-% biblatex for archaeologists, 
+% biblatex for archaeologists,
 % historians and philologists
 % Copyright (c) 2016-2018 Lukas C. Bossert | Johannes Friedl
-%  
+%
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
 % of this license or (at your option) any later version.
@@ -31,23 +31,23 @@ english,
 %   {}
 %   {}
 % \makeatother
- 
- 
+  
+
 \begin{document}
 \pdfbookmark[1]{Titlepage}{title}
 \title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy for (ancient) History or Classics, too.
-For further information about the code visit \href{http://www.biblatex-archaeologie.de}{biblatex-archaeologie.de}: 
+For further information about the code visit \href{http://www.biblatex-archaeologie.de}{biblatex-archaeologie.de}:
 Comments and criticisms are welcome.
 We thank especially \href{https://tex.stackexchange.com/users/35864/moewe}{moewe} and \href{https://tex.stackexchange.com/users/2478/herbert}{herbert} for their great help with the code.%
 }}
-\author{Lukas C. Bossert\\{\small \href{mailto:info@biblatex-archaeologie.de}{info@biblatex-archaeologie.de}} 
+\author{Lukas C. Bossert\\{\small \href{mailto:info@biblatex-archaeologie.de}{info@biblatex-archaeologie.de}}
 \and Johannes Friedl}
-\date{Version: \archaeologieversion{} (\archaeologiedate)} 
+\date{Version: \archaeologieversion{} (\archaeologiedate)}
 \maketitle
 
 \begin{abstract}
-\noindent This citation-style covers the citation and bibliography rules of the \DAI (DAI). 
-Various options are available to change and adjust the outcome according to one's own preferences. 
+\noindent This citation-style covers the citation and bibliography rules of the \DAI (DAI).
+Various options are available to change and adjust the outcome according to one's own preferences.
 The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.
 \bigskip
 
@@ -60,16 +60,16 @@ The style is compatible with the English, German, Italian, Spanish and French la
 \end{multicols}
 
 \section{Installation}
-|archaeologie| is part of the distributions MiK\TeX \footnote{Website: \url{http://www.miktex.org}.} 
+|archaeologie| is part of the distributions MiK\TeX \footnote{Website: \url{http://www.miktex.org}.}
 and \TeX Live\footnote{Website: \url{http://www.tug.org/texlive}.}~-- thus, you
-can easily install it using the respective package manager. 
+can easily install it using the respective package manager.
 If you would like to
 install |archaeologie| manually, do the following:
 Download the folder |archaeologie| with all relevant files from the CTAN-server\footnote{\url{https://www.ctan.org/pkg/archaeologie}} and copy the content of the |zip|-file to the \texttt{\$LOCALTEXMF} directory of
  your system.\footnote{If you don't know what that is, have a look at
-\url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tds} or 
-\url{http://mirror.ctan.org/tds/tds.html}.} 
-Refresh your filename database.\footnote{ 
+\url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=tds} or
+\url{http://mirror.ctan.org/tds/tds.html}.}
+Refresh your filename database.\footnote{
 Here is some additional information from the UK \TeX\ FAQ:
 \begin{itemize}[nosep,after=\vspace{-\baselineskip} ]
   \item \href{%
@@ -86,7 +86,7 @@ Here is some additional information from the UK \TeX\ FAQ:
 %%introduction from biblatex-dw copied and applied. might to be rewritten.
 
 \section{Usage}
- \DescribeMacro{archaeologie}  The name of the bib\LaTeX-style is  |archaeologie| which has to be activated in the preamble. 
+ \DescribeMacro{archaeologie}  The name of the bib\LaTeX-style is  |archaeologie| which has to be activated in the preamble.
 
 \begin{code}
 \usepackage[style=archaeologie,%
@@ -94,24 +94,24 @@ Here is some additional information from the UK \TeX\ FAQ:
 \addbibresource*@\marg{|bib|-file.bib}@*
 \end{code}
 
-Without any further options the style follows the rules of the \DAI. 
+Without any further options the style follows the rules of the \DAI.
 No additional settings are needed,
 but you can change the outcome by using some options which are explained below.\footnote{For an easy and unproblematic compiling we suggest to use \hologo{XeLaTeX} or  \hologo{LuaTeX}.}
 
-At the end of your document you can write the command |\printbibliography| to print 
-the bibliography. 
-Since |archaeologie| supports different citations of various texts such as those of ancient authors and  modern scholars we suggest  having them listed in separate bibliographies. 
+At the end of your document you can write the command |\printbibliography| to print
+the bibliography.
+Since |archaeologie| supports different citations of various texts such as those of ancient authors and  modern scholars we suggest  having them listed in separate bibliographies.
 Further information can be found below   (\cref{bibliographie}).
 
 \section{Overview}\label{overview}
-There follows a quick overview of possible options of the style |archaeologie|. 
+There follows a quick overview of possible options of the style |archaeologie|.
 Contrary to the alphabetically ordered description later (\cref{options-description}) they here are listed by topic.
-Furthermore you can -- at your own risk -- also use the conventional |bib|\LaTeX-options relating to indent, etc. 
+Furthermore you can -- at your own risk -- also use the conventional |bib|\LaTeX-options relating to indent, etc.
 For that please see the excellent documentation of  |bib|\LaTeX.
 
 \subsection{Preamble options}\label{preamble_options}
 \subsubsection{Additional bibliographies and macro lists}
-\DescribeMacro{bibancient}A separate bibliography-file is loaded, in which round about 
+\DescribeMacro{bibancient}A separate bibliography-file is loaded, in which round about
 600 ancient authors and works are listed and can be cited right away; cf. \cref{bibancient}.
 
 \DescribeMacro{bibcorpora}
@@ -120,15 +120,15 @@ Additionally this activates the bibliography |archaeologie-lstabbrv.bib|.
 
 \DescribeMacro{lstabbrv}
 Activates the additional bibliography file |archaeologie-lstabbrv.bib|.
-It provides a list of journals and series according to the abbreviations of the 
-\DAI which can be used as |@String| macros in bibliography entries; cf. \cref{abbrv}. 
+It provides a list of journals and series according to the abbreviations of the
+\DAI which can be used as |@String| macros in bibliography entries; cf. \cref{abbrv}.
 
 \DescribeMacro{lstlocations}
 Activates the additional bibliography file |archaeologie-lstlocations.bib|
 with |@String| macros of locations which can be used to automatically print out their correct exonym in the selected language; cf. \cref{lstlocations}.
 
 \DescribeMacro{lstpublishers}
-Activates the additional bibliography file |archaeologie-lstpublishers.bib| with |@String| macros 
+Activates the additional bibliography file |archaeologie-lstpublishers.bib| with |@String| macros
 of several publishers which can be used to easily print out their names; cf. \cref{lstpublishers}.
 
 \subsubsection{Notation of names}
@@ -137,13 +137,13 @@ In the bibliography full names of authors and/or editors are shown; cf. \cref{bi
 
 \DescribeMacro{citeauthorformat}\archversion{2.3.6}
 You can chose how the name of authors or editors are displayed within your text when they are cited with \cs{citeauthor}\marg{bibtex-key}.
-You can chose between the options 
-\meta{initials}, 
-\meta{full}, 
-\meta{family}, 
+You can chose between the options
+\meta{initials},
+\meta{full},
+\meta{family},
 \meta{firstfulltheninitials},
 \meta{firstinitialsthenfamily},
-\meta{firstfullthenfamily}; 
+\meta{firstfullthenfamily};
 cf. \cref{citeauthorformat}.
 
 
@@ -157,7 +157,7 @@ Bibliography entries with |option={ancient}| or |option={frgancient}| (\cref{anc
 Switches \enquote{ed.}/\enquote{Hrsg.} to \enquote{ed. by}/\enquote{hrsg. v.}; cf. \cref{edby}.
 
 \DescribeMacro{inreferences}
-Each bibliography entry which is an |@Inreference| is fully referenced according to the special rules of the 
+Each bibliography entry which is an |@Inreference| is fully referenced according to the special rules of the
 \DAI for manuals and encyclopaedias; cf. \cref{inreferences}.
 
 \DescribeMacro{noabbrv}
@@ -165,24 +165,24 @@ By default the short titles of journals and series (|shortjournal| and |shortser
 With this option full titles are printed instead (|journaltitle| and |series|); cf. \cref{noabbrevs}.
 
 \DescribeMacro{publisher}
-All locations and the publisher is shown. 
+All locations and the publisher is shown.
 It also changes the format of the edition and the first print; cf. \cref{publisher}.
 
 \DescribeMacro{seenote}
-By default |archaeologie| prints author-year-system. 
-With this option you can change it to a different outcome (but still according to the rules of the \DAI). 
+By default |archaeologie| prints author-year-system.
+With this option you can change it to a different outcome (but still according to the rules of the \DAI).
 So the first citation will be a full citation and all the following citations will refer to the first full citation; cf. \cref{seenote}
 
 \DescribeMacro{translation}
-Original title, translator and original language are shown in the bibliography. 
-Setting a bibliography entry to |option={ancient}| this behaviour is default; cf. \cref{translation}. 
+Original title, translator and original language are shown in the bibliography.
+Setting a bibliography entry to |option={ancient}| this behaviour is default; cf. \cref{translation}.
 
 \DescribeMacro{yearinparens}
 The year is shown in parentheses; cf. \cref{yearinparens}.
 
 \DescribeMacro{yearseries}
 Switches the order of series and year; cf. \cref{yearseries}.
- 
+
 \subsubsection{Global bibliography settings}
 
 \DescribeMacro{width}
@@ -193,8 +193,8 @@ Reveals at the end of each reference a summary of citations in the text; cf. \cr
 
 \subsection{Entry Options}
 A single bibliography entry can contain a value in its |options|-field.
-Depending on the option it changes the behaviour of how that entry is cited; cf. \cref{options-bibentry,beispiele}. 
-Beside their distinct properties all of these options have in common that the separating comma between citation and page record is missing. 
+Depending on the option it changes the behaviour of how that entry is cited; cf. \cref{options-bibentry,beispiele}.
+Beside their distinct properties all of these options have in common that the separating comma between citation and page record is missing.
 Actually this concerns citation of ancient texts and corpora where usually the |shorthand|-field is printed in citations.
 
 \DescribeMacro{ancient}
@@ -203,11 +203,11 @@ The entry is an ancient source (e.\,g. Cicero, Plutarch, etc); cf. \cref{ancient
 \DescribeMacro{frgancient}
 The entry is a fragmentary ancient source (e.\,g. Festus); cf. \cref{frgancient}.
 
-\DescribeMacro{corpus} 
+\DescribeMacro{corpus}
 Only the |shorthand|-field is printed.
 This is needed especially for corpora of inscriptions or coins (CIL, AE, RIC, etc.); cf. \cref{corpus}.
 
-\DescribeMacro{uniqueme} 
+\DescribeMacro{uniqueme}
 In cases there are different translations of an ancient work you can decide which one is the standard translation and which ones should be made unique by displaying the translator/series/editor; cf. \cref{uniqueme}.
 
 \changes{v1.1}{2015/06/04}{New options added in summary.}
@@ -243,14 +243,14 @@ If one wants to cite several authors or works a very convenient way is the follo
 \begin{example}
 Public space is part of a city say \cites(cf.)(){Osland2016}{Evangelidis2014}.
 \end{example}
- 
+
  \subsubsection{parencite and parencites}
 \DescribeMacro{\parencite}
-Sometimes a citation has to be put in parentheses. 
+Sometimes a citation has to be put in parentheses.
 Therefore we implemented the command \cs{parencite}:
 \begin{code}
 \parencite*@\oarg{postnote}\marg{bibtex-key}%@*
-\end{code} 
+\end{code}
 This cite command takes care of the correct corresponding parentheses and brackets.
 Especially in |@Inreference| citations the parentheses  change to (square) brackets.
 The example shown in \cref{faq:inreference} makes it clear.
@@ -275,17 +275,17 @@ Public space is part of a city \parencites(cf.)(){Osland2016}{Evangelidis2014}.
 \DescribeMacro{\textcite}
 Beside the listed \cs{cite} commands above there is a third way of citing:
 \cs{textcite} is useful if the author should be mentioned in the text and
-the remaining components such as year and page will immediately follow in parentheses. 
+the remaining components such as year and page will immediately follow in parentheses.
 \begin{code}
 \textcite*@\oarg{postnote}\marg{bibtex-key}%@*
-\end{code} 
+\end{code}
 
 \begin{example}
 Public space is part of a city says \textcite{Osland2016}.
 \end{example}
 
 \DescribeMacro{\textcites}
-And again there is also a \cs{textcites} in case of several authors: 
+And again there is also a \cs{textcites} in case of several authors:
 \begin{code}
 \textcites(pre-prenote)(post-postnote)%
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
@@ -312,26 +312,26 @@ This is the equivalent to |\footnote{\cite{Osland2016}.}| but it saves you a lot
 \begin{example}
 Public space is part of a city.\footcites(cf.)(){Osland2016}{Evangelidis2014}
 \end{example}
- 
+
  \subsubsection{smartcite and smartcites}
 
 \DescribeMacro{\smartcite}
 And there is also a clever way citing with \cs{smartcite}.
 \cs{smartcite} depends on its environment it is used in. If it is your normal text it behaves like \cs{footcite} and will print the citation within a footnote.
-If it is already within a footnote it will be handled like \cs{cite}. 
- is a clever 
+If it is already within a footnote it will be handled like \cs{cite}.
+ is a clever
 \begin{code}
 \smartcite*@\oarg{postnote}\marg{bibtex-key}%@*
-\end{code} 
+\end{code}
 
 \begin{example}
-Public space is part of a city.\smartcite{Osland2016} 
+Public space is part of a city.\smartcite{Osland2016}
 And sometimes more than that.\footnote{\smartcite[cf.][]{Evangelidis2014}.}
 \end{example}
 
 
 \DescribeMacro{\smartcites}
-And again there is also a \cs{smartcites} in case of several authors: 
+And again there is also a \cs{smartcites} in case of several authors:
 \begin{code}
 \smartcites(pre-prenote)(post-postnote)%
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*%
@@ -339,22 +339,22 @@ And again there is also a \cs{smartcites} in case of several authors:
   *@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}\ldots@*
 \end{code}
 \begin{example}
-Public space is part of a city.\smartcites{Osland2016}{Evangelidis2014} 
+Public space is part of a city.\smartcites{Osland2016}{Evangelidis2014}
 And sometimes more than that.\footnote{\smartcites{Osland2016}[cf.][]{Evangelidis2014}.}
 \end{example}
 
 \subsubsection{autocite}
 
 \DescribeMacro{\autocite}
-With \cs{autocite} there is a flexible way of citing. 
+With \cs{autocite} there is a flexible way of citing.
 We set up \cs{autocite} as \cs{footcite} by default.
 If you want to change it you can also write in the preamble e.\,g. |autocite=inline|.
 \begin{code}
 \autocite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
-\end{code} 
+\end{code}
 
 \begin{example}
-Public space is part of a city.\autocite{Osland2016} 
+Public space is part of a city.\autocite{Osland2016}
 \end{example}
 
 \subsubsection{fullcite and footfullcite}
@@ -363,7 +363,7 @@ With \cs{fullcite} and \cs{footfullcite} you can print the complete entry in you
 \begin{code}
 \fullcite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
 \footfullcite*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}@*
-\end{code} 
+\end{code}
 
 \begin{example}
 Public space is part of a city.\footfullcite{Osland2016}
@@ -378,26 +378,26 @@ As can be read in \fullcite{Evangelidis2014}
 Furthermore and in addition to the ›normal‹ \cs{cite}-commands one can also cite only the author or the work title in the text and in the footnotes.
 \begin{code}
 \citeauthor*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
-\end{code} 
-  and for the works 
+\end{code}
+  and for the works
 \begin{code}
 \citetitle*@\oarg{prenote}\oarg{postnote}\marg{bibtex-key}%@*
-\end{code} 
+\end{code}
 
 \begin{example}
 Public space is part of a city says \citeauthor{Osland2016} in \citetitle{Osland2016}.
 \end{example}
 For further information cf. \cref{citeauthorformat}.
 
-Note that the |\citetitle|-command works differently with ancient works (for all those who have  |option={ancient}|). 
-First the field |origtitle| will be shown if this field is empty it will show its |title| instead. 
+Note that the |\citetitle|-command works differently with ancient works (for all those who have  |option={ancient}|).
+First the field |origtitle| will be shown if this field is empty it will show its |title| instead.
 
 \DescribeMacro{\citetitle*}
-Sometimes you don’t need the year of publication but still want the published title. 
+Sometimes you don’t need the year of publication but still want the published title.
 Then |\citetitle*| is what you need:
-\archversion{2.3.4} 
+\archversion{2.3.4}
 \begin{example}
-In 2016  \citeauthor{Osland2016} says in \citetitle*{Osland2016} 
+In 2016  \citeauthor{Osland2016} says in \citetitle*{Osland2016}
 public space is part of a city.
 \end{example}
 
@@ -405,7 +405,7 @@ Note that the |\citetitle*|-command will always show the field |title| without t
 
 \subsubsection{citetranslator}
 \DescribeMacro{\citetranslator}\label{citetranslator}%
-\archversion{2.3.0} 
+\archversion{2.3.0}
 Addionally there is also a \cs{cite}-command which can be used to print the translator of an (ancient) publication.
 \begin{code}
 \citetranslator*@\marg{bibtex-key}%@*
@@ -415,12 +415,12 @@ This will print the name(s) of the translator according to the chosen |citeautho
 \begin{example}
 \blockcquote[12,25,1]{Cic:Att}{Aber dein Heim ist das Forum.} (\citetranslator{Cic:Att})
 \end{example}
-\archversion{2.3.3} 
+\archversion{2.3.3}
 If there is no translator given it will name you as translator using a |bibstring| with \enquote{own translation}.
 \begin{example}
 \blockcquote[3,62,1]{Artem}{The Agora means confusion and uproar because of the people that are gathered there.} (\citetranslator{Artem})
 \end{example}
-You can change the |bibstring| \enquote{own translation} and replace it with anything you like, 
+You can change the |bibstring| \enquote{own translation} and replace it with anything you like,
 at least it is done in the preamble of your document.
 \begin{code}
 \DefineBibliographyStrings{english}{%
@@ -433,7 +433,7 @@ at least it is done in the preamble of your document.
 \DescribeMacro{\citetranslator*}\archversion{2.3.0}
 \begin{code}
 \citetranslator* *@\marg{bibtex-key}%@*
-\end{code} 
+\end{code}
 
 The starred version prints also the informtion from which language the text has been translated.
 
@@ -445,25 +445,25 @@ The starred version prints also the informtion from which language the text has 
 
 \subsection{Entries with @String}\label{string}
 The citation rules of the \DAI instruct to abbreviate journals and series according to a given list.\footnote{\url{http://www.dainst.org/documents/10180/70593/03_Liste+abzukürzender+Zeitschriften_quer.pdf} <2016-06-06>}
-For this purpose we provide a list with bibliography macros which refer to these abbreviations. 
-These abbreviations can be included by loading package option |lstabbrv| (cf. \cref{abbrv}). 
+For this purpose we provide a list with bibliography macros which refer to these abbreviations.
+These abbreviations can be included by loading package option |lstabbrv| (cf. \cref{abbrv}).
 Besides there are two further lists with |@String| macros cf. \cref{lstpublishers,lstlocations}.
 
-\DescribeMacro{@String} The style |archaeologie| respects the guidelines of the \DAI 
+\DescribeMacro{@String} The style |archaeologie| respects the guidelines of the \DAI
 and is therefore compatible with the given abbreviations of journals and series.
 To minimize the susceptibility to errors and to omit unnecessary typing of sometimes very long journal titles |archaeologie| works with so-called |@Strings|.
-The advantage of these |@Strings| is that several bibliography entries can be defined by one globally given value. 
+The advantage of these |@Strings| is that several bibliography entries can be defined by one globally given value.
 The |@String| is loaded at begin of the |bib|-file, therefore all |@Strings| have to be previous to all other bibliography entries.
- 
+
 To use this offer of simplification the following bibliography fields should be field with such a a |@String|: |journaltitle| and |shortjournal|,
 (|series| and |shortseries|.
-In \cref{abbrv-lists} there is a list with all the abbreviations given by the \DAI, 
-in which the |@String| (with endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.  
-An |@String| has to be written \emph{without} any curly brackets.\footnote{If you use \emph{JabRef} in its non-coding window, 
-then you have to write \#|AyasofyaMuezYil|\#. 
-JabRef converts this internally to a |@String| and omits the \# in the coding window. 
+In \cref{abbrv-lists} there is a list with all the abbreviations given by the \DAI,
+in which the |@String| (with endings |-short| for |shortjournal| or |shortseries|) are listed in the left column.
+An |@String| has to be written \emph{without} any curly brackets.\footnote{If you use \emph{JabRef} in its non-coding window,
+then you have to write \#|AyasofyaMuezYil|\#.
+JabRef converts this internally to a |@String| and omits the \# in the coding window.
 \emph{BibDesk} provides such conversion as well by pressing
-  %|cmd-R| 
+  %|cmd-R|
 \LKeyStrg + \LKey{R}
  which enables direct BibTeX typing without enclosing curly brackets.}
 
@@ -483,29 +483,29 @@ An example shows how to use it:
 \end{bibexample}
 
 
-That article appeared within a rather unusual journal, 
+That article appeared within a rather unusual journal,
 which should be abbreviated with ›AyasofyaMüzYıl‹.
 
-To save  time  looking for the special character and insert ›ı‹ manually 
+To save  time  looking for the special character and insert ›ı‹ manually
 it is written in the |@String| with an ›i‹ (for further information see \cref{abbrv-lists}) but will be replaced after compiling with the correct character:
 
 \printbib[6em]{Koyunlu1990}
 
 
-Whether using the provided abbreviation list with |lstabbrv| or filling the |journaltitle| and |shortjournal| fields manually, 
+Whether using the provided abbreviation list with |lstabbrv| or filling the |journaltitle| and |shortjournal| fields manually,
 |archaeologie| uses by default short titles if defined.
 The default embedding of such abbreviations can be switched off, of course.
 In case you use the package option |noabbrv| in the preamble (see \cref{noabbrevs}), then the output changes as follows:
 \begin{bibbox}{Koyunlu1990}\footnotesize
-\parbox[t]{2cm}{Koyunlu 1990} \parbox[t]{9cm}{A. Koyunlu, 
+\parbox[t]{2cm}{Koyunlu 1990} \parbox[t]{9cm}{A. Koyunlu,
 Die Bodenbelage und der Errichtungsort der Hagia Sophia, {\color{red}Ayasofia Müzesi yıllığı. Annual of Ayasofya Museum} 11, 1990, 147–156}
 \end{bibbox}
-Nevertheless the advantage of our abbreviation list lies in the possibility of creating a separate bibliography 
+Nevertheless the advantage of our abbreviation list lies in the possibility of creating a separate bibliography
 with all the abbreviations of used journal titles and series (see \cref{bibliographie}) without being prone to citation differences and typing errors.
 
-However, if a journal or a series is \emph{not} included in the list (\cref{abbrv-lists}) 
-then this journal/series will \emph{not} be abbreviated and converted to full title in curly brackets in the respective field e.\,g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}. 
-Therefore the field content will not be printed. 
+However, if a journal or a series is \emph{not} included in the list (\cref{abbrv-lists})
+then this journal/series will \emph{not} be abbreviated and converted to full title in curly brackets in the respective field e.\,g. |journaltitle=|\marg{title of the journal} or |series=|\marg{name of the series}.
+Therefore the field content will not be printed.
 At least |biblatex-biber| gives a warning in its log which can be checked.\footnote{For example something like \enquote{\enquote{journaltitle} in entry \meta{entrykey} cannot be null, deleting it}.}
 For the following examples we use |@String| whenever it is appropriate and possible.
 
@@ -519,29 +519,29 @@ Lastly we want to point out that |@Strings| can also be used partly as following
 }
 \end{code}
 
-Each time you want to leave the |@String| environment and enter the curly bracket environment (and reverse) make use of a hash \# to concatenate elements.  
+Each time you want to leave the |@String| environment and enter the curly bracket environment (and reverse) make use of a hash \# to concatenate elements.
 
 \section{Details of optional preferences}\label{options-description}
-In the following  we give a more detailed insight into the various options of |archaeologie| 
+In the following  we give a more detailed insight into the various options of |archaeologie|
 and show their results on the bases of concrete examples.
 Changes made by these options are {\color{red}coloured in red}.
 
 \subsection{Preamble options}\label{options-preamble}
 Optional preferences in the preamble are loaded within the package |bib|\LaTeX:
 \begin{code}
-\usepackage[%        
-    backend=biber,  % activates biber (default; 
+\usepackage[%
+    backend=biber,  % activates biber (default;
                     % but will give an error if not done)
     style=archaeologie,   % loads the style *@|archaeologie|@*
     inreferencesasfullcite=true,    % option *@|inreferencesasfullcite|@* is loaded
     lstabbrv              % option *@|lstabbrv|@* is loaded as well
     ]{biblatex}
 \end{code}
-In this example the style |archaeologie| is loaded with options |inreferencesasfullcite| and |lstabbrv|. 
+In this example the style |archaeologie| is loaded with options |inreferencesasfullcite| and |lstabbrv|.
 Now, manual entries don't appear in author-year-style anymore and journal/series |@string|-macros are enabled.
 By the way, it doesn't matter if you write |inreferencesasfullcite| or |inreferencesasfullcite=true|.
 
-Each of the listed options is disabled by default even if we strongly recommend their use in particular the additional bibliographies and |@String| lists. 
+Each of the listed options is disabled by default even if we strongly recommend their use in particular the additional bibliographies and |@String| lists.
 All remaining options are rather a matter of taste.
 
 Despite to the overview section (\cref{overview}) the following list is arranged in alphabetic order.
@@ -554,13 +554,13 @@ With the option |bibancient| you load an additional bibliography called |archaeo
 For the complete list of those see \cref{list-bibancient}.
 Using these pre-sets is recommended because it will guarantee a high level of consistency and minimize error-proneness.
 
-You can cite the authors or works with their |bibtex-key| which you find in bold in the left column of the list. 
+You can cite the authors or works with their |bibtex-key| which you find in bold in the left column of the list.
 Authors and works are separated in the |bibtex-key| by a colon.
 The entry on the right marks the |shorthand| which will be printed in your paper.
 
 Let us make it clear with an example:
 
-With the loaded option |bibancient| you can cite like this:  
+With the loaded option |bibancient| you can cite like this:
 
 
 \begin{example}
@@ -587,7 +587,7 @@ With that you can print all ancient authors in a separated bibliography by typin
 \printbib{Apul:met}
 
 \begin{refsection}
-By means of the |bibtexkey| (e.g. |Apul:met|) you can also cite only authors or titles like this: 
+By means of the |bibtexkey| (e.g. |Apul:met|) you can also cite only authors or titles like this:
 
 
 \begin{example}
@@ -601,33 +601,33 @@ By means of the |bibtexkey| (e.g. |Apul:met|) you can also cite only authors or 
 
 \subsubsection{bibcorpora}\label{bibcorpora}
 \DescribeMacro{bibcorpora}
-This loads an additional bibliography which contains the most important corpora for ancient studies, so you can cite them right away in your document without creating a new bibentry by yourself. 
-These corpora are listed in \cref{list-bibcorpora}. 
-Advantage and usage mostly correspond to |bibancient|, 
+This loads an additional bibliography which contains the most important corpora for ancient studies, so you can cite them right away in your document without creating a new bibentry by yourself.
+These corpora are listed in \cref{list-bibcorpora}.
+Advantage and usage mostly correspond to |bibancient|,
 so have a look at \cref{bibancient} for details.
 
 
 
 \subsubsection{lstabbrv}\label{abbrv}
 \DescribeMacro{lstabbrv}
-If you want to benefit from the above mentioned method with |@String| (cf. \cref{string}) 
+If you want to benefit from the above mentioned method with |@String| (cf. \cref{string})
 you have to activate the option called |lstabbrv| (list of abbreviations) in the preamble.
-Once activated the additional bibliography |archaeologie-lstabbrv.bib| is loaded. 
-In this bibliography all abbreviations listed in \cref{abbrv-lists} are stored; 
+Once activated the additional bibliography |archaeologie-lstabbrv.bib| is loaded.
+In this bibliography all abbreviations listed in \cref{abbrv-lists} are stored;
 for further details of usage see \cref{string}.
 
 \subsubsection{lstlocations}\label{lstlocations}
 \DescribeMacro{lstlocations}
-This loads an additional bibliography with |@Strings| of locations used to print out their correct exonym in the selected language. 
-In that case you are not forced to change location spelling when switching the language. 
-(Otherwise it is necessary to adjust location names like \emph{Rome} to \emph{Rom} or \emph{Roma} 
+This loads an additional bibliography with |@Strings| of locations used to print out their correct exonym in the selected language.
+In that case you are not forced to change location spelling when switching the language.
+(Otherwise it is necessary to adjust location names like \emph{Rome} to \emph{Rom} or \emph{Roma}
 in your potentially multiple-used bibliography each time you change the language of your scientific text).
 For details on the locations list, cf. \cref{list-locations}.
 
 \subsubsection{lstpublishers}\label{lstpublishers}
 \DescribeMacro{lstpublishers}
-Activates the additional bibliography file |archaeologie-lstpublishers.bib| with |@Strings| 
-of publishers which can be used to print out their correct name. 
+Activates the additional bibliography file |archaeologie-lstpublishers.bib| with |@Strings|
+of publishers which can be used to print out their correct name.
 Benefits are similar to the other lists mentioned above and in \cref{string}.
 For the list, cf. \cref{list-publishers}
 
@@ -636,18 +636,18 @@ For the list, cf. \cref{list-publishers}
 
 \subsubsection{seenote}\label{seenote}
 \DescribeMacro{seenote}
-Even if author-year-citation seems to be commonly accepted in Ancient Studies in the meantime you may want to use a traditional citation style. 
+Even if author-year-citation seems to be commonly accepted in Ancient Studies in the meantime you may want to use a traditional citation style.
 For this purpose you can switch to the other allowed citation rule by the \DAI
 which works like this:
 If you cite a work for the first time in a footnote |archaeologie| will print a full cite which contains all bibliography elements.
 Henceforward each following citation is printed as short cite and will additionally refer to the footnote where the first cite was done.
 Bibliography entries with |options={ancient}| are excluded from this speciality and are cited as always.
 
-You can use the cite-commands \cs{cite(s)} and \cs{parencite(s)} but \cs{textcite(s)} 
+You can use the cite-commands \cs{cite(s)} and \cs{parencite(s)} but \cs{textcite(s)}
 will behave like \cs{cite(s)} because |seenote| actually just checks for occurrences in footnotes and does not refer to cites in running text.
 
 We give an example:
-\begin{tcolorbox}[examplebox] 
+\begin{tcolorbox}[examplebox]
 This is the first citation.|\footnote{\cite{Ball2013}.}|
 This is one in between.|\footnote{anything in here.}|
 And this is the third footnote and the second citation.|\footnote{\cite[470]{Ball2013}.}|
@@ -667,7 +667,7 @@ And this is the third footnote and the second citation.\footnote{Ball – Dobbin
 \DescribeMacro{biblabel=brackets}
 You can set the ›biblabel‹ in bold, parens or brackets. \archversion{2.3.7}
 This only applied to their appearence in the bibliography.
-The style in footnotes are not being touched by |biblabel|. 
+The style in footnotes are not being touched by |biblabel|.
 
 
 %%% Example
@@ -683,7 +683,7 @@ The style in footnotes are not being touched by |biblabel|.
 \subsubsection{translation}\label{translation}
 \DescribeMacro{translation}
 Once this option is activated the original title, the original language and the translator of the work are printed (|origtitle|, |origlanguage|, |translator|).
-For ancient texts and fragments (|options={ancient}| or |options={frgancient}|) this is default, 
+For ancient texts and fragments (|options={ancient}| or |options={frgancient}|) this is default,
 so they will always be printed with original title, language and translator.
 
 An example will clarify matters:
@@ -710,10 +710,10 @@ The bibliography result is:
 By activating option |translation| it will change to:
 
 \begin{bibbox}{Lefebvre2011}\footnotesize
-\parbox[t]{2cm}{Lefebvre 2011} \parbox[t]{9cm}{H. Lefebvre,  The Production of Space, 
+\parbox[t]{2cm}{Lefebvre 2011} \parbox[t]{9cm}{H. Lefebvre,  The Production of Space,
 {\color{red} La production de l’espace, trans. from French by D. Nicholson-Smith} \textsuperscript{30}(Oxford 1991; repr. Maien, MA 2011)}
 \end{bibbox}
- 
+
 However, it works not only with entries like |@Book| but also with e.\,g. |@Article|:
 
 \begin{bibexample}[label=Lefebvre1977]{{@}Article\{Lefebvre1977,…\}}
@@ -734,17 +734,17 @@ However, it works not only with entries like |@Book| but also with e.\,g. |@Arti
 Once again the bibliography entry alters:
 
 \begin{bibbox}{Lefebvre1977}\footnotesize
-\parbox[t]{2cm}{Lefebvre 1977} \parbox[t]{9cm}{H. Lefebvre, 
-Die Produktion des stätischen Raums, \emph{Introduction à l’espace urbain}, 
+\parbox[t]{2cm}{Lefebvre 1977} \parbox[t]{9cm}{H. Lefebvre,
+Die Produktion des stätischen Raums, \emph{Introduction à l’espace urbain},
 {\color{red} trans. from French by F. Hiss -- H.-U. Wegener}, ARCH+ 34/9, 1977, 52–57}
 \end{bibbox}
 
 \subsubsection{inreferencesasfullcite}\label{inreferences}
-\DescribeMacro{inreferencesasfullcite}  
+\DescribeMacro{inreferencesasfullcite}
 There is the possibility to cite inreferences in the footnote as a full citations.
 It is only required that the bibliography-entry is an |@Inreference|  (cf. \cref{inreference}).
- 
-Another example makes it clear: 
+
+Another example makes it clear:
 \begin{bibexample}[label=Nieddu1995]{{@}Inreference\{Nieddu1995,…\}}
 @Inreference{Nieddu1995,
   author    = {Nieddu, Giuseppe},
@@ -758,7 +758,7 @@ Another example makes it clear:
 
 There are two ways to display this entry:
  \begin{enumerate}
- \item by default it will give:  
+ \item by default it will give:
  \begin{example}
 \footnote{\cite{Nieddu1995}.}
  \end{example}
@@ -770,10 +770,10 @@ There are two ways to display this entry:
  \end{tcolorbox}
   \end{enumerate}
 
-If the \oarg{postnote} is defined with the columns/page number, (e.\,g. |\cite[9]{Nieddu1995}|), 
+If the \oarg{postnote} is defined with the columns/page number, (e.\,g. |\cite[9]{Nieddu1995}|),
 then it will change the position for the \oarg{postnote}:
-\begin{enumerate} 
- \item by default it will give: 
+\begin{enumerate}
+ \item by default it will give:
  \begin{example}
 \footnote{\cite[9]{Nieddu1995}.}
  \end{example}
@@ -794,14 +794,14 @@ because the entry is fully cited before in the footnotes (also stated in the \DA
 
 If the option is not used (|inreferencesasfullcite=false|) the entry will look like this in the bibliography:
 
-\printbib[6em]{Nieddu1995} 
+\printbib[6em]{Nieddu1995}
 
 \subsubsection{yearseries}\label{yearseries}
 \DescribeMacro{yearseries}
 The option |yearseries| leads to a different position of the fields |series| and |number|.
 The |series| of a |@Book| or |@Collection| is now printed \emph{after} the year.
 An example with an |@Incollection| demonstrates the effect of this option:
- 
+
 \begin{bibexample}[label=Mundt2015]{{@}Incollection\{Mundt2015,…\}}
 @Incollection{Mundt2015,
   author       = {Mundt, Felix},
@@ -822,7 +822,7 @@ An example with an |@Incollection| demonstrates the effect of this option:
 
 Without any option activated it will look like this:
 \printbib[5em]{Mundt2015}
- 
+
 By activating |yearseries| it will change to:
 \begin{bibbox}{Mundt2015}\footnotesize
 \parbox[t]{1.7cm}{Mundt 2015} \parbox[t]{9cm}{F. Mundt, Der Mensch, das Licht und die Stadt. Rhetorische Theorie und Praxis antiker und humanistischer Städtebeschreibung, in: T. Fuhrer -- F. Mundt -- J. Stenger (ed.), Cityscaping. Constructing and Modelling Images of the City (Berlin 2015) {\color{red}Philologus Suppl. 3,} 179–206}
@@ -836,7 +836,7 @@ By activating |yearseries| it will change to:
 \DescribeMacro{=firstfulltheninitials}
 \DescribeMacro{=firstinitialsthenfamily}
 \DescribeMacro{=firstfullthenfamily}
-Every time you mention authors in the running text it is possible to cite them 
+Every time you mention authors in the running text it is possible to cite them
 directly with their names (\cs{citeauthor}\marg{bibtex-key}) or their works  (\cs{citetitle}\marg{bibtex-key});
 this has the benefit that they will be linked to your bibliography (cf. \cref{citeauthor}).
 
@@ -859,12 +859,12 @@ The following example illustrates it:
 \end{bibexample}
 
 Let's assume you would like to write something like that and
-after compiling it will look like this, 
-because the default is set  |citeauthorformat=initials| 
+after compiling it will look like this,
+because the default is set  |citeauthorformat=initials|
 
 \begin{refsection}
 \begin{example}
-... , this is also shown by \citeauthor{Boehmer1985} 
+... , this is also shown by \citeauthor{Boehmer1985}
  in their latest article \citetitle{Boehmer1985}.
  \end{example}
 
@@ -873,15 +873,15 @@ because the default is set  |citeauthorformat=initials|
 Or you can change it using the settings in the preamble:
 
 \begin{enumerate}
-\item\label{name:full} 
+\item\label{name:full}
 \begin{tcolorbox}[examplebox]
- |citeauthorformat=full| 
+ |citeauthorformat=full|
  \tcblower
 \ldots , this is also shown by {\color{red}Rainer Michael Boehmer and Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \end{tcolorbox}
 \item\label{name:family}
 \begin{tcolorbox}[examplebox]
- |citeauthorformat=family| 
+ |citeauthorformat=family|
  \tcblower
 \ldots , this is also shown by {\color{red}Boehmer and  Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \end{tcolorbox}
@@ -889,16 +889,16 @@ Or you can change it using the settings in the preamble:
 \begin{tcolorbox}[examplebox]
  |citeauthorformat=firstfulltheninitials|
  \tcblower
-\ldots , this is also shown by \textcolor{red}{Rainer Michael Boehmer  and Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985). 
+\ldots , this is also shown by \textcolor{red}{Rainer Michael Boehmer  and Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \textcolor{red}{R. M. Boehmer  and N. Wrede} argue that \ldots
 \end{tcolorbox}
   If you use |citeauthorformat=firstfulltheninitials| the first citation will look like \ref{name:firstfull}, but after that that all following citations of |\citeauthor{Boehmer1985}| will change to the default behaviour and show the initials.
-  
+
 \item\label{name:firstfulltheninitials}
 \begin{tcolorbox}[examplebox]
  |citeauthorformat=firstfullthenfamily|
  \tcblower
-\ldots , this is also shown by \textcolor{red}{Rainer Michael Boehmer  and Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985). 
+\ldots , this is also shown by \textcolor{red}{Rainer Michael Boehmer  and Nadja Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \textcolor{red}{Boehmer  and Wrede} argue that \ldots
 \end{tcolorbox}
  If you use |citeauthorformat=firstfullthenfamily| the first citation will look like \ref{name:firstfull}, but after that that all following citations of |\citeauthor{Boehmer1985}| will change and only show the family name(s), \ref{name:family}.
@@ -908,7 +908,7 @@ Or you can change it using the settings in the preamble:
 \begin{tcolorbox}[examplebox]
  |citeauthorformat=firstinitialsthenfamily|
  \tcblower
-\ldots , this is also shown by \textcolor{red}{R. M. Boehmer  and N. Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985). 
+\ldots , this is also shown by \textcolor{red}{R. M. Boehmer  and N. Wrede} in their latest article \emph{Astragalspiele in und um Warka} (1985).
 \textcolor{red}{Boehmer  and Wrede} argue that \ldots
 \end{tcolorbox}
 
@@ -921,13 +921,13 @@ here is the appearence of the entry in a bibliography:
 \printbib[9.5em]{Boehmer1985}
 
 
-Two things are left to mention: 
+Two things are left to mention:
 \begin{enumerate}
 \item Citing an author in a footnote will start again with a first mention and then continue writing the name depending on your chosen option.
 
 \item There is a slightly different behavior if you use  \cs{citeauthor} or \cs{citetitle}  with ancient authors and work titles (|options={ancient}|).
 Instead of printing the field |author| which contains usually the full ancient name the field |shortauthor| is considered in which you can record the more common name of the ancient author.
-Ancient work titles will be printed without the year in parentheses. 
+Ancient work titles will be printed without the year in parentheses.
 Both are demonstrated in the following example: Based on the bibliography entry
 \end{enumerate}
 \begin{bibexample}[label=Quint:inst]{{@}Book\{Quint:inst,…\}}
@@ -961,9 +961,9 @@ And again the bibliography for |@Book{Quint:inst}|:
 
 \subsubsection{yearinparens}\label{yearinparens}
 \DescribeMacro{yearinparens}%
-As the options name evokes the publication year of the cited entries 
+As the options name evokes the publication year of the cited entries
 (|year| or year from |date|) will be put in parentheses,
-in footnotes as well as in the bibliography. 
+in footnotes as well as in the bibliography.
 The ›Klammerregel‹ (correct alternation of different brackets) will be respected.
 
 In the case of a common entry which will be shown like this
@@ -974,7 +974,7 @@ In the case of a common entry which will be shown like this
 
 now we get
 
-\begin{tcolorbox}[examplebox] 
+\begin{tcolorbox}[examplebox]
 |\footnote{\cite[475]{Ball2013}.}|
 \tcblower
 \footnote{Ball – Dobbins {\color{red}(}2013{\color{red})}, 475.}
@@ -983,7 +983,7 @@ now we get
 
 \subsubsection{scshape}\label{scshape}
 \DescribeMacro{scshape}
-You can also change the look of your citations. 
+You can also change the look of your citations.
 With |scshape| author names are set to small capitals---in footnotes and in the bibliography.
 
 Entries without |author| or |editor| setting but with a defined
@@ -999,7 +999,7 @@ By default---to quote the just established example |\@Article{Ball2013}|---we ha
 
 But with |schape| it will turn into:
 
-\begin{tcolorbox}[examplebox] 
+\begin{tcolorbox}[examplebox]
 |\footnote{\cite[475]{Ball2013}.}|
 \tcblower
 \footnote{{\scshape {\color{red}Ball – Dobbins}} 2013, 475.}
@@ -1028,7 +1028,7 @@ the output in the bibliography changes from:
 
 \printbib[8em]{Ball2013}
 
-to 
+to
 
 \begin{bibbox}{Ball2013}\footnotesize
 \parbox[t]{3cm}{{\scshape \color{red}Ball – Dobbins} 2013}\parbox[t]{8.5cm}{%
@@ -1038,7 +1038,7 @@ L. F. Ball – J. J. Dobbins, Pompeii Forum Project. Current Thinking on the Pom
 
 \subsubsection{bibfullname}\label{bibfullname}
 \DescribeMacro{bibfullname}
-This will show the full name of an author and/or editor in the bibliography. 
+This will show the full name of an author and/or editor in the bibliography.
 By default first names are abbreviated.
 
 Without any options the entry
@@ -1073,13 +1073,13 @@ and with |bibfullname| it will change to:
 \subsubsection{noabbrv}\label{noabbrevs}
 \DescribeMacro{noabbrv}
 According to the guidelines of the \DAI journal titles and series have to be abbreviated.
-Therefore the fields |shortjournal| or |shortseries| will be considered. 
+Therefore the fields |shortjournal| or |shortseries| will be considered.
 If you like to have printed full names of journals and series instead you can switch on the option |noabbrv|.
 For an example see \cref{string,Koyunlu1990}.
 
 \subsubsection{publisher}\label{publisher}
-\DescribeMacro{publisher} 
-Once activated all locations and the publisher are printed. 
+\DescribeMacro{publisher}
+Once activated all locations and the publisher are printed.
 This will lead to a different output of the edition which will be right in front of the year.
 In case of reprint or second edition the first edition |origyear| will be put in square brackets after the year.
 
@@ -1099,13 +1099,13 @@ In case of reprint or second edition the first edition |origyear| will be put in
 
 Default settings produce:
 \printbib[5em]{Emme2013}
- 
+
 By activating option |publisher| you obtain:
 
 \begin{bibbox}{Emme2013}\footnotesize
 \parbox[t]{1.7cm}{Emme 2013} \parbox[t]{9.4cm}{B. Emme, Peristyl und Polis. Entwicklung und Funktionen öffentlicher griechischer Hofanlagen, Urban Spaces 1 (Berlin {\color{red} – New York: Walter de Gruyter} 2013)}
 \end{bibbox}
- 
+
 And here a more detailed example with |origlocation|, |origyear| and |origpublisher|:
 \begin{bibexample}[label=Neufert2002]{{@}Book\{Neufert2002,…\}}
 @Book{Neufert2002,
@@ -1122,19 +1122,19 @@ And here a more detailed example with |origlocation|, |origyear| and |origpublis
   origyear     = {1936},
 }
 \end{bibexample}
- 
+
 \printbib[5.5em]{Neufert2002}
 
 \begin{bibbox}{Neufert2002}\footnotesize
 \parbox[t]{1.7cm}{Neufert  2002} \parbox[t]{9.4cm}{%
 E. Neufert, Bauentwurfslehre. Grundlagen, Normen, Vorschriften ... Ed. by Peter Neufert – Cornelius Neufert – Ludwig Neff  – Corinna Franken {\color{red} (Wiesbaden: Vieweg \textsuperscript{3}2002 [Berlin: Mann 1936])}}
 \end{bibbox}
- 
+
 \subsubsection{edby}\label{edby}
 \DescribeMacro{edby}
-This option gives you a different output and position of editors: 
+This option gives you a different output and position of editors:
 Instead of embedding ›(ed.)‹/›(Hrsg.)‹ right after the editor name
- it places the adjunct ›ed. by‹/›hrsg. v.‹ behind the editor. 
+ it places the adjunct ›ed. by‹/›hrsg. v.‹ behind the editor.
  Furthermore, in case of |@Incollections| and |@Inproceedings| editor names and book title switch their positions as it is shown below.
 
 \begin{bibexample}[label=Wulf-Rheidt2013]{{@}Inproceedings\{Wulf-Rheidt2013,…\}}
@@ -1160,7 +1160,7 @@ Instead of embedding ›(ed.)‹/›(Hrsg.)‹ right after the editor name
 \end{bibexample}
 
 Without option |edby| this |@Inproceedings| would look like:
- 
+
 \printbib[7em]{Wulf-Rheidt2013}
 
 But activating |edby| it changes to:
@@ -1169,8 +1169,8 @@ But activating |edby| it changes to:
 \parbox[t]{2.3cm}{Wulf-Rheidt 2013} \parbox[t]{9cm}{%
 U. Wulf-Rheidt, Der Palast auf dem Palatin – Zentrum im Zentrum. Geplanter Herrschersitz oder Produkt eines langen Entwicklungsprozesses?, in:  {\color{red}Politische Räume in vormodernen Gesellschaften. Gestaltung – Wahrnehmung – Funktion, ed. by O. Dally – F. Fless – R. Haensch – F. Pirson – S. Sievers}. Internationale Tagung des DAI und des DFG-Exzellenzclusters TOPOI Berlin November 18–22, 2009, MKT 6 (Rahden/Westf. 2013) 277–289}
 \end{bibbox}
- 
- 
+
+
 \subsubsection{width}\label{width}
 \DescribeMacro{width}
 |width| controls the width between label (which consists usually of |author| and |year|) and reference in the bibliography, pre-defined as |4em|.
@@ -1178,12 +1178,12 @@ If you wish to have it bigger or smaller you can change it to every length you w
 
 |width =| \meta{length}
 
-\meta{length} stands for the length you want (e.\,g. |3em|, |7pt| or |4cm|), you can even do |-1em|; 
+\meta{length} stands for the length you want (e.\,g. |3em|, |7pt| or |4cm|), you can even do |-1em|;
 then there is no indent at all.
 
 \subsubsection{counter}\label{counter}
-\DescribeMacro{counter} 
-If you like to know how many times you cited an author or work then use this option called |counter|.\footnote{The idea is based on \href{http://tex.stackexchange.com/a/14159/98739}{tex.stackexchange.com/a/14159/98739} and has been modified.} 
+\DescribeMacro{counter}
+If you like to know how many times you cited an author or work then use this option called |counter|.\footnote{The idea is based on \href{http://tex.stackexchange.com/a/14159/98739}{tex.stackexchange.com/a/14159/98739} and has been modified.}
 Depending on the language you chose in the preamble of your document the information will be given in German (|ngerman|) or in English (if not |ngerman|).
 
 \begin{bibbox}{Boehm2001}\footnotesize
@@ -1195,14 +1195,14 @@ If there has been no citation in the text (but maybe a \cs{citeauthor} or \cs{ci
 \begin{bibbox}{Boehm2001}\footnotesize
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
 S. Böhm – K.-V. v. Eickstedt (Hrsg.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001)  $\vert$  {\scshape  wurde {\color{red}{keinmal}} zitiert.}}
-\end{bibbox} 
+\end{bibbox}
 
 For all languages besides German:
 \begin{bibbox}{Boehm2001}\footnotesize
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
 S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited {{\color{red}{not once}}}.}}
 \end{bibbox}
-  
+
 If there has been only one citation:
 \begin{bibbox}{Boehm2001}\footnotesize
 \parbox[t]{3cm}{Böhm – Eickstedt 2001} \parbox[t]{8cm}{%
@@ -1215,9 +1215,9 @@ If there has been more than one citation:
 S. Böhm – K.-V. v. Eickstedt (ed.), Ithake. Festschrift Jörg Schäfer (Würzburg 2001) $\vert$  {\scshape cited 3 times.}}
 \end{bibbox}
 
-Note that |biblatex| provides a related option |backref| which lists per reference every page 
-that contains the cited reference. But having a different goal that option doesn't support counts. 
- 
+Note that |biblatex| provides a related option |backref| which lists per reference every page
+that contains the cited reference. But having a different goal that option doesn't support counts.
+
 \subsubsection{initials}\label{initials}
 The former option |initials| was deleted since it got incompatible to |biber| version 2.11.
 However  you can do the abbreviation manually:
@@ -1232,11 +1232,11 @@ author = {family=Hufschmid, given=Thomas, given-i={Th}}
 \subsection{Bibliography entry options}\label{options-bibentry}
 \subsubsection{ancient}\label{ancient}
 \DescribeMacro{ancient}
-This option was found in an excellent |bib|\LaTeX-style called  |geschichtsfrkl| (by Jonathan Zachhuber),\footnote{\href{https://www.ctan.org/pkg/geschichtsfrkl}{www.ctan.org/pkg/geschichtsfrkl}} 
+This option was found in an excellent |bib|\LaTeX-style called  |geschichtsfrkl| (by Jonathan Zachhuber),\footnote{\href{https://www.ctan.org/pkg/geschichtsfrkl}{www.ctan.org/pkg/geschichtsfrkl}}
 so after some modifications we adopted and included it into |archaeologie|.
- 
-If you intend to cite ancient authors we strongly recommend this option to you 
-because it enables you to cite ancient texts in the style archaeologists and 
+
+If you intend to cite ancient authors we strongly recommend this option to you
+because it enables you to cite ancient texts in the style archaeologists and
 historians are used to \emph{plus} you get entirely supported bibliography referencing.
 
 Let us have a look at an example:
@@ -1267,13 +1267,13 @@ So you write in your text and it will be printed as
 
 \begin{example}
 \footnote{\cite[1, 3,3]{Cic:Att}.}
-\end{example} 
+\end{example}
 
 Equally the field |shorthand| is used as a label in the bibliography instead of an author-year label:
 \printbib{Cic:Att}
 
-Take notice how |options={ancient}| treats editor and translator in this example. 
-While the ancient author is mentioned first, translator and editor are put behind the title, 
+Take notice how |options={ancient}| treats editor and translator in this example.
+While the ancient author is mentioned first, translator and editor are put behind the title,
 in this case even united due to fact that editor and translator are identical.
 
 This works not only with |@Book| but also with those ancient texts which are part of an |@Incollection| employing them similarly to the entries defined as |@Book|.
@@ -1301,14 +1301,14 @@ Another example:
 }
 \end{bibexample}
 
-Even support for several languages is taken into account as this bibliography entries show: 
+Even support for several languages is taken into account as this bibliography entries show:
 \printbiball[4em]{Cic:Sest}
 
 \subsubsection{frgancient}\label{frgancient}
 \DescribeMacro{frgancient}
 When dealing with fragments of ancient texts often it is important to cite the edition respective to the editor.
 If you want to cite such a collection of fragments use |options={frgancient}|.
-In this case the editor (|shorteditor| or |editor|) will be put in after the \marg{postnote}. 
+In this case the editor (|shorteditor| or |editor|) will be put in after the \marg{postnote}.
 
 \begin{bibexample}[label=Fest]{{@}Book\{Fest,…\}}
 @Book{Fest,
@@ -1333,15 +1333,15 @@ When you cite this entry in this example the field  |shorteditor| will be shown.
 \footnote{\cite[3]{Fest}.}
 \end{example}
 
-In the bibliography the reference differentiates slightly from |options = {ancient}| because of the missing ancient author of fragment collections, 
+In the bibliography the reference differentiates slightly from |options = {ancient}| because of the missing ancient author of fragment collections,
 so the editors name is printed in the first place:
 \printbib[3em]{Fest}
 
 \subsubsection{uniqueme}\label{uniqueme}
-\DescribeMacro{uniqueme} 
+\DescribeMacro{uniqueme}
 Let us stick to ancient works for the option |uniqueme|:
 Sometimes you cite different kinds of translations of one ancient author.
-Despite you have several books the abbreviation of the ancient work is still the same and will be shown without a difference. 
+Despite you have several books the abbreviation of the ancient work is still the same and will be shown without a difference.
 For these cases we introduced an option with which you can decide which translation should be cited in the common citation and which ones should be enhanced with e.g. the translator, the series, or the editor.
 
 Let us give you an example with the most famous ancient architect \citeauthor{Vitr}:
@@ -1372,7 +1372,7 @@ When we cite \citeauthor{Vitr} we get the following result:
 \begin{example}
 \footnote{\cite[1,1,2]{Vitr}.}
 \end{example}
-Now let us assume we want to compare that with other, different translations / text editions. 
+Now let us assume we want to compare that with other, different translations / text editions.
 First the english standard translation (\cref{Vitr:Loeb}):
 \begin{bibexample}[label=Vitr:Loeb]{{@}Book\{Vitr:Loeb,…\}}
 @Book{Vitr:Loeb,
@@ -1468,7 +1468,7 @@ Notice that the field |sortshorthand| should be filled with the sorting order yo
 
 \subsubsection{corpus}\label{corpus}
 \DescribeMacro{corpus}
-There are some corpora (e.\,g. inscriptions, minted coins, vases, etc.) which are usually cited with a common abbreviation. 
+There are some corpora (e.\,g. inscriptions, minted coins, vases, etc.) which are usually cited with a common abbreviation.
 Those abbreviations are typed in in the field |shorthand|.
 To cite such a corpus with its abbreviation you have to write an additional |options={corpus}| in the bibliographical entry.
 Now you can cite it as usual with the \oarg{prenote} or \oarg{postnote} you like to have.
@@ -1508,24 +1508,24 @@ For the examples we don't use any further options which are described above.
 \subsection{Type \texttt{@Book}}\label{book}
 \DescribeMacro{@Book}
 \DescribeMacro{@Collection}%\footnote{Der Typ |@collection| entspricht hier dem Typ |@Book|.}
-Let’s start with an easy example: 
+Let’s start with an easy example:
 a book or a collection (both are treated equally).
 You can use the following fields:
 \begin{description}
-\item[mandatory:] 
-|author|/|editor|, 
+\item[mandatory:]
+|author|/|editor|,
 |title|, |subtitle|, |titleaddon|,
 |location|, |year|,
 \item[optional:]
-|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
-|publisher|, |series|, |number|, |edition|, 
-|origyear|, |origlocation|, |origpublisher|, 
+|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|,
+|publisher|, |series|, |number|, |edition|,
+|origyear|, |origlocation|, |origpublisher|,
 |translator|, |origlanguage|,
 |related|, |relatedtype|,
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
  \end{description}
- 
- 
+
+
 An entry of a book might look as this in your |bib|-file:
 \begin{bibexample}[label=Mann2011]{{@}Book\{Mann2011,…\}}
 @Book{Mann2011,
@@ -1543,11 +1543,11 @@ An entry of a book might look as this in your |bib|-file:
 A citation in a footnote is done like this and will be printed as you see:
 \begin{example}
 \footnote{\cite[Vgl.][142--144]{Mann2011}.}
-\end{example} 
+\end{example}
 \printbib[5em]{Mann2011}
 
 \subsubsection{›Festschrift‹, commemorative volume, catalogue etc.}
-To mark that the book or collection is a so-called ›Festschrift‹/ commemorative volume, 
+To mark that the book or collection is a so-called ›Festschrift‹/ commemorative volume,
 or an exhibition or auction catalogue you need an additional note to make it clear.
 We suggest using  the field |titleaddon| or if it is a |@Incollection| or |@Inproceedings| you can use the field |booktitleaddon| (for papers in collections see \cref{inbook}).
 \begin{bibexample}[label=Boehm2001]{{@}Book\{Boehm2001,…\}}
@@ -1562,9 +1562,9 @@ We suggest using  the field |titleaddon| or if it is a |@Incollection| or |@Inpr
 \end{bibexample}
 
 \printbib[9.5em]{Boehm2001}
- 
+
 \subsubsection{Translated book}
-If you cite a translated book you can link it to the original book and let display the translator as well as the original language. 
+If you cite a translated book you can link it to the original book and let display the translator as well as the original language.
 To obtain this fill the fields |related| and |relatedtype| (for further guidance see the information about reviews in \cref{review}).
 
 This example will clarify matters:
@@ -1603,10 +1603,10 @@ In \citeyear{Zanker1988}, one year later after the first edition (|origyear|) th
 }
 \end{bibexample}
 
-The translated book |Zanker1988| is connected with the book |Zanker2009| via the field |related = |\marg{bibtex-key} 
+The translated book |Zanker1988| is connected with the book |Zanker2009| via the field |related = |\marg{bibtex-key}
 and the relation got specified with the field |relatedtype|, in this case it is a translation so |={translationof}|.
 
-You don't have to cite |Zanker2009| to have the information visible in the bibliography. 
+You don't have to cite |Zanker2009| to have the information visible in the bibliography.
 It will be included automatically. For the following bibliography we only use |\cite{Zanker1988}|:
 
 \printbiball[5em]{Zanker1988}
@@ -1631,7 +1631,7 @@ Let’s assume this is the bibliography entry:
 }
 \end{bibexample}
 In the bibliography the main title of the monograph (|maintitle|)
-and the title of the book (|title|) are shown separately  so the volume  (|volume|) 
+and the title of the book (|title|) are shown separately  so the volume  (|volume|)
 appears before the title of the book
 \printbib[6.5em]{MacDonald1986}
 
@@ -1641,21 +1641,21 @@ appears before the title of the book
 Single entries/chapters of a collection are cited best when they are set up as  |@Incollection| or |@Inbook|.
 
 \begin{description}
-\item[mandatory:] 
+\item[mandatory:]
 |author|, |title|, |subtitle|, |titleaddon|,
 |editor|,  |booktitle|, |booksubtitle|, |booktitleaddon|,
-|location|, |year|, |pages|, 
+|location|, |year|, |pages|,
 \item[optional:]
-|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
-|publisher|, |series|, |number|, |edition|, 
-|origyear|, |origlocation|, |origpublisher|, 
+|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|,
+|publisher|, |series|, |number|, |edition|,
+|origyear|, |origlocation|, |origpublisher|,
 |translator|, |origlanguage|,
 |related|, |relatedtype|,
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
  \end{description}
- 
- 
- 
+
+
+
 This following example clarify matters:
  \begin{bibexample}[label=Carter2014]{{@}Incollection\{Carter2014,…\}}
 @Incollection{Carter2014,
@@ -1712,17 +1712,17 @@ Have a look:
   shortseries  = MemAmAc-short,    %@String used
 }
 \end{bibexample}
-As we can see it is the fifth volume (|volume|) of the series with the main title 
+As we can see it is the fifth volume (|volume|) of the series with the main title
 \emph{Cosa} (|maintitle|) but has an individual title (|title|) which is
-\emph{Cosa in the Republic and Early Empire}, furthermore it is the second book (|number|) 
+\emph{Cosa in the Republic and Early Empire}, furthermore it is the second book (|number|)
 of the series  \emph{MemAmAc} (|series|).
 
 Notice the different language-based behaviour of ›et. al.‹ for more than two authors/editors.
 \printbiball[7.5em]{Fentress2003}
 
- 
+
 \subsubsection{Inventory catalogue}
-The output of an inventory catalogue changes slightly compared to collections or something similar. 
+The output of an inventory catalogue changes slightly compared to collections or something similar.
 The title is omitted and therefore there is no comma after the author’s name.
 We provide two examples so you see the difference.
 \begin{bibexample}[label=Kohlmeyer1983]{{@}Inbook\{Kohlmeyer1983,…\}}
@@ -1757,8 +1757,8 @@ and
 
 \subsubsection{Section of Monograph}
 \archversion{2.3.4}
-In some cases there are several parts of a monograph which are written by variant people (e.\,g. excavation reports). 
-Then the book is technically not an edited one by an editor but (mainly) written by one (book)author. 
+In some cases there are several parts of a monograph which are written by variant people (e.\,g. excavation reports).
+Then the book is technically not an edited one by an editor but (mainly) written by one (book)author.
 
 The difference to an edited volume is that in the bibliography   there is no |(ed.)|, cf. \cref{Ganzert1984}.
 
@@ -1788,7 +1788,7 @@ number = {35}
 \DescribeMacro{@MvBook}\archversion{2.3.4} If you have a small series consistend of several volumes and you want to have them listed together you should read the following.
 
 Using the entry type |@MvBook| (Multivolume) for the main entry you can have several volumes connected to it (children).
-For example we have \citetitle{EAOR} with seven volumes. 
+For example we have \citetitle{EAOR} with seven volumes.
 The main entry looks like this
 
 \begin{bibexample}[label=EAOR]{{@}MvBook\{EAOR,…\}}
@@ -1837,25 +1837,25 @@ Two children belonging to \cref{EAOR} look like
 \end{bibexample}
 It is important that you have |skipbib| in the field |options|!
 
-The advantage is that you cite either |EAOR| then you will all of the volumes listed in the bibliography 
+The advantage is that you cite either |EAOR| then you will all of the volumes listed in the bibliography
 or you can only cite individual volumes in your text.
-In this case (e.g. citing |EAOR-01| and |EAOR-02|) it looks like this in the bibliography 
+In this case (e.g. citing |EAOR-01| and |EAOR-02|) it looks like this in the bibliography
 \printbib[5em]{EAOR-01,EAOR-02}
 
 
 \subsection{Type \texttt{@Article}}\label{article}
-\DescribeMacro{@Article} This is probably the most common type 
+\DescribeMacro{@Article} This is probably the most common type
 because you find detailed information about specific topics in articles.
 
 \begin{description}
-\item[mandatory:] 
+\item[mandatory:]
 |author|, |title|, |subtitle|, |titleaddon|,
 |journaltitle|, |shortjournal|, |volume|, |number|, |issue|
-|year|, |pages|, 
+|year|, |pages|,
 \item[optional:]
 |translator|, |origlanguage|,
 |related|, |relatedtype|,
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
  \end{description}
 
 Here we have an example which will explain the (required)  fields:
@@ -1880,25 +1880,25 @@ In line 5 and 6 you can also write the full or abbreviated journal title in the 
 \DescribeMacro{@Proceedings}
 Similar to a collection but still different in the bibliographical output are proceedings.
 Therefore we recommend  using the type |@Proceedings|.
-The difference lies in the additional mandatory fields |venue|, |eventdate| and |eventtitle|. 
+The difference lies in the additional mandatory fields |venue|, |eventdate| and |eventtitle|.
 Everything else is like the type |@Book|.
 
 \begin{description}
-\item[mandatory:] 
+\item[mandatory:]
 %|author|/
-|editor|, 
+|editor|,
 |title|, |subtitle|, |titleaddon|,
 |venue|, |eventdate|, |eventtitle|,
 |location|, |year|
 \item[optional:]
-|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
-|publisher|, |series|, |number|, |edition|, 
-|origyear|, |origlocation|, |origpublisher|, 
+|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|,
+|publisher|, |series|, |number|, |edition|,
+|origyear|, |origlocation|, |origpublisher|,
 |translator|, |origlanguage|,
 |related|, |relatedtype|,
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
  \end{description}
- 
+
 An example:
  \begin{bibexample}[label=Kurapkat2014]{{@}Proceedings\{Kurapkat2014,…\}}
 @Proceedings{Kurapkat2014,
@@ -1918,11 +1918,11 @@ An example:
 }
 \end{bibexample}
 %\iffalse
-With |venue| we specify the place where the proceeding took place 
-(e.\,g. \emph{Berlin} -- |location| is where the book was printed and is connected 
+With |venue| we specify the place where the proceeding took place
+(e.\,g. \emph{Berlin} -- |location| is where the book was printed and is connected
 to the |publisher| e.\,g. \emph{Regensburg}),
 |eventtitle| is used for a special title of the proceeding (e.\,g. \emph{Kolloquium Architekturreferat des DAI}),
-|eventtitle| gives the date(range) when the proceeding was hold and has to be typed in in the format YYYY-MM-DD, 
+|eventtitle| gives the date(range) when the proceeding was hold and has to be typed in in the format YYYY-MM-DD,
 a range has to be separated with a |/| (e.\,g.  \emph{2012-02-08/2012-02-11}).
 
 In the bibliography the information of these additional fields will be used (of course) as this, notice how the output of the date changes according to the chosen language.
@@ -1933,22 +1933,22 @@ In the bibliography the information of these additional fields will be used (of 
 This entry type works similar to |@Procecedings| and |@Incollection| and therefore the needed fields are straightforward to use:
 
 \begin{description}
-\item[mandatory:] 
+\item[mandatory:]
 |author|, |title|, |subtitle|, |titleaddon|,
 |editor|,  |booktitle|, |booksubtitle|, |booktitleaddon|,
 |venue|, |eventdate|, |eventtitle|,
-|location|, |year|, |pages|, 
+|location|, |year|, |pages|,
 \item[optional:]
-|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|, 
-|publisher|, |series|, |number|, |edition|, 
-|origyear|, |origlocation|, |origpublisher|, 
+|maintitle|, |mainsubtitle|, |maintitleaddon|, |volume|,
+|publisher|, |series|, |number|, |edition|,
+|origyear|, |origlocation|, |origpublisher|,
 |translator|, |origlanguage|,
 |related|, |relatedtype|,
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
 \end{description}
- 
- 
- 
+
+
+
  \begin{bibexample}[label=Torelli1991]{{@}Inproceedings\{Torelli1991,…\}}
 @Inproceedings{Torelli1991,
   author     = {Torelli, Mario},
@@ -1970,24 +1970,24 @@ This entry type works similar to |@Procecedings| and |@Incollection| and therefo
 }
 \end{bibexample}
 It will be printed as:
- 
+
 \printbiball[5em]{Torelli1991}
 
  \subsection{Type \texttt{@Reference}}\label{reference}
  \DescribeMacro{@Reference}
- This entry type can be used especially for references if you want to cite it as whole or if you need to relate to a reference. 
+ This entry type can be used especially for references if you want to cite it as whole or if you need to relate to a reference.
 We provide an example below---cf. \cref{inreference}
 
 You don’t need to fill out many fields to have a working entry:
 \begin{description}
 \item[mandatory:] |title|, |shorthand|,
-\item[optional:] 
+\item[optional:]
  |editor|, |subtitle|, |titleaddon|,
  |location|, |year|
 |maintitle|, |mainsubtitle|, |maintitleaddon|,
 |related|, |relatedtype|,
 |publisher|, |series|, |number|, |edition|, |volume|,
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
 \end{description}
 
 And so a complete entry is quite small:
@@ -1999,7 +1999,7 @@ And so a complete entry is quite small:
   shorthand = LIMC-short,
 }
 \end{bibexample}
- 
+
 But you can also have it  more detailed  like this one:
 \begin{bibexample}[label=Lexikon-der-Technik]{{@}Reference\{Lexikon-der-Technik,…\}}
 @Reference{Lexikon-der-Technik,
@@ -2033,14 +2033,14 @@ You can cite this entry with any of the provided \cs{cite}-commands above---cf. 
 
 But for the final display of the entry  you have two possibilities:
  \begin{enumerate}
-\item\label{inreference:a} 
+\item\label{inreference:a}
 
-If you want it in the default style ›author-year‹, so it will have a label and is referenced 
+If you want it in the default style ›author-year‹, so it will have a label and is referenced
 to your final bibliography, then you don’t have to do anything.
 In the bibliography it will look like
 \printbib{Neils1994}
 
-\item\label{inreference:b} 
+\item\label{inreference:b}
 The \DAI has a special rule for inreferences in the footnote.
 Then the output will be like:\\
 |reference volume (year) pages s.v. title (author)| \\
@@ -2054,13 +2054,13 @@ When you have the \oarg{postnote} filled out in a citation which belongs to an |
 The |postnote| \oarg{930 Nr. 283} will be printed instead of the |pages|:
 \begin{example}
 \footnote{\cite[vgl.][930 Nr. 283]{Neils1994}.}
-\end{example} 
+\end{example}
 \end{enumerate}
 
-As mentioned above it is  advantageous to relate entries such as  an |@Inreference| with its |@Reference|. 
+As mentioned above it is  advantageous to relate entries such as  an |@Inreference| with its |@Reference|.
 And since not all references have a ›canonical‹ abbreviation (e.\,g. RE, LIMC, DNP, LTUR, LÄ, etc.) it might be necessary to define a |shorthand|.
 This is shown in the example below.
- 
+
 \begin{bibexample}[label=Weinbrenner1914]{{@}Inreference\{Weinbrenner1914,…\}}
 @Inreference{Weinbrenner1914,
   author    = {Weinbrenner},
@@ -2074,14 +2074,14 @@ This is shown in the example below.
 }
 \end{bibexample}
 As you see this entry is related to |Lexikon-der-Technik| which is described above and has a |shorthand = {Lexikon d. T.}|
-You just need to make sure that  |booktitle| of the |@Inreference| and the |shorthand| of 
+You just need to make sure that  |booktitle| of the |@Inreference| and the |shorthand| of
 the  |@Reference| are equal so the title can be referenced properly in the bibliography.
 
 For the following bibliography result we just typed (assuming that the entries were already cited in text):
 
 \begin{refsection}
 \nocite{Lexikon-der-Technik,Weinbrenner1914,LTUR,Neils1994}
-\setlength{\labwidthsameline}{5em} 
+\setlength{\labwidthsameline}{5em}
 \begin{example}
 \printbibliography[keyword=corpus,title={Corpora}]
 \printbibliography[notkeyword=corpus]
@@ -2089,7 +2089,7 @@ For the following bibliography result we just typed (assuming that the entries w
 \end{refsection}
 
 
- 
+
 \subsection{Type \texttt{@Review}}\label{review}
 \DescribeMacro{@Review}
 Reviews in journals are best cited when they are edited as a |@Review|.
@@ -2097,14 +2097,14 @@ For a full citation of a review you have to name the reviewed work in detail.
 The following example will show an easy way to combine the review with the reviewed work.
 
 \begin{description}
-\item[mandatory:] 
+\item[mandatory:]
 |author|, |title|, |subtitle|, |titleaddon|,
 |journaltitle|, |shortjournal|, |volume|, |number|, |issue|
-|year|, |pages|, 
+|year|, |pages|,
 |related|, |relatedtype|,
 \item[optional:]
 |translator|, |origlanguage|,
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
  \end{description}
 
 What you need are two separate entries: one as a |@Review| the other is a |@Book|, |@Collection|, |@Proceedings| or something else.
@@ -2139,9 +2139,9 @@ You maybe noticed that the review (|Bell2011|) is connected to the entry |Welch2
 In addition we not only need a connected work but also to qualify the relation:
 This is done in line 9 with |relatedtype = {reviewof}|.
 This so-called |bibstring| is especially for reviews and contains the language based correct abbreviation for \emph{Review of} or e.\,g. \emph{Rez. zu}.
-You don’t have to type in all relevant information of the reviewed work in the entry of the review, 
-since they will be inserted automatically and dynamically with the  |related|-function. 
-So whenever settings in the reviewed work are changed the print of the review will be automatically adjusted. 
+You don’t have to type in all relevant information of the reviewed work in the entry of the review,
+since they will be inserted automatically and dynamically with the  |related|-function.
+So whenever settings in the reviewed work are changed the print of the review will be automatically adjusted.
 Furthermore, even if the review is cited, the reviewed work won't be listed in the bibliography until it is explicitly cited in the text.
 \printbib[4em]{Bell2011}
 
@@ -2170,12 +2170,12 @@ In the bibliography there will be first the individual title followed by the inf
 
 
 \subsubsection{multiple reviewed works in one review}
-Some reviews analyse several works in the same article. 
+Some reviews analyse several works in the same article.
 This makes no big difference for the citing or editing process.
 
 In his review
 \citeauthor{Taylor2008} not only describes the book called
- \citetitle{Welch2007} by \citeauthor{Welch2007}, 
+ \citetitle{Welch2007} by \citeauthor{Welch2007},
  but at the same time compares it with \citeauthor{Sear2006}s \citetitle{Sear2006}.
 
 The entry of the first analysed book \citetitle{Welch2007} has been described in \cref{review}.
@@ -2215,19 +2215,19 @@ Subsequently, all information is gathered in the bibliography:
 MA and PhD theses, which are not published as a monograph or such, can be cited when they are edited as |@Thesis|.
 It is important to differentiate between an entry referring to an MA or a PhD thesis;
 this can be done by |type=|\marg{|phdthesis|} or
- \marg{|mathesis|}. 
+ \marg{|mathesis|}.
 You also have to define the  |institution=|\marg{university}.
- 
+
 \begin{description}
-\item[mandatory:] 
+\item[mandatory:]
 |author|,
 |title|, |subtitle|, |titleaddon|,
 |type|, |institution|,
 |year|,
 \item[optional:]
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
  \end{description}
- 
+
 
 Here is an example:
 \begin{bibexample}[label=Arnolds2005]{{@}Thesis\{Arnolds2005,…\}}
@@ -2245,14 +2245,14 @@ Here is the entry in the bibliography:
 
 \printbib[5.5em]{Arnolds2005}
 
- 
+
  \changes{v1.1}{2015/06/04}{Umsetzung von |@thesis| im Stil.}
 
  \subsection{Type \texttt{@Talk}}\label{talk}
 For (oral) given papers e.\,g. at a colloquium or a proceeding we created a new entry type called ›@Talk‹.
 
 \begin{description}
-\item[mandatory:] 
+\item[mandatory:]
 |author|,
 |title|, |subtitle|, |titleaddon|,
 |date|,
@@ -2261,9 +2261,9 @@ For (oral) given papers e.\,g. at a colloquium or a proceeding we created a new 
 |eventtitle|,
 |eventdate|,
 \item[optional:]
-|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|, 
+|doi|, |url|, |urldate|, |eprint|, |eprinttype|, |note|, |pubstate|,
  \end{description}
- 
+
 Here is an example for a  paper  given in Berlin in 2015:
 \begin{bibexample}[label=Bergmann2015]{{@}Talk\{Bergmann2015,…\}}
 @Talk{Bergmann2015,
@@ -2282,16 +2282,16 @@ Here is an example for a  paper  given in Berlin in 2015:
 The bibliography will show the entry as:
 
 \printbib[7em]{Bergmann2015}
-  
+
 \changes{v1.5}{2016/05/31}{Rückverweis}
 
 
  \section{Bibliography}\label{bibliographie}
  \DescribeMacro{\printbibliography}
-As long as you don’t use the option\DescribeMacro{seenote} |seenote|---for 
-which a final bibliography is not needed---you will need to print your cited entries in a bibliography 
+As long as you don’t use the option\DescribeMacro{seenote} |seenote|---for
+which a final bibliography is not needed---you will need to print your cited entries in a bibliography
 at a certain place in your document.
-It can be useful to differentiate your bibliography and divide it e.\,g. into a bibliography 
+It can be useful to differentiate your bibliography and divide it e.\,g. into a bibliography
 with ancient authors and one with modern scholars.
 Additionally you can have a bibliography with the |shorthand| shortcuts or all abbreviated journal titles, etc.
 
@@ -2304,7 +2304,7 @@ But first we define the heading of the whole  bibliography:
 \begin{refsection}
     \nocite{*}
     \renewcommand\bibfont{\normalfont\footnotesize}
-    \setlength{\labwidthsameline}{6em} 
+    \setlength{\labwidthsameline}{6em}
 \begin{example}
 \printbibheading[%
   heading=bibliography,%
@@ -2315,7 +2315,7 @@ You can give any title you would like to give (|title = |\marg{any title}).
 
 The next step is to set up the bibliography for the ancient authors.
 
-\setlength{\labwidthsameline}{6.5em} 
+\setlength{\labwidthsameline}{6.5em}
 \begin{example}
 \printbibliography[%
   keyword=ancient,%
@@ -2327,11 +2327,11 @@ We tell the bibliography just to contain the entries which have |ancient| in the
 
 
 Finally the bibliography for modern scholars.
-This time we exclude all entries which have |ancient| or |corpus| in the field |keywords|. 
+This time we exclude all entries which have |ancient| or |corpus| in the field |keywords|.
 That’s it.
 (Don't be surprised about the line |notkeyword=corpus| which excludes entries with special |shorthand| labels, a further bibliography part with all the |shorthands| is described below.).
 
-\setlength{\labwidthsameline}{7em} 
+\setlength{\labwidthsameline}{7em}
 \begin{example}
 \printbibliography[%
   notkeyword=ancient,%
@@ -2355,9 +2355,9 @@ title={Abbreviation of corpora}]
 \end{example}
 
 \begin{marker}
- If you want to separate author-year labels from |shorthand| labels in your bibliography,  
- you should ensure that bibliography entries which contain a |shorthand| denomination 
-are set with a keyword either |ancient|, |corpus| or something else, to guarantee that there is 
+ If you want to separate author-year labels from |shorthand| labels in your bibliography,
+ you should ensure that bibliography entries which contain a |shorthand| denomination
+are set with a keyword either |ancient|, |corpus| or something else, to guarantee that there is
 no bibliographical shortcut wrongly sorted in the bibliography.
 \end{marker}
 
@@ -2385,7 +2385,7 @@ For series it is done like this:
 Just write the first page in the \oarg{postnote} and then the \cs{psq}---cf. \cref{Parlasca1969,Vitr:Fischer}.
 
 \subsection{Online referencing}
-\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available 
+\DescribeMacro{eprint}\DescribeMacro{eprinttype} If you have a paper or book which is available
 in the internet via a permanent link there are different possibilities for referring to it---see also the
  \href{http://tug.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf}{|bib|\LaTeX-documentation chapter 3.11.7}.\footnote{You can also use as an |eprinttype|: |arXiv|, |pubmed|, |hdl|, |googlebooks|.
 }
@@ -2395,14 +2395,14 @@ in the internet via a permanent link there are different possibilities for refer
 
 \begin{code}
 jstor = *@\marg{jstor-number}@*
-\end{code}  
+\end{code}
 
 \DescribeMacro{urn}
 For all papers referable via an ›urn‹ (\emph{Uniform Resource Name}), which have been registered at the German National Library---cf. \cref{Arnolds2005}.
 
 \begin{code}
 urn = *@\marg{urn:xxx}@*
-\end{code}  
+\end{code}
 
 \DescribeMacro{zenon}
 This eprint-form is especially designed for the OPAC (Online Public Access Catalogue) of the \DAI.
@@ -2412,26 +2412,26 @@ You only need to insert the individual Zenon-number of the entry, e.\,g. \emph{h
 This option is set to |false| by default.
 \begin{code}
 zenon = *@\marg{Zenon-number}@*
-\end{code}      
+\end{code}
 
 \DescribeMacro{arachne}
-There is the object-database of the \DAI which is called iDAI.objects arachne. 
-You can cite the items with their entity-IDs 
+There is the object-database of the \DAI which is called iDAI.objects arachne.
+You can cite the items with their entity-IDs
 
 
 This option is set to |false| by default.
 \begin{code}
 arachne = *@\marg{entity-number}@*
-\end{code}      
+\end{code}
 
 
 
-\DescribeMacro{doi} In addition you can also refer to a document via its |doi|-number---cf. \cref{Ball2013,Evangelidis2014} 
+\DescribeMacro{doi} In addition you can also refer to a document via its |doi|-number---cf. \cref{Ball2013,Evangelidis2014}
 \begin{code}
 doi = *@\marg{doi-number}@*
-\end{code}  
+\end{code}
 
-If you want or don’t want to have the online references printed you can enable or disable the fields with |jstor=false|, 
+If you want or don’t want to have the online references printed you can enable or disable the fields with |jstor=false|,
 |urn=false|,
 |zenon=true|,
 |doi=false| etc. as preamble option.
@@ -2442,16 +2442,16 @@ The rule says that within a pair of parentheses you have to use square brackets.
 Citing |@Inreferences| can lead easily to a false behaviour when you put it in parentheses.
 This is an example how it should not be done:
 \begin{tcolorbox}[examplebox]
-|(\cite[vgl.][930 Nr. 283]{Neils1994}).| 
+|(\cite[vgl.][930 Nr. 283]{Neils1994}).|
 \tcblower
 (vgl. LIMC 7.1 (1994) 930 Nr. 283 s. v. Theseus (J. Neils)). \textcolor{red}{\textbf{WRONG!!}}
 \end{tcolorbox}
- 
+
 \DescribeMacro{\parencite} \DescribeMacro{\parencites}
 This example shows that the correct order of parentheses has not been followed.
 Especially when you activated the preamble option  |inreferencesasfullcite=true| \DescribeMacro{inreferencesasfullcite} you should use \cs{parencite}\marg{bibtex-key} instead (\cref{cite-commands}), then the correct order of parentheses and square brackets is given:
 \begin{tcolorbox}[examplebox]
-|\parencite[vgl.][930 Nr. 283]{Neils1994}.| 
+|\parencite[vgl.][930 Nr. 283]{Neils1994}.|
 \tcblower
 (vgl. LIMC 7.1 [1994] 930 Nr. 283 s. v. Theseus [J. Neils]). \textcolor{green!50!black}{\textbf{CORRECT!}}
 \end{tcolorbox}
@@ -2490,7 +2490,7 @@ This field is usable with all entry types provided (except |@Talk|).
 There are some predefined publication statuses which you are recommended to use since they are translated into the used language:
 
 \DescribeMacro{inpreparation}
-Typoscript is prepared for your publication. 
+Typoscript is prepared for your publication.
 \begin{code}
 pubstate = {inpreparation}
 \end{code}
@@ -2557,7 +2557,7 @@ If you do not want to have the text in the beginning (which is defined in Englis
 \end{example}
 \end{otherlanguage}
 
-You can print the version of this style with |\archaeologieversion| 
+You can print the version of this style with |\archaeologieversion|
 \begin{example}
 \archaeologieversion
 \end{example}
@@ -2577,7 +2577,7 @@ First you have to activate indexing in the package |biblatex|:
           indexing=cite,
           *@\meta{further options}@*]{biblatex}
 \end{code}
-|cite| will enable indexing in citations only, 
+|cite| will enable indexing in citations only,
 you can also do |bib| which will enable indexing in the bibliography only.
 Or |true| so in citations and in the bibliography (|false| is the default setting).
 
@@ -2590,7 +2590,7 @@ If you have only one index which will be used for the authors of secondary liter
   title=Index of  authors,
   columns=3,
 ]
-\end{code}   
+\end{code}
 
 Now you only need to place \cs{printindex} whre you want to have the index.
 \begin{marker}
@@ -2598,8 +2598,8 @@ If you have the option \texttt{initials} activated your index will have some iss
 We are working on it, see the issue on \href{https://github.com/LukasCBossert/biblatex-archaeologie/issues/97}{GitHub} and on \href{http://tex.stackexchange.com/q/330971/98739}{\TeX.sx} for more information.\footnote{So far we can only offer a work-around:
 Go into your \texttt{.bbl}-file which is in the same folder as your \texttt{.tex}-file.
 Replace |family=\{\{|\meta{Ch / Chr / Ph / St / Th}|\}| with |family=\{|\meta{Ch / Chr / Ph / St / Th}.
-Then compile your document one more time. You will have the initials in the text, 
-and the index looks fine. 
+Then compile your document one more time. You will have the initials in the text,
+and the index looks fine.
 Be aware that after running \texttt{biber} you have to repeat this step.}
 \end{marker}
 
@@ -2636,7 +2636,7 @@ Let us take a look at another example:
 }
 \end{bibexample}
 This time the article appeared in an issue which covers two years (\citedate{DeVisscher1951-1952}) and we want them to appear in the label.
-That is why we have to use the field |date| instead of |year|. 
+That is why we have to use the field |date| instead of |year|.
 Note that if the date range consists out of only two sequent years, the delimiter will be a slash |/|.
 If the range is bigger than two years it will be an em-dash |–|.
 \printbib[11em]{DeVisscher1951-1952}
@@ -2670,7 +2670,7 @@ All the entries have |keywords={corpus}|, |options={corpus}|.
  \changes{v1.5}{2016/05/31}{Antike Bibliographie}
 
 \section{List of locations}\label{list-locations}
-\DescribeMacro{lstlocations}If you use the option |lstlocations| it will load an additional bibliography called |archaeologie-lstlocations.bib|.\footnote{If you think the list should be enlarged, let us know the entries.} 
+\DescribeMacro{lstlocations}If you use the option |lstlocations| it will load an additional bibliography called |archaeologie-lstlocations.bib|.\footnote{If you think the list should be enlarged, let us know the entries.}
 Below you find a list with the available locations in five (at maximum) different languages.
 The bold entry on the left is to use for |location=|\meta{location} -- do not put \meta{location} into |{}|.
 In these examples we used such |@Strings|:
@@ -2753,7 +2753,7 @@ In these examples we used such |@String|:
 \end{multicols}
 \section{List of abbreviation according to the \DAI-guidelines}\label{abbrv-lists}
 We modified the lists with abbreviations of journals, corpora, etc. to make them usable with |bib|\LaTeX.
-Below there are two lists with\DescribeMacro{@String} |@String| (in \textbf{bold} letters on the left), 
+Below there are two lists with\DescribeMacro{@String} |@String| (in \textbf{bold} letters on the left),
 one with the abbreviations (\cref{liste-kurz}), the other with the long forms  (\cref{liste-lang}).
 
 We recommend  looking up the journal names in the list and inserting the |@String| in the fields  |journaltitle| and |shortjournal|, or |series| and |shortseries|.
@@ -2780,7 +2780,7 @@ To see the long forms of journal titles or series you have to switch on the opti
 %%\section{Umsetzung}
 %%\label{driver}
 %%|archaeologie| consists of various files:
-%%There is one file that takes care of the bibliography (|bbx|) 
+%%There is one file that takes care of the bibliography (|bbx|)
 %%another looks after the citation-style  (|cbx|)
 %%and several files which are necessary for the individual languages (|lbx|),
 %%furthermore there is a |dbx|-file.
@@ -2793,7 +2793,7 @@ To see the long forms of journal titles or series you have to switch on the opti
 %%\begin{code}[style=code]
 %%\ProvidesFile{archaeologie.bbx}%
 %%               [2016/05/31 v2.0  archaeologie -- %
-%%                biblatex for archaeologists, 
+%%                biblatex for archaeologists,
 %%                historians and philologists, bbx-file]
 %%\RequireBibliographyStyle{standard}
 %%\end{code}
@@ -2803,8 +2803,8 @@ To see the long forms of journal titles or series you have to switch on the opti
 %%\begin{code}[style=code]
 %%\AtBeginDocument{%
 %%    \urlstyle{sf}%
-%%    \typeout{* * * archaeologie * * *  
-%%        biblatex for archaeologists, 
+%%    \typeout{* * * archaeologie * * *
+%%        biblatex for archaeologists,
 %%               historians and philologists}
 %%}
 %%\ExecuteBibliographyOptions{%
@@ -2817,7 +2817,7 @@ To see the long forms of journal titles or series you have to switch on the opti
 %%bibencoding=utf8,%
 %%dateabbrev=false, %
 %%sorting=nyt,%
-%%maxnames=2,% 
+%%maxnames=2,%
 %%minnames=1,%
 %%maxitems=1,%
 %%maxbibnames=999,%
@@ -2835,7 +2835,7 @@ To see the long forms of journal titles or series you have to switch on the opti
 %%    {\printfield{shortjournal}}%
 %%    }
 %%\end{code}
-%%    
+%%
 
 %\subsection{archaeologie.cbx}
 
