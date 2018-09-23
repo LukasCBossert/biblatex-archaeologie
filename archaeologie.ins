@@ -39,7 +39,7 @@
 \generate{
   \file{README.md}{\from{\jobname.dtx}{readme}}
   %bibliography.bib because of the .cls
-  \file{bibliography.bib}{\from{\jobname.dtx}{bib}}
+  \file{\jobname-examples.bib}{\from{\jobname.dtx}{bib,expl}}
 }
 
 \preamble
@@ -59,7 +59,7 @@ Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
 
 \usedir{tex/latex/\jobname}
 \generate{
-  \file{\jobname-german.tex}{\from{\jobname.dtx}{doc}}
+  % \file{\jobname-german.tex}{\from{\jobname.dtx}{doc}}
   \file{archaeologie.bbx}{\from{\jobname.dtx}{bbx}}
   \file{archaeologie.cbx}{\from{\jobname.dtx}{cbx}}
   \file{archaeologie.dbx}{\from{\jobname.dtx}{dbx}}
@@ -70,6 +70,8 @@ Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
   \file{german-archaeologie.lbx}{\from{\jobname.dtx}{lbx,de}}
 }
 \endbatchfile
+\iffalse
+\fi
 
 %% 
 %% Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de

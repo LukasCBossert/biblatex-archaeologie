@@ -88,16 +88,16 @@ This might be helpful if you send the bundle to someone else.
 * `ctan`:  this will create a zip file which can be used to send to CTAN.
 * `uninstall`: will erase the locally installed files.
 
-### Development
+## Development
 
 This bundle is constantly updated. For hints, errors or suggestions use the GitHub repository [https://github.com/LukasCBossert/biblatex-archaeologie](https://github.com/LukasCBossert/biblatex-archaeologie).
 
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in the README.md.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
-
+\iffalse
 ## v2.3.8 (2018-09-25)
 
 ### *Fixed*
@@ -218,4 +218,5 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 [current release]: http://www.biblatex-archaeologie.de
 [unreleased]: http://github.com/LukasCBossert/biblatex-archaeologie
 
+\fi
 
