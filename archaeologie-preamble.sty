@@ -1,22 +1,22 @@
-\usepackage{iftex}
+\RequirePackage{iftex}
 \ifPDFTeX
-  \usepackage[utf8]{inputenc}
-  \usepackage[T1]{fontenc}
-  \usepackage{lmodern}
+  \RequirePackage[utf8]{inputenc}
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage{lmodern}
 \else
     \ifXeTeX
-    \usepackage{fontspec}
+    \RequirePackage{fontspec}
 		\def\compiler{\hologo{XeLaTeX}}
-  \else 
-	  \usepackage{fontspec}
-    \usepackage{luatextra}
-    \usepackage{luaotfload}
+  \else
+	  \RequirePackage{fontspec}
+    \RequirePackage{luatextra}
+    \RequirePackage{luaotfload}
 	\def\compiler{\hologo{LuaLaTeX}}
 \fi
   \defaultfontfeatures{Ligatures=TeX}
 \fi
 \listfiles
-\usepackage{libertine}
+\RequirePackage{libertine}
 \defaultfontfeatures[AnonymousPro]
   {
     Extension      = .ttf                       ,
@@ -38,13 +38,13 @@
 % BoldFont    = GenBasB,
 %  BoldFont={Gentium Basic Bold},
 ]{Gentium Plus}
- 
-\usepackage{xr-hyper}
-\usepackage{url}
-\usepackage{xspace}
+
+\RequirePackage{xr-hyper}
+\RequirePackage{url}
+\RequirePackage{xspace}
 
 
-\usepackage[
+\RequirePackage[
 	backend=biber,
 %	backref,
 style=/Users/lukascbossert/Documents/github/biblatex-archaeologie/archaeologie,
@@ -54,22 +54,22 @@ style=/Users/lukascbossert/Documents/github/biblatex-archaeologie/archaeologie,
 %	initials=false,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont\footnotesize}
-\usepackage{metalogo}
-\usepackage{hologo}
-\usepackage{babel}
-\usepackage{coolthms}
+\RequirePackage{metalogo}
+\RequirePackage{hologo}
+\RequirePackage{babel}
+\RequirePackage{coolthms}
 
 
-\usepackage{chngcntr}
+\RequirePackage{chngcntr}
 
-\usepackage[
+\RequirePackage[
   autostyle=true,%
 ]{csquotes}
-\usepackage{multicol}
+\RequirePackage{multicol}
   \setlength{\columnsep}{1.5cm}
   \setlength{\columnseprule}{0.2pt}
 
-\usepackage{xcolor}
+\RequirePackage{xcolor}
 \definecolor{codeblue}{RGB}{0,65,137}
 \definecolor{codegreen}{RGB}{147,193,26}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -77,21 +77,21 @@ style=/Users/lukascbossert/Documents/github/biblatex-archaeologie/archaeologie,
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 
-\usepackage[ 
-	headsepline, 
+\RequirePackage[
+	headsepline,
 	footsepline,
-%	plainfootsepline, 
-%markcase=upper, 
-automark, 
+%	plainfootsepline,
+%markcase=upper,
+automark,
 draft=false,
-]{scrlayer-scrpage} 
+]{scrlayer-scrpage}
 \pagestyle{scrheadings}
 \clearscrheadfoot
 \ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie \archaeologieversion} \copyright\ by Lukas C. Bossert | Johannes Friedl}%
 \rofoot{\normalfont\footnotesize  \textbf{\sffamily \thepage}}
 \lofoot{\normalfont\footnotesize  \href{http://www.biblatex-archaeologie.de}{biblatex-archaeologie.de}}
 
-\usepackage[%
+\RequirePackage[%
 %  flushmargin, %
 %  marginal,
   ragged,%
@@ -99,9 +99,9 @@ draft=false,
   bottom%
 ]{footmisc}
 
-\usepackage{marginnote,frame}
-\usepackage{tabto}
-\usepackage{ifthen,xstring}
+\RequirePackage{marginnote,frame}
+\RequirePackage{tabto}
+\RequirePackage{ifthen,xstring}
 
 \newcommand\archversion[2][0pt]{\leavevmode%
   \tabto*{\dimexpr\linewidth+10pt}\smash{\raisebox{%
@@ -112,18 +112,18 @@ draft=false,
      }}}\tabto*{\TabPrevPos}%
 }
 
-\usepackage{enumitem}
+\RequirePackage{enumitem}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 2pt}
 \setenumerate[1]{label=(\alph*),leftmargin=*,nolistsep,parsep=\parskip}
-\usepackage{changepage}
+\RequirePackage{changepage}
 \makeindex
 
 \defbibheading{empty}{}
 \addbibresource{archaeologie-examples.bib}
-\usepackage{caption}
+\RequirePackage{caption}
 
-\usepackage[%
+\RequirePackage[%
   skins,%
   listings,%
   breakable,%
@@ -163,8 +163,8 @@ draft=false,
   coltitle=black,
   colbacktitle=codegreen!20,
   fonttitle=\bfseries\sffamily\footnotesize,
-  title={Example \thetcbcounter:  #2}, 
-  #1,%  
+  title={Example \thetcbcounter:  #2},
+  #1,%
   borderline north={1pt}{14.4pt}{codegreen,dashed},
 }
 
@@ -198,8 +198,8 @@ auto counter,
     coltitle=codeblue,
     colbacktitle=codegreen!10,
 %    fonttitle=\bfseries\footnotesize,
-%    title={Example \thetcbcounter:  #2}, 
-%   #1,%  
+%    title={Example \thetcbcounter:  #2},
+%   #1,%
 %    borderline north={1pt}{14.4pt}{codegreen,dashed},
 }
 
@@ -240,7 +240,7 @@ enhanced,
     },
   drop fuzzy shadow,#1
   }
-  
+
 
 
 \tcbset{examplebox/.style={%
@@ -289,7 +289,7 @@ examplebox,
 \begingroup
 \begin{bibbox}{#2}
 \begin{refsection}
-\setlength{\labwidthsameline}{#1} 
+\setlength{\labwidthsameline}{#1}
 \nocite{#2}
 \printbibliography[heading=none]
 \end{refsection}
@@ -299,7 +299,7 @@ examplebox,
 
 \newcommand{\printbiball}[2][5em]{%
 \begingroup
-\setlength{\labwidthsameline}{#1} 
+\setlength{\labwidthsameline}{#1}
 \begin{bibbox}{#2}
 \begin{itemize}
 \begin{refsection}
@@ -323,15 +323,21 @@ examplebox,
 \newcommand\DAI{Deutsches Archäologisches Institut\xspace}
 
 
+%<*driver>
+\RequirePackage[tightLists=false]{markdown}
+\markdownSetup{rendererPrototypes={%
+    link = {\href{#3}{#1}}%
+}}
+\GetFileInfo{\jobname.dtx}
+%</driver>
 
-
-\usepackage{hyperxmp}
-\usepackage{hyperref}
+\RequirePackage{hyperxmp}
+\RequirePackage{hyperref}
 \hypersetup{					% setup the hyperref-package options
   unicode       = true,
 	pdftitle      = {bib\LaTeX-archaeologie},	% 	- title (PDF meta)
-	pdfsubject    = {This citation-style covers the citation and bibliography rules of the \DAI. 
-                   Various options are available to change and adjust the outcome according to one's own preferences. 
+	pdfsubject    = {This citation-style covers the citation and bibliography rules of the \DAI.
+                   Various options are available to change and adjust the outcome according to one's own preferences.
                    The style is compatible with the English, German, Italian, Spanish and French languages, since all bibstrings used are defined in each language.},% 	- subject (PDF meta)
 	pdfauthor      = {Lukas C. Bossert, Johannes Friedl},	% 	- author (PDF meta)
 	pdfauthortitle = {},
@@ -346,7 +352,7 @@ examplebox,
 	pdfkeywords    = {biblatex, archaeology, humanities},
 	pdfproducer={LuaLaTeX},
 	pdflicenseurl  = {http://www.latex-project.org/lppl.txt},
-	plainpages     = false,			% 	- 
+	plainpages     = false,			% 	-
   colorlinks     = true, %Colours links instead of ugly boxes
   urlcolor       = codeblue, %Colour for external hyperlinks
   linkcolor      = codeblue, %Colour of internal links
@@ -359,7 +365,7 @@ examplebox,
 	bookmarksopen  = true,		%
 	final          = true
 }
-\usepackage{bookmark}
+\RequirePackage{bookmark}
 
 \crefformat{lstlisting}{#2example\ #1#3}
 \Crefformat{lstlisting}{#2Example #1#3}
@@ -367,3 +373,23 @@ examplebox,
 \Crefmultiformat{lstlisting}{#2Examples #1#3}{; #2#1#3}{; #2#1#3}{; #2#1#3}
 \Crefrangeformat{lstlisting}{#3Examples #1#4--#5#2#6}
 \crefrangeformat{lstlisting}{#3examples #1#4--#5#2#6}
+
+\pdfstringdefDisableCommands{%
+  \def\lstinline#1{<#1>}
+  \def\tex{TeX}%
+  \def\etex{e-TeX}%
+  \def\xetex{XeTeX}%
+  \def\latex{LaTeX}%
+  \def\xelatex{XeLaTeX}%
+  \def\bibtex{BibTeX}%
+  \def\lppl{LaTeX Project Public License}%
+  \def\pdf{PDF}%
+  \def\utf{UTF-8}%
+  \def\\{}%
+  \def\texttt#1{<#1>}%
+  \def\marg#1{\{#1\}}%
+  \def\oarg#1{[#1]}%
+  \def\color#1#2{}%
+  \def\env#1{<#1>}
+  \def\cmd#1{#1}
+}

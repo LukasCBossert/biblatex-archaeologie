@@ -1,0 +1,141 @@
+%</driver> % /* % ██████ ███████ █████ ██████ ███ ███ ███████ % ▄ ██ ▄██ ██ ██ ██ ██ ██ ██ ████ ████ ██ % ████ ██████ █████ ███████ ██ ██ ██ ████ ██ █████ % ▀ ██ ▀██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ % ██ ██ ███████ ██ ██ ██████ ██ ██ ███████ % \markdownRendererEmphasis{/ %<}driver|readme>\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingOne{Installation of the bundle}\markdownRendererInterblockSeparator
+{}\markdownRendererCodeSpan{archaeologie} is part of the distributions \markdownRendererLink{MiKTeX}{http://www.miktex.org}{http://www.miktex.org}{} and \markdownRendererLink{TeXLive}{http://www.tug.org/texlive}{http://www.tug.org/texlive}{} -- thus, you can easily install it using the respective package manager. If you would like to install \markdownRendererCodeSpan{archaeologie} into your local folder manually, do the following: Go to your terminal, browse to the folder of this bundle and run\markdownRendererInterblockSeparator
+{}\markdownRendererCodeSpan{make install}\markdownRendererInterblockSeparator
+{}If you are using macOS you will be asked for your user account password for the installation.\markdownRendererInterblockSeparator
+{}Further options of this makefile are:\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem \markdownRendererCodeSpan{clean}: deletes all unnecessary files\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{cleanbundle}: deletes all files except \markdownRendererCodeSpan{.dtx}, \markdownRendererCodeSpan{.pl}, \markdownRendererCodeSpan{.md}. You will get the plain version of this bundle. This might be helpful if you send the bundle to someone else.\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{ctan}: this will create a zip file which can be used to send to CTAN.\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{uninstall}: will erase the locally installed files.\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{Development}\markdownRendererInterblockSeparator
+{}This bundle is constantly updated. For hints, errors or suggestions use the GitHub repository \markdownRendererLink{https://github.com/LukasCBossert/biblatex-archaeologie}{https://github.com/LukasCBossert/biblatex-archaeologie}{https://github.com/LukasCBossert/biblatex-archaeologie}{}.\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingOne{Changelog}\markdownRendererInterblockSeparator
+{}All notable changes to this project will be documented in this file. This project \markdownRendererStrongEmphasis{does not} adhere to \markdownRendererLink{Semantic Versioning}{http://semver.org/}{http://semver.org/}{}. The markdown syntax is inspired by the conventions proposed by \markdownRendererLink{keepachangelog.com}{http://keepachangelog.com/}{http://keepachangelog.com/}{}.\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.3.8 (2018-09-25)}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem there was a bug if the field \markdownRendererCodeSpan{eventdatelanguage} wasn’t defined \markdownRendererLink{see issue no. 145}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/145}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/145}{}\markdownRendererUlItemEnd 
+\markdownRendererUlItem if the field \markdownRendererCodeSpan{volume} doesn’t have an integer it won’t proceed with it as Roman numeral\markdownRendererUlItemEnd 
+\markdownRendererUlItem somehow the field \markdownRendererCodeSpan{edition} was missing for \markdownRendererCodeSpan{references}, fixed it.\markdownRendererUlItemEnd 
+\markdownRendererUlItem a mysterious space in the name part, got rid of it\markdownRendererUlItemEnd 
+\markdownRendererUlItem missing space before \markdownRendererCodeSpan{volumes}, added a space\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Changed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem the fields \markdownRendererCodeSpan{postnote} and \markdownRendererCodeSpan{multipostnote} are formatted with \markdownRendererCodeSpan{\markdownRendererBackslash{}mknormrange}, that means you don’t have to type \markdownRendererCodeSpan{--} to get an endash for page ranges.\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.3.7 (2018-04-08)}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Added}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem New data-field \markdownRendererCodeSpan{arachne = \markdownRendererLeftBrace{}\markdownRendererRightBrace{}} to reference to the database iDAI.objects arachne\markdownRendererUlItemEnd 
+\markdownRendererUlItem Alias \markdownRendererCodeSpan{matheseis} for \markdownRendererCodeSpan{thesis} (for all Zotero-users) (\markdownRendererCodeSpan{\markdownRendererBackslash{}DeclareBibliographyAlias\markdownRendererLeftBrace{}mathesis\markdownRendererRightBrace{}\markdownRendererLeftBrace{}thesis\markdownRendererRightBrace{}})\markdownRendererUlItemEnd 
+\markdownRendererUlItem field \markdownRendererCodeSpan{eventdatelanguage}, you can get the date of the field \markdownRendererCodeSpan{eventdate} in the chosen language, enable with \markdownRendererCodeSpan{eventdatelanguage=true}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Changed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem \markdownRendererCodeSpan{inreferences=true} is now called \markdownRendererCodeSpan{inreferencesasfullcite=true} due to better understanding of the option. There is a fallback.\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{bibstrings} are defined in \markdownRendererCodeSpan{archaeologie.bbx} now\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{editortype} is now used as \markdownRendererCodeSpan{parens}\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{autolang=hyphen} now you can use \markdownRendererCodeSpan{langid=\markdownRendererLeftBrace{}\markdownRendererRightBrace{}} to manage to language of an entry\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem better coding for the year delimiter (thanks to moewe!)\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Deleted}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem Version \markdownRendererCodeSpan{initials} has to be deleted since its incompatibility to \markdownRendererCodeSpan{biber}-version \markdownRendererCodeSpan{2.11} see \markdownRendererLink{https://github.com/plk/biber/issues/215}{https://github.com/plk/biber/issues/215}{https://github.com/plk/biber/issues/215}{}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.3.6 (2018-02-20)}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Added}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem \markdownRendererCodeSpan{citeauthorformat=firstinitialsthenfamily} as requested in \markdownRendererLink{see issue no. 138}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/138}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/138}{},\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{citeauthorformat=firstfullthenfamily}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Changed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem \markdownRendererCodeSpan{jstor=false} by default, since it is no part of the guidelines\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{lstabbrv=true} by default\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{lstlocations=true} by default\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{lstpublishers=true} by default\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{citeauthorformat=firstfull} is now called \markdownRendererCodeSpan{citeauthorformat=firstfulltheninitials}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem wrong entry with \markdownRendererCodeSpan{\markdownRendererBackslash{}archaeologieoptions} deleted\markdownRendererUlItemEnd 
+\markdownRendererUlItem labeldates now work correctly\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.3.5 (2018-02-13)}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem \markdownRendererCodeSpan{\markdownRendererBackslash{}citereset} for author names \markdownRendererLink{see issue no. 122}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/122}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/122}{}\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{\markdownRendererBackslash{}citetitle} will give the original title of a work which has the option \markdownRendererCodeSpan{ancient}; \markdownRendererCodeSpan{\markdownRendererBackslash{}citetitle*} instead will always give title without year.\markdownRendererUlItemEnd 
+\markdownRendererUlItem no comma before \markdownRendererCodeSpan{in:} if title is missing (got wrong in last version)\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{volume}/\markdownRendererCodeSpan{volumes} are now shown for \markdownRendererCodeSpan{book} etc.\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{daterange} for a sequence of two years (now delimited by \markdownRendererCodeSpan{\markdownRendererBackslash{}})\markdownRendererUlItemEnd 
+\markdownRendererUlItem Short-journal for \markdownRendererCodeSpan{Archaeologia}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Changed}}\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{volume} is now automatically a Roman numeral for \markdownRendererCodeSpan{book}, \markdownRendererCodeSpan{inbook}, \markdownRendererCodeSpan{collection}, \markdownRendererCodeSpan{incollection}, \markdownRendererCodeSpan{proceedings}, \markdownRendererCodeSpan{inproceedings}, you only insert the Arabic number.\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.3.4 (2017-11-19)}\markdownRendererInterblockSeparator
+{}This update is also due to compatibility with \markdownRendererCodeSpan{biblatex 3.8a}/\markdownRendererCodeSpan{biber 2.8}.\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingThree{\markdownRendererEmphasis{Fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem Arrangement of multiple authors with \markdownRendererCodeSpan{\markdownRendererBackslash{}textcites}; see \markdownRendererLink{see issue no. 115}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/115}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/115}{}, solved with \markdownRendererLink{https://tex.stackexchange.com/a/387162/98739}{https://tex.stackexchange.com/a/387162/98739}{https://tex.stackexchange.com/a/387162/98739}{}\markdownRendererUlItemEnd 
+\markdownRendererUlItem Delimiter of \markdownRendererCodeSpan{subtitle} and \markdownRendererCodeSpan{titleaddon}, it is now a comma instead of fullstop.\markdownRendererUlItemEnd 
+\markdownRendererUlItem Remodelled the bibmacro \markdownRendererCodeSpan{volume} and fixed a bug of a duplicate \markdownRendererCodeSpan{volume}.\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{in:} is now always with minor \markdownRendererCodeSpan{I} it doesn’t matter if follows a dot.\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingFour{\markdownRendererEmphasis{added}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem \markdownRendererCodeSpan{@MvBook} and its children can be listed in the bibliography together \markdownRendererLink{see issue no. 118}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/118}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/118}{}\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererCodeSpan{\markdownRendererBackslash{}citetitle*} for showing the publication title without year of publication.\markdownRendererUlItemEnd 
+\markdownRendererUlItem You can use the namefield \markdownRendererCodeSpan{bookauthor} now, then no \markdownRendererEmphasis{(ed.)} will be printed.\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.3.3 (2017-08-10)}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingFour{\markdownRendererEmphasis{fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem typo in documentation\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingFour{\markdownRendererEmphasis{added}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem if there is no \markdownRendererCodeSpan{translator} \markdownRendererCodeSpan{\markdownRendererBackslash{}citetranslator} will fall back to the \markdownRendererCodeSpan{bibstring} "owntranslation" which can be modified; see \markdownRendererLink{112}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/112}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/112}{} and \markdownRendererLink{tex.stackexchange.com/q/385719/98739}{https://tex.stackexchange.com/q/385719/98739}{https://tex.stackexchange.com/q/385719/98739}{} thanks to \markdownRendererLink{moewe}{https://tex.stackexchange.com/users/35864/moewe}{https://tex.stackexchange.com/users/35864/moewe}{}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.3.2 (2017-07-19)}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingFour{\markdownRendererEmphasis{fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem wrong code-example in documentation\markdownRendererUlItemEnd 
+\markdownRendererUlItem issue \markdownRendererLink{see issue no. 111}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/111}{https://github.com/LukasCBossert/biblatex-archaeologie/issues/111}{} (regarding option \markdownRendererCodeSpan{inreferences}) solved, thanks to \markdownRendererLink{moewe}{https://tex.stackexchange.com/users/35864/moewe}{https://tex.stackexchange.com/users/35864/moewe}{}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.31 (2017-05-29)}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingFour{\markdownRendererEmphasis{fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem number after year in an article if there is no volume.\markdownRendererUlItemEnd 
+\markdownRendererUlItem volume and title for ancient publications\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.3 (2017-02-27)}\markdownRendererInterblockSeparator
+{}\markdownRendererHeadingFour{\markdownRendererEmphasis{fixed}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem empty space deleted after bibliography entries (has only been visible when using option \markdownRendererCodeSpan{seenote})\markdownRendererUlItemEnd 
+\markdownRendererUlItem typo in the German documentation\markdownRendererUlItemEnd 
+\markdownRendererUlItem related example in German documentation corrected\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingFour{\markdownRendererEmphasis{added}}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem get the translator of an ancient opus with \markdownRendererCodeSpan{\markdownRendererBackslash{}citetranslator} or \markdownRendererCodeSpan{\markdownRendererBackslash{}citetranslator*}\markdownRendererUlItemEnd 
+\markdownRendererUlItem more citation commands (\markdownRendererCodeSpan{\markdownRendererBackslash{}smartcite}; \markdownRendererCodeSpan{\markdownRendererBackslash{}autocite}; \markdownRendererCodeSpan{\markdownRendererBackslash{}fullcite}; \markdownRendererCodeSpan{\markdownRendererBackslash{}footfullcite})\markdownRendererUlItemEnd 
+\markdownRendererUlItem support for \markdownRendererCodeSpan{polyglossia}\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.2b (2016-10-06)}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem \markdownRendererEmphasis{typo} <br> documentation with new style\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}\markdownRendererHeadingTwo{v2.2 (2016-09-25)}\markdownRendererInterblockSeparator
+{}\markdownRendererUlBegin
+\markdownRendererUlItem \markdownRendererEmphasis{added} <br> \markdownRendererCodeSpan{uniqueme} for variant translations of ancient works.\markdownRendererUlItemEnd 
+\markdownRendererUlItem \markdownRendererEmphasis{added} <br> bibliography-file \markdownRendererCodeSpan{archaeologie-examples.bib} included\markdownRendererUlItemEnd 
+\markdownRendererUlEnd \markdownRendererInterblockSeparator
+{}%</driver|readme> % /* % ██ ██████ ███████ █████ ██████ ███ ███ ███████ % ██ ██ ██ ██ ██ ██ ██ ██ ████ ████ ██ % ██ ██████ █████ ███████ ██ ██ ██ ████ ██ █████ % ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ % ██ ██ ██ ███████ ██ ██ ██████ ██ ██ ███████ % \markdownRendererEmphasis{/ %<}driver>\relax
