@@ -1,0 +1,3035 @@
+% \iffalse
+%<*internal|bbx|cbx|dbx|lbx>
+\def\arch@date{2018/04/08}
+\def\arch@version{2.3.7}
+%</internal|bbx|cbx|dbx|lbx>
+%<*internal>
+\iffalse
+%</internal>
+%<bbx|cbx|dbx|lbx>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<*bbx>
+\ProvidesFile{archaeologie.bbx}
+    [\arch@version\space\arch@date Base settings for bibliography style of biblatex-archaeologie]
+  \typeout{* * * archaeologie * * *^^J
+    biblatex for archaeologists,^^J
+    historians and philologists}
+  }
+  \def\archaeologieversion{\arch@version}
+  \def\archaeologiedate{\arch@date}
+%</bbx>
+%<*cbx>
+\ProvidesFile{archaeologie.cbx}
+    [\arch@version\space\arch@date Base settings for citation style of biblatex-archaeologie]
+%</cbx>
+%<*dbx>
+\ProvidesFile{archaeologie.dbx}
+    [\arch@version\space\arch@date Bibliographical data model of biblatex-archaeologie]
+%</dbx>
+%<*lbx&en>
+\ProvidesFile{english-archaeologie.lbx}
+    [\arch@version\space\arch@date Generic English conventions required by the biblatex-archaeologie style]
+%</lbx&en>
+%<*lbx&fr>
+\ProvidesFile{french-archaeologie.lbx}
+    [\arch@version\space\arch@date French conventions required by the biblatex-archaeologie style]
+%</lbx&fr>
+%<*lbx&fr>
+\ProvidesFile{italien-archaeologie.lbx}
+    [\arch@version\space\arch@date Italian conventions required by the biblatex-archaeologie style]
+%</lbx&fr>
+%<*lbx&de>
+\ProvidesFile{german-archaeologie.lbx}
+    [\arch@version\space\arch@date German conventions required by the biblatex-archaeologie style]
+%</lbx&de>
+%<*lbx&es>
+\ProvidesFile{spanish-archaeologie.lbx}
+    [\arch@version\space\arch@date Spanish conventions required by the biblatex-archaeologie style]
+%</lbx&es>
+%<*doc>
+\ProvidesFile{\jobname-manual.tex}
+    [\arch@version\space\arch@date Manual for users]
+%</doc>
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+    [\arch@version\space\arch@date Documentation of biblatex-archaeologie Bundle]
+%</driver>
+% /*
+%       ██████  ███████  █████  ██████  ███    ███ ███████
+% ▄ ██ ▄██   ██ ██      ██   ██ ██   ██ ████  ████ ██
+%  ████ ██████  █████   ███████ ██   ██ ██ ████ ██ █████
+% ▀ ██ ▀██   ██ ██      ██   ██ ██   ██ ██  ██  ██ ██
+%       ██   ██ ███████ ██   ██ ██████  ██      ██ ███████
+% */
+%<*readme>
+bibLaTeX-__archaeologie__
+=======
+
+bibLaTeX-style for archaeologists, historians and philologists.
+---
+
+Copyright (c) 2016-2018 Lukas C. Bossert
+Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
+Constantly supported by Moritz Wemheuer
+
+* Email: [info@biblatex-archaeologie.de](mailto:info@biblatex-archaeologie.de)
+* Website: [www.biblatex-archaeologie.de](http://www.biblatex-archaeologie.de)
+
+This citation-style covers the citation and bibliography rules of
+the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen).
+Various options are available to change and adjust
+the outcome according to one’s own preferences.
+(German, English, Italian, French, Spanish)
+
+---
+*Der Stil setzt die Zitations- und Bibliographievorgaben
+des [__Deutschen Archäologischen Instituts (DAI)__ ](http://www.dainst.org/dai/meldungen) (Stand 2014) um.
+Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild
+jedoch auch zu verändern, um eigenen Vorlieben anzupassen.*
+
+---
+
+This style contains:
+
+documentation:
+
+- archaeologie.pdf
+- archaeologie.dtx
+
+mandatory:
+
+* archaeologie.cbx
+* archaeologie.bbx
+* archaeologie.dbx
+
+language files:
+
+- german-archaeologie.lbx
+- english-archaeologie.lbx
+- french-archaeologie.lbx
+- italian-archaeologie.lbx
+- spanish-archaeologie.lbx
+
+additional lists and bibliographies:
+
+- archaeologie-examples.bib
+- archaeologie-lstabbrv.bib
+- archaeologie-lstpublishers.bib
+- archaeologie-lstlocations.bib
+- archaeologie-bibcorpora.bib
+- archaeologie-bibancient.bib
+
+
+-----------------
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3
+of this license or (at your option) any later version.
+The latest version of this license is in [http://www.latex-project.org/lppl.txt](http://www.latex-project.org/lppl.txt) and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+---
+This work has the LPPL maintenance status _maintained_.
+The current maintainer of this work is [Lukas C. Bossert](https://github.com/LukasCBossert).
+
+%</readme>
+% /*
+%     ██ ██████  ███████  █████  ██████  ███    ███ ███████
+%    ██  ██   ██ ██      ██   ██ ██   ██ ████  ████ ██
+%   ██   ██████  █████   ███████ ██   ██ ██ ████ ██ █████
+%  ██    ██   ██ ██      ██   ██ ██   ██ ██  ██  ██ ██
+% ██     ██   ██ ███████ ██   ██ ██████  ██      ██ ███████
+% */
+% /*
+%       ██████  ██ ██████
+% ▄ ██ ▄██   ██ ██ ██   ██
+%  ████ ██████  ██ ██████
+% ▀ ██ ▀██   ██ ██ ██   ██
+%       ██████  ██ ██████
+% */
+%<*bib>
+%%
+%% Encoding: UTF-8
+%%
+@InCollection{Hoare1973,
+  author = {Charles Antony Richard Hoare},
+  title = {Hints on programming language design},
+  editor = {C. Bunyan},
+  booktitle = {Computer Systems Reliability},
+  series = {State of the Art Report},
+  number = {20},
+  pages = {193--216},
+  date = {1973},
+  url={http://flint.cs.yale.edu/cs428/doc/HintsPL.pdf},
+  urldate={2018-09-06},
+  comment = {\blockcquote[195]{Hoare1973}{Documentation must be regarded as an integral part of the process of design and coding.
+ A good programming language will encourage and assist the programmer to write clear,
+ self-documenting code,
+ and even perhaps to develop
+ and display a pleasant style
+ of writing.}}
+}
+
+%</bib>
+% /*
+%     ██ ██████  ██ ██████
+%    ██  ██   ██ ██ ██   ██
+%   ██   ██████  ██ ██████
+%  ██    ██   ██ ██ ██   ██
+% ██     ██████  ██ ██████
+% */
+%<*internal>
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+  \expandafter\begingroup
+\fi
+%</internal>
+% /*
+%        ██ ███    ██ ███████
+% ▄ ██ ▄██ ████   ██ ██
+%  ████ ██ ██ ██  ██ ███████
+% ▀ ██ ▀██ ██  ██ ██      ██
+%        ██ ██   ████ ███████
+% */
+%<*install>
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+
+\nopreamble\nopostamble
+
+\usedir{doc/latex/\jobname}
+\generate{
+  \file{README.md}{\from{\jobname.dtx}{readme}}
+  %bibliography.bib because of the .cls
+  \file{bibliography.bib}{\from{\jobname.dtx}{bib}}
+}
+
+\preamble
+----------------------------------------------------------------
+biblatex-archaeologie ---
+Author:  Lukas C. Bossert
+E-mail:  info@biblatex-archaeologie.de
+License: Released under the LaTeX Project Public License v1.3c or later
+See:     http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+\endpostamble
+
+\usedir{tex/latex/\jobname}
+\generate{
+  \file{\jobname-german.tex}{\from{\jobname.dtx}{doc}}
+  \file{archaeologie.bbx}{\from{\jobname.dtx}{bbx}}
+  \file{archaeologie.cbx}{\from{\jobname.dtx}{cbx}}
+  \file{archaeologie.dbx}{\from{\jobname.dtx}{dbx}}
+  \file{english-archaeologie.lbx}{\from{\jobname.dtx}{lbx,en}}
+  \file{french-archaeologie.lbx}{\from{\jobname.dtx}{lbx,fr}}
+  \file{italian-archaeologie.lbx}{\from{\jobname.dtx}{lbx,it}}
+  \file{spanish-archaeologie.lbx}{\from{\jobname.dtx}{lbx,es}}
+  \file{german-archaeologie.lbx}{\from{\jobname.dtx}{lbx,de}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\usedir{source/latex/\jobname}
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\ifx\fmtname\nameofplainTeX
+  \expandafter\endbatchfile
+\else
+  \expandafter\endgroup
+\fi
+%</internal>
+% /*
+%     ██ ██ ███    ██ ███████
+%    ██  ██ ████   ██ ██
+%   ██   ██ ██ ██  ██ ███████
+%  ██    ██ ██  ██ ██      ██
+% ██     ██ ██   ████ ███████
+% */
+%<*driver>
+\ProvidesFile{\jobname.dtx}
+    [\arch@version\space\arch@date Documents and documentation for biblatex-archaeologie]
+%</driver>
+% /*
+% ██████   ██████   ██████  ██████ ██       █████  ███████ ███████
+% ██   ██ ██    ██ ██      ██      ██      ██   ██ ██      ██
+% ██   ██ ██    ██ ██      ██      ██      ███████ ███████ ███████
+% ██   ██ ██    ██ ██      ██      ██      ██   ██      ██      ██
+% ██████   ██████   ██████  ██████ ███████ ██   ██ ███████ ███████
+% */
+%<*driver|doc>
+ \documentclass{ltxdoc}
+% \usepackage{showframe}
+%%necessary fix for marginnotes
+\makeatletter
+\addtolength\marginparwidth{-40pt}
+\addtolength\marginparsep{2mm}
+\addtolength\oddsidemargin{-20pt}
+\addtolength\evensidemargin{-20pt}
+\let\PrintDescribeMacro=\@gobble
+\let\PrintDescribeEnv=\@gobble
+%  \def\Describe@Macro#1{\endgroup
+%     %\marginnote{\PrintDescribeMacro{#1}}%
+%     \SpecialUsageIndex{#1}\@esphack\ignorespaces%
+%     }
+% \def\Describe@Env#1{\endgroup
+%     %\marginnote{\PrintDescribeEnv{#1}}%
+%     \SpecialEnvIndex{#1}\@esphack\ignorespaces%
+%     }
+\makeatother
+\usepackage{archaeologie-preamble}
+% /*
+%           ██████   ██████   ██████ ██    ██ ███    ███ ███████ ███    ██ ████████
+% ▄ ██ ▄    ██   ██ ██    ██ ██      ██    ██ ████  ████ ██      ████   ██    ██
+%  ████     ██   ██ ██    ██ ██      ██    ██ ██ ████ ██ █████   ██ ██  ██    ██
+% ▀ ██ ▀    ██   ██ ██    ██ ██      ██    ██ ██  ██  ██ ██      ██  ██ ██    ██
+%           ██████   ██████   ██████  ██████  ██      ██ ███████ ██   ████    ██
+% */
+\begin{document}
+
+\begin{markdown*}{hybrid=true}
+%</driver>
+% /*
+%       ██████  ███████  █████  ██████  ███    ███ ███████
+% ▄ ██ ▄██   ██ ██      ██   ██ ██   ██ ████  ████ ██
+%  ████ ██████  █████   ███████ ██   ██ ██ ████ ██ █████
+% ▀ ██ ▀██   ██ ██      ██   ██ ██   ██ ██  ██  ██ ██
+%       ██   ██ ███████ ██   ██ ██████  ██      ██ ███████
+% */
+%<*driver|readme>
+
+## Installation
+
+> This still has to be written.
+
+### Development
+
+This bundle is currently under heavy development.
+For development purposes there are certain commands to use:
+
+* `make test`: This will test the currently developed files against the already available bundle and compare them visually. The output is in the folder `../archaeologieTestSuite/`.
+* `make testtransfer`: Same as `test` above but will copy all necessary files to the Dropbox folder of Rainer and Lukas for further testing and debugging.
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+This project **does not** adhere to [Semantic Versioning](http://semver.org/).
+The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
+
+## v2.3.8 (2018-XX-XXX)
+
+### *Fixed*
+* there was a bug if the field `eventdatelanguage` wasn’t defined [see #145](https://github.com/LukasCBossert/biblatex-archaeologie/issues/145)
+* if the field `volume` doesn’t have an integer it won’t proceed with it as Roman numeral
+* somehow the field `edition` was missing for `references`, fixed it.
+* a mysterious space in the name part, got rid of it
+* missing space before `volumes`, added a space
+
+### *Changed*
+* the fields `postnote` and `multipostnote` are formatted with `\mknormrange`, that means you don’t have to type `--` to get an endash for page ranges.
+
+
+## v2.3.7 (2018-04-08)
+
+### *Added*
+* New data-field `arachne = {}` to reference to the database iDAI.objects arachne
+* Alias `matheseis` for `thesis` (for all Zotero-users) (`\DeclareBibliographyAlias{mathesis}{thesis}`)
+* field `eventdatelanguage`, you can get the date of the field `eventdate` in the chosen language, enable with `eventdatelanguage=true`
+
+
+### *Changed*
+* `inreferences=true` is now called `inreferencesasfullcite=true` due to better understanding of the option. There is a fallback.
+*  `bibstrings` are defined in `archaeologie.bbx` now
+* `editortype` is now used as `parens`
+* `autolang=hyphen` now you can use `langid={}` to manage to language of an entry
+
+
+### *Fixed*
+* better coding for the year delimiter (thanks to moewe!)
+
+
+### *Deleted*
+*  Version `initials` has to be deleted since its incompatibility to `biber`-version `2.11` see [https://github.com/plk/biber/issues/215](https://github.com/plk/biber/issues/215)
+
+
+## v2.3.6 (2018-02-20)
+
+### *Added*
+* `citeauthorformat=firstinitialsthenfamily` as requested in
+[#138](https://github.com/LukasCBossert/biblatex-archaeologie/issues/138),
+* `citeauthorformat=firstfullthenfamily`
+
+### *Changed*
+* `jstor=false` by default, since it is no part of the guidelines
+* `lstabbrv=true` by default
+* `lstlocations=true` by default
+* `lstpublishers=true` by default
+* `citeauthorformat=firstfull` is now called `citeauthorformat=firstfulltheninitials`
+
+### *Fixed*
+* wrong entry with `\archaeologieoptions` deleted
+* labeldates now work correctly
+
+
+## v2.3.5 (2018-02-13)
+
+### *Fixed*
+* `\citereset` for author names (https://github.com/LukasCBossert/biblatex-archaeologie/issues/122)
+* `\citetitle` will give the original title of a work which has the option `ancient`;
+`\citetitle*` instead will always give title without year.
+* no comma before `in:` if title is missing (got wrong in last version)
+* `volume`/`volumes` are now shown for `book` etc.
+* `daterange` for a sequence of two years (now delimited by `\`)
+* Short-journal for `Archaeologia`
+### *Changed*
+* `volume` is now automatically a Roman numeral for `book`, `inbook`, `collection`, `incollection`, `proceedings`, `inproceedings`, you only insert the Arabic number.
+
+## v2.3.4 (2017-11-19)
+This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
+
+### *Fixed*
+* Arrangement of multiple authors with `\textcites`; see
+[#115](https://github.com/LukasCBossert/biblatex-archaeologie/issues/115), solved with [https://tex.stackexchange.com/a/387162/98739](https://tex.stackexchange.com/a/387162/98739)
+* Delimiter of `subtitle` and `titleaddon`, it is now a comma instead of fullstop.
+* Remodelled the bibmacro `volume` and fixed a bug of a duplicate `volume`.
+* `in:` is now always with minor `I` it doesn’t matter if follows a dot.
+
+
+#### *added*
+* `@MvBook` and its children can be listed in the bibliography together; see [#118](https://github.com/LukasCBossert/biblatex-archaeologie/issues/118)
+
+* `\citetitle*` for showing the publication title without year of publication.
+
+* You can use the namefield `bookauthor` now, then no *(ed.)* will be printed.
+
+
+## v2.3.3 (2017-08-10)
+
+#### *fixed*
+* typo in documentation
+
+#### *added*
+* if there is no `translator` `\citetranslator` will fall back to the `bibstring` "owntranslation" which can be modified; see [#112](https://github.com/LukasCBossert/biblatex-archaeologie/issues/112) and [tex.stackexchange.com/q/385719/98739](https://tex.stackexchange.com/q/385719/98739) thanks to [moewe](https://tex.stackexchange.com/users/35864/moewe)
+
+## v2.3.2 (2017-07-19)
+
+#### *fixed*
+* wrong code-example in documentation
+* issue [#111](https://github.com/LukasCBossert/biblatex-archaeologie/issues/111) (regarding option `inreferences`) solved, thanks to [moewe](https://tex.stackexchange.com/users/35864/moewe)
+
+## v2.31 (2017-05-29)
+
+#### *fixed*
+* number after year in an article if there is no volume.
+* volume and title for ancient publications
+
+## v2.3 (2017-02-27)
+#### *fixed*
+* empty space deleted after bibliography entries (has only been visible when using option `seenote`)
+* typo in the German documentation
+* related example in German documentation corrected
+
+#### *added*
+* get the translator of an ancient opus with `\citetranslator` or `\citetranslator*`
+* more citation commands (`\smartcite`; `\autocite`; `\fullcite`; `\footfullcite`)
+* support for `polyglossia`
+
+## v2.2b (2016-10-06)
+* *typo* <br> documentation with new style
+
+## v2.2 (2016-09-25)
+* *added* <br> `uniqueme` for variant translations of ancient works.
+* *added* <br> bibliography-file `archaeologie-examples.bib` included
+
+
+[current release]: http://www.biblatex-archaeologie.de
+[unreleased]: http://github.com/LukasCBossert/biblatex-archaeologie
+
+
+%</driver|readme>
+% /*
+%     ██ ██████  ███████  █████  ██████  ███    ███ ███████
+%    ██  ██   ██ ██      ██   ██ ██   ██ ████  ████ ██
+%   ██   ██████  █████   ███████ ██   ██ ██ ████ ██ █████
+%  ██    ██   ██ ██      ██   ██ ██   ██ ██  ██  ██ ██
+% ██     ██   ██ ███████ ██   ██ ██████  ██      ██ ███████
+% */
+%<*driver>
+\end{markdown*}
+%</driver>
+%<*driver|doc>
+
+%<*driver>
+\fi
+\DocInput{\jobname.dtx}
+\PrintChanges
+\PrintIndex
+%</driver>
+%<*driver|doc>
+%<*driver>
+\changes{v0.0.2}{2018/09/12}{biblatex-style with correct |\printbibliography|-command}
+%</driver>
+\end{document}
+%</driver|doc>
+% /*
+%     ██ ██████   ██████   ██████ ██    ██ ███    ███ ███████ ███    ██ ████████
+%    ██  ██   ██ ██    ██ ██      ██    ██ ████  ████ ██      ████   ██    ██
+%   ██   ██   ██ ██    ██ ██      ██    ██ ██ ████ ██ █████   ██ ██  ██    ██
+%  ██    ██   ██ ██    ██ ██      ██    ██ ██  ██  ██ ██      ██  ██ ██    ██
+% ██     ██████   ██████   ██████  ██████  ██      ██ ███████ ██   ████    ██
+% */
+% \fi
+% \iffalse
+% /*
+%            ██████  ██████  ██████  ███████
+%           ██      ██    ██ ██   ██ ██
+% █████     ██      ██    ██ ██   ██ █████       █████
+%           ██      ██    ██ ██   ██ ██
+%            ██████  ██████  ██████  ███████
+% */
+
+%<*bbx>
+% /*
+%       ██████  ██████  ██   ██
+% ▄ ██ ▄██   ██ ██   ██  ██ ██
+%  ████ ██████  ██████    ███
+% ▀ ██ ▀██   ██ ██   ██  ██ ██
+%       ██████  ██████  ██   ██
+% */
+% \fi
+%    \begin{macrocode}
+
+\RequireBibliographyStyle{standard}
+\RequirePackage[normalem]{ulem}
+%\RequirePackage{csquotes} % optionclash
+\ExecuteBibliographyOptions{%
+  pagetracker=true,%
+  citecounter=true,%
+  sortlocale=auto,%
+  language=auto,%
+  bibencoding=utf8,%
+  dateabbrev=false, %
+  sorting=nyt,%
+  alldates=comp,%
+  labeldateparts=true,%
+  labeldate=year,%
+  maxnames=2,%
+  minnames=1,%
+  maxitems=1,%
+  maxbibnames=999,%
+  useprefix=true,%
+  mincrossrefs=1,%
+}
+%-----------------------
+\newbool{bbx:edby}
+\newbool{bbx:width}
+\newbool{bbx:yearseries}
+\newbool{bbx:bibfullname}
+\newbool{bbx:inreferencesasfullcite}
+\newbool{bbx:noabbrv}
+\newbool{bbx:translation}
+\newbool{bbx:publisher}
+\newbool{bbx:counter}
+\newbool{bbx:eventdatelanguage}
+\newbool{cbx:ancient}
+\newbool{cbx:frgancient}
+\newbool{cbx:corpus}
+\newbool{bib:lstabbrv}
+\newbool{bib:bibcorpora}
+\newbool{bib:bibancient}
+\newbool{bib:lstlocations}
+\newbool{bib:lstpublishers}
+\newsavebox\arch@labelbox
+\newlength{\labwidthsameline}
+\setlength{\labwidthsameline}{4em}
+
+\newtoggle{bbx:jstor}
+\newtoggle{bbx:zenon}
+\newtoggle{bbx:urn}
+\newtoggle{bbx:arachne}
+
+\setlength{\biblabelsep}{0em}
+%-----------------------
+\DeclareBibliographyOption{lstabbrv}[true]{%
+  \csuse{bool#1}{bib:lstabbrv}%
+  \addbibresource{archaeologie-lstabbrv.bib}}
+\DeclareBibliographyOption{bibcorpora}[true]{%
+  \csuse{bool#1}{bib:bibcorpora}%
+  \addbibresource{archaeologie-bibcorpora.bib}%
+  \ifbool{bib:lstabbrv}%
+    {}%
+    {\addbibresource{archaeologie-lstabbrv.bib}}}
+\DeclareBibliographyOption{bibancient}[true]{%
+  \csuse{bool#1}{bib:bibancient}%
+  \addbibresource{archaeologie-bibancient.bib}}
+\DeclareBibliographyOption{lstlocations}[true]{%
+  \csuse{bool#1}{bib:lstlocations}%
+  \addbibresource{archaeologie-lstlocations.bib}}
+\DeclareBibliographyOption{lstpublishers}[true]{%
+  \csuse{bool#1}{bib:lstpublishers}%
+  \addbibresource{archaeologie-lstpublishers.bib}}
+\DeclareBibliographyOption[boolean]{jstor}[true]{%
+  \settoggle{bbx:jstor}{#1}}
+\DeclareBibliographyOption[boolean]{arachne}[true]{%
+  \settoggle{bbx:arachne}{#1}}
+\DeclareBibliographyOption[boolean]{zenon}[true]{%
+  \settoggle{bbx:zenon}{#1}}
+\DeclareBibliographyOption[boolean]{urn}[true]{%
+  \settoggle{bbx:urn}{#1}}
+\ExecuteBibliographyOptions{%
+  urn,%
+  lstabbrv,%
+  lstlocations,%
+  lstpublishers,%
+}
+%-----------------------
+\DeclareBibliographyOption[string]{biblabel}{%
+  \ifcsundef{archblx@biblabel@#1}
+    {\PackageError{biblatex-archaeologie}
+       {Unknown value '#1' for option 'biblabel'.}
+       {Unknown value '#1' for option 'biblabel'.\MessageBreak
+        Possible values are 'plain', 'bold', 'brackets', 'parens'.}%
+     \csdef{archblx@biblabel}{\csuse{archblx@biblabel@plain}}}
+    {\csdef{archblx@biblabel}{\csuse{archblx@biblabel@#1}}}}
+\let\archblx@biblabel@plain\@firstofone
+\def\archblx@biblabel@bold{\mkbibbold}
+\def\archblx@biblabel@brackets{\mkbibbrackets}
+\def\archblx@biblabel@parens{\mkbibparens}
+
+\DeclareBibliographyOption{edby}[true]{\csuse{bool#1}{bbx:edby}}
+\DeclareBibliographyOption{initials}[false]{\PackageWarningNoLine{biblatex-archaeologie}{%
+    The option 'initials' has been deleted in version 2.3.7,\MessageBreak
+  due to incompatibility reasons with 'biber'.}}
+\DeclareBibliographyOption{width}[]{%
+  \csuse{booltrue}{bbx:width}%
+  \setlength{\labwidthsameline}{#1}%
+  \def\labwidthsamelineVALUE{#1}}
+\DeclareBibliographyOption{yearseries}[true]{\csuse{bool#1}{bbx:yearseries}}
+\DeclareBibliographyOption{counter}[true]{\csuse{bool#1}{bbx:counter}}
+\DeclareBibliographyOption{bibfullname}[true]{\csuse{bool#1}{bbx:bibfullname}
+\DeclareNameAlias{author}{given-family}}
+\DeclareBibliographyOption{inreferences}[true]{%
+  \PackageWarningNoLine{biblatex-archaeologie}{%
+    The option 'inreferences' for is deprecated,\MessageBreak
+    use 'inreferencesasfullcite' instead.}%
+   \booltrue{bbx:inreferencesasfullcite}}
+\DeclareBibliographyOption{inreferencesasfullcite}[true]{\csuse{bool#1}{bbx:inreferencesasfullcite}
+  \ExecuteBibliographyOptions[inreference]{skipbib=true}%
+  \ExecuteBibliographyOptions[inreference]{skiplab=true}}
+\DeclareBibliographyOption{eventdatelanguage}[true]{\csuse{bool#1}{bbx:eventdatelanguage}}
+\DeclareBibliographyOption{noabbrv}[true]{\csuse{bool#1}{bbx:noabbrv}}
+\DeclareBibliographyOption{translation}[true]{\csuse{bool#1}{bbx:translation}}
+\DeclareBibliographyOption{publisher}[true]{\csuse{bool#1}{bbx:publisher}
+  \ExecuteBibliographyOptions{maxitems=2}}
+\DeclareBibliographyOption{scshape}[true]{%
+  \ifstrequal{#1}{true}%
+    {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
+    {}}
+%-----------------------
+\ExecuteBibliographyOptions{%
+  autolang=hyphen,%
+}
+%-----------------------
+\DeclareEntryOption{ancient}[true]{\csuse{bool#1}{cbx:ancient}}
+\DeclareEntryOption{frgancient}[true]{%
+  \ifstrequal{#1}{true}%
+    {\togglefalse{blx@useauthor}}%
+    {}%
+  \csuse{bool#1}{cbx:frgancient}}
+\DeclareEntryOption{corpus}[true]{\csuse{bool#1}{cbx:corpus}}
+%----------
+\newcommand{\archaeologieoptions}[1][]{%
+  \ifstrempty{#1}{%
+    \iflanguage{ngerman}%
+      {Zusätzlich geladene oder \xout{deaktivierte} Optionen
+      von \textsc{bib}\LaTeX-\textsf{archaeologie} (Version \archaeologieversion~| \archaeologiedate):}%
+      {Additional options of \textsc{bib}\LaTeX-\textsf{archaeologie} (version \archaeologieversion~| \archaeologiedate) used or \xout{omitted}:}\addspace}%
+   {\ifthenelse{\equal{#1}{plain}}
+     {}
+     {{\PackageError{biblatex-archaeologie}%
+       {command 'archaeologieoptions[#1]' invalid.\MessageBreak%
+          Use   'archaeologieoptions[plain]'
+          or omit the brackets.}{}
+  }}}%
+  \def\seperator{ | }%
+  \ifbool{bib:bibancient}{bibancient\seperator}{}%
+  \ifbool{bib:bibcorpora}{bibcorpora\seperator}{}%
+  \ifbool{bib:lstabbrv}{}{\xout{lstabbrv}\seperator}{}%
+  \ifbool{bib:lstlocations}{}{\xout{lstlocations}\seperator}{}%
+  \ifbool{bib:lstpublishers}{}{\xout{lstpublishers}\seperator}{}%
+  \ifbool{bbx:bibfullname}{bibfullname\seperator}{}%
+  \ifdefstring\citeauthorformatVALUE{initials}%
+    {}
+    {citeauthorformat\,= \mbox{\citeauthorformatVALUE\seperator}}%
+  \ifbool{bbx:counter}{counter\seperator}{}%
+  \ifbool{bbx:edby}{edby\seperator}{}%
+  \ifbool{bbx:inreferencesasfullcite}{inreferencesasfullcite\seperator}{}%
+  \ifbool{bbx:noabbrv}{noabbrv\seperator}{}%
+  \ifbool{bbx:publisher}{publisher\seperator}{}%
+  \ifbool{cbx:seenote}{seenote\seperator}{}%
+  \ifbool{bbx:translation}{translation\seperator}{}%
+  \ifbool{bbx:width}%
+    {width\,=\,\labwidthsamelineVALUE\seperator}{}%
+  \ifbool{cbx:yearinparensoption}
+    {yearinparens\seperator}{}%
+  \ifbool{bbx:yearseries}{yearseries\seperator}{}%
+  \iftoggle{bbx:zenon}{zenon\seperator}{}%
+  \iftoggle{bbx:arachne}{arachne\seperator}{}%
+  \iftoggle{bbx:jstor}{jstor\seperator}{}%
+  \iftoggle{bbx:urn}{}{\xout{urn}\seperator}%
+  \iftoggle{bbx:doi}{}{\xout{doi}\seperator}%
+    \iflanguage{ngerman}%
+      {Weitere Informationen unter \url{http://biblatex-archaeologie.de}}
+      {For further information see \url{http://biblatex-archaeologie.de}}
+}
+%-----------------------
+\DeclareFieldFormat*{title}{#1\isdot}
+\DeclareFieldFormat{subtitle}{#1}
+\DeclareFieldFormat{booktitle}{#1}
+\DeclareFieldFormat{editortype}{\mkbibparens{#1}}
+\DeclareFieldFormat{booksubtitle}{#1}
+\DeclareFieldFormat{titlecase}{#1}
+\DeclareFieldFormat*{maintitle}{#1}
+\DeclareFieldFormat{journaltitle}{#1}
+\DeclareFieldFormat{seriestitle}{#1}
+\DeclareFieldFormat{pages}{#1}
+\DeclareFieldFormat{edition}{#1}
+\DeclareFieldFormat{volumes}{#1}
+\DeclareFieldFormat{volume}{#1}
+\DeclareFieldFormat[%
+  book,%
+  collection,%
+  proceedings,%
+  inproceedings,%
+  inbook,%
+  incollection]
+  {volume}
+  {\ifinteger{#1}{\RN{#1}}{#1}}
+\DeclareFieldFormat{part}{#1}
+\DeclareFieldFormat[article]{date}{\iffieldundef{number}{#1}{\iffieldundef{volume}{#1\yearnumdelim\printfield{number}}{#1}}}
+\DeclareFieldFormat[inreference]{number}{\mkbibbrackets{#1}}
+\DeclareFieldFormat{parens}{\mkbibparens{#1}}
+\DeclareFieldFormat{brackets}{\mkbibbrackets{#1}}
+\DeclareFieldFormat{quotes}{\mkbibquote{#1}}
+\DeclareFieldFormat{emph}{\mkbibemph{#1}}
+\DeclareFieldFormat{url}{\textless\url{#1}\textgreater}
+\DeclareFieldFormat{urldate}{\mkbibparens{#1}}
+\DeclareFieldFormat{note}{\mkbibparens{#1}\nopunct}
+\DeclareFieldFormat{shorthandwidth}{#1}
+\DeclareFieldFormat{origtitle}{#1}
+\DeclareFieldFormat{bibcitelabel}{\csuse{archblx@biblabel}{#1}}
+\DeclareFieldFormat{eprint:urn}{%
+  \textsc{urn}%
+  \addcolon\space%
+  \ifhyperref%
+    {\href{http://www.nbn-resolving.org/#1}{\nolinkurl{#1}}}%
+    {\nolinkurl{#1}}}
+\DeclareFieldFormat{eprint:zenon}{%
+  \textsc{zenon (opac)}%
+  \addcolon\space%
+  \ifhyperref%
+    {\href{http://zenon.dainst.org/Record/#1}{\nolinkurl{#1}}}%
+    {\nolinkurl{#1}}}
+\DeclareFieldFormat{eprint:jstor}{%
+  \textsc{jstor}%
+  \addcolon\space%
+  \ifhyperref%
+    {\href{http://www.jstor.org/stable/#1}{\nolinkurl{#1}}}%
+    {\nolinkurl{#1}}}
+\DeclareFieldFormat{eprint:arachne}{%
+  \textsc{iDAI.objects/arachne}%
+  \addcolon\space%
+  \ifhyperref%
+    {\href{https://arachne.dainst.org/entity/#1}{\nolinkurl{#1}}}%
+    {\nolinkurl{#1}}}
+%-----------------------
+\DeclareFieldAlias{zenon}{eprint:zenon}
+\DeclareFieldAlias{jstor}{eprint:jstor}
+\DeclareFieldAlias{urn}{eprint:urn}
+\DeclareFieldAlias{arachne}{eprint:arachne}
+%-----------------------
+\DeclareRedundantLanguages{german}{german,ngerman,austrian,naustrian}
+\DeclareRedundantLanguages{english,american}{english,american,british,%
+ canadian,australian,newzealand,USenglish,UKenglish}
+\DeclareLanguageMapping{german}{german-archaeologie}
+\DeclareLanguageMapping{english}{english-archaeologie}
+\DeclareLanguageMapping{french}{french-archaeologie}
+\DeclareLanguageMapping{italian}{italian-archaeologie}
+\DeclareLanguageMapping{spanish}{spanish-archaeologie}
+%\DeclareLanguageMappingSuffix{-archaeologie}
+%-----------------------
+\NewBibliographyString{origtitle}
+\NewBibliographyString{firstprint}
+\NewBibliographyString{reviewof}
+\NewBibliographyString{reference}
+\NewBibliographyString{translationof}
+\NewBibliographyString{talk}
+\NewBibliographyString{inpreparation}
+\NewBibliographyString{submitted}
+\NewBibliographyString{forthcoming}
+\NewBibliographyString{inpress}
+\NewBibliographyString{prepublished}
+\NewBibliographyString{seenote}
+\NewBibliographyString{loccit}
+\NewBibliographyString{subvoce}
+\NewBibliographyString{owntranslation}
+\NewBibliographyString{magthesis}
+%-----------------------
+\renewcommand*{\sqspace}{\addnbthinspace}
+\renewcommand*{\subtitlepunct}{\addperiod\addspace}
+\renewcommand*{\intitlepunct}{\addcolon\addspace}
+\renewcommand*{\newunitpunct}{\addcomma\addspace}
+\newcommand*{\maintitlepunct}{\addperiod\addspace}
+\newcommand*{\locationdelim}{\addnbspace\textendash\addspace}
+\renewcommand{\multinamedelim}{\addnbspace\textendash\addspace}
+\renewcommand{\finalnamedelim}{\multinamedelim}
+\renewcommand*\relateddelim{\addnbspace\textendash\addspace}%
+\newcommand*{\relateddelimmultivolume}{\addcomma\par\nobreak}
+\newcommand*{\volnumdelim}{\addcomma\space}
+\newcommand*{\yearnumdelim}{\addslash}
+\newcommand*{\jourvoldelim}{\addnbspace}
+\renewcommand{\finentrypunct}{%http://tex.stackexchange.com/a/14159/98739
+  \ifbool{bbx:counter}%
+    {\addspace$\vert$ \addspace\scshape%
+    \iflanguage{ngerman}%
+      {wurde \ifnumequal{\value{citecounter}}
+        {0}
+        {{\color{red}{keinmal}}}
+        {\arabic{citecounter}-mal}
+        zitiert.}
+      {cited \ifnumequal{\value{citecounter}}
+        {0}
+        {{\color{red}{not once}}}%
+      {\arabic{citecounter}~time\ifnumequal{\value{citecounter}}{1}
+        {}
+        {s}}.%
+      }}%
+      {}}
+
+\newrobustcmd*{\bibdatesubseqesep}{\slash}
+\newrobustcmd*{\bibdaterangesepx}[1]{%
+  \ifboolexpr{test {\iffieldint{#1year}} and test {\iffieldint{#1endyear}}}
+    {\ifnumequal{\thefield{#1endyear}-\thefield{#1year}}{1}
+       {\bibdatesubseqesep}
+       {\bibdaterangesep}}
+    {\bibdaterangesep}}
+
+\renewrobustcmd*{\mkdaterangefull}[2]{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\datecircaprint
+       \printtext[#2date]{%
+         % Such a season component can only come from an ISO8601 season which replaces
+         % a normal month so if it exists, we know that a normal date print is ruled out
+         \iffieldundef{#2season}
+           {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+            % Optionally print the time after the date
+            \blx@printtime{#2}{}}
+           {\csuse{mkbibseasondate#1}{#2year}{#2season}}%
+         \dateuncertainprint
+         \dateeraprint{#2year}%
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+              {\mbox{\bibdaterangesep}}
+              {\bibdaterangesepx{#2}%
+               \enddatecircaprint
+               \iffieldundef{#2season}
+                 {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}%
+                  % Optionally print the time after the date
+                  \blx@printtime{#2}{end}}
+                 {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+               \enddateuncertainprint
+               \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+\renewrobustcmd*{\mkdaterangetrunc}[2]{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\datecircaprint
+       \printtext[#2date]{%
+         % Such a season component can only come from an ISO8601 season which replaces
+         % a normal month so if it exists, we know that a normal date print is ruled out
+         \iffieldundef{#2season}
+           {\iffieldsequal{#2year}{#2endyear}
+              {\iffieldsequal{#2month}{#2endmonth}
+                 {\csuse{mkbibdate#1}{}{}{#2day}}
+                 {\csuse{mkbibdate#1}{}{#2month}{#2day}}}
+              {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+               \iffieldsequal{#2dateera}{#2enddateera}{}
+                {\dateeraprint{#2year}}}}
+           {\iffieldsequal{#2year}{#2endyear}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \iffieldsequal{#2dateera}{#2enddateera}{}
+                {\dateeraprint{#2year}}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+              {\mbox{\bibdaterangesep}}
+              {\bibdaterangesepx{#2}%
+               \enddatecircaprint
+               \iffieldundef{#2season}
+                 {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}
+                 {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+               \enddateuncertainprint
+               \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+\renewrobustcmd*{\mkdaterangefullextra}[2]{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\datecircaprint
+       \printtext[#2date]{%
+         \printtext{%
+         % Such a season component can only come from an ISO8601 season which replaces
+         % a normal month so if it exists, we know that a normal date print is ruled out
+         \iffieldundef{#2season}
+           {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+            % Optionally print the time after the date
+            \blx@printtime{#2}{}}
+           {\csuse{mkbibseasondate#1}{#2year}{#2season}}%
+         \dateuncertainprint
+         \dateeraprint{#2year}%
+         \iffieldundef{#2endyear}
+           {\printfield{extradate}}
+           {\iffieldequalstr{#2endyear}{}
+              {\printfield{extradate}%
+               \printtext{\mbox{\bibdaterangesep}}}
+              {\printtext{%
+                 \bibdaterangesepx{#2}%
+                 \enddatecircaprint
+                 \iffieldundef{#2season}
+                   {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}%
+                    % Optionally print the time after the date
+                    \blx@printtime{#2}{end}}
+                   {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}}%
+                 \printfield{extradate}%
+                 \enddateuncertainprint
+                 \dateeraprint{#2endyear}}}}}}%
+  \endgroup}
+
+\renewrobustcmd*{\mkdaterangetruncextra}[2]{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\datecircaprint
+       \printtext[#2date]{%
+         \printtext{%
+         % Such a season component can only come from an ISO8601 season which replaces
+         % a normal month so if it exists, we know that a normal date print is ruled out
+         \iffieldundef{#2season}
+           {\iffieldsequal{#2year}{#2endyear}
+              {\iffieldsequal{#2month}{#2endmonth}
+                 {\csuse{mkbibdate#1}{}{}{#2day}}
+                 {\csuse{mkbibdate#1}{}{#2month}{#2day}}}
+              {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+               \iffieldsequal{#2dateera}{#2enddateera}{}
+                 {\dateeraprint{#2year}}}}
+           {\iffieldsequal{#2year}{#2endyear}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+               \iffieldsequal{#2dateera}{#2enddateera}{}
+                {\dateeraprint{#2year}}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {\printfield{extradate}}
+           {\iffieldequalstr{#2endyear}{}
+              {\printfield{extradate}%
+               \printtext{\mbox{\bibdaterangesep}}}
+              {\printtext{%
+                 \bibdaterangesepx{#2}%
+                 \enddatecircaprint
+                 \iffieldundef{#2season}
+                   {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}
+                   {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}}%
+                 \printfield{extradate}%
+                 \enddateuncertainprint
+                 \dateeraprint{#2endyear}}}}}}%
+  \endgroup}
+
+\renewrobustcmd*{\mkdaterangeymd}[1]{%
+  \begingroup
+    \blx@metadateinfo{#1}%
+    \iffieldundef{#1year}
+      {}
+      {\datecircaprint
+       \printtext[#1date]{%
+         % Such a season component can only come from an  ISO8601 season which replaces
+         % a normal month so if it exists, we know that a normal date print is ruled out
+         \iffieldundef{#1season}
+           {\blx@ymddate{#1}{}%
+            % Optionally print the time after the date
+            \blx@printtime{#1}{}}
+           {\csuse{mkbibseasondateshort}{#1year}{#1season}}%
+         \dateuncertainprint
+         \dateeraprint{#1year}%
+         \iffieldundef{#1endyear}
+           {}
+           {\iffieldequalstr{#1endyear}{}
+              {\mbox{\bibdaterangesep}}
+              {\bibdaterangesepx{#1}%
+               \enddatecircaprint
+               \iffieldundef{#1season}
+                 {\blx@ymddate{#1}{end}%
+                  % Optionally print the time after the date
+                  \blx@printtime{#1}{end}}
+                 {\csuse{mkbibseasondateshort}{#1endyear}{#1endseason}}%
+               \enddateuncertainprint
+               \dateeraprint{#1endyear}}}}}%
+  \endgroup}
+
+\renewrobustcmd*{\mkdaterangeymdextra}[1]{%
+  \begingroup
+    \blx@metadateinfo{#1}%
+    \iffieldundef{#1year}
+      {}
+      {\datecircaprint
+       \printtext[#1date]{%
+         % Such a season component can only come from an ISO8601 season which replaces
+         % a normal month so if it exists, we know that a normal date print is ruled out
+         \iffieldundef{#1season}
+           {\blx@ymddate[extradate]{#1}{}%
+            % Optionally print the time after the date
+            \blx@printtime{#1}{}}
+           {\csuse{mkbibseasondateshort}{#1year}{#1season}}%
+         \dateuncertainprint
+         \dateeraprint{#1year}%
+         \iffieldundef{#1endyear}
+           {}
+           {\iffieldequalstr{#1endyear}{}
+              {\mbox{\bibdaterangesep}}
+              {\printtext{%
+                 \bibdaterangesepx{#1}%
+                 \enddatecircaprint
+                 \iffieldundef{#1season}
+                   {\blx@ymddate{#1}{end}%
+                    % Optionally print the time after the date
+                    \blx@printtime{#1}{end}}
+                   {\csuse{mkbibseasondateshort}{#1endyear}{#1endseason}}}%
+               \enddateuncertainprint
+               \dateeraprint{#1endyear}}}}}%
+  \endgroup}
+%-----------------------
+\DeclareBibliographyAlias{collection}{book}
+\DeclareBibliographyAlias{reference}{book}
+\DeclareBibliographyAlias{institution}{school}
+\DeclareBibliographyAlias{maintitle}{booktitle}
+\DeclareBibliographyAlias{incollection}{inbook}
+\DeclareBibliographyAlias{manual}{book}
+\DeclareBibliographyAlias{mathesis}{thesis}
+%-----------------------
+
+\DeclareSortingTemplate{nyt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort{
+    \field{sortshorthand}
+    \field{shorthand}
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{volume}
+    \literal{0}
+  }
+}
+%-----------------------
+\DeclareSortingTemplate{shortseries}{\sort{\field{shortseries}}}
+\DeclareSortingTemplate{shortjournal}{\sort{\field{shortjournal}}}
+%-----------------------
+\defbibcheck{shortseries}{%
+  \iffieldundef{shortseries}%
+    {\skipentry}%
+    {}%
+  \iffieldundef{series}%
+    {\skipentry}%
+    {\ifcsdef{\strfield{series}}%
+       {\skipentry}%
+       {\savefieldcs{series}{\strfield{series}}}}%
+}
+\defbibcheck{shortjournal}{%
+  \iffieldundef{shortjournal}%
+    {\skipentry}%
+    {}%
+  \iffieldundef{journaltitle}%
+    {\skipentry}%
+    {\ifcsdef{\strfield{journaltitle}}%
+       {\skipentry}%
+       {\savefieldcs{journaltitle}{\strfield{journaltitle}}}}%
+}
+%-----------------------
+\DeclareNameAlias{name:initials}{default}
+\DeclareNameAlias{author}{name:initials}
+\DeclareNameAlias{editor}{author}
+\DeclareNameAlias{byeditor}{author}
+\DeclareNameAlias{translator}{author}
+\DeclareNameAlias{bytranslator}{default}
+\DeclareNameAlias{bycommentator}{author}
+\DeclareNameAlias{bookauthor}{author}
+
+%-----------------------
+\DeclareListFormat{location}{%
+  #1\ifthenelse{\value{listcount}<\value{liststop}}%
+  {\locationdelim}%
+  {}%
+}
+%-----------------------
+\AtEveryBibitem{%
+  \iffieldequalstr{relatedtype}{translationof}%
+    {\savename{translator}{\savedrelatedtranslator}%
+     \clearname{translator}}%
+    {}%
+  \ifboolexpr{bool {bbx:translation}%
+      or bool {cbx:ancient}%
+      or bool {cbx:frgancient}}%
+    {}%
+    {\clearname{translator}%
+     \clearfield{origtitle}}}
+%-----------------------
+%% provide macros to deal with intranslator, withincommentator, withinannotator, withinintroduction, withinforeword, withinafterword
+%% that is fields referring to the title work and not the booktitle work in inbook etc. works
+% these macros are essentially the same as the standard macros without the "in"
+\newbibmacro*{byineditor+others}{%
+  \ifnameundef{ineditor}
+    {}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[author]{ineditor}%
+     \clearname{ineditor}%
+     \newunit}%
+  \usebibmacro{byintranslator+others}}
+%-----------------------
+\newbibmacro*{byintranslator+others}{%
+  \ifnameundef{intranslator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[author]{intranslator}%
+     \clearname{intranslator}%
+     \newunit}%
+  \usebibmacro{withinothers}}
+%-----------------------
+\newbibmacro*{withincommentator}{%
+  \ifnameundef{incommentator}
+    {}
+    {\bibstring{withcommentator}%
+     \setunit{\addspace}%
+     \printnames[author]{incommentator}}}
+%-----------------------
+\newbibmacro*{withinannotator}{%
+  \ifnameundef{inannotator}
+    {}
+    {\bibstring{withannotator}%
+     \setunit{\addspace}%
+     \printnames[author]{inannotator}}}
+%-----------------------
+\newbibmacro*{withinintroduction}{%
+  \ifnameundef{inintroduction}
+    {}
+    {\bibstring{withintroduction}%
+     \setunit{\addspace}%
+     \printnames[author]{inintroduction}}}
+%-----------------------
+\newbibmacro*{withinforeword}{%
+  \ifnameundef{inforeword}
+    {}
+    {\bibstring{withforeword}%
+     \setunit{\addspace}%
+     \printnames[author]{inforeword}}}
+%-----------------------
+\newbibmacro*{withinafterword}{%
+  \ifnameundef{inafterword}
+    {}
+    {\bibstring{withafterword}%
+     \setunit{\addspace}%
+     \printnames[author]{inafterword}}}
+%-----------------------
+\newbibmacro*{withinothers}{%
+  \usebibmacro{withincommentator}%
+  \clearname{incommentator}%
+  \newunit
+  \usebibmacro{withinannotator}%
+  \clearname{inannotator}%
+  \newunit
+  \usebibmacro{withinintroduction}%
+  \clearname{inintroduction}%
+  \newunit
+  \usebibmacro{withinforeword}%
+  \clearname{inforeword}%
+  \newunit
+  \usebibmacro{withinafterword}%
+  \clearname{inafterword}}
+%-----------------------
+\newbibmacro{labelwidthbib}{%
+  \begingroup
+    \DeclareFieldFormat{bibhyperref}{##1}%
+    \csuse{blx@hook@cite}%
+    \csuse{blx@hook@citekey}%
+    \defcounter{maxnames}{\blx@maxcitenames}%
+    \printtext[bibcitelabel]{\usebibmacro{cite}}%
+  \endgroup
+}
+%-----------------------
+\newbibmacro{kicklabel}{%
+  \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
+  \global\togglefalse{blx@insert}%
+  \ifdim1.1\wd\arch@labelbox>%
+    \labwidthsameline\leavevmode\newline
+  \fi}
+%-----------------------
+\newbibmacro{labelwidthfield}[1]{%
+  \begingroup
+    \DeclareFieldFormat{bibhyperref}{##1}%
+    \csuse{blx@hook@cite}%
+    \csuse{blx@hook@citekey}%
+    \defcounter{maxnames}{\blx@maxcitenames}%
+    \printfield{#1}%
+  \endgroup}
+%-----------------------
+\newbibmacro{kicklabelfield}[1]{%
+  \sbox\arch@labelbox{\usebibmacro{labelwidthfield}{#1}}%
+  \global\togglefalse{blx@insert}%
+  \ifdim.9\wd\arch@labelbox>%
+    \labwidthsameline\leavevmode\newline
+  \fi}
+%-----------------------
+\renewbibmacro*{pageref}{%
+  \iflistundef{pageref}
+    {}
+    {\setunit{\addcomma\newline\nobreak}%
+     \printtext{%
+       \ifnumgreater{\value{pageref}}{1}
+         {\bibstring{backrefpages}\ppspace}
+         {\bibstring{backrefpage}\ppspace}%
+       \printlist[pageref][-\value{listtotal}]{pageref}}}}
+%-----------------------
+\newbibmacro*{bbx:parunit}{%
+  \ifbibliography{%
+    \setunit{\bibpagerefpunct}\newblock
+    \usebibmacro{pageref}%
+    \clearlist{pageref}%
+    \setunit{\addcomma\newline\nobreak}}%
+  {\newunit}%
+}
+ %-----------------------
+\renewbibmacro*{eprint}{%
+  \usebibmacro{bbx:parunit}%
+  \iffieldundef{eprinttype}%
+    {\printfield{eprint}}%
+    {\printfield[eprint:\strfield{eprinttype}]{eprint}}%
+}
+%-----------------------
+\newbibmacro*{zenon}{%
+  \iffieldundef{zenon}
+    {}%
+    {\usebibmacro{bbx:parunit}%
+     \printfield{zenon}}}
+%-----------------------
+\newbibmacro*{jstor}{%
+  \iffieldundef{jstor}
+    {}
+    {\usebibmacro{bbx:parunit}%
+     \printfield{jstor}}}
+%-----------------------
+\newbibmacro*{arachne}{%
+  \iffieldundef{arachne}
+    {}
+    {\usebibmacro{bbx:parunit}%
+     \printfield{arachne}}}
+%-----------------------
+\newbibmacro*{urn}{%
+  \iffieldundef{urn}
+    {}
+    {\usebibmacro{bbx:parunit}%
+     \printfield{urn}}}
+%-----------------------
+\renewbibmacro*{url+urldate}{%
+  \usebibmacro{bbx:parunit}%
+  \iffieldundef{url}
+    {}
+    {\printfield{url}%
+  \setunit*{\addspace}%
+  \printtext{\printurldate}}}
+%-----------------------
+\renewbibmacro*{doi+eprint+url}{%
+  \usebibmacro{bbx:parunit}%
+  \iftoggle{bbx:doi}{\printfield{doi}}{}%
+  \iftoggle{bbx:eprint}{\usebibmacro{eprint}}{}%
+  \iftoggle{bbx:jstor}{\usebibmacro{jstor}}{}%
+  \iftoggle{bbx:arachne}{\usebibmacro{arachne}}{}%
+  \iftoggle{bbx:urn}{\usebibmacro{urn}}{}%
+  \iftoggle{bbx:zenon}{\usebibmacro{zenon}}{}%
+  \iftoggle{bbx:url}{\usebibmacro{url+urldate}}{}%
+}
+%-----------------------
+\renewbibmacro*{editor}{%
+  \ifboolexpr{%
+    test \ifuseeditor %
+    and %
+    not test {\ifnameundef{editor}}}%
+    {\printnames{editor}%
+     \setunit{\addspace}%
+     \printtext[editortype]{\bibstring{editor}}%
+     \clearname{editor}}%
+    {}}
+%-----------------------
+\newbibmacro*{bookauthor}{%
+  \printnames{bookauthor}%
+  \newunit}
+%-----------------------
+\DeclareLabeldate{%
+  \field{date}
+  \field{year}
+  \field{origdate}
+  \field{urldate}
+  \field{pubstate}
+  \field{eventdate}
+  \literal{nodate}
+}
+%-----------------------
+\newbibmacro*{series}{%
+ \ifboolexpr{test {\iffieldundef{shortseries}} %
+      or bool {bbx:noabbrv}}%
+   {\printtext[seriestitle]{\printfield[titlecase]{series}}}%
+   {\printfield{shortseries}}%
+}
+%-----------------------
+\renewbibmacro*{series+number}{%
+  \iffieldundef{series}%
+    {}%
+    {\usebibmacro{series}%
+     \setunit*{\addspace}%
+     \printfield{number}%
+  \ifbool{bbx:yearseries}%
+    {\newunit}%
+    {\setunit{\addspace}}}}
+%-----------------------
+\renewbibmacro*{journal}{%
+  \ifboolexpr{test {\iffieldundef{shortjournal}}%
+      or bool {bbx:noabbrv}}%
+    {\printtext[journaltitle]{%
+       \printfield[titlecase]{journaltitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{journalsubtitle}}}%
+    {\printfield{shortjournal}}}
+%-----------------------
+\newbibmacro{journal+number+year}{%
+  \usebibmacro{journal}%
+  \setunit{\jourvoldelim}%
+  \iffieldundef{volume}%
+    {}
+    {\printfield{volume}%
+     \iffieldundef{number}%
+       {}%
+       {\setunit{\volnumdelim}%
+        \printfield{number}}%
+     \newunit}%
+  \usebibmacro{pubstate+year}}
+%-----------------------
+\newbibmacro{pubstate+year}{%
+  \iffieldundef{pubstate}%
+    {\usebibmacro{date}}%
+    {\printfield{pubstate}}}
+ %-----------------------
+\newbibmacro*{pages}{%
+  \printfield{pages}%
+  \isdot}
+%-----------------------
+\newbibmacro{translation}{%
+  \printfield{origtitle}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{byeditor+others}}
+%-----------------------
+\newbibmacro{intranslation}{%
+  \printfield{origtitle}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{byineditor+others}}
+%-----------------------
+\newbibmacro*{related:reviewof}[1]{%
+  \usebibmacro*{related:default}{#1}}
+%-----------------------
+\newbibmacro*{related:translationof}[1]{%
+  \entrydata*{#1}{%
+    \restorename{savedtranslator}{\savedrelatedtranslator}%
+    \printtext[emph]{\usebibmacro{title}}%
+    \usebibmacro{location+edition+year}%
+    \ifnameundef{savedtranslator}%
+      {}%
+      {\newunit
+       \bibstring{bytranslator}%keine Sprache ausgegeben?
+       \setunit{\addspace}%
+       \printnames{savedtranslator}}}}
+%-----------------------
+\newbibmacro*{inreference:title+author}{%
+  \iffieldundef{title}%
+    {}%
+    {\setunit{\addspace}%
+     \bibstring{subvoce}%
+     \setunit{\addspace}%
+     \printfield{title}%
+     \setunit*{\addspace}%
+     \printfield{number}}%
+  \setunit{\addspace}%
+  \ifnameundef{author}%
+    {}
+    {\printtext[parens]{\printnames[name:initials]{labelname}}}}
+%-----------------------
+\newbibmacro*{maintitle+title+volumes}{%
+  \iffieldsequal{maintitle}{title}%
+    {\clearfield{maintitle}%
+     \clearfield{mainsubtitle}%
+     \clearfield{maintitleaddon}}%
+    {\iffieldundef{maintitle}%
+       {}%
+       {\usebibmacro{maintitle}%
+        \usebibmacro{volume}%
+        \clearfield{volume}}%
+     \iffieldundef{title}%
+       {}%
+       {\usebibmacro{title}}%
+     \ifbool{cbx:ancient}%
+       {\usebibmacro{translation}}%
+       {\usebibmacro{volume}}}%
+ \newunit}
+%-----------------------
+%https://tex.stackexchange.com/a/15014/35864
+\newenvironment{fullexpotherlanguage}[1]{%
+  \begingroup
+  \edef\temp{\endgroup\noexpand\otherlanguage{#1}}%
+  \temp
+}{\endotherlanguage}
+%-----------------------
+\renewbibmacro{event+venue+date}{%
+  \setunit{\adddot\addspace}%
+  \printfield{eventtitle}%
+  \setunit*{\addspace}%
+  \printfield{venue}%
+  \setunit*{\addspace}%
+  \ifboolexpr{
+    bool{bbx:eventdatelanguage}
+    and
+    not test{\iffieldundef{eventdatelanguage}}
+  }
+  {\begin{fullexpotherlanguage}{\thefield{eventdatelanguage}}%
+  \printeventdate
+  \end{fullexpotherlanguage}}
+  {\printeventdate}
+  \newunit%
+}
+%-----------------------
+\renewbibmacro*{title}{%
+  \ifboolexpr{%
+      test {\iffieldundef{title}}%
+      and%
+      test {\iffieldundef{subtitle}}}%
+    {}%
+    {\printtext[title]{%
+       \printfield[titlecase]{title}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{subtitle}}}%
+  \iffieldundef{titleaddon}
+    {\newunit}
+    {\setunit*{\subtitlepunct}%
+     \printfield{titleaddon}}%
+}
+%-----------------------
+\renewbibmacro*{booktitle}{%
+  \ifboolexpr{%
+      test {\iffieldundef{booktitle}}%
+      and%
+      test {\iffieldundef{booksubtitle}}}%
+    {}%
+    {\printtext[booktitle]{%
+       \printfield[titlecase]{booktitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{booksubtitle}}%
+       \setunit{\subtitlepunct}}%
+  \printfield{booktitleaddon}%
+}
+%-----------------------
+\renewbibmacro*{maintitle}{%
+  \ifboolexpr{%
+      test {\iffieldundef{maintitle}}%
+      and%
+      test {\iffieldundef{mainsubtitle}}}%
+    {}%
+    {\printtext[maintitle]{%
+       \printfield[titlecase]{maintitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{mainsubtitle}}%
+       \setunit{\subtitlepunct}}%
+  \printfield{maintitleaddon}%
+}
+%-----------------------
+\newbibmacro*{edition}{%
+  \iffieldint{edition}%
+    {\setunit*{\addspace}%
+     \mkbibsuperscript{\printfield{edition}}\kern -1pt}%
+    {\newunit
+     \printfield{edition}%
+     \setunit{\addspace}}}
+%-----------------------
+\newbibmacro*{location+edition+year}{%
+  \ifboolexpr{%
+      test {\iflistundef{location}}%
+      and test {\iflistundef{publisher}}%
+      and test {\iffieldundef{year}}}%
+    {}%
+    {\ifbool{bbx:publisher}%
+       {\printtext[parens]{%
+          \printlist{location}%
+          \setunit*{\addcolon\addspace}%
+          \printlist{publisher}%
+          % \iffieldint{edition}%
+          %   {\setunit{\addspace}}%
+          %   {\newunit}%
+          \usebibmacro{edition}%
+          \usebibmacro{pubstate+year}%
+          \setunit*{\addspace}%
+          \ifboolexpr{%
+              test {\iflistundef{origlocation}}%
+              and test {\iflistundef{origpublisher}}%
+              and test {\iffieldundef{origyear}}}%
+            {}%
+            {\printtext[parens]{%
+               \printlist{origlocation}%
+               \iflistundef{origpublisher}%
+                 {}%
+                 {\setunit*{\addcolon\addspace}%
+                  \printlist{origpublisher}}%
+               \setunit{\addspace}%
+               \printfield{origyear}}}}}%
+       {\usebibmacro{edition}%
+        \printtext[parens]{%
+          \ifboolexpr{%
+              test {\iflistundef{origlocation}}%
+              and test {\iffieldundef{origyear}}}%
+            {}%
+            {\iflistundef{origlocation}%
+               {\printlist{location}}%
+               {\printlist{origlocation}}%
+             \setunit*{\addspace}%
+             \printfield{origyear}%
+             \setunit*{\addsemicolon\addspace}%
+             \iffieldundef{origyear}%
+               {}%
+               {\bibstring{reprint}%
+                \setunit*{\addspace}}}%
+          \printlist{location}%
+          \setunit*{\addspace}%
+          \usebibmacro{pubstate+year}}}}}
+%-----------------------
+\renewbibmacro*{institution+location+date}{%
+  \printlist{location}%
+  \setunit*{\addspace}%
+  \printlist{institution}%
+  \setunit*{\addspace}%
+  \usebibmacro{pubstate+year}}
+%-----------------------
+\newbibmacro{signatur}{%
+  \printfield{note}}
+%-----------------------
+\newbibmacro*{volume}{%
+  \iffieldundef{volume}%
+    {\iffieldundef{volumes}%
+       {}%
+       {\setunit{\addspace}%
+        \printfield{volumes}%
+        \setunit*{\addspace}%
+        \bibstring{volumes}%
+        \setunit{\addspace}}}%
+    {\setunit{\addspace}%
+     \printfield{volume}%
+     \clearfield{volume}%
+     \iffieldundef{part}
+       {}
+       {\setunit{\addspace}%
+        \printfield{part}}}%
+  \newunit}
+%-----------------------
+\renewbibmacro*{maintitle+booktitle}{%
+  \iffieldundef{maintitle}%
+    {}%
+    {\usebibmacro{maintitle}%
+     \usebibmacro{volume}%
+     \setunit{\maintitlepunct}}%
+  \usebibmacro{booktitle}%
+  \usebibmacro{volume}%
+  \newunit
+}
+%-----------------------
+\newbibmacro*{booktitle+volume+editor}{%
+  \ifnameundef{editor}%
+    {\usebibmacro{bookauthor}%
+     \usebibmacro{maintitle+booktitle}%
+     \newunit}%
+    {\ifbool{bbx:edby}%
+       {\usebibmacro{maintitle+booktitle}%
+        \newunit
+        \bibstring{byeditor}%
+        \setunit{\addspace}%
+        \printnames{editor}}%
+       {\usebibmacro{editor}%
+        \newunit\newblock
+        \usebibmacro{maintitle+booktitle}%
+        \newunit}}%
+}
+%-----------------------
+\newbibmacro*{reftitle}{%
+  \iffieldundef{title}%
+    {}%
+    {\bibstring{reference}%
+     \setunit{\addspace}%
+     \printtext[emph]{%
+       \usebibmacro{title}%
+       \setunit{\addspace}%
+       \iffieldundef{number}%
+         {}%
+         {\printfield[brackets]{number}}}}%
+}
+%-----------------------
+\DeclareBibliographyDriver{shortjournal}{%
+  \printtext[journaltitle]{%
+    \printfield[titlecase]{journaltitle}%
+    \setunit{\subtitlepunct}%
+    \printfield[titlecase]{journalsubtitle}}%
+  \blx@initunit}
+%-----------------------
+\DeclareBibliographyDriver{shortseries}{%
+  \printtext[seriestitle]{%
+    \printfield[titlecase]{series}}%
+  \blx@initunit}
+%-----------------------
+\DeclareDataInheritance{reference}{inreference}{%
+  \inherit{shorthand}{booktitle}%
+  \noinherit{volumes}%
+}
+%-----------------------
+\DeclareBibliographyDriver{shorthand}{%
+  \iffieldundef{title}%
+    {\printfield{booktitle}}%
+    {\printfield{title}}%
+}
+%-----------------------
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author}%
+  \setunit*{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{translation}%
+  \usebibmacro{journal+number+year}%
+  \newunit\newblock
+  \usebibmacro{pages}%
+  \setunit{\addspace}%
+  \usebibmacro{doi+eprint+url}%
+  \newblock
+  \usebibmacro{signatur}%
+  \newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}%
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+    {}%
+  \usebibmacro{finentry}%
+}
+%-----------------------
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit*{\labelnamepunct}\newblock
+  \usebibmacro{maintitle+title+volumes}%
+  \newunit\newblock
+  \ifbool{bbx:yearseries}%
+    {}%
+    {\newunit\usebibmacro{series+number}}%
+  \ifbool{cbx:ancient}%
+    {}%
+    {\usebibmacro{translation}}%
+  \setunit{\addspace}\newblock
+  \usebibmacro{location+edition+year}%
+  \setunit*{\addspace}\newblock
+  \ifbool{bbx:yearseries}%
+    {\usebibmacro{series+number}}%
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \setunit*{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \newunit\newblock
+  \iftoggle{bbx:related}%
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+    {}%
+  \usebibmacro{finentry}%
+}
+%-----------------------
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit*{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \setunit{\addspace}
+  \printtext[parens]{\printfield{type}%
+  \setunit*{\addspace}%
+  \usebibmacro{institution+location+date}}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \setunit*{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \newunit\newblock
+  \iftoggle{bbx:related}%
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+    {}%
+  \usebibmacro{finentry}%
+}
+%-----------------------
+\DeclareBibliographyDriver{proceedings}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit*{\labelnamepunct}\newblock
+  \usebibmacro{maintitle+title+volumes}%
+  \usebibmacro{event+venue+date}%
+  \setunit*{\addspace}%
+  \ifbool{bbx:yearseries}%
+    {}%
+    {\newunit
+     \usebibmacro{series+number}}%
+  \setunit{\addspace}\newblock
+  \usebibmacro{location+edition+year}%
+  \setunit*{\addspace}\newblock
+  \ifbool{bbx:yearseries}%
+    {\usebibmacro{series+number}}%
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \newunit\newblock
+  \iftoggle{bbx:related}%
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+    {}%
+  \usebibmacro{finentry}%
+}
+%-----------------------
+\DeclareBibliographyDriver{inproceedings}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit*{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{intranslation}%
+  \newunit\newblock
+  \usebibmacro{in:}%
+  \usebibmacro{booktitle+volume+editor}%
+  \usebibmacro{event+venue+date}%
+  \setunit{\addspace}%
+  \ifbool{bbx:yearseries}%
+    {}%
+    {\newunit
+     \usebibmacro{series+number}}%
+  \setunit{\addspace}\newblock
+  \usebibmacro{location+edition+year}%
+  \setunit*{\addspace}\newblock
+  \ifbool{bbx:yearseries}%
+    {\usebibmacro{series+number}}%
+    {}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \newunit\newblock
+  \iftoggle{bbx:related}%
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+    {}%
+  \usebibmacro{finentry}%
+}
+%-----------------------
+\DeclareBibliographyDriver{talk}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit*{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \bibstring{talk}%
+  \setunit{\addspace}%
+  \printdate%
+  \newunit\newblock
+  \printlist{institution}%
+  \newunit\newblock
+  \usebibmacro{event+venue+date}%
+  \setunit{\addspace}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \newunit\newblock
+  \iftoggle{bbx:related}%
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+    {}%
+ \usebibmacro{finentry}%
+}
+%-----------------------
+\DeclareBibliographyDriver{inbook}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit*{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{intranslation}%
+  \iffieldundef{title}%
+    {\setunit{\addspace}}%
+    {\newunit\newblock}%
+  \usebibmacro{in:}%
+  \usebibmacro{booktitle+volume+editor}%
+  \setunit{\addspace}%
+  \ifbool{bbx:yearseries}%
+    {}%
+    {\newunit
+     \usebibmacro{series+number}}%
+  \setunit{\addspace}\newblock
+  \usebibmacro{location+edition+year}%
+  \setunit*{\addspace}\newblock
+  \ifbool{bbx:yearseries}%
+    {\usebibmacro{series+number}}%
+    {}%
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \newunit\newblock
+  \iftoggle{bbx:related}%
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+    {}%
+  \usebibmacro{finentry}%
+}
+%-----------------------
+\DeclareBibliographyDriver{inreference}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printfield{booktitle}%
+  \setunit{\addspace}%
+  \printfield{volume}%
+  \setunit{\addspace}%
+  \printfield[parens]{year}%
+  \setunit{\addspace}%
+  \usebibmacro{pages}%
+  \usebibmacro{inreference:title+author}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \setunit{\addperiod\addspace}%
+  \usebibmacro{signatur}%
+  \newunit\newblock
+  \usebibmacro{finentry}%
+}
+%-----------------------
+\DeclareBibliographyDriver{review}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor}%
+  \setunit*{\labelnamepunct}\newblock
+  \iffieldundef{title}%
+    {}%
+    {\usebibmacro{title}}%
+  \newunit\newblock
+  \usebibmacro{related:init}%
+  \usebibmacro{related}%
+  \newunit\newblock
+  \usebibmacro{journal+number+year}%
+  \newunit\newblock
+  \usebibmacro{pages}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{signatur}%
+  \newunit\newblock
+  \usebibmacro{finentry}%
+}
+%-----------------------
+\defbibenvironment{bibliography}%
+  {\list%
+    {\usebibmacro{labelwidthbib}}%
+    {\setlength{\labelwidth}{\labwidthsameline}%
+     \setlength{\leftmargin}{\labelwidth}%
+     \setlength{\labelsep}{\biblabelsep}%
+     \addtolength{\leftmargin}{\labelsep}%
+     \setlength{\itemsep}{\bibitemsep}%
+     \setlength{\parsep}{\bibparsep}%
+     \renewcommand*{\makelabel}[1]{##1\hss}}}%
+  {\endlist}%
+  {\item\usebibmacro{kicklabel}}
+ %-----------------------
+\def\do#1{%
+  \defbibenvironment{#1}
+    {\list%
+       {\printfield{#1}}%
+       {\setlength{\labelwidth}{\labwidthsameline}%
+        \setlength{\leftmargin}{\labelwidth}%
+        \setlength{\labelsep}{\biblabelsep}%
+        \addtolength{\leftmargin}{\labelsep}%
+        \setlength{\itemsep}{\bibitemsep}%
+        \setlength{\parsep}{\bibparsep}%
+        \renewcommand*{\makelabel}[1]{####1\hss}}}
+    {\endlist}
+    {\item\usebibmacro{kicklabelfield}{#1}}%
+}
+\docsvlist{shortjournal,shortseries}
+
+% this will not be needed in future versions of biblatex, see
+% https://github.com/plk/biblatex/commit/9a1f550222e294af5490488093a5e33e10493c63
+\providecommand*{\ifdateyearsequal}[2]{%
+  \ifboolexpr{ test {\iffieldsequal{#1year}{#2year}}
+               and test {\iffieldsequal{#1dateera}{#2dateera}}}}
+
+%    \end{macrocode}
+% \iffalse
+% /*
+%     ██ ██████  ██████  ██   ██
+%    ██  ██   ██ ██   ██  ██ ██
+%   ██   ██████  ██████    ███
+%  ██    ██   ██ ██   ██  ██ ██
+% ██     ██████  ██████  ██   ██
+% */
+%</bbx>
+%\section{Citation (.cbx)}
+%<*cbx>
+% /*
+%        ██████ ██████  ██   ██
+% ▄ ██ ▄██      ██   ██  ██ ██
+%  ████ ██      ██████    ███
+% ▀ ██ ▀██      ██   ██  ██ ██
+%        ██████ ██████  ██   ██
+% */
+% \fi
+%    \begin{macrocode}
+
+\newbool{cbx:yearinparens}
+\newbool{cbx:seenote}
+\newbool{cbx:uniqueme}
+\newbool{cbx:yearinparensoption}
+%-----------------------
+%\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
+\newcommand*{\labelyeardelim}{\addspace}
+%\renewcommand{\textcitedelim}{\addcomma\space}
+\renewcommand*{\iffinalcitedelim}{\iflastcitekey}
+\renewcommand{\postnotedelim}{%
+  \ifboolexpr{%
+    bool {cbx:ancient}%
+    or bool {cbx:frgancient}%
+    or bool {cbx:corpus}%
+  }%
+    {\addspace}%
+    {\newunitpunct}}
+
+\newrobustcmd*{\cbx@nametracker@global}[1]{%
+  \xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}
+    {}
+    {\listcsxadd{cbx@bseen@names@\the\c@refsection}{#1}}}
+
+\newrobustcmd*{\cbx@nametracker@context}[1]{%
+  \iftoggle{blx@footnote}
+    {\xifinlistcs{#1}{cbx@fseen@names@\the\c@refsection}
+       {}
+       {\listcsxadd{cbx@fseen@names@\the\c@refsection}{#1}}}
+    {\xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}
+       {}
+       {\listcsxadd{cbx@bseen@names@\the\c@refsection}{#1}}}}
+
+\newrobustcmd*{\cbx@ifnameseen@global}[1]{%
+  \xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}}
+
+\newrobustcmd*{\cbx@ifnameseen@context}[1]{%
+  \iftoggle{blx@footnote}%
+    {\xifinlistcs{#1}{cbx@fseen@names@\the\c@refsection}}%
+    {\xifinlistcs{#1}{cbx@bseen@names@\the\c@refsection}}}
+
+\DeclareBibliographyOption[boolean]{nametracker}[true]{%
+  \ifcsdef{blx@opt@nametracker@#1}
+    {\csuse{blx@opt@nametracker@#1}}
+    {\blx@err@invopt{nametracker=#1}{}}}
+
+\def\blx@opt@nametracker@true{%
+  \let\cbx@ifnameseen\cbx@ifnameseen@global
+  \let\cbx@nametracker\cbx@nametracker@global}
+
+\def\blx@opt@nametracker@false{%
+  \protected\long\def\cbx@ifnameseen##1##2##3{##3}%
+  \let\cbx@nametracker\relax}
+
+\def\blx@opt@nametracker@context{%
+  \let\cbx@ifnameseen\cbx@ifnameseen@context
+  \let\cbx@nametracker\cbx@nametracker@context}
+
+\appto\blx@secinit{
+  \ifcsundef{cbx@bseen@names@\the\c@refsection}
+    {\global\cslet{cbx@bseen@names@\the\c@refsection}\@empty}
+    {}%
+  \ifcsundef{cbx@fseen@names@\the\c@refsection}
+    {\global\cslet{cbx@fseen@names@\the\c@refsection}\@empty}
+    {}}
+
+\InitializeCitationStyle{%
+  \global\cslet{cbx@bseen@names@\the\c@refsection}\@empty
+  \global\cslet{cbx@fseen@names@\the\c@refsection}\@empty}
+
+%-----------------------
+\DeclareBibliographyOption{yearinparens}[true]{%
+  \ifstrequal{#1}{true}%
+    {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}%
+     \csuse{bool#1}{cbx:yearinparens}
+     \booltrue{cbx:yearinparensoption}}%
+    {\DeclareFieldFormat{citeyear}{##1}}}%
+\DeclareBibliographyOption{seenote}[true]{%
+  \csuse{bool#1}{cbx:seenote}%
+  \ExecuteBibliographyOptions{maxnames=999}}%
+\DeclareBibliographyOption[string]{citeauthorformat}{%
+  \ifcsdef{cbx@arch@citeauthorformat@#1}%
+    {\csuse{cbx@arch@citeauthorformat@#1}}%
+    {\PackageError{biblatex-archaeologie}%
+       {Option 'citeauthorformat=#1' invalid.\MessageBreak
+        Use one of the values 'initials', 'full', 'family', 'firstfulltheninitials' or 'firstfullthenfamily'.}{}}%
+  \def\citeauthorformatVALUE{#1}}
+\DeclareEntryOption{uniqueme}[true]{\csuse{bool#1}{cbx:uniqueme}}
+%-----------------------
+\DeclareFieldFormat{citeyear}{#1}
+\DeclareFieldFormat{prenote}{#1\isdot}
+\DeclareFieldFormat{postnote}{\mknormrange{#1}}
+\DeclareFieldFormat{multipostnote}{\mknormrange{#1}}
+\DeclareFieldFormat{shorttitle}{#1}
+\DeclareFieldFormat{pages}{#1}
+
+\DeclareNameFormat{labelname}{%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:family-given}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffixi}}
+      {\usebibmacro{name:family-given}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefixi}
+         {\namepartsuffixi}}%
+  \or
+    \usebibmacro{name:family-given}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}}
+
+ \DeclareNameFormat{name:family}{%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefixi}
+         {\namepartsuffixi}}%
+  \or
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}}
+
+ \DeclareNameFormat{name:initials}{%
+  \ifnum\value{uniquename}=2%
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \else
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefixi}
+         {\namepartsuffixi}}%
+  \fi
+  \usebibmacro{name:andothers}}
+
+
+\def\cbx@arch@citeauthorformat@family{%
+  \DeclareNameAlias{citeauthor}{name:family}}
+
+\def\cbx@arch@citeauthorformat@full{%
+  \DeclareNameAlias{citeauthor}{given-family}}
+
+\def\cbx@arch@citeauthorformat@initials{%
+   \DeclareNameAlias{citeauthor}{name:initials}}
+
+ \DeclareNameFormat{citeauthor:firstfulltheninitials}{%
+    \cbx@ifnameseen{\thefield{hash}}
+      {\ifnum\value{uniquename}=2
+         \usebibmacro{name:given-family}
+           {\namepartfamily}
+           {\namepartgiven}
+           {\namepartprefix}
+           {\namepartsuffix}%
+       \else
+         \ifuseprefix
+           {\usebibmacro{name:given-family}
+              {\namepartfamily}
+              {\namepartgiveni}
+              {\namepartprefix}
+              {\namepartsuffixi}}
+           {\usebibmacro{name:given-family}
+              {\namepartfamily}
+              {\namepartgiveni}
+              {\namepartprefixi}
+              {\namepartsuffixi}}%
+       \fi}
+      {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}%
+       \cbx@nametracker{\thefield{hash}}}%
+    \usebibmacro{name:andothers}}
+
+
+\DeclareNameFormat{citeauthor:firstinitialsthenfamily}{%
+  \cbx@ifnameseen{\thefield{hash}}
+    {}
+    {\ifnumequal{\value{uniquename}}{0}
+       {\stepcounter{uniquename}}
+       {}%
+     \cbx@nametracker{\thefield{hash}}}%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefixi}
+        {\namepartsuffixi}}%
+  \or
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}}
+
+\DeclareNameFormat{citeauthor:firstfullthenfamily}{%
+  \cbx@ifnameseen{\thefield{hash}}
+    {\ifcase\value{uniquename}%
+       \usebibmacro{name:family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}%
+     \or
+       \ifuseprefix
+         {\usebibmacro{name:given-family}
+           {\namepartfamily}
+           {\namepartgiveni}
+           {\namepartprefix}
+           {\namepartsuffixi}}
+         {\usebibmacro{name:given-family}
+           {\namepartfamily}
+           {\namepartgiveni}
+           {\namepartprefixi}
+           {\namepartsuffixi}}%
+     \or
+       \usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}%
+     \fi}
+    {\usebibmacro{name:given-family}
+       {\namepartfamily}
+       {\namepartgiven}
+       {\namepartprefix}
+       {\namepartsuffix}%
+     \cbx@nametracker{\thefield{hash}}}%
+  \usebibmacro{name:andothers}}
+
+\def\cbx@arch@citeauthorformat@firstfulltheninitials{%
+   \DeclareNameAlias{citeauthor}{citeauthor:firstfulltheninitials}}
+
+\def\cbx@arch@citeauthorformat@firstfullthenfamily{%
+   \DeclareNameAlias{citeauthor}{citeauthor:firstfullthenfamily}}
+
+\def\cbx@arch@citeauthorformat@firstinitialsthenfamily{%
+   \DeclareNameAlias{citeauthor}{citeauthor:firstinitialsthenfamily}}
+
+
+\def\cbx@arch@citeauthorformat@firstfull{%
+  \PackageWarningNoLine{biblatex-archaeologie}{%
+    Value 'firstfull' for 'citeauthorformat' is deprecated,\MessageBreak
+    use 'firstfulltheninitials' instead.}%
+  \cbx@arch@citeauthorformat@firstfulltheninitials}
+
+
+%-----------------------
+\ExecuteBibliographyOptions{%
+  citetracker=true,
+  idemtracker=true,
+  ibidtracker=true,
+  opcittracker=true,
+  loccittracker=true,
+  nametracker=context,
+  dateuncertain=true,
+  datecirca=true,
+  citeauthorformat=initials,
+  uniquename=minfull,
+  autocite=footnote,
+}
+%-----------------------
+\newbibmacro*{uniqueshorthand}{%
+  \printtext[brackets]{%
+    \ifnameundef{translator}
+      {\ifnameundef{intranslator}%
+         {\iffieldundef{series}%
+            {\printnames[name:family]{editor}}%
+            {\usebibmacro{series}}}%
+         {\printnames[name:family]{intranslator}}}%
+      {\printnames[name:family]{translator}}}}
+%-----------------------
+\renewbibmacro*{citeindex}{%
+  \ifciteindex%
+    {\ifboolexpr{%
+      bool {cbx:ancient}%
+      or bool {cbx:frgancient}
+     }%
+       {}%
+       {\indexnames{labelname}}}%
+    {}%
+}
+%-----------------------
+\renewbibmacro*{postnote}{%
+  \ifboolexpr{
+    bool{bbx:inreferencesasfullcite}
+    and
+    test{\ifentrytype{inreference}}
+  }
+    {}
+    {\iffieldundef{postnote}%
+       {}%
+       {\setunit{\postnotedelim}%
+        \printfield{postnote}%
+        \ifbool{cbx:frgancient}%
+          {\setunit{\addspace}%
+           \usebibmacro{cite:frgname}}%
+          {}}}}
+%-----------------------
+\newbibmacro*{cite:frgname}{%
+  \ifnameundef{shorteditor}%
+    {\printnames[name:family]{editor}}%
+    {\printnames{shorteditor}}%
+}
+%-----------------------
+\newbibmacro*{seenote}{%
+  \ifnameundef{labelname}%
+    {\usebibmacro{cite:label}}%
+    {\printnames{labelname}}%
+  \setunit{\labelyeardelim}%
+  \bibstring{loccit}%
+  \setunit{\addspace}%
+  \printtext[parens]{\bibstring{seenote}%
+  \addspace%
+  \ref{footref:\thefield{entrykey}}}%
+  \renewcommand{\postnotedelim}{\addspace}}
+%-----------------------
+\newbibmacro*{cite:title}{\printfield{labeltitle}}
+%-----------------------
+\newbibmacro*{cite:origtitle}{%
+  \iffieldundef{origtitle}
+    {\usebibmacro{cite:title}}
+    {\printfield{origtitle}}}
+%-----------------------
+\newbibmacro*{cite:year}{%
+  \iffieldundef{labelyear}
+    {}
+    {\printtext[citeyear]{\usebibmacro{cite:labeldate+extradate}}}}
+%-----------------------
+\newbibmacro*{cite:lexikon}{%
+  \printfield{booktitle}%
+  \setunit{\addspace}%
+  \printfield{volume}%
+  \usebibmacro{edition}%
+  \printfield[parens]{year}%
+  \setunit{\addspace}%
+  \iffieldundef{postnote}%
+    {\printfield{pages}}%
+    {\printfield{postnote}}%
+  \usebibmacro{inreference:title+author}%
+}
+%-----------------------
+\newbibmacro{cite:seenote}{%
+  \ifboolexpr{bool{cbx:ancient}%
+    or bool{cbx:frgancient}%
+    or bool{cbx:corpus}
+  }%
+    {\usebibmacro{cite:shorthand}}%
+    {\ifciteseen%
+       {\usebibmacro{seenote}}%
+       {\bibhypertarget{ref:\thefield{entrykey}}%
+          {\usedriver%
+             {\DeclareNameAlias{sortname}{default}}%
+             {\thefield{entrytype}}%
+           \iffootnote{\label{footref:\thefield{entrykey}}}}}}}
+%-----------------------
+\newbibmacro{cite}{%
+  \ifboolexpr{
+    bool{bbx:inreferencesasfullcite}
+    and
+    test{\ifentrytype{inreference}}
+  }
+    {\usebibmacro{cite:lexikon}}%
+    {\ifbool{cbx:seenote}%
+       {\usebibmacro{cite:seenote}}%
+       {\printtext[bibhyperref]{%
+          \iffieldundef{shorthand}%
+            {\ifnameundef{labelname}%
+               {\usebibmacro{cite:label}%
+                \setunit{\labelyeardelim}}%
+               {\printnames{labelname}%
+                \setunit{\nameyeardelim}}%
+             \usebibmacro{cite:year}}%
+            {\usebibmacro{cite:shorthand}}}}}}
+%-----------------------
+\newbibmacro*{citeyear}{%
+  \iffieldundef{shorthand}%
+    {\iffieldundef{labelyear}%
+       {\usebibmacro{cite:label}}%
+       {\usebibmacro{cite:labeldate+extradate}}}%
+    {\usebibmacro{cite}}}
+%-----------------------
+\newbibmacro*{textcite}{%
+  \ifnameundef{labelname}%
+    {\iffieldundef{shorthand}%
+       {\usebibmacro{cite:label}%
+        \setunit{%
+          \global\booltrue{cbx:yearinparens}%
+          \nonameyeardelim\bibopenparen}%
+        \ifnumequal{\value{citecount}}{1}%
+          {\usebibmacro{prenote}}%
+          {}%
+        \usebibmacro{cite:labeldate+extradate}}%
+       {\usebibmacro{cite}}}%
+    {\printnames{labelname}%
+     \setunit{%
+       \global\booltrue{cbx:yearinparens}%
+       \nameyeardelim\bibopenparen}%
+     \usebibmacro{citeyear}}}
+%-----------------------
+\newbibmacro*{cite:shorthand}{%
+  \ifbool{cbx:seenote}%
+    {\printtext{\printfield{shorthand}}}%
+    {\printtext[bibhyperref]{%
+       \printfield{shorthand}%
+       \ifbool{cbx:uniqueme}
+         {\setunit*{\addspace}%
+          \usebibmacro*{uniqueshorthand}}%
+         {}}}}
+%-----------------------
+\newbibmacro*{cite:label}{%
+  \iffieldundef{label}%
+    {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}%
+    {\printtext[bibhyperref]{\printfield{label}}}}
+%-----------------------
+\newbibmacro*{cite:labeldate+extradate}{%
+  \iffieldundef{labelyear}
+    {}
+    {\printtext[bibhyperref]{\printlabeldateextra}}}
+%-----------------------
+\newbibmacro*{textcite:postnote}{%
+  \iffieldundef{postnote}%
+    {\ifbool{cbx:yearinparens}%
+      {\bibcloseparen}%
+      {}}%
+    {\ifbool{cbx:yearinparens}%
+      {\setunit{\postnotedelim}}%
+      {\setunit{\extpostnotedelim\bibopenparen}}%
+     \printfield{postnote}%
+     \ifbool{cbx:frgancient}%
+       {\setunit{\addthinspace}%
+        \usebibmacro{cite:frgname}%
+        \bibcloseparen}%
+     \bibcloseparen}}
+%-----------------------
+\DeclareCiteCommand{\cite}%
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}
+ %-----------------------
+\DeclareCiteCommand{\footcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}
+%-----------------------
+\DeclareCiteCommand{\textcite}%
+  {\boolfalse{cbx:yearinparens}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+   \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+   \addspace\bibstring{and}\space}}%
+  {\usebibmacro{citeindex}%
+   \iffirstcitekey%
+     {\setcounter{textcitetotal}{1}}%
+     {\stepcounter{textcitetotal}%
+   \textcitedelim%
+   \usebibmacro{prenote}}%
+   \ifbool{cbx:seenote}
+     {\usebibmacro{cite:seenote}}%
+     {\usebibmacro{textcite}}}%
+  {\ifbool{cbx:yearinparens}%
+     {\bibcloseparen\global\boolfalse{cbx:yearinparens}}%
+     {}}%
+  {\ifbool{cbx:seenote}
+     {\usebibmacro{postnote}}%
+     {\usebibmacro{textcite:postnote}}}
+%-----------------------
+\DeclareCiteCommand{\parencite}[\mkbibparens]%
+  {\usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}
+%-----------------------
+\DeclareCiteCommand{\smartcite}[\iffootnote\textnormal\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\ifboolexpr{
+    bool{bbx:inreferencesasfullcite}
+    and
+    test{\ifentrytype{inreference}}}
+     {}
+     {\usebibmacro{postnote}}}%
+%-----------------------
+  \DeclareCiteCommand{\fullcite}
+  {\usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+%-----------------------
+\DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usedriver
+     {\DeclareNameAlias{sortname}{default}}
+     {\thefield{entrytype}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+%-----------------------
+\DeclareMultiCiteCommand{\cites}{\cite}{\multicitedelim}
+\DeclareMultiCiteCommand{\parencites}[\mkbibparens]{\parencite}{\multicitedelim}
+\DeclareMultiCiteCommand{\textcites}{\textcite}{}
+\DeclareMultiCiteCommand{\smartcites}[\iffootnote\textnormal\mkbibfootnote]{\smartcite}{\multicitedelim}
+%-----------------------
+\DeclareCiteCommand{\citeauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+     \addspace\bibstring{and}\space}%
+   \usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \ifboolexpr{
+    bool{bbx:inreferencesasfullcite}
+    and
+    test{\ifentrytype{inreference}}}
+     {\printtext}%
+     {\printtext[bibhyperref]}%
+   {\printnames[citeauthor]{labelname}}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}
+%-----------------------
+\DeclareCiteCommand{\citetranslator}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+     \addspace\bibstring{and}\space}%
+   \usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \ifboolexpr{%
+     test {\ifentrytype{incollection}}
+     or
+     test {\ifentrytype{inbook}}
+   }%
+     {\ifnameundef{intranslator}%
+        {\bibstring{owntranslation}}%
+        {\printtext[bibhyperref]{\printnames[citeauthor]{intranslator}}}}%
+     {\ifnameundef{translator}%
+       {\bibstring{owntranslation}}%
+       {\ifboolexpr{
+          bool {bbx:inreferencesasfullcite}
+          and
+          test  {\ifentrytype{inreference}}
+        }%
+          {\printnames[citeauthor]{translator}}
+          {\printtext[bibhyperref]{\printnames[citeauthor]{translator}}}}}}
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}
+%-----------------------
+\DeclareCiteCommand*{\citetranslator}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \DeclareNameAlias{bytranslator}{citeauthor}%
+   \renewcommand*{\multinamedelim}{\addcomma\space}%
+   \renewcommand*{\finalnamedelim}{%
+     \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+     \addspace\bibstring{and}\space}%
+   \usebibmacro{prenote}}%
+  {\usebibmacro{citeindex}%
+   \ifboolexpr{
+     bool{bbx:inreferencesasfullcite}
+     and
+     test{\ifentrytype{inreference}}}
+    {\printtext}%
+    {\printtext[bibhyperref]}%
+      {\ifthenelse{%
+         \ifentrytype{incollection}%
+         \OR%
+         \ifentrytype{inbook}%
+       }%
+         {\ifnameundef{intranslator}%
+            {\bibstring{owntranslation}}%
+            {\usebibmacro{byintranslator+others}}}%
+         {\ifnameundef{translator}%
+           {\bibstring{owntranslation}}%
+           {\usebibmacro{bytranslator+others}}}}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}
+%-----------------------
+\DeclareCiteCommand*{\citeauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \printnames[][1-1]{labelname}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+%-----------------------
+\DeclareCiteCommand{\citetitle}
+  {\boolfalse{citetracker}%
+  \boolfalse{pagetracker}%
+  \usebibmacro{prenote}}%
+  {\ifboolexpr{
+    bool{bbx:inreferencesasfullcite}
+    and
+    test{\ifentrytype{inreference}}}
+     {\printtext}%
+     {\printtext[bibhyperref]}{%
+        \ifbool{cbx:ancient}
+          {\printtext[emph]{\usebibmacro{cite:origtitle}}}%
+          {\printtext[emph]{\usebibmacro{cite:title}}%
+           \iffieldundef{year}
+             {}
+             {\setunit{\addspace}%
+              \printtext[parens]{%
+                \printfield{year}%
+                \iffieldundef{origyear}
+                  {}%
+                  {\addspace\printfield[parens]{origyear}}}}}}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}%
+
+\DeclareCiteCommand*{\citetitle}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}%
+  {\ifboolexpr{%
+    bool{bbx:inreferencesasfullcite}
+    and
+    test{\ifentrytype{inreference}}}
+     {\printtext}%
+     {\printtext[bibhyperref]}
+          {\printtext[emph]{\usebibmacro{cite:title}}}}%
+  {\multicitedelim}%
+  {\usebibmacro{postnote}}%
+
+%    \end{macrocode}
+% \iffalse
+% /*
+%     ██  ██████ ██████  ██   ██
+%    ██  ██      ██   ██  ██ ██
+%   ██   ██      ██████    ███
+%  ██    ██      ██   ██  ██ ██
+% ██      ██████ ██████  ██   ██
+% */
+%</cbx>
+%\section{Data model (.dbx)}
+%<*dbx>
+% /*
+%       ██████  ██████  ██   ██
+% ▄ ██ ▄██   ██ ██   ██  ██ ██
+%  ████ ██   ██ ██████    ███
+% ▀ ██ ▀██   ██ ██   ██  ██ ██
+%       ██████  ██████  ██   ██
+% */
+% \fi
+%    \begin{macrocode}
+% new translator etc.  fields for "inner" work, that is translator of title (not booktitle) in @in...
+\DeclareDatamodelFields[type=list,datatype=name]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
+\DeclareDatamodelEntryfields[inbook,incollection,inproceedings,inreference]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
+\DeclareDatamodelEntrytypes{talk}
+\DeclareDatamodelEntryfields[talk]{author,title,subtitle,titleaddon,date,labeldate,year,venue,institution,eventtitle,eventdate,url,urldate,note}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{zenon}
+\DeclareDatamodelEntryfields{zenon}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{arachne}
+\DeclareDatamodelEntryfields{arachne}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{urn}
+\DeclareDatamodelEntryfields{urn}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{jstor}
+\DeclareDatamodelEntryfields{jstor}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{eventdatelanguage}
+\DeclareDatamodelEntryfields[proceedings,inproceedings]{eventdatelanguage}
+%    \end{macrocode}
+% \iffalse
+% /*
+%     ██ ██████  ██████  ██   ██
+%    ██  ██   ██ ██   ██  ██ ██
+%   ██   ██   ██ ██████    ███
+%  ██    ██   ██ ██   ██  ██ ██
+% ██     ██████  ██████  ██   ██
+% */
+%</dbx>
+%<*lbx>
+% /*
+%        ██      ██████  ██   ██
+% ▄ ██ ▄ ██      ██   ██  ██ ██
+%  ████  ██      ██████    ███
+% ▀ ██ ▀ ██      ██   ██  ██ ██
+%        ███████ ██████  ██   ██
+% */
+%
+%<*en>
+% \fi
+% \section{English: english-archaeologie.lbx}
+% Here we declare all language based definitions and extras.
+%
+% We load the standard set of localization strings,
+% then add our adjustments.
+%    \begin{macrocode}
+
+
+\InheritBibliographyExtras{english}
+
+\DeclareBibliographyStrings{%
+  inherit          = {english},
+  magthesis = {{}{}},% FIX ME!
+  mathesis = {{Masters-thesis}{MA thesis}},% FIX ME!
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  reference        = {{Article}{Art\adddot}},
+  origtitle        = {{original title}{orig\adddot title}},
+  firstprint       = {{first\addspace edition}{first\addspace edition}},
+  talk             = {{talk}{talk}},
+  fromamerican     = {{from\addspace American} {from\addspace American}},
+  frombrazilian    = {{from\addspace Brazilian}{from\addspace Brazilian}},
+  fromcroatian     = {{from\addspace Croatian}{from\addspace Croatian}},
+  fromdanish       = {{from\addspace Danish}{from\addspace Danish}},
+  fromdutch        = {{from\addspace Dutch}{from\addspace Dutch}},
+  fromenglish      = {{from\addspace English}{from\addspace English}},
+  fromfinnish      = {{from\addspace Finnish}{from\addspace Finnish}},
+  fromfrench       = {{from\addspace French}{from\addspace French}},
+  fromgerman       = {{from\addspace German} {from\addspace German}},
+  fromgreek        = {{from\addspace Greek}{from\addspace Greek}},
+  fromitalian      = {{from\addspace Italian}{from\addspace Italian}},
+  fromlatin        = {{from\addspace Latin}{from\addspace Latin}},
+  fromnorwegian    = {{from\addspace Norwegian}{from\addspace Norwegian}},
+  fromportuguese   = {{from\addspace Portuguese}{from\addspace Portuguese}},
+  fromrussian      = {{from\addspace Russian}{from\addspace Russian}},
+  fromspanish      = {{from\addspace Spanish}{from\addspace Spanish}},
+  fromswedish      = {{from\addspace Swedish}{from\addspace Swedish}},
+  owntranslation   = {{own\addspace trans\adddot}{own\addspace translation}},
+}
+
+\protected\gdef\lbx@us@mkdaterangetrunc@long#1#2{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\printtext[#2date]{%
+         \datecircaprint
+         \iffieldundef{#2season}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+             {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+              \dateeraprint{#2year}}}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \dateeraprint{#2year}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+             {\mbox{\bibdaterangesep}}
+             {\bibdaterangesepx{#2}%
+              \enddatecircaprint
+              \iffieldundef{#2season}
+                {\ifdateyearsequal{#2}{#2end}
+                  {\iffieldsequal{#2month}{#2endmonth}
+                    {\csuse{mkbibdate#1}{#2endyear}{}{#2endday}}
+                    {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+                  {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+                {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+              \enddateuncertainprint
+              \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+\protected\gdef\lbx@us@mkdaterangetrunc@short#1#2{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\printtext[#2date]{%
+         \datecircaprint
+         \iffieldundef{#2season}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+             {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+              \dateeraprint{#2year}}}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \dateeraprint{#2year}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+              {\mbox{\bibdaterangesep}}
+              {\bibdaterangesepx{#2}%
+               \enddatecircaprint
+               \iffieldundef{#2season}
+                 {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}
+                 {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+               \enddateuncertainprint
+               \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+\protected\gdef\lbx@us@mkdaterangetruncextra@long#1#2{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\printtext[#2date]{%
+         \datecircaprint
+         \iffieldundef{#2season}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+             {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+              \dateeraprint{#2year}}}%
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \dateeraprint{#2year}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {\printfield{extradate}}
+           {\iffieldequalstr{#2endyear}{}
+              {\printfield{extradate}%
+               \mbox{\bibdaterangesep}}
+              {\bibdaterangesepx{#2}%
+               \enddatecircaprint
+               \iffieldundef{#2season}
+                 {\ifdateyearsequal{#2}{#2end}
+                   {\iffieldsequal{#2month}{#2endmonth}
+                      {\csuse{mkbibdate#1}{#2endyear}{}{#2endday}}
+                      {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+                   {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+                 {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+               \printfield{extradate}%
+               \enddateuncertainprint
+               \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+\protected\gdef\lbx@us@mkdaterangetruncextra@short#1#2{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\printtext[#2date]{%
+         \datecircaprint
+         \iffieldundef{#2season}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+             {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+              \dateeraprint{#2year}}}%
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \dateeraprint{#2year}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {\printfield{extradate}}
+           {\iffieldequalstr{#2endyear}{}
+              {\printfield{extradate}%
+            \mbox{\bibdaterangesep}}
+           {\bibdaterangesepx{#2}%
+            \enddatecircaprint
+            \iffieldundef{#2season}
+              {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}
+              {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+            \printfield{extradate}%
+            \enddateuncertainprint
+            \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+
+%    \end{macrocode}
+% \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%</en>
+%<*de>
+% \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{German: german-archaeologie.lbx}
+% Here we declare all language based definitions and extras.
+%
+% We load the standard set of localization strings,
+% then add our adjustments.
+%    \begin{macrocode}
+
+
+
+\InheritBibliographyExtras{ngerman}
+
+\DeclareBibliographyStrings{%
+  inherit          = {ngerman},
+  magthesis = {{Magisterarbeit}{Mag.-Arbeit}},%
+  mathesis = {{Masterarbeit}{MA-Arbeit}},%
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  reference        = {{Artikel}{Art\adddot}},
+  reviewof         = {{Rezension\addspace zu}{Rez\adddot\addabthinspace zu}},
+  origtitle        = {{Originaltitel}{Orig\adddot titel}},
+  firstprint       = {{Erstauflage}{Erstaufl\adddot}},
+  talk             = {{Vortrag}{Vortrag}},
+  seenote          = {{Anmerkung}{Anm\adddot}},
+  loccit           = {{am\addabthinspace Ort}{a\adddot\addabthinspace O\adddot}},
+  translationof    = {{\"Ubersetzung\addspace von}{\"Ubers\adddot\addspace von}},
+  owntranslation   = {{eigene\addspace\"Ubersetzung}{eig\adddot\addspace\"Ubers\adddot}},
+ }
+
+%    \end{macrocode}
+% \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%</de>
+%<*fr>
+% \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{French: french-archaeologie.lbx}
+% Here we declare all language based definitions and extras.
+%
+% We load the standard set of localization strings,
+% then add our adjustments.
+%    \begin{macrocode}
+
+\InheritBibliographyExtras{french}
+\DefineBibliographyExtras{french}{\restorecommand\mkbibnamefamily}
+
+\DeclareBibliographyStrings{%
+  inherit          = {french},
+  magthesis = {{}{}},% FIX ME!
+  mathesis = {{}{}},% FIX ME!
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  translationof    = {{traduction\addspace de}{trad\adddot\addspace de}},
+  reference        = {{article}{art\adddot}},
+  reviewof         = {{recension\addspace de}{rec\adddot\addspace de}},
+  origtitle 	     = {{titre original}{titre orig.\adddot}},
+  firstprint       = {{première\addspace édition}{première\addspace éd\adddot}},
+  talk 		         = {{conférence}{conf.}},
+  fromamerican     = {{depuis\addspace l'anglais américain} {depuis\addspace l'anglais américain}},
+  frombrazilian    = {{depuis\addspace le\addspace brésilien}{depuis\addspace le\addspace brésilien}},
+  fromcroatian     = {{depuis\addspace le\addspace croatien}{depuis\addspace le\addspace croatien}},
+  fromdanish       = {{depuis\addspace le\addspace danois}{depuis\addspace le\addspace danois}},
+  fromdutch        = {{depuis\addspace le\addspace néerlandais}{depuis\addspace le\addspace néerlandais}},
+  fromenglish      = {{depuis\addspace l'anglais}{depuis l'anglais}},
+  fromfinnish      = {{depuis\addspace Finnish}{depuis\addspace le\addspace Finnish}},
+  fromfrench       = {{depuis\addspace le\addspace français}{depuis\addspace le\addspace français}},
+  fromgerman       = {{depuis\addspace l'allemand} {depuis\addspace l'allemand}},
+  fromgreek        = {{depuis\addspace le\addspace grec}{depuis\addspace le\addspace grec}},
+  fromitalian      = {{depuis\addspace l'italien}{depuis l'italien}},
+  fromlatin        = {{depuis\addspace le\addspace latin}{depuis\addspace le\addspace latin}},
+  fromnorwegian    = {{depuis\addspace le\addspace norvégien}{depuis\addspace le\addspace norvégien}},
+  fromportuguese   = {{depuis\addspace le\addspace portugais}{depuis\addspace le\addspace portugais}},
+  fromrussian      = {{depuis\addspace le\addspace russe}{depuis\addspace le\addspace russe}},
+  fromspanish      = {{depuis\addspace l'espagnole}{depuis\addspace l'espagnol}},
+  fromswedish      = {{depuis\addspace le\addspace suédois}{depuis\addspace le\addspace suédois}},
+	owntranslation   = {{??}{??}},% FIXME!
+}
+
+%    \end{macrocode}
+% \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%</fr>
+%<*it>
+% \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Italian: italian-archaeologie.lbx}
+% Here we declare all language based definitions and extras.
+%
+% We load the standard set of localization strings,
+% then add our adjustments.
+%    \begin{macrocode}
+\InheritBibliographyExtras{italian}
+
+\DeclareBibliographyStrings{%
+  inherit          = {italian},
+  magthesis = {{}{}},% FIX ME!
+  mathesis = {{}{}},% FIX ME!
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  translationof    = {{traduzione\addspace di}{trad\adddot\addabthinspace di}},
+  reference        = {{articolo}{art\adddot}},
+  reviewof         = {{recensione\addspace di}{recens\adddot\addabthinspace di}},
+  origtitle        = {{titolo\addspace originale}{titolo\addspace orig\adddot}},
+  firstprint       = {{prima\addspace edizione}{prima\addspace edizione}},
+  talk             = {{presentazione}{presentazione}},
+  inpreparation    = {{in\addspace preparazione}{in prep\adddot}},
+  submitted        = {{}{}},% FIX ME!
+  inpress          = {{in\addspace corso\addspace di\addspace stampa}{c\adddot\addabthinspace d\adddot\addabthinspace s\adddot}},
+  prepublished     = {{}{}},% FIX ME!
+  forthcoming      = {{prossimo}{prossimo}},
+  owntranslation   = {{??}{??}},% FIX ME!
+}
+
+
+%    \end{macrocode}
+% \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%</it>
+%<*es>
+% \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section{Spanish: spanish-archaeologie.lbx}
+% Here we declare all language based definitions and extras.
+%
+% We load the standard set of localization strings,
+% then add our adjustments.
+%    \begin{macrocode}
+
+\InheritBibliographyExtras{spanish}
+
+\DeclareBibliographyStrings{%
+  inherit          = {spanish},
+  magthesis = {{}{}},% FIX ME!
+  mathesis = {{}{}},% FIX ME!
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  reference        = {{Artículo}{Art\adddot}},
+  origtitle        = {{Título\addspace original}{Título\addspace original}},
+  firstprint       = {{Primera\addspace edición}{Primera\addspace edición}},
+  talk             = {{Conferencia}{Conferencia}},
+  owntranslation   = {{??}{??}},% FIX ME!
+}
+
+
+%    \end{macrocode}
+% \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%</es>
+% \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \iffalse
+% /*
+%     ██ ██      ██████  ██   ██
+%    ██  ██      ██   ██  ██ ██
+%   ██   ██      ██████    ███
+%  ██    ██      ██   ██  ██ ██
+% ██     ███████ ██████  ██   ██
+% */
+%</lbx>
+% \fi
