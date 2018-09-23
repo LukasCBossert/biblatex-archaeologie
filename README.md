@@ -67,7 +67,6 @@ version 2005/12/01 or later.
 This work has the LPPL maintenance status _maintained_.
 The current maintainer of this work is [Lukas C. Bossert](https://github.com/LukasCBossert).
 
-
 # Installation of the bundle
 `archaeologie` is part of the distributions [MiKTeX](http://www.miktex.org)
 and [TeXLive](http://www.tug.org/texlive) -- thus, you
@@ -97,7 +96,6 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 All notable changes to this project will be documented in the README.md.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
-\iffalse
 ## v2.3.8 (2018-09-25)
 
 ### *Fixed*
@@ -218,5 +216,4 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 [current release]: http://www.biblatex-archaeologie.de
 [unreleased]: http://github.com/LukasCBossert/biblatex-archaeologie
 
-\fi
 

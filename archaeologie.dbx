@@ -18,8 +18,6 @@
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesFile{archaeologie.dbx}
     [\archVersion\space\archDate Bibliographical data model of biblatex-archaeologie]
-\iffalse
-\fi
 
 \DeclareDatamodelFields[type=list,datatype=name]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
 \DeclareDatamodelEntryfields[inbook,incollection,inproceedings,inreference]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
