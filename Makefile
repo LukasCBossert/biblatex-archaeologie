@@ -42,7 +42,7 @@ cleanbundle: clean
 ctan: all
 	rm -f $(NAME)*.zip
 	mkdir $(TDIR)
-	cp $(NAME).{dtx,pdf} README.md Makefile $(TDIR)
+	cp $(NAME).{dtx,pdf} README.md Makefile $(NAME)-*.bib $(TDIR)
 	cd $(TEMP); zip -Drq $(PWD)/$(NAME)-$(VERS).zip $(NAME)
 	@echo -e "$(NAMEtypeout) \n      $(RED)files zipped $(NC)"
 
