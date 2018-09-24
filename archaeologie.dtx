@@ -145,7 +145,7 @@ The current maintainer of this work is [Lukas C. Bossert](https://github.com/Luk
 % ▀ ██ ▀██   ██ ██ ██   ██
 %       ██████  ██ ██████
 % */
-%<*bib|expl>
+%<*bib&expl>
 %%
 %% Encoding: UTF-8
 %%
@@ -985,7 +985,7 @@ The current maintainer of this work is [Lukas C. Bossert](https://github.com/Luk
   shorthand   = {EAOR I--VII},
 }
 
-%</bib|expl>
+%</bib&expl>
 % /*
 %     ██ ██████  ██ ██████
 %    ██  ██   ██ ██ ██   ██
@@ -1033,10 +1033,10 @@ The current maintainer of this work is [Lukas C. Bossert](https://github.com/Luk
 \usedir{doc/latex/\jobname}
 \generate{
   \file{README.md}{\from{\jobname.dtx}{readme}}
-  \file{\jobname-examples.bib}{\from{\jobname.dtx}{bib,expl}}
-  \file{\jobname-lstlocations.bib}{\from{\jobname.dtx}{bib,locations}}
-  \file{\jobname-lstpublishers.bib}{\from{\jobname.dtx}{bib,publishers}}
-  \file{\jobname-lstabbrv.bib}{\from{\jobname.dtx}{bib,abbrv}}
+  \file{\jobname-examples.bib}{\from{\jobname.dtx}{bib&expl}}
+  \file{\jobname-lstlocations.bib}{\from{\jobname.dtx}{bib&locations}}
+  \file{\jobname-lstpublishers.bib}{\from{\jobname.dtx}{bib&publishers}}
+  \file{\jobname-lstabbrv.bib}{\from{\jobname.dtx}{bib&abbrv}}
 }
 
 \preamble
@@ -8163,8 +8163,8 @@ To see the long forms of journal titles or series you have to switch on the opti
 * missing space before `volumes`, added a space
 
 ### *Changed*
+* BIG change: all files are generated from the .dtx file.
 * the fields `postnote` and `multipostnote` are formatted with `\mknormrange`, that means you don’t have to type `--` to get an endash for page ranges.
-
 
 ## v2.3.7 (2018-04-08)
 
@@ -8299,9 +8299,8 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 %       ██████  ██████  ██   ██
 % */
 % \fi
-% \section{.bbx}
+% \section{Bibliography (.bbx)}
 %    \begin{macrocode}
-
 \RequireBibliographyStyle{standard}
 \RequirePackage[normalem]{ulem}
 %\RequirePackage{csquotes} % optionclash
