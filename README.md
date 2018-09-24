@@ -67,7 +67,7 @@ version 2005/12/01 or later.
 This work has the LPPL maintenance status _maintained_.
 The current maintainer of this work is [Lukas C. Bossert](https://github.com/LukasCBossert).
 
-# Installation of the bundle
+## Installation of the bundle
 `archaeologie` is part of the distributions [MiKTeX](http://www.miktex.org)
 and [TeXLive](http://www.tug.org/texlive) -- thus, you
 can easily install it using the respective package manager.
@@ -87,11 +87,9 @@ This might be helpful if you send the bundle to someone else.
 * `ctan`:  this will create a zip file which can be used to send to CTAN.
 * `uninstall`: will erase the locally installed files.
 
-## Development
-
 This bundle is constantly updated. For hints, errors or suggestions use the GitHub repository [https://github.com/LukasCBossert/biblatex-archaeologie](https://github.com/LukasCBossert/biblatex-archaeologie).
 
-# Changelog
+## Changelog
 
 All notable changes to this project will be documented in the README.md.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
