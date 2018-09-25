@@ -27,7 +27,7 @@ $(NAME).pdf: $(NAME).dtx
 
 # clean all temporary files
 clean:
-	rm -f {$(NAME),$(BIB)}.{sectionbibs.aux,biographies.aux,xdv,aux,mw,bbl,bcf,blg,doc,fdb_latexmk,fls,glo,gls,hd,idx,ilg,ind,listing,log,nav,out,run.xml,snm,synctex.gz,toc,vrb}
+	rm -f {$(NAME),$(BIB)}.{sectionbibs.aux,thm,bibexample,biographies.aux,xdv,aux,mw,bbl,bcf,blg,doc,fdb_latexmk,fls,glo,gls,hd,idx,ilg,ind,listing,log,nav,out,run.xml,snm,synctex.gz,toc,vrb}
 	rm -f $(NAME).markdown.{in,lua,out}
 	rm -f *.{log,aux}
 	rm -rf _markdown_*
@@ -35,14 +35,14 @@ clean:
 
 # clean all files
 cleanbundle: clean
-	rm -f *.{{b,c,d,l}bx,ins,pdf,zip}
+	rm -f *.{{b,c,d,l}bx,ins,pdf,zip,bib}
 	@echo -e "$(NAMEtypeout) \n      $(RED)cleaned all files $(NC)"
 
 # zip files up for sending etc.
 ctan: all
 	rm -f $(NAME)*.zip
 	mkdir $(TDIR)
-	cp $(NAME).{dtx,pdf} README.md Makefile $(NAME)-*.bib $(TDIR)
+	cp $(NAME).{dtx,pdf} README.md Makefile $(TDIR)
 	cd $(TEMP); zip -Drq $(PWD)/$(NAME)-$(VERS).zip $(NAME)
 	@echo -e "$(NAMEtypeout) \n      $(RED)files zipped $(NC)"
 

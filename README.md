@@ -1,12 +1,12 @@
-bibLaTeX-__archaeologie__
+bibLaTeX-__archaeologie__ Bundle
 =======
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
 Copyright (c) 2016-2018 Lukas C. Bossert
+
 Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
-Constantly supported by Moritz Wemheuer
 
 * Email: [info@biblatex-archaeologie.de](mailto:info@biblatex-archaeologie.de)
 * Website: [www.biblatex-archaeologie.de](http://www.biblatex-archaeologie.de)
