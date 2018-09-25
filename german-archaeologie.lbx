@@ -1,0 +1,43 @@
+%%
+%% This is file `german-archaeologie.lbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% archaeologie.dtx  (with options: `lbx,de')
+%% ----------------------------------------------------------------
+%% biblatex-archaeologie ---
+%% Author:  Lukas C. Bossert
+%% E-mail:  info@biblatex-archaeologie.de
+%% License: Released under the LaTeX Project Public License v1.3c or later
+%% See:     http://www.latex-project.org/lppl.txt
+%% ----------------------------------------------------------------
+%% 
+\def\archDate{2018/09/25}
+\def\archVersion{2.4.0}
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesFile{german-archaeologie.lbx}
+    [\archVersion\space\archDate German conventions required by the biblatex-archaeologie style]
+
+\InheritBibliographyExtras{ngerman}
+
+\DeclareBibliographyStrings{%
+  inherit          = {ngerman},
+  magthesis = {{Magisterarbeit}{Mag.-Arbeit}},%
+  mathesis = {{Masterarbeit}{MA-Arbeit}},%
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  reference        = {{Artikel}{Art\adddot}},
+  reviewof         = {{Rezension\addspace zu}{Rez\adddot\addabthinspace zu}},
+  origtitle        = {{Originaltitel}{Orig\adddot titel}},
+  firstprint       = {{Erstauflage}{Erstaufl\adddot}},
+  talk             = {{Vortrag}{Vortrag}},
+  seenote          = {{Anmerkung}{Anm\adddot}},
+  loccit           = {{am\addabthinspace Ort}{a\adddot\addabthinspace O\adddot}},
+  translationof    = {{\"Ubersetzung\addspace von}{\"Ubers\adddot\addspace von}},
+  owntranslation   = {{eigene\addspace\"Ubersetzung}{eig\adddot\addspace\"Ubers\adddot}},
+ }
+
+%% 
+%% Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+%%
+%% End of file `german-archaeologie.lbx'.

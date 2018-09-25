@@ -94,7 +94,7 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 All notable changes to this project will be documented in the README.md.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
-## v2.3.8 (2018-09-25)
+## v2.4.0 (2018-09-25)
 
 ### *Fixed*
 * there was a bug if the field `eventdatelanguage` wasn’t defined [see issue no. 145](https://github.com/LukasCBossert/biblatex-archaeologie/issues/145)
@@ -104,6 +104,7 @@ The markdown syntax is inspired by the conventions proposed by [keepachangelog.c
 * missing space before `volumes`, added a space
 
 ### *Changed*
+* BIG change: all files are generated from the `.dtx` file. This is such a major change so we skipped some version numnbers and jumped directly to `2.4.0`.
 * the fields `postnote` and `multipostnote` are formatted with `\mknormrange`, that means you don’t have to type `--` to get an endash for page ranges.
 
 ## v2.3.7 (2018-04-08)
@@ -213,5 +214,3 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 
 [current release]: http://www.biblatex-archaeologie.de
 [unreleased]: http://github.com/LukasCBossert/biblatex-archaeologie
-
-

@@ -1,7 +1,7 @@
 %\iffalse
 %<*internal|bbx|cbx|dbx|lbx>
 \def\archDate{2018/09/25}
-\def\archVersion{2.3.8}
+\def\archVersion{2.4.0}
 %</internal|bbx|cbx|dbx|lbx>
 %<*internal>
 \iffalse
@@ -13,9 +13,11 @@
   \typeout{  * * * archaeologie * * *^^J
     biblatex for archaeologists,^^J
     historians and philologists}
-  \def\archaeologieversion{\archVersion}
-  \def\archaeologiedate{\archDate}
 %</bbx>
+%<*internal|bbx>
+\def\archaeologieversion{\archVersion}
+\def\archaeologiedate{\archDate}
+%</internal|bbx>
 %<*cbx>
 \ProvidesFile{archaeologie.cbx}
     [\archVersion\space\archDate Base settings for citation style of biblatex-archaeologie]
@@ -45,7 +47,7 @@
     [\archVersion\space\archDate Spanish conventions required by the biblatex-archaeologie style]
 %</lbx&es>
 %<*doc>
-\ProvidesFile{\jobname-manual.tex}
+\ProvidesFile{\jobname-german.tex}
     [\archVersion\space\archDate Manual for users]
 %</doc>
 %<*driver>
@@ -1033,10 +1035,10 @@ The current maintainer of this work is [Lukas C. Bossert](https://github.com/Luk
 \usedir{doc/latex/\jobname}
 \generate{
   \file{README.md}{\from{\jobname.dtx}{readme}}
-  \file{\jobname-examples.bib}{\from{\jobname.dtx}{bib&expl}}
-  \file{\jobname-lstlocations.bib}{\from{\jobname.dtx}{bib&locations}}
-  \file{\jobname-lstpublishers.bib}{\from{\jobname.dtx}{bib&publishers}}
-  \file{\jobname-lstabbrv.bib}{\from{\jobname.dtx}{bib&abbrv}}
+  \file{\jobname-examples.bib}{\from{\jobname.dtx}{bib,expl}}
+  \file{\jobname-lstlocations.bib}{\from{\jobname.dtx}{bib,locations}}
+  \file{\jobname-lstpublishers.bib}{\from{\jobname.dtx}{bib,publishers}}
+  \file{\jobname-lstabbrv.bib}{\from{\jobname.dtx}{bib,abbrv}}
 }
 
 \preamble
@@ -1107,6 +1109,15 @@ italian,
 ngerman,
 english,
 ]{ltxdoc}
+\AtBeginDocument{
+\def\theCodelineNo{\color{codegray}\scriptsize\arabic{CodelineNo}\space}
+\def\MacroFont{\ttfamily\footnotesize}
+\def\AltMacroFont{\ttfamily\footnotesize}
+\CodelineNumbered
+\CodelineIndex
+%\EnableCrossrefs
+\RecordChanges}
+
 \RequirePackage{iftex}
 \ifPDFTeX
   \RequirePackage[utf8]{inputenc}
@@ -1155,12 +1166,7 @@ english,
 
 \RequirePackage[
 	backend=biber,
-%	backref,
-style=/Users/lukascbossert/Documents/github/biblatex-archaeologie/archaeologie,
-	lstpublishers,
-	lstlocations,
-	lstabbrv,
-%	initials=false,
+  style=archaeologie,
 ]{biblatex}
 \renewcommand\bibfont{\normalfont\footnotesize}
 \RequirePackage{metalogo}
@@ -1520,12 +1526,12 @@ We thank especially \href{https://tex.stackexchange.com/users/35864/moewe}{M. We
 }}
 \author{%
 \begin{tabular}{ll}
-  \footnotesize 2015-\the\year & Lukas C. Bossert\\
+  \footnotesize 2015--\the\year & Lukas C. Bossert\\
   \footnotesize 2015 & \footnotesize Johannes Friedl \\
   \footnotesize support by & \footnotesize  Moritz Wemheuer \\
-\end{tabular}}
-\date{Version: \archaeologieversion{} (\archaeologiedate)\\
+\end{tabular}\\\footnotesize
 \href{mailto:info@biblatex-archaeologie.de}{info@biblatex-archaeologie.de}}
+\date{Version: \archaeologieversion{} (\archaeologiedate)}
 \maketitle
 
 
@@ -4924,7 +4930,8 @@ We modified the lists with abbreviations of journals, corpora, etc. to make them
 Below there are two lists with\DescribeMacro{@String} |@String| (in \textbf{bold} letters on the left),
 one with the abbreviations (\cref{liste-kurz}), the other with the long forms  (\cref{liste-lang}).
 
-We recommend  looking up the journal names in the list and inserting the |@String| in the fields  |journaltitle| and |shortjournal|, or |series| and |shortseries|.
+We recommend  looking up the journal names in the list and inserting the |@String|
+in the fields  |journaltitle| and |shortjournal|, or |series| and |shortseries|.
 
 
 \subsection{Short form} \label{liste-kurz}
@@ -8137,13 +8144,14 @@ To see the long forms of journal titles or series you have to switch on the opti
 \changes{v1.1}{2015/07/06}{Erstellung der Liste mit Abkürzungen}
 %\fi
 \DocInput{\jobname.dtx}
-\PrintChanges
-\PrintIndex
+% \PrintChanges
+% \PrintIndex
 %</driver>
 %<*driver|doc>
 \end{document}
 %</driver|doc>
 % \fi
+% \iffalse
 % /*
 %     ██ ██████   ██████   ██████ ██    ██ ███    ███ ███████ ███    ██ ████████
 %    ██  ██   ██ ██    ██ ██      ██    ██ ████  ████ ██      ████   ██    ██
@@ -8151,9 +8159,8 @@ To see the long forms of journal titles or series you have to switch on the opti
 %  ██    ██   ██ ██    ██ ██      ██    ██ ██  ██  ██ ██      ██  ██ ██    ██
 % ██     ██████   ██████   ██████  ██████  ██      ██ ███████ ██   ████    ██
 % */
-% \iffalse
 %<*readme>
-## v2.3.8 (2018-09-25)
+## v2.4.0 (2018-09-25)
 
 ### *Fixed*
 * there was a bug if the field `eventdatelanguage` wasn’t defined [see issue no. 145](https://github.com/LukasCBossert/biblatex-archaeologie/issues/145)
@@ -8163,7 +8170,7 @@ To see the long forms of journal titles or series you have to switch on the opti
 * missing space before `volumes`, added a space
 
 ### *Changed*
-* BIG change: all files are generated from the .dtx file.
+* BIG change: all files are generated from the `.dtx` file. This is such a major change so we skipped some version numnbers and jumped directly to `2.4.0`. 
 * the fields `postnote` and `multipostnote` are formatted with `\mknormrange`, that means you don’t have to type `--` to get an endash for page ranges.
 
 ## v2.3.7 (2018-04-08)
@@ -8280,7 +8287,6 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 
 [current release]: http://www.biblatex-archaeologie.de
 [unreleased]: http://github.com/LukasCBossert/biblatex-archaeologie
-
 %</readme>
 % /*
 %            ██████  ██████  ██████  ███████
@@ -8289,8 +8295,6 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 %           ██      ██    ██ ██   ██ ██
 %            ██████  ██████  ██████  ███████
 % */
-
-%<*bbx>
 % /*
 %       ██████  ██████  ██   ██
 % ▄ ██ ▄██   ██ ██   ██  ██ ██
@@ -8298,6 +8302,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 % ▀ ██ ▀██   ██ ██   ██  ██ ██
 %       ██████  ██████  ██   ██
 % */
+%<*bbx>
 % \fi
 % \section{Bibliography (.bbx)}
 %    \begin{macrocode}
@@ -9724,6 +9729,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 
 %    \end{macrocode}
 % \iffalse
+%</bbx>
 % /*
 %     ██ ██████  ██████  ██   ██
 %    ██  ██   ██ ██   ██  ██ ██
@@ -9731,8 +9737,6 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 %  ██    ██   ██ ██   ██  ██ ██
 % ██     ██████  ██████  ██   ██
 % */
-%</bbx>
-%<*cbx>
 % /*
 %        ██████ ██████  ██   ██
 % ▄ ██ ▄██      ██   ██  ██ ██
@@ -9740,6 +9744,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 % ▀ ██ ▀██      ██   ██  ██ ██
 %        ██████ ██████  ██   ██
 % */
+%<*cbx>
 % \fi
 %\section{Citation (.cbx)}
 %    \begin{macrocode}
@@ -10811,7 +10816,8 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 % ██     ███████ ██████  ██   ██
 % */
 %</lbx>
-%<*bib|publishers>
+%<*bib>
+%<*publishers>
 % \fi
 % \section{archaeologie-lstpublishers.bib}
 %    \begin{macrocode}
@@ -10847,8 +10853,8 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 @String { YUP       = {Yale University Press} }
 %    \end{macrocode}
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%</bib|publishers>
-%<*bib|locations>
+%</publishers>
+%<*locations>
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section{archaeologie-lstlocations.bib}
 %    \begin{macrocode}
@@ -10883,8 +10889,8 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 @String{Vienna= {\iflanguage{english}{Vienna}{\iflanguage{italian}{Vienna}{\iflanguage{french}{Vienne}{\iflanguage{spanish}{Viena}{\iflanguage{ngerman}{Wien}{\iflanguage{german}{Wien}{}}}}}}}}
 %    \end{macrocode}
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%</bib|locations>
-%<*bib|abbrv>
+%</locations>
+%<*abbrv>
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section{archaeologie-lstabbrv.bib}
 % \subsection{Short names}
@@ -14100,3 +14106,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 %%									Bearbeitung: Lukas C. Bossert (2015)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    \end{macrocode}
+% \iffalse
+% </abbrv>
+% </bib>
+% \fi

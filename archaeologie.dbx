@@ -1,0 +1,38 @@
+%%
+%% This is file `archaeologie.dbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% archaeologie.dtx  (with options: `dbx')
+%% ----------------------------------------------------------------
+%% biblatex-archaeologie ---
+%% Author:  Lukas C. Bossert
+%% E-mail:  info@biblatex-archaeologie.de
+%% License: Released under the LaTeX Project Public License v1.3c or later
+%% See:     http://www.latex-project.org/lppl.txt
+%% ----------------------------------------------------------------
+%% 
+\def\archDate{2018/09/25}
+\def\archVersion{2.4.0}
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesFile{archaeologie.dbx}
+    [\archVersion\space\archDate Bibliographical data model of biblatex-archaeologie]
+\DeclareDatamodelFields[type=list,datatype=name]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
+\DeclareDatamodelEntryfields[inbook,incollection,inproceedings,inreference]{ineditor, intranslator, inannotator, incommentator, inintroduction, inforeword, inafterword}
+\DeclareDatamodelEntrytypes{talk}
+\DeclareDatamodelEntryfields[talk]{author,title,subtitle,titleaddon,date,labeldate,year,venue,institution,eventtitle,eventdate,url,urldate,note}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{zenon}
+\DeclareDatamodelEntryfields{zenon}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{arachne}
+\DeclareDatamodelEntryfields{arachne}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{urn}
+\DeclareDatamodelEntryfields{urn}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{jstor}
+\DeclareDatamodelEntryfields{jstor}
+\DeclareDatamodelFields[type=field,datatype=verbatim]{eventdatelanguage}
+\DeclareDatamodelEntryfields[proceedings,inproceedings]{eventdatelanguage}
+%% 
+%% Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+%%
+%% End of file `archaeologie.dbx'.

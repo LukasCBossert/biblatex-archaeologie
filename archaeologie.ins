@@ -1,0 +1,78 @@
+%%
+%% This is file `archaeologie.ins',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% archaeologie.dtx  (with options: `install')
+%% ----------------------------------------------------------------
+%% biblatex-archaeologie ---
+%% Author:  Lukas C. Bossert
+%% E-mail:  info@biblatex-archaeologie.de
+%% License: Released under the LaTeX Project Public License v1.3c or later
+%% See:     http://www.latex-project.org/lppl.txt
+%% ----------------------------------------------------------------
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+
+\nopreamble\nopostamble
+
+\usedir{doc/latex/\jobname}
+\generate{
+  \file{README.md}{\from{\jobname.dtx}{readme}}
+  \file{\jobname-examples.bib}{\from{\jobname.dtx}{bib,expl}}
+  \file{\jobname-lstlocations.bib}{\from{\jobname.dtx}{bib,locations}}
+  \file{\jobname-lstpublishers.bib}{\from{\jobname.dtx}{bib,publishers}}
+  \file{\jobname-lstabbrv.bib}{\from{\jobname.dtx}{bib,abbrv}}
+}
+
+\preamble
+----------------------------------------------------------------
+biblatex-archaeologie ---
+Author:  Lukas C. Bossert
+E-mail:  info@biblatex-archaeologie.de
+License: Released under the LaTeX Project Public License v1.3c or later
+See:     http://www.latex-project.org/lppl.txt
+----------------------------------------------------------------
+
+\endpreamble
+\postamble
+
+Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+\endpostamble
+
+\usedir{tex/latex/\jobname}
+\generate{
+  % \file{\jobname-german.tex}{\from{\jobname.dtx}{doc}}
+  \file{archaeologie.bbx}{\from{\jobname.dtx}{bbx}}
+  \file{archaeologie.cbx}{\from{\jobname.dtx}{cbx}}
+  \file{archaeologie.dbx}{\from{\jobname.dtx}{dbx}}
+  \file{english-archaeologie.lbx}{\from{\jobname.dtx}{lbx,en}}
+  \file{french-archaeologie.lbx}{\from{\jobname.dtx}{lbx,fr}}
+  \file{italian-archaeologie.lbx}{\from{\jobname.dtx}{lbx,it}}
+  \file{spanish-archaeologie.lbx}{\from{\jobname.dtx}{lbx,es}}
+  \file{german-archaeologie.lbx}{\from{\jobname.dtx}{lbx,de}}
+}
+\endbatchfile
+%% 
+%% Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+%%
+%% End of file `archaeologie.ins'.
