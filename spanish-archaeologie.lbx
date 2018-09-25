@@ -1,0 +1,38 @@
+%%
+%% This is file `spanish-archaeologie.lbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% archaeologie.dtx  (with options: `lbx,es')
+%% ----------------------------------------------------------------
+%% biblatex-archaeologie ---
+%% Author:  Lukas C. Bossert
+%% E-mail:  info@biblatex-archaeologie.de
+%% License: Released under the LaTeX Project Public License v1.3c or later
+%% See:     http://www.latex-project.org/lppl.txt
+%% ----------------------------------------------------------------
+%% 
+\def\archDate{2018/09/25}
+\def\archVersion{2.4.0}
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesFile{spanish-archaeologie.lbx}
+    [\archVersion\space\archDate Spanish conventions required by the biblatex-archaeologie style]
+
+\InheritBibliographyExtras{spanish}
+
+\DeclareBibliographyStrings{%
+  inherit          = {spanish},
+  magthesis = {{}{}},% FIXME!
+  mathesis = {{}{}},% FIXME!
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  reference        = {{Artículo}{Art\adddot}},
+  origtitle        = {{Título\addspace original}{Título\addspace original}},
+  firstprint       = {{Primera\addspace edición}{Primera\addspace edición}},
+  talk             = {{Conferencia}{Conferencia}},
+  owntranslation   = {{??}{??}},% FIXME!
+}
+%% 
+%% Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+%%
+%% End of file `spanish-archaeologie.lbx'.

@@ -1,0 +1,188 @@
+%%
+%% This is file `english-archaeologie.lbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% archaeologie.dtx  (with options: `lbx,en')
+%% ----------------------------------------------------------------
+%% biblatex-archaeologie ---
+%% Author:  Lukas C. Bossert
+%% E-mail:  info@biblatex-archaeologie.de
+%% License: Released under the LaTeX Project Public License v1.3c or later
+%% See:     http://www.latex-project.org/lppl.txt
+%% ----------------------------------------------------------------
+%% 
+\def\archDate{2018/09/25}
+\def\archVersion{2.4.0}
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesFile{english-archaeologie.lbx}
+    [\archVersion\space\archDate Generic English conventions required by the biblatex-archaeologie style]
+
+\InheritBibliographyExtras{english}
+
+\DeclareBibliographyStrings{%
+  inherit          = {english},
+  magthesis = {{}{}},% FIXME!
+  mathesis = {{Masters-thesis}{MA thesis}},% FIXME!
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  reference        = {{Article}{Art\adddot}},
+  origtitle        = {{original title}{orig\adddot title}},
+  firstprint       = {{first\addspace edition}{first\addspace edition}},
+  talk             = {{talk}{talk}},
+  fromamerican     = {{from\addspace American} {from\addspace American}},
+  frombrazilian    = {{from\addspace Brazilian}{from\addspace Brazilian}},
+  fromcroatian     = {{from\addspace Croatian}{from\addspace Croatian}},
+  fromdanish       = {{from\addspace Danish}{from\addspace Danish}},
+  fromdutch        = {{from\addspace Dutch}{from\addspace Dutch}},
+  fromenglish      = {{from\addspace English}{from\addspace English}},
+  fromfinnish      = {{from\addspace Finnish}{from\addspace Finnish}},
+  fromfrench       = {{from\addspace French}{from\addspace French}},
+  fromgerman       = {{from\addspace German} {from\addspace German}},
+  fromgreek        = {{from\addspace Greek}{from\addspace Greek}},
+  fromitalian      = {{from\addspace Italian}{from\addspace Italian}},
+  fromlatin        = {{from\addspace Latin}{from\addspace Latin}},
+  fromnorwegian    = {{from\addspace Norwegian}{from\addspace Norwegian}},
+  fromportuguese   = {{from\addspace Portuguese}{from\addspace Portuguese}},
+  fromrussian      = {{from\addspace Russian}{from\addspace Russian}},
+  fromspanish      = {{from\addspace Spanish}{from\addspace Spanish}},
+  fromswedish      = {{from\addspace Swedish}{from\addspace Swedish}},
+  owntranslation   = {{own\addspace trans\adddot}{own\addspace translation}},
+}
+
+\protected\gdef\lbx@us@mkdaterangetrunc@long#1#2{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\printtext[#2date]{%
+         \datecircaprint
+         \iffieldundef{#2season}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+             {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+              \dateeraprint{#2year}}}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \dateeraprint{#2year}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+             {\mbox{\bibdaterangesep}}
+             {\bibdaterangesepx{#2}%
+              \enddatecircaprint
+              \iffieldundef{#2season}
+                {\ifdateyearsequal{#2}{#2end}
+                  {\iffieldsequal{#2month}{#2endmonth}
+                    {\csuse{mkbibdate#1}{#2endyear}{}{#2endday}}
+                    {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+                  {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+                {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+              \enddateuncertainprint
+              \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+\protected\gdef\lbx@us@mkdaterangetrunc@short#1#2{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\printtext[#2date]{%
+         \datecircaprint
+         \iffieldundef{#2season}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+             {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+              \dateeraprint{#2year}}}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \dateeraprint{#2year}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {}
+           {\iffieldequalstr{#2endyear}{}
+              {\mbox{\bibdaterangesep}}
+              {\bibdaterangesepx{#2}%
+               \enddatecircaprint
+               \iffieldundef{#2season}
+                 {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}
+                 {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+               \enddateuncertainprint
+               \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+\protected\gdef\lbx@us@mkdaterangetruncextra@long#1#2{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\printtext[#2date]{%
+         \datecircaprint
+         \iffieldundef{#2season}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+             {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+              \dateeraprint{#2year}}}%
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \dateeraprint{#2year}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {\printfield{extradate}}
+           {\iffieldequalstr{#2endyear}{}
+              {\printfield{extradate}%
+               \mbox{\bibdaterangesep}}
+              {\bibdaterangesepx{#2}%
+               \enddatecircaprint
+               \iffieldundef{#2season}
+                 {\ifdateyearsequal{#2}{#2end}
+                   {\iffieldsequal{#2month}{#2endmonth}
+                      {\csuse{mkbibdate#1}{#2endyear}{}{#2endday}}
+                      {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+                   {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}}
+                 {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+               \printfield{extradate}%
+               \enddateuncertainprint
+               \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+\protected\gdef\lbx@us@mkdaterangetruncextra@short#1#2{%
+  \begingroup
+    \blx@metadateinfo{#2}%
+    \iffieldundef{#2year}
+      {}
+      {\printtext[#2date]{%
+         \datecircaprint
+         \iffieldundef{#2season}
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibdate#1}{}{#2month}{#2day}}
+             {\csuse{mkbibdate#1}{#2year}{#2month}{#2day}%
+              \dateeraprint{#2year}}}%
+           {\ifdateyearsequal{#2}{#2end}
+             {\csuse{mkbibseasondate#1}{}{#2season}}
+             {\csuse{mkbibseasondate#1}{#2year}{#2season}%
+              \dateeraprint{#2year}}}%
+         \dateuncertainprint
+         \iffieldundef{#2endyear}
+           {\printfield{extradate}}
+           {\iffieldequalstr{#2endyear}{}
+              {\printfield{extradate}%
+            \mbox{\bibdaterangesep}}
+           {\bibdaterangesepx{#2}%
+            \enddatecircaprint
+            \iffieldundef{#2season}
+              {\csuse{mkbibdate#1}{#2endyear}{#2endmonth}{#2endday}}
+              {\csuse{mkbibseasondate#1}{#2endyear}{#2endseason}}%
+            \printfield{extradate}%
+            \enddateuncertainprint
+            \dateeraprint{#2endyear}}}}}%
+  \endgroup}
+
+%% 
+%% Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+%%
+%% End of file `english-archaeologie.lbx'.

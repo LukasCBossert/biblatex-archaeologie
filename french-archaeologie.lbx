@@ -1,0 +1,61 @@
+%%
+%% This is file `french-archaeologie.lbx',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% archaeologie.dtx  (with options: `lbx,fr')
+%% ----------------------------------------------------------------
+%% biblatex-archaeologie ---
+%% Author:  Lukas C. Bossert
+%% E-mail:  info@biblatex-archaeologie.de
+%% License: Released under the LaTeX Project Public License v1.3c or later
+%% See:     http://www.latex-project.org/lppl.txt
+%% ----------------------------------------------------------------
+%% 
+\def\archDate{2018/09/25}
+\def\archVersion{2.4.0}
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesFile{french-archaeologie.lbx}
+    [\archVersion\space\archDate French conventions required by the biblatex-archaeologie style]
+\ProvidesFile{italien-archaeologie.lbx}
+    [\archVersion\space\archDate Italian conventions required by the biblatex-archaeologie style]
+
+\InheritBibliographyExtras{french}
+\DefineBibliographyExtras{french}{\restorecommand\mkbibnamefamily}
+
+\DeclareBibliographyStrings{%
+  inherit          = {french},
+  magthesis = {{}{}},% FIXME!
+  mathesis = {{}{}},% FIXME!
+  subvoce          = {{sub\addspace voce}{s\adddot\addnbthinspace v\adddot}},
+  translationof    = {{traduction\addspace de}{trad\adddot\addspace de}},
+  reference        = {{article}{art\adddot}},
+  reviewof         = {{recension\addspace de}{rec\adddot\addspace de}},
+  origtitle       = {{titre original}{titre orig.\adddot}},
+  firstprint       = {{première\addspace édition}{première\addspace éd\adddot}},
+  talk           = {{conférence}{conf.}},
+  fromamerican     = {{depuis\addspace l'anglais américain} {depuis\addspace l'anglais américain}},
+  frombrazilian    = {{depuis\addspace le\addspace brésilien}{depuis\addspace le\addspace brésilien}},
+  fromcroatian     = {{depuis\addspace le\addspace croatien}{depuis\addspace le\addspace croatien}},
+  fromdanish       = {{depuis\addspace le\addspace danois}{depuis\addspace le\addspace danois}},
+  fromdutch        = {{depuis\addspace le\addspace néerlandais}{depuis\addspace le\addspace néerlandais}},
+  fromenglish      = {{depuis\addspace l'anglais}{depuis l'anglais}},
+  fromfinnish      = {{depuis\addspace Finnish}{depuis\addspace le\addspace Finnish}},
+  fromfrench       = {{depuis\addspace le\addspace français}{depuis\addspace le\addspace français}},
+  fromgerman       = {{depuis\addspace l'allemand} {depuis\addspace l'allemand}},
+  fromgreek        = {{depuis\addspace le\addspace grec}{depuis\addspace le\addspace grec}},
+  fromitalian      = {{depuis\addspace l'italien}{depuis l'italien}},
+  fromlatin        = {{depuis\addspace le\addspace latin}{depuis\addspace le\addspace latin}},
+  fromnorwegian    = {{depuis\addspace le\addspace norvégien}{depuis\addspace le\addspace norvégien}},
+  fromportuguese   = {{depuis\addspace le\addspace portugais}{depuis\addspace le\addspace portugais}},
+  fromrussian      = {{depuis\addspace le\addspace russe}{depuis\addspace le\addspace russe}},
+  fromspanish      = {{depuis\addspace l'espagnole}{depuis\addspace l'espagnol}},
+  fromswedish      = {{depuis\addspace le\addspace suédois}{depuis\addspace le\addspace suédois}},
+owntranslation   = {{??}{??}},% FIXME!
+}
+
+%% 
+%% Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+%%
+%% End of file `french-archaeologie.lbx'.

@@ -49,12 +49,15 @@ ctan: all
 # install in your local TEX folder
 install: all
 	sudo mkdir -p $(LOCAL)/{tex,source,doc}/latex/$(PFX)$(NAME)
+	sudo mkdir -p $(LOCAL)/bibtex/bib/$(PFX)$(NAME)
 	sudo cp $(NAME).{dtx,ins} $(LOCAL)/source/latex/$(PFX)$(NAME)
 	sudo cp $(BIB).{b,c,d}bx {english,german,italian,french,spanish}-$(NAME).lbx $(LOCAL)/tex/latex/$(PFX)$(NAME)
-	sudo cp $(NAME).pdf $(NAME)-*.bib $(LOCAL)/doc/latex/$(PFX)$(NAME)
+	sudo cp $(NAME).pdf $(LOCAL)/doc/latex/$(PFX)$(NAME)
+	sudo cp $(NAME)-*.bib $(LOCAL)/bibtex/bib/$(PFX)$(NAME)
 	sudo mktexlsr
 	@echo -e "$(NAMEtypeout) \n      $(RED)all files installed$(NC)"
 
 uninstall:
 	sudo rm -r $(LOCAL)/{tex,source,doc}/latex/$(PFX)$(NAME)
+	sudo rm -r $(LOCAL)/bibtex/bib/$(PFX)$(NAME)
 	sudo mktexlsr
