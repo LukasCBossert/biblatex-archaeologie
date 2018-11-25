@@ -9144,7 +9144,10 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \setunit{\addspace}%
   \ifnameundef{author}%
     {}
-    {\printtext[parens]{\printnames[name:initials]{labelname}}}}
+    {\printtext[parens]{%
+      \ifbool{bbx:bibfullname}
+      {\printnames[author]{labelname}}
+      {\printnames[name:initials]{labelname}}}}}
 %-----------------------
 \newbibmacro*{maintitle+title+volumes}{%
   \iffieldsequal{maintitle}{title}%
@@ -9158,7 +9161,8 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
         \clearfield{volume}}%
      \iffieldundef{title}%
        {}%
-       {\usebibmacro{title}}%
+       {\setunit*{\maintitlepunct}%
+        \usebibmacro{title}}%
      \ifbool{cbx:ancient}%
        {\usebibmacro{translation}}%
        {\usebibmacro{volume}}}%
@@ -9324,7 +9328,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
     {\usebibmacro{maintitle}%
      \usebibmacro{volume}%
-     \setunit{\maintitlepunct}}%
+     \setunit*{\maintitlepunct}}%
   \usebibmacro{booktitle}%
   \usebibmacro{volume}%
   \newunit
