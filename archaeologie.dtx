@@ -1,7 +1,7 @@
 %\iffalse
 %<*internal|bbx|cbx|dbx|lbx>
-\def\archDate{2018/09/25}
-\def\archVersion{2.4.0}
+\def\archDate{2019/04/11}
+\def\archVersion{2.4.1}
 %</internal|bbx|cbx|dbx|lbx>
 %<*internal>
 \iffalse
@@ -68,7 +68,7 @@ bibLaTeX-__archaeologie__ Bundle
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
-Copyright (c) 2016-2018 Lukas C. Bossert
+Copyright (c) 2016-2019 Lukas C. Bossert
 
 Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
 
@@ -148,10 +148,16 @@ The current maintainer of this work is [Lukas C. Bossert](https://github.com/Luk
 % ▀ ██ ▀██   ██ ██ ██   ██
 %       ██████  ██ ██████
 % */
-%<*bib&expl>
+%<*bib>
+%% Additional bibliography file
+%% provided by biblatex-archaeologie
+%%
 %%
 %% Encoding: UTF-8
 %%
+%
+%</bib>
+%<*bib&expl>
 @InCollection{Hoare1973,
   author = {Charles Antony Richard Hoare},
   title = {Hints on programming language design},
@@ -994,7 +1000,7 @@ See:     http://www.latex-project.org/lppl.txt
 \endpreamble
 \postamble
 
-Copyright (C) 2018 Lukas C. Bossert // digitales-altertum.de
+Copyright (C) 2019 Lukas C. Bossert // digitales-altertum.de
 \endpostamble
 
 \usedir{tex/latex/\jobname}
@@ -1143,7 +1149,7 @@ draft=false,
 ]{scrlayer-scrpage}
 \pagestyle{scrheadings}
 \clearscrheadfoot
-\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie \archaeologieversion} \copyright\ by Lukas C. Bossert (2015--2018) | Johannes Friedl (2015)}%
+\ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie \archaeologieversion} \copyright\ by Lukas C. Bossert (2015--\the\year) | Johannes Friedl (2015)}%
 \rofoot{\normalfont\footnotesize  \textbf{\sffamily \thepage}}
 \lofoot{\normalfont\footnotesize  \href{http://www.biblatex-archaeologie.de}{biblatex-archaeologie.de}}
 
@@ -1396,7 +1402,7 @@ examplebox,
 	pdfsubject    = {This citation-style covers the citation and bibliography rules of the \DAI.
                    Various options are available to change and adjust the outcome according to one's own preferences.
                    The style is compatible with the English, German, Italian, Spanish and French languages, since all bibstrings used are defined in each language.},% 	- subject (PDF meta)
-	pdfauthor      = {Lukas C. Bossert (2015-2018), Johannes Friedl (2015)},	% 	- author (PDF meta)
+	pdfauthor      = {Lukas C. Bossert (2015--\the\year), Johannes Friedl (2015)},	% 	- author (PDF meta)
 	pdfauthortitle = {},
 	pdfcopyright   = {This work may be distributed and/or modified under the
                     conditions of the LaTeX Project Public License, either version 1.3
@@ -1460,7 +1466,7 @@ examplebox,
 % */
 \begin{document}
 \pdfbookmark[1]{Titlepage}{title}
-\title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy for (ancient) History or Classics, too.
+\title{\texttt{archaeologie} -- \\\texttt{bib\LaTeX} for archaeologists\footnote{Also very handy for scholars of (ancient) history or classics, too.
 For further information about the code visit \href{http://www.biblatex-archaeologie.de}{biblatex-archaeologie.de}:
 Comments and criticisms are welcome.
 We thank especially \href{https://tex.stackexchange.com/users/35864/moewe}{M. Wemheuer} and \href{https://tex.stackexchange.com/users/2478/herbert}{H. Voß} for their great help with the code.%
@@ -1479,8 +1485,10 @@ We thank especially \href{https://tex.stackexchange.com/users/35864/moewe}{M. We
 \begin{abstract}
 \noindent This citation-style covers the citation and bibliography rules of the \DAI (DAI).
 Various options are available to change and adjust the outcome according to one's own preferences.
-The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.
-\bigskip
+The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.\\
+\bigskip\\
+This package is dedicated to Johannes Friedl who inspired me to code,
+helped establishing this biblatex-style and introduced me to GitHub its world beyond.
 \end{abstract}
 
 
@@ -1515,9 +1523,10 @@ If you are using macOS you will be asked for your user account password for the 
 Further options of this makefile are:
 
 * `clean`:  deletes all unnecessary files
-* `cleanbundle`:  deletes all files except `.dtx`, `.pl`, `.md`. You will get the plain version of this bundle.
+* `cleanbundle`:  deletes all files except `.dtx`, `.md`. You will get the plain version of this bundle.
 This might be helpful if you send the bundle to someone else.
 * `ctan`:  this will create a zip file which can be used to send to CTAN.
+* `files`: will only create the files from the `.dtx`-scratch.
 * `uninstall`: will erase the locally installed files.
 
 
@@ -3865,7 +3874,7 @@ urn = *@\marg{urn:xxx}@*
 \DescribeMacro{zenon}
 This eprint-form is especially designed for the OPAC (Online Public Access Catalogue) of the \DAI.
 All bibliographical entries in this OPAC can be referred to via this link.
-You only need to insert the individual Zenon-number of the entry, e.\,g. \emph{http://zenon.dainst.org/Record/001371402} where \emph{001371402} is the individual number---cf. \cref{Osland2016,Wulf-Rheidt2013,Ganzert1984.Zanker2009}.
+You only need to insert the individual Zenon-number of the entry, e.\,g. \emph{http://zenon.dainst.org/Record/001371402} where \emph{001371402} is the individual number---cf. \cref{Osland2016,Wulf-Rheidt2013,Ganzert1984,Zanker2009}.
 
 This option is set to |false| by default.
 \begin{code}
@@ -4795,7 +4804,7 @@ Lexikon-der-Technik,Bergmann2015,LTUR}
 
 \begin{multicols}{3}
 \begin{description}\footnotesize
-\item[Aix-la-Chapelle] <-- English\newline German: Aachen\newline Italian: \newline Spanish: Aquisgrán\newline French: Aix-la-Chapelle
+\item[Aix-la-Chapelle] <-- English\newline German: Aachen\newline Italian: Aquisgrana \newline Spanish: Aquisgrán\newline French: Aix-la-Chapelle
 \item[Athens] <-- English\newline German: Athen\newline Italian: Atene\newline Spanish: Atenas\newline French: Athènes
 \item[Augsburg] <-- English\newline German: Augsburg\newline Italian: Augusta\newline Spanish: Ausburgo\newline French: Augsbourg
 \item[Basle] <-- English\newline German: Basel\newline Italian: Basilea\newline Spanish: Basilea\newline French: Basel
@@ -8100,6 +8109,15 @@ To see the long forms of journal titles or series you have to switch on the opti
 % ██     ██████   ██████   ██████  ██████  ██      ██ ███████ ██   ████    ██
 % */
 %<*readme>
+## v2.4.1 (2019-04-11)
+
+### *Fixed*
+* some errors in the documentation
+
+### *Changed*
+* default sorting template changed to `ndymdt`, as suggested in https://tex.stackexchange.com/a/46879/98739 [see issue no. 148](https://github.com/LukasCBossert/biblatex-archaeologie/issues/148)
+
+
 ## v2.4.0 (2018-09-25)
 
 ### *Fixed*
@@ -8256,7 +8274,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   language=auto,%
   bibencoding=utf8,%
   dateabbrev=false, %
-  sorting=nyt,%
+  sorting=ndymdt,%
   alldates=comp,%
   labeldateparts=true,%
   labeldate=year,%
@@ -8775,7 +8793,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 \DeclareBibliographyAlias{mathesis}{thesis}
 %-----------------------
 
-\DeclareSortingTemplate{nyt}{
+\DeclareSortingTemplate{ndymdt}{
   \sort{
     \field{presort}
   }
@@ -8783,26 +8801,36 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     \field{sortkey}
   }
   \sort{
-    \field{sortshorthand}
-    \field{shorthand}
-    \field{sortname}
-    \field{author}
-    \field{editor}
-    \field{translator}
-    \field{sorttitle}
-    \field{title}
+  \field{sortshorthand}
+      \field{shorthand}
+      \field{sortname}
+      \field{author}
+      \field{editor}
+      \field{translator}
   }
-  \sort{
+  \sort[direction=ascending]{
     \field{sortyear}
     \field{year}
+    \literal{9999}
+  }
+  \sort[direction=ascending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{99}
+  }
+  \sort[direction=ascending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{99}
   }
   \sort{
-    \field{sorttitle}
-    \field{title}
+  \field{pubstate}
   }
   \sort{
-    \field{volume}
-    \literal{0}
+  \field{sorttitle}
+  \field{title}
+  }
+  \sort[direction=ascending]{
+    \field[padside=left,padwidth=4,padchar=0]{volume}
+    \literal{9999}
   }
 }
 %-----------------------
@@ -10802,7 +10830,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section{archaeologie-lstlocations.bib}
 %    \begin{macrocode}
-@String{Aix-la-Chapelle= {\iflanguage{english}{Aix-la-Chapelle}{\iflanguage{italian}{}{\iflanguage{french}{Aix-la-Chapelle}{\iflanguage{spanish}{Aquisgrán}{\iflanguage{ngerman}{Aachen}{\iflanguage{german}{Aachen}{}}}}}}}}
+@String{Aix-la-Chapelle= {\iflanguage{english}{Aix-la-Chapelle}{\iflanguage{italian}{Aquisgrana}{\iflanguage{french}{Aix-la-Chapelle}{\iflanguage{spanish}{Aquisgrán}{\iflanguage{ngerman}{Aachen}{\iflanguage{german}{Aachen}{}}}}}}}}
 @String{Athens= {\iflanguage{english}{Athens}{\iflanguage{italian}{Atene}{\iflanguage{french}{Athènes}{\iflanguage{spanish}{Atenas}{\iflanguage{ngerman}{Athen}{\iflanguage{german}{Athen}{}}}}}}}}
 @String{Augsburg= {\iflanguage{english}{Augsburg}{\iflanguage{italian}{Augusta}{\iflanguage{french}{Augsbourg}{\iflanguage{spanish}{Ausburgo}{\iflanguage{ngerman}{Augsburg}{\iflanguage{german}{Augsburg}{}}}}}}}}
 @String{Basle= {\iflanguage{english}{Basle}{\iflanguage{italian}{Basilea}{\iflanguage{french}{Basel}{\iflanguage{spanish}{Basilea}{\iflanguage{ngerman}{Basel}{\iflanguage{german}{Basel}{}}}}}}}}
@@ -10837,25 +10865,15 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 %<*abbrv>
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section{archaeologie-lstabbrv.bib}
+% Liste der Abkürzungen für Zeitschriften, Reihen,
+% Lexika und häufig zitierte Werke.
+% Manche Kürzel konnten nicht genau umgesetzt werden.
+% Alle Umlaute, Akzente, etc. werden weggelassen, bzw.
+%  geändert: "ü-> ue", etc.
+%
+%  Diese sind mit "*Abweichung!" gekennzeichnet
 % \subsection{Short names}
 %    \begin{macrocode}
-%%%%%%%%%%%%%%%%%%%%
-%%
-%%      Liste der Abkürzungen für Zeitschriften, Reihen,
-%%      Lexika und häufig zitierte Werke
-%%
-%%%%%%%%%%%%%%%%%%%%
-%%
-%% 	Manche Kürzel konnten nicht genau umgesetzt werden.
-%% 	Alle Umlaute, Akzente, etc. werden weggelassen, bzw.
-%%	geändert: "ü-> ue", etc.
-%% 	Diese sind mit "*Abweichung!" gekennzeichnet
-%%
-%%%%%%%%%%%%%%%%%%%%
-%%
-%%	Kurzname
-%%
-%%%%%%%%%%%%%%%%%%%%
  @String {AA-short  = {AA}}
  @String {AAA-short  = {AAA}}
  @String {AAcque-short  = {AAcque}}
@@ -12449,11 +12467,6 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 %    \end{macrocode}
 % \subsection{Long names}
 %    \begin{macrocode}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 															%%
-%%	Langname   												%%
-%%															%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  @String {AA = {Archäologischer Anzeiger}}
  @String {AAA = {Αρχαιολογικά Ανάλεκτα εξ Αθηνών}}
  @String {AAcque = {Archeologia delle acque. Rivista semestrale di antropologia, archeologia, etnografia, storia dell'acqua}}
@@ -14054,6 +14067,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 %</abbrv>
 %<*corpora>
 % \fi
+%    \begin{macrocode}
 @Book{ABV,
   author    = {Beazley, J. D.},
   title     = {Attic Black-figure Vase-painters},
@@ -14364,10 +14378,13 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   options   = {corpus},
   shorthand = LSJ-short,
 }
+%    \end{macrocode}
 % \iffalse
 %</corpora>
 %<*ancient>
 % \fi
+%\section{archaeologie-bibancient.bib}
+%    \begin{macrocode}
 @book{Acc, title = {}, author = {}, shortauthor = {Accius}, shorthand = {Acc.}, options = {ancient}, keywords = {ancient}}
 @book{AchTat, title = {}, author = {}, shortauthor = {Achilleus Tatios}, shorthand = {Ach. Tat.}, options = {ancient}, keywords = {ancient}}
 @book{Ael:Ep, title = {Epistulae rusticae}, author = {Claudius Aelianus}, shortauthor = {Aelian}, shorthand = {Ael. Ep.}, options = {ancient}, keywords = {ancient}}
@@ -14964,7 +14981,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 @book{Zenob, title = {}, author = {}, shortauthor = {Zenobios}, shorthand = {Zenob.}, options = {ancient}, keywords = {ancient}}
 @book{Zenod, title = {}, author = {}, shortauthor = {Zenodotos}, shorthand = {Zenod.}, options = {ancient}, keywords = {ancient}}
 @book{Zos, title = {}, author = {}, shortauthor = {Zosimos}, shorthand = {Zos.}, options = {ancient}, keywords = {ancient}}
+%    \end{macrocode}
 % \iffalse
 %</ancient>
 %</bib>
+%<bib>%% created by Lukas C. Bossert // digitales-altertum|de
 % \fi

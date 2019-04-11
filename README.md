@@ -4,7 +4,7 @@ bibLaTeX-__archaeologie__ Bundle
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
-Copyright (c) 2016-2018 Lukas C. Bossert
+Copyright (c) 2016-2019 Lukas C. Bossert
 
 Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
 
@@ -82,9 +82,10 @@ If you are using macOS you will be asked for your user account password for the 
 Further options of this makefile are:
 
 * `clean`:  deletes all unnecessary files
-* `cleanbundle`:  deletes all files except `.dtx`, `.pl`, `.md`. You will get the plain version of this bundle.
+* `cleanbundle`:  deletes all files except `.dtx`, `.md`. You will get the plain version of this bundle.
 This might be helpful if you send the bundle to someone else.
 * `ctan`:  this will create a zip file which can be used to send to CTAN.
+* `files`: will only create the files from the `.dtx`-scratch.
 * `uninstall`: will erase the locally installed files.
 
 This bundle is constantly updated. For hints, errors or suggestions use the GitHub repository [https://github.com/LukasCBossert/biblatex-archaeologie](https://github.com/LukasCBossert/biblatex-archaeologie).
@@ -94,6 +95,14 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 All notable changes to this project will be documented in the README.md.
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
+## v2.4.1 (2019-04-11)
+
+### *Fixed*
+* some errors in the documentation
+
+### *Changed*
+* default sorting template changed to `ndymdt`, as suggested in https://tex.stackexchange.com/a/46879/98739 [see issue no. 148](https://github.com/LukasCBossert/biblatex-archaeologie/issues/148)
+
 ## v2.4.0 (2018-09-25)
 
 ### *Fixed*

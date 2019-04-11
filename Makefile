@@ -1,4 +1,5 @@
 MAKE  = make
+PROJECT = $(PFX)$(NAME)
 NAME  = archaeologie
 NAMEtypeout = $(CYAN)*** $(NAME) ***$(NC)
 BIB   = $(NAME)
@@ -13,17 +14,24 @@ LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
 RED   = \033[0;31m
 CYAN  = \033[0;36m
 NC    = \033[0m
+echoPROJECT = @echo -e "$(CYAN) <$(PROJECT)>$(RED)"
 
-.PHONY:  all clean cleanall zip install uninstall
+.PHONY:  all clean cleanall zip install uninstall files
 # Just create the PDF
 all: $(NAME).pdf
-	@echo -e "$(NAMEtypeout)\n$(RED) * all up to date * $(NC)"
+	@echo -e 	$(echoPROJECT) "* everything is up to date * $(NC)"
 	@exit 0
 
 # How to create the PDF
 $(NAME).pdf: $(NAME).dtx
 	latexmk  -lualatex -f $(NAME).dtx
 
+# just create the files without pdf
+files: $(NAME).ins
+	latex $(NAME).ins
+
+$(NAME).ins:
+	lualatex $(NAME).dtx
 
 # clean all temporary files
 clean:
@@ -31,12 +39,14 @@ clean:
 	rm -f $(NAME).markdown.{in,lua,out}
 	rm -f *.{log,aux}
 	rm -rf _markdown_*
-	@echo -e "$(NAMEtypeout) \n      $(RED)cleaned temp files $(NC)"
+	$(echoPROJECT) "* cleaned temp files * $(NC)"
+
 
 # clean all files
 cleanbundle: clean
 	rm -f *.{{b,c,d,l}bx,ins,pdf,zip,bib}
-	@echo -e "$(NAMEtypeout) \n      $(RED)cleaned all files $(NC)"
+	$(echoPROJECT) "* cleaned all files * $(NC)"
+
 
 # zip files up for sending etc.
 ctan: all
@@ -44,7 +54,7 @@ ctan: all
 	mkdir $(TDIR)
 	cp $(NAME).{dtx,pdf} README.md Makefile $(TDIR)
 	cd $(TEMP); zip -Drq $(PWD)/$(NAME)-$(VERS).zip $(NAME)
-	@echo -e "$(NAMEtypeout) \n      $(RED)files zipped $(NC)"
+	$(echoPROJECT) "* files zipped * $(NC)"
 
 # install in your local TEX folder
 install: all
@@ -55,9 +65,11 @@ install: all
 	sudo cp $(NAME).pdf $(LOCAL)/doc/latex/$(PFX)$(NAME)
 	sudo cp $(NAME)-*.bib $(LOCAL)/bibtex/bib/$(PFX)$(NAME)
 	sudo mktexlsr
-	@echo -e "$(NAMEtypeout) \n      $(RED)all files installed$(NC)"
+	$(echoPROJECT) "* all files installed * $(NC)"
+
 
 uninstall:
 	sudo rm -r $(LOCAL)/{tex,source,doc}/latex/$(PFX)$(NAME)
 	sudo rm -r $(LOCAL)/bibtex/bib/$(PFX)$(NAME)
 	sudo mktexlsr
+	$(echoPROJECT) "* all files uninstalled * $(NC)"
