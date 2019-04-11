@@ -1,3 +1,4 @@
+_markdown_archaeologie/*
 
 aux/
 
@@ -49,3 +50,11 @@ archaeologie.bibexample
 *.log
 *.idx
 *.listing
+*.bib
+*.bbx
+*.cbx
+*.dbx
+*.glo
+*.ins
+*.in
+*.lbx
