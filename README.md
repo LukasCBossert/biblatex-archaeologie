@@ -92,9 +92,17 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 
 ## Changelog
 
-All notable changes to this project will be documented in the README.md.
+All notable changes to this project will be documented in the [README.md](https://github.com/LukasCBossert/biblatex-archaeologie/blob/master/README.md).
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
+## v2.4.2 (2019-05-01)
+
+### *Fixed*
+* Handling ranges of years for `inreferences` [see issue no. 150](https://github.com/LukasCBossert/biblatex-archaeologie/issues/150)
+
+### *Changed*
+* Renaming `\labelnamepunct` to `\nametitledelim` (biblatex 3.12 compatibility)
+
 ## v2.4.1 (2019-04-11)
 
 ### *Fixed*
@@ -220,6 +228,3 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 ## v2.2 (2016-09-25)
 * *added* <br> `uniqueme` for variant translations of ancient works.
 * *added* <br> bibliography-file `archaeologie-examples.bib` included
-
-[current release]: http://www.biblatex-archaeologie.de
-[unreleased]: http://github.com/LukasCBossert/biblatex-archaeologie

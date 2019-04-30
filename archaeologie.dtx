@@ -1,7 +1,7 @@
 %\iffalse
 %<*internal|bbx|cbx|dbx|lbx>
-\def\archDate{2019/04/11}
-\def\archVersion{2.4.1}
+\def\archDate{2019/05/01}
+\def\archVersion{2.4.2}
 %</internal|bbx|cbx|dbx|lbx>
 %<*internal>
 \iffalse
@@ -1053,6 +1053,7 @@ ngerman,
 english,
 ]{ltxdoc}
 \AtBeginDocument{
+\setlength{\textwidth}{370pt}
 \def\theCodelineNo{\color{codegray}\scriptsize\arabic{CodelineNo}\space}
 \def\MacroFont{\ttfamily\footnotesize}
 \def\AltMacroFont{\ttfamily\footnotesize}
@@ -1060,6 +1061,7 @@ english,
 \CodelineIndex
 %\EnableCrossrefs
 \RecordChanges}
+
 
 \RequirePackage{iftex}
 \ifPDFTeX
@@ -1080,27 +1082,17 @@ english,
 \fi
 \listfiles
 \RequirePackage{libertine}
-\defaultfontfeatures[AnonymousPro]
-  {
-    Extension      = .ttf                       ,
-    BoldFont       = AnonymousPro-Bold          ,
-    ItalicFont     = AnonymousPro-BoldItalic    ,
-    BoldItalicFont = AnonymousPro-Italic        ,
-    UprightFont    = AnonymousPro-Regular       ,
-  }
-\setmonofont[Scale= MatchLowercase]{AnonymousPro}
-\setmainfont[Numbers = {Monospaced, OldStyle}]{Libertinus Serif}
-%\setsansfont{Libertinus Sans}
-\setmainfont[
-%  Scale       = 0.95,
-%  Numbers  = {OldStyle},
-  Numbers={Proportional,OldStyle},
-% BoldItalicFont = Gentium Book Basic Bold Italic,
-  Ligatures   = TeX,
-  BoldFont={Gentium Basic Bold},
-% BoldFont    = GenBasB,
-%  BoldFont={Gentium Basic Bold},
-]{Gentium Plus}
+\setmainfont[%
+  Numbers  = {OldStyle},
+  % Scale    = 0.90,
+  ]{TeXGyrePagella}
+\setsansfont[%
+  Numbers  = {OldStyle},
+  % Scale    = 0.90,
+  ]{TeXGyreAdventor}
+\setmonofont[Scale=MatchLowercase]{TeXGyreCursor}
+
+
 
 \RequirePackage{xr-hyper}
 \RequirePackage{url}
@@ -1188,6 +1180,16 @@ draft=false,
   breakable,%
 ]{tcolorbox}
 \lstMakeShortInline{|}
+
+\lstset{%
+  % basicstyle = \linespread{0.7}
+ ,breaklines = true
+ ,breakatwhitespace
+ ,alsoletter=\\\{\}\*\[\]\-
+ ,showstringspaces=true
+ ,postbreak=\mbox{$\hookrightarrow$}
+ }
+
 
 \newtcblisting[
   auto counter,
@@ -1483,8 +1485,9 @@ We thank especially \href{https://tex.stackexchange.com/users/35864/moewe}{M. We
 Various options are available to change and adjust the outcome according to one's own preferences.
 The style is compatible with the English, German, Italian, Spanish and French languages, since all |bibstrings| used are defined in each language.\\
 \bigskip\\
-This package is dedicated to Johannes Friedl who inspired me to code,
-helped establishing this biblatex-style and introduced me to GitHub its world beyond.
+This package is dedicated to \emph{Johannes Friedl} 
+who inspired me to code, 
+helped establishing this biblatex-style and introduced me to GitHub and its world beyond.
 \end{abstract}
 
 
@@ -1530,7 +1533,7 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 
 ## Changelog
 
-All notable changes to this project will be documented in the README.md.
+All notable changes to this project will be documented in the [README.md](https://github.com/LukasCBossert/biblatex-archaeologie/blob/master/README.md).
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
 %</driver|readme>
@@ -2283,7 +2286,7 @@ An example with an |@Incollection| demonstrates the effect of this option:
 \end{bibexample}
 
 Without any option activated it will look like this:
-\printbib[5em]{Mundt2015}
+\printbib[6em]{Mundt2015}
 
 By activating |yearseries| it will change to:
 \begin{bibbox}{Mundt2015}\footnotesize
@@ -8103,6 +8106,14 @@ To see the long forms of journal titles or series you have to switch on the opti
 % ██     ██████   ██████   ██████  ██████  ██      ██ ███████ ██   ████    ██
 % */
 %<*readme>
+## v2.4.2 (2019-05-01)
+
+### *Fixed*
+* Handling ranges of years for `inreferences` [see issue no. 150](https://github.com/LukasCBossert/biblatex-archaeologie/issues/150)
+
+### *Changed* 
+* Renaming `\labelnamepunct` to `\nametitledelim` (biblatex 3.12 compatibility)
+
 ## v2.4.1 (2019-04-11)
 
 ### *Fixed*
@@ -8236,9 +8247,6 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 ## v2.2 (2016-09-25)
 * *added* <br> `uniqueme` for variant translations of ancient works.
 * *added* <br> bibliography-file `archaeologie-examples.bib` included
-
-[current release]: http://www.biblatex-archaeologie.de
-[unreleased]: http://github.com/LukasCBossert/biblatex-archaeologie
 %</readme>
 % /*
 %            ██████  ██████  ██████  ███████
@@ -8549,7 +8557,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 \newcommand*{\jourvoldelim}{\addnbspace}
 \renewcommand{\finentrypunct}{%http://tex.stackexchange.com/a/14159/98739
   \ifbool{bbx:counter}%
-    {\addspace$\vert$ \addspace\scshape%
+    {\addspace\vrule\addspace\scshape%
     \iflanguage{ngerman}%
       {wurde \ifnumequal{\value{citecounter}}
         {0}
@@ -9413,7 +9421,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
-  \setunit*{\labelnamepunct}\newblock
+  \setunit*{\nametitledelim}\newblock
   \usebibmacro{title}%
   \newunit\newblock
   \usebibmacro{translation}%
@@ -9438,7 +9446,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}\newblock
+  \setunit*{\nametitledelim}\newblock
   \usebibmacro{maintitle+title+volumes}%
   \newunit\newblock
   \ifbool{bbx:yearseries}%
@@ -9469,7 +9477,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}\newblock
+  \setunit*{\nametitledelim}\newblock
   \usebibmacro{title}%
   \setunit{\addspace}
   \printtext[parens]{\printfield{type}%
@@ -9491,7 +9499,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}\newblock
+  \setunit*{\nametitledelim}\newblock
   \usebibmacro{maintitle+title+volumes}%
   \usebibmacro{event+venue+date}%
   \setunit*{\addspace}%
@@ -9521,7 +9529,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}\newblock
+  \setunit*{\nametitledelim}\newblock
   \usebibmacro{title}%
   \newunit\newblock
   \usebibmacro{intranslation}%
@@ -9557,7 +9565,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}\newblock
+  \setunit*{\nametitledelim}\newblock
   \usebibmacro{title}%
   \newunit\newblock
   \bibstring{talk}%
@@ -9584,7 +9592,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}\newblock
+  \setunit*{\nametitledelim}\newblock
   \usebibmacro{title}%
   \newunit\newblock
   \usebibmacro{intranslation}%
@@ -9640,7 +9648,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor}%
-  \setunit*{\labelnamepunct}\newblock
+  \setunit*{\nametitledelim}\newblock
   \iffieldundef{title}%
     {}%
     {\usebibmacro{title}}%
@@ -10101,7 +10109,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \setunit{\addspace}%
   \printfield{volume}%
   \usebibmacro{edition}%
-  \printfield[parens]{year}%
+  \printtext[parens]{\printdate}%
   \setunit{\addspace}%
   \iffieldundef{postnote}%
     {\printfield{pages}}%
