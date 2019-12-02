@@ -4,7 +4,7 @@ bibLaTeX-__archaeologie__ Bundle
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
-Copyright (c) 2016-2019 Lukas C. Bossert
+Copyright (c) 2015-2019 Lukas C. Bossert
 
 Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
 
@@ -95,6 +95,11 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 All notable changes to this project will be documented in the [README.md](https://github.com/LukasCBossert/biblatex-archaeologie/blob/master/README.md).
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
+## v2.4.3 (2019-12-03)
+### *Fixed*
+* Spelling error in Italian language for Dresden and München. Thanks to Matteo Turri. (Feedback always welcome!)
+* Some code refactoring for better literate programming.
+
 ## v2.4.2 (2019-05-01)
 
 ### *Fixed*
