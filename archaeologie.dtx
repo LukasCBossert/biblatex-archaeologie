@@ -1,7 +1,7 @@
 %\iffalse
 %<*internal|bbx|cbx|dbx|lbx>
-\def\archDate{2019/05/01}
-\def\archVersion{2.4.2}
+\def\archDate{2019/XX/XX}
+\def\archVersion{2.4.3}
 %</internal|bbx|cbx|dbx|lbx>
 %<*internal>
 \iffalse
@@ -64,7 +64,7 @@ bibLaTeX-__archaeologie__ Bundle
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
-Copyright (c) 2016-2019 Lukas C. Bossert
+Copyright (c) 2015-2019 Lukas C. Bossert
 
 Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
 
@@ -4811,7 +4811,7 @@ Lexikon-der-Technik,Bergmann2015,LTUR}
 \item[Brussels] <-- English\newline German: Brüssel\newline Italian: Bruxelles\newline Spanish: Bruselas\newline French: Bruxelles
 \item[Cologne] <-- English\newline German: Köln\newline Italian: Colonia\newline Spanish: Colonia\newline French: Cologne
 \item[Copenhagen] <-- English\newline German: Kopenhagen\newline Italian: Copenaghen\newline Spanish: Copenhague\newline French: Copenhague
-\item[Dresden] <-- English\newline German: Dresden\newline Italian: Desda\newline Spanish: Dresde\newline French: Dresde
+\item[Dresden] <-- English\newline German: Dresden\newline Italian: Dresda\newline Spanish: Dresde\newline French: Dresde
 \item[Florence] <-- English\newline German: Florenz\newline Italian: Firenze\newline Spanish: Firenze\newline French: Florence
 \item[Frankfurt] <-- English\newline German: Frankfurt am Main\newline Italian: Francoforte sul Meno\newline Spanish: Francfort del Meno\newline French: Francfort-sur-le-Main
 \item[Freiburg] <-- English\newline German: Freiburg \parentext{i. Breisgau}\newline Italian: Friburgo in Brisgovia\newline Spanish: Friburgo de Brisgovia\newline French: Fribourg-en-Brisgau
@@ -4822,7 +4822,7 @@ Lexikon-der-Technik,Bergmann2015,LTUR}
 \item[Louvain] <-- English\newline German: Löwen\newline Italian: Lovanio\newline Spanish: Lovaina\newline French: Louvain
 \item[Mainz] <-- English\newline German: Mainz am Rhein\newline Italian: Magonza\newline Spanish: Maguncia\newline French: Mayence
 \item[Milano] <-- English\newline German: Mailand\newline Italian: Milano\newline Spanish: Milán\newline French: Milan
-\item[Munich] <-- English\newline German: München\newline Italian: Monaco \parentext{di Bavaria}\newline Spanish: Múnich\newline French: Munich
+\item[Munich] <-- English\newline German: München\newline Italian: Monaco di Baviera\newline Spanish: Múnich\newline French: Munich
 \item[Naples] <-- English\newline German: Neapel\newline Italian: Napoli\newline Spanish: Napoli\newline French: Naples
 \item[Paris] <-- English\newline German: Paris\newline Italian: Parigi\newline Spanish: París\newline French: Paris
 \item[Regensburg] <-- English\newline German: Regensburg\newline Italian: Ratisbona\newline Spanish: Ratisbona\newline French: Ratisbonne
@@ -8287,7 +8287,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   useprefix=true,%
   mincrossrefs=1,%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbool{bbx:edby}
 \newbool{bbx:width}
 \newbool{bbx:yearseries}
@@ -8316,7 +8318,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 \newtoggle{bbx:arachne}
 
 \setlength{\biblabelsep}{0em}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyOption{lstabbrv}[true]{%
   \csuse{bool#1}{bib:lstabbrv}%
   \addbibresource{archaeologie-lstabbrv.bib}}
@@ -8349,7 +8353,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   lstlocations,%
   lstpublishers,%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyOption[string]{biblabel}{%
   \ifcsundef{archblx@biblabel@#1}
     {\PackageError{biblatex-archaeologie}
@@ -8392,11 +8398,15 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \ifstrequal{#1}{true}%
     {\AtEveryCite{\renewcommand*{\mkbibnamefamily}[1]{\textsc{##1}}}}%
     {}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \ExecuteBibliographyOptions{%
   autolang=hyphen,%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareEntryOption{ancient}[true]{\csuse{bool#1}{cbx:ancient}}
 \DeclareEntryOption{frgancient}[true]{%
   \ifstrequal{#1}{true}%
@@ -8449,7 +8459,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
       {Weitere Informationen unter \url{http://biblatex-archaeologie.de}}
       {For further information see \url{http://biblatex-archaeologie.de}}
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareFieldFormat*{title}{#1\isdot}
 \DeclareFieldFormat{subtitle}{#1}
 \DeclareFieldFormat{booktitle}{#1}
@@ -8509,12 +8521,16 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \ifhyperref%
     {\href{https://arachne.dainst.org/entity/#1}{\nolinkurl{#1}}}%
     {\nolinkurl{#1}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareFieldAlias{zenon}{eprint:zenon}
 \DeclareFieldAlias{jstor}{eprint:jstor}
 \DeclareFieldAlias{urn}{eprint:urn}
 \DeclareFieldAlias{arachne}{eprint:arachne}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareRedundantLanguages{german}{german,ngerman,austrian,naustrian}
 \DeclareRedundantLanguages{english,american}{english,american,british,%
  canadian,australian,newzealand,USenglish,UKenglish}
@@ -8524,7 +8540,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 \DeclareLanguageMapping{italian}{italian-archaeologie}
 \DeclareLanguageMapping{spanish}{spanish-archaeologie}
 %\DeclareLanguageMappingSuffix{-archaeologie}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \NewBibliographyString{origtitle}
 \NewBibliographyString{firstprint}
 \NewBibliographyString{reviewof}
@@ -8541,7 +8559,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 \NewBibliographyString{subvoce}
 \NewBibliographyString{owntranslation}
 \NewBibliographyString{magthesis}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewcommand*{\sqspace}{\addnbthinspace}
 \renewcommand*{\subtitlepunct}{\addperiod\addspace}
 \renewcommand*{\intitlepunct}{\addcolon\addspace}
@@ -8785,7 +8805,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
                \enddateuncertainprint
                \dateeraprint{#1endyear}}}}}%
   \endgroup}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyAlias{collection}{book}
 \DeclareBibliographyAlias{reference}{book}
 \DeclareBibliographyAlias{institution}{school}
@@ -8793,8 +8815,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 \DeclareBibliographyAlias{incollection}{inbook}
 \DeclareBibliographyAlias{manual}{book}
 \DeclareBibliographyAlias{mathesis}{thesis}
-%-----------------------
-
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareSortingTemplate{ndymdt}{
   \sort{
     \field{presort}
@@ -8835,10 +8858,14 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     \literal{9999}
   }
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareSortingTemplate{shortseries}{\sort{\field{shortseries}}}
 \DeclareSortingTemplate{shortjournal}{\sort{\field{shortjournal}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \defbibcheck{shortseries}{%
   \iffieldundef{shortseries}%
     {\skipentry}%
@@ -8859,7 +8886,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        {\skipentry}%
        {\savefieldcs{journaltitle}{\strfield{journaltitle}}}}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareNameAlias{name:initials}{default}
 \DeclareNameAlias{author}{name:initials}
 \DeclareNameAlias{editor}{author}
@@ -8869,13 +8898,17 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 \DeclareNameAlias{bycommentator}{author}
 \DeclareNameAlias{bookauthor}{author}
 
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareListFormat{location}{%
   #1\ifthenelse{\value{listcount}<\value{liststop}}%
   {\locationdelim}%
   {}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \AtEveryBibitem{%
   \iffieldequalstr{relatedtype}{translationof}%
     {\savename{translator}{\savedrelatedtranslator}%
@@ -8887,10 +8920,12 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
     {\clearname{translator}%
      \clearfield{origtitle}}}
-%-----------------------
+%    \end{macrocode}
+%
 %% provide macros to deal with intranslator, withincommentator, withinannotator, withinintroduction, withinforeword, withinafterword
 %% that is fields referring to the title work and not the booktitle work in inbook etc. works
 % these macros are essentially the same as the standard macros without the "in"
+%    \begin{macrocode}
 \newbibmacro*{byineditor+others}{%
   \ifnameundef{ineditor}
     {}
@@ -8900,7 +8935,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
      \clearname{ineditor}%
      \newunit}%
   \usebibmacro{byintranslator+others}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{byintranslator+others}{%
   \ifnameundef{intranslator}
     {}
@@ -8910,42 +8947,54 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
      \clearname{intranslator}%
      \newunit}%
   \usebibmacro{withinothers}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{withincommentator}{%
   \ifnameundef{incommentator}
     {}
     {\bibstring{withcommentator}%
      \setunit{\addspace}%
      \printnames[author]{incommentator}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{withinannotator}{%
   \ifnameundef{inannotator}
     {}
     {\bibstring{withannotator}%
      \setunit{\addspace}%
      \printnames[author]{inannotator}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{withinintroduction}{%
   \ifnameundef{inintroduction}
     {}
     {\bibstring{withintroduction}%
      \setunit{\addspace}%
      \printnames[author]{inintroduction}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{withinforeword}{%
   \ifnameundef{inforeword}
     {}
     {\bibstring{withforeword}%
      \setunit{\addspace}%
      \printnames[author]{inforeword}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{withinafterword}{%
   \ifnameundef{inafterword}
     {}
     {\bibstring{withafterword}%
      \setunit{\addspace}%
      \printnames[author]{inafterword}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{withinothers}{%
   \usebibmacro{withincommentator}%
   \clearname{incommentator}%
@@ -8961,7 +9010,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \newunit
   \usebibmacro{withinafterword}%
   \clearname{inafterword}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{labelwidthbib}{%
   \begingroup
     \DeclareFieldFormat{bibhyperref}{##1}%
@@ -8971,14 +9022,18 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     \printtext[bibcitelabel]{\usebibmacro{cite}}%
   \endgroup
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{kicklabel}{%
   \sbox\arch@labelbox{\usebibmacro{labelwidthbib}}%
   \global\togglefalse{blx@insert}%
   \ifdim1.1\wd\arch@labelbox>%
     \labwidthsameline\leavevmode\newline
   \fi}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{labelwidthfield}[1]{%
   \begingroup
     \DeclareFieldFormat{bibhyperref}{##1}%
@@ -8987,14 +9042,18 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     \defcounter{maxnames}{\blx@maxcitenames}%
     \printfield{#1}%
   \endgroup}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{kicklabelfield}[1]{%
   \sbox\arch@labelbox{\usebibmacro{labelwidthfield}{#1}}%
   \global\togglefalse{blx@insert}%
   \ifdim.9\wd\arch@labelbox>%
     \labwidthsameline\leavevmode\newline
   \fi}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{pageref}{%
   \iflistundef{pageref}
     {}
@@ -9004,7 +9063,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
          {\bibstring{backrefpages}\ppspace}
          {\bibstring{backrefpage}\ppspace}%
        \printlist[pageref][-\value{listtotal}]{pageref}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{bbx:parunit}{%
   \ifbibliography{%
     \setunit{\bibpagerefpunct}\newblock
@@ -9013,38 +9074,50 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     \setunit{\addcomma\newline\nobreak}}%
   {\newunit}%
 }
- %-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{eprint}{%
   \usebibmacro{bbx:parunit}%
   \iffieldundef{eprinttype}%
     {\printfield{eprint}}%
     {\printfield[eprint:\strfield{eprinttype}]{eprint}}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{zenon}{%
   \iffieldundef{zenon}
     {}%
     {\usebibmacro{bbx:parunit}%
      \printfield{zenon}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{jstor}{%
   \iffieldundef{jstor}
     {}
     {\usebibmacro{bbx:parunit}%
      \printfield{jstor}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{arachne}{%
   \iffieldundef{arachne}
     {}
     {\usebibmacro{bbx:parunit}%
      \printfield{arachne}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{urn}{%
   \iffieldundef{urn}
     {}
     {\usebibmacro{bbx:parunit}%
      \printfield{urn}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{url+urldate}{%
   \usebibmacro{bbx:parunit}%
   \iffieldundef{url}
@@ -9052,7 +9125,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {\printfield{url}%
   \setunit*{\addspace}%
   \printtext{\printurldate}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{doi+eprint+url}{%
   \usebibmacro{bbx:parunit}%
   \iftoggle{bbx:doi}{\printfield{doi}}{}%
@@ -9063,7 +9138,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \iftoggle{bbx:zenon}{\usebibmacro{zenon}}{}%
   \iftoggle{bbx:url}{\usebibmacro{url+urldate}}{}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{editor}{%
   \ifboolexpr{%
     test \ifuseeditor %
@@ -9074,11 +9151,15 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
      \printtext[editortype]{\bibstring{editor}}%
      \clearname{editor}}%
     {}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{bookauthor}{%
   \printnames{bookauthor}%
   \newunit}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareLabeldate{%
   \field{date}
   \field{year}
@@ -9088,14 +9169,18 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \field{eventdate}
   \literal{nodate}
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{series}{%
  \ifboolexpr{test {\iffieldundef{shortseries}} %
       or bool {bbx:noabbrv}}%
    {\printtext[seriestitle]{\printfield[titlecase]{series}}}%
    {\printfield{shortseries}}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{series+number}{%
   \iffieldundef{series}%
     {}%
@@ -9105,7 +9190,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \ifbool{bbx:yearseries}%
     {\newunit}%
     {\setunit{\addspace}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{journal}{%
   \ifboolexpr{test {\iffieldundef{shortjournal}}%
       or bool {bbx:noabbrv}}%
@@ -9114,7 +9201,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        \setunit{\subtitlepunct}%
        \printfield[titlecase]{journalsubtitle}}}%
     {\printfield{shortjournal}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{journal+number+year}{%
   \usebibmacro{journal}%
   \setunit{\jourvoldelim}%
@@ -9127,29 +9216,41 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
         \printfield{number}}%
      \newunit}%
   \usebibmacro{pubstate+year}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{pubstate+year}{%
   \iffieldundef{pubstate}%
     {\usebibmacro{date}}%
     {\printfield{pubstate}}}
- %-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{pages}{%
   \printfield{pages}%
   \isdot}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{translation}{%
   \printfield{origtitle}%
   \setunit{\addcomma\space}%
   \usebibmacro{byeditor+others}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{intranslation}{%
   \printfield{origtitle}%
   \setunit{\addcomma\space}%
   \usebibmacro{byineditor+others}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{related:reviewof}[1]{%
   \usebibmacro*{related:default}{#1}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{related:translationof}[1]{%
   \entrydata*{#1}{%
     \restorename{savedtranslator}{\savedrelatedtranslator}%
@@ -9161,7 +9262,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        \bibstring{bytranslator}%keine Sprache ausgegeben?
        \setunit{\addspace}%
        \printnames{savedtranslator}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{inreference:title+author}{%
   \iffieldundef{title}%
     {}%
@@ -9178,7 +9281,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
       \ifbool{bbx:bibfullname}
       {\printnames[author]{labelname}}
       {\printnames[name:initials]{labelname}}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{maintitle+title+volumes}{%
   \iffieldsequal{maintitle}{title}%
     {\clearfield{maintitle}%
@@ -9197,14 +9302,17 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        {\usebibmacro{translation}}%
        {\usebibmacro{volume}}}%
  \newunit}
-%-----------------------
-%https://tex.stackexchange.com/a/15014/35864
+%    \end{macrocode}
+% \url{https://tex.stackexchange.com/a/15014/35864}
+%    \begin{macrocode}
 \newenvironment{fullexpotherlanguage}[1]{%
   \begingroup
   \edef\temp{\endgroup\noexpand\otherlanguage{#1}}%
   \temp
 }{\endotherlanguage}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro{event+venue+date}{%
   \setunit{\adddot\addspace}%
   \printfield{eventtitle}%
@@ -9222,7 +9330,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   {\printeventdate}
   \newunit%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{title}{%
   \ifboolexpr{%
       test {\iffieldundef{title}}%
@@ -9238,7 +9348,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {\setunit*{\subtitlepunct}%
      \printfield{titleaddon}}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{booktitle}{%
   \ifboolexpr{%
       test {\iffieldundef{booktitle}}%
@@ -9252,7 +9364,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        \setunit{\subtitlepunct}}%
   \printfield{booktitleaddon}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{maintitle}{%
   \ifboolexpr{%
       test {\iffieldundef{maintitle}}%
@@ -9266,7 +9380,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        \setunit{\subtitlepunct}}%
   \printfield{maintitleaddon}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{edition}{%
   \iffieldint{edition}%
     {\setunit*{\addspace}%
@@ -9274,7 +9390,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {\newunit
      \printfield{edition}%
      \setunit{\addspace}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{location+edition+year}{%
   \ifboolexpr{%
       test {\iflistundef{location}}%
@@ -9324,17 +9442,23 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
           \printlist{location}%
           \setunit*{\addspace}%
           \usebibmacro{pubstate+year}}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{institution+location+date}{%
   \printlist{location}%
   \setunit*{\addspace}%
   \printlist{institution}%
   \setunit*{\addspace}%
   \usebibmacro{pubstate+year}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{signatur}{%
   \printfield{note}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{volume}{%
   \iffieldundef{volume}%
     {\iffieldundef{volumes}%
@@ -9352,7 +9476,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        {\setunit{\addspace}%
         \printfield{part}}}%
   \newunit}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{maintitle+booktitle}{%
   \iffieldundef{maintitle}%
     {}%
@@ -9363,7 +9489,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \usebibmacro{volume}%
   \newunit
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{booktitle+volume+editor}{%
   \ifnameundef{editor}%
     {\usebibmacro{bookauthor}%
@@ -9380,7 +9508,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
         \usebibmacro{maintitle+booktitle}%
         \newunit}}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{reftitle}{%
   \iffieldundef{title}%
     {}%
@@ -9393,30 +9523,40 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
          {}%
          {\printfield[brackets]{number}}}}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{shortjournal}{%
   \printtext[journaltitle]{%
     \printfield[titlecase]{journaltitle}%
     \setunit{\subtitlepunct}%
     \printfield[titlecase]{journalsubtitle}}%
   \blx@initunit}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{shortseries}{%
   \printtext[seriestitle]{%
     \printfield[titlecase]{series}}%
   \blx@initunit}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareDataInheritance{reference}{inreference}{%
   \inherit{shorthand}{booktitle}%
   \noinherit{volumes}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{shorthand}{%
   \iffieldundef{title}%
     {\printfield{booktitle}}%
     {\printfield{title}}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9441,7 +9581,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
   \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9472,7 +9614,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
   \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{thesis}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9494,7 +9638,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
   \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{proceedings}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9524,7 +9670,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
   \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{inproceedings}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9560,7 +9708,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
   \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{talk}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9587,7 +9737,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
  \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{inbook}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9624,7 +9776,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {}%
   \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{inreference}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9643,7 +9797,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \newunit\newblock
   \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -9665,7 +9821,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \newunit\newblock
   \usebibmacro{finentry}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \defbibenvironment{bibliography}%
   {\list%
     {\usebibmacro{labelwidthbib}}%
@@ -9678,7 +9836,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
      \renewcommand*{\makelabel}[1]{##1\hss}}}%
   {\endlist}%
   {\item\usebibmacro{kicklabel}}
- %-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \def\do#1{%
   \defbibenvironment{#1}
     {\list%
@@ -9694,9 +9854,10 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {\item\usebibmacro{kicklabelfield}{#1}}%
 }
 \docsvlist{shortjournal,shortseries}
-
+%    \end{macrocode}
 % this will not be needed in future versions of biblatex, see
-% https://github.com/plk/biblatex/commit/9a1f550222e294af5490488093a5e33e10493c63
+% \url{https://github.com/plk/biblatex/commit/9a1f550222e294af5490488093a5e33e10493c63}
+%    \begin{macrocode}
 \providecommand*{\ifdateyearsequal}[2]{%
   \ifboolexpr{ test {\iffieldsequal{#1year}{#2year}}
                and test {\iffieldsequal{#1dateera}{#2dateera}}}}
@@ -9722,12 +9883,13 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 % \fi
 %\section{Citation (.cbx)}
 %    \begin{macrocode}
-
 \newbool{cbx:yearinparens}
 \newbool{cbx:seenote}
 \newbool{cbx:uniqueme}
 \newbool{cbx:yearinparensoption}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 %\renewcommand*{\multicitedelim}{\addsemicolon\addspace}
 \newcommand*{\labelyeardelim}{\addspace}
 %\renewcommand{\textcitedelim}{\addcomma\space}
@@ -9791,8 +9953,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 \InitializeCitationStyle{%
   \global\cslet{cbx@bseen@names@\the\c@refsection}\@empty
   \global\cslet{cbx@fseen@names@\the\c@refsection}\@empty}
-
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareBibliographyOption{yearinparens}[true]{%
   \ifstrequal{#1}{true}%
     {\DeclareFieldFormat{citeyear}{\mkbibparens{##1}}%
@@ -9810,7 +9973,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
         Use one of the values 'initials', 'full', 'family', 'firstfulltheninitials' or 'firstfullthenfamily'.}{}}%
   \def\citeauthorformatVALUE{#1}}
 \DeclareEntryOption{uniqueme}[true]{\csuse{bool#1}{cbx:uniqueme}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareFieldFormat{citeyear}{#1}
 \DeclareFieldFormat{prenote}{#1\isdot}
 \DeclareFieldFormat{postnote}{\mknormrange{#1}}
@@ -10020,9 +10185,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     Value 'firstfull' for 'citeauthorformat' is deprecated,\MessageBreak
     use 'firstfulltheninitials' instead.}%
   \cbx@arch@citeauthorformat@firstfulltheninitials}
-
-
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \ExecuteBibliographyOptions{%
   citetracker=true,
   idemtracker=true,
@@ -10036,7 +10201,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   uniquename=minfull,
   autocite=footnote,
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{uniqueshorthand}{%
   \printtext[brackets]{%
     \ifnameundef{translator}
@@ -10046,7 +10213,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
             {\usebibmacro{series}}}%
          {\printnames[name:family]{intranslator}}}%
       {\printnames[name:family]{translator}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{citeindex}{%
   \ifciteindex%
     {\ifboolexpr{%
@@ -10057,7 +10226,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        {\indexnames{labelname}}}%
     {}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \renewbibmacro*{postnote}{%
   \ifboolexpr{
     bool{bbx:inreferencesasfullcite}
@@ -10073,13 +10244,17 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
           {\setunit{\addspace}%
            \usebibmacro{cite:frgname}}%
           {}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{cite:frgname}{%
   \ifnameundef{shorteditor}%
     {\printnames[name:family]{editor}}%
     {\printnames{shorteditor}}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{seenote}{%
   \ifnameundef{labelname}%
     {\usebibmacro{cite:label}}%
@@ -10091,19 +10266,27 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \addspace%
   \ref{footref:\thefield{entrykey}}}%
   \renewcommand{\postnotedelim}{\addspace}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{cite:title}{\printfield{labeltitle}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{cite:origtitle}{%
   \iffieldundef{origtitle}
     {\usebibmacro{cite:title}}
     {\printfield{origtitle}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{cite:year}{%
   \iffieldundef{labelyear}
     {}
     {\printtext[citeyear]{\usebibmacro{cite:labeldate+extradate}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{cite:lexikon}{%
   \printfield{booktitle}%
   \setunit{\addspace}%
@@ -10116,7 +10299,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     {\printfield{postnote}}%
   \usebibmacro{inreference:title+author}%
 }
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{cite:seenote}{%
   \ifboolexpr{bool{cbx:ancient}%
     or bool{cbx:frgancient}%
@@ -10130,7 +10315,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
              {\DeclareNameAlias{sortname}{default}}%
              {\thefield{entrytype}}%
            \iffootnote{\label{footref:\thefield{entrykey}}}}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro{cite}{%
   \ifboolexpr{
     bool{bbx:inreferencesasfullcite}
@@ -10149,14 +10336,18 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
                 \setunit{\nameyeardelim}}%
              \usebibmacro{cite:year}}%
             {\usebibmacro{cite:shorthand}}}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{citeyear}{%
   \iffieldundef{shorthand}%
     {\iffieldundef{labelyear}%
        {\usebibmacro{cite:label}}%
        {\usebibmacro{cite:labeldate+extradate}}}%
     {\usebibmacro{cite}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{textcite}{%
   \ifnameundef{labelname}%
     {\iffieldundef{shorthand}%
@@ -10174,7 +10365,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
        \global\booltrue{cbx:yearinparens}%
        \nameyeardelim\bibopenparen}%
      \usebibmacro{citeyear}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{cite:shorthand}{%
   \ifbool{cbx:seenote}%
     {\printtext{\printfield{shorthand}}}%
@@ -10184,17 +10377,23 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
          {\setunit*{\addspace}%
           \usebibmacro*{uniqueshorthand}}%
          {}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{cite:label}{%
   \iffieldundef{label}%
     {\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}%
     {\printtext[bibhyperref]{\printfield{label}}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{cite:labeldate+extradate}{%
   \iffieldundef{labelyear}
     {}
     {\printtext[bibhyperref]{\printlabeldateextra}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \newbibmacro*{textcite:postnote}{%
   \iffieldundef{postnote}%
     {\ifbool{cbx:yearinparens}%
@@ -10209,21 +10408,27 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
         \usebibmacro{cite:frgname}%
         \bibcloseparen}%
      \bibcloseparen}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\cite}%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
    \usebibmacro{cite}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
- %-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
    \usebibmacro{cite}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\textcite}%
   {\boolfalse{cbx:yearinparens}%
    \renewcommand*{\multinamedelim}{\addcomma\space}%
@@ -10245,14 +10450,18 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   {\ifbool{cbx:seenote}
      {\usebibmacro{postnote}}%
      {\usebibmacro{textcite:postnote}}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\parencite}[\mkbibparens]%
   {\usebibmacro{prenote}}%
   {\usebibmacro{citeindex}%
    \usebibmacro{cite}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\smartcite}[\iffootnote\textnormal\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
@@ -10264,7 +10473,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
     test{\ifentrytype{inreference}}}
      {}
      {\usebibmacro{postnote}}}%
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
   \DeclareCiteCommand{\fullcite}
   {\usebibmacro{prenote}}
   {\usedriver
@@ -10272,7 +10483,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
      {\thefield{entrytype}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usedriver
@@ -10280,12 +10493,16 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
      {\thefield{entrytype}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareMultiCiteCommand{\cites}{\cite}{\multicitedelim}
 \DeclareMultiCiteCommand{\parencites}[\mkbibparens]{\parencite}{\multicitedelim}
 \DeclareMultiCiteCommand{\textcites}{\textcite}{}
 \DeclareMultiCiteCommand{\smartcites}[\iffootnote\textnormal\mkbibfootnote]{\smartcite}{\multicitedelim}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\citeauthor}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -10304,7 +10521,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
    {\printnames[citeauthor]{labelname}}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\citetranslator}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -10333,7 +10552,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
           {\printtext[bibhyperref]{\printnames[citeauthor]{translator}}}}}}
   {\multicitedelim}%
   {\usebibmacro{postnote}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand*{\citetranslator}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -10363,7 +10584,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
            {\usebibmacro{bytranslator+others}}}}}%
   {\multicitedelim}%
   {\usebibmacro{postnote}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand*{\citeauthor}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -10372,7 +10595,9 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
    \printnames[][1-1]{labelname}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
-%-----------------------
+%    \end{macrocode}
+%
+%    \begin{macrocode}
 \DeclareCiteCommand{\citetitle}
   {\boolfalse{citetracker}%
   \boolfalse{pagetracker}%
@@ -10840,7 +11065,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 @String{Brussels= {\iflanguage{english}{Brussels}{\iflanguage{italian}{Bruxelles}{\iflanguage{french}{Bruxelles}{\iflanguage{spanish}{Bruselas}{\iflanguage{ngerman}{Brüssel}{\iflanguage{german}{Brüssel}{}}}}}}}}
 @String{Cologne= {\iflanguage{english}{Cologne}{\iflanguage{italian}{Colonia}{\iflanguage{french}{Cologne}{\iflanguage{spanish}{Colonia}{\iflanguage{ngerman}{Köln}{\iflanguage{german}{Köln}{}}}}}}}}
 @String{Copenhagen= {\iflanguage{english}{Copenhagen}{\iflanguage{italian}{Copenaghen}{\iflanguage{french}{Copenhague}{\iflanguage{spanish}{Copenhague}{\iflanguage{ngerman}{Kopenhagen}{\iflanguage{german}{Kopenhagen}{}}}}}}}}
-@String{Dresden= {\iflanguage{english}{Dresden}{\iflanguage{italian}{Desda}{\iflanguage{french}{Dresde}{\iflanguage{spanish}{Dresde}{\iflanguage{ngerman}{Dresden}{\iflanguage{german}{Dresden}{}}}}}}}}
+@String{Dresden= {\iflanguage{english}{Dresden}{\iflanguage{italian}{Dresda}{\iflanguage{french}{Dresde}{\iflanguage{spanish}{Dresde}{\iflanguage{ngerman}{Dresden}{\iflanguage{german}{Dresden}{}}}}}}}}
 @String{Florence= {\iflanguage{english}{Florence}{\iflanguage{italian}{Firenze}{\iflanguage{french}{Florence}{\iflanguage{spanish}{Firenze}{\iflanguage{ngerman}{Florenz}{\iflanguage{german}{Florenz}{}}}}}}}}
 @String{Frankfurt= {\iflanguage{english}{Frankfurt}{\iflanguage{italian}{Francoforte sul Meno}{\iflanguage{french}{Francfort-sur-le-Main}{\iflanguage{spanish}{Francfort del Meno}{\iflanguage{ngerman}{Frankfurt am Main}{\iflanguage{german}{Frankfurt am Main}{}}}}}}}}
 @String{Freiburg= {\iflanguage{english}{Freiburg}{\iflanguage{italian}{Friburgo in Brisgovia}{\iflanguage{french}{Fribourg-en-Brisgau}{\iflanguage{spanish}{Friburgo de Brisgovia}{\iflanguage{ngerman}{Freiburg \parentext{i. Breisgau}}{\iflanguage{german}{Freiburg \parentext{i. Breisgau}}{}}}}}}}}
@@ -10851,7 +11076,7 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 @String{Louvain= {\iflanguage{english}{Louvain}{\iflanguage{italian}{Lovanio}{\iflanguage{french}{Louvain}{\iflanguage{spanish}{Lovaina}{\iflanguage{ngerman}{Löwen}{\iflanguage{german}{Löwen}{}}}}}}}}
 @String{Mainz= {\iflanguage{english}{Mainz}{\iflanguage{italian}{Magonza}{\iflanguage{french}{Mayence}{\iflanguage{spanish}{Maguncia}{\iflanguage{ngerman}{Mainz am Rhein}{\iflanguage{german}{Mainz am Rhein}{}}}}}}}}
 @String{Milano= {\iflanguage{english}{Milano}{\iflanguage{italian}{Milano}{\iflanguage{french}{Milan}{\iflanguage{spanish}{Milán}{\iflanguage{ngerman}{Mailand}{\iflanguage{german}{Mailand}{}}}}}}}}
-@String{Munich= {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco \parentext{di Bavaria}}{\iflanguage{french}{Munich}{\iflanguage{spanish}{Múnich}{\iflanguage{ngerman}{München}{\iflanguage{german}{München}{}}}}}}}}
+@String{Munich= {\iflanguage{english}{Munich}{\iflanguage{italian}{Monaco di Baviera}{\iflanguage{french}{Munich}{\iflanguage{spanish}{Múnich}{\iflanguage{ngerman}{München}{\iflanguage{german}{München}{}}}}}}}}
 @String{Naples= {\iflanguage{english}{Naples}{\iflanguage{italian}{Napoli}{\iflanguage{french}{Naples}{\iflanguage{spanish}{Napoli}{\iflanguage{ngerman}{Neapel}{\iflanguage{german}{Neapel}{}}}}}}}}
 @String{Paris= {\iflanguage{english}{Paris}{\iflanguage{italian}{Parigi}{\iflanguage{french}{Paris}{\iflanguage{spanish}{París}{\iflanguage{ngerman}{Paris}{\iflanguage{german}{Paris}{}}}}}}}}
 @String{Regensburg= {\iflanguage{english}{Regensburg}{\iflanguage{italian}{Ratisbona}{\iflanguage{french}{Ratisbonne}{\iflanguage{spanish}{Ratisbona}{\iflanguage{ngerman}{Regensburg}{\iflanguage{german}{Regensburg}{}}}}}}}}
