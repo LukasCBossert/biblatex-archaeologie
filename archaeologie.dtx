@@ -1,6 +1,6 @@
 %\iffalse
 %<*internal|bbx|cbx|dbx|lbx>
-\def\archDate{2019/XX/XX}
+\def\archDate{2019/12/03}
 \def\archVersion{2.4.3}
 %</internal|bbx|cbx|dbx|lbx>
 %<*internal>
@@ -1295,8 +1295,8 @@ enhanced,
   colframe=yellow!20!black,
   sharp corners,rounded corners=southeast,arc is angular,arc=3mm,
   underlay={%
-    \path[fill=tcbcol@back!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
-    \path[draw=tcbcol@frame,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[fill=white!80!black] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
+    \path[draw=black,shorten <=-0.05mm,shorten >=-0.05mm] ([yshift=3mm]interior.south east)--++(-0.4,-0.1)--++(0.1,-0.2);
     \path[fill=red!50!black,draw=none] (interior.south west) rectangle node[white]{\Huge\bfseries !} ([xshift=4mm]interior.north west);
     },
   drop fuzzy shadow,#1
@@ -8106,6 +8106,12 @@ To see the long forms of journal titles or series you have to switch on the opti
 % ██     ██████   ██████   ██████  ██████  ██      ██ ███████ ██   ████    ██
 % */
 %<*readme>
+## v2.4.3 (2019-12-03)
+### *Fixed*
+* Spelling error in Italian language for Dresden and München. Thanks to Matteo Turri. (Feedback always welcome!)
+* Some code refactoring for better literate programming.
+
+
 ## v2.4.2 (2019-05-01)
 
 ### *Fixed*
