@@ -1,0 +1,8 @@
+title: archaeologie
+description: "This biblatex ci­ta­tion style cov­ers the ci­ta­tion and bib­li­og­ra­phy rules of the Ger­man Ar­chae­ol­ogical In­sti­tute / Deutsches Archäologisches Institut. "
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-leap-day
+
+gems:
+  - jekyll-mentions
