@@ -1,11 +1,16 @@
+bibLaTeX-__archaeologie__ Bundle
+=======
 
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
-_2016/10/06 v2.2b_
 
-Copyright (c) 2016 Lukas C. Bossert | Johannes Friedl
+Copyright (c) 2015-2020 Lukas C. Bossert
 
-* Email: [info@biblatex-archaeologie.de](mailto:info@biblatex-archaeologie.de)
+Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
+
+* Email: [info@biblatex.texografie.de](mailto:info@biblatex.texografie.de)
+* Website: [www.biblatex-archaeologie.texografie.de](http://biblatex-archaeologie.texografie.de)
+
 
 This citation-style covers the citation and bibliography rules of 
 the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen). 
