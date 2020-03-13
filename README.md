@@ -9,7 +9,7 @@ Copyright (c) 2015-2020 Lukas C. Bossert
 Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
 
 * Email: [info@biblatex.texografie.de](mailto:info@biblatex.texografie.de)
-* Website: [www.biblatex-archaeologie.texografie.de](http://www.biblatex-archaeologie.texografie.de)
+* Website: [www.biblatex-archaeologie.texografie.de](http://biblatex-archaeologie.texografie.de)
 
 This citation-style covers the citation and bibliography rules of
 the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen).
@@ -95,6 +95,10 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 All notable changes to this project will be documented in the [README.md](https://github.com/LukasCBossert/biblatex-archaeologie/blob/master/README.md).
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
+## v2.4.5 (2020-XX-XX)
+### *Fixed*
+* stale link in description corrected (http://biblatex-archaeologie.texografie.de/)
+
 ## v2.4.4 (2020-02-15)
 ### *Fixed*
 * corrected the use of the `maintitlepunct` in the bibmacro `maintitle+title+volumes`
