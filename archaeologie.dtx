@@ -1138,7 +1138,7 @@ draft=false,
 \clearscrheadfoot
 \ihead{\normalfont\footnotesize \texttt{bib}\LaTeX-style \texttt{archaeologie \archaeologieversion} \copyright\ by Lukas C. Bossert (2015--\the\year) | Johannes Friedl (2015)}%
 \rofoot{\normalfont\footnotesize  \textbf{\sffamily \thepage}}
-\lofoot{\normalfont\footnotesize  \href{http://biblatex-archaeologie.texografie.de}{biblatex-archaeologie.de}}
+\lofoot{\normalfont\footnotesize  \href{http://biblatex-archaeologie.texografie.de}{biblatex-archaeologie.texografie.de}}
 
 \RequirePackage[%
 %  flushmargin, %
@@ -1406,8 +1406,7 @@ examplebox,
                     of this license or (at your option) any later version.},
 	pdfhighlight   = /N,
 	pdfdisplaydoctitle = true,
-	pdfdate        = {\the\year-\the\month-\the\day}
-	pdflang        = {en},
+	pdflang        = {en}, 
 	pdfcaptionwriter = {Lukas C. Bossert},
 	pdfkeywords    = {biblatex, archaeology, humanities},
 	pdfproducer={LuaLaTeX},
@@ -8472,8 +8471,8 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
   \iftoggle{bbx:urn}{}{\xout{urn}\seperator}%
   \iftoggle{bbx:doi}{}{\xout{doi}\seperator}%
     \iflanguage{ngerman}%
-      {Weitere Informationen unter \url{http://biblatex-archaeologie.de}}
-      {For further information see \url{http://biblatex-archaeologie.de}}
+      {Weitere Informationen unter \url{http://biblatex-archaeologie.texografie.de}}
+      {For further information see \url{http://biblatex-archaeologie.texografie.de}}
 }
 %    \end{macrocode}
 %
@@ -14664,602 +14663,4415 @@ This update is also due to compatibility with `biblatex 3.8a`/`biber 2.8`.
 % \fi
 %\section{archaeologie-bibancient.bib}
 %    \begin{macrocode}
-@book{Acc, title = {}, author = {}, shortauthor = {Accius}, shorthand = {Acc.}, options = {ancient}, keywords = {ancient}}
-@book{AchTat, title = {}, author = {}, shortauthor = {Achilleus Tatios}, shorthand = {Ach. Tat.}, options = {ancient}, keywords = {ancient}}
-@book{Ael:Ep, title = {Epistulae rusticae}, author = {Claudius Aelianus}, shortauthor = {Aelian}, shorthand = {Ael. Ep.}, options = {ancient}, keywords = {ancient}}
-@book{Ael:Fr, title = {Fragmenta}, author = {Claudius Aelianus}, shortauthor = {Aelian}, shorthand = {Ael. Fr.}, options = {ancient}, keywords = {ancient}}
-@book{Ael:NA, title = {de natura animalium}, author = {Claudius Aelianus}, shortauthor = {Aelian}, shorthand = {Ael. NA}, options = {ancient}, keywords = {ancient}}
-@book{Ael:Tact, title = {Tactica (De instruendis aciebus)}, author = {{Aelianus Tacticus}}, shortauthor = {{Aelianus Tacticus}}, shorthand = {Ael. Tact}, options = {ancient}, keywords = {ancient}}
-@book{Ael:VA, title = {varia historia}, author = {Claudius Aelianus}, shortauthor = {Aelian}, shorthand = {Ael. VH}, options = {ancient}, keywords = {ancient}}
-@book{AelArist:Or, title = {Orationes}, author = {{Aelius Aristides}}, shortauthor = {{Aelius Aristides}}, shorthand = {Ael. Arist. Or.}, options = {ancient}, keywords = {ancient}}
-@book{AelArist:Technrhet, title = {Technai rhetorikai}, author = {{Aelius Aristides}}, shortauthor = {{Aelius Aristides}}, shorthand = {Ael. Arist. Techn. rhet.}, options = {ancient}, keywords = {ancient}}
-@book{AenTact, title = {Poliorketika}, author = {{Aineias Taktikos}}, shortauthor = {{Aineias Taktikos}}, shorthand = {Aen. Tact.}, options = {ancient}, keywords = {ancient}}
-@book{Aet, title = {}, author = {}, shortauthor = {Aetios}, shorthand = {Aet.}, options = {ancient}, keywords = {ancient}}
-@book{Aischin:Ctes, title = {in Ctesiphontum}, author = {}, shortauthor = {Aischines}, shorthand = {Aischin. Ctes.}, options = {ancient}, keywords = {ancient}}
-@book{Aischin:epist, title = {epistulae}, author = {}, shortauthor = {Aischines}, shorthand = {Aischin. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Aischin:leg, title = {de falsa legatione}, author = {}, shortauthor = {Aischines}, shorthand = {Aischin. leg.}, options = {ancient}, keywords = {ancient}}
-@book{Aischin:orat, title = {Orationes}, author = {}, shortauthor = {Aischines}, shorthand = {Aischin. orat.}, options = {ancient}, keywords = {ancient}}
-@book{Aischin:Tim, title = {in Timarchum}, author = {}, shortauthor = {Aischines}, shorthand = {Aischin. Tim.}, options = {ancient}, keywords = {ancient}}
-@book{Aischyl:Ag, title = {Agamemnon}, author = {}, shortauthor = {Aischylos}, shorthand = {Aischyl. Ag.}, options = {ancient}, keywords = {ancient}}
-@book{Aischyl:Choeph, title = {Choephoroi}, author = {}, shortauthor = {Aischylos}, shorthand = {Aischyl. Choeph.}, options = {ancient}, keywords = {ancient}}
-@book{Aischyl:Eum, title = {Eumenides}, author = {}, shortauthor = {Aischylos}, shorthand = {Aischyl. Eum.}, options = {ancient}, keywords = {ancient}}
-@book{Aischyl:Pers, title = {Persae}, author = {}, shortauthor = {Aischylos}, shorthand = {Aischyl. Pers.}, options = {ancient}, keywords = {ancient}}
-@book{Aischyl:Prom, title = {Prometheus}, author = {}, shortauthor = {Aischylos}, shorthand = {Aischyl. Prom.}, options = {ancient}, keywords = {ancient}}
-@book{Aischyl:Sept, title = {Septem adversus Thebas}, author = {}, shortauthor = {Aischylos}, shorthand = {Aischyl. Sept.}, options = {ancient}, keywords = {ancient}}
-@book{Aischyl:Suppl, title = {Supplices (Hiketides)}, author = {}, shortauthor = {Aischylos}, shorthand = {Aischyl. Suppl.}, options = {ancient}, keywords = {ancient}}
-@book{Aisop, title = {}, author = {}, shortauthor = {Aisopos}, shorthand = {Aisop.}, options = {ancient}, keywords = {ancient}}
-@book{AlexAphr, title = {}, author = {}, shortauthor = {Alexandros von Aphrodisias}, shorthand = {Alex. Aphr.}, options = {ancient}, keywords = {ancient}}
-@book{Alk, title = {}, author = {}, shortauthor = {Alkaios}, shorthand = {Alk.}, options = {ancient}, keywords = {ancient}}
-@book{Ambr:epist, title = {epistulae}, author = {}, shortauthor = {Ambrosius}, shorthand = {Ambr. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Ambr:excSat, title = {de excessu fratris (Satyri)}, author = {}, shortauthor = {Ambrosius}, shorthand = {Ambr. exc. Sat.}, options = {ancient}, keywords = {ancient}}
-@book{Ambr:obitTheod, title = {de obitu Theodosii}, author = {}, shortauthor = {Ambrosius}, shorthand = {Ambr. obit. Theod.}, options = {ancient}, keywords = {ancient}}
-@book{Ambr:obitValent, title = {de obitu Valentiniani (iunioris)}, author = {}, shortauthor = {Ambrosius}, shorthand = {Ambr. obit. Valent.}, options = {ancient}, keywords = {ancient}}
-@book{Ambr:off, title = {de officiis magistrorum}, author = {}, shortauthor = {Ambrosius}, shorthand = {Ambr. off.}, options = {ancient}, keywords = {ancient}}
-@book{Ambr:paenit, title = {de paenitentia}, author = {}, shortauthor = {Ambrosius}, shorthand = {Ambr. paenit.}, options = {ancient}, keywords = {ancient}}
-@book{Amm, title = {}, author = {{Ammianus <Marcellinus>}}, shortauthor = {Ammianus Marcellinus}, shorthand = {Amm.}, options = {ancient}, keywords = {ancient}}
-@book{Anakr, title = {}, author = {}, shortauthor = {Anakreon}, shorthand = {Anakr.}, options = {ancient}, keywords = {ancient}}
-@book{Anaxag, title = {}, author = {}, shortauthor = {Anaxagoras}, shorthand = {Anaxag.}, options = {ancient}, keywords = {ancient}}
-@book{Anaximand, title = {}, author = {}, shortauthor = {Anaximandros}, shorthand = {Anaximand.}, options = {ancient}, keywords = {ancient}}
-@book{Anaximen, title = {}, author = {}, shortauthor = {Anaximenes}, shorthand = {Anaximen.}, options = {ancient}, keywords = {ancient}}
-@book{And, title = {}, author = {}, shortauthor = {Andokides}, shorthand = {And.}, options = {ancient}, keywords = {ancient}}
-@book{AnthGr, title = {}, author = {}, shortauthor = {Antologia Graeca}, shorthand = {Anth. Gr.}, options = {ancient}, keywords = {ancient}}
-@book{AnthLat, title = {}, author = {}, shortauthor = {Antologia Latina}, shorthand = {Anth. Lat.}, options = {ancient}, keywords = {ancient}}
-@book{AnthPal, title = {}, author = {}, shortauthor = {Antologia Palatina}, shorthand = {Anth. Pal.}, options = {ancient}, keywords = {ancient}}
-@book{AnthPlan, title = {}, author = {}, shortauthor = {Anthologia Planudea}, shorthand = {Anth. Plan.}, options = {ancient}, keywords = {ancient}}
-@book{Antiph, title = {}, author = {}, shortauthor = {Antiphon}, shorthand = {Antiph.}, options = {ancient}, keywords = {ancient}}
-@book{Antisth, title = {}, author = {}, shortauthor = {Antisthenes}, shorthand = {Antisth.}, options = {ancient}, keywords = {ancient}}
-@book{Apg, title = {Apostelgeschichte}, author = {}, shortauthor = {}, shorthand = {Apg.}, options = {ancient}, keywords = {ancient}}
-@book{Apk, title = {Apokalypse}, author = {}, shortauthor = {}, shorthand = {Apk.}, options = {ancient}, keywords = {ancient}}
-@book{Apollod:bibl, title = {bibliotheke}, author = {}, shortauthor = {Apollodoros}, shorthand = {Apollod. bibl.}, options = {ancient}, keywords = {ancient}}
-@book{Apollod:epit, title = {epitome}, author = {}, shortauthor = {Apollodoros}, shorthand = {Apollod. epit.}, options = {ancient}, keywords = {ancient}}
-@book{ApollRhod, title = {Argonautica}, author = {}, shortauthor = {Apollonios Rhodios}, shorthand = {Apoll. Rhod.}, options = {ancient}, keywords = {ancient}}
-@book{App:Celt, title = {Celtica}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Celt.}, options = {ancient}, keywords = {ancient}}
-@book{App:civ, title = {bella civilia}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. civ.}, options = {ancient}, keywords = {ancient}}
-@book{App:Hann, title = {Hannibalica}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Hann.}, options = {ancient}, keywords = {ancient}}
-@book{App:Ib, title = {Iberica}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Ib.}, options = {ancient}, keywords = {ancient}}
-@book{App:Ill, title = {Illyrica}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Ill.}, options = {ancient}, keywords = {ancient}}
-@book{App:It, title = {Italica}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. It.}, options = {ancient}, keywords = {ancient}}
-@book{App:Lib, title = {Libyca}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Lib.}, options = {ancient}, keywords = {ancient}}
-@book{App:Mac, title = {Macedonica}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Mac.}, options = {ancient}, keywords = {ancient}}
-@book{App:Mithr, title = {Mithridatius}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Mithr.}, options = {ancient}, keywords = {ancient}}
-@book{App:pr, title = {proemium}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. pr.}, options = {ancient}, keywords = {ancient}}
-@book{App:reg, title = {regia}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. reg.}, options = {ancient}, keywords = {ancient}}
-@book{App:Rom, title = {historia romana}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Rom.}, options = {ancient}, keywords = {ancient}}
-@book{App:Samn, title = {Samnitica}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Samn.}, options = {ancient}, keywords = {ancient}}
-@book{App:Sic, title = {Sicula}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Sic.}, options = {ancient}, keywords = {ancient}}
-@book{App:Syr, title = {Syriaca}, author = {Appian}, shortauthor = {Appian}, shorthand = {App. Syr.}, options = {ancient}, keywords = {ancient}}
-@book{Apul:Flor, title = {florida}, author = {Apuleius Madaurensis, Lucius}, shortauthor = {Apuleius}, shorthand = {Apul. Flor.}, options = {ancient}, keywords = {ancient}}
-@book{Apul:met, title = {metamorphoses}, author = {Apuleius Madaurensis, Lucius}, shortauthor = {Apuleius}, shorthand = {Apul. met.}, options = {ancient}, keywords = {ancient}}
-@book{Arat, title = {}, author = {Aratos}, shortauthor = {Aratos}, shorthand = {Arat.}, options = {ancient}, keywords = {ancient}}
-@book{Archil, title = {}, author = {Archilochos}, shortauthor = {Archilochos}, shorthand = {Archil.}, options = {ancient}, keywords = {ancient}}
-@book{Archim, title = {}, author = {Archimedes}, shortauthor = {Archimedes}, shorthand = {Archim.}, options = {ancient}, keywords = {ancient}}
-@book{Archyt, title = {}, author = {Archytas}, shortauthor = {Archytas}, shorthand = {Archyt.}, options = {ancient}, keywords = {ancient}}
-@book{Aristeid, title = {}, author = {Ailios Aristeides}, shortauthor = {Ailios Aristeides}, shorthand = {Aristeid.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Ach, title = {Acharnenses}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Ach.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Av, title = {Aves (Ornithes)}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Av.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Eccl, title = { Ecclesiazusae}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Eccl.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Equ, title = {Equites (Hippeis)}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Equ.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Lys, title = {Lysistrata}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Lys.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Nub, title = {Nubes (Nephelai)}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Nub.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Pax, title = {Pax (Eirene)}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Pax}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Plut, title = {Plutus}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Plut.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Ran, title = {Ranae (Batrachoi)}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Ran.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Thesm, title = {Thesmophoriazusae}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Thesm.}, options = {ancient}, keywords = {ancient}}
-@book{Aristoph:Vesp, title = {Vespae (Sphekes)}, author = {Aristophanes}, shortauthor = {Aristophanes}, shorthand = {Aristoph. Vesp.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:an, title = {de anima (peri psyches)}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. an.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:anpost, title = {analytica posteriora}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. an post.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:anpr, title = {analytica priora}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. an pr.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:Athpol, title = {Athenaion politeia}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. Ath. pol.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:cael, title = {de caelo}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. cael.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:cat, title = {categoriae}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. cat.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:col, title = {de coloribus (περὶ χρωμάτων)}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. col.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:div, title = {de divinatione (peri mantikes)}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. div.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:EthEud, title = { ethica Eudemia}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. Eth. Eud.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:ethNic, title = {ethica Nicomachea}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. eth. Nic.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:genan, title = {de generatione animalium}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. gen. an.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:gencorr, title = {de generatione et corruptione}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. gen. corr.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:hist, title = {historia animalium}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. hist.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:metaph, title = {metaphysica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. metaph.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:meteor, title = {meteorologica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. meteor.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:mir, title = {mirabilia}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. mir.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:mmor, title = {magna moralia}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. m. mor.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:motan, title = {de motu animalium}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. mot. an.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:mund, title = {de mundo (peri kosmu)}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. mund.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:oec, title = {oeconomica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. oec.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:partan, title = {de partibus animalium}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. part. an.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:phgn, title = {physiognomica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. phgn.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:phys, title = {physica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. phys.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:poet, title = {poetica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. poet.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:pol, title = {politica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. pol.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:probl, title = {problemata}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. probl.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:rhet, title = {rhetorica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. rhet.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:rhetAlex, title = {rhetorica ad Alexandrum}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. rhet. Alex.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:sens, title = {de sensu (περὶ αἰσθήσεως)}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. sens.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:somn, title = {de somno et vigilia (περὶ ὔπνου καὶ ἐγρηγόρσεως)}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. somn.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:sophel, title = {sophistici elenchi}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. soph. el.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:spir, title = {de spiritu}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. spir.}, options = {ancient}, keywords = {ancient}}
-@book{Aristot:top, title = {topica}, author = {Aristoteles}, shortauthor = {Aristoteles}, shorthand = {Aristot. top.}, options = {ancient}, keywords = {ancient}}
-@book{Arnob, title = {adversus nationes}, author = {}, shortauthor = {Arnobius}, shorthand = {Arnob.}, options = {ancient}, keywords = {ancient}}
-@book{Arr:an, title = {Anabasis}, author = {Arrianos}, shortauthor = {Arrian}, shorthand = {Arr. an.}, options = {ancient}, keywords = {ancient}}
-@book{Arr:cyn, title = {Cynegeticus}, author = {Arrianos}, shortauthor = {Arrian}, shorthand = {Arr. cyn.}, options = {ancient}, keywords = {ancient}}
-@book{Arr:Ind, title = {Indica}, author = {Arrianos}, shortauthor = {Arrian}, shorthand = {Arr. Ind.}, options = {ancient}, keywords = {ancient}}
-@book{Arr:perpE, title = {Periplus ponti Euxeni}, author = {Arrianos}, shortauthor = {Arrian}, shorthand = {Arr. per p. E.}, options = {ancient}, keywords = {ancient}}
-@book{Arr:succ, title = {Istoria successorum Alexandri}, author = {Arrianos}, shortauthor = {Arrian}, shorthand = {Arr. succ.}, options = {ancient}, keywords = {ancient}}
-@book{Arr:tact, title = {tactica}, author = {Arrianos}, shortauthor = {Arrian}, shorthand = {Arr. tact.}, options = {ancient}, keywords = {ancient}}
-@book{Artem, title = {Onirocriticon}, author = {}, shortauthor = {Artemidor}, shorthand = {Artem.}, options = {ancient}, keywords = {ancient}}
-@book{Athan:adConst, title = {Apologia ad Constantium}, author = {Athanasios}, shortauthor = {Athanasios}, shorthand = {Athan. ad Const.}, options = {ancient}, keywords = {ancient}}
-@book{Athan:cAr, title = {Apologia contra Arianos}, author = {Athanasios}, shortauthor = {Athanasios}, shorthand = {Athan. c. Ar.}, options = {ancient}, keywords = {ancient}}
-@book{Athan:fuga, title = {Apologia de fuga sua}, author = {Athanasios}, shortauthor = {Athanasios}, shorthand = {Athan. fuga}, options = {ancient}, keywords = {ancient}}
-@book{Athan:histAr, title = {Istoria Arianorum ad monachos}, author = {Athanasios}, shortauthor = {Athanasios}, shorthand = {Athan. hist. Ar.}, options = {ancient}, keywords = {ancient}}
-@book{Athen, title = {}, author = {Athenaios}, shortauthor = {Athenaios}, shorthand = {Athen.}, options = {ancient}, keywords = {ancient}}
-@book{Aug:civ, title = {de civitate dei}, author = {Augustinus}, shortauthor = {Augustinus}, shorthand = {Aug. civ.}, options = {ancient}, keywords = {ancient}}
-@book{Aug:conf, title = {confessiones}, author = {Augustinus}, shortauthor = {Augustinus}, shorthand = {Aug. conf.}, options = {ancient}, keywords = {ancient}}
-@book{Aug:doctchrist, title = {de doctrina christiana}, author = {Augustinus}, shortauthor = {Augustinus}, shorthand = {Aug. doct.christ.}, options = {ancient}, keywords = {ancient}}
-@book{Aug:epist, title = {epistulae}, author = {Augustinus}, shortauthor = {Augustinus}, shorthand = {Aug. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Aug:retract, title = {retractationes}, author = {Augustinus}, shortauthor = {Augustinus}, shorthand = {Aug. retract.}, options = {ancient}, keywords = {ancient}}
-@book{Aug:serm, title = {sermones}, author = {Augustinus}, shortauthor = {Augustinus}, shorthand = {Aug. serm.}, options = {ancient}, keywords = {ancient}}
-@book{Aug:soliloq, title = {soliloquia}, author = {Augustinus}, shortauthor = {Augustinus}, shorthand = {Aug. soliloq.}, options = {ancient}, keywords = {ancient}}
-@book{Aug:trin, title = {de trinitate}, author = {Augustinus}, shortauthor = {Augustinus}, shorthand = {Aug. trin.}, options = {ancient}, keywords = {ancient}}
-@book{Aur:Vict, title = {}, author = {}, shortauthor = {Aurelius Victor}, shorthand = {Aur. Vict.}, options = {ancient}, keywords = {ancient}}
-@book{Auson:Mos, title = {Mosella}, author = {}, shortauthor = {Ausonius}, shorthand = {Auson. Mos.}, options = {ancient}, keywords = {ancient}}
-@book{Auson:urb, title = {ordo nobilium urbium}, author = {}, shortauthor = {Ausonius}, shorthand = {Auson. urb.}, options = {ancient}, keywords = {ancient}}
-@book{Avien, title = {}, author = {}, shortauthor = {Avienus}, shorthand = {Avien.}, options = {ancient}, keywords = {ancient}}
-@book{Babr, title = {}, author = {}, shortauthor = {Babrios}, shorthand = {Babr.}, options = {ancient}, keywords = {ancient}}
-@book{Bakchyl, title = {}, author = {}, shortauthor = {Bakchylides}, shorthand = {Bakchyl.}, options = {ancient}, keywords = {ancient}}
-@book{Boeth, title = {}, author = {}, shortauthor = {Boethius}, shorthand = {Boeth.}, options = {ancient}, keywords = {ancient}}
-@book{Caes:BellAfr, title = {Bellum Africum (Ps.-Caes.)}, author = {}, shortauthor = {Caesar}, shorthand = {Caes. Bell. Afr.}, options = {ancient}, keywords = {ancient}}
-@book{Caes:BellAlex, title = {Bellum Alexandrinum (Ps.-Caes.)}, author = {}, shortauthor = {Caesar}, shorthand = {Caes. Bell. Alex.}, options = {ancient}, keywords = {ancient}}
-@book{Caes:BellHisp, title = {Bellum Hispaniense (Ps.-Caes.)}, author = {}, shortauthor = {Caesar}, shorthand = {Caes. Bell. Hisp.}, options = {ancient}, keywords = {ancient}}
-@book{Caes:civ, title = {de bello civili}, author = {Iulius Caesar, Caius}, shortauthor = {Caesar}, shorthand = {Caes. civ.}, options = {ancient}, keywords = {ancient}}
-@book{Caes:Gall, title = {de bello Gallico}, author = {Iulius Caesar, Caius}, shortauthor = {Caesar}, shorthand = {Caes. Gall.}, options = {ancient}, keywords = {ancient}}
-@book{Calp:ecl, title = {Bucolica vel Eclogae}, author = {Calpurnius Siculus, Titus}, shortauthor = {Calpurnius}, shorthand = {Calp. ecl.}, options = {ancient}, keywords = {ancient}}
-@book{Cass:Dio, title = {}, author = {Cassius Dio Cocceianus, Lucius}, shortauthor = {Cassius Dio}, shorthand = {Cass. Dio}, options = {ancient}, keywords = {ancient}}
-@book{Cassiod:inst, title = {institutiones variae}, author = {}, shortauthor = {Cassiodorus}, shorthand = {Cassiod. inst.}, options = {ancient}, keywords = {ancient}}
-@book{Cato:agr, title = {de agri cultura}, author = {}, shortauthor = {Cato}, shorthand = {Cato agr.}, options = {ancient}, keywords = {ancient}}
-@book{Cato:Orig, title = {origines}, author = {}, shortauthor = {Cato}, shorthand = {Cato Orig.}, options = {ancient}, keywords = {ancient}}
-@book{Catull, title = {carmina}, author = {}, shortauthor = {Catullus}, shorthand = {Catull.}, options = {ancient}, keywords = {ancient}}
-@book{Cels, title = {De medicina}, author = {Cornelius Celsus, Aulus}, shortauthor = {Cornelius Celsus}, shorthand = {Cels.}, options = {ancient}, keywords = {ancient}}
-@book{Cels:artes, title = {}, author = {Cornelius Celsus, Aulus}, shortauthor = {Celsus}, shorthand = {Cels. artes}, options = {ancient}, keywords = {ancient}}
-@book{Cels:Dig, title = {Digesta}, author = {}, shortauthor = {Celsus}, shorthand = {Cels. Dig.}, options = {ancient}, keywords = {ancient}}
-@book{Cens, title = {de die natali}, author = {}, shortauthor = {Censorinus}, shorthand = {Cens.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:ac1, title = {Academicorum posteriorum liber 1}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. ac. 1}, options = {ancient}, keywords = {ancient}}
-@book{Cic:ac2, title = {Lucullus sive Academicorum priorum liber 2}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. ac. 2}, options = {ancient}, keywords = {ancient}}
-@book{Cic:adBrut, title = {epistulae ad Brutum}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. ad. Brut.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:adQfr, title = {ad Quintum fratrem}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. ad Q. fr.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Arat, title = {Aratea}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Arat.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Arch, title = {pro Archia poeta}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Arch.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Att, title = {epistulae ad Atticum}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Att.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Balb, title = {pro L. Balbo}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Balb.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Brut, title = {Brutus}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Brut.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Caecin, title = {pro A. Caecina}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Caecin.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Cael, title = {pro M. Caelio}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Cael.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Catil, title = {in Catilinam}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Catil.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Cato, title = {Cato maior de senectute}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Cato}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Cluent, title = {pro A. Cluentio}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Cluent.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Deiot, title = {pro rege Deiotaro}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Deiot.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:deorat, title = {de oratore}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. de orat.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:div, title = {de divinatione}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. div.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:divinCaec, title = {divinatio in Q. Caecilium}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. div. in Caec.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:fam, title = {epistulae ad familiares}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. fam.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:fat, title = {de fato}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. fat.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:fin, title = {de finibus bonorum et malorum}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. fin.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Flacc, title = {pro L. Valerio Flacco}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Flacc.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Font, title = {pro M. Fonteio}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Font.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:harresp, title = {de haruspicum responso}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. har. resp.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:inv, title = {de inventione}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. inv.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Lael, title = {Laelius de amicitia}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Lael.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:leg, title = {de legibus}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. leg.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:legagr, title = {de lege agraria}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. leg. agr.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Lig, title = {pro Q. Ligario}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Lig.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Manil, title = {pro lege Manilia (de imperio Cn. Pompei)}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Manil.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Marcell, title = {pro M. Marcello}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Marcell.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Mil, title = {pro T. Annio Milone}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Mil.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Mur, title = {pro L. Murena}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Mur.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:natdeor, title = {de natura deorum}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. nat. deor.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:off, title = {de officiis}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. off.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:optgen, title = {de optimo genere oratorum}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. opt. gen.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:orat, title = {orator}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. orat.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:parad, title = {paradoxa}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. parad.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:part, title = {partitiones oratoriae}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. part.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Phil, title = {in M. Antonium orationes Philippicae}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Phil.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Pis, title = {in L. Pisonem}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Pis.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Planc, title = {pro Cn. Plancio}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Planc.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:predadQuir, title = {oratio post reditum ad Quirites}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. p.red. ad Quir.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:predinsen, title = {oratio post reditum in senatu}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. p.red. in sen.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:QRosc, title = {pro Q. Roscio comoedo}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Q. Rosc.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Quinct, title = {pro P. Quinctio}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Quinct.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Rabperd, title = {pro C. Rabirioperduellionis reo}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Rab. perd.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Rabpost, title = {pro C. Rabirio Postumo}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Rab post.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:rep, title = {de re publica}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. rep.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Scaur, title = {pro M. Aemilio Scauro}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Scaur.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Sest, title = {pro P. Sestio}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Sest.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:SRosc, title = {pro Sex. Roscio Amerino}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. S. Rosc.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Sull, title = {pro P. Sulla}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Sull.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Tim, title = {Timaeus}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Tim.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:top, title = {topica}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. top.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Tull, title = {pro M.Tullio}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Tull.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Tusc, title = {Tusculanae disputationes}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Tusc.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Vatin, title = {in P. Vatinium testem interrogatio}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Vatin.}, options = {ancient}, keywords = {ancient}}
-@book{Cic:Verr12, title = {in Verrem actio prima, secunda}, author = {Tullius Cicero, Marcus}, shortauthor = {Cicero}, shorthand = {Cic. Verr. 1,2}, options = {ancient}, keywords = {ancient}}
-@book{Claud:carm, title = {carmina}, author = {}, shortauthor = {Claudius Claudianus}, shorthand = {Claud. carm.}, options = {ancient}, keywords = {ancient}}
-@book{Claud:raptPros, title = {de raptu Proserpinae}, author = {}, shortauthor = {Claudius Claudianus}, shorthand = {Claud. rapt. Pros.}, options = {ancient}, keywords = {ancient}}
-@book{CodIust, title = {Corpus Iuris Civilis, Codex Iustinianus}, author = {}, shortauthor = {}, shorthand = { Cod. Iust.}, options = {ancient}, keywords = {ancient}}
-@book{Colum, title = {}, author = {Iunius Moderatus Columella, Lucius}, shortauthor = {Columella}, shorthand = {Colum.}, options = {ancient}, keywords = {ancient}}
-@book{Curt, title = {historiae Alexandri Magni}, author = {}, shortauthor = {Curtius Rufus}, shorthand = {Curt.}, options = {ancient}, keywords = {ancient}}
-@book{Cypr, title = {}, author = {}, shortauthor = {Cyprianus}, shorthand = {Cypr.}, options = {ancient}, keywords = {ancient}}
-@book{Demokr, title = {}, author = {}, shortauthor = {Demokritos}, shorthand = {Demokr.}, options = {ancient}, keywords = {ancient}}
-@book{Demosth:or, title = {or.}, author = {Demosthenes}, shortauthor = {Demosthenes}, shorthand = {Demosth. or.}, options = {ancient}, keywords = {ancient}}
-@book{Dig, title = {Corpus Iuris Civilis, Digesta (Pandekten.}, author = {}, shortauthor = {}, shorthand = { Dig.}, options = {ancient}, keywords = {ancient}}
-@book{Diod, title = {}, author = {{Diodorus Siculus}}, shortauthor = {Diodorus Siculus}, shorthand = {Diod.}, options = {ancient}, keywords = {ancient}}
-@book{Diog:Laert, title = {}, author = {}, shortauthor = {Diogenes Laertios}, shorthand = {Diog. Laert.}, options = {ancient}, keywords = {ancient}}
-@book{Dion:Chrys, title = {Orationes}, author = {{Dion Chrysostomos}}, shortauthor = {Dion Chrysostomos}, shorthand = {Dion Chrys.}, options = {ancient}, keywords = {ancient}}
-@book{Dion:Halant, title = {antiquitates Romanae}, author = {}, shortauthor = {Dionysios Halicarnassos}, shorthand = {Dion. Hal. ant.}, options = {ancient}, keywords = {ancient}}
-@book{Dion:Halcomp, title = {de compositione verborum}, author = {}, shortauthor = {Dionysios Halicarnassos}, shorthand = {Dion. Hal. comp.}, options = {ancient}, keywords = {ancient}}
-@book{Dion:Halrhet, title = {ars rhetorica       .}, author = {}, shortauthor = {Dionysios Halicarnassos}, shorthand = {Dion. Hal. rhet.}, options = {ancient}, keywords = {ancient}}
-@book{Don, title = {}, author = {}, shortauthor = {Donatus grammaticus}, shorthand = {Don.}, options = {ancient}, keywords = {ancient}}
-@book{Drac, title = {}, author = {}, shortauthor = {Dracontius}, shorthand = {Drac.}, options = {ancient}, keywords = {ancient}}
-@book{Dt, title = {}, author = {}, shortauthor = {Deuteronomium (= 5. Mose)}, shorthand = {Dt}, options = {ancient}, keywords = {ancient}}
-@book{Emp, title = {}, author = {}, shortauthor = {Empedokles}, shorthand = {Emp.}, options = {ancient}, keywords = {ancient}}
-@book{Enn:ann, title = {Annales (Skutsch, 1985)}, author = {}, shortauthor = {Ennius}, shorthand = {Enn. ann.}, options = {ancient}, keywords = {ancient}}
-@book{Enn:sat, title = {Saturae, (Vahlen, 21928)}, author = {}, shortauthor = {Ennius}, shorthand = {Enn. sat.}, options = {ancient}, keywords = {ancient}}
-@book{Enn:scaen, title = {fragmenta scenica (Vahlen, 21928)}, author = {}, shortauthor = {Ennius}, shorthand = {Enn. scaen.}, options = {ancient}, keywords = {ancient}}
-@book{Ennod, title = {}, author = {}, shortauthor = {Ennodius}, shorthand = {Ennod.}, options = {ancient}, keywords = {ancient}}
-@book{Eph, title = {}, author = {}, shortauthor = {Epheserbrief}, shorthand = {Eph}, options = {ancient}, keywords = {ancient}}
-@book{Epik, title = {}, author = {}, shortauthor = {Epikuros}, shorthand = {Epik.}, options = {ancient}, keywords = {ancient}}
-@book{Epikt, title = {}, author = {}, shortauthor = {Epiktetos}, shorthand = {Epikt.}, options = {ancient}, keywords = {ancient}}
-@book{Etym:m, title = {}, author = {}, shortauthor = {Etymologicum magnum (Gaisford)}, shorthand = {Etym. m.}, options = {ancient}, keywords = {ancient}}
-@book{Eukl:elem, title = {elem.}, author = {}, shortauthor = {Euklid}, shorthand = {Eukl. elem.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Alc, title = {Alcestis}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Alc.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Andr, title = {Andromache}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Andr.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Bacch, title = {Bacchae}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Bacch.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Cycl, title = {Cyclops}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Cycl.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:El, title = {Electra}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. El.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Hec, title = {Hecuba (Hekabe)}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Hec.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Hel, title = {Helena}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Hel.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Heracl, title = {Heraclidae}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Heracl.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Herc, title = {Hercules (furens)}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Herc.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Hipp, title = {Hippolytos}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Hipp.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Ion, title = {Ion}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Ion}, options = {ancient}, keywords = {ancient}}
-@book{Eur:IphA, title = {Iphigenia Aulidensis}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Iph. A.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:IphT, title = {Iphigenia Taurica}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Iph. T.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Med, title = {Medea}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Med.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Or, title = {Orestes}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Or.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Phoen, title = {Phoenissae}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Phoen.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Rhes, title = {Rhesus}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Rhes.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Suppl, title = {Supplices (ἱκέτιδες)}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Suppl.}, options = {ancient}, keywords = {ancient}}
-@book{Eur:Tro, title = {Troades}, author = {Euripides}, shortauthor = {Euripides}, shorthand = {Eur. Tro.}, options = {ancient}, keywords = {ancient}}
-@book{Eus:DeEv, title = {Demonstratio Evangelica}, author = {Eusebios}, shortauthor = {Eusebios}, shorthand = {Eus. De. Ev.}, options = {ancient}, keywords = {ancient}}
-@book{Eus:HE, title = {Historia Ecclesiastica}, author = {Eusebios}, shortauthor = {Eusebios}, shorthand = {Eus. HE}, options = {ancient}, keywords = {ancient}}
-@book{Eus:On, title = {Onomastikon}, author = {Eusebios}, shortauthor = {Eusebios}, shorthand = {Eus. On.}, options = {ancient}, keywords = {ancient}}
-@book{Eus:PrEv, title = {Praeparatio Evangelica}, author = {Eusebios}, shortauthor = {Eusebios}, shorthand = {Eus. Pr. Ev.}, options = {ancient}, keywords = {ancient}}
-@book{Eust, title = {}, author = {}, shortauthor = {Eustathios}, shorthand = {Eust.}, options = {ancient}, keywords = {ancient}}
-@book{Eutr, title = {}, author = {}, shortauthor = {Eutropius}, shorthand = {Eutr.}, options = {ancient}, keywords = {ancient}}
-@book{Fest, title = {}, author = {Pompeius Festus, {Sex}tus}, shortauthor = {Festus}, shorthand = {Fest.}, options = {ancient}, keywords = {ancient}}
-@book{Flor:epit, title = {epitoma de Tito Livio}, author = {Annius Florus, Publius}, shortauthor = {Florus}, shorthand = {Flor.  epit.}, options = {ancient}, keywords = {ancient}}
-@book{Frontin:aqustrat, title = {de aquae ductu urbis Romae strategemata}, author = {}, shortauthor = {Frontinus}, shorthand = {Frontin. aqu. strat.}, options = {ancient}, keywords = {ancient}}
-@book{Fulg, title = {}, author = {}, shortauthor = {Fulgentius Afer}, shorthand = {Fulg.}, options = {ancient}, keywords = {ancient}}
-@book{Gal, title = {}, author = {}, shortauthor = {Galenos}, shorthand = {Gal.}, options = {ancient}, keywords = {ancient}}
-@book{Galbr, title = {}, author = {}, shortauthor = {Galaterbrief}, shorthand = {Gal}, options = {ancient}, keywords = {ancient}}
-@book{Gell, title = {noctes Atticae}, author = {Aulus Gellius}, shortauthor = {Gellius}, shorthand = {Gell.}, options = {ancient}, keywords = {ancient}}
-@book{Gorg, title = {}, author = {}, shortauthor = {Gorgias}, shorthand = {Gorg.}, options = {ancient}, keywords = {ancient}}
-@book{GregM:dial, title = {dialogi (de miraculis patrum Italicorum)}, author = {}, shortauthor = {Gregorius Magnus}, shorthand = {Greg. M. dial.}, options = {ancient}, keywords = {ancient}}
-@book{GregM:epist, title = {epistulae}, author = {}, shortauthor = {Gregorius Magnus}, shorthand = {Greg. M. epist.}, options = {ancient}, keywords = {ancient}}
-@book{GregM:past, title = {regula pastoralis}, author = {}, shortauthor = {Gregorius Magnus}, shorthand = {Greg. M. past.}, options = {ancient}, keywords = {ancient}}
-@book{GregNaz:epist, title = {epistulae}, author = {}, shortauthor = {Gregorius Nazianzienus}, shorthand = {Greg. Naz. epist.}, options = {ancient}, keywords = {ancient}}
-@book{GregNaz:or, title = {orationes}, author = {}, shortauthor = {Gregorius Nazianzienus}, shorthand = {Greg. Naz. or.}, options = {ancient}, keywords = {ancient}}
-@book{GregNyss, title = {}, author = {}, shortauthor = {Gregorius Nyssenus}, shorthand = {Greg. Nyss.}, options = {ancient}, keywords = {ancient}}
-@book{GregTur:Franc, title = {historia Francorum}, author = {}, shortauthor = {Gregorius von Tours}, shorthand = {Greg. Tur. Franc.}, options = {ancient}, keywords = {ancient}}
-@book{GregTur:Mart, title = {de virtutibus Martini}, author = {}, shortauthor = {Gregorius von Tours}, shorthand = {Greg. Tur. Mart.}, options = {ancient}, keywords = {ancient}}
-@book{GregTur:vitpatr, title = {de vita patrum}, author = {}, shortauthor = {Gregorius von Tours}, shorthand = {Greg. Tur. vit. patr.}, options = {ancient}, keywords = {ancient}}
-@book{Hdt, title = {}, author = {Herodotos}, shortauthor = {Herodot}, shorthand = {Hdt.}, options = {ancient}, keywords = {ancient}}
-@book{Hekat, title = {}, author = {}, shortauthor = {Hekataios}, shorthand = {Hekat.}, options = {ancient}, keywords = {ancient}}
-@book{Herakl, title = {}, author = {}, shortauthor = {Herakleitos}, shorthand = {Herakl.}, options = {ancient}, keywords = {ancient}}
-@book{Herakl:Pont, title = {}, author = {}, shortauthor = {Herakleides Pontikos}, shorthand = {Herakl. Pont.}, options = {ancient}, keywords = {ancient}}
-@book{Herm:Trism, title = {}, author = {}, shortauthor = {Hermes Trismegistos}, shorthand = {Herm. Trism.}, options = {ancient}, keywords = {ancient}}
-@book{Herodian, title = {ab excessu divi Marci}, author = {}, shortauthor = {Herodian}, shorthand = {Herodian.}, options = {ancient}, keywords = {ancient}}
-@book{Hes:cat, title = {Catalogues feminarum (ἠοίαι)}, author = {}, shortauthor = {Hesiodos}, shorthand = {Hes. cat.}, options = {ancient}, keywords = {ancient}}
-@book{Hes:erg, title = {opera et dies (ἔργα καὶ ἡμέραι)}, author = {}, shortauthor = {Hesiodos}, shorthand = {Hes. erg.}, options = {ancient}, keywords = {ancient}}
-@book{Hes:scut, title = {scutum (ἀσπίς)}, author = {}, shortauthor = {Hesiodos}, shorthand = {Hes. scut.}, options = {ancient}, keywords = {ancient}}
-@book{Hes:theog, title = {Theogonia}, author = {}, shortauthor = {Hesiodos}, shorthand = {Hes. theog.}, options = {ancient}, keywords = {ancient}}
-@book{Hesych, title = {}, author = {}, shortauthor = {Hesychios}, shorthand = {Hesych.}, options = {ancient}, keywords = {ancient}}
-@book{Hier:chron, title = {chronicon}, author = {}, shortauthor = {Hieronymos}, shorthand = {Hier. chron.}, options = {ancient}, keywords = {ancient}}
-@book{Hier:comminEz, title = {commentaria in Ezechielem (PL 25)}, author = {}, shortauthor = {Hieronymos}, shorthand = {Hier. comm. in Ez}, options = {ancient}, keywords = {ancient}}
-@book{Hier:epist, title = {epistulae}, author = {}, shortauthor = {Hieronymos}, shorthand = {Hier. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Hier:On, title = {Onomastikon}, author = {}, shortauthor = {Hieronymos}, shorthand = {Hier. On.}, options = {ancient}, keywords = {ancient}}
-@book{Hier:virill, title = {de viris illustribus}, author = {}, shortauthor = {Hieronymos}, shorthand = {Hier. vir. ill.}, options = {ancient}, keywords = {ancient}}
-@book{Hippokr, title = {}, author = {}, shortauthor = {Hippokrates}, shorthand = {Hippokr.}, options = {ancient}, keywords = {ancient}}
-@book{HL, title = {}, author = {}, shortauthor = {Hohelied}, shorthand = {HL}, options = {ancient}, keywords = {ancient}}
-@book{Hom:h, title = {Hymni Homeri}, author = {Homeros}, shortauthor = {Homer}, shorthand = {Hom. h.}, options = {ancient}, keywords = {ancient}}
-@book{Hom:Il, title = {Ilias}, author = {Homeros}, shortauthor = {Homer}, shorthand = {Hom. Il.}, options = {ancient}, keywords = {ancient}}
-@book{Hom:Od, title = {Odyssee}, author = {Homeros}, shortauthor = {Homer}, shorthand = {Hom. Od.}, options = {ancient}, keywords = {ancient}}
-@book{Hor:ars, title = {ars poetica}, author = {Horatius Flaccus, Quintus}, shortauthor = {Horaz}, shorthand = {Hor. ars}, options = {ancient}, keywords = {ancient}}
-@book{Hor:carm, title = {carmina}, author = {Horatius Flaccus, Quintus}, shortauthor = {Horaz}, shorthand = {Hor. carm.}, options = {ancient}, keywords = {ancient}}
-@book{Hor:carmsaec, title = {carmen saeculare}, author = {Horatius Flaccus, Quintus}, shortauthor = {Horaz}, shorthand = {Hor. carm. saec.}, options = {ancient}, keywords = {ancient}}
-@book{Hor:epist, title = {epistulae}, author = {Horatius Flaccus, Quintus}, shortauthor = {Horaz}, shorthand = {Hor. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Hor:epod, title = {epodi}, author = {Horatius Flaccus, Quintus}, shortauthor = {Horaz}, shorthand = {Hor. epod.}, options = {ancient}, keywords = {ancient}}
-@book{Hor:sat, title = {saturae (sermones)}, author = {Horatius Flaccus, Quintus}, shortauthor = {Horaz}, shorthand = {Hor. sat.}, options = {ancient}, keywords = {ancient}}
-@book{Hyg:astr, title = {astronomica}, author = {}, shortauthor = {Hygin}, shorthand = {Hyg. astr.}, options = {ancient}, keywords = {ancient}}
-@book{Hyg:fab, title = {fabulae}, author = {}, shortauthor = {Hygin}, shorthand = {Hyg. fab.}, options = {ancient}, keywords = {ancient}}
-@book{Iambl:demyst, title = {de mysteriis}, author = {}, shortauthor = {Iamblichos}, shorthand = {Iambl. de myst.}, options = {ancient}, keywords = {ancient}}
-@book{Iambl:protr, title = {protrepticus in philosophiam}, author = {}, shortauthor = {Iamblichos}, shorthand = {Iambl. protr.}, options = {ancient}, keywords = {ancient}}
-@book{Iambl:vP, title = {de vita Pythagorica}, author = {}, shortauthor = {Iamblichos}, shorthand = {Iambl. v. P.}, options = {ancient}, keywords = {ancient}}
-@book{InstIust, title = {Corpus Iuris Civilis, Institutiones}, author = {}, shortauthor = {}, shorthand = { Inst. Iust.}, options = {ancient}, keywords = {ancient}}
-@book{Ios:AntIud, title = {antiquitates Iudaicae}, author = {Flavius Josephus}, shortauthor = {Iosephos (Flavius Iosephus)}, shorthand = {Ios. Ant. Iud.}, options = {ancient}, keywords = {ancient}}
-@book{Ios:BellIud, title = {bellum Iudaicum}, author = {Flavius Josephus}, shortauthor = {Iosephos (Flavius Iosephus)}, shorthand = {Ios. Bell. Iud.}, options = {ancient}, keywords = {ancient}}
-@book{Ios:cAp, title = {contra Apionem}, author = {Flavius Josephus}, shortauthor = {Iosephos (Flavius Iosephus)}, shorthand = {Ios. c. Ap.}, options = {ancient}, keywords = {ancient}}
-@book{Ios:vita, title = {de sua vita}, author = {Flavius Josephus}, shortauthor = {Iosephos (Flavius Iosephus)}, shorthand = {Ios. vita}, options = {ancient}, keywords = {ancient}}
-@book{Isid:nat, title = {de natura rerum}, author = {}, shortauthor = {Isidorus von Sevilla}, shorthand = {Isid. nat.}, options = {ancient}, keywords = {ancient}}
-@book{Isid:orig, title = {origines (etymologiae)}, author = {}, shortauthor = {Isidorus von Sevilla}, shorthand = {Isid. orig.}, options = {ancient}, keywords = {ancient}}
-@book{Isokr:or, title = {orationes}, author = {}, shortauthor = {Isokrates}, shorthand = {Isokr. or.}, options = {ancient}, keywords = {ancient}}
-@book{ItinAnton, title = {Itinerarium Antonini}, author = {}, shortauthor = {}, shorthand = { Itin. Anton.}, options = {ancient}, keywords = {ancient}}
-@book{Iul:epist, title = {epistulae}, author = {}, shortauthor = {Iulianos}, shorthand = {Iul. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Iul:inGal, title = {in Galilaeos}, author = {}, shortauthor = {Iulianos}, shorthand = {Iul. in Gal.}, options = {ancient}, keywords = {ancient}}
-@book{Iul:mis, title = {Misopogon}, author = {}, shortauthor = {Iulianos}, shorthand = {Iul. mis.}, options = {ancient}, keywords = {ancient}}
-@book{Iul:or, title = {orationes}, author = {}, shortauthor = {Iulianos}, shorthand = {Iul. or.}, options = {ancient}, keywords = {ancient}}
-@book{Iul:symp, title = {symposion}, author = {}, shortauthor = {Iulianos}, shorthand = {Iul. symp.}, options = {ancient}, keywords = {ancient}}
-@book{IulVict:Rhet, title = {ars rhetorica}, author = {}, shortauthor = {C. Iulius Victor}, shorthand = {Iul. Vict. Rhet.}, options = {ancient}, keywords = {ancient}}
-@book{Iust, title = {epitoma historiarum Philippicarum}, author = {}, shortauthor = {Iustinus}, shorthand = {Iust.}, options = {ancient}, keywords = {ancient}}
-@book{Iuv:sat, title = {saturae}, author = {Iunius Iuvenalis, Decimus}, shortauthor = {Iuvenal}, shorthand = {Iuv.}, options = {ancient}, keywords = {ancient}}
-@book{Iuvenc, title = {evangelia}, author = {}, shortauthor = {Iuvencus}, shorthand = {Iuvenc.}, options = {ancient}, keywords = {ancient}}
-@book{Jo, title = {}, author = {}, shortauthor = {Johannes}, shorthand = {Jo}, options = {ancient}, keywords = {ancient}}
-@book{Kall:epigr, title = {Epigrammata}, author = {}, shortauthor = {Kallimachos}, shorthand = {Kall. epigr.}, options = {ancient}, keywords = {ancient}}
-@book{Kall:frg, title = {fragmentum}, author = {}, shortauthor = {Kallimachos}, shorthand = {Kall. frg.}, options = {ancient}, keywords = {ancient}}
-@book{Kall:h, title = {hymni}, author = {}, shortauthor = {Kallimachos}, shorthand = {Kall. h.}, options = {ancient}, keywords = {ancient}}
-@book{Lact:inst, title = {divinae institutiones}, author = {}, shortauthor = {Lactantius}, shorthand = {Lact. inst.}, options = {ancient}, keywords = {ancient}}
-@book{Lact:ira, title = {de ira dei}, author = {}, shortauthor = {Lactantius}, shorthand = {Lact. ira}, options = {ancient}, keywords = {ancient}}
-@book{Lact:mortpers, title = {de mortibus persecutorum}, author = {}, shortauthor = {Lactantius}, shorthand = {Lact. mort. pers.}, options = {ancient}, keywords = {ancient}}
-@book{Lact:opif, title = {de opificio dei}, author = {}, shortauthor = {Lactantius}, shorthand = {Lact. opif.}, options = {ancient}, keywords = {ancient}}
-@book{Liv, title = {ab urbe condita}, author = {Livius, Titus}, shortauthor = {Livius}, shorthand = {Liv.}, options = {ancient}, keywords = {ancient}}
-@book{Lk, title = {}, author = {}, shortauthor = {Lukas}, shorthand = {Lk}, options = {ancient}, keywords = {ancient}}
-@book{Lucan, title = {bellum civile}, author = {}, shortauthor = {Lucanus}, shorthand = {Lucan.}, options = {ancient}, keywords = {ancient}}
-@book{Lucil, title = {saturae}, author = {}, shortauthor = {Lucilius}, shorthand = {Lucil.}, options = {ancient}, keywords = {ancient}}
-@book{Lucr, title = {de rerum natura}, author = {Lucretius Carus, Titus}, shortauthor = {Lukrez}, shorthand = {Lucr.}, options = {ancient}, keywords = {ancient}}
-@book{Lukian, title = {}, author = {}, shortauthor = {Lukianos}, shorthand = {Lukian.}, options = {ancient}, keywords = {ancient}}
-@book{LXX, title = {}, author = {}, shortauthor = {Septuaginta}, shorthand = {LXX}, options = {ancient}, keywords = {ancient}}
-@book{Lyd:mag, title = {de magistratibus}, author = {}, shortauthor = {Lydos}, shorthand = {Lyd. mag.}, options = {ancient}, keywords = {ancient}}
-@book{Lyd:mens, title = {de mensibus}, author = {}, shortauthor = {Lydos}, shorthand = {Lyd. mens.}, options = {ancient}, keywords = {ancient}}
-@book{Lykurg, title = {}, author = {}, shortauthor = {Lykurgos}, shorthand = {Lykurg.}, options = {ancient}, keywords = {ancient}}
-@book{Lys, title = {}, author = {}, shortauthor = {Lysias}, shorthand = {Lys.}, options = {ancient}, keywords = {ancient}}
-@book{Macr:Sat, title = {Saturnalia}, author = {}, shortauthor = {Macrobius}, shorthand = {Macr. Sat.}, options = {ancient}, keywords = {ancient}}
-@book{Manil, title = {astronomica}, author = {}, shortauthor = {Manilius}, shorthand = {Manil.}, options = {ancient}, keywords = {ancient}}
-@book{Mart, title = {Epigrammata}, author = {Valerius Martialis, Marcus}, shortauthor = {Martial}, shorthand = {Mart.}, options = {ancient}, keywords = {ancient}}
-@book{Mart:spect, title = {spectacula}, author = {Valerius Martialis, Marcus}, shortauthor = {Martial}, shorthand = {Mart. spect.}, options = {ancient}, keywords = {ancient}}
-@book{MartCap, title = {}, author = {}, shortauthor = {Martianus Capella}, shorthand = {Mart. Cap.}, options = {ancient}, keywords = {ancient}}
-@book{MarVictorin, title = {}, author = {}, shortauthor = {Marius Victorinus}, shorthand = {Mar. Victorin.}, options = {ancient}, keywords = {ancient}}
-@book{Maur, title = {}, author = {}, shortauthor = {Marcus Aurelius Antonius Augustus}, shorthand = {M. Aur.}, options = {ancient}, keywords = {ancient}}
-@book{Mel, title = {}, author = {}, shortauthor = {Pomponius Mela}, shorthand = {Mel.}, options = {ancient}, keywords = {ancient}}
-@book{Men:Dysk, title = {Dyskolo.}, author = {}, shortauthor = {Menandros}, shorthand = {Men. Dysk.}, options = {ancient}, keywords = {ancient}}
-@book{Men:Epitr, title = {Epitrepontes}, author = {}, shortauthor = {Menandros}, shorthand = {Men. Epitr.}, options = {ancient}, keywords = {ancient}}
-@book{Men:Sam, title = {Samia}, author = {}, shortauthor = {Menandros}, shorthand = {Men. Sam.}, options = {ancient}, keywords = {ancient}}
-@book{Mimn, title = {}, author = {}, shortauthor = {Mimnermos}, shorthand = {Mimn.}, options = {ancient}, keywords = {ancient}}
-@book{MinFel, title = {}, author = {}, shortauthor = {Oct. Minucius Felix}, shorthand = {Min. Fel.}, options = {ancient}, keywords = {ancient}}
-@book{Mk, title = {}, author = {}, shortauthor = {Markus}, shorthand = {Mk}, options = {ancient}, keywords = {ancient}}
-@book{Mosch, title = {}, author = {}, shortauthor = {Moschos}, shorthand = {Mosch.}, options = {ancient}, keywords = {ancient}}
-@book{Mt, title = {}, author = {}, shortauthor = {Matthäus}, shorthand = {Mt}, options = {ancient}, keywords = {ancient}}
-@book{Naev, title = {}, author = {}, shortauthor = {Naevius}, shorthand = {Naev.}, options = {ancient}, keywords = {ancient}}
-@book{Nep:Att, title = {Atticus}, author = {}, shortauthor = {Cornelius Nepos}, shorthand = {Nep. Att.}, options = {ancient}, keywords = {ancient}}
-@book{Nep:Hann, title = {Hannibal}, author = {}, shortauthor = {Cornelius Nepos}, shorthand = {Nep. Hann.}, options = {ancient}, keywords = {ancient}}
-@book{Nik:Alex, title = {Alexipharmaka}, author = {}, shortauthor = {Nikander}, shorthand = {Nik. Alex.}, options = {ancient}, keywords = {ancient}}
-@book{Nik:Ther, title = {Theriaka}, author = {}, shortauthor = {Nikander}, shorthand = {Nik. Ther.}, options = {ancient}, keywords = {ancient}}
-@book{Nm, title = {}, author = {}, shortauthor = {Numeri (= 4. Mose)}, shorthand = {Nm}, options = {ancient}, keywords = {ancient}}
-@book{Non, title = {}, author = {}, shortauthor = {Nonius}, shorthand = {Non.}, options = {ancient}, keywords = {ancient}}
-@book{Nonn:Dion, title = {Dion.}, author = {}, shortauthor = {{Nonnos von Panopolis}}, shorthand = {Nonn.  Dion.}, options = {ancient}, keywords = {ancient}}
-@book{Nov, title = {Corpus Iuris Civilis, Leges Novellae}, author = {}, shortauthor = {}, shorthand = { Nov.}, options = {ancient}, keywords = {ancient}}
-@book{Orig, title = {}, author = {}, shortauthor = {Origines}, shorthand = {Orig.}, options = {ancient}, keywords = {ancient}}
-@book{Oros, title = {}, author = {Ovidius Naso, Publius}, shortauthor = {Orosius}, shorthand = {Oros..}, options = {ancient}, keywords = {ancient}}
-@book{Ov:am, title = {amores}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. am.}, options = {ancient}, keywords = {ancient}}
-@book{Ov:ars, title = {ars amatoria}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. ars}, options = {ancient}, keywords = {ancient}}
-@book{Ov:epist, title = {epistulae (heroides)}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Ov:fast, title = {fasti}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. fast.}, options = {ancient}, keywords = {ancient}}
-@book{Ov:Ib, title = {Ibis}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. Ib.}, options = {ancient}, keywords = {ancient}}
-@book{Ov:medic, title = {medicamina faciei femineae}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. medic.}, options = {ancient}, keywords = {ancient}}
-@book{Ov:met, title = {metamorphoses}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. met.}, options = {ancient}, keywords = {ancient}}
-@book{Ov:Pont, title = {epistulae ex Ponto}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. Pont.}, options = {ancient}, keywords = {ancient}}
-@book{Ov:rem, title = {remedia amoris}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. rem.}, options = {ancient}, keywords = {ancient}}
-@book{Ov:trist, title = {tristia}, author = {Ovidius Naso, Publius}, shortauthor = {Ovid}, shorthand = {Ov. trist.}, options = {ancient}, keywords = {ancient}}
-@book{Papin, title = {}, author = {}, shortauthor = {Aemilius Papinianus}, shorthand = {Papin.}, options = {ancient}, keywords = {ancient}}
-@book{Passmart, title = {Passiones martyrum}, author = {}, shortauthor = {}, shorthand = { Pass. mart.}, options = {ancient}, keywords = {ancient}}
-@book{Paus, title = {}, author = {Pausanias}, shortauthor = {Pausanias}, shorthand = {Paus.}, options = {ancient}, keywords = {ancient}}
-@book{Pers, title = {saturae}, author = {}, shortauthor = {Persius}, shorthand = {Pers.}, options = {ancient}, keywords = {ancient}}
-@book{Petron, title = {satyrica}, author = {}, shortauthor = {Petronius}, shorthand = {Petron.}, options = {ancient}, keywords = {ancient}}
-@book{Phaedr, title = {fabulae}, author = {}, shortauthor = {Phaedrus}, shorthand = {Phaedr.}, options = {ancient}, keywords = {ancient}}
-@book{Pind:frg, title = {fragmentum}, author = {Pindar}, shortauthor = {Pindar}, shorthand = {Pind. frg.}, options = {ancient}, keywords = {ancient}}
-@book{Pind:I, title = {Isthmien}, author = {Pindar}, shortauthor = {Pindar}, shorthand = {Pind. I.}, options = {ancient}, keywords = {ancient}}
-@book{Pind:N, title = {Nemeen}, author = {Pindar}, shortauthor = {Pindar}, shorthand = {Pind. N.}, options = {ancient}, keywords = {ancient}}
-@book{Pind:O, title = {Olympien}, author = {Pindar}, shortauthor = {Pindar}, shorthand = {Pind. O.}, options = {ancient}, keywords = {ancient}}
-@book{Pind:P, title = {Pythien}, author = {Pindar}, shortauthor = {Pindar}, shorthand = {Pind. P.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Alk1, title = {Alkibiades 1}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Alk. 1}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Alk2, title = {Alkibiades 2}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Alk. 2}, options = {ancient}, keywords = {ancient}}
-@book{Plat:apol, title = {apologia}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. apol.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Ax, title = {Axiochos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Ax.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Charm, title = {Charmides}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Charm.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:def, title = {Definitiones (ὅροι)}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. def.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Dem, title = {Demodokos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Dem.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:epin, title = {epinomis}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. epin.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:epist, title = {epistulae}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:eras, title = {erastae}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. eras.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Eryx, title = {Eryxias}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Eryx.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Euthyd, title = {Euthydemos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Euthyd.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Euthyphr, title = {Euthyphron}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Euthyphr.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Gorg, title = {Gorgias}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Gorg.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Hipparch, title = {Hipparchos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Hipparch.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Hippmai, title = {Hippias maior}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Hipp. mai.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Hippmin, title = {Hippias minor}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Hipp. min.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Ion, title = {Ion}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Ion}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Kleit, title = {Kleitophon}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Kleit.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Krat, title = {Kratylos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Krat.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Krit, title = {Kriton}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Krit.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Kritias, title = {Kritias}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Kritias}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Lach, title = {Laches}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Lach.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:leg, title = {leges (νόμοι)}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. leg.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Lys, title = {Lysis}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Lys.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Men, title = {Menon}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Men.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Min, title = {Minos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Min.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Mx, title = {Menexenos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Mx.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Parm, title = {Parmenides}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Parm.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Phaid, title = {Phaidon}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Phaid.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Phaidr, title = {Phaidros}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Phaidr.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Phil, title = {Philebos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Phil.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:polit, title = {politicus}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. polit.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Prot, title = {Protagoras}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Prot.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:rep, title = {de re publica (πολιτεία)}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. rep.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Sis, title = {Sisyphos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Sis.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:soph, title = {sophista}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. soph.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:symp, title = {symposium}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. symp.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Thg, title = {Theages}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Thg.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Tht, title = {Theaitetos}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Tht.}, options = {ancient}, keywords = {ancient}}
-@book{Plat:Tim, title = {Timaios}, author = {Platon}, shortauthor = {Platon}, shorthand = {Plat. Tim.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Amph, title = {Amphitruo}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Amph.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Asin, title = {Asinaria}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Asin.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Aul, title = {Aulularia}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Aul.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Bacch, title = {Bacchides}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Bacch.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Cist, title = {Cistellaria}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Cist.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Curc, title = {Curculio}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Curc.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Epid, title = {Epidicus}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Epid.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Men, title = {Menaechmi}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Men.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Merc, title = {Mercator}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Merc.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Mil, title = {Miles gloriosus}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Mil.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Most, title = {Mostellaria}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Most.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Poen, title = {Poenulus}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Poen.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Pseud, title = {Pseudolus}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Pseud.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Rud, title = {Rudens}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Rud.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Stich, title = {Stichus}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Stich.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Trin, title = {Trinummus}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Trin.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Truc, title = {Truculentus}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Truc.}, options = {ancient}, keywords = {ancient}}
-@book{Plaut:Vid, title = {Vidularia}, author = {Maccius Plautus, Titus}, shortauthor = {Plautus}, shorthand = {Plaut. Vid.}, options = {ancient}, keywords = {ancient}}
-@book{Plin:epist, title = {Epistulae}, author = {Plinius Caecilius Secundus, Caius}, shortauthor = {Plinius minor}, shorthand = {Plin. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Plin:nat, title = {naturalis historia}, author = {Plinius Secundus, Caius}, shortauthor = {Plinius maior}, shorthand = {Plin. nat.}, options = {ancient}, keywords = {ancient}}
-@book{Plin:paneg, title = {panegyricus}, author = {Plinius Caecilius Secundus, Caius}, shortauthor = {Plinius minor}, shorthand = {Plin. paneg.}, options = {ancient}, keywords = {ancient}}
-@book{Plot, title = {}, author = {}, shortauthor = {Plotinos}, shorthand = {Plot.}, options = {ancient}, keywords = {ancient}}
-@book{Plut, title = {vitae parallelae}, author = {Plutarchos}, shortauthor = {Plutarch}, shorthand = {Plut.}, options = {ancient}, keywords = {ancient}}
-@book{Plut:am, title = {Amatorius (erotikos)}, author = {Plutarchos}, shortauthor = {Plutarch}, shorthand = {Plut. am.}, options = {ancient}, keywords = {ancient}}
-@book{Plut:dePythOr, title = {de Pythiae oraculis}, author = {Plutarchos}, shortauthor = {Plutarch}, shorthand = {Plut. de Pyth.Or.}, options = {ancient}, keywords = {ancient}}
-@book{Plut:Is, title = {de Iside et Osiride}, author = {Plutarchos}, shortauthor = {Plutarch}, shorthand = {Plut. Is.}, options = {ancient}, keywords = {ancient}}
-@book{Plut:mor, title = {moralia}, author = {Plutarchos}, shortauthor = {Plutarch}, shorthand = {Plut. mor.}, options = {ancient}, keywords = {ancient}}
-@book{Plut:quGr, title = {quaestiones Graecae}, author = {Plutarchos}, shortauthor = {Plutarch}, shorthand = {Plut. qu. Gr.}, options = {ancient}, keywords = {ancient}}
-@book{Plut:quR, title = {quaestiones Romanae}, author = {Plutarchos}, shortauthor = {Plutarch}, shorthand = {Plut. qu. R.}, options = {ancient}, keywords = {ancient}}
-@book{Plut:symp, title = {quaestiones convivales}, author = {Plutarchos}, shortauthor = {Plutarch}, shorthand = {Plut. symp.}, options = {ancient}, keywords = {ancient}}
-@book{Pol, title = {}, author = {}, shortauthor = {Polybios}, shorthand = {Pol.}, options = {ancient}, keywords = {ancient}}
-@book{Poll, title = {}, author = {}, shortauthor = {Pollux}, shorthand = {Poll.}, options = {ancient}, keywords = {ancient}}
-@book{Porph, title = {}, author = {}, shortauthor = {Porphyrios}, shorthand = {Porph.}, options = {ancient}, keywords = {ancient}}
-@book{Poseid, title = {}, author = {}, shortauthor = {Poseidonios}, shorthand = {Poseid.}, options = {ancient}, keywords = {ancient}}
-@book{Priap, title = {}, author = {}, shortauthor = {Priapea}, shorthand = {Priap.}, options = {ancient}, keywords = {ancient}}
-@book{Prisc, title = {}, author = {}, shortauthor = {Priscianus}, shorthand = {Prisc.}, options = {ancient}, keywords = {ancient}}
-@book{Prok:aed, title = {de aedificiis (περὶ κτισμάτων)}, author = {Prokopius}, shortauthor = {Prokop}, shorthand = {Prok. aed.}, options = {ancient}, keywords = {ancient}}
-@book{Prok:BG, title = {bellum Gothicum}, author = {Prokopius}, shortauthor = {Prokop}, shorthand = {Prok. BG}, options = {ancient}, keywords = {ancient}}
-@book{Prok:BP, title = {bellum Persicum}, author = {Prokopius}, shortauthor = {Prokop}, shorthand = {Prok. BP}, options = {ancient}, keywords = {ancient}}
-@book{Prok:BV, title = {bellum Vandalicum}, author = {Prokopius}, shortauthor = {Prokop}, shorthand = {Prok. BV}, options = {ancient}, keywords = {ancient}}
-@book{Prok:HA, title = {historia arcana}, author = {Prokopius}, shortauthor = {Prokop}, shorthand = {Prok. HA}, options = {ancient}, keywords = {ancient}}
-@book{Prokl, title = {}, author = {}, shortauthor = {Proklos}, shorthand = {Prokl.}, options = {ancient}, keywords = {ancient}}
-@book{Prop, title = {elegiae}, author = {Aurelius Propertius, {\relax Sex}tus}, shortauthor = {Properz}, shorthand = {Prop.}, options = {ancient}, keywords = {ancient}}
-@book{Prud, title = {}, author = {}, shortauthor = {Prudentius}, shorthand = {Prud.}, options = {ancient}, keywords = {ancient}}
-@book{Quint:decl, title = {declamationes minores}, author = {Fabius Quintilianus, Marcus}, shortauthor = {Quintilian}, shorthand = {Quint. decl.}, options = {ancient}, keywords = {ancient}}
-@book{Quint:inst, title = {institutio oratoria}, author = {Fabius Quintilianus, Marcus}, shortauthor = {Quintilian}, shorthand = {Quint. inst.}, options = {ancient}, keywords = {ancient}}
-@book{RgestdivAug, title = {Res gestae divi Augusti}, author = {}, shortauthor = {}, shorthand = { R. Gest. div. Aug.}, options = {ancient}, keywords = {ancient}}
-@book{Rhet:Her, title = {}, author = {}, shortauthor = {Rhetorica ad Herennium}, shorthand = {Rhet. Her.}, options = {ancient}, keywords = {ancient}}
-@book{Roem, title = {}, author = {}, shortauthor = {Römerbrief}, shorthand = {Röm}, options = {ancient}, keywords = {ancient}}
-@book{RutNam, title = {de reditu suo}, author = {}, shortauthor = {Rutilius Claudius Namatianus}, shorthand = {Rut. Nam.}, options = {ancient}, keywords = {ancient}}
-@book{Sall:Catil, title = {de coniuratione Catilinae}, author = {Sallustius Crispus, Caius}, shortauthor = {Sallust}, shorthand = {Sall. Catil.}, options = {ancient}, keywords = {ancient}}
-@book{Sall:epist, title = {epistulae ad Caesarem}, author = {Sallustius Crispus, Caius}, shortauthor = {Sallust}, shorthand = {Sall. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Sall:hist, title = {historiae}, author = {Sallustius Crispus, Caius}, shortauthor = {Sallust}, shorthand = {Sall. hist.}, options = {ancient}, keywords = {ancient}}
-@book{Sall:Iug, title = {de bello Iugurthino}, author = {Sallustius Crispus, Caius}, shortauthor = {Sallust}, shorthand = {Sall. Iug.}, options = {ancient}, keywords = {ancient}}
-@book{Semp, title = {}, author = {}, shortauthor = {Sextus Empiricus}, shorthand = {S. Emp.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:apocol, title = {divi Claudii apocolocynthosis}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. apocol.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:benef, title = {de beneficiis}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. benef.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:clem, title = {de clementia}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. clem.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:contr, title = {controversiae}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca maior}, shorthand = {Sen. contr.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:dial, title = {dialogi}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. dial.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:epist, title = {epistulae morales ad Lucilium}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:Hercf, title = {Hercules furens}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. Herc. f.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:HercO, title = {Hercules Oetaeus}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = { Herc. O.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:Med, title = {Medea}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. Med.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:nat, title = {naturales quaestiones}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. nat.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:Oed, title = {Oedipus}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. Oed.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:Phaedr, title = {Phaedra}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. Phaedr.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:Phoen, title = {Phoenissae}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. Phoen.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:suas, title = {suasoriae}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca maior}, shorthand = {Sen. suas.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:Thy, title = {Thyestes}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. Thy.}, options = {ancient}, keywords = {ancient}}
-@book{Sen:Tro, title = {Troades}, author = {Annaeus Seneca, Lucius}, shortauthor = {Seneca minor}, shorthand = {Sen. Tro.}, options = {ancient}, keywords = {ancient}}
-@book{Serv:Aen, title = {commentarius in Vergilii Aeneida}, author = {}, shortauthor = {Servius}, shorthand = {Serv. Aen.}, options = {ancient}, keywords = {ancient}}
-@book{Serv:auct, title = {}, author = {}, shortauthor = {Servius auctus Danielis}, shorthand = {Serv. auct.}, options = {ancient}, keywords = {ancient}}
-@book{Serv:ecl, title = {commentarius in Vergilii eclogas}, author = {}, shortauthor = {Servius}, shorthand = {Serv. ecl.}, options = {ancient}, keywords = {ancient}}
-@book{Serv:georg, title = {commentarius in Vergilii georgica}, author = {}, shortauthor = {Servius}, shorthand = {Serv. georg.}, options = {ancient}, keywords = {ancient}}
-@book{Sil, title = {Punica}, author = {}, shortauthor = {Silius Italicus}, shorthand = {Sil.}, options = {ancient}, keywords = {ancient}}
-@book{Sim, title = {}, author = {}, shortauthor = {Simonides}, shorthand = {Sim.}, options = {ancient}, keywords = {ancient}}
-@book{Simpl, title = {}, author = {}, shortauthor = {Simplikios}, shorthand = {Simpl.}, options = {ancient}, keywords = {ancient}}
-@book{Sol, title = {}, author = {}, shortauthor = {Solon}, shorthand = {Sol.}, options = {ancient}, keywords = {ancient}}
-@book{Soph:Ai, title = {Aias}, author = {}, shortauthor = {Sophokles}, shorthand = {Soph. Ai.}, options = {ancient}, keywords = {ancient}}
-@book{Soph:Ant, title = {Antigone}, author = {}, shortauthor = {Sophokles}, shorthand = {Soph. Ant.}, options = {ancient}, keywords = {ancient}}
-@book{Soph:El, title = {Electra}, author = {}, shortauthor = {Sophokles}, shorthand = {Soph. El.}, options = {ancient}, keywords = {ancient}}
-@book{Soph:OidK, title = {Oedipus Coloneus}, author = {}, shortauthor = {Sophokles}, shorthand = {Soph. Oid. K.}, options = {ancient}, keywords = {ancient}}
-@book{Soph:OidT, title = {Oedipus Rex (Oedipus Tyrannus)}, author = {}, shortauthor = {Sophokles}, shorthand = {Soph. Oid. T.}, options = {ancient}, keywords = {ancient}}
-@book{Soph:Phil, title = {Philoctetes}, author = {}, shortauthor = {Sophokles}, shorthand = {Soph. Phil.}, options = {ancient}, keywords = {ancient}}
-@book{Stat:Ach, title = {Achilleis}, author = {}, shortauthor = {Statius}, shorthand = {Stat. Ach.}, options = {ancient}, keywords = {ancient}}
-@book{Stat:silv, title = {silvae}, author = {}, shortauthor = {Statius}, shorthand = {Stat. silv.}, options = {ancient}, keywords = {ancient}}
-@book{Stat:Theb, title = {Thebais}, author = {}, shortauthor = {Statius}, shorthand = {Stat. Theb.}, options = {ancient}, keywords = {ancient}}
-@book{Stesich, title = {}, author = {}, shortauthor = {Stesichoros}, shorthand = {Stesich.}, options = {ancient}, keywords = {ancient}}
-@book{Stob, title = {}, author = {}, shortauthor = {Stobaios}, shorthand = {Stob.}, options = {ancient}, keywords = {ancient}}
-@book{Strab, title = {}, author = {}, shortauthor = {Strabon}, shorthand = {Strab.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Aug, title = {divus Augustus}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Aug.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Cal, title = {Caligula}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Cal.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Claud, title = {divus Claudius}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Claud.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Dom, title = {Domitianus}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Dom.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:gramm, title = {de grammaticis}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. gramm.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Iul, title = {divus Iulius}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Iul.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Tib, title = {divus Tiberius}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Tib.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Tit, title = {divus Titus}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Tit.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Vesp, title = {divus Vespasianus}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Vesp.}, options = {ancient}, keywords = {ancient}}
-@book{Suet:Vit, title = {Vitellius}, author = {Suetonius Tranquillus, Caius}, shortauthor = {Sueton}, shorthand = {Suet. Vit.}, options = {ancient}, keywords = {ancient}}
-@book{Symm:epist, title = {epistulae}, author = {}, shortauthor = {Symmachus}, shorthand = {Symm. epist.}, options = {ancient}, keywords = {ancient}}
-@book{Symm:or, title = {orationes}, author = {}, shortauthor = {Symmachus}, shorthand = {Symm. or.}, options = {ancient}, keywords = {ancient}}
-@book{Symm:rel, title = {relationes}, author = {}, shortauthor = {Symmachus}, shorthand = {Symm. rel.}, options = {ancient}, keywords = {ancient}}
-@book{Synes:epist, title = {epistulae}, author = {}, shortauthor = {epist.}, shorthand = {Synes. Epist.}, options = {ancient}, keywords = {ancient}}
-@book{Tac:Agr, title = {Agricola}, author = {Cornelius Tacitus, Publius}, shortauthor = {Tacitus}, shorthand = {Tac. Agr.}, options = {ancient}, keywords = {ancient}}
-@book{Tac:ann, title = {annales}, author = {Cornelius Tacitus, Publius}, shortauthor = {Tacitus}, shorthand = {Tac. ann.}, options = {ancient}, keywords = {ancient}}
-@book{Tac:dial, title = {dialogus de oratoribus}, author = {Cornelius Tacitus, Publius}, shortauthor = {Tacitus}, shorthand = {Tac. dial.}, options = {ancient}, keywords = {ancient}}
-@book{Tac:Germ, title = {Germania}, author = {Cornelius Tacitus, Publius}, shortauthor = {Tacitus}, shorthand = {Tac. Germ.}, options = {ancient}, keywords = {ancient}}
-@book{Tac:hist, title = {historiae}, author = {Cornelius Tacitus, Publius}, shortauthor = {Tacitus}, shorthand = {Tac. hist.}, options = {ancient}, keywords = {ancient}}
-@book{Ter:Ad, title = {Adelphoe}, author = {Terentius Afer, Publius }, shortauthor = {Terenz}, shorthand = {Ter. Ad.}, options = {ancient}, keywords = {ancient}}
-@book{Ter:Andr, title = {Andria}, author = {Terentius Afer, Publius }, shortauthor = {Terenz}, shorthand = {Ter. Andr.}, options = {ancient}, keywords = {ancient}}
-@book{Ter:Eun, title = {Eunuchus}, author = {Terentius Afer, Publius }, shortauthor = {Terenz}, shorthand = {Ter. Eun.}, options = {ancient}, keywords = {ancient}}
-@book{Ter:Haut, title = {Heautontimorumenos}, author = {Terentius Afer, Publius }, shortauthor = {Terenz}, shorthand = {Ter. Haut.}, options = {ancient}, keywords = {ancient}}
-@book{Ter:Hec, title = {Hecyra}, author = {Terentius Afer, Publius }, shortauthor = {Terenz}, shorthand = {Ter. Hec.}, options = {ancient}, keywords = {ancient}}
-@book{Ter:Maur, title = {}, author = {}, shortauthor = {Terentianus Maurus}, shorthand = {Ter. Maur.}, options = {ancient}, keywords = {ancient}}
-@book{Ter:Phorm, title = {Phormio}, author = {Terentius Afer, Publius }, shortauthor = {Terenz}, shorthand = {Ter. Phorm.}, options = {ancient}, keywords = {ancient}}
-@book{Tert:apol, title = {apologeticum}, author = {Septimius, Quintus Tertullianus}, shortauthor = {Tertullianus}, shorthand = {Tert. apol.}, options = {ancient}, keywords = {ancient}}
-@book{Tert:nat, title = {ad nationes}, author = {Septimius, Quintus Tertullianus}, shortauthor = {Tertullianus}, shorthand = {Tert. nat.}, options = {ancient}, keywords = {ancient}}
-@book{Theokr, title = {}, author = {}, shortauthor = {Theokritos}, shorthand = {Theokr.}, options = {ancient}, keywords = {ancient}}
-@book{Thgn, title = {}, author = {}, shortauthor = {Theognis}, shorthand = {Thgn.}, options = {ancient}, keywords = {ancient}}
-@book{Thuk, title = {}, author = {}, shortauthor = {Thukydides}, shorthand = {Thuk.}, options = {ancient}, keywords = {ancient}}
-@book{Tib, title = {elegiae}, author = {}, shortauthor = {Tibullus}, shorthand = {Tib.}, options = {ancient}, keywords = {ancient}}
-@book{Ulp:reg, title = {(Ulpiani regulae)}, author = {}, shortauthor = {Ulpianus}, shorthand = {Ulp.  Reg.}, options = {ancient}, keywords = {ancient}}
-@book{ValFl, title = {Argonautica}, author = {}, shortauthor = {Valerius Flaccus}, shorthand = {Val. Fl.}, options = {ancient}, keywords = {ancient}}
-@book{ValMax, title = {facta et dicta memorabilia}, author = {}, shortauthor = {Valerius Maximus}, shorthand = {Val. Max.}, options = {ancient}, keywords = {ancient}}
-@book{Varro:ling, title = {de lingua Latina}, author = {Terentius Varro, Marcus}, shortauthor = {Varro}, shorthand = {Varro ling.}, options = {ancient}, keywords = {ancient}}
-@book{Varro:Men, title = {saturae Menippeae}, author = {Terentius Varro, Marcus}, shortauthor = {Varro}, shorthand = {Varro Men.}, options = {ancient}, keywords = {ancient}}
-@book{Varro:rust, title = {res rusticae}, author = {Terentius Varro, Marcus}, shortauthor = {Varro}, shorthand = {Varro rust.}, options = {ancient}, keywords = {ancient}}
-@book{Vell, title = {historiae Romanae}, author = {{Velleius Paterculus}}, shortauthor = {Velleius Paterculus}, shorthand = {Vell. }, options = {ancient}, keywords = {ancient}}
-@book{Ven:Fort, title = {}, author = {}, shortauthor = {Venantius Fortunatus}, shorthand = {Ven. Fort.}, options = {ancient}, keywords = {ancient}}
-@book{Verg:Aen, title = {Aeneis}, author = {}, shortauthor = {Vergilius}, shorthand = {Verg. Aen.}, options = {ancient}, keywords = {ancient}}
-@book{Verg:catal, title = {catalepton}, author = {}, shortauthor = {Vergilius}, shorthand = {Verg. catal.}, options = {ancient}, keywords = {ancient}}
-@book{Verg:ecl, title = {eclogae}, author = {}, shortauthor = {Vergilius}, shorthand = {Verg. ecl.}, options = {ancient}, keywords = {ancient}}
-@book{Verg:georg, title = {georgica}, author = {}, shortauthor = {Vergilius}, shorthand = {Verg. georg.}, options = {ancient}, keywords = {ancient}}
-@book{Vitr, title = {de architectura}, author = {Vitruvius}, shortauthor = {Vitruv}, shorthand = {Vitr.}, options = {ancient}, keywords = {ancient}}
-@book{Vulg, title = {Vulgata}, author = {}, shortauthor = {}, shorthand = { Vulg.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:an, title = {anabasis}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. an.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:apol, title = {apologia}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. apol.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:Athpol, title = {Athenaion politeia}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. Ath. pol.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:hell, title = {hellenica}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. hell.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:kyn, title = {cynegeticus}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. kyn.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:Kyr, title = {Cyrupaideia}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. Kyr.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:mem, title = {memorabilia (Apomnemoneumata)}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. mem.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:oec, title = {oeconomicus}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. oec.}, options = {ancient}, keywords = {ancient}}
-@book{Xen:symp, title = {symposium}, author = {Xenophon}, shortauthor = {Xenophon}, shorthand = {Xen. symp.}, options = {ancient}, keywords = {ancient}}
-@book{Xenophan, title = {}, author = {}, shortauthor = {Xenophanes}, shorthand = {Xenophan.}, options = {ancient}, keywords = {ancient}}
-@book{Zen, title = {}, author = {}, shortauthor = {Zenon}, shorthand = {Zen.}, options = {ancient}, keywords = {ancient}}
-@book{Zenob, title = {}, author = {}, shortauthor = {Zenobios}, shorthand = {Zenob.}, options = {ancient}, keywords = {ancient}}
-@book{Zenod, title = {}, author = {}, shortauthor = {Zenodotos}, shorthand = {Zenod.}, options = {ancient}, keywords = {ancient}}
-@book{Zos, title = {}, author = {}, shortauthor = {Zosimos}, shorthand = {Zos.}, options = {ancient}, keywords = {ancient}}
+@book{Acc,
+  keywords = {ancient},
+  shortauthor = {Accius},
+  shorthand = {Acc.},
+}
+
+@book{AchTat,
+  keywords = {ancient},
+  shortauthor = {Tatios, Achilleus},
+  shorthand = {Ach. Tat.},
+}
+
+@book{Ael:Ep,
+  author = {Aelianus, Claudius},
+  title = {Epistulae rusticae},
+  keywords = {ancient},
+  shortauthor = {Aelian},
+  shorthand = {Ael. Ep.},
+}
+
+@book{Ael:Fr,
+  author = {Aelianus, Claudius},
+  title = {Fragmenta},
+  keywords = {ancient},
+  shortauthor = {Aelian},
+  shorthand = {Ael. Fr.},
+}
+
+@book{Ael:NA,
+  author = {Aelianus, Claudius},
+  title = {de natura animalium},
+  keywords = {ancient},
+  shortauthor = {Aelian},
+  shorthand = {Ael. NA},
+}
+
+@book{Ael:Tact,
+  author = {{Aelianus Tacticus}},
+  title = {Tactica (De instruendis aciebus)},
+  keywords = {ancient},
+  shortauthor = {{Aelianus Tacticus}},
+  shorthand = {Ael. Tact},
+}
+
+@book{Ael:VA,
+  author = {Aelianus, Claudius},
+  title = {varia historia},
+  keywords = {ancient},
+  shortauthor = {Aelian},
+  shorthand = {Ael. VH},
+}
+
+@book{AelArist:Or,
+  author = {{Aelius Aristides}},
+  title = {Orationes},
+  keywords = {ancient},
+  shortauthor = {{Aelius Aristides}},
+  shorthand = {Ael. Arist. Or.},
+}
+
+@book{AelArist:Technrhet,
+  author = {{Aelius Aristides}},
+  title = {Technai rhetorikai},
+  keywords = {ancient},
+  shortauthor = {{Aelius Aristides}},
+  shorthand = {Ael. Arist. Techn. rhet.},
+}
+
+@book{AenTact,
+  author = {{Aineias Taktikos}},
+  title = {Poliorketika},
+  keywords = {ancient},
+  shortauthor = {{Aineias Taktikos}},
+  shorthand = {Aen. Tact.},
+}
+
+@book{Aet,
+  keywords = {ancient},
+  shortauthor = {Aetios},
+  shorthand = {Aet.},
+}
+
+@book{Aischin:Ctes,
+  title = {in Ctesiphontum},
+  keywords = {ancient},
+  shortauthor = {Aischines},
+  shorthand = {Aischin. Ctes.},
+}
+
+@book{Aischin:epist,
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Aischines},
+  shorthand = {Aischin. epist.},
+}
+
+@book{Aischin:leg,
+  title = {de falsa legatione},
+  keywords = {ancient},
+  shortauthor = {Aischines},
+  shorthand = {Aischin. leg.},
+}
+
+@book{Aischin:orat,
+  title = {Orationes},
+  keywords = {ancient},
+  shortauthor = {Aischines},
+  shorthand = {Aischin. orat.},
+}
+
+@book{Aischin:Tim,
+  title = {in Timarchum},
+  keywords = {ancient},
+  shortauthor = {Aischines},
+  shorthand = {Aischin. Tim.},
+}
+
+@book{Aischyl:Ag,
+  title = {Agamemnon},
+  keywords = {ancient},
+  shortauthor = {Aischylos},
+  shorthand = {Aischyl. Ag.},
+}
+
+@book{Aischyl:Choeph,
+  title = {Choephoroi},
+  keywords = {ancient},
+  shortauthor = {Aischylos},
+  shorthand = {Aischyl. Choeph.},
+}
+
+@book{Aischyl:Eum,
+  title = {Eumenides},
+  keywords = {ancient},
+  shortauthor = {Aischylos},
+  shorthand = {Aischyl. Eum.},
+}
+
+@book{Aischyl:Pers,
+  title = {Persae},
+  keywords = {ancient},
+  shortauthor = {Aischylos},
+  shorthand = {Aischyl. Pers.},
+}
+
+@book{Aischyl:Prom,
+  title = {Prometheus},
+  keywords = {ancient},
+  shortauthor = {Aischylos},
+  shorthand = {Aischyl. Prom.},
+}
+
+@book{Aischyl:Sept,
+  title = {Septem adversus Thebas},
+  keywords = {ancient},
+  shortauthor = {Aischylos},
+  shorthand = {Aischyl. Sept.},
+}
+
+@book{Aischyl:Suppl,
+  title = {Supplices (Hiketides)},
+  keywords = {ancient},
+  shortauthor = {Aischylos},
+  shorthand = {Aischyl. Suppl.},
+}
+
+@book{Aisop,
+  keywords = {ancient},
+  shortauthor = {Aisopos},
+  shorthand = {Aisop.},
+}
+
+@book{AlexAphr,
+  keywords = {ancient},
+  shortauthor = {von Aphrodisias, Alexandros},
+  shorthand = {Alex. Aphr.},
+}
+
+@book{Alk,
+  keywords = {ancient},
+  shortauthor = {Alkaios},
+  shorthand = {Alk.},
+}
+
+@book{Ambr:epist,
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Ambrosius},
+  shorthand = {Ambr. epist.},
+}
+
+@book{Ambr:excSat,
+  title = {de excessu fratris (Satyri)},
+  keywords = {ancient},
+  shortauthor = {Ambrosius},
+  shorthand = {Ambr. exc. Sat.},
+}
+
+@book{Ambr:obitTheod,
+  title = {de obitu Theodosii},
+  keywords = {ancient},
+  shortauthor = {Ambrosius},
+  shorthand = {Ambr. obit. Theod.},
+}
+
+@book{Ambr:obitValent,
+  title = {de obitu Valentiniani (iunioris)},
+  keywords = {ancient},
+  shortauthor = {Ambrosius},
+  shorthand = {Ambr. obit. Valent.},
+}
+
+@book{Ambr:off,
+  title = {de officiis magistrorum},
+  keywords = {ancient},
+  shortauthor = {Ambrosius},
+  shorthand = {Ambr. off.},
+}
+
+@book{Ambr:paenit,
+  title = {de paenitentia},
+  keywords = {ancient},
+  shortauthor = {Ambrosius},
+  shorthand = {Ambr. paenit.},
+}
+
+@book{Amm,
+  author = {{Ammianus <Marcellinus>}},
+  keywords = {ancient},
+  shortauthor = {Marcellinus, Ammianus},
+  shorthand = {Amm.},
+}
+
+@book{Anakr,
+  keywords = {ancient},
+  shortauthor = {Anakreon},
+  shorthand = {Anakr.},
+}
+
+@book{Anaxag,
+  keywords = {ancient},
+  shortauthor = {Anaxagoras},
+  shorthand = {Anaxag.},
+}
+
+@book{Anaximand,
+  keywords = {ancient},
+  shortauthor = {Anaximandros},
+  shorthand = {Anaximand.},
+}
+
+@book{Anaximen,
+  keywords = {ancient},
+  shortauthor = {Anaximenes},
+  shorthand = {Anaximen.},
+}
+
+@book{And,
+  keywords = {ancient},
+  shortauthor = {Andokides},
+  shorthand = {And.},
+}
+
+@book{AnthGr,
+  keywords = {ancient},
+  shortauthor = {Graeca, Antologia},
+  shorthand = {Anth. Gr.},
+}
+
+@book{AnthLat,
+  keywords = {ancient},
+  shortauthor = {Latina, Antologia},
+  shorthand = {Anth. Lat.},
+}
+
+@book{AnthPal,
+  keywords = {ancient},
+  shortauthor = {Palatina, Antologia},
+  shorthand = {Anth. Pal.},
+}
+
+@book{AnthPlan,
+  keywords = {ancient},
+  shortauthor = {Planudea, Anthologia},
+  shorthand = {Anth. Plan.},
+}
+
+@book{Antiph,
+  keywords = {ancient},
+  shortauthor = {Antiphon},
+  shorthand = {Antiph.},
+}
+
+@book{Antisth,
+  keywords = {ancient},
+  shortauthor = {Antisthenes},
+  shorthand = {Antisth.},
+}
+
+@book{Apg,
+  title = {Apostelgeschichte},
+  keywords = {ancient},
+  shorthand = {Apg.},
+}
+
+@book{Apk,
+  title = {Apokalypse},
+  keywords = {ancient},
+  shorthand = {Apk.},
+}
+
+@book{Apollod:bibl,
+  title = {bibliotheke},
+  keywords = {ancient},
+  shortauthor = {Apollodoros},
+  shorthand = {Apollod. bibl.},
+}
+
+@book{Apollod:epit,
+  title = {epitome},
+  keywords = {ancient},
+  shortauthor = {Apollodoros},
+  shorthand = {Apollod. epit.},
+}
+
+@book{ApollRhod,
+  title = {Argonautica},
+  keywords = {ancient},
+  shortauthor = {Rhodios, Apollonios},
+  shorthand = {Apoll. Rhod.},
+}
+
+@book{App:Celt,
+  author = {Appian},
+  title = {Celtica},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Celt.},
+}
+
+@book{App:civ,
+  author = {Appian},
+  title = {bella civilia},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. civ.},
+}
+
+@book{App:Hann,
+  author = {Appian},
+  title = {Hannibalica},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Hann.},
+}
+
+@book{App:Ib,
+  author = {Appian},
+  title = {Iberica},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Ib.},
+}
+
+@book{App:Ill,
+  author = {Appian},
+  title = {Illyrica},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Ill.},
+}
+
+@book{App:It,
+  author = {Appian},
+  title = {Italica},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. It.},
+}
+
+@book{App:Lib,
+  author = {Appian},
+  title = {Libyca},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Lib.},
+}
+
+@book{App:Mac,
+  author = {Appian},
+  title = {Macedonica},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Mac.},
+}
+
+@book{App:Mithr,
+  author = {Appian},
+  title = {Mithridatius},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Mithr.},
+}
+
+@book{App:pr,
+  author = {Appian},
+  title = {proemium},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. pr.},
+}
+
+@book{App:reg,
+  author = {Appian},
+  title = {regia},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. reg.},
+}
+
+@book{App:Rom,
+  author = {Appian},
+  title = {historia romana},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Rom.},
+}
+
+@book{App:Samn,
+  author = {Appian},
+  title = {Samnitica},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Samn.},
+}
+
+@book{App:Sic,
+  author = {Appian},
+  title = {Sicula},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Sic.},
+}
+
+@book{App:Syr,
+  author = {Appian},
+  title = {Syriaca},
+  keywords = {ancient},
+  shortauthor = {Appian},
+  shorthand = {App. Syr.},
+}
+
+@book{Apul:Flor,
+  author = {Apuleius Madaurensis, Lucius},
+  title = {florida},
+  keywords = {ancient},
+  shortauthor = {Apuleius},
+  shorthand = {Apul. Flor.},
+}
+
+@book{Apul:met,
+  author = {Apuleius Madaurensis, Lucius},
+  title = {metamorphoses},
+  keywords = {ancient},
+  shortauthor = {Apuleius},
+  shorthand = {Apul. met.},
+}
+
+@book{Arat,
+  author = {Aratos},
+  keywords = {ancient},
+  shortauthor = {Aratos},
+  shorthand = {Arat.},
+}
+
+@book{Archil,
+  author = {Archilochos},
+  keywords = {ancient},
+  shortauthor = {Archilochos},
+  shorthand = {Archil.},
+}
+
+@book{Archim,
+  author = {Archimedes},
+  keywords = {ancient},
+  shortauthor = {Archimedes},
+  shorthand = {Archim.},
+}
+
+@book{Archyt,
+  author = {Archytas},
+  keywords = {ancient},
+  shortauthor = {Archytas},
+  shorthand = {Archyt.},
+}
+
+@book{Aristeid,
+  author = {Aristeides, Ailios},
+  keywords = {ancient},
+  shortauthor = {Aristeides, Ailios},
+  shorthand = {Aristeid.},
+}
+
+@book{Aristoph:Ach,
+  author = {Aristophanes},
+  title = {Acharnenses},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Ach.},
+}
+
+@book{Aristoph:Av,
+  author = {Aristophanes},
+  title = {Aves (Ornithes)},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Av.},
+}
+
+@book{Aristoph:Eccl,
+  author = {Aristophanes},
+  title = {Ecclesiazusae},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Eccl.},
+}
+
+@book{Aristoph:Equ,
+  author = {Aristophanes},
+  title = {Equites (Hippeis)},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Equ.},
+}
+
+@book{Aristoph:Lys,
+  author = {Aristophanes},
+  title = {Lysistrata},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Lys.},
+}
+
+@book{Aristoph:Nub,
+  author = {Aristophanes},
+  title = {Nubes (Nephelai)},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Nub.},
+}
+
+@book{Aristoph:Pax,
+  author = {Aristophanes},
+  title = {Pax (Eirene)},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Pax},
+}
+
+@book{Aristoph:Plut,
+  author = {Aristophanes},
+  title = {Plutus},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Plut.},
+}
+
+@book{Aristoph:Ran,
+  author = {Aristophanes},
+  title = {Ranae (Batrachoi)},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Ran.},
+}
+
+@book{Aristoph:Thesm,
+  author = {Aristophanes},
+  title = {Thesmophoriazusae},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Thesm.},
+}
+
+@book{Aristoph:Vesp,
+  author = {Aristophanes},
+  title = {Vespae (Sphekes)},
+  keywords = {ancient},
+  shortauthor = {Aristophanes},
+  shorthand = {Aristoph. Vesp.},
+}
+
+@book{Aristot:an,
+  author = {Aristoteles},
+  title = {de anima (peri psyches)},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. an.},
+}
+
+@book{Aristot:anpost,
+  author = {Aristoteles},
+  title = {analytica posteriora},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. an post.},
+}
+
+@book{Aristot:anpr,
+  author = {Aristoteles},
+  title = {analytica priora},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. an pr.},
+}
+
+@book{Aristot:Athpol,
+  author = {Aristoteles},
+  title = {Athenaion politeia},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. Ath. pol.},
+}
+
+@book{Aristot:cael,
+  author = {Aristoteles},
+  title = {de caelo},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. cael.},
+}
+
+@book{Aristot:cat,
+  author = {Aristoteles},
+  title = {categoriae},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. cat.},
+}
+
+@book{Aristot:col,
+  author = {Aristoteles},
+  title = {de coloribus (περὶ χρωμάτων)},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. col.},
+}
+
+@book{Aristot:div,
+  author = {Aristoteles},
+  title = {de divinatione (peri mantikes)},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. div.},
+}
+
+@book{Aristot:EthEud,
+  author = {Aristoteles},
+  title = {ethica Eudemia},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. Eth. Eud.},
+}
+
+@book{Aristot:ethNic,
+  author = {Aristoteles},
+  title = {ethica Nicomachea},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. eth. Nic.},
+}
+
+@book{Aristot:genan,
+  author = {Aristoteles},
+  title = {de generatione animalium},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. gen. an.},
+}
+
+@book{Aristot:gencorr,
+  author = {Aristoteles},
+  title = {de generatione et corruptione},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. gen. corr.},
+}
+
+@book{Aristot:hist,
+  author = {Aristoteles},
+  title = {historia animalium},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. hist.},
+}
+
+@book{Aristot:metaph,
+  author = {Aristoteles},
+  title = {metaphysica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. metaph.},
+}
+
+@book{Aristot:meteor,
+  author = {Aristoteles},
+  title = {meteorologica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. meteor.},
+}
+
+@book{Aristot:mir,
+  author = {Aristoteles},
+  title = {mirabilia},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. mir.},
+}
+
+@book{Aristot:mmor,
+  author = {Aristoteles},
+  title = {magna moralia},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. m. mor.},
+}
+
+@book{Aristot:motan,
+  author = {Aristoteles},
+  title = {de motu animalium},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. mot. an.},
+}
+
+@book{Aristot:mund,
+  author = {Aristoteles},
+  title = {de mundo (peri kosmu)},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. mund.},
+}
+
+@book{Aristot:oec,
+  author = {Aristoteles},
+  title = {oeconomica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. oec.},
+}
+
+@book{Aristot:partan,
+  author = {Aristoteles},
+  title = {de partibus animalium},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. part. an.},
+}
+
+@book{Aristot:phgn,
+  author = {Aristoteles},
+  title = {physiognomica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. phgn.},
+}
+
+@book{Aristot:phys,
+  author = {Aristoteles},
+  title = {physica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. phys.},
+}
+
+@book{Aristot:poet,
+  author = {Aristoteles},
+  title = {poetica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. poet.},
+}
+
+@book{Aristot:pol,
+  author = {Aristoteles},
+  title = {politica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. pol.},
+}
+
+@book{Aristot:probl,
+  author = {Aristoteles},
+  title = {problemata},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. probl.},
+}
+
+@book{Aristot:rhet,
+  author = {Aristoteles},
+  title = {rhetorica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. rhet.},
+}
+
+@book{Aristot:rhetAlex,
+  author = {Aristoteles},
+  title = {rhetorica ad Alexandrum},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. rhet. Alex.},
+}
+
+@book{Aristot:sens,
+  author = {Aristoteles},
+  title = {de sensu (περὶ αἰσθήσεως)},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. sens.},
+}
+
+@book{Aristot:somn,
+  author = {Aristoteles},
+  title = {de somno et vigilia (περὶ ὔπνου καὶ ἐγρηγόρσεως)},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. somn.},
+}
+
+@book{Aristot:sophel,
+  author = {Aristoteles},
+  title = {sophistici elenchi},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. soph. el.},
+}
+
+@book{Aristot:spir,
+  author = {Aristoteles},
+  title = {de spiritu},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. spir.},
+}
+
+@book{Aristot:top,
+  author = {Aristoteles},
+  title = {topica},
+  keywords = {ancient},
+  shortauthor = {Aristoteles},
+  shorthand = {Aristot. top.},
+}
+
+@book{Arnob,
+  title = {adversus nationes},
+  keywords = {ancient},
+  shortauthor = {Arnobius},
+  shorthand = {Arnob.},
+}
+
+@book{Arr:an,
+  author = {Arrianos},
+  title = {Anabasis},
+  keywords = {ancient},
+  shortauthor = {Arrian},
+  shorthand = {Arr. an.},
+}
+
+@book{Arr:cyn,
+  author = {Arrianos},
+  title = {Cynegeticus},
+  keywords = {ancient},
+  shortauthor = {Arrian},
+  shorthand = {Arr. cyn.},
+}
+
+@book{Arr:Ind,
+  author = {Arrianos},
+  title = {Indica},
+  keywords = {ancient},
+  shortauthor = {Arrian},
+  shorthand = {Arr. Ind.},
+}
+
+@book{Arr:perpE,
+  author = {Arrianos},
+  title = {Periplus ponti Euxeni},
+  keywords = {ancient},
+  shortauthor = {Arrian},
+  shorthand = {Arr. per p. E.},
+}
+
+@book{Arr:succ,
+  author = {Arrianos},
+  title = {Istoria successorum Alexandri},
+  keywords = {ancient},
+  shortauthor = {Arrian},
+  shorthand = {Arr. succ.},
+}
+
+@book{Arr:tact,
+  author = {Arrianos},
+  title = {tactica},
+  keywords = {ancient},
+  shortauthor = {Arrian},
+  shorthand = {Arr. tact.},
+}
+
+@book{Artem,
+  title = {Onirocriticon},
+  keywords = {ancient},
+  shortauthor = {Artemidor},
+  shorthand = {Artem.},
+}
+
+@book{Athan:adConst,
+  author = {Athanasios},
+  title = {Apologia ad Constantium},
+  keywords = {ancient},
+  shortauthor = {Athanasios},
+  shorthand = {Athan. ad Const.},
+}
+
+@book{Athan:cAr,
+  author = {Athanasios},
+  title = {Apologia contra Arianos},
+  keywords = {ancient},
+  shortauthor = {Athanasios},
+  shorthand = {Athan. c. Ar.},
+}
+
+@book{Athan:fuga,
+  author = {Athanasios},
+  title = {Apologia de fuga sua},
+  keywords = {ancient},
+  shortauthor = {Athanasios},
+  shorthand = {Athan. fuga},
+}
+
+@book{Athan:histAr,
+  author = {Athanasios},
+  title = {Istoria Arianorum ad monachos},
+  keywords = {ancient},
+  shortauthor = {Athanasios},
+  shorthand = {Athan. hist. Ar.},
+}
+
+@book{Athen,
+  author = {Athenaios},
+  keywords = {ancient},
+  shortauthor = {Athenaios},
+  shorthand = {Athen.},
+}
+
+@book{Aug:civ,
+  author = {Augustinus},
+  title = {de civitate dei},
+  keywords = {ancient},
+  shortauthor = {Augustinus},
+  shorthand = {Aug. civ.},
+}
+
+@book{Aug:conf,
+  author = {Augustinus},
+  title = {confessiones},
+  keywords = {ancient},
+  shortauthor = {Augustinus},
+  shorthand = {Aug. conf.},
+}
+
+@book{Aug:doctchrist,
+  author = {Augustinus},
+  title = {de doctrina christiana},
+  keywords = {ancient},
+  shortauthor = {Augustinus},
+  shorthand = {Aug. doct.christ.},
+}
+
+@book{Aug:epist,
+  author = {Augustinus},
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Augustinus},
+  shorthand = {Aug. epist.},
+}
+
+@book{Aug:retract,
+  author = {Augustinus},
+  title = {retractationes},
+  keywords = {ancient},
+  shortauthor = {Augustinus},
+  shorthand = {Aug. retract.},
+}
+
+@book{Aug:serm,
+  author = {Augustinus},
+  title = {sermones},
+  keywords = {ancient},
+  shortauthor = {Augustinus},
+  shorthand = {Aug. serm.},
+}
+
+@book{Aug:soliloq,
+  author = {Augustinus},
+  title = {soliloquia},
+  keywords = {ancient},
+  shortauthor = {Augustinus},
+  shorthand = {Aug. soliloq.},
+}
+
+@book{Aug:trin,
+  author = {Augustinus},
+  title = {de trinitate},
+  keywords = {ancient},
+  shortauthor = {Augustinus},
+  shorthand = {Aug. trin.},
+}
+
+@book{Aur:Vict,
+  keywords = {ancient},
+  shortauthor = {Victor, Aurelius},
+  shorthand = {Aur. Vict.},
+}
+
+@book{Auson:Mos,
+  title = {Mosella},
+  keywords = {ancient},
+  shortauthor = {Ausonius},
+  shorthand = {Auson. Mos.},
+}
+
+@book{Auson:urb,
+  title = {ordo nobilium urbium},
+  keywords = {ancient},
+  shortauthor = {Ausonius},
+  shorthand = {Auson. urb.},
+}
+
+@book{Avien,
+  keywords = {ancient},
+  shortauthor = {Avienus},
+  shorthand = {Avien.},
+}
+
+@book{Babr,
+  keywords = {ancient},
+  shortauthor = {Babrios},
+  shorthand = {Babr.},
+}
+
+@book{Bakchyl,
+  keywords = {ancient},
+  shortauthor = {Bakchylides},
+  shorthand = {Bakchyl.},
+}
+
+@book{Boeth,
+  keywords = {ancient},
+  shortauthor = {Boethius},
+  shorthand = {Boeth.},
+}
+
+@book{Caes:BellAfr,
+  title = {Bellum Africum (Ps.-Caes.)},
+  keywords = {ancient},
+  shortauthor = {Caesar},
+  shorthand = {Caes. Bell. Afr.},
+}
+
+@book{Caes:BellAlex,
+  title = {Bellum Alexandrinum (Ps.-Caes.)},
+  keywords = {ancient},
+  shortauthor = {Caesar},
+  shorthand = {Caes. Bell. Alex.},
+}
+
+@book{Caes:BellHisp,
+  title = {Bellum Hispaniense (Ps.-Caes.)},
+  keywords = {ancient},
+  shortauthor = {Caesar},
+  shorthand = {Caes. Bell. Hisp.},
+}
+
+@book{Caes:civ,
+  author = {Iulius Caesar, Caius},
+  title = {de bello civili},
+  keywords = {ancient},
+  shortauthor = {Caesar},
+  shorthand = {Caes. civ.},
+}
+
+@book{Caes:Gall,
+  author = {Iulius Caesar, Caius},
+  title = {de bello Gallico},
+  keywords = {ancient},
+  shortauthor = {Caesar},
+  shorthand = {Caes. Gall.},
+}
+
+@book{Calp:ecl,
+  author = {Calpurnius Siculus, Titus},
+  title = {Bucolica vel Eclogae},
+  keywords = {ancient},
+  shortauthor = {Calpurnius},
+  shorthand = {Calp. ecl.},
+}
+
+@book{Cass:Dio,
+  author = {Cassius Dio Cocceianus, Lucius},
+  keywords = {ancient},
+  shortauthor = {Dio, Cassius},
+  shorthand = {Cass. Dio},
+}
+
+@book{Cassiod:inst,
+  title = {institutiones variae},
+  keywords = {ancient},
+  shortauthor = {Cassiodorus},
+  shorthand = {Cassiod. inst.},
+}
+
+@book{Cato:agr,
+  title = {de agri cultura},
+  keywords = {ancient},
+  shortauthor = {Cato},
+  shorthand = {Cato agr.},
+}
+
+@book{Cato:Orig,
+  title = {origines},
+  keywords = {ancient},
+  shortauthor = {Cato},
+  shorthand = {Cato Orig.},
+}
+
+@book{Catull,
+  title = {carmina},
+  keywords = {ancient},
+  shortauthor = {Catullus},
+  shorthand = {Catull.},
+}
+
+@book{Cels,
+  author = {Cornelius Celsus, Aulus},
+  title = {De medicina},
+  keywords = {ancient},
+  shortauthor = {Celsus, Cornelius},
+  shorthand = {Cels.},
+}
+
+@book{Cels:artes,
+  author = {Cornelius Celsus, Aulus},
+  keywords = {ancient},
+  shortauthor = {Celsus},
+  shorthand = {Cels. artes},
+}
+
+@book{Cels:Dig,
+  title = {Digesta},
+  keywords = {ancient},
+  shortauthor = {Celsus},
+  shorthand = {Cels. Dig.},
+}
+
+@book{Cens,
+  title = {de die natali},
+  keywords = {ancient},
+  shortauthor = {Censorinus},
+  shorthand = {Cens.},
+}
+
+@book{Cic:ac1,
+  author = {Tullius Cicero, Marcus},
+  title = {Academicorum posteriorum liber 1},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. ac. 1},
+}
+
+@book{Cic:ac2,
+  author = {Tullius Cicero, Marcus},
+  title = {Lucullus sive Academicorum priorum liber 2},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. ac. 2},
+}
+
+@book{Cic:adBrut,
+  author = {Tullius Cicero, Marcus},
+  title = {epistulae ad Brutum},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. ad. Brut.},
+}
+
+@book{Cic:adQfr,
+  author = {Tullius Cicero, Marcus},
+  title = {ad Quintum fratrem},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. ad Q. fr.},
+}
+
+@book{Cic:Arat,
+  author = {Tullius Cicero, Marcus},
+  title = {Aratea},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Arat.},
+}
+
+@book{Cic:Arch,
+  author = {Tullius Cicero, Marcus},
+  title = {pro Archia poeta},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Arch.},
+}
+
+@book{Cic:Att,
+  author = {Tullius Cicero, Marcus},
+  title = {epistulae ad Atticum},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Att.},
+}
+
+@book{Cic:Balb,
+  author = {Tullius Cicero, Marcus},
+  title = {pro L. Balbo},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Balb.},
+}
+
+@book{Cic:Brut,
+  author = {Tullius Cicero, Marcus},
+  title = {Brutus},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Brut.},
+}
+
+@book{Cic:Caecin,
+  author = {Tullius Cicero, Marcus},
+  title = {pro A. Caecina},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Caecin.},
+}
+
+@book{Cic:Cael,
+  author = {Tullius Cicero, Marcus},
+  title = {pro M. Caelio},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Cael.},
+}
+
+@book{Cic:Catil,
+  author = {Tullius Cicero, Marcus},
+  title = {in Catilinam},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Catil.},
+}
+
+@book{Cic:Cato,
+  author = {Tullius Cicero, Marcus},
+  title = {Cato maior de senectute},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Cato},
+}
+
+@book{Cic:Cluent,
+  author = {Tullius Cicero, Marcus},
+  title = {pro A. Cluentio},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Cluent.},
+}
+
+@book{Cic:Deiot,
+  author = {Tullius Cicero, Marcus},
+  title = {pro rege Deiotaro},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Deiot.},
+}
+
+@book{Cic:deorat,
+  author = {Tullius Cicero, Marcus},
+  title = {de oratore},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. de orat.},
+}
+
+@book{Cic:div,
+  author = {Tullius Cicero, Marcus},
+  title = {de divinatione},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. div.},
+}
+
+@book{Cic:divinCaec,
+  author = {Tullius Cicero, Marcus},
+  title = {divinatio in Q. Caecilium},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. div. in Caec.},
+}
+
+@book{Cic:fam,
+  author = {Tullius Cicero, Marcus},
+  title = {epistulae ad familiares},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. fam.},
+}
+
+@book{Cic:fat,
+  author = {Tullius Cicero, Marcus},
+  title = {de fato},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. fat.},
+}
+
+@book{Cic:fin,
+  author = {Tullius Cicero, Marcus},
+  title = {de finibus bonorum et malorum},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. fin.},
+}
+
+@book{Cic:Flacc,
+  author = {Tullius Cicero, Marcus},
+  title = {pro L. Valerio Flacco},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Flacc.},
+}
+
+@book{Cic:Font,
+  author = {Tullius Cicero, Marcus},
+  title = {pro M. Fonteio},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Font.},
+}
+
+@book{Cic:harresp,
+  author = {Tullius Cicero, Marcus},
+  title = {de haruspicum responso},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. har. resp.},
+}
+
+@book{Cic:inv,
+  author = {Tullius Cicero, Marcus},
+  title = {de inventione},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. inv.},
+}
+
+@book{Cic:Lael,
+  author = {Tullius Cicero, Marcus},
+  title = {Laelius de amicitia},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Lael.},
+}
+
+@book{Cic:leg,
+  author = {Tullius Cicero, Marcus},
+  title = {de legibus},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. leg.},
+}
+
+@book{Cic:legagr,
+  author = {Tullius Cicero, Marcus},
+  title = {de lege agraria},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. leg. agr.},
+}
+
+@book{Cic:Lig,
+  author = {Tullius Cicero, Marcus},
+  title = {pro Q. Ligario},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Lig.},
+}
+
+@book{Cic:Manil,
+  author = {Tullius Cicero, Marcus},
+  title = {pro lege Manilia (de imperio Cn. Pompei)},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Manil.},
+}
+
+@book{Cic:Marcell,
+  author = {Tullius Cicero, Marcus},
+  title = {pro M. Marcello},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Marcell.},
+}
+
+@book{Cic:Mil,
+  author = {Tullius Cicero, Marcus},
+  title = {pro T. Annio Milone},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Mil.},
+}
+
+@book{Cic:Mur,
+  author = {Tullius Cicero, Marcus},
+  title = {pro L. Murena},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Mur.},
+}
+
+@book{Cic:natdeor,
+  author = {Tullius Cicero, Marcus},
+  title = {de natura deorum},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. nat. deor.},
+}
+
+@book{Cic:off,
+  author = {Tullius Cicero, Marcus},
+  title = {de officiis},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. off.},
+}
+
+@book{Cic:optgen,
+  author = {Tullius Cicero, Marcus},
+  title = {de optimo genere oratorum},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. opt. gen.},
+}
+
+@book{Cic:orat,
+  author = {Tullius Cicero, Marcus},
+  title = {orator},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. orat.},
+}
+
+@book{Cic:parad,
+  author = {Tullius Cicero, Marcus},
+  title = {paradoxa},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. parad.},
+}
+
+@book{Cic:part,
+  author = {Tullius Cicero, Marcus},
+  title = {partitiones oratoriae},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. part.},
+}
+
+@book{Cic:Phil,
+  author = {Tullius Cicero, Marcus},
+  title = {in M. Antonium orationes Philippicae},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Phil.},
+}
+
+@book{Cic:Pis,
+  author = {Tullius Cicero, Marcus},
+  title = {in L. Pisonem},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Pis.},
+}
+
+@book{Cic:Planc,
+  author = {Tullius Cicero, Marcus},
+  title = {pro Cn. Plancio},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Planc.},
+}
+
+@book{Cic:predadQuir,
+  author = {Tullius Cicero, Marcus},
+  title = {oratio post reditum ad Quirites},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. p.red. ad Quir.},
+}
+
+@book{Cic:predinsen,
+  author = {Tullius Cicero, Marcus},
+  title = {oratio post reditum in senatu},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. p.red. in sen.},
+}
+
+@book{Cic:QRosc,
+  author = {Tullius Cicero, Marcus},
+  title = {pro Q. Roscio comoedo},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Q. Rosc.},
+}
+
+@book{Cic:Quinct,
+  author = {Tullius Cicero, Marcus},
+  title = {pro P. Quinctio},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Quinct.},
+}
+
+@book{Cic:Rabperd,
+  author = {Tullius Cicero, Marcus},
+  title = {pro C. Rabirioperduellionis reo},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Rab. perd.},
+}
+
+@book{Cic:Rabpost,
+  author = {Tullius Cicero, Marcus},
+  title = {pro C. Rabirio Postumo},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Rab post.},
+}
+
+@book{Cic:rep,
+  author = {Tullius Cicero, Marcus},
+  title = {de re publica},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. rep.},
+}
+
+@book{Cic:Scaur,
+  author = {Tullius Cicero, Marcus},
+  title = {pro M. Aemilio Scauro},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Scaur.},
+}
+
+@book{Cic:Sest,
+  author = {Tullius Cicero, Marcus},
+  title = {pro P. Sestio},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Sest.},
+}
+
+@book{Cic:SRosc,
+  author = {Tullius Cicero, Marcus},
+  title = {pro Sex. Roscio Amerino},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. S. Rosc.},
+}
+
+@book{Cic:Sull,
+  author = {Tullius Cicero, Marcus},
+  title = {pro P. Sulla},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Sull.},
+}
+
+@book{Cic:Tim,
+  author = {Tullius Cicero, Marcus},
+  title = {Timaeus},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Tim.},
+}
+
+@book{Cic:top,
+  author = {Tullius Cicero, Marcus},
+  title = {topica},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. top.},
+}
+
+@book{Cic:Tull,
+  author = {Tullius Cicero, Marcus},
+  title = {pro M.Tullio},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Tull.},
+}
+
+@book{Cic:Tusc,
+  author = {Tullius Cicero, Marcus},
+  title = {Tusculanae disputationes},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Tusc.},
+}
+
+@book{Cic:Vatin,
+  author = {Tullius Cicero, Marcus},
+  title = {in P. Vatinium testem interrogatio},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Vatin.},
+}
+
+@book{Cic:Verr12,
+  author = {Tullius Cicero, Marcus},
+  title = {in Verrem actio prima, secunda},
+  keywords = {ancient},
+  shortauthor = {Cicero},
+  shorthand = {Cic. Verr. 1,2},
+}
+
+@book{Claud:carm,
+  title = {carmina},
+  keywords = {ancient},
+  shortauthor = {Claudianus, Claudius},
+  shorthand = {Claud. carm.},
+}
+
+@book{Claud:raptPros,
+  title = {de raptu Proserpinae},
+  keywords = {ancient},
+  shortauthor = {Claudianus, Claudius},
+  shorthand = {Claud. rapt. Pros.},
+}
+
+@book{CodIust,
+  title = {Corpus Iuris Civilis, Codex Iustinianus},
+  keywords = {ancient},
+  shorthand = {Cod. Iust.},
+}
+
+@book{Colum,
+  author = {Iunius Moderatus Columella, Lucius},
+  keywords = {ancient},
+  shortauthor = {Columella},
+  shorthand = {Colum.},
+}
+
+@book{Curt,
+  title = {historiae Alexandri Magni},
+  keywords = {ancient},
+  shortauthor = {Rufus, Curtius},
+  shorthand = {Curt.},
+}
+
+@book{Cypr,
+  keywords = {ancient},
+  shortauthor = {Cyprianus},
+  shorthand = {Cypr.},
+}
+
+@book{Demokr,
+  keywords = {ancient},
+  shortauthor = {Demokritos},
+  shorthand = {Demokr.},
+}
+
+@book{Demosth:or,
+  author = {Demosthenes},
+  title = {or.},
+  keywords = {ancient},
+  shortauthor = {Demosthenes},
+  shorthand = {Demosth. or.},
+}
+
+@book{Dig,
+  title = {Corpus Iuris Civilis, Digesta (Pandekten.},
+  keywords = {ancient},
+  shorthand = {Dig.},
+}
+
+@book{Diod,
+  author = {{Diodorus Siculus}},
+  keywords = {ancient},
+  shortauthor = {Siculus, Diodorus},
+  shorthand = {Diod.},
+}
+
+@book{Diog:Laert,
+  keywords = {ancient},
+  shortauthor = {Laertios, Diogenes},
+  shorthand = {Diog. Laert.},
+}
+
+@book{Dion:Chrys,
+  author = {{Dion Chrysostomos}},
+  title = {Orationes},
+  keywords = {ancient},
+  shortauthor = {Chrysostomos, Dion},
+  shorthand = {Dion Chrys.},
+}
+
+@book{Dion:Halant,
+  title = {antiquitates Romanae},
+  keywords = {ancient},
+  shortauthor = {Halicarnassos, Dionysios},
+  shorthand = {Dion. Hal. ant.},
+}
+
+@book{Dion:Halcomp,
+  title = {de compositione verborum},
+  keywords = {ancient},
+  shortauthor = {Halicarnassos, Dionysios},
+  shorthand = {Dion. Hal. comp.},
+}
+
+@book{Dion:Halrhet,
+  title = {ars rhetorica .},
+  keywords = {ancient},
+  shortauthor = {Halicarnassos, Dionysios},
+  shorthand = {Dion. Hal. rhet.},
+}
+
+@book{Don,
+  keywords = {ancient},
+  shortauthor = {grammaticus, Donatus},
+  shorthand = {Don.},
+}
+
+@book{Drac,
+  keywords = {ancient},
+  shortauthor = {Dracontius},
+  shorthand = {Drac.},
+}
+
+@book{Dt,
+  keywords = {ancient},
+  shortauthor = {Mose), Deuteronomium (= 5.},
+  shorthand = {Dt},
+}
+
+@book{Emp,
+  keywords = {ancient},
+  shortauthor = {Empedokles},
+  shorthand = {Emp.},
+}
+
+@book{Enn:ann,
+  title = {Annales (Skutsch, 1985)},
+  keywords = {ancient},
+  shortauthor = {Ennius},
+  shorthand = {Enn. ann.},
+}
+
+@book{Enn:sat,
+  title = {Saturae, (Vahlen, 21928)},
+  keywords = {ancient},
+  shortauthor = {Ennius},
+  shorthand = {Enn. sat.},
+}
+
+@book{Enn:scaen,
+  title = {fragmenta scenica (Vahlen, 21928)},
+  keywords = {ancient},
+  shortauthor = {Ennius},
+  shorthand = {Enn. scaen.},
+}
+
+@book{Ennod,
+  keywords = {ancient},
+  shortauthor = {Ennodius},
+  shorthand = {Ennod.},
+}
+
+@book{Eph,
+  keywords = {ancient},
+  shortauthor = {Epheserbrief},
+  shorthand = {Eph},
+}
+
+@book{Epik,
+  keywords = {ancient},
+  shortauthor = {Epikuros},
+  shorthand = {Epik.},
+}
+
+@book{Epikt,
+  keywords = {ancient},
+  shortauthor = {Epiktetos},
+  shorthand = {Epikt.},
+}
+
+@book{Etym:m,
+  keywords = {ancient},
+  shortauthor = {magnum (Gaisford), Etymologicum},
+  shorthand = {Etym. m.},
+}
+
+@book{Eukl:elem,
+  title = {elem.},
+  keywords = {ancient},
+  shortauthor = {Euklid},
+  shorthand = {Eukl. elem.},
+}
+
+@book{Eur:Alc,
+  author = {Euripides},
+  title = {Alcestis},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Alc.},
+}
+
+@book{Eur:Andr,
+  author = {Euripides},
+  title = {Andromache},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Andr.},
+}
+
+@book{Eur:Bacch,
+  author = {Euripides},
+  title = {Bacchae},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Bacch.},
+}
+
+@book{Eur:Cycl,
+  author = {Euripides},
+  title = {Cyclops},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Cycl.},
+}
+
+@book{Eur:El,
+  author = {Euripides},
+  title = {Electra},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. El.},
+}
+
+@book{Eur:Hec,
+  author = {Euripides},
+  title = {Hecuba (Hekabe)},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Hec.},
+}
+
+@book{Eur:Hel,
+  author = {Euripides},
+  title = {Helena},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Hel.},
+}
+
+@book{Eur:Heracl,
+  author = {Euripides},
+  title = {Heraclidae},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Heracl.},
+}
+
+@book{Eur:Herc,
+  author = {Euripides},
+  title = {Hercules (furens)},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Herc.},
+}
+
+@book{Eur:Hipp,
+  author = {Euripides},
+  title = {Hippolytos},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Hipp.},
+}
+
+@book{Eur:Ion,
+  author = {Euripides},
+  title = {Ion},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Ion},
+}
+
+@book{Eur:IphA,
+  author = {Euripides},
+  title = {Iphigenia Aulidensis},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Iph. A.},
+}
+
+@book{Eur:IphT,
+  author = {Euripides},
+  title = {Iphigenia Taurica},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Iph. T.},
+}
+
+@book{Eur:Med,
+  author = {Euripides},
+  title = {Medea},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Med.},
+}
+
+@book{Eur:Or,
+  author = {Euripides},
+  title = {Orestes},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Or.},
+}
+
+@book{Eur:Phoen,
+  author = {Euripides},
+  title = {Phoenissae},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Phoen.},
+}
+
+@book{Eur:Rhes,
+  author = {Euripides},
+  title = {Rhesus},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Rhes.},
+}
+
+@book{Eur:Suppl,
+  author = {Euripides},
+  title = {Supplices (ἱκέτιδες)},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Suppl.},
+}
+
+@book{Eur:Tro,
+  author = {Euripides},
+  title = {Troades},
+  keywords = {ancient},
+  shortauthor = {Euripides},
+  shorthand = {Eur. Tro.},
+}
+
+@book{Eus:DeEv,
+  author = {Eusebios},
+  title = {Demonstratio Evangelica},
+  keywords = {ancient},
+  shortauthor = {Eusebios},
+  shorthand = {Eus. De. Ev.},
+}
+
+@book{Eus:HE,
+  author = {Eusebios},
+  title = {Historia Ecclesiastica},
+  keywords = {ancient},
+  shortauthor = {Eusebios},
+  shorthand = {Eus. HE},
+}
+
+@book{Eus:On,
+  author = {Eusebios},
+  title = {Onomastikon},
+  keywords = {ancient},
+  shortauthor = {Eusebios},
+  shorthand = {Eus. On.},
+}
+
+@book{Eus:PrEv,
+  author = {Eusebios},
+  title = {Praeparatio Evangelica},
+  keywords = {ancient},
+  shortauthor = {Eusebios},
+  shorthand = {Eus. Pr. Ev.},
+}
+
+@book{Eust,
+  keywords = {ancient},
+  shortauthor = {Eustathios},
+  shorthand = {Eust.},
+}
+
+@book{Eutr,
+  keywords = {ancient},
+  shortauthor = {Eutropius},
+  shorthand = {Eutr.},
+}
+
+@book{Fest,
+  author = {Pompeius Festus, {Sex}tus},
+  keywords = {ancient},
+  shortauthor = {Festus},
+  shorthand = {Fest.},
+}
+
+@book{Flor:epit,
+  author = {Annius Florus, Publius},
+  title = {epitoma de Tito Livio},
+  keywords = {ancient},
+  shortauthor = {Florus},
+  shorthand = {Flor. epit.},
+}
+
+@book{Frontin:aqustrat,
+  title = {de aquae ductu urbis Romae strategemata},
+  keywords = {ancient},
+  shortauthor = {Frontinus},
+  shorthand = {Frontin. aqu. strat.},
+}
+
+@book{Fulg,
+  keywords = {ancient},
+  shortauthor = {Afer, Fulgentius},
+  shorthand = {Fulg.},
+}
+
+@book{Gal,
+  keywords = {ancient},
+  shortauthor = {Galenos},
+  shorthand = {Gal.},
+}
+
+@book{Galbr,
+  keywords = {ancient},
+  shortauthor = {Galaterbrief},
+  shorthand = {Gal},
+}
+
+@book{Gell,
+  author = {Gellius, Aulus},
+  title = {noctes Atticae},
+  keywords = {ancient},
+  shortauthor = {Gellius},
+  shorthand = {Gell.},
+}
+
+@book{Gorg,
+  keywords = {ancient},
+  shortauthor = {Gorgias},
+  shorthand = {Gorg.},
+}
+
+@book{GregM:dial,
+  title = {dialogi (de miraculis patrum Italicorum)},
+  keywords = {ancient},
+  shortauthor = {Magnus, Gregorius},
+  shorthand = {Greg. M. dial.},
+}
+
+@book{GregM:epist,
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Magnus, Gregorius},
+  shorthand = {Greg. M. epist.},
+}
+
+@book{GregM:past,
+  title = {regula pastoralis},
+  keywords = {ancient},
+  shortauthor = {Magnus, Gregorius},
+  shorthand = {Greg. M. past.},
+}
+
+@book{GregNaz:epist,
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Nazianzienus, Gregorius},
+  shorthand = {Greg. Naz. epist.},
+}
+
+@book{GregNaz:or,
+  title = {orationes},
+  keywords = {ancient},
+  shortauthor = {Nazianzienus, Gregorius},
+  shorthand = {Greg. Naz. or.},
+}
+
+@book{GregNyss,
+  keywords = {ancient},
+  shortauthor = {Nyssenus, Gregorius},
+  shorthand = {Greg. Nyss.},
+}
+
+@book{GregTur:Franc,
+  title = {historia Francorum},
+  keywords = {ancient},
+  shortauthor = {von Tours, Gregorius},
+  shorthand = {Greg. Tur. Franc.},
+}
+
+@book{GregTur:Mart,
+  title = {de virtutibus Martini},
+  keywords = {ancient},
+  shortauthor = {von Tours, Gregorius},
+  shorthand = {Greg. Tur. Mart.},
+}
+
+@book{GregTur:vitpatr,
+  title = {de vita patrum},
+  keywords = {ancient},
+  shortauthor = {von Tours, Gregorius},
+  shorthand = {Greg. Tur. vit. patr.},
+}
+
+@book{Hdt,
+  author = {Herodotos},
+  keywords = {ancient},
+  shortauthor = {Herodot},
+  shorthand = {Hdt.},
+}
+
+@book{Hekat,
+  keywords = {ancient},
+  shortauthor = {Hekataios},
+  shorthand = {Hekat.},
+}
+
+@book{Herakl,
+  keywords = {ancient},
+  shortauthor = {Herakleitos},
+  shorthand = {Herakl.},
+}
+
+@book{Herakl:Pont,
+  keywords = {ancient},
+  shortauthor = {Pontikos, Herakleides},
+  shorthand = {Herakl. Pont.},
+}
+
+@book{Herm:Trism,
+  keywords = {ancient},
+  shortauthor = {Trismegistos, Hermes},
+  shorthand = {Herm. Trism.},
+}
+
+@book{Herodian,
+  title = {ab excessu divi Marci},
+  keywords = {ancient},
+  shortauthor = {Herodian},
+  shorthand = {Herodian.},
+}
+
+@book{Hes:cat,
+  title = {Catalogues feminarum (ἠοίαι)},
+  keywords = {ancient},
+  shortauthor = {Hesiodos},
+  shorthand = {Hes. cat.},
+}
+
+@book{Hes:erg,
+  title = {opera et dies (ἔργα καὶ ἡμέραι)},
+  keywords = {ancient},
+  shortauthor = {Hesiodos},
+  shorthand = {Hes. erg.},
+}
+
+@book{Hes:scut,
+  title = {scutum (ἀσπίς)},
+  keywords = {ancient},
+  shortauthor = {Hesiodos},
+  shorthand = {Hes. scut.},
+}
+
+@book{Hes:theog,
+  title = {Theogonia},
+  keywords = {ancient},
+  shortauthor = {Hesiodos},
+  shorthand = {Hes. theog.},
+}
+
+@book{Hesych,
+  keywords = {ancient},
+  shortauthor = {Hesychios},
+  shorthand = {Hesych.},
+}
+
+@book{Hier:chron,
+  title = {chronicon},
+  keywords = {ancient},
+  shortauthor = {Hieronymos},
+  shorthand = {Hier. chron.},
+}
+
+@book{Hier:comminEz,
+  title = {commentaria in Ezechielem (PL 25)},
+  keywords = {ancient},
+  shortauthor = {Hieronymos},
+  shorthand = {Hier. comm. in Ez},
+}
+
+@book{Hier:epist,
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Hieronymos},
+  shorthand = {Hier. epist.},
+}
+
+@book{Hier:On,
+  title = {Onomastikon},
+  keywords = {ancient},
+  shortauthor = {Hieronymos},
+  shorthand = {Hier. On.},
+}
+
+@book{Hier:virill,
+  title = {de viris illustribus},
+  keywords = {ancient},
+  shortauthor = {Hieronymos},
+  shorthand = {Hier. vir. ill.},
+}
+
+@book{Hippokr,
+  keywords = {ancient},
+  shortauthor = {Hippokrates},
+  shorthand = {Hippokr.},
+}
+
+@book{HL,
+  keywords = {ancient},
+  shortauthor = {Hohelied},
+  shorthand = {HL},
+}
+
+@book{Hom:h,
+  author = {Homeros},
+  title = {Hymni Homeri},
+  keywords = {ancient},
+  shortauthor = {Homer},
+  shorthand = {Hom. h.},
+}
+
+@book{Hom:Il,
+  author = {Homeros},
+  title = {Ilias},
+  keywords = {ancient},
+  shortauthor = {Homer},
+  shorthand = {Hom. Il.},
+}
+
+@book{Hom:Od,
+  author = {Homeros},
+  title = {Odyssee},
+  keywords = {ancient},
+  shortauthor = {Homer},
+  shorthand = {Hom. Od.},
+}
+
+@book{Hor:ars,
+  author = {Horatius Flaccus, Quintus},
+  title = {ars poetica},
+  keywords = {ancient},
+  shortauthor = {Horaz},
+  shorthand = {Hor. ars},
+}
+
+@book{Hor:carm,
+  author = {Horatius Flaccus, Quintus},
+  title = {carmina},
+  keywords = {ancient},
+  shortauthor = {Horaz},
+  shorthand = {Hor. carm.},
+}
+
+@book{Hor:carmsaec,
+  author = {Horatius Flaccus, Quintus},
+  title = {carmen saeculare},
+  keywords = {ancient},
+  shortauthor = {Horaz},
+  shorthand = {Hor. carm. saec.},
+}
+
+@book{Hor:epist,
+  author = {Horatius Flaccus, Quintus},
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Horaz},
+  shorthand = {Hor. epist.},
+}
+
+@book{Hor:epod,
+  author = {Horatius Flaccus, Quintus},
+  title = {epodi},
+  keywords = {ancient},
+  shortauthor = {Horaz},
+  shorthand = {Hor. epod.},
+}
+
+@book{Hor:sat,
+  author = {Horatius Flaccus, Quintus},
+  title = {saturae (sermones)},
+  keywords = {ancient},
+  shortauthor = {Horaz},
+  shorthand = {Hor. sat.},
+}
+
+@book{Hyg:astr,
+  title = {astronomica},
+  keywords = {ancient},
+  shortauthor = {Hygin},
+  shorthand = {Hyg. astr.},
+}
+
+@book{Hyg:fab,
+  title = {fabulae},
+  keywords = {ancient},
+  shortauthor = {Hygin},
+  shorthand = {Hyg. fab.},
+}
+
+@book{Iambl:demyst,
+  title = {de mysteriis},
+  keywords = {ancient},
+  shortauthor = {Iamblichos},
+  shorthand = {Iambl. de myst.},
+}
+
+@book{Iambl:protr,
+  title = {protrepticus in philosophiam},
+  keywords = {ancient},
+  shortauthor = {Iamblichos},
+  shorthand = {Iambl. protr.},
+}
+
+@book{Iambl:vP,
+  title = {de vita Pythagorica},
+  keywords = {ancient},
+  shortauthor = {Iamblichos},
+  shorthand = {Iambl. v. P.},
+}
+
+@book{InstIust,
+  title = {Corpus Iuris Civilis, Institutiones},
+  keywords = {ancient},
+  shorthand = {Inst. Iust.},
+}
+
+@book{Ios:AntIud,
+  author = {Josephus, Flavius},
+  title = {antiquitates Iudaicae},
+  keywords = {ancient},
+  shortauthor = {Iosephus), Iosephos (Flavius},
+  shorthand = {Ios. Ant. Iud.},
+}
+
+@book{Ios:BellIud,
+  author = {Josephus, Flavius},
+  title = {bellum Iudaicum},
+  keywords = {ancient},
+  shortauthor = {Iosephus), Iosephos (Flavius},
+  shorthand = {Ios. Bell. Iud.},
+}
+
+@book{Ios:cAp,
+  author = {Josephus, Flavius},
+  title = {contra Apionem},
+  keywords = {ancient},
+  shortauthor = {Iosephus), Iosephos (Flavius},
+  shorthand = {Ios. c. Ap.},
+}
+
+@book{Ios:vita,
+  author = {Josephus, Flavius},
+  title = {de sua vita},
+  keywords = {ancient},
+  shortauthor = {Iosephus), Iosephos (Flavius},
+  shorthand = {Ios. vita},
+}
+
+@book{Isid:nat,
+  title = {de natura rerum},
+  keywords = {ancient},
+  shortauthor = {von Sevilla, Isidorus},
+  shorthand = {Isid. nat.},
+}
+
+@book{Isid:orig,
+  title = {origines (etymologiae)},
+  keywords = {ancient},
+  shortauthor = {von Sevilla, Isidorus},
+  shorthand = {Isid. orig.},
+}
+
+@book{Isokr:or,
+  title = {orationes},
+  keywords = {ancient},
+  shortauthor = {Isokrates},
+  shorthand = {Isokr. or.},
+}
+
+@book{ItinAnton,
+  title = {Itinerarium Antonini},
+  keywords = {ancient},
+  shorthand = {Itin. Anton.},
+}
+
+@book{Iul:epist,
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Iulianos},
+  shorthand = {Iul. epist.},
+}
+
+@book{Iul:inGal,
+  title = {in Galilaeos},
+  keywords = {ancient},
+  shortauthor = {Iulianos},
+  shorthand = {Iul. in Gal.},
+}
+
+@book{Iul:mis,
+  title = {Misopogon},
+  keywords = {ancient},
+  shortauthor = {Iulianos},
+  shorthand = {Iul. mis.},
+}
+
+@book{Iul:or,
+  title = {orationes},
+  keywords = {ancient},
+  shortauthor = {Iulianos},
+  shorthand = {Iul. or.},
+}
+
+@book{Iul:symp,
+  title = {symposion},
+  keywords = {ancient},
+  shortauthor = {Iulianos},
+  shorthand = {Iul. symp.},
+}
+
+@book{IulVict:Rhet,
+  title = {ars rhetorica},
+  keywords = {ancient},
+  shortauthor = {Victor, C. Iulius},
+  shorthand = {Iul. Vict. Rhet.},
+}
+
+@book{Iust,
+  title = {epitoma historiarum Philippicarum},
+  keywords = {ancient},
+  shortauthor = {Iustinus},
+  shorthand = {Iust.},
+}
+
+@book{Iuv:sat,
+  author = {Iunius Iuvenalis, Decimus},
+  title = {saturae},
+  keywords = {ancient},
+  shortauthor = {Iuvenal},
+  shorthand = {Iuv.},
+}
+
+@book{Iuvenc,
+  title = {evangelia},
+  keywords = {ancient},
+  shortauthor = {Iuvencus},
+  shorthand = {Iuvenc.},
+}
+
+@book{Jo,
+  keywords = {ancient},
+  shortauthor = {Johannes},
+  shorthand = {Jo},
+}
+
+@book{Kall:epigr,
+  title = {Epigrammata},
+  keywords = {ancient},
+  shortauthor = {Kallimachos},
+  shorthand = {Kall. epigr.},
+}
+
+@book{Kall:frg,
+  title = {fragmentum},
+  keywords = {ancient},
+  shortauthor = {Kallimachos},
+  shorthand = {Kall. frg.},
+}
+
+@book{Kall:h,
+  title = {hymni},
+  keywords = {ancient},
+  shortauthor = {Kallimachos},
+  shorthand = {Kall. h.},
+}
+
+@book{Lact:inst,
+  title = {divinae institutiones},
+  keywords = {ancient},
+  shortauthor = {Lactantius},
+  shorthand = {Lact. inst.},
+}
+
+@book{Lact:ira,
+  title = {de ira dei},
+  keywords = {ancient},
+  shortauthor = {Lactantius},
+  shorthand = {Lact. ira},
+}
+
+@book{Lact:mortpers,
+  title = {de mortibus persecutorum},
+  keywords = {ancient},
+  shortauthor = {Lactantius},
+  shorthand = {Lact. mort. pers.},
+}
+
+@book{Lact:opif,
+  title = {de opificio dei},
+  keywords = {ancient},
+  shortauthor = {Lactantius},
+  shorthand = {Lact. opif.},
+}
+
+@book{Liv,
+  author = {Livius, Titus},
+  title = {ab urbe condita},
+  keywords = {ancient},
+  shortauthor = {Livius},
+  shorthand = {Liv.},
+}
+
+@book{Lk,
+  keywords = {ancient},
+  shortauthor = {Lukas},
+  shorthand = {Lk},
+}
+
+@book{Lucan,
+  title = {bellum civile},
+  keywords = {ancient},
+  shortauthor = {Lucanus},
+  shorthand = {Lucan.},
+}
+
+@book{Lucil,
+  title = {saturae},
+  keywords = {ancient},
+  shortauthor = {Lucilius},
+  shorthand = {Lucil.},
+}
+
+@book{Lucr,
+  author = {Lucretius Carus, Titus},
+  title = {de rerum natura},
+  keywords = {ancient},
+  shortauthor = {Lukrez},
+  shorthand = {Lucr.},
+}
+
+@book{Lukian,
+  keywords = {ancient},
+  shortauthor = {Lukianos},
+  shorthand = {Lukian.},
+}
+
+@book{LXX,
+  keywords = {ancient},
+  shortauthor = {Septuaginta},
+  shorthand = {LXX},
+}
+
+@book{Lyd:mag,
+  title = {de magistratibus},
+  keywords = {ancient},
+  shortauthor = {Lydos},
+  shorthand = {Lyd. mag.},
+}
+
+@book{Lyd:mens,
+  title = {de mensibus},
+  keywords = {ancient},
+  shortauthor = {Lydos},
+  shorthand = {Lyd. mens.},
+}
+
+@book{Lykurg,
+  keywords = {ancient},
+  shortauthor = {Lykurgos},
+  shorthand = {Lykurg.},
+}
+
+@book{Lys,
+  keywords = {ancient},
+  shortauthor = {Lysias},
+  shorthand = {Lys.},
+}
+
+@book{Macr:Sat,
+  title = {Saturnalia},
+  keywords = {ancient},
+  shortauthor = {Macrobius},
+  shorthand = {Macr. Sat.},
+}
+
+@book{Manil,
+  title = {astronomica},
+  keywords = {ancient},
+  shortauthor = {Manilius},
+  shorthand = {Manil.},
+}
+
+@book{Mart,
+  author = {Valerius Martialis, Marcus},
+  title = {Epigrammata},
+  keywords = {ancient},
+  shortauthor = {Martial},
+  shorthand = {Mart.},
+}
+
+@book{Mart:spect,
+  author = {Valerius Martialis, Marcus},
+  title = {spectacula},
+  keywords = {ancient},
+  shortauthor = {Martial},
+  shorthand = {Mart. spect.},
+}
+
+@book{MartCap,
+  keywords = {ancient},
+  shortauthor = {Capella, Martianus},
+  shorthand = {Mart. Cap.},
+}
+
+@book{MarVictorin,
+  keywords = {ancient},
+  shortauthor = {Victorinus, Marius},
+  shorthand = {Mar. Victorin.},
+}
+
+@book{Maur,
+  keywords = {ancient},
+  shortauthor = {Augustus, Marcus Aurelius Antonius},
+  shorthand = {M. Aur.},
+}
+
+@book{Mel,
+  keywords = {ancient},
+  shortauthor = {Mela, Pomponius},
+  shorthand = {Mel.},
+}
+
+@book{Men:Dysk,
+  title = {Dyskolo.},
+  keywords = {ancient},
+  shortauthor = {Menandros},
+  shorthand = {Men. Dysk.},
+}
+
+@book{Men:Epitr,
+  title = {Epitrepontes},
+  keywords = {ancient},
+  shortauthor = {Menandros},
+  shorthand = {Men. Epitr.},
+}
+
+@book{Men:Sam,
+  title = {Samia},
+  keywords = {ancient},
+  shortauthor = {Menandros},
+  shorthand = {Men. Sam.},
+}
+
+@book{Mimn,
+  keywords = {ancient},
+  shortauthor = {Mimnermos},
+  shorthand = {Mimn.},
+}
+
+@book{MinFel,
+  keywords = {ancient},
+  shortauthor = {Felix, Oct. Minucius},
+  shorthand = {Min. Fel.},
+}
+
+@book{Mk,
+  keywords = {ancient},
+  shortauthor = {Markus},
+  shorthand = {Mk},
+}
+
+@book{Mosch,
+  keywords = {ancient},
+  shortauthor = {Moschos},
+  shorthand = {Mosch.},
+}
+
+@book{Mt,
+  keywords = {ancient},
+  shortauthor = {Matthäus},
+  shorthand = {Mt},
+}
+
+@book{Naev,
+  keywords = {ancient},
+  shortauthor = {Naevius},
+  shorthand = {Naev.},
+}
+
+@book{Nep:Att,
+  title = {Atticus},
+  keywords = {ancient},
+  shortauthor = {Nepos, Cornelius},
+  shorthand = {Nep. Att.},
+}
+
+@book{Nep:Hann,
+  title = {Hannibal},
+  keywords = {ancient},
+  shortauthor = {Nepos, Cornelius},
+  shorthand = {Nep. Hann.},
+}
+
+@book{Nik:Alex,
+  title = {Alexipharmaka},
+  keywords = {ancient},
+  shortauthor = {Nikander},
+  shorthand = {Nik. Alex.},
+}
+
+@book{Nik:Ther,
+  title = {Theriaka},
+  keywords = {ancient},
+  shortauthor = {Nikander},
+  shorthand = {Nik. Ther.},
+}
+
+@book{Nm,
+  keywords = {ancient},
+  shortauthor = {Mose), Numeri (= 4.},
+  shorthand = {Nm},
+}
+
+@book{Non,
+  keywords = {ancient},
+  shortauthor = {Nonius},
+  shorthand = {Non.},
+}
+
+@book{Nonn:Dion,
+  title = {Dion.},
+  keywords = {ancient},
+  shortauthor = {{Nonnos von Panopolis}},
+  shorthand = {Nonn. Dion.},
+}
+
+@book{Nov,
+  title = {Corpus Iuris Civilis, Leges Novellae},
+  keywords = {ancient},
+  shorthand = {Nov.},
+}
+
+@book{Orig,
+  keywords = {ancient},
+  shortauthor = {Origines},
+  shorthand = {Orig.},
+}
+
+@book{Oros,
+  author = {Ovidius Naso, Publius},
+  keywords = {ancient},
+  shortauthor = {Orosius},
+  shorthand = {Oros..},
+}
+
+@book{Ov:am,
+  author = {Ovidius Naso, Publius},
+  title = {amores},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. am.},
+}
+
+@book{Ov:ars,
+  author = {Ovidius Naso, Publius},
+  title = {ars amatoria},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. ars},
+}
+
+@book{Ov:epist,
+  author = {Ovidius Naso, Publius},
+  title = {epistulae (heroides)},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. epist.},
+}
+
+@book{Ov:fast,
+  author = {Ovidius Naso, Publius},
+  title = {fasti},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. fast.},
+}
+
+@book{Ov:Ib,
+  author = {Ovidius Naso, Publius},
+  title = {Ibis},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. Ib.},
+}
+
+@book{Ov:medic,
+  author = {Ovidius Naso, Publius},
+  title = {medicamina faciei femineae},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. medic.},
+}
+
+@book{Ov:met,
+  author = {Ovidius Naso, Publius},
+  title = {metamorphoses},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. met.},
+}
+
+@book{Ov:Pont,
+  author = {Ovidius Naso, Publius},
+  title = {epistulae ex Ponto},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. Pont.},
+}
+
+@book{Ov:rem,
+  author = {Ovidius Naso, Publius},
+  title = {remedia amoris},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. rem.},
+}
+
+@book{Ov:trist,
+  author = {Ovidius Naso, Publius},
+  title = {tristia},
+  keywords = {ancient},
+  shortauthor = {Ovid},
+  shorthand = {Ov. trist.},
+}
+
+@book{Papin,
+  keywords = {ancient},
+  shortauthor = {Papinianus, Aemilius},
+  shorthand = {Papin.},
+}
+
+@book{Passmart,
+  title = {Passiones martyrum},
+  keywords = {ancient},
+  shorthand = {Pass. mart.},
+}
+
+@book{Paus,
+  author = {Pausanias},
+  keywords = {ancient},
+  shortauthor = {Pausanias},
+  shorthand = {Paus.},
+}
+
+@book{Pers,
+  title = {saturae},
+  keywords = {ancient},
+  shortauthor = {Persius},
+  shorthand = {Pers.},
+}
+
+@book{Petron,
+  title = {satyrica},
+  keywords = {ancient},
+  shortauthor = {Petronius},
+  shorthand = {Petron.},
+}
+
+@book{Phaedr,
+  title = {fabulae},
+  keywords = {ancient},
+  shortauthor = {Phaedrus},
+  shorthand = {Phaedr.},
+}
+
+@book{Pind:frg,
+  author = {Pindar},
+  title = {fragmentum},
+  keywords = {ancient},
+  shortauthor = {Pindar},
+  shorthand = {Pind. frg.},
+}
+
+@book{Pind:I,
+  author = {Pindar},
+  title = {Isthmien},
+  keywords = {ancient},
+  shortauthor = {Pindar},
+  shorthand = {Pind. I.},
+}
+
+@book{Pind:N,
+  author = {Pindar},
+  title = {Nemeen},
+  keywords = {ancient},
+  shortauthor = {Pindar},
+  shorthand = {Pind. N.},
+}
+
+@book{Pind:O,
+  author = {Pindar},
+  title = {Olympien},
+  keywords = {ancient},
+  shortauthor = {Pindar},
+  shorthand = {Pind. O.},
+}
+
+@book{Pind:P,
+  author = {Pindar},
+  title = {Pythien},
+  keywords = {ancient},
+  shortauthor = {Pindar},
+  shorthand = {Pind. P.},
+}
+
+@book{Plat:Alk1,
+  author = {Platon},
+  title = {Alkibiades 1},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Alk. 1},
+}
+
+@book{Plat:Alk2,
+  author = {Platon},
+  title = {Alkibiades 2},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Alk. 2},
+}
+
+@book{Plat:apol,
+  author = {Platon},
+  title = {apologia},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. apol.},
+}
+
+@book{Plat:Ax,
+  author = {Platon},
+  title = {Axiochos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Ax.},
+}
+
+@book{Plat:Charm,
+  author = {Platon},
+  title = {Charmides},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Charm.},
+}
+
+@book{Plat:def,
+  author = {Platon},
+  title = {Definitiones (ὅροι)},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. def.},
+}
+
+@book{Plat:Dem,
+  author = {Platon},
+  title = {Demodokos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Dem.},
+}
+
+@book{Plat:epin,
+  author = {Platon},
+  title = {epinomis},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. epin.},
+}
+
+@book{Plat:epist,
+  author = {Platon},
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. epist.},
+}
+
+@book{Plat:eras,
+  author = {Platon},
+  title = {erastae},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. eras.},
+}
+
+@book{Plat:Eryx,
+  author = {Platon},
+  title = {Eryxias},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Eryx.},
+}
+
+@book{Plat:Euthyd,
+  author = {Platon},
+  title = {Euthydemos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Euthyd.},
+}
+
+@book{Plat:Euthyphr,
+  author = {Platon},
+  title = {Euthyphron},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Euthyphr.},
+}
+
+@book{Plat:Gorg,
+  author = {Platon},
+  title = {Gorgias},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Gorg.},
+}
+
+@book{Plat:Hipparch,
+  author = {Platon},
+  title = {Hipparchos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Hipparch.},
+}
+
+@book{Plat:Hippmai,
+  author = {Platon},
+  title = {Hippias maior},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Hipp. mai.},
+}
+
+@book{Plat:Hippmin,
+  author = {Platon},
+  title = {Hippias minor},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Hipp. min.},
+}
+
+@book{Plat:Ion,
+  author = {Platon},
+  title = {Ion},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Ion},
+}
+
+@book{Plat:Kleit,
+  author = {Platon},
+  title = {Kleitophon},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Kleit.},
+}
+
+@book{Plat:Krat,
+  author = {Platon},
+  title = {Kratylos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Krat.},
+}
+
+@book{Plat:Krit,
+  author = {Platon},
+  title = {Kriton},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Krit.},
+}
+
+@book{Plat:Kritias,
+  author = {Platon},
+  title = {Kritias},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Kritias},
+}
+
+@book{Plat:Lach,
+  author = {Platon},
+  title = {Laches},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Lach.},
+}
+
+@book{Plat:leg,
+  author = {Platon},
+  title = {leges (νόμοι)},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. leg.},
+}
+
+@book{Plat:Lys,
+  author = {Platon},
+  title = {Lysis},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Lys.},
+}
+
+@book{Plat:Men,
+  author = {Platon},
+  title = {Menon},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Men.},
+}
+
+@book{Plat:Min,
+  author = {Platon},
+  title = {Minos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Min.},
+}
+
+@book{Plat:Mx,
+  author = {Platon},
+  title = {Menexenos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Mx.},
+}
+
+@book{Plat:Parm,
+  author = {Platon},
+  title = {Parmenides},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Parm.},
+}
+
+@book{Plat:Phaid,
+  author = {Platon},
+  title = {Phaidon},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Phaid.},
+}
+
+@book{Plat:Phaidr,
+  author = {Platon},
+  title = {Phaidros},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Phaidr.},
+}
+
+@book{Plat:Phil,
+  author = {Platon},
+  title = {Philebos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Phil.},
+}
+
+@book{Plat:polit,
+  author = {Platon},
+  title = {politicus},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. polit.},
+}
+
+@book{Plat:Prot,
+  author = {Platon},
+  title = {Protagoras},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Prot.},
+}
+
+@book{Plat:rep,
+  author = {Platon},
+  title = {de re publica (πολιτεία)},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. rep.},
+}
+
+@book{Plat:Sis,
+  author = {Platon},
+  title = {Sisyphos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Sis.},
+}
+
+@book{Plat:soph,
+  author = {Platon},
+  title = {sophista},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. soph.},
+}
+
+@book{Plat:symp,
+  author = {Platon},
+  title = {symposium},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. symp.},
+}
+
+@book{Plat:Thg,
+  author = {Platon},
+  title = {Theages},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Thg.},
+}
+
+@book{Plat:Tht,
+  author = {Platon},
+  title = {Theaitetos},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Tht.},
+}
+
+@book{Plat:Tim,
+  author = {Platon},
+  title = {Timaios},
+  keywords = {ancient},
+  shortauthor = {Platon},
+  shorthand = {Plat. Tim.},
+}
+
+@book{Plaut:Amph,
+  author = {Maccius Plautus, Titus},
+  title = {Amphitruo},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Amph.},
+}
+
+@book{Plaut:Asin,
+  author = {Maccius Plautus, Titus},
+  title = {Asinaria},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Asin.},
+}
+
+@book{Plaut:Aul,
+  author = {Maccius Plautus, Titus},
+  title = {Aulularia},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Aul.},
+}
+
+@book{Plaut:Bacch,
+  author = {Maccius Plautus, Titus},
+  title = {Bacchides},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Bacch.},
+}
+
+@book{Plaut:Cist,
+  author = {Maccius Plautus, Titus},
+  title = {Cistellaria},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Cist.},
+}
+
+@book{Plaut:Curc,
+  author = {Maccius Plautus, Titus},
+  title = {Curculio},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Curc.},
+}
+
+@book{Plaut:Epid,
+  author = {Maccius Plautus, Titus},
+  title = {Epidicus},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Epid.},
+}
+
+@book{Plaut:Men,
+  author = {Maccius Plautus, Titus},
+  title = {Menaechmi},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Men.},
+}
+
+@book{Plaut:Merc,
+  author = {Maccius Plautus, Titus},
+  title = {Mercator},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Merc.},
+}
+
+@book{Plaut:Mil,
+  author = {Maccius Plautus, Titus},
+  title = {Miles gloriosus},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Mil.},
+}
+
+@book{Plaut:Most,
+  author = {Maccius Plautus, Titus},
+  title = {Mostellaria},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Most.},
+}
+
+@book{Plaut:Poen,
+  author = {Maccius Plautus, Titus},
+  title = {Poenulus},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Poen.},
+}
+
+@book{Plaut:Pseud,
+  author = {Maccius Plautus, Titus},
+  title = {Pseudolus},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Pseud.},
+}
+
+@book{Plaut:Rud,
+  author = {Maccius Plautus, Titus},
+  title = {Rudens},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Rud.},
+}
+
+@book{Plaut:Stich,
+  author = {Maccius Plautus, Titus},
+  title = {Stichus},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Stich.},
+}
+
+@book{Plaut:Trin,
+  author = {Maccius Plautus, Titus},
+  title = {Trinummus},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Trin.},
+}
+
+@book{Plaut:Truc,
+  author = {Maccius Plautus, Titus},
+  title = {Truculentus},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Truc.},
+}
+
+@book{Plaut:Vid,
+  author = {Maccius Plautus, Titus},
+  title = {Vidularia},
+  keywords = {ancient},
+  shortauthor = {Plautus},
+  shorthand = {Plaut. Vid.},
+}
+
+@book{Plin:epist,
+  author = {Plinius Caecilius Secundus, Caius},
+  title = {Epistulae},
+  keywords = {ancient},
+  shortauthor = {minor, Plinius},
+  shorthand = {Plin. epist.},
+}
+
+@book{Plin:nat,
+  author = {Plinius Secundus, Caius},
+  title = {naturalis historia},
+  keywords = {ancient},
+  shortauthor = {maior, Plinius},
+  shorthand = {Plin. nat.},
+}
+
+@book{Plin:paneg,
+  author = {Plinius Caecilius Secundus, Caius},
+  title = {panegyricus},
+  keywords = {ancient},
+  shortauthor = {minor, Plinius},
+  shorthand = {Plin. paneg.},
+}
+
+@book{Plot,
+  keywords = {ancient},
+  shortauthor = {Plotinos},
+  shorthand = {Plot.},
+}
+
+@book{Plut,
+  author = {Plutarchos},
+  title = {vitae parallelae},
+  keywords = {ancient},
+  shortauthor = {Plutarch},
+  shorthand = {Plut.},
+}
+
+@book{Plut:am,
+  author = {Plutarchos},
+  title = {Amatorius (erotikos)},
+  keywords = {ancient},
+  shortauthor = {Plutarch},
+  shorthand = {Plut. am.},
+}
+
+@book{Plut:dePythOr,
+  author = {Plutarchos},
+  title = {de Pythiae oraculis},
+  keywords = {ancient},
+  shortauthor = {Plutarch},
+  shorthand = {Plut. de Pyth.Or.},
+}
+
+@book{Plut:Is,
+  author = {Plutarchos},
+  title = {de Iside et Osiride},
+  keywords = {ancient},
+  shortauthor = {Plutarch},
+  shorthand = {Plut. Is.},
+}
+
+@book{Plut:mor,
+  author = {Plutarchos},
+  title = {moralia},
+  keywords = {ancient},
+  shortauthor = {Plutarch},
+  shorthand = {Plut. mor.},
+}
+
+@book{Plut:quGr,
+  author = {Plutarchos},
+  title = {quaestiones Graecae},
+  keywords = {ancient},
+  shortauthor = {Plutarch},
+  shorthand = {Plut. qu. Gr.},
+}
+
+@book{Plut:quR,
+  author = {Plutarchos},
+  title = {quaestiones Romanae},
+  keywords = {ancient},
+  shortauthor = {Plutarch},
+  shorthand = {Plut. qu. R.},
+}
+
+@book{Plut:symp,
+  author = {Plutarchos},
+  title = {quaestiones convivales},
+  keywords = {ancient},
+  shortauthor = {Plutarch},
+  shorthand = {Plut. symp.},
+}
+
+@book{Pol,
+  keywords = {ancient},
+  shortauthor = {Polybios},
+  shorthand = {Pol.},
+}
+
+@book{Poll,
+  keywords = {ancient},
+  shortauthor = {Pollux},
+  shorthand = {Poll.},
+}
+
+@book{Porph,
+  keywords = {ancient},
+  shortauthor = {Porphyrios},
+  shorthand = {Porph.},
+}
+
+@book{Poseid,
+  keywords = {ancient},
+  shortauthor = {Poseidonios},
+  shorthand = {Poseid.},
+}
+
+@book{Priap,
+  keywords = {ancient},
+  shortauthor = {Priapea},
+  shorthand = {Priap.},
+}
+
+@book{Prisc,
+  keywords = {ancient},
+  shortauthor = {Priscianus},
+  shorthand = {Prisc.},
+}
+
+@book{Prok:aed,
+  author = {Prokopius},
+  title = {de aedificiis (περὶ κτισμάτων)},
+  keywords = {ancient},
+  shortauthor = {Prokop},
+  shorthand = {Prok. aed.},
+}
+
+@book{Prok:BG,
+  author = {Prokopius},
+  title = {bellum Gothicum},
+  keywords = {ancient},
+  shortauthor = {Prokop},
+  shorthand = {Prok. BG},
+}
+
+@book{Prok:BP,
+  author = {Prokopius},
+  title = {bellum Persicum},
+  keywords = {ancient},
+  shortauthor = {Prokop},
+  shorthand = {Prok. BP},
+}
+
+@book{Prok:BV,
+  author = {Prokopius},
+  title = {bellum Vandalicum},
+  keywords = {ancient},
+  shortauthor = {Prokop},
+  shorthand = {Prok. BV},
+}
+
+@book{Prok:HA,
+  author = {Prokopius},
+  title = {historia arcana},
+  keywords = {ancient},
+  shortauthor = {Prokop},
+  shorthand = {Prok. HA},
+}
+
+@book{Prokl,
+  keywords = {ancient},
+  shortauthor = {Proklos},
+  shorthand = {Prokl.},
+}
+
+@book{Prop,
+  author = {Aurelius Propertius, {\relax Sex}tus},
+  title = {elegiae},
+  keywords = {ancient},
+  shortauthor = {Properz},
+  shorthand = {Prop.},
+}
+
+@book{Prud,
+  keywords = {ancient},
+  shortauthor = {Prudentius},
+  shorthand = {Prud.},
+}
+
+@book{Quint:decl,
+  author = {Fabius Quintilianus, Marcus},
+  title = {declamationes minores},
+  keywords = {ancient},
+  shortauthor = {Quintilian},
+  shorthand = {Quint. decl.},
+}
+
+@book{Quint:inst,
+  author = {Fabius Quintilianus, Marcus},
+  title = {institutio oratoria},
+  keywords = {ancient},
+  shortauthor = {Quintilian},
+  shorthand = {Quint. inst.},
+}
+
+@book{RgestdivAug,
+  title = {Res gestae divi Augusti},
+  keywords = {ancient},
+  shorthand = {R. Gest. div. Aug.},
+}
+
+@book{Rhet:Her,
+  keywords = {ancient},
+  shortauthor = {ad Herennium, Rhetorica},
+  shorthand = {Rhet. Her.},
+}
+
+@book{Roem,
+  keywords = {ancient},
+  shortauthor = {Römerbrief},
+  shorthand = {Röm},
+}
+
+@book{RutNam,
+  title = {de reditu suo},
+  keywords = {ancient},
+  shortauthor = {Namatianus, Rutilius Claudius},
+  shorthand = {Rut. Nam.},
+}
+
+@book{Sall:Catil,
+  author = {Sallustius Crispus, Caius},
+  title = {de coniuratione Catilinae},
+  keywords = {ancient},
+  shortauthor = {Sallust},
+  shorthand = {Sall. Catil.},
+}
+
+@book{Sall:epist,
+  author = {Sallustius Crispus, Caius},
+  title = {epistulae ad Caesarem},
+  keywords = {ancient},
+  shortauthor = {Sallust},
+  shorthand = {Sall. epist.},
+}
+
+@book{Sall:hist,
+  author = {Sallustius Crispus, Caius},
+  title = {historiae},
+  keywords = {ancient},
+  shortauthor = {Sallust},
+  shorthand = {Sall. hist.},
+}
+
+@book{Sall:Iug,
+  author = {Sallustius Crispus, Caius},
+  title = {de bello Iugurthino},
+  keywords = {ancient},
+  shortauthor = {Sallust},
+  shorthand = {Sall. Iug.},
+}
+
+@book{Semp,
+  keywords = {ancient},
+  shortauthor = {Empiricus, Sextus},
+  shorthand = {S. Emp.},
+}
+
+@book{Sen:apocol,
+  author = {Annaeus Seneca, Lucius},
+  title = {divi Claudii apocolocynthosis},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. apocol.},
+}
+
+@book{Sen:benef,
+  author = {Annaeus Seneca, Lucius},
+  title = {de beneficiis},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. benef.},
+}
+
+@book{Sen:clem,
+  author = {Annaeus Seneca, Lucius},
+  title = {de clementia},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. clem.},
+}
+
+@book{Sen:contr,
+  author = {Annaeus Seneca, Lucius},
+  title = {controversiae},
+  keywords = {ancient},
+  shortauthor = {maior, Seneca},
+  shorthand = {Sen. contr.},
+}
+
+@book{Sen:dial,
+  author = {Annaeus Seneca, Lucius},
+  title = {dialogi},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. dial.},
+}
+
+@book{Sen:epist,
+  author = {Annaeus Seneca, Lucius},
+  title = {epistulae morales ad Lucilium},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. epist.},
+}
+
+@book{Sen:Hercf,
+  author = {Annaeus Seneca, Lucius},
+  title = {Hercules furens},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. Herc. f.},
+}
+
+@book{Sen:HercO,
+  author = {Annaeus Seneca, Lucius},
+  title = {Hercules Oetaeus},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Herc. O.},
+}
+
+@book{Sen:Med,
+  author = {Annaeus Seneca, Lucius},
+  title = {Medea},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. Med.},
+}
+
+@book{Sen:nat,
+  author = {Annaeus Seneca, Lucius},
+  title = {naturales quaestiones},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. nat.},
+}
+
+@book{Sen:Oed,
+  author = {Annaeus Seneca, Lucius},
+  title = {Oedipus},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. Oed.},
+}
+
+@book{Sen:Phaedr,
+  author = {Annaeus Seneca, Lucius},
+  title = {Phaedra},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. Phaedr.},
+}
+
+@book{Sen:Phoen,
+  author = {Annaeus Seneca, Lucius},
+  title = {Phoenissae},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. Phoen.},
+}
+
+@book{Sen:suas,
+  author = {Annaeus Seneca, Lucius},
+  title = {suasoriae},
+  keywords = {ancient},
+  shortauthor = {maior, Seneca},
+  shorthand = {Sen. suas.},
+}
+
+@book{Sen:Thy,
+  author = {Annaeus Seneca, Lucius},
+  title = {Thyestes},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. Thy.},
+}
+
+@book{Sen:Tro,
+  author = {Annaeus Seneca, Lucius},
+  title = {Troades},
+  keywords = {ancient},
+  shortauthor = {minor, Seneca},
+  shorthand = {Sen. Tro.},
+}
+
+@book{Serv:Aen,
+  title = {commentarius in Vergilii Aeneida},
+  keywords = {ancient},
+  shortauthor = {Servius},
+  shorthand = {Serv. Aen.},
+}
+
+@book{Serv:auct,
+  keywords = {ancient},
+  shortauthor = {auctus Danielis, Servius},
+  shorthand = {Serv. auct.},
+}
+
+@book{Serv:ecl,
+  title = {commentarius in Vergilii eclogas},
+  keywords = {ancient},
+  shortauthor = {Servius},
+  shorthand = {Serv. ecl.},
+}
+
+@book{Serv:georg,
+  title = {commentarius in Vergilii georgica},
+  keywords = {ancient},
+  shortauthor = {Servius},
+  shorthand = {Serv. georg.},
+}
+
+@book{Sil,
+  title = {Punica},
+  keywords = {ancient},
+  shortauthor = {Italicus, Silius},
+  shorthand = {Sil.},
+}
+
+@book{Sim,
+  keywords = {ancient},
+  shortauthor = {Simonides},
+  shorthand = {Sim.},
+}
+
+@book{Simpl,
+  keywords = {ancient},
+  shortauthor = {Simplikios},
+  shorthand = {Simpl.},
+}
+
+@book{Sol,
+  keywords = {ancient},
+  shortauthor = {Solon},
+  shorthand = {Sol.},
+}
+
+@book{Soph:Ai,
+  title = {Aias},
+  keywords = {ancient},
+  shortauthor = {Sophokles},
+  shorthand = {Soph. Ai.},
+}
+
+@book{Soph:Ant,
+  title = {Antigone},
+  keywords = {ancient},
+  shortauthor = {Sophokles},
+  shorthand = {Soph. Ant.},
+}
+
+@book{Soph:El,
+  title = {Electra},
+  keywords = {ancient},
+  shortauthor = {Sophokles},
+  shorthand = {Soph. El.},
+}
+
+@book{Soph:OidK,
+  title = {Oedipus Coloneus},
+  keywords = {ancient},
+  shortauthor = {Sophokles},
+  shorthand = {Soph. Oid. K.},
+}
+
+@book{Soph:OidT,
+  title = {Oedipus Rex (Oedipus Tyrannus)},
+  keywords = {ancient},
+  shortauthor = {Sophokles},
+  shorthand = {Soph. Oid. T.},
+}
+
+@book{Soph:Phil,
+  title = {Philoctetes},
+  keywords = {ancient},
+  shortauthor = {Sophokles},
+  shorthand = {Soph. Phil.},
+}
+
+@book{Stat:Ach,
+  title = {Achilleis},
+  keywords = {ancient},
+  shortauthor = {Statius},
+  shorthand = {Stat. Ach.},
+}
+
+@book{Stat:silv,
+  title = {silvae},
+  keywords = {ancient},
+  shortauthor = {Statius},
+  shorthand = {Stat. silv.},
+}
+
+@book{Stat:Theb,
+  title = {Thebais},
+  keywords = {ancient},
+  shortauthor = {Statius},
+  shorthand = {Stat. Theb.},
+}
+
+@book{Stesich,
+  keywords = {ancient},
+  shortauthor = {Stesichoros},
+  shorthand = {Stesich.},
+}
+
+@book{Stob,
+  keywords = {ancient},
+  shortauthor = {Stobaios},
+  shorthand = {Stob.},
+}
+
+@book{Strab,
+  keywords = {ancient},
+  shortauthor = {Strabon},
+  shorthand = {Strab.},
+}
+
+@book{Suet:Aug,
+  author = {Suetonius Tranquillus, Caius},
+  title = {divus Augustus},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Aug.},
+}
+
+@book{Suet:Cal,
+  author = {Suetonius Tranquillus, Caius},
+  title = {Caligula},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Cal.},
+}
+
+@book{Suet:Claud,
+  author = {Suetonius Tranquillus, Caius},
+  title = {divus Claudius},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Claud.},
+}
+
+@book{Suet:Dom,
+  author = {Suetonius Tranquillus, Caius},
+  title = {Domitianus},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Dom.},
+}
+
+@book{Suet:gramm,
+  author = {Suetonius Tranquillus, Caius},
+  title = {de grammaticis},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. gramm.},
+}
+
+@book{Suet:Iul,
+  author = {Suetonius Tranquillus, Caius},
+  title = {divus Iulius},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Iul.},
+}
+
+@book{Suet:Tib,
+  author = {Suetonius Tranquillus, Caius},
+  title = {divus Tiberius},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Tib.},
+}
+
+@book{Suet:Tit,
+  author = {Suetonius Tranquillus, Caius},
+  title = {divus Titus},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Tit.},
+}
+
+@book{Suet:Vesp,
+  author = {Suetonius Tranquillus, Caius},
+  title = {divus Vespasianus},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Vesp.},
+}
+
+@book{Suet:Vit,
+  author = {Suetonius Tranquillus, Caius},
+  title = {Vitellius},
+  keywords = {ancient},
+  shortauthor = {Sueton},
+  shorthand = {Suet. Vit.},
+}
+
+@book{Symm:epist,
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {Symmachus},
+  shorthand = {Symm. epist.},
+}
+
+@book{Symm:or,
+  title = {orationes},
+  keywords = {ancient},
+  shortauthor = {Symmachus},
+  shorthand = {Symm. or.},
+}
+
+@book{Symm:rel,
+  title = {relationes},
+  keywords = {ancient},
+  shortauthor = {Symmachus},
+  shorthand = {Symm. rel.},
+}
+
+@book{Synes:epist,
+  title = {epistulae},
+  keywords = {ancient},
+  shortauthor = {epist.},
+  shorthand = {Synes. Epist.},
+}
+
+@book{Tac:Agr,
+  author = {Cornelius Tacitus, Publius},
+  title = {Agricola},
+  keywords = {ancient},
+  shortauthor = {Tacitus},
+  shorthand = {Tac. Agr.},
+}
+
+@book{Tac:ann,
+  author = {Cornelius Tacitus, Publius},
+  title = {annales},
+  keywords = {ancient},
+  shortauthor = {Tacitus},
+  shorthand = {Tac. ann.},
+}
+
+@book{Tac:dial,
+  author = {Cornelius Tacitus, Publius},
+  title = {dialogus de oratoribus},
+  keywords = {ancient},
+  shortauthor = {Tacitus},
+  shorthand = {Tac. dial.},
+}
+
+@book{Tac:Germ,
+  author = {Cornelius Tacitus, Publius},
+  title = {Germania},
+  keywords = {ancient},
+  shortauthor = {Tacitus},
+  shorthand = {Tac. Germ.},
+}
+
+@book{Tac:hist,
+  author = {Cornelius Tacitus, Publius},
+  title = {historiae},
+  keywords = {ancient},
+  shortauthor = {Tacitus},
+  shorthand = {Tac. hist.},
+}
+
+@book{Ter:Ad,
+  author = {Terentius Afer, Publius},
+  title = {Adelphoe},
+  keywords = {ancient},
+  shortauthor = {Terenz},
+  shorthand = {Ter. Ad.},
+}
+
+@book{Ter:Andr,
+  author = {Terentius Afer, Publius},
+  title = {Andria},
+  keywords = {ancient},
+  shortauthor = {Terenz},
+  shorthand = {Ter. Andr.},
+}
+
+@book{Ter:Eun,
+  author = {Terentius Afer, Publius},
+  title = {Eunuchus},
+  keywords = {ancient},
+  shortauthor = {Terenz},
+  shorthand = {Ter. Eun.},
+}
+
+@book{Ter:Haut,
+  author = {Terentius Afer, Publius},
+  title = {Heautontimorumenos},
+  keywords = {ancient},
+  shortauthor = {Terenz},
+  shorthand = {Ter. Haut.},
+}
+
+@book{Ter:Hec,
+  author = {Terentius Afer, Publius},
+  title = {Hecyra},
+  keywords = {ancient},
+  shortauthor = {Terenz},
+  shorthand = {Ter. Hec.},
+}
+
+@book{Ter:Maur,
+  keywords = {ancient},
+  shortauthor = {Maurus, Terentianus},
+  shorthand = {Ter. Maur.},
+}
+
+@book{Ter:Phorm,
+  author = {Terentius Afer, Publius},
+  title = {Phormio},
+  keywords = {ancient},
+  shortauthor = {Terenz},
+  shorthand = {Ter. Phorm.},
+}
+
+@book{Tert:apol,
+  author = {Septimius, Quintus Tertullianus},
+  title = {apologeticum},
+  keywords = {ancient},
+  shortauthor = {Tertullianus},
+  shorthand = {Tert. apol.},
+}
+
+@book{Tert:nat,
+  author = {Septimius, Quintus Tertullianus},
+  title = {ad nationes},
+  keywords = {ancient},
+  shortauthor = {Tertullianus},
+  shorthand = {Tert. nat.},
+}
+
+@book{Theokr,
+  keywords = {ancient},
+  shortauthor = {Theokritos},
+  shorthand = {Theokr.},
+}
+
+@book{Thgn,
+  keywords = {ancient},
+  shortauthor = {Theognis},
+  shorthand = {Thgn.},
+}
+
+@book{Thuk,
+  keywords = {ancient},
+  shortauthor = {Thukydides},
+  shorthand = {Thuk.},
+}
+
+@book{Tib,
+  title = {elegiae},
+  keywords = {ancient},
+  shortauthor = {Tibullus},
+  shorthand = {Tib.},
+}
+
+@book{Ulp:reg,
+  title = {(Ulpiani regulae)},
+  keywords = {ancient},
+  shortauthor = {Ulpianus},
+  shorthand = {Ulp. Reg.},
+}
+
+@book{ValFl,
+  title = {Argonautica},
+  keywords = {ancient},
+  shortauthor = {Flaccus, Valerius},
+  shorthand = {Val. Fl.},
+}
+
+@book{ValMax,
+  title = {facta et dicta memorabilia},
+  keywords = {ancient},
+  shortauthor = {Maximus, Valerius},
+  shorthand = {Val. Max.},
+}
+
+@book{Varro:ling,
+  author = {Terentius Varro, Marcus},
+  title = {de lingua Latina},
+  keywords = {ancient},
+  shortauthor = {Varro},
+  shorthand = {Varro ling.},
+}
+
+@book{Varro:Men,
+  author = {Terentius Varro, Marcus},
+  title = {saturae Menippeae},
+  keywords = {ancient},
+  shortauthor = {Varro},
+  shorthand = {Varro Men.},
+}
+
+@book{Varro:rust,
+  author = {Terentius Varro, Marcus},
+  title = {res rusticae},
+  keywords = {ancient},
+  shortauthor = {Varro},
+  shorthand = {Varro rust.},
+}
+
+@book{Vell,
+  author = {{Velleius Paterculus}},
+  title = {historiae Romanae},
+  keywords = {ancient},
+  shortauthor = {Paterculus, Velleius},
+  shorthand = {Vell.},
+}
+
+@book{Ven:Fort,
+  keywords = {ancient},
+  shortauthor = {Fortunatus, Venantius},
+  shorthand = {Ven. Fort.},
+}
+
+@book{Verg:Aen,
+  title = {Aeneis},
+  keywords = {ancient},
+  shortauthor = {Vergilius},
+  shorthand = {Verg. Aen.},
+}
+
+@book{Verg:catal,
+  title = {catalepton},
+  keywords = {ancient},
+  shortauthor = {Vergilius},
+  shorthand = {Verg. catal.},
+}
+
+@book{Verg:ecl,
+  title = {eclogae},
+  keywords = {ancient},
+  shortauthor = {Vergilius},
+  shorthand = {Verg. ecl.},
+}
+
+@book{Verg:georg,
+  title = {georgica},
+  keywords = {ancient},
+  shortauthor = {Vergilius},
+  shorthand = {Verg. georg.},
+}
+
+@book{Vitr,
+  author = {Vitruvius},
+  title = {de architectura},
+  keywords = {ancient},
+  shortauthor = {Vitruv},
+  shorthand = {Vitr.},
+}
+
+@book{Vulg,
+  title = {Vulgata},
+  keywords = {ancient},
+  shorthand = {Vulg.},
+}
+
+@book{Xen:an,
+  author = {Xenophon},
+  title = {anabasis},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. an.},
+}
+
+@book{Xen:apol,
+  author = {Xenophon},
+  title = {apologia},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. apol.},
+}
+
+@book{Xen:Athpol,
+  author = {Xenophon},
+  title = {Athenaion politeia},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. Ath. pol.},
+}
+
+@book{Xen:hell,
+  author = {Xenophon},
+  title = {hellenica},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. hell.},
+}
+
+@book{Xen:kyn,
+  author = {Xenophon},
+  title = {cynegeticus},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. kyn.},
+}
+
+@book{Xen:Kyr,
+  author = {Xenophon},
+  title = {Cyrupaideia},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. Kyr.},
+}
+
+@book{Xen:mem,
+  author = {Xenophon},
+  title = {memorabilia (Apomnemoneumata)},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. mem.},
+}
+
+@book{Xen:oec,
+  author = {Xenophon},
+  title = {oeconomicus},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. oec.},
+}
+
+@book{Xen:symp,
+  author = {Xenophon},
+  title = {symposium},
+  keywords = {ancient},
+  shortauthor = {Xenophon},
+  shorthand = {Xen. symp.},
+}
+
+@book{Xenophan,
+  keywords = {ancient},
+  shortauthor = {Xenophanes},
+  shorthand = {Xenophan.},
+}
+
+@book{Zen,
+  keywords = {ancient},
+  shortauthor = {Zenon},
+  shorthand = {Zen.},
+}
+
+@book{Zenob,
+  keywords = {ancient},
+  shortauthor = {Zenobios},
+  shorthand = {Zenob.},
+}
+
+@book{Zenod,
+  keywords = {ancient},
+  shortauthor = {Zenodotos},
+  shorthand = {Zenod.},
+}
+
+@book{Zos,
+  keywords = {ancient},
+  shortauthor = {Zosimos},
+  shorthand = {Zos.},
+}
 %    \end{macrocode}
 % \iffalse
 %</ancient>
