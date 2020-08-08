@@ -95,7 +95,11 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 All notable changes to this project will be documented in the [README.md](https://github.com/LukasCBossert/biblatex-archaeologie/blob/master/README.md).
 This project **does not** adhere to [Semantic Versioning](http://semver.org/).
 The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
-## v2.4.5 (2020-XX-XX)
+
+## v2.4.5 (2020-08-08)
+### *Added*
+* Informational remark about greek letters in `@strings` in the additional `bib`-files (see Issue 153)[https://github.com/LukasCBossert/biblatex-archaeologie/issues/153]
+
 ### *Fixed*
 * stale link in description corrected (http://biblatex-archaeologie.texografie.de/)
 
