@@ -5,7 +5,7 @@ bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
 
-![CTAN](https://img.shields.io/ctan/v/archaeologie)
+![CTAN](https://img.shields.io/ctan/v/archaeologie) ![CTAN](https://img.shields.io/ctan/l/archaeologie) ![GitHub Releases](https://img.shields.io/github/downloads/lukascbossert/biblatex-archaeologie/latest/total) ![GitHub issues](https://img.shields.io/github/issues/lukascbossert/biblatex-archaeologie) 
 
 
 
