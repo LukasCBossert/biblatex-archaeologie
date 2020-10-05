@@ -4,10 +4,8 @@ bibLaTeX-__archaeologie__ Bundle
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
-https://img.shields.io/github/search/Lukascbossert/biblatex-archaeologie/biblatex
 
-https://img.shields.io/ctan/v/archaeologie
-
+![CTAN](https://img.shields.io/ctan/v/archaeologie)
 
 
 
