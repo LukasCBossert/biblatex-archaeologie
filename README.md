@@ -4,6 +4,13 @@ bibLaTeX-__archaeologie__ Bundle
 bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
+https://img.shields.io/github/search/Lukascbossert/biblatex-archaeologie/biblatex
+
+https://img.shields.io/ctan/v/archaeologie
+
+
+
+
 Copyright (c) 2015-2020 Lukas C. Bossert
 
 Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
