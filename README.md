@@ -5,7 +5,7 @@ bibLaTeX-style for archaeologists, historians and philologists.
 ---
 
 
-![CTAN](https://img.shields.io/ctan/v/archaeologie) ![CTAN](https://img.shields.io/ctan/l/archaeologie) ![GitHub Releases](https://img.shields.io/github/downloads/lukascbossert/biblatex-archaeologie/latest/total) ![GitHub issues](https://img.shields.io/github/issues/lukascbossert/biblatex-archaeologie) 
+![CTAN](https://img.shields.io/ctan/v/archaeologie) ![CTAN](https://img.shields.io/ctan/l/archaeologie) ![GitHub Releases](https://img.shields.io/github/downloads/lukascbossert/biblatex-archaeologie/latest/total) ![GitHub issues](https://img.shields.io/github/issues/lukascbossert/biblatex-archaeologie) ![GitHub forks](https://img.shields.io/github/forks/lukascbossert/biblatex-archaeologie?style=social) ![GitHub Repo stars](https://img.shields.io/github/stars/lukascbossert/biblatex-archaeologie?style=social) ![GitHub watchers](https://img.shields.io/github/watchers/lukascbossert/biblatex-archaeologie?style=social) ![GitHub repo size](https://img.shields.io/github/repo-size/lukascbossert/biblatex-archaeologie) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/lukascbossert/biblatex-archaeologie/latest/master) 
 
 
 
