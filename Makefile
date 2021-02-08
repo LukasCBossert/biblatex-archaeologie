@@ -14,13 +14,13 @@ LOCAL = $(shell kpsewhich --var-value TEXMFLOCAL)
 RED   = \033[0;31m
 CYAN  = \033[0;36m
 NC    = \033[0m
-echoPROJECT = @echo -e "$(CYAN) <$(PROJECT)>$(RED)"
+echoPROJECT =@echo -e "$(CYAN) <$(PROJECT)>$(RED)"
 
 .PHONY:  all clean cleanall zip install uninstall files
 # Just create the PDF
-all: $(NAME).pdf
-	@echo -e 	$(echoPROJECT) "* everything is up to date * $(NC)"
-	@exit 0
+all: files $(NAME).pdf
+	echo -e	$(echoPROJECT) "* everything is up to date * $(NC)"
+	exit 0
 
 # How to create the PDF
 $(NAME).pdf: $(NAME).dtx
@@ -28,7 +28,7 @@ $(NAME).pdf: $(NAME).dtx
 
 # just create the files without pdf
 files: $(NAME).ins
-	latex $(NAME).ins
+	lualatex $(NAME).ins
 
 $(NAME).ins:
 	lualatex $(NAME).dtx
