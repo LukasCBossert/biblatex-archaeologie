@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Bossert"
+  given-names: "Lukas C."
+  orcid: "https://orcid.org/0000-0003-3076-3968"
+- family-names: "Friedl"
+  given-names: "Johannes"
+title: "biblatex-archaeologie"
+version: 2.4.5
+doi: 10.5281/zenodo.841343
+date-released: 2020-08-08
+url: "http://lukascbossert.github.io/biblatex-archaeologie"
