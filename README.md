@@ -9,17 +9,17 @@ Copyright (c) 2015-2023 Lukas C. Bossert
 Copyright (c) 2015 Lukas C. Bossert | Johannes Friedl
 
 * Email: [info@biblatex.texografie.de](mailto:info@biblatex.texografie.de)
-* Website: [www.biblatex-archaeologie.texografie.de](http://biblatex-archaeologie.texografie.de)
+* Website: [www.biblatex-archaeologie.texografie.de](https://biblatex-archaeologie.texografie.de)
 
 This citation-style covers the citation and bibliography rules of
-the [__German Archaeological Institute__ (DAI)](http://www.dainst.org/dai/meldungen).
+the [__German Archaeological Institute__ (DAI)](https://www.dainst.org/dai/meldungen).
 Various options are available to change and adjust
 the outcome according to one’s own preferences.
 (German, English, Italian, French, Spanish)
 
 ---
 *Der Stil setzt die Zitations- und Bibliographievorgaben
-des [__Deutschen Archäologischen Instituts (DAI)__ ](http://www.dainst.org/dai/meldungen) (Stand 2014) um.
+des [__Deutschen Archäologischen Instituts (DAI)__ ](https://www.dainst.org/dai/meldungen) (Stand 2014) um.
 Verschiedene zusätzliche Optionen erlauben das Erscheinungsbild
 jedoch auch zu verändern, um eigenen Vorlieben anzupassen.*
 
@@ -60,7 +60,7 @@ additional lists and bibliographies:
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
 of this license or (at your option) any later version.
-The latest version of this license is in [http://www.latex-project.org/lppl.txt](http://www.latex-project.org/lppl.txt) and version 1.3 or later is part of all distributions of LaTeX
+The latest version of this license is in [https://www.latex-project.org/lppl.txt](https://www.latex-project.org/lppl.txt) and version 1.3 or later is part of all distributions of LaTeX
 version 2005/12/01 or later.
 
 ---
@@ -68,8 +68,8 @@ This work has the LPPL maintenance status _maintained_.
 The current maintainer of this work is [Lukas C. Bossert](https://github.com/LukasCBossert).
 
 ## Installation of the bundle
-`archaeologie` is part of the distributions [MiKTeX](http://www.miktex.org)
-and [TeXLive](http://www.tug.org/texlive) -- thus, you
+`archaeologie` is part of the distributions [MiKTeX](https://miktex.org)
+and [TeXLive](https://www.tug.org/texlive) -- thus, you
 can easily install it using the respective package manager.
 If you would like to
 install `archaeologie` into your local folder  manually, do the following:
@@ -93,9 +93,9 @@ This bundle is constantly updated. For hints, errors or suggestions use the GitH
 ## Changelog
 
 All notable changes to this project will be documented in the [README.md](https://github.com/LukasCBossert/biblatex-archaeologie/blob/master/README.md).
-This project **does not** adhere to [Semantic Versioning](http://semver.org/).
-The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](http://keepachangelog.com/).
-## v2.5.0 (2023-10-06)
+This project **does not** adhere to [Semantic Versioning](https://semver.org/).
+The markdown syntax is inspired by the conventions proposed by [keepachangelog.com](https://keepachangelog.com/).
+## v2.5.0 (2023-10-05)
 ### Change
 * The information about a the `pubstate` is now displayed in parentheses (see
 issue)[https://github.com/LukasCBossert/biblatex-archaeologie/issues/156]
@@ -105,7 +105,7 @@ issue)[https://github.com/LukasCBossert/biblatex-archaeologie/issues/156]
 * Informational remark about greek letters in `@strings` in the additional `bib`-files (see Issue 153)[https://github.com/LukasCBossert/biblatex-archaeologie/issues/153]
 
 ### *Fixed*
-* stale link in description corrected (http://biblatex-archaeologie.texografie.de/)
+* stale link in description corrected (https://biblatex-archaeologie.texografie.de/)
 
 ## v2.4.4 (2020-02-15)
 ### *Fixed*
